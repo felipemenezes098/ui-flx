@@ -1,0 +1,74 @@
+import Balancer from "react-wrap-balancer";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import Image from "next/image";
+
+import { Cta } from "@/components/flx/sanity/shared/cta";
+import { Blocks } from "@/sanity.types";
+import { client } from "@/sanity/client";
+
+type ShowcaseGridImageCardsBlock = Extract<
+  Blocks[number],
+  { _type: "showcaseGridImageCards" }
+>;
+
+interface GridImageCardsProps {
+  block: ShowcaseGridImageCardsBlock;
+}
+
+const builder = createImageUrlBuilder(client);
+
+export function GridImageCards({ block }: Readonly<GridImageCardsProps>) {
+  if (!block.items || block.items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-8">
+      <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+        {block.title && (
+          <h2 className="text-2xl font-bold md:max-w-200">
+            <Balancer balance={0.5}>{block.title}</Balancer>
+          </h2>
+        )}
+        {block.cta && <Cta cta={block.cta} />}
+      </div>
+      {block.items && block.items.length > 0 && (
+        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+          {block.items.map((item, index) => {
+            const imageUrl = item.media?.asset
+              ? builder.image(item.media).url()
+              : null;
+
+            return (
+              <li
+                className="group/media group/video space-y-4"
+                key={`${item.title}-${index}`}
+              >
+                {imageUrl && (
+                  <div className="relative min-h-80 w-full overflow-hidden rounded-lg">
+                    <Image
+                      src={imageUrl}
+                      alt={item.title ?? "Grid image cards image"}
+                      className="h-full w-full object-cover"
+                      fill
+                    />
+                  </div>
+                )}
+                <div className="space-y-2">
+                  {item.title && (
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                  )}
+                  {item.description && (
+                    <p className="text-muted-foreground">
+                      <Balancer balance={0.5}>{item.description}</Balancer>
+                    </p>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}

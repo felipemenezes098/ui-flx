@@ -1,0 +1,21 @@
+import { Blocks } from "../../sanity.types";
+
+import { blockRegistry } from "./registry";
+
+interface RenderBlockProps {
+  block: Blocks[number];
+}
+
+export function RenderBlock({ block }: Readonly<RenderBlockProps>) {
+  if (typeof block === "string" || !block) {
+    return null;
+  }
+
+  const Component = blockRegistry[block._type];
+
+  if (Component) {
+    return <Component block={block} />;
+  }
+
+  return null;
+}

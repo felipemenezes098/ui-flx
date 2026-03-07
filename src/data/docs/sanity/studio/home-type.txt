@@ -1,0 +1,20 @@
+import {defineField, defineType} from 'sanity'
+
+export const homeType = defineType({
+  name: 'home',
+  title: 'Home',
+  type: 'document',
+  preview: {
+    prepare() {
+      return {
+        title: 'Home',
+      }
+    },
+  },
+  fields: [
+    defineField({
+      name: 'blocks',
+      type: 'blocks',
+    }),
+  ],
+})

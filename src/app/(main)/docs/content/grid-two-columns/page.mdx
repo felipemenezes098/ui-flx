@@ -1,0 +1,125 @@
+export const metadata = {
+  title: 'Grid Two Columns',
+  description: 'Grid with two columns.',
+  openGraph: {
+    title: 'Grid Two Columns',
+    description: 'Grid component with two columns layout.',
+    type: 'article',
+  },
+}
+
+<BlockHeader>
+  <BlockHeaderInfo>
+    <BlockHeaderTitle>Grid Two Columns</BlockHeaderTitle>
+    <BlockHeaderDescription>
+      Two columns layout with a title, description, and image.
+    </BlockHeaderDescription>
+  </BlockHeaderInfo>
+
+  <BlockHeaderActions>
+    <CopyPageMarkdown filePath="src/app/(main)/docs/content/grid-two-columns/page.mdx" />
+  </BlockHeaderActions>
+</BlockHeader>
+
+<BlockEditorDisplay category="content" slug="grid-two-columns" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/grid-two-columns" />
+
+## Usage
+
+The example below uses `defaults.ts`. In your app, pass your own props to the component —directly, from a file, from a CMS, or any other way.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/defaults.ts"
+  title="defaults.ts"
+/>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx"
+  title="grid-two-columns-usage.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA</Step>
+
+<CodeBlockCommand command="shadcn@latest add @flx/cta" />
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Create the types</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/types.ts"
+  title="types.ts"
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
+  collapsible
+  title="grid-two-columns.tsx"
+/>
+
+<Step>Create the defaults (optional, for demonstration only)</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/defaults.ts"
+  title="defaults.ts"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="src/components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Grid Two Columns. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/grid-two-columns.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/grid-two-columns/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/grid-two-columns.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

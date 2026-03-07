@@ -1,0 +1,88 @@
+import {defineField, defineType} from 'sanity'
+
+export const contentBadgeListBlock = defineType({
+  name: 'contentBadgeList',
+  title: 'Badge List',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+    {
+      name: 'layout',
+      title: 'Layout',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required().error('Title is required'),
+      group: 'content',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare(selection) {
+              const {title} = selection
+
+              const titleText = title ?? ''
+
+              return {
+                title: titleText ? `Badge Item - ${titleText}` : 'Badge Item',
+              }
+            },
+          },
+        },
+      ],
+      validation: (Rule) =>
+        Rule.custom((items) => {
+          if (!items || items.length === 0) {
+            return 'At least one item must be added'
+          }
+          return true
+        }),
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'description',
+    },
+    prepare(selection) {
+      const {title, subtitle} = selection
+
+      const titleText = title ?? ''
+      const subtitleText = subtitle ?? ''
+
+      return {
+        title: titleText ? `Badge List - ${titleText}` : 'Badge List',
+        subtitle: subtitleText ?? '',
+      }
+    },
+  },
+})

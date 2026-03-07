@@ -1,0 +1,29 @@
+import { Blocks as BlocksType } from "../../sanity.types";
+
+import { blockRegistry } from "./registry";
+import { RenderBlock } from "./render-block";
+
+interface BlocksProps {
+  blocks: BlocksType;
+}
+
+export function Blocks({ blocks }: Readonly<BlocksProps>) {
+  if (!blocks || blocks.length === 0) {
+    return null;
+  }
+
+  return blocks?.map((block) => {
+    if (!blockRegistry[block._type]) {
+      return null;
+    }
+
+    if (blocks) {
+      return (
+        <section key={block._key}>
+          <RenderBlock key={block._key} block={block} />
+        </section>
+      );
+    }
+    return null;
+  });
+}

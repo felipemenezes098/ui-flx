@@ -1,0 +1,79 @@
+import {defineField, defineType} from 'sanity'
+
+export const contentTabsMediaBlock = defineType({
+  name: 'contentTabsMedia',
+  title: 'Tabs Media',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'content',
+    }),
+    defineField({
+      name: 'items',
+      title: 'Tabs',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              description: 'Tab label (e.g. "Overview", "Details")',
+            }),
+            defineField({
+              name: 'media',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            }),
+          ],
+          preview: {
+            select: {
+              label: 'label',
+            },
+            prepare(selection) {
+              const {label} = selection
+              return {
+                title: label ? `Tab - ${label}` : 'Tab',
+              }
+            },
+          },
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      items: 'items',
+    },
+    prepare(selection) {
+      const {title, items} = selection
+      const count = items?.length ?? 0
+      return {
+        title: title ? `Tabs Media - ${title}` : 'Tabs Media',
+        subtitle: count ? `${count} tab(s)` : '',
+      }
+    },
+  },
+})

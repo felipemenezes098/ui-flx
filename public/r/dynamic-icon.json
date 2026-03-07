@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dynamic-icon",
+  "title": "Dynamic Icon",
+  "description": "A dynamic icon component with a name and size.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/shared/dynamic-icon/types.ts",
+      "content": "import { icons } from 'lucide-react'\n\nexport interface DynamicIconProps {\n  name: keyof typeof icons\n  size?: number\n  className?: string\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/shared/dynamic-icon/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx",
+      "content": "import { icons } from 'lucide-react'\n\nimport { DynamicIconProps } from './types'\n\nfunction Icon({ name, size, className }: Readonly<DynamicIconProps>) {\n  const LucideIcon = icons[name]\n\n  if (!LucideIcon) {\n    return null\n  }\n\n  return <LucideIcon size={size} className={className} />\n}\n\nexport { Icon }\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

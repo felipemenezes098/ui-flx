@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta",
+  "title": "CTA (Call to Action)",
+  "description": "Shared CTA component with link and button variant",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/shared/cta/types.ts",
+      "content": "export type ButtonVariant =\n  | 'default'\n  | 'destructive'\n  | 'outline'\n  | 'secondary'\n  | 'ghost'\n  | 'link'\n\nexport interface CtaProps {\n  ctaEnabled?: boolean\n  text: string\n  link: string\n  variant?: ButtonVariant\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/shared/cta/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/shared/cta/cta.tsx",
+      "content": "import Link from 'next/link'\n\nimport { Button } from '@/components/ui/button'\nimport { cn } from '@/lib/utils'\n\nimport type { CtaProps } from './types'\n\nexport function Cta({\n  cta,\n  className,\n}: Readonly<{ cta: CtaProps; className?: string }>) {\n  if (!cta?.ctaEnabled) {\n    return null\n  }\n\n  return (\n    <Button\n      className={cn('w-fit rounded-full px-5', className)}\n      variant={cta?.variant ?? 'default'}\n      asChild\n    >\n      <Link\n        href={cta?.link ?? ''}\n        target={cta?.link ? '_blank' : '_self'}\n        rel={cta?.link ? 'noopener noreferrer' : undefined}\n        aria-label={cta?.text}\n      >\n        {cta?.text}\n        {cta?.link && (\n          <span className=\"sr-only\">{`${cta?.text} (opens in new tab)`}</span>\n        )}\n      </Link>\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/shared/cta/cta.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

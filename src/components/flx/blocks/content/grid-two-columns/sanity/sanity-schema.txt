@@ -1,0 +1,58 @@
+import {defineField, defineType} from 'sanity'
+
+export const contentGridTwoColumnsBlock = defineType({
+  name: 'contentGridTwoColumns',
+  title: 'Grid Two Columns',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+  ],
+  fieldsets: [
+    {
+      name: 'content',
+      title: 'Content',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'content',
+      fieldset: 'content',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'text',
+      group: 'content',
+      fieldset: 'content',
+    }),
+    defineField({
+      name: 'media',
+      title: 'Media',
+      type: 'image',
+      group: 'content',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      content: 'content',
+    },
+    prepare(selection) {
+      const {title, content} = selection
+      return {
+        title: title ? `Grid Two Columns - ${title}` : 'Grid Two Columns',
+        subtitle: content ? content.substring(0, 50) + '...' : '',
+      }
+    },
+  },
+})

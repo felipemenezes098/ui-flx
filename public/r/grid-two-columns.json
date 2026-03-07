@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-two-columns",
+  "title": "Grid Two Columns",
+  "description": "A responsive grid with two columns: text (title, description, CTA) and image.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "@flx/cta"
+  ],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/content/grid-two-columns/types.ts",
+      "content": "import type { CtaProps } from '@/components/flx/blocks/shared/cta/types'\n\nexport interface GridTwoColumnsProps {\n  title: string\n  description: string\n  image: {\n    src: string\n    alt: string\n  }\n  cta?: CtaProps\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-two-columns/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx",
+      "content": "import Image from 'next/image'\nimport Balancer from 'react-wrap-balancer'\n\nimport { Cta } from '@/components/flx/blocks/shared/cta/cta'\nimport { cn } from '@/lib/utils'\n\nimport type { GridTwoColumnsProps } from './types'\n\nexport function GridTwoColumns({\n  title,\n  description,\n  image,\n  cta,\n}: Readonly<GridTwoColumnsProps>) {\n  return (\n    <div\n      className={cn(\n        'grid w-full grid-cols-1 gap-10 overflow-x-hidden md:grid-cols-2 md:items-stretch',\n      )}\n    >\n      <div\n        className={cn(\n          'order-1 flex w-full min-w-0 flex-col space-y-8 self-center overflow-x-hidden',\n        )}\n      >\n        <div className=\"space-y-6\">\n          {title && (\n            <h2 className={cn('max-w-full text-2xl font-bold md:max-w-sm')}>\n              <Balancer balance={0.5}>{title}</Balancer>\n            </h2>\n          )}\n          {description && (\n            <p\n              className={cn(\n                'text-muted-foreground max-w-full whitespace-pre-line md:max-w-sm',\n              )}\n            >\n              <Balancer balance={0.5}>{description}</Balancer>\n            </p>\n          )}\n        </div>\n        {cta && <Cta cta={cta} />}\n      </div>\n      {image && (\n        <div className={cn('relative order-2 flex md:h-full md:items-center')}>\n          <div className=\"group/image relative min-h-80 w-full overflow-hidden rounded-lg\">\n            <Image\n              src={image.src}\n              alt={title ?? 'Grid Two Columns Image'}\n              className=\"h-full w-full rounded-lg object-cover transition-all duration-200 group-hover/image:scale-105\"\n              fill\n              unoptimized\n            />\n          </div>\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx",
+      "content": "import { gridTwoColumnsDefaultProps } from './defaults'\nimport { GridTwoColumns } from './grid-two-columns'\n\nexport function GridTwoColumnsUsage() {\n  return <GridTwoColumns {...gridTwoColumnsDefaultProps} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-two-columns/defaults.ts",
+      "content": "import type { GridTwoColumnsProps } from './types'\n\nexport const gridTwoColumnsDefaultProps = {\n  title: 'Simple UI',\n  description:\n    'Build professional layouts quickly with minimal effort and maximum flexibility.',\n  image: {\n    src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    alt: 'Grid Two Columns Image',\n  },\n  cta: {\n    ctaEnabled: true,\n    text: 'Get started',\n    link: '/',\n    variant: 'default',\n  },\n} satisfies GridTwoColumnsProps\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-two-columns/defaults.ts"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

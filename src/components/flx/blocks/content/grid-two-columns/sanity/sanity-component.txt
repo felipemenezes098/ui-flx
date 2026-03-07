@@ -1,0 +1,65 @@
+import Balancer from "react-wrap-balancer";
+import { createImageUrlBuilder } from "@sanity/image-url";
+
+import { cn } from "@/lib/utils";
+import { Blocks } from "@/sanity.types";
+import { client } from "@/sanity/client";
+import Image from "next/image";
+
+type ContentGridTwoColumnsBlock = Extract<
+  Blocks[number],
+  { _type: "contentGridTwoColumns" }
+>;
+
+interface GridTwoColumnsProps {
+  block: ContentGridTwoColumnsBlock;
+}
+
+const builder = createImageUrlBuilder(client);
+
+export function GridTwoColumns({ block }: Readonly<GridTwoColumnsProps>) {
+  const imageUrl = block.media?.asset ? builder.image(block.media).url() : null;
+
+  return (
+    <div
+      className={cn(
+        "grid grid-cols-1 gap-10 overflow-x-hidden md:grid-cols-2 md:items-stretch"
+      )}
+    >
+      <div
+        className={cn(
+          "order-1 flex w-full min-w-0 flex-col space-y-8 self-center overflow-x-hidden"
+        )}
+      >
+        <div className="space-y-6">
+          {block.title && (
+            <h2 className={cn("text-2xl font-bold max-w-full md:max-w-sm")}>
+              <Balancer balance={0.5}>{block.title}</Balancer>
+            </h2>
+          )}
+          {block.content && (
+            <p
+              className={cn(
+                "text-muted-foreground max-w-full whitespace-pre-line md:max-w-sm"
+              )}
+            >
+              <Balancer balance={0.5}>{block.content}</Balancer>
+            </p>
+          )}
+        </div>
+      </div>
+      <div className={cn("order-2 relative flex md:h-full md:items-center")}>
+        {imageUrl && (
+          <div className="relative min-h-80 w-full overflow-hidden rounded-lg group/image">
+            <Image
+              src={imageUrl}
+              alt={block.title ?? "Grid Two Columns Image"}
+              className="h-full w-full object-cover group-hover/image:scale-105 transition-all duration-300 rounded-lg"
+              fill
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

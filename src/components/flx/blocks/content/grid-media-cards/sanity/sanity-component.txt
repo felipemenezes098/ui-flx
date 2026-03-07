@@ -1,0 +1,81 @@
+"use client";
+
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { icons } from "lucide-react";
+import Image from "next/image";
+
+import { Icon } from "../shared/dynamic-icon";
+import { Blocks } from "@/sanity.types";
+import { client } from "@/sanity/client";
+import { cn } from "@/lib/utils";
+
+type ContentGridMediaCardsBlock = Extract<
+  Blocks[number],
+  { _type: "contentGridMediaCards" }
+>;
+
+interface GridMediaCardsProps {
+  block: ContentGridMediaCardsBlock;
+}
+
+const builder = createImageUrlBuilder(client);
+
+export function GridMediaCards({ block }: Readonly<GridMediaCardsProps>) {
+  const title = block.title;
+  const items = block.items ?? [];
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div>
+      <h2 className="text-foreground mb-8 text-2xl text-pretty md:text-3xl">
+        {title}
+      </h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, index) => {
+          const imageUrl = item.image?.asset
+            ? builder.image(item.image).url()
+            : null;
+
+          return (
+            <div
+              key={item._key ?? index}
+              className="relative h-96 overflow-hidden rounded-lg"
+            >
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  alt={item.image?.alt ?? item.title ?? "Grid media card"}
+                  className="object-cover"
+                  fill
+                />
+              )}
+              {item.image?.overlay === true && (
+                <div className="absolute inset-0 bg-black/50" />
+              )}
+              <div
+                className={cn(
+                  "absolute inset-0 flex flex-col justify-end p-6",
+                  item.image?.whiteTexts === true && "text-white"
+                )}
+              >
+                {item.icon && (
+                  <Icon
+                    name={item.icon as keyof typeof icons}
+                    className="mb-2 size-5"
+                  />
+                )}
+                <h3 className="mb-1 text-lg font-medium">{item.title}</h3>
+                {item.description && (
+                  <p className="text-sm">{item.description}</p>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,47 @@
+import {defineField, defineType} from 'sanity'
+
+export const contentCenteredTextBlock = defineType({
+  name: 'contentCenteredText',
+  title: 'Centered Text',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'content',
+    }),
+    defineField({
+      name: 'cta',
+      title: 'CTA',
+      type: 'cta',
+      group: 'content',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'description',
+    },
+    prepare(selection) {
+      const {title, subtitle} = selection
+
+      return {
+        title: title ? `Centered Text - ${title}` : 'Centered Text',
+        subtitle: subtitle ?? '',
+      }
+    },
+  },
+})

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-reveal-media",
+  "title": "Select Reveal Media",
+  "description": "List of items: select one to reveal its description and media.",
+  "dependencies": [
+    "motion/react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/content/select-reveal-media/types.ts",
+      "content": "export interface SelectRevealMediaItem {\n  id: string\n  title: string\n  description: string\n  image: {\n    src: string\n    alt: string\n  }\n}\n\nexport interface SelectRevealMediaProps {\n  items: SelectRevealMediaItem[]\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/select-reveal-media/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx",
+      "content": "'use client'\n\nimport { AnimatePresence, motion } from 'motion/react'\nimport Image from 'next/image'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport { cn } from '@/lib/utils'\n\nimport type { SelectRevealMediaProps } from './types'\n\nexport function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {\n  const [selectedIndex, setSelectedIndex] = useState(0)\n  const selected = items[selectedIndex]\n\n  if (!items.length) return null\n\n  return (\n    <section\n      className=\"grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14\"\n      aria-label=\"Lista de itens\"\n    >\n      <nav className=\"flex flex-col justify-center gap-1\">\n        {items.map((item, index) => {\n          const isSelected = index === selectedIndex\n          return (\n            <Button\n              key={item.id}\n              variant=\"ghost\"\n              type=\"button\"\n              onClick={() => setSelectedIndex(index)}\n              aria-current={isSelected ? 'true' : undefined}\n              className={cn(\n                'h-auto w-full justify-start rounded-sm py-2.5 text-left font-normal whitespace-normal',\n                'hover:bg-muted/50 transition-none hover:opacity-100',\n                isSelected && 'text-foreground bg-muted/50',\n                !isSelected && 'text-muted-foreground hover:text-foreground',\n              )}\n            >\n              <span className=\"flex flex-col gap-1\">\n                <span className={cn('text-base', isSelected && 'font-medium')}>\n                  {item.title}\n                </span>\n                <span\n                  className={cn(\n                    'grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',\n                    isSelected ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',\n                  )}\n                >\n                  <span className=\"overflow-hidden\">\n                    <span\n                      className={cn(\n                        'text-muted-foreground block pb-0.5 text-sm transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',\n                        isSelected ? 'opacity-100' : 'opacity-0',\n                      )}\n                    >\n                      {item.description}\n                    </span>\n                  </span>\n                </span>\n              </span>\n            </Button>\n          )\n        })}\n      </nav>\n\n      <div className=\"relative min-h-[320px] w-full overflow-hidden rounded-lg md:min-h-[420px]\">\n        <AnimatePresence>\n          <motion.div\n            key={selected.id}\n            initial={{ opacity: 0 }}\n            animate={{ opacity: 1 }}\n            exit={{ opacity: 0 }}\n            transition={{\n              duration: 0.55,\n              ease: [0.22, 1, 0.36, 1],\n            }}\n            className=\"absolute inset-0\"\n          >\n            <Image\n              src={selected.image.src}\n              alt={selected.image.alt || selected.title}\n              fill\n              className=\"object-cover\"\n              sizes=\"(max-width: 768px) 100vw, 50vw\"\n              unoptimized\n            />\n          </motion.div>\n        </AnimatePresence>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx",
+      "content": "import { selectRevealMediaDefaultProps } from './defaults'\nimport { SelectRevealMedia } from './select-reveal-media'\n\nexport function SelectRevealMediaUsage() {\n  return <SelectRevealMedia {...selectRevealMediaDefaultProps} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/select-reveal-media/defaults.ts",
+      "content": "import type { SelectRevealMediaProps } from './types'\n\nexport const selectRevealMediaDefaultProps = {\n  items: [\n    {\n      id: '1',\n      title: 'Design',\n      description:\n        'Clean, accessible components that make your product feel modern and easy to use.',\n      image: {\n        src: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n        alt: 'Design',\n      },\n    },\n    {\n      id: '2',\n      title: 'Components',\n      description:\n        'Pre-built blocks you can drop into any layout. Customize once, reuse everywhere.',\n      image: {\n        src: 'https://images.unsplash.com/photo-1580215141106-04ce621a971d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n        alt: 'Components',\n      },\n    },\n    {\n      id: '3',\n      title: 'Developer Experience',\n      description:\n        'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',\n      image: {\n        src: 'https://images.unsplash.com/photo-1666529529871-a619c5a1a2b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n        alt: 'Developer Experience',\n      },\n    },\n    {\n      id: '4',\n      title: 'Customization',\n      description:\n        'Themes, variants, and overrides. Make it look and behave exactly how you need.',\n      image: {\n        src: 'https://images.unsplash.com/photo-1551777995-e47e7ba6d1f0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n        alt: 'Customization',\n      },\n    },\n    {\n      id: '5',\n      title: 'Performance',\n      description:\n        'Optimized for speed and accessibility. Less bundle size, smoother interactions.',\n      image: {\n        src: 'https://images.unsplash.com/photo-1604181941498-d7b7acc8a160?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n        alt: 'Performance',\n      },\n    },\n  ],\n} satisfies SelectRevealMediaProps\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/select-reveal-media/defaults.ts"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

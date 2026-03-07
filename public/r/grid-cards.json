@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-cards",
+  "title": "Grid Cards",
+  "description": "A grid of cards with a title and items.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/content/grid-cards/types.ts",
+      "content": "export interface GridCardsProps {\n  title: string\n  items: {\n    title: string\n    description: string\n    icon: string\n  }[]\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-cards/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-cards/grid-cards.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport type { GridCardsProps } from './types'\n\nexport function GridCards({ title, items }: Readonly<GridCardsProps>) {\n  if (!items || items.length === 0) {\n    return null\n  }\n\n  return (\n    <div className=\"flex flex-col gap-8\">\n      {title && (\n        <h2 className=\"text-center text-2xl font-bold\">\n          <Balancer balance={0.5}>{title}</Balancer>\n        </h2>\n      )}\n      {items && items.length > 0 && (\n        <ul className=\"m-0 grid list-none grid-cols-1 gap-4 p-0 md:grid-cols-2\">\n          {items.map((item, index) => (\n            <li key={`${item.title}-${index}`} className=\"h-full\">\n              <article\n                className=\"bg-secondary/60 h-full rounded-lg border-none p-6 shadow-none\"\n                aria-labelledby={`card-title-${index}`}\n              >\n                <div>\n                  <h3\n                    id={`card-title-${index}`}\n                    className=\"mb-2 text-lg font-semibold\"\n                  >\n                    {item.title}\n                  </h3>\n                  {item.description && (\n                    <p className=\"text-muted-foreground text-base\">\n                      <Balancer balance={0.5}>{item.description}</Balancer>\n                    </p>\n                  )}\n                </div>\n              </article>\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-cards/grid-cards.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-cards/grid-cards-usage.tsx",
+      "content": "import { gridCardsDefaultProps } from './defaults'\nimport { GridCards } from './grid-cards'\n\nexport function GridCardsUsage() {\n  return <GridCards {...gridCardsDefaultProps} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-cards/grid-cards-usage.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/grid-cards/defaults.ts",
+      "content": "import type { GridCardsProps } from './types'\n\nexport const gridCardsDefaultProps = {\n  title: 'What we offer',\n  items: [\n    {\n      title: 'Modern Design',\n      description:\n        'Beautiful and contemporary UI components that make your projects stand out.',\n      icon: 'Palette',\n    },\n    {\n      title: 'Developer Experience',\n      description:\n        'Built with developers in mind. Easy to use, well documented, and highly customizable.',\n      icon: 'Code',\n    },\n    {\n      title: 'Community Driven',\n      description:\n        'Join thousands of developers contributing to make UI development better for everyone.',\n      icon: 'Users',\n    },\n    {\n      title: 'Fast Performance',\n      description: 'Optimized for speed and efficiency right out of the box.',\n      icon: 'Zap',\n    },\n  ],\n} satisfies GridCardsProps\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/grid-cards/defaults.ts"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

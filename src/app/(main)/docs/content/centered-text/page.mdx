@@ -1,0 +1,125 @@
+export const metadata = {
+  title: 'Centered Text',
+  description: 'Centered text block with title, description, and CTA.',
+  openGraph: {
+    title: 'Centered Text',
+    description: 'Centered text block with title, description, and CTA.',
+    type: 'article',
+  },
+}
+
+<BlockHeader>
+  <BlockHeaderInfo>
+    <BlockHeaderTitle>Centered Text</BlockHeaderTitle>
+    <BlockHeaderDescription>
+      A centered text block with a title, description, and optional CTA.
+    </BlockHeaderDescription>
+  </BlockHeaderInfo>
+
+  <BlockHeaderActions>
+    <CopyPageMarkdown filePath="src/app/(main)/docs/content/centered-text/page.mdx" />
+  </BlockHeaderActions>
+</BlockHeader>
+
+<BlockEditorDisplay category="content" slug="centered-text" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/centered-text" />
+
+## Usage
+
+The example below uses `defaults.ts`. In your app, pass your own props to the component —directly, from a file, from a CMS, or any other way.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/defaults.ts"
+  title="defaults.ts"
+/>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/centered-text-usage.tsx"
+  title="centered-text-usage.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA</Step>
+
+<CodeBlockCommand command="shadcn@latest add @flx/cta" />
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Create the types</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/types.ts"
+  title="types.ts"
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/centered-text.tsx"
+  collapsible
+  title="centered-text.tsx"
+/>
+
+<Step>Create the defaults (optional, for demonstration only)</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/defaults.ts"
+  title="defaults.ts"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="src/components/flx/blocks/content/centered-text/centered-text-usage.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Centered Text. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/centered-text.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/content/centered-text/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/centered-text.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

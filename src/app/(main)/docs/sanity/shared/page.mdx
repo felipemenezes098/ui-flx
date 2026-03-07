@@ -1,0 +1,69 @@
+export const metadata = {
+  title: 'Sanity - Shared objects',
+  description:
+    'Shared schema objects used across blocks in the Studio (e.g. CTA).',
+  openGraph: {
+    title: 'Sanity - Shared objects',
+    description: 'Shared schema objects for Sanity Studio.',
+    type: 'article',
+  },
+}
+
+# Shared objects
+
+Shared objects are reusable schema types in the Studio. Blocks that need a call-to-action or other shared fields use these. Each object has a **Schema** (Studio) and a **UI** component that consumes data from Sanity types. Select an object below.
+
+<Tabs defaultValue="cta" className="mt-4 w-full">
+<div className="sticky top-14 z-10 bg-background pt-1 pb-2">
+  <TabsList className="gap-2 bg-transparent">
+    <TabsTrigger value="cta">CTA</TabsTrigger>
+    <TabsTrigger value="dynamic-icon">Dynamic Icon</TabsTrigger>
+  </TabsList>
+</div>
+
+  <TabsContent value="cta">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+The CTA object defines the schema for call-to-action fields (text, link, variant). Include it in your schema and export it according to your project’s structure.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/shared/objects-cta.txt"
+  language="ts"
+  title="schema-types/objects/cta.ts"
+/>
+
+<Step>CTA component (UI)</Step>
+
+Component that consumes `CtaType` from your generated types (e.g. `sanity.types.ts`). Use this in blocks that have a CTA field from Sanity.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/shared/cta.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+  </TabsContent>
+
+  <TabsContent value="dynamic-icon">
+
+<Steps>
+
+<Step>Dynamic Icon component (UI)</Step>
+
+Reusable icon component that renders Lucide icons by name. Use it in blocks when the schema stores an icon name (e.g. from a string field). No Studio schema — only UI.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/shared/dynamic-icon.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+  </TabsContent>
+</Tabs>

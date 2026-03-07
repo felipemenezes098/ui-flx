@@ -1,0 +1,46 @@
+import { defineField, defineType } from 'sanity'
+
+// Shared object. Used by blocks that have CTA (e.g. grid-two-columns).
+export const cta = defineType({
+  name: 'cta',
+  title: 'CTA',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'ctaEnabled',
+      title: 'Enable CTA',
+      type: 'boolean',
+      description: 'Enable or disable the call to action button',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'string',
+      hidden: ({ parent }) => parent?.ctaEnabled === false,
+    }),
+    defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+      hidden: ({ parent }) => parent?.ctaEnabled === false,
+    }),
+    defineField({
+      name: 'variant',
+      title: 'Variant',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Default', value: 'default' },
+          { title: 'Secondary', value: 'secondary' },
+          { title: 'Outline', value: 'outline' },
+          { title: 'Ghost', value: 'ghost' },
+          { title: 'Link', value: 'link' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'default',
+      hidden: ({ parent }) => parent?.ctaEnabled === false,
+    }),
+  ],
+})

@@ -1,0 +1,617 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ui-blocks",
+  "homepage": "https://ui-blocks.vercel.app",
+  "items": [
+    {
+      "name": "cta",
+      "type": "registry:block",
+      "title": "CTA (Call to Action)",
+      "description": "Shared CTA component with link and button variant",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/shared/cta/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/cta/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/shared/cta/cta.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/cta/cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade-edges",
+      "type": "registry:block",
+      "title": "Scroll Fade Edges",
+      "description": "A component that fades the edges of a scrollable area.",
+      "registryDependencies": [],
+      "dependencies": ["motion/react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/shared/scroll-fade-edges.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/scroll-fade-edges.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dynamic-icon",
+      "type": "registry:block",
+      "title": "Dynamic Icon",
+      "description": "A dynamic icon component with a name and size.",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/shared/dynamic-icon/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/dynamic-icon/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid-two-columns",
+      "type": "registry:block",
+      "title": "Grid Two Columns",
+      "description": "A responsive grid with two columns: text (title, description, CTA) and image.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-two-columns/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-two-columns/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-two-columns/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-two-columns/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "centered-text",
+      "type": "registry:block",
+      "title": "Centered Text",
+      "description": "A centered text block with a title, description, and CTA.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/centered-text/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/centered-text/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/centered-text/centered-text.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/centered-text/centered-text.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/centered-text/centered-text-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/centered-text/centered-text-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/centered-text/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/centered-text/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "grid-cards",
+      "type": "registry:block",
+      "title": "Grid Cards",
+      "description": "A grid of cards with a title and items.",
+      "registryDependencies": [],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-cards/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-cards/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-cards/grid-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-cards/grid-cards.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-cards/grid-cards-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-cards/grid-cards-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-cards/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-cards/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "grid-media-cards",
+      "type": "registry:block",
+      "title": "Grid Media Cards",
+      "description": "A grid of media cards with a title and items.",
+      "registryDependencies": ["@flx/dynamic-icon"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-media-cards/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-media-cards/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-media-cards/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-media-cards/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "grid-with-media-top",
+      "type": "registry:block",
+      "title": "Grid With Media Top",
+      "description": "Media on top with information below.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-with-media-top/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-with-media-top/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-with-media-top/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-with-media-top/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "icon-list",
+      "type": "registry:block",
+      "title": "Icon List",
+      "description": "A list of icons with a title and items.",
+      "registryDependencies": ["@flx/dynamic-icon"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/icon-list/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/icon-list/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/icon-list/icon-list.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/icon-list/icon-list-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/icon-list/icon-list-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/icon-list/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/icon-list/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "badge-list",
+      "type": "registry:block",
+      "title": "Badge List",
+      "description": "A list of badges with a title and items.",
+      "registryDependencies": ["badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/badge-list/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/badge-list/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/badge-list/badge-list.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/badge-list/badge-list.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/badge-list/badge-list-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/badge-list/badge-list-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/badge-list/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/badge-list/defaults.ts"
+        }
+      ]
+    },
+    {
+      "name": "grid-content-columns",
+      "type": "registry:block",
+      "title": "Grid Content Columns",
+      "description": "A grid of content columns with a media and content.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-content-columns/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-columns/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-content-columns/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-columns/defaults.ts"
+        }
+      ]
+    },
+    {
+      "name": "title-with-media",
+      "type": "registry:block",
+      "title": "A title with a media above",
+      "description": "A title with a media above the title.",
+      "registryDependencies": [],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/title-with-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/title-with-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/title-with-media/title-with-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/title-with-media/title-with-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/title-with-media/title-with-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/title-with-media/title-with-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/title-with-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/title-with-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "background-media",
+      "type": "registry:block",
+      "title": "A background media with a title, description and CTA",
+      "description": "A background media with a title, description and CTA.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/hero/background-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/background-media/background-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/background-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/background-media/background-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/background-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/background-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "focus-grid",
+      "type": "registry:block",
+      "title": "Focus Grid",
+      "description": "A focus grid with items that can be focused and dimmed.",
+      "registryDependencies": [],
+      "dependencies": ["motion/react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/focus-grid/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/focus-grid/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/focus-grid/focus-grid.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/focus-grid/focus-grid.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/focus-grid/focus-grid-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/focus-grid/focus-grid-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/focus-grid/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/focus-grid/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800
+      }
+    },
+    {
+      "name": "select-reveal-media",
+      "type": "registry:block",
+      "title": "Select Reveal Media",
+      "description": "List of items: select one to reveal its description and media.",
+      "registryDependencies": ["button"],
+      "dependencies": ["motion/react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/select-reveal-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/select-reveal-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/select-reveal-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/select-reveal-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "tabs-media",
+      "type": "registry:block",
+      "title": "Tabs Media",
+      "description": "Tabbed navigation that reveals a media for each tab.",
+      "registryDependencies": ["tabs", "@flx/scroll-fade-edges"],
+      "dependencies": ["react-wrap-balancer", "motion/react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/tabs-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/tabs-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/content/tabs-media/tabs-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/tabs-media/tabs-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/tabs-media/tabs-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/tabs-media/tabs-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/tabs-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/tabs-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800
+      }
+    },
+    {
+      "name": "text-badges",
+      "type": "registry:block",
+      "title": "A text badges with a title, CTA and badges",
+      "description": "A text badges with a title and CTA.",
+      "registryDependencies": ["@flx/cta", "badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/hero/text-badges/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/text-badges/text-badges.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/text-badges/text-badges-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/text-badges-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/text-badges/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500
+      }
+    },
+    {
+      "name": "showcase-grid-media-cards",
+      "type": "registry:block",
+      "title": "Showcase Grid Media Cards",
+      "description": "A grid of media cards with a title and items.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/showcase/grid-media-cards/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/showcase/grid-media-cards/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/defaults.ts"
+        }
+      ]
+    },
+    {
+      "name": "carousel-focus",
+      "type": "registry:block",
+      "title": "Carousel Focus",
+      "description": "A carousel that pauses on item hover and reveals title.",
+      "registryDependencies": ["carousel"],
+      "dependencies": ["motion/react", "class-variance-authority"],
+      "devDependencies": ["embla-carousel-auto-scroll"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-focus/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-focus/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500,
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      }
+    },
+    {
+      "name": "carousel-media",
+      "type": "registry:block",
+      "title": "Carousel Media",
+      "description": "A carousel of media with a title and items.",
+      "registryDependencies": ["carousel", "button"],
+      "dependencies": ["react-wrap-balancer", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 700,
+        "containerClassName": "max-w-full overflow-hidden px-0",
+        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+      }
+    }
+  ]
+}

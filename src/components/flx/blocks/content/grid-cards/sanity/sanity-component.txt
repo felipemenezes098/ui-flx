@@ -1,0 +1,54 @@
+import Balancer from "react-wrap-balancer";
+
+import { Blocks } from "@/sanity.types";
+
+type ContentGridCardsBlock = Extract<
+  Blocks[number],
+  { _type: "contentGridCards" }
+>;
+
+interface GridCardsProps {
+  block: ContentGridCardsBlock;
+}
+
+export function GridCards({ block }: Readonly<GridCardsProps>) {
+  if (!block.items || block.items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="flex flex-col gap-8">
+      {block.title && (
+        <h2 className="text-center text-2xl font-bold">
+          <Balancer balance={0.5}>{block.title}</Balancer>
+        </h2>
+      )}
+      {block.items && block.items.length > 0 && (
+        <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 md:grid-cols-2">
+          {block.items.map((item, index) => (
+            <li key={`${item.title}-${index}`} className="h-full">
+              <article
+                className="bg-secondary/60 h-full rounded-lg border-none p-6 shadow-none"
+                aria-labelledby={`card-title-${index}`}
+              >
+                <div>
+                  <h3
+                    id={`card-title-${index}`}
+                    className="text-lg font-semibold mb-2"
+                  >
+                    {item.title}
+                  </h3>
+                  {item.description && (
+                    <p className="text-muted-foreground text-base">
+                      <Balancer balance={0.5}>{item.description}</Balancer>
+                    </p>
+                  )}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

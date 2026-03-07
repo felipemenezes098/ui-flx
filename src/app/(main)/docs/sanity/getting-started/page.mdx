@@ -1,0 +1,128 @@
+import { Logo } from '@/components/core/logo'
+
+export const metadata = {
+  title: 'Sanity - Getting started',
+  description:
+    'Sanity setup for UI Blocks: shared objects, block schema, blocks array, page type, registry, render-block, and example page.',
+  openGraph: {
+    title: 'Sanity - Getting started',
+    description: 'Sanity setup for UI Blocks.',
+    type: 'article',
+  },
+}
+
+<div className="mb-2 flex items-center gap-2">
+  <Logo.Sanity className="size-7" />
+  <h1 className="text-3xl font-bold">Getting started</h1>
+</div>
+
+<div className="mt-3" />
+
+<Callout>
+  **Example repository:** See the [example
+  repository](https://github.com/felipemenezes098/ui-flx-example) with Sanity
+  schemas, block registry, and UI components already wired up. Clone it to
+  explore a full setup or use it as reference while you adapt the steps below to
+  your project.
+  {''}
+  You can also import the data exported from the example repository to your
+  project. Check the
+  [README.md](https://github.com/felipemenezes098/ui-flx-example/blob/main/README.md)
+  for more details.
+</Callout>
+
+**Sanity** is a powerful CMS, and each project can have its own specifics (folder structure, conventions, plugins, etc.). This documentation shows the most **minimal** approach — only what’s needed to use the blocks. You should adapt the examples to your setup, rules, and context.
+
+<Callout>
+  **Sanity Typegen:** I've used **[Sanity
+  TypeGen](https://www.sanity.io/docs/apis-and-sdks/sanity-typegen)** to
+  generate TypeScript types from the schema. The registry and components import
+  types **from the generated file** (e.g. `Blocks`, `Home` in
+  `sanity.types.ts`). Configure and run typegen in your project per the
+  [official
+  documentation](https://www.sanity.io/docs/apis-and-sdks/sanity-typegen).
+</Callout>
+
+## Shared objects (optional)
+
+Blocks that use CTA, links, etc. reuse shared objects. Example: the `cta` object. See [Sanity › Shared](/docs/sanity/shared) for the list.
+
+You need to **export and include** these types in your schema according to your project’s context (e.g. an objects index that re-exports `cta` and others).
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/shared/objects-cta.txt"
+  language="ts"
+  title="Example: schema-types/objects/cta.ts"
+/>
+
+## Define a block (e.g. Grid Two Columns)
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/grid-two-columns-schema.txt"
+  language="ts"
+  title="schema-types/blocks/content/grid-two-columns.ts"
+/>
+
+## Define the blocks array (blocks.ts)
+
+This is how I use blocks on a page: an array per category (e.g. content) referenced on the document type. When you add blocks or categories, update this file. The values in `of` refer to the schema **type** — if the type doesn’t exist in the project, the Studio will break.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/schema-blocks.txt"
+  language="ts"
+  title="schema-types/blocks/blocks.ts"
+  highlightLines="3-5,13-18"
+/>
+
+---
+
+## Define a page type (e.g. home)
+
+A document type like `home` uses the `blocks` array so editors can add blocks in the Studio. The field `type: 'blocks'` references the blocks schema defined in `blocks.ts`.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/home-type.txt"
+  language="ts"
+  title="schema-types/pages/home-type.ts"
+  highlightLines="15-18"
+/>
+
+---
+
+## Block registry (UI)
+
+When adding a new block, register it here. Import types from the generated file (e.g. `Blocks` from `sanity.types.ts`).
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/registry.txt"
+  language="tsx"
+  title="components/flx/sanity/blocks/registry.ts"
+  highlightLines="1,8-14"
+/>
+
+## Render block
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/render-block.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+## Blocks component
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/blocks.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+---
+
+## Example page
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/example-page.txt"
+  language="tsx"
+  title="app/(pages)/page.tsx"
+  showLineNumbers
+/>

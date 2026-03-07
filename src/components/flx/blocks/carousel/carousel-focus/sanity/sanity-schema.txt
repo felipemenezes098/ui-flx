@@ -1,0 +1,90 @@
+import {defineField, defineType} from 'sanity'
+
+export const carouselFocusBlock = defineType({
+  name: 'carouselFocus',
+  title: 'Carousel Focus',
+  type: 'object',
+  groups: [
+    {
+      name: 'carousel',
+      title: 'Carousel',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'titlePlacement',
+      title: 'Title Placement',
+      type: 'string',
+      group: 'carousel',
+      options: {
+        list: [
+          {title: 'Inside', value: 'inside'},
+          {title: 'Outside', value: 'outside'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'outside',
+    }),
+    defineField({
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      group: 'carousel',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'media',
+              title: 'Image',
+              type: 'image',
+            }),
+            defineField({
+              name: 'aspect',
+              title: 'Aspect Ratio',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Landscape (17/9)', value: 'landscape'},
+                  {title: 'Portrait (3/2)', value: 'portrait'},
+                  {title: 'Wide (21/8)', value: 'wide'},
+                ],
+                layout: 'dropdown',
+              },
+              initialValue: 'landscape',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare(selection) {
+              const {title} = selection
+              return {
+                title: title ? `Carousel Focus Item - ${title}` : 'Carousel Focus Item',
+              }
+            },
+          },
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: {
+      items: 'items',
+    },
+    prepare(selection) {
+      const {items} = selection
+      const count = items?.length ?? 0
+      return {
+        title: 'Carousel Focus',
+        subtitle: count ? `${count} item(s)` : '',
+      }
+    },
+  },
+})

@@ -1,0 +1,100 @@
+import {defineField, defineType} from 'sanity'
+
+export const carouselMediaBlock = defineType({
+  name: 'carouselMedia',
+  title: 'Carousel Media',
+  type: 'object',
+  groups: [
+    {
+      name: 'carousel',
+      title: 'Carousel',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'carousel',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'carousel',
+    }),
+    defineField({
+      name: 'items',
+      title: 'Carousel Items',
+      type: 'array',
+      group: 'carousel',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'media',
+              title: 'Media',
+              type: 'image',
+            }),
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              description: 'Title of the carousel item',
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+              description: 'Description of the carousel item',
+            }),
+            defineField({
+              name: 'whiteTexts',
+              title: 'White Texts',
+              type: 'boolean',
+              description: 'If true, the texts will be displayed in white',
+              initialValue: false,
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare(selection) {
+              const {title} = selection
+              return {
+                title: title
+                  ? `Carousel Card Item - ${title}`
+                  : 'Carousel Card Item',
+              }
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'showNavigation',
+      title: 'Show Navigation',
+      type: 'boolean',
+      description: 'Shows the navigation dots below the carousel',
+      initialValue: true,
+      group: 'carousel',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      items: 'items',
+    },
+    prepare(selection) {
+      const {title, items} = selection
+      const itemsText = items ? items.length + ' items' : ''
+
+      return {
+        title: title ? `Carousel Media - ${title}` : 'Carousel Media',
+        subtitle: itemsText ?? '',
+      }
+    },
+  },
+})

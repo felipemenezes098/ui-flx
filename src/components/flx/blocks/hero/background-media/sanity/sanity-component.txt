@@ -1,0 +1,62 @@
+import Balancer from "react-wrap-balancer";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import Image from "next/image";
+
+import { Cta } from "@/components/core/cta";
+import { Blocks } from "@/sanity.types";
+import { client } from "@/sanity/client";
+
+type HeroBackgroundMediaBlock = Extract<
+  Blocks[number],
+  { _type: "heroBackgroundMedia" }
+>;
+
+interface BackgroundMediaProps {
+  block: HeroBackgroundMediaBlock;
+}
+
+const builder = createImageUrlBuilder(client);
+
+export function BackgroundMedia({ block }: Readonly<BackgroundMediaProps>) {
+  const imageUrl = block.media?.asset ? builder.image(block.media).url() : null;
+
+  return (
+    <div className="group/video group/media relative">
+      {imageUrl && (
+        <div className="relative min-h-96 w-full">
+          <Image
+            src={imageUrl}
+            alt={block.title ?? "Hero background media"}
+            className="h-full w-full object-cover rounded-xl"
+            fill
+          />
+        </div>
+      )}
+      <div className="absolute inset-0 flex items-center justify-center px-5">
+        <div className="space-y-6 text-center">
+          <div className="space-y-2">
+            {block.title && (
+              <h1
+                className={`mx-auto max-w-2xl text-3xl font-bold md:text-4xl ${
+                  block.whiteTexts ? "text-white" : ""
+                }`}
+              >
+                <Balancer balance={0.5}>{block.title}</Balancer>
+              </h1>
+            )}
+            {block.description && (
+              <p
+                className={`mx-auto max-w-2xl ${
+                  block.whiteTexts ? "text-white" : "text-muted-foreground"
+                }`}
+              >
+                <Balancer balance={0.5}>{block.description}</Balancer>
+              </p>
+            )}
+          </div>
+          {block.cta && <Cta cta={block.cta} />}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,145 @@
+export const metadata = {
+  title: 'Carousel Focus',
+  description:
+    'Auto-scrolling carousel with hover focus, dimming, and animated title.',
+  openGraph: {
+    title: 'Carousel Focus',
+    description:
+      'Auto-scrolling carousel with hover focus, dimming, and animated title placement inside or outside the image.',
+    type: 'article',
+  },
+}
+
+<BlockHeader>
+  <BlockHeaderInfo>
+    <BlockHeaderTitle>Carousel Focus</BlockHeaderTitle>
+    <BlockHeaderDescription>
+      Auto-scrolling carousel that pauses on item hover, dims other items, and reveals an animated title — inside or outside the image.
+    </BlockHeaderDescription>
+  </BlockHeaderInfo>
+
+  <BlockHeaderActions>
+    <CopyPageMarkdown filePath="src/app/(main)/docs/carousel/carousel-focus/page.mdx" />
+  </BlockHeaderActions>
+</BlockHeader>
+
+<BlockEditorDisplay category="carousel" slug="carousel-focus" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/carousel-focus" />
+
+## Variations
+
+The block supports a **titlePlacement** prop that controls where the animated title appears: `outside` (above the image, default) or `inside` (overlaid at the bottom of the image with a gradient).
+
+## Default
+
+<BlockPreview category="carousel" slug="carousel-focus" />
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/defaults.ts"
+  title="defaults.ts"
+/>
+
+<CodeBlockFromFile filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx" />
+
+### Title inside the image
+
+When `titlePlacement` is `inside`, the title appears overlaid at the bottom of each image with a gradient background.
+
+<BlockPreview
+  category="carousel"
+  slug="carousel-focus"
+  variation="title-inside"
+/>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/examples/title-inside/defaults.ts"
+  title="examples/title-inside/defaults.ts"
+  highlightLines={[6]}
+/>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/examples/title-inside/usage.tsx"
+  title="examples/title-inside/usage.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="embla-carousel-auto-scroll motion" isPackage />
+
+<Step>Create the types</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/types.ts"
+  title="types.ts"
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+  collapsible
+  title="carousel-focus.tsx"
+/>
+
+<Step>Create the defaults (optional, for demonstration only)</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/defaults.ts"
+  title="defaults.ts"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Carousel Focus. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/carousel/carousel-focus.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/carousel/carousel-focus/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/carousel/carousel-focus.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

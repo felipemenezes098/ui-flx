@@ -1,0 +1,76 @@
+import {defineField, defineType} from 'sanity'
+
+export const contentSelectRevealMediaBlock = defineType({
+  name: 'contentSelectRevealMedia',
+  title: 'Select Reveal Media',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+            }),
+            defineField({
+              name: 'media',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            }),
+            defineField({
+              name: 'imageAlt',
+              title: 'Image alt text',
+              type: 'string',
+              description: 'Alt text for the image (accessibility)',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare(selection) {
+              const {title} = selection
+              return {
+                title: title ? `Select Reveal Item - ${title}` : 'Select Reveal Item',
+              }
+            },
+          },
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: {
+      items: 'items',
+    },
+    prepare(selection) {
+      const {items} = selection
+      const count = items?.length ?? 0
+      return {
+        title: 'Select Reveal Media',
+        subtitle: count ? `${count} item(s)` : '',
+      }
+    },
+  },
+})

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-list",
+  "title": "Icon List",
+  "description": "A list of icons with a title and items.",
+  "dependencies": [],
+  "registryDependencies": [
+    "@flx/dynamic-icon"
+  ],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/content/icon-list/types.ts",
+      "content": "export interface IconListProps {\n  title: string\n  items: {\n    title: string\n    icon: string\n  }[]\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/icon-list/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/content/icon-list/icon-list.tsx",
+      "content": "import { icons } from 'lucide-react'\n\nimport { Icon } from '@/components/flx/blocks/shared/dynamic-icon/dynamic-icon'\n\nimport type { IconListProps } from './types'\n\nexport function IconList({ title, items }: Readonly<IconListProps>) {\n  return (\n    <div className=\"grid w-full\">\n      <h2 className=\"mb-8 text-2xl font-bold\">{title}</h2>\n      <div className=\"grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3\">\n        {items.map((item, index) => (\n          <div className=\"flex items-center gap-3\" key={item.title + index}>\n            <Icon\n              name={item.icon as keyof typeof icons}\n              className=\"text-primary size-4 flex-shrink-0\"\n            />\n            <h3 className=\"text-base font-medium\">{item.title}</h3>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/icon-list/icon-list-usage.tsx",
+      "content": "import { iconListDefaultProps } from './defaults'\nimport { IconList } from './icon-list'\n\nexport function IconListUsage() {\n  return <IconList {...iconListDefaultProps} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/icon-list/icon-list-usage.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/content/icon-list/defaults.ts",
+      "content": "import type { IconListProps } from './types'\n\nexport const iconListDefaultProps = {\n  title: 'Principles',\n  items: [\n    { title: 'Simple', icon: 'Zap' },\n    { title: 'Clear', icon: 'Shield' },\n    { title: 'Fast', icon: 'Code' },\n    { title: 'Stable', icon: 'Users' },\n    { title: 'Open', icon: 'Accessibility' },\n    { title: 'Inclusive', icon: 'Smartphone' },\n  ],\n} satisfies IconListProps\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/icon-list/defaults.ts"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

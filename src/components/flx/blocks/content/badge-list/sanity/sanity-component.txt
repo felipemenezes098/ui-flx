@@ -1,0 +1,49 @@
+import Balancer from "react-wrap-balancer";
+
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { Blocks } from "@/sanity.types";
+
+type ContentBadgeListBlock = Extract<
+  Blocks[number],
+  { _type: "contentBadgeList" }
+>;
+
+interface BadgeListProps {
+  block: ContentBadgeListBlock;
+}
+
+export function BadgeList({ block }: Readonly<BadgeListProps>) {
+  return (
+    <div className={cn("flex flex-col justify-center")}>
+      <div className="flex w-full flex-col space-y-8">
+        <div className={cn("flex flex-col gap-2")}>
+          {block.title && (
+            <h2 className={cn("text-2xl font-bold")}>
+              <Balancer balance={0.5}>{block.title}</Balancer>
+            </h2>
+          )}
+          {block.description && (
+            <p className={cn("text-muted-foreground")}>
+              <Balancer balance={0.5}>{block.description}</Balancer>
+            </p>
+          )}
+        </div>
+        {block.items && block.items.length > 0 && (
+          <ul className={cn("m-0 flex w-full list-none flex-wrap gap-3 p-0")}>
+            {block.items.map((item, index) => (
+              <li key={`${item.title}-${index}`}>
+                <Badge
+                  variant="secondary"
+                  className="max-w-full px-4 py-2 text-sm wrap-break-word whitespace-normal md:max-w-none md:whitespace-nowrap"
+                >
+                  {item.title}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}

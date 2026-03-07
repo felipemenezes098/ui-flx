@@ -1,0 +1,33 @@
+import {defineType} from 'sanity'
+
+// As you add more blocks or categories, update this file.
+// The values in 'of' reference each block's schema name — if the type
+// does not exist in the project (not defined and exported in the flow), the Studio breaks.
+export const blocks = defineType({
+  name: 'blocks',
+  title: 'UI Blocks',
+  type: 'array',
+  options: {
+    insertMenu: {
+      groups: [
+        {
+          name: 'content',
+          title: 'Content',
+          of: ['contentGridTwoColumns'],
+        },
+        // Add more groups (hero, showcase, etc.) and their blocks here.
+      ],
+      views: [
+        {
+          name: 'grid',
+          previewImageUrl: (schemaTypeName: string) => `/preview/blocks/${schemaTypeName}.png`,
+        },
+        {name: 'list'},
+      ],
+    },
+  },
+  of: [
+    {type: 'contentGridTwoColumns', title: 'Content • Grid Two Columns'},
+    // List all blocks you defined here (one entry per type).
+  ],
+})
