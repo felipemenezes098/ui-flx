@@ -1,5 +1,4 @@
 import type { EmblaOptionsType } from 'embla-carousel'
-import { ImageProps } from 'next/image'
 
 export interface CarouselMediaProps {
   className?: string
