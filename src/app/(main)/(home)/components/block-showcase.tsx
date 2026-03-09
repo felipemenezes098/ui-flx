@@ -71,6 +71,7 @@ function BlockTeam() {
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 33vw"
+            unoptimized
           />
         </div>
         <div className="flex flex-col px-3 py-2">
@@ -188,6 +189,7 @@ function BlockProductItems() {
                   fill
                   className="rounded-sm object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  unoptimized
                 />
               </div>
               <div className="flex flex-col">
