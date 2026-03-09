@@ -453,7 +453,7 @@
       "title": "Tabs Media",
       "description": "Tabbed navigation that reveals a media for each tab.",
       "registryDependencies": ["tabs", "@flx/scroll-fade-edges"],
-      "dependencies": ["react-wrap-balancer", "motion/react"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "src/components/flx/blocks/content/tabs-media/types.ts",

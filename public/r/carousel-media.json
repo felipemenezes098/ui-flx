@@ -14,7 +14,7 @@
   "files": [
     {
       "path": "src/components/flx/blocks/carousel/carousel-media/types.ts",
-      "content": "import type { EmblaOptionsType } from 'embla-carousel'\r\nimport { ImageProps } from 'next/image'\r\n\r\nexport interface CarouselMediaProps {\r\n  className?: string\r\n  title?: string\r\n  description?: string\r\n  items: {\r\n    title?: string\r\n    description?: string\r\n    media: {\r\n      src: string\r\n      alt: string\r\n      overlay?: boolean\r\n    }\r\n    whiteTexts: boolean\r\n  }[]\r\n  showNavigation: boolean\r\n  /** Opções extras do Embla Carousel. Faz merge com as opções padrão (drag mais suave, sem momentum livre). */\r\n  carouselOpts?: EmblaOptionsType\r\n}\r\n",
+      "content": "import type { EmblaOptionsType } from 'embla-carousel'\n\nexport interface CarouselMediaProps {\n  className?: string\n  title?: string\n  description?: string\n  items: {\n    title?: string\n    description?: string\n    media: {\n      src: string\n      alt: string\n      overlay?: boolean\n    }\n    whiteTexts: boolean\n  }[]\n  showNavigation: boolean\n  /** Opções extras do Embla Carousel. Faz merge com as opções padrão (drag mais suave, sem momentum livre). */\n  carouselOpts?: EmblaOptionsType\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/carousel/carousel-media/types.ts"
     },
