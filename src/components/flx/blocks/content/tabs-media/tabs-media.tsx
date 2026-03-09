@@ -20,7 +20,7 @@ export function TabsMedia({
   if (!items.length) return null
 
   return (
-    <section className="flex w-full flex-col gap-5">
+    <div className="flex w-full flex-col gap-5">
       {(title || description) && (
         <header className="flex flex-col gap-2 text-center">
           {title && <h2 className="text-2xl font-bold">{title}</h2>}
@@ -76,6 +76,6 @@ export function TabsMedia({
           ))}
         </div>
       </Tabs>
-    </section>
+    </div>
   )
 }

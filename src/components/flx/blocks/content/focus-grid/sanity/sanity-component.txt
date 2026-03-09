@@ -121,7 +121,7 @@ function ItemCard({
       </div>
       <div className="py-2">
         <h3 className="line-clamp-1 truncate font-semibold">{item.title}</h3>
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {showDescription && item.description != null && (
             <motion.div
               key="description-wrapper"

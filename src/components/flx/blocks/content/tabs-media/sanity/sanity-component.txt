@@ -36,7 +36,7 @@ export function TabsMedia({ block }: Readonly<TabsMediaProps>) {
   if (!items.length) return null;
 
   return (
-    <section className="flex w-full flex-col gap-5">
+    <div className="flex w-full flex-col gap-5">
       {(block.title || block.description) && (
         <header className="flex flex-col gap-2 text-center">
           {block.title && <h2 className="text-2xl font-bold">{block.title}</h2>}
@@ -76,7 +76,7 @@ export function TabsMedia({ block }: Readonly<TabsMediaProps>) {
               key={`${index}-${item.url}`}
               className={cn(
                 "absolute inset-0 transition-opacity duration-500",
-                index === safeIndex ? "opacity-100" : "opacity-0",
+                index === safeIndex ? "opacity-100" : "opacity-0"
               )}
             >
               <Image
@@ -91,6 +91,6 @@ export function TabsMedia({ block }: Readonly<TabsMediaProps>) {
           ))}
         </div>
       </Tabs>
-    </section>
+    </div>
   );
 }

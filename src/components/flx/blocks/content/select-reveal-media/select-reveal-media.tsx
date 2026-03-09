@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -11,14 +10,13 @@ import type { SelectRevealMediaProps } from './types'
 
 export function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const selected = items[selectedIndex]
 
   if (!items.length) return null
 
   return (
-    <section
+    <div
       className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14"
-      aria-label="Lista de itens"
+      aria-label="List of items"
     >
       <nav className="flex flex-col justify-center gap-1">
         {items.map((item, index) => {
@@ -65,29 +63,26 @@ export function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {
       </nav>
 
       <div className="relative min-h-[320px] w-full overflow-hidden rounded-lg md:min-h-[420px]">
-        <AnimatePresence>
-          <motion.div
-            key={selected.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.55,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="absolute inset-0"
+        {items.map((item, index) => (
+          <div
+            key={item.id}
+            className={cn(
+              'absolute inset-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+              index === selectedIndex ? 'opacity-100' : 'opacity-0',
+            )}
           >
             <Image
-              src={selected.image.src}
-              alt={selected.image.alt || selected.title}
+              src={item.image.src}
+              alt={item.image.alt || item.title}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index === 0}
               unoptimized
             />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   )
 }
