@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 
 import { CopyPageMarkdown } from './app/(main)/docs/components/copy-page-markdown'
 import { CodeBlock } from './components/core/code/code-block'
+import { CodeBlockCode } from './components/core/code/code-block-code'
 import { CodeBlockCommand } from './components/core/code/code-block-command'
 import { CodeBlockFromFile } from './components/core/code/code-block-from-file'
 import { CodeTabs } from './components/core/code/code-tabs'
@@ -363,7 +364,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </CodeTabs>
     ),
-    CodeBlock,
+    CodeBlock: ({ children, ...props }) => (
+      <div className="my-4">
+        <CodeBlock {...props}>{children}</CodeBlock>
+      </div>
+    ),
+    CodeBlockCode,
     CodeBlockFromFile: ({ filePath, ...props }) => (
       <div className="my-6">
         <CodeBlockFromFile filePath={filePath} {...props} />

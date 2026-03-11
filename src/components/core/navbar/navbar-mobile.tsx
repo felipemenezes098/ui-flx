@@ -81,7 +81,7 @@ export function NavbarMobile() {
                   className="h-8 w-8 transition-none"
                 >
                   <Link href={siteConfig.links.twitter} target="_blank">
-                    <Logo.X className="size-3.5" />
+                    <Logo.X className="size-3" />
                   </Link>
                 </Button>
                 <Button
@@ -91,7 +91,7 @@ export function NavbarMobile() {
                   className="h-8 w-8 transition-none"
                 >
                   <Link href={siteConfig.links.github} target="_blank">
-                    <Logo.Github className="size-4.5" />
+                    <Logo.Github className="size-4" />
                   </Link>
                 </Button>
                 <Separator orientation="vertical" className="!h-4" />

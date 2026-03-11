@@ -30,9 +30,9 @@ export function ThemeSwitcher() {
       onClick={() => handleTheme(currentTheme !== 'light' ? 'light' : 'dark')}
     >
       {currentTheme !== 'light' ? (
-        <Sun className="size-4" />
+        <Sun className="size-3.75" />
       ) : (
-        <Moon className="size-4" />
+        <Moon className="size-3.75" />
       )}
     </Button>
   )

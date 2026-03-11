@@ -56,9 +56,19 @@ The example below uses `defaults.ts`. In your app, pass your own props to the co
 
 <Steps>
 
-<Step>Add dynamic-icon</Step>
+<Step>Add dynamic-icon Types</Step>
 
-<CodeBlockCommand command="shadcn@latest add @flx/dynamic-icon" />
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/shared/dynamic-icon/types.ts"
+  title="types.ts"
+/>
+
+<Step>Add dynamic-icon Component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+  title="dynamic-icon.tsx"
+/>
 
 <Step>Create the types</Step>
 

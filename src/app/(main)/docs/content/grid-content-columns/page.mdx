@@ -56,9 +56,19 @@ The example below uses `defaults.ts`. In your app, pass your own props to the co
 
 <Steps>
 
-<Step>Add CTA</Step>
+<Step>Add CTA Types</Step>
 
-<CodeBlockCommand command="shadcn@latest add @flx/cta" />
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/shared/cta/types.ts"
+  title="types.ts"
+/>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/shared/cta/cta.tsx"
+  title="cta.tsx"
+/>
 
 <Step>Install react-wrap-balancer</Step>
 
