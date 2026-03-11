@@ -28,6 +28,8 @@ import { TitleWithMediaEditorFields } from '@/components/flx/blocks/content/titl
 import { TitleWithMedia } from '@/components/flx/blocks/content/title-with-media/title-with-media'
 import { BackgroundMedia } from '@/components/flx/blocks/hero/background-media/background-media'
 import { BackgroundMediaEditorFields } from '@/components/flx/blocks/hero/background-media/editor/fields'
+import { HeroContentMediaEditorFields } from '@/components/flx/blocks/hero/hero-content-media/editor/fields'
+import { HeroContentMedia } from '@/components/flx/blocks/hero/hero-content-media/hero-content-media'
 import { TextBadgesEditorFields } from '@/components/flx/blocks/hero/text-badges/editor/fields'
 import { TextBadges } from '@/components/flx/blocks/hero/text-badges/text-badges'
 import { ShowcaseGridMediaCardsEditorFields } from '@/components/flx/blocks/showcase/grid-media-cards/editor/fields'
@@ -74,6 +76,11 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     component: TextBadges,
     editorFields: TextBadgesEditorFields,
     defaults: blockDefaults['text-badges'].default,
+  },
+  'hero-content-media': {
+    component: HeroContentMedia,
+    editorFields: HeroContentMediaEditorFields,
+    defaults: blockDefaults['hero-content-media'].default,
   },
   'carousel-focus': {
     component: CarouselFocus,
@@ -174,6 +181,16 @@ export const blocks: BlockCategory[] = [
         description: 'A text badges with a title, CTA and badges.',
         image: '/images/blocks/hero/heroTextBadges.png',
         slug: 'text-badges',
+      },
+      {
+        name: 'Hero Content Media',
+        description:
+          'Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.',
+        image: '/images/blocks/hero/heroContentMedia.png',
+        slug: 'hero-content-media',
+        meta: {
+          iframeHeight: 600,
+        },
       },
     ],
   },

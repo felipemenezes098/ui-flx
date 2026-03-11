@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-content-media",
+  "title": "Hero Content Media",
+  "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "@flx/cta"
+  ],
+  "files": [
+    {
+      "path": "src/components/flx/blocks/hero/hero-content-media/types.ts",
+      "content": "import type { CtaProps } from '@/components/flx/blocks/shared/cta/types'\n\nexport interface HeroContentMediaProps {\n  title: string\n  description: string\n  image: {\n    src: string\n    alt: string\n  }\n  primaryCTA?: CtaProps\n  secondaryCTA?: CtaProps\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-content-media/types.ts"
+    },
+    {
+      "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media.tsx",
+      "content": "import Image from 'next/image'\nimport Balancer from 'react-wrap-balancer'\n\nimport { Cta } from '@/components/flx/blocks/shared/cta/cta'\nimport { cn } from '@/lib/utils'\n\nimport type { HeroContentMediaProps } from './types'\n\nexport function HeroContentMedia({\n  title,\n  description,\n  image,\n  primaryCTA,\n  secondaryCTA,\n}: Readonly<HeroContentMediaProps>) {\n  return (\n    <div\n      className={cn(\n        'grid w-full grid-cols-1 gap-10 overflow-x-hidden md:min-h-[28rem] md:grid-cols-2',\n      )}\n    >\n      <div\n        className={cn(\n          'order-1 flex w-full min-w-0 flex-col justify-end space-y-6 self-end overflow-x-hidden pb-2',\n        )}\n      >\n        <div className=\"space-y-4\">\n          {title && (\n            <h1\n              className={cn(\n                'max-w-full text-3xl font-bold tracking-tight sm:text-4xl md:max-w-lg md:text-[2.75rem]',\n              )}\n            >\n              <Balancer balance={0.5}>{title}</Balancer>\n            </h1>\n          )}\n          {description && (\n            <p\n              className={cn(\n                'text-muted-foreground max-w-full text-base whitespace-pre-line md:max-w-md',\n              )}\n            >\n              <Balancer balance={0.5}>{description}</Balancer>\n            </p>\n          )}\n        </div>\n        <div className=\"flex flex-col gap-3 sm:flex-row\">\n          {primaryCTA && <Cta cta={primaryCTA} className=\"w-full sm:w-fit\" />}\n          {secondaryCTA && (\n            <Cta cta={secondaryCTA} className=\"w-full sm:w-fit\" />\n          )}\n        </div>\n      </div>\n\n      {image && (\n        <div\n          className={cn(\n            'relative order-2 flex md:h-full md:items-end md:justify-end',\n          )}\n        >\n          <div className=\"group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-[30rem]\">\n            <Image\n              src={image.src}\n              alt={image.alt ?? title ?? 'Hero image'}\n              className=\"h-full w-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]\"\n              fill\n              unoptimized\n            />\n          </div>\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx",
+      "content": "import { heroContentMediaDefaultProps } from './defaults'\nimport { HeroContentMedia } from './hero-content-media'\n\nexport function HeroContentMediaUsage() {\n  return <HeroContentMedia {...heroContentMediaDefaultProps} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx"
+    },
+    {
+      "path": "src/components/flx/blocks/hero/hero-content-media/defaults.ts",
+      "content": "import type { HeroContentMediaProps } from './types'\n\nexport const heroContentMediaDefaultProps = {\n  title: 'From idea to launch, without the friction.',\n  description:\n    'Focus on what matters. We handle the structure, theming, and responsive patterns so you can ship faster.',\n  image: {\n    src: 'https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    alt: 'Hero — product experience',\n  },\n  primaryCTA: {\n    ctaEnabled: true,\n    text: 'Get started',\n    link: '/',\n    variant: 'default',\n  },\n  secondaryCTA: {\n    ctaEnabled: true,\n    text: 'View documentation',\n    link: '/docs',\n    variant: 'outline',\n  },\n} satisfies HeroContentMediaProps\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-content-media/defaults.ts"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

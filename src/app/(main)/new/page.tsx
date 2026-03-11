@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { TabsMediaUsage } from '@/components/flx/blocks/content/tabs-media/tabs-media-usage'
+import { HeroContentMediaUsage } from '@/components/flx/blocks/hero/hero-content-media/hero-content-media-usage'
 
 export const metadata: Metadata = {
   title: 'New',
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function NewPage() {
   return (
-    <div className="mx-auto max-w-6xl">
-      <TabsMediaUsage />
+    <div className="mx-auto max-w-6xl space-y-16 py-10">
+      <HeroContentMediaUsage />
     </div>
   )
 }

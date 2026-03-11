@@ -514,6 +514,39 @@
       }
     },
     {
+      "name": "hero-content-media",
+      "type": "registry:block",
+      "title": "Hero Content Media",
+      "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/hero/hero-content-media/types.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/types.ts"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/hero-content-media/defaults.ts",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/defaults.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
       "name": "showcase-grid-media-cards",
       "type": "registry:block",
       "title": "Showcase Grid Media Cards",

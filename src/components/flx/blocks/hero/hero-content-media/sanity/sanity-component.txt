@@ -1,0 +1,83 @@
+import Balancer from 'react-wrap-balancer'
+import { createImageUrlBuilder } from '@sanity/image-url'
+import Image from 'next/image'
+
+import { Cta } from '@/components/flx/sanity/shared/cta'
+import { client } from '@/sanity/client'
+import { cn } from '@/lib/utils'
+import type { Blocks } from '@/sanity.types'
+
+type HeroContentMediaBlock = Extract<
+  Blocks[number],
+  { _type: 'heroContentMedia' }
+>
+
+interface HeroContentMediaProps {
+  block: HeroContentMediaBlock
+}
+
+const builder = createImageUrlBuilder(client)
+
+export function HeroContentMedia({ block }: Readonly<HeroContentMediaProps>) {
+  const imageUrl = block.media?.asset ? builder.image(block.media).url() : null
+
+  return (
+    <div
+      className={cn(
+        'grid w-full grid-cols-1 gap-10 overflow-x-hidden md:min-h-[28rem] md:grid-cols-2',
+      )}
+    >
+      <div
+        className={cn(
+          'order-1 flex w-full min-w-0 flex-col justify-end space-y-6 self-end overflow-x-hidden pb-2',
+        )}
+      >
+        <div className="space-y-4">
+          {block.title && (
+            <h1
+              className={cn(
+                'max-w-full text-3xl font-bold tracking-tight sm:text-4xl md:max-w-lg md:text-[2.75rem]',
+              )}
+            >
+              <Balancer balance={0.5}>{block.title}</Balancer>
+            </h1>
+          )}
+          {block.description && (
+            <p
+              className={cn(
+                'text-muted-foreground max-w-full text-base whitespace-pre-line md:max-w-md',
+              )}
+            >
+              <Balancer balance={0.5}>{block.description}</Balancer>
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          {block.primaryCTA && (
+            <Cta cta={block.primaryCTA} className="w-full sm:w-fit" />
+          )}
+          {block.secondaryCTA && (
+            <Cta cta={block.secondaryCTA} className="w-full sm:w-fit" />
+          )}
+        </div>
+      </div>
+
+      {imageUrl && (
+        <div
+          className={cn(
+            'relative order-2 flex md:h-full md:items-end md:justify-end',
+          )}
+        >
+          <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-[30rem]">
+            <Image
+              src={imageUrl}
+              alt={block.media?.alt ?? block.title ?? 'Hero image'}
+              className="h-full w-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
+              fill
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

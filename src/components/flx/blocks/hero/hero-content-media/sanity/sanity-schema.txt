@@ -1,0 +1,62 @@
+import {defineField, defineType} from 'sanity'
+
+export const heroContentMediaBlock = defineType({
+  name: 'heroContentMedia',
+  title: 'Hero Content Media',
+  type: 'object',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+    },
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description: 'Main title of the Hero section',
+      group: 'content',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description: 'Description of the Hero section',
+      group: 'content',
+    }),
+    defineField({
+      name: 'media',
+      title: 'Media',
+      type: 'image',
+      description: 'Image displayed on the right side',
+      group: 'content',
+    }),
+    defineField({
+      name: 'primaryCTA',
+      title: 'Primary Call to Action',
+      type: 'cta',
+      group: 'content',
+    }),
+    defineField({
+      name: 'secondaryCTA',
+      title: 'Secondary Call to Action',
+      type: 'cta',
+      group: 'content',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      description: 'description',
+    },
+    prepare(selection) {
+      const {title, description} = selection
+
+      return {
+        title: title ? `Hero Content Media - ${title}` : 'Hero Content Media',
+        subtitle: description ? description.substring(0, 50) + '...' : '',
+      }
+    },
+  },
+})

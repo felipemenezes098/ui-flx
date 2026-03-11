@@ -145,45 +145,36 @@ export function Blocks() {
                             orientation="vertical"
                             className="!h-5 shrink-0"
                           />
-                          <p className="min-w-0 truncate text-sm font-medium">
-                            {subBlock.description}
-                          </p>
+                          <div className="min-w-0 flex-1 overflow-hidden">
+                            <p className="truncate text-sm font-medium">
+                              {subBlock.description}
+                            </p>
+                          </div>
                         </div>
                         <div className="flex shrink-0 flex-wrap items-center gap-4">
                           <BlockEditorTools />
                           <Separator orientation="vertical" className="!h-5" />
                           <BlockEditorCli />
                           <Separator orientation="vertical" className="!h-5" />
-                          <div className="group/actions flex items-center gap-2">
+                          <div className="flex items-center gap-2">
                             <Button asChild variant="outline" size="sm">
                               <Link
                                 href={`/editor-preview/${block.slug}/${subBlock.slug}`}
-                                className="flex items-center"
+                                className="flex items-center gap-1.5"
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
                                 <Palette className="size-4 shrink-0" />
-
-                                <span className="-ml-1.5 max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/actions:ml-1 group-hover/actions:max-w-20 group-hover/actions:opacity-100">
-                                  Edit
-                                </span>
+                                <span>Edit</span>
                               </Link>
                             </Button>
-                            <Button
-                              asChild
-                              variant="outline"
-                              size="sm"
-                              className="group"
-                            >
+                            <Button asChild variant="outline" size="sm">
                               <Link
                                 href={`/docs/${block.slug}/${subBlock.slug}`}
-                                className="flex items-center"
+                                className="flex items-center gap-1.5"
                               >
                                 <EyeIcon className="size-4 shrink-0" />
-
-                                <span className="-ml-1.5 max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/actions:ml-1 group-hover/actions:max-w-20 group-hover/actions:opacity-100">
-                                  Details
-                                </span>
+                                <span>Details</span>
                               </Link>
                             </Button>
                           </div>
