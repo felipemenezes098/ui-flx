@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { GridWithMediaTopProps } from '../types'
+import type { GridWithMediaTopProps } from '../grid-with-media-top'
 
 const defaults = blockDefaults['grid-with-media-top'].default
 

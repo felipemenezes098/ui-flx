@@ -1,4 +1,4 @@
-import type { TitleWithMediaProps } from './types'
+import type { TitleWithMediaProps } from './title-with-media'
 
 export const titleWithMediaDefaultProps = {
   title: 'Clarity in every detail',

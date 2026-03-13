@@ -8,6 +8,8 @@ import {
   blocks,
   getBlockComponent,
   getBlockDefaultsFromRegistry,
+  getBlockExample,
+  getBlockVariationExample,
 } from '@/lib/block-registry'
 import { cn } from '@/lib/utils'
 
@@ -80,7 +82,11 @@ export default async function BlockPreviewPage({
   const item = category.blocks.find((b) => b.slug === slug)
   if (!item) return notFound()
 
-  const Comp = getBlockComponent(slug)
+  const VariationExample = variationName
+    ? getBlockVariationExample(slug, variationName)
+    : null
+  const Example = VariationExample || getBlockExample(slug)
+  const Comp = Example || getBlockComponent(slug)
   if (!Comp) return notFound()
 
   const defaults = getBlockDefaultsFromRegistry(slug, variationName)
@@ -95,13 +101,17 @@ export default async function BlockPreviewPage({
           registryItem?.meta?.containerClassName,
         )}
       >
-        <Comp
-          {...defaults}
-          className={registryItem?.meta?.componentClassName}
-          imageProps={{
-            unoptimized: true,
-          }}
-        />
+        {Example ? (
+          <Comp />
+        ) : (
+          <Comp
+            {...defaults}
+            className={registryItem?.meta?.componentClassName}
+            imageProps={{
+              unoptimized: true,
+            }}
+          />
+        )}
       </div>
     </div>
   )

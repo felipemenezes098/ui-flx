@@ -1,4 +1,4 @@
-import type { CenteredTextProps } from './types'
+import type { CenteredTextProps } from './centered-text'
 
 export const centeredTextDefaultProps = {
   title: 'Simple & Elegant',

@@ -15,7 +15,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { GridTwoColumnsProps } from '../types'
+import type { GridTwoColumnsProps } from '../grid-two-columns'
 
 const defaults = blockDefaults['grid-two-columns'].default
 

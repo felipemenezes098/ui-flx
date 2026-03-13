@@ -1,6 +1,13 @@
 import Balancer from 'react-wrap-balancer'
 
-import type { GridCardsProps } from './types'
+export interface GridCardsProps {
+  title: string
+  items: {
+    title: string
+    description: string
+    icon: string
+  }[]
+}
 
 export function GridCards({ title, items }: Readonly<GridCardsProps>) {
   if (!items || items.length === 0) {

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { FocusGridItem, FocusGridProps } from '../types'
+import type { FocusGridItem, FocusGridProps } from '../focus-grid'
 
 const defaults = blockDefaults['focus-grid'].default
 

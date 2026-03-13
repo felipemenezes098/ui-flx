@@ -1,4 +1,4 @@
-import type { FocusGridProps } from './types'
+import type { FocusGridProps } from './focus-grid'
 
 export const focusGridDefaultProps = {
   title: 'Our process',

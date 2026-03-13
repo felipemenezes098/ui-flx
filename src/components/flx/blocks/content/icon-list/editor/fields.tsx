@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { IconListProps } from '../types'
+import type { IconListProps } from '../icon-list'
 
 const defaults = blockDefaults['icon-list'].default
 

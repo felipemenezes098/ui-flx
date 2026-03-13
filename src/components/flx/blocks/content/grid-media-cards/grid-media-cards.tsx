@@ -4,7 +4,20 @@ import Image from 'next/image'
 import { Icon } from '@/components/flx/blocks/shared/dynamic-icon/dynamic-icon'
 import { cn } from '@/lib/utils'
 
-import type { GridMediaCardsProps } from './types'
+export interface GridMediaCardsProps {
+  title: string
+  items: {
+    title: string
+    description: string
+    icon: string
+    image: {
+      url: string
+      alt: string
+      overlay?: boolean
+      whiteTexts?: boolean
+    }
+  }[]
+}
 
 export function GridMediaCards({
   title,

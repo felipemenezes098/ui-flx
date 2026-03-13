@@ -1,4 +1,4 @@
-import type { TabsMediaProps } from './types'
+import type { TabsMediaProps } from './tabs-media'
 
 export const tabsMediaDefaultProps = {
   title: 'Built to ship faster',

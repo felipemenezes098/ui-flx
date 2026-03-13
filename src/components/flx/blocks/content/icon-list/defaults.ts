@@ -1,4 +1,4 @@
-import type { IconListProps } from './types'
+import type { IconListProps } from './icon-list'
 
 export const iconListDefaultProps = {
   title: 'Principles',

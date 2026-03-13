@@ -15,7 +15,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { BackgroundMediaProps } from '../types'
+import type { BackgroundMediaProps } from '../background-media'
 
 const defaults = blockDefaults['background-media'].default
 

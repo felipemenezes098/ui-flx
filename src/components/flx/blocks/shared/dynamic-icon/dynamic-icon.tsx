@@ -1,6 +1,10 @@
 import { icons } from 'lucide-react'
 
-import { DynamicIconProps } from './types'
+export interface DynamicIconProps {
+  name: keyof typeof icons
+  size?: number
+  className?: string
+}
 
 function Icon({ name, size, className }: Readonly<DynamicIconProps>) {
   const LucideIcon = icons[name]

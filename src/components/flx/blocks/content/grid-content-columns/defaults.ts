@@ -1,4 +1,4 @@
-import type { GridContentColumnsProps } from './types'
+import type { GridContentColumnsProps } from './grid-content-columns'
 
 export const gridContentColumnsDefaultProps = {
   items: [

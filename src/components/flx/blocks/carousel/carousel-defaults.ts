@@ -1,11 +1,11 @@
 import { carouselFocusDefaultProps } from './carousel-focus/defaults'
-import { carouselFocusTitleInsideProps } from './carousel-focus/examples/title-inside/defaults'
+import { CarouselFocusTitleInside } from './carousel-focus/examples/carousel-focus-title-inside'
 import { carouselMediaDefaultProps } from './carousel-media/defaults'
 
 export const carouselDefaults = {
   'carousel-focus': {
     default: carouselFocusDefaultProps,
-    'title-inside': carouselFocusTitleInsideProps,
+    'title-inside': CarouselFocusTitleInside,
   },
   'carousel-media': { default: carouselMediaDefaultProps },
 } as const

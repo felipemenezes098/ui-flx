@@ -8,7 +8,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { GridMediaCardsProps } from '../types'
+import type { GridMediaCardsProps } from '../grid-media-cards'
 
 const defaults = blockDefaults['grid-media-cards'].default
 

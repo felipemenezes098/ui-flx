@@ -1,9 +1,20 @@
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 import { Badge } from '@/components/ui/badge'
 
-import type { TextBadgesProps } from './types'
+export interface Feature {
+  icon: string
+  title: string
+}
+
+export interface TextBadgesProps {
+  title: string
+  primaryCTA: CtaProps
+  secondaryCTA?: CtaProps
+  features: Feature[]
+}
 
 export function TextBadges({
   title,

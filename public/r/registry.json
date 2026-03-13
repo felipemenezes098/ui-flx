@@ -11,11 +11,6 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "src/components/flx/blocks/shared/cta/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/shared/cta/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/shared/cta/cta.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/cta/cta.tsx"
@@ -46,11 +41,6 @@
       "dependencies": ["lucide-react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/shared/dynamic-icon/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/shared/dynamic-icon/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
@@ -66,24 +56,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-two-columns/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-two-columns/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx",
+          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/grid-two-columns/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-two-columns/defaults.ts"
+          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-example.tsx"
         }
       ],
       "meta": {
@@ -99,24 +79,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/centered-text/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/centered-text/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/centered-text/centered-text.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/centered-text/centered-text.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/centered-text/centered-text-usage.tsx",
+          "path": "src/components/flx/blocks/content/centered-text/centered-text-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/centered-text/centered-text-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/centered-text/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/centered-text/defaults.ts"
+          "target": "components/flx/blocks/content/centered-text/centered-text-example.tsx"
         }
       ],
       "meta": {
@@ -132,24 +102,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-cards/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-cards/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/grid-cards/grid-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-cards/grid-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-cards/grid-cards-usage.tsx",
+          "path": "src/components/flx/blocks/content/grid-cards/grid-cards-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-cards/grid-cards-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/grid-cards/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-cards/defaults.ts"
+          "target": "components/flx/blocks/content/grid-cards/grid-cards-example.tsx"
         }
       ],
       "meta": {
@@ -165,24 +125,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-media-cards/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-media-cards/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards-usage.tsx",
+          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/grid-media-cards/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-media-cards/defaults.ts"
+          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx"
         }
       ],
       "meta": {
@@ -198,24 +148,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-with-media-top/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-with-media-top/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top-usage.tsx",
+          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/grid-with-media-top/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-with-media-top/defaults.ts"
+          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx"
         }
       ],
       "meta": {
@@ -231,24 +171,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/icon-list/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/icon-list/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/icon-list/icon-list.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/icon-list/icon-list-usage.tsx",
+          "path": "src/components/flx/blocks/content/icon-list/icon-list-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/icon-list/icon-list-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/icon-list/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/icon-list/defaults.ts"
+          "target": "components/flx/blocks/content/icon-list/icon-list-example.tsx"
         }
       ],
       "meta": {
@@ -264,24 +194,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/badge-list/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/badge-list/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/badge-list/badge-list.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/badge-list/badge-list.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/badge-list/badge-list-usage.tsx",
+          "path": "src/components/flx/blocks/content/badge-list/badge-list-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/badge-list/badge-list-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/badge-list/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/badge-list/defaults.ts"
+          "target": "components/flx/blocks/content/badge-list/badge-list-example.tsx"
         }
       ]
     },
@@ -294,24 +214,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-content-columns/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-columns/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns-usage.tsx",
+          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/grid-content-columns/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-columns/defaults.ts"
+          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns-example.tsx"
         }
       ]
     },
@@ -324,24 +234,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/title-with-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/title-with-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/title-with-media/title-with-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/title-with-media/title-with-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/title-with-media/title-with-media-usage.tsx",
+          "path": "src/components/flx/blocks/content/title-with-media/title-with-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/title-with-media/title-with-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/title-with-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/title-with-media/defaults.ts"
+          "target": "components/flx/blocks/content/title-with-media/title-with-media-example.tsx"
         }
       ],
       "meta": {
@@ -357,24 +257,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/background-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/hero/background-media/background-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/background-media/background-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/background-media/background-media-usage.tsx",
+          "path": "src/components/flx/blocks/hero/background-media/background-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/background-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/hero/background-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/defaults.ts"
+          "target": "components/flx/blocks/hero/background-media/background-media-example.tsx"
         }
       ],
       "meta": {
@@ -390,24 +280,14 @@
       "dependencies": ["motion/react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/focus-grid/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/focus-grid/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/focus-grid/focus-grid.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/focus-grid/focus-grid.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/focus-grid/focus-grid-usage.tsx",
+          "path": "src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/focus-grid/focus-grid-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/focus-grid/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/focus-grid/defaults.ts"
+          "target": "components/flx/blocks/content/focus-grid/focus-grid-example.tsx"
         }
       ],
       "meta": {
@@ -423,24 +303,14 @@
       "dependencies": ["motion/react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/select-reveal-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/select-reveal-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx",
+          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/select-reveal-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/select-reveal-media/defaults.ts"
+          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-example.tsx"
         }
       ],
       "meta": {
@@ -456,28 +326,41 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/tabs-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/tabs-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/content/tabs-media/tabs-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/tabs-media/tabs-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/tabs-media/tabs-media-usage.tsx",
+          "path": "src/components/flx/blocks/content/tabs-media/tabs-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/tabs-media/tabs-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/content/tabs-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/tabs-media/defaults.ts"
+          "target": "components/flx/blocks/content/tabs-media/tabs-media-example.tsx"
         }
       ],
       "meta": {
         "iframeHeight": 800
+      }
+    },
+    {
+      "name": "media-grid-interactive",
+      "type": "registry:block",
+      "title": "Media Grid Interactive",
+      "description": "A grid of items with a title and description, clickable to view details.",
+      "registryDependencies": [],
+      "dependencies": ["motion/react", "react-wrap-balancer", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
       }
     },
     {
@@ -489,24 +372,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/text-badges/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/hero/text-badges/text-badges.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/text-badges/text-badges-usage.tsx",
+          "path": "src/components/flx/blocks/hero/text-badges/text-badges-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/text-badges-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/hero/text-badges/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/defaults.ts"
+          "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
         }
       ],
       "meta": {
@@ -522,24 +395,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/hero-content-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx",
+          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/hero/hero-content-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/defaults.ts"
+          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx"
         }
       ],
       "meta": {
@@ -555,24 +418,14 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/showcase/grid-media-cards/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-usage.tsx",
+          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/showcase/grid-media-cards/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/defaults.ts"
+          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx"
         }
       ]
     },
@@ -586,24 +439,14 @@
       "devDependencies": ["embla-carousel-auto-scroll"],
       "files": [
         {
-          "path": "src/components/flx/blocks/carousel/carousel-focus/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
         },
         {
-          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx",
+          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/carousel/carousel-focus/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/defaults.ts"
+          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx"
         }
       ],
       "meta": {
@@ -620,24 +463,14 @@
       "dependencies": ["react-wrap-balancer", "lucide-react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/carousel/carousel-media/types.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/types.ts"
-        },
-        {
           "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media-usage.tsx",
+          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-usage.tsx"
-        },
-        {
-          "path": "src/components/flx/blocks/carousel/carousel-media/defaults.ts",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/defaults.ts"
+          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx"
         }
       ],
       "meta": {

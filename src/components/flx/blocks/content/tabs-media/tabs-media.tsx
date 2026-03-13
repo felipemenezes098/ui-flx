@@ -7,7 +7,16 @@ import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edge
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/utils'
 
-import type { TabsMediaProps } from './types'
+export interface TabsMediaItem {
+  label: string
+  url: string
+}
+
+export interface TabsMediaProps {
+  title?: string
+  description?: string
+  items: TabsMediaItem[]
+}
 
 export function TabsMedia({
   title,

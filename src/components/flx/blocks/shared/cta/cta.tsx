@@ -3,7 +3,20 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-import type { CtaProps } from './types'
+export type ButtonVariant =
+  | 'default'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link'
+
+export interface CtaProps {
+  ctaEnabled?: boolean
+  text: string
+  link: string
+  variant?: ButtonVariant
+}
 
 export function Cta({
   cta,

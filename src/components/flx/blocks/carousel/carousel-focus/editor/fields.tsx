@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/select'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { CarouselFocusAspect, CarouselFocusProps } from '../types'
+import type { CarouselFocusAspect, CarouselFocusProps } from '../carousel-focus'
 
 const defaults = blockDefaults['carousel-focus'].default
 

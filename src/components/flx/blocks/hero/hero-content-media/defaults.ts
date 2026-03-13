@@ -1,4 +1,4 @@
-import type { HeroContentMediaProps } from './types'
+import type { HeroContentMediaProps } from './hero-content-media'
 
 export const heroContentMediaDefaultProps = {
   title: 'From idea to launch, without the friction.',

@@ -1,4 +1,4 @@
-import type { CarouselMediaProps } from './types'
+import type { CarouselMediaProps } from './carousel-media'
 
 export const carouselMediaDefaultProps = {
   title: 'In focus',

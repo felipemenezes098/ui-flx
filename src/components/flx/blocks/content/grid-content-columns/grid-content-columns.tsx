@@ -3,9 +3,20 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 
-import type { GridContentColumnsProps } from './types'
+export interface GridContentColumnsProps {
+  items: {
+    title?: string
+    content?: string
+    media?: {
+      src: string
+      alt: string
+    }
+    cta?: CtaProps
+  }[]
+}
 
 export function GridContentColumns({ items }: GridContentColumnsProps) {
   if (!items || items.length === 0) {

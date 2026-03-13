@@ -17,7 +17,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { GridContentColumnsProps } from '../types'
+import type { GridContentColumnsProps } from '../grid-content-columns'
 
 const defaults = blockDefaults['grid-content-columns'].default
 

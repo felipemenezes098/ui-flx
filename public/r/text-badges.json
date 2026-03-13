@@ -10,28 +10,16 @@
   ],
   "files": [
     {
-      "path": "src/components/flx/blocks/hero/text-badges/types.ts",
-      "content": "import type { CtaProps } from '@/components/flx/blocks/shared/cta/types'\n\nexport interface Feature {\n  icon: string\n  title: string\n}\n\nexport interface TextBadgesProps {\n  title: string\n  primaryCTA: CtaProps\n  secondaryCTA?: CtaProps\n  features: Feature[]\n}\n",
-      "type": "registry:component",
-      "target": "components/flx/blocks/hero/text-badges/types.ts"
-    },
-    {
       "path": "src/components/flx/blocks/hero/text-badges/text-badges.tsx",
-      "content": "import Balancer from 'react-wrap-balancer'\n\nimport { Cta } from '@/components/flx/blocks/shared/cta/cta'\nimport { Badge } from '@/components/ui/badge'\n\nimport type { TextBadgesProps } from './types'\n\nexport function TextBadges({\n  title,\n  primaryCTA,\n  secondaryCTA,\n  features,\n}: Readonly<TextBadgesProps>) {\n  return (\n    <div className=\"flex min-h-60 flex-col items-center justify-center space-y-6 text-center\">\n      {title && (\n        <h1 className=\"max-w-2xl text-3xl font-bold sm:text-4xl\">\n          <Balancer balance={0.5}>{title}</Balancer>\n        </h1>\n      )}\n\n      <div className=\"flex flex-col gap-3 sm:flex-row\">\n        {primaryCTA && <Cta cta={primaryCTA} className=\"w-full sm:w-fit\" />}\n        {secondaryCTA && <Cta cta={secondaryCTA} className=\"w-full sm:w-fit\" />}\n      </div>\n\n      {features && features.length > 0 && (\n        <ul className=\"m-0 mt-3 flex list-none flex-wrap justify-center gap-3\">\n          {features.map((feature, index) => (\n            <Badge key={`${feature.title}-${index}`} variant=\"secondary\">\n              {feature.title}\n            </Badge>\n          ))}\n        </ul>\n      )}\n    </div>\n  )\n}\n",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'\nimport { Cta } from '@/components/flx/blocks/shared/cta/cta'\nimport { Badge } from '@/components/ui/badge'\n\nexport interface Feature {\n  icon: string\n  title: string\n}\n\nexport interface TextBadgesProps {\n  title: string\n  primaryCTA: CtaProps\n  secondaryCTA?: CtaProps\n  features: Feature[]\n}\n\nexport function TextBadges({\n  title,\n  primaryCTA,\n  secondaryCTA,\n  features,\n}: Readonly<TextBadgesProps>) {\n  return (\n    <div className=\"flex min-h-60 flex-col items-center justify-center space-y-6 text-center\">\n      {title && (\n        <h1 className=\"max-w-2xl text-3xl font-bold sm:text-4xl\">\n          <Balancer balance={0.5}>{title}</Balancer>\n        </h1>\n      )}\n\n      <div className=\"flex flex-col gap-3 sm:flex-row\">\n        {primaryCTA && <Cta cta={primaryCTA} className=\"w-full sm:w-fit\" />}\n        {secondaryCTA && <Cta cta={secondaryCTA} className=\"w-full sm:w-fit\" />}\n      </div>\n\n      {features && features.length > 0 && (\n        <ul className=\"m-0 mt-3 flex list-none flex-wrap justify-center gap-3\">\n          {features.map((feature, index) => (\n            <Badge key={`${feature.title}-${index}`} variant=\"secondary\">\n              {feature.title}\n            </Badge>\n          ))}\n        </ul>\n      )}\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
     },
     {
-      "path": "src/components/flx/blocks/hero/text-badges/text-badges-usage.tsx",
-      "content": "import { textBadgesDefaultProps } from './defaults'\nimport { TextBadges } from './text-badges'\n\nexport function TextBadgesUsage() {\n  return <TextBadges {...textBadgesDefaultProps} />\n}\n",
+      "path": "src/components/flx/blocks/hero/text-badges/text-badges-example.tsx",
+      "content": "import { TextBadges, type TextBadgesProps } from './text-badges'\n\nexport function TextBadgesExample() {\n  const values = {\n    title: 'Design smarter. Ship faster. Delight users.',\n    primaryCTA: {\n      ctaEnabled: true,\n      text: 'Get started',\n      link: '/',\n      variant: 'default',\n    },\n    secondaryCTA: {\n      ctaEnabled: true,\n      text: 'Learn more',\n      link: '/',\n      variant: 'secondary',\n    },\n    features: [\n      { icon: 'Zap', title: 'Fast' },\n      { icon: 'Shield', title: 'Secure' },\n      { icon: 'Code', title: 'Developer-first' },\n    ],\n  } satisfies TextBadgesProps\n\n  return (\n    <TextBadges\n      title={values.title}\n      primaryCTA={values.primaryCTA}\n      secondaryCTA={values.secondaryCTA}\n      features={values.features}\n    />\n  )\n}\n",
       "type": "registry:component",
-      "target": "components/flx/blocks/hero/text-badges/text-badges-usage.tsx"
-    },
-    {
-      "path": "src/components/flx/blocks/hero/text-badges/defaults.ts",
-      "content": "import type { TextBadgesProps } from './types'\n\nexport const textBadgesDefaultProps = {\n  title: 'Design smarter. Ship faster. Delight users.',\n  primaryCTA: {\n    ctaEnabled: true,\n    text: 'Get started',\n    link: '/',\n    variant: 'default',\n  },\n  secondaryCTA: {\n    ctaEnabled: true,\n    text: 'Learn more',\n    link: '/',\n    variant: 'secondary',\n  },\n  features: [\n    { icon: 'Zap', title: 'Fast' },\n    { icon: 'Shield', title: 'Secure' },\n    { icon: 'Code', title: 'Developer-first' },\n  ],\n} satisfies TextBadgesProps\n",
-      "type": "registry:component",
-      "target": "components/flx/blocks/hero/text-badges/defaults.ts"
+      "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
     }
   ],
   "meta": {

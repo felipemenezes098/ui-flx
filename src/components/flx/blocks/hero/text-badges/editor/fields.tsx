@@ -16,7 +16,7 @@ import {
 import { Switch } from '@/components/ui/switch'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { TextBadgesProps } from '../types'
+import type { TextBadgesProps } from '../text-badges'
 
 const defaults = blockDefaults['text-badges'].default
 

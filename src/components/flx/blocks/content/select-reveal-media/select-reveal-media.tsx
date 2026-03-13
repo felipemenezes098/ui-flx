@@ -6,7 +6,19 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-import type { SelectRevealMediaProps } from './types'
+export interface SelectRevealMediaItem {
+  id: string
+  title: string
+  description: string
+  image: {
+    src: string
+    alt: string
+  }
+}
+
+export interface SelectRevealMediaProps {
+  items: SelectRevealMediaItem[]
+}
 
 export function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {
   const [selectedIndex, setSelectedIndex] = useState(0)

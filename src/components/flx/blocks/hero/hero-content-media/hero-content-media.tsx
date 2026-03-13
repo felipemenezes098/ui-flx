@@ -1,10 +1,20 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 import { cn } from '@/lib/utils'
 
-import type { HeroContentMediaProps } from './types'
+export interface HeroContentMediaProps {
+  title: string
+  description: string
+  image: {
+    src: string
+    alt: string
+  }
+  primaryCTA?: CtaProps
+  secondaryCTA?: CtaProps
+}
 
 export function HeroContentMedia({
   title,

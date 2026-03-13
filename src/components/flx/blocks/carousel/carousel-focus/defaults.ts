@@ -1,4 +1,4 @@
-import type { CarouselFocusProps } from './types'
+import type { CarouselFocusProps } from './carousel-focus'
 
 export const carouselFocusDefaultProps = {
   titlePlacement: 'outside',

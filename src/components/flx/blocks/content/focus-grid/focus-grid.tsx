@@ -4,7 +4,20 @@ import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-import type { FocusGridItem, FocusGridProps } from './types'
+export interface FocusGridItem {
+  image: string
+  title: string
+  description: string
+  defaultFocus?: boolean
+}
+
+export interface FocusGridProps {
+  title?: string
+  description?: string
+  items: FocusGridItem[]
+  dimUnfocused?: boolean
+  descriptionOnFocus?: boolean
+}
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 

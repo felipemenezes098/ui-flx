@@ -1,4 +1,4 @@
-import type { SelectRevealMediaProps } from './types'
+import type { SelectRevealMediaProps } from './select-reveal-media'
 
 export const selectRevealMediaDefaultProps = {
   items: [

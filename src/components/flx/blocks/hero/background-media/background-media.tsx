@@ -1,9 +1,20 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 
-import type { BackgroundMediaProps } from './types'
+export interface BackgroundMediaProps {
+  title: string
+  description: string
+  whiteTexts?: boolean
+  image: {
+    url: string
+    alt: string
+    overlay?: boolean
+  }
+  cta?: CtaProps
+}
 
 export function BackgroundMedia({
   title,

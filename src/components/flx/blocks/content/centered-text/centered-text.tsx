@@ -1,9 +1,14 @@
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 import { cn } from '@/lib/utils'
 
-import type { CenteredTextProps } from './types'
+export interface CenteredTextProps {
+  title: string
+  description: string
+  cta?: CtaProps
+}
 
 export function CenteredText({
   title,

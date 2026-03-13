@@ -15,7 +15,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { CenteredTextProps } from '../types'
+import type { CenteredTextProps } from '../centered-text'
 
 const defaults = blockDefaults['centered-text'].default
 

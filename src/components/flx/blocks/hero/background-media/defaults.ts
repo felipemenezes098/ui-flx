@@ -1,4 +1,4 @@
-import type { BackgroundMediaProps } from './types'
+import type { BackgroundMediaProps } from './background-media'
 
 export const backgroundMediaDefaultProps = {
   title: 'Fast. Flexible. Beautiful.',

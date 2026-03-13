@@ -1,10 +1,19 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 import { cn } from '@/lib/utils'
 
-import type { GridTwoColumnsProps } from './types'
+export interface GridTwoColumnsProps {
+  title: string
+  description: string
+  image: {
+    src: string
+    alt: string
+  }
+  cta?: CtaProps
+}
 
 export function GridTwoColumns({
   title,

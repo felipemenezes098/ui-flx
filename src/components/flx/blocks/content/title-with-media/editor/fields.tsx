@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { TitleWithMediaProps } from '../types'
+import type { TitleWithMediaProps } from '../title-with-media'
 
 const defaults = blockDefaults['title-with-media'].default
 

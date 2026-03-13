@@ -1,4 +1,4 @@
-import type { GridTwoColumnsProps } from './types'
+import type { GridTwoColumnsProps } from './grid-two-columns'
 
 export const gridTwoColumnsDefaultProps = {
   title: 'Simple UI',

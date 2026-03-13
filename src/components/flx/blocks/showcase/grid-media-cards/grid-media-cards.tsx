@@ -3,9 +3,21 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
+import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 
-import type { ShowcaseGridMediaCardsProps } from './types'
+export interface ShowcaseGridMediaCardsProps {
+  title?: string
+  items: {
+    title?: string
+    description?: string
+    media: {
+      src: string
+      alt: string
+    }
+  }[]
+  cta?: CtaProps
+}
 
 export function GridMediaCards({
   title,

@@ -2,7 +2,13 @@ import { icons } from 'lucide-react'
 
 import { Icon } from '@/components/flx/blocks/shared/dynamic-icon/dynamic-icon'
 
-import type { IconListProps } from './types'
+export interface IconListProps {
+  title: string
+  items: {
+    title: string
+    icon: string
+  }[]
+}
 
 export function IconList({ title, items }: Readonly<IconListProps>) {
   return (

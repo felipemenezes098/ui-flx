@@ -14,7 +14,24 @@ import {
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
-import type { CarouselFocusProps } from './types'
+export type CarouselFocusAspect = 'landscape' | 'portrait' | 'wide'
+
+export interface CarouselFocusImage {
+  url: string
+  aspect: CarouselFocusAspect
+}
+
+export interface CarouselFocusItem {
+  title: string
+  image: CarouselFocusImage
+}
+
+export type CarouselFocusTitlePlacement = 'inside' | 'outside'
+
+export interface CarouselFocusProps {
+  titlePlacement: CarouselFocusTitlePlacement
+  items: CarouselFocusItem[]
+}
 
 const aspectVariants = cva('relative w-full overflow-hidden rounded-xl', {
   variants: {

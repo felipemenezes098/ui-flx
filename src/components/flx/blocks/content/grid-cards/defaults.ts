@@ -1,4 +1,4 @@
-import type { GridCardsProps } from './types'
+import type { GridCardsProps } from './grid-cards'
 
 export const gridCardsDefaultProps = {
   title: 'What we offer',

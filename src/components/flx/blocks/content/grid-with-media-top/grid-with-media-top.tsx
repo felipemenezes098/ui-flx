@@ -1,6 +1,15 @@
 import Image from 'next/image'
 
-import type { GridWithMediaTopProps } from './types'
+export interface GridWithMediaTopProps {
+  media: {
+    url: string
+    alt: string
+  }
+  items: {
+    title: string
+    description: string
+  }[]
+}
 
 export function GridWithMediaTop({
   media,

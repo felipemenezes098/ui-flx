@@ -1,4 +1,4 @@
-import type { GridWithMediaTopProps } from './types'
+import type { GridWithMediaTopProps } from './grid-with-media-top'
 
 export const gridWithMediaTopDefaultProps = {
   media: {

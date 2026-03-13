@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { HeroContentMediaUsage } from '@/components/flx/blocks/hero/hero-content-media/hero-content-media-usage'
+import { MediaGridInteractiveExample } from '@/components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example'
 
 export const metadata: Metadata = {
   title: 'New',
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function NewPage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-16 py-10">
-      <HeroContentMediaUsage />
+    <div className="mx-auto max-w-6xl space-y-16 px-4 py-10">
+      <MediaGridInteractiveExample />
     </div>
   )
 }

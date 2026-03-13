@@ -1,4 +1,4 @@
-import type { ShowcaseGridMediaCardsProps } from './types'
+import type { ShowcaseGridMediaCardsProps } from './grid-media-cards'
 
 export const showcaseGridMediaCardsDefaultProps = {
   title: 'See it in action',

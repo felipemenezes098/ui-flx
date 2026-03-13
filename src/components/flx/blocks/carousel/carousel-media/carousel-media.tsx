@@ -1,5 +1,6 @@
 'use client'
 
+import type { EmblaOptionsType } from 'embla-carousel'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -14,7 +15,24 @@ import {
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
-import type { CarouselMediaProps } from './types'
+export interface CarouselMediaProps {
+  className?: string
+  title?: string
+  description?: string
+  items: {
+    title?: string
+    description?: string
+    media: {
+      src: string
+      alt: string
+      overlay?: boolean
+    }
+    whiteTexts: boolean
+  }[]
+  showNavigation: boolean
+  carouselOpts?: EmblaOptionsType
+}
+
 export function CarouselMedia({
   className,
   title,

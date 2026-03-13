@@ -8,7 +8,10 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { SelectRevealMediaItem, SelectRevealMediaProps } from '../types'
+import type {
+  SelectRevealMediaItem,
+  SelectRevealMediaProps,
+} from '../select-reveal-media'
 
 const defaults = blockDefaults['select-reveal-media']
   .default as SelectRevealMediaProps

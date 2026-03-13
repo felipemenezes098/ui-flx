@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { GridCardsProps } from '../types'
+import type { GridCardsProps } from '../grid-cards'
 
 const defaults = blockDefaults['grid-cards'].default
 

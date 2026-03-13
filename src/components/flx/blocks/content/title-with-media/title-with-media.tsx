@@ -3,7 +3,13 @@
 import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
-import type { TitleWithMediaProps } from './types'
+export interface TitleWithMediaProps {
+  title?: string
+  media: {
+    src: string
+    alt: string
+  }
+}
 
 export function TitleWithMedia({ title, media }: TitleWithMediaProps) {
   return (

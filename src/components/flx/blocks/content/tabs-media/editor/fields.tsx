@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { TabsMediaItem, TabsMediaProps } from '../types'
+import type { TabsMediaItem, TabsMediaProps } from '../tabs-media'
 
 const defaults = blockDefaults['tabs-media'].default as TabsMediaProps
 

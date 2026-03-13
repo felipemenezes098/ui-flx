@@ -3,7 +3,11 @@ import Balancer from 'react-wrap-balancer'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
-import type { BadgeListProps } from './types'
+export interface BadgeListProps {
+  title: string
+  description?: string
+  items: string[]
+}
 
 export function BadgeList({
   title,

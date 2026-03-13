@@ -45,12 +45,7 @@ The block supports two props that change behavior: **dimUnfocused** (dim non-foc
 
 <BlockPreview category="content" slug="focus-grid" />
 
-<CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/defaults.ts"
-  title="defaults.ts"
-/>
-
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-usage.tsx" />
+<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx" />
 
 ### Focused items are dimmed
 
@@ -59,9 +54,8 @@ When `dimUnfocused` is true, unfocused items are dimmed while another item is fo
 <BlockPreview category="content" slug="focus-grid" variation="dim-unfocused" />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/dim-unfocused/defaults.ts"
-  title="examples/dim-unfocused/defaults.ts"
-  highlightLines={[6]}
+  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-dim-unfocused.tsx"
+  title="focus-grid-dim-unfocused.tsx"
 />
 
 ### Always show descriptions
@@ -75,9 +69,8 @@ When `descriptionOnFocus` is false, the description is always shown for all item
 />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/description-always/defaults.ts"
-  title="examples/description-always/defaults.ts"
-  highlightLines={[6]}
+  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-description-always.tsx"
+  title="focus-grid-description-always.tsx"
 />
 
 <hr />
@@ -92,8 +85,8 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
 />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/minimalist/defaults.ts"
-  title="examples/minimalist/defaults.ts"
+  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-minimalist.tsx"
+  title="focus-grid-minimalist.tsx"
 />
 
 </TabsContent>
@@ -106,13 +99,6 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
 
 <CodeBlockCommand command="motion" isPackage />
 
-<Step>Create the types</Step>
-
-<CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/types.ts"
-  title="types.ts"
-/>
-
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
@@ -121,16 +107,9 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
   title="focus-grid.tsx"
 />
 
-<Step>Create the defaults (optional, for demonstration only)</Step>
-
-<CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/defaults.ts"
-  title="defaults.ts"
-/>
-
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-usage.tsx" />
+<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx" />
 
 </Steps>
 

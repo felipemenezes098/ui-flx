@@ -1,4 +1,4 @@
-import type { GridMediaCardsProps } from './types'
+import type { GridMediaCardsProps } from './grid-media-cards'
 
 export const gridMediaCardsDefaultProps = {
   title: 'Focus areas',

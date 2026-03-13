@@ -1,4 +1,4 @@
-import type { TextBadgesProps } from './types'
+import type { TextBadgesProps } from './text-badges'
 
 export const textBadgesDefaultProps = {
   title: 'Design smarter. Ship faster. Delight users.',

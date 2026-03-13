@@ -1,4 +1,4 @@
-import type { BadgeListProps } from './types'
+import type { BadgeListProps } from './badge-list'
 
 export const badgeListDefaultProps = {
   title: 'Topics',

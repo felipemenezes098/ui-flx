@@ -17,7 +17,7 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { blockDefaults } from '@/lib/block-defaults'
 
-import type { ShowcaseGridMediaCardsProps } from '../types'
+import type { ShowcaseGridMediaCardsProps } from '../grid-media-cards'
 
 const defaults = blockDefaults['showcase-grid-media-cards'].default
 
