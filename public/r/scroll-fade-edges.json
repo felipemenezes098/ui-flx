@@ -4,7 +4,7 @@
   "title": "Scroll Fade Edges",
   "description": "A component that fades the edges of a scrollable area.",
   "dependencies": [
-    "motion/react"
+    "motion"
   ],
   "registryDependencies": [],
   "files": [

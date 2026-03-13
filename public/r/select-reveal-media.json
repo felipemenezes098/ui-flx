@@ -4,7 +4,7 @@
   "title": "Select Reveal Media",
   "description": "List of items: select one to reveal its description and media.",
   "dependencies": [
-    "motion/react"
+    "motion"
   ],
   "registryDependencies": [
     "button"

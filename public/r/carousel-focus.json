@@ -4,7 +4,7 @@
   "title": "Carousel Focus",
   "description": "A carousel that pauses on item hover and reveals title.",
   "dependencies": [
-    "motion/react",
+    "motion",
     "class-variance-authority"
   ],
   "devDependencies": [

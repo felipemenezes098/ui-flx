@@ -4,7 +4,7 @@
   "title": "Focus Grid",
   "description": "A focus grid with items that can be focused and dimmed.",
   "dependencies": [
-    "motion/react"
+    "motion"
   ],
   "registryDependencies": [],
   "files": [

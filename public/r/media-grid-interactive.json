@@ -4,9 +4,8 @@
   "title": "Media Grid Interactive",
   "description": "A grid of items with a title and description, clickable to view details.",
   "dependencies": [
-    "motion/react",
-    "react-wrap-balancer",
-    "lucide-react"
+    "motion",
+    "react-wrap-balancer"
   ],
   "registryDependencies": [],
   "files": [
