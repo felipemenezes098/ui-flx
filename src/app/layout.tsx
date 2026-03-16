@@ -5,6 +5,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
 
 import { Analytics } from '@/components/core/analytics'
+import { SpeedInsights } from '@/components/core/speed-insights'
 import { Toaster } from '@/components/ui/sonner'
 import { siteConfig } from '@/config/site'
 import { UIProvider } from '@/contexts/ui-context'
@@ -104,6 +105,7 @@ export default function RootLayout({
         </QueryProvider>
         <Toaster />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

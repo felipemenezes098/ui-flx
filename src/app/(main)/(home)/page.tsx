@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site'
 
 import { BlockShowcase } from './components/block-showcase'
 import { BlocksPreview } from './components/blocks-preview'
+import { ButtonGithub } from './components/button-github'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -54,7 +55,7 @@ export default function HomePage() {
                   variant="ghost"
                   className="rounded-xl"
                 >
-                  <Link href="/docs/get-started/introduction">Get started</Link>
+                  <ButtonGithub />
                 </Button>
               </div>
             </div>

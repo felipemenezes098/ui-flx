@@ -1,4 +1,7 @@
-import { GridMediaCards, type ShowcaseGridMediaCardsProps } from './grid-media-cards'
+import {
+  GridMediaCards,
+  type ShowcaseGridMediaCardsProps,
+} from './grid-media-cards'
 
 export function ShowcaseGridMediaCardsExample() {
   const values = {

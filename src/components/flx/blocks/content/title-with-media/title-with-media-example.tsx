@@ -9,7 +9,5 @@ export function TitleWithMediaExample() {
     },
   } satisfies TitleWithMediaProps
 
-  return (
-    <TitleWithMedia title={values.title} media={values.media} />
-  )
+  return <TitleWithMedia title={values.title} media={values.media} />
 }

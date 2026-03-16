@@ -1,4 +1,7 @@
-import { SelectRevealMedia, type SelectRevealMediaProps } from './select-reveal-media'
+import {
+  SelectRevealMedia,
+  type SelectRevealMediaProps,
+} from './select-reveal-media'
 
 export function SelectRevealMediaExample() {
   const values = {

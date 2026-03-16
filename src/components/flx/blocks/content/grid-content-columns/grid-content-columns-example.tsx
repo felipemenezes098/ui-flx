@@ -1,4 +1,7 @@
-import { GridContentColumns, type GridContentColumnsProps } from './grid-content-columns'
+import {
+  GridContentColumns,
+  type GridContentColumnsProps,
+} from './grid-content-columns'
 
 export function GridContentColumnsExample() {
   const values = {
