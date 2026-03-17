@@ -478,6 +478,27 @@
         "containerClassName": "max-w-full overflow-hidden px-0",
         "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
       }
+    },
+    {
+      "name": "logo-marquee",
+      "type": "registry:block",
+      "title": "Logo Marquee",
+      "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
+      "registryDependencies": ["carousel"],
+      "dependencies": [],
+      "devDependencies": ["embla-carousel-auto-scroll"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/logos/logo-marquee/logo-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
+        }
+      ]
     }
   ]
 }

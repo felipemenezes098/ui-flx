@@ -33,7 +33,7 @@ export interface CarouselFocusProps {
   items: CarouselFocusItem[]
 }
 
-const aspectVariants = cva('relative w-full overflow-hidden rounded-xl', {
+const aspectVariants = cva('relative w-full overflow-hidden rounded-lg', {
   variants: {
     aspect: {
       landscape: 'aspect-[17/9]',
@@ -134,10 +134,10 @@ export function CarouselFocus({
                   onBlur={handleItemMouseLeave}
                 >
                   <motion.span
-                    className="text-foreground min-h-0 overflow-hidden text-sm font-medium"
+                    className="text-foreground min-h-[20px] text-sm font-medium"
                     {...titleMotionProps}
                     animate={
-                      isHovered ? { y: -5, opacity: 1 } : { y: 1, opacity: 0 }
+                      isHovered ? { y: 0, opacity: 1 } : { y: 6, opacity: 0 }
                     }
                     transition={{ duration: 0.2, ease: 'easeInOut' }}
                   >
@@ -145,7 +145,7 @@ export function CarouselFocus({
                   </motion.span>
                   <span
                     className={cn(
-                      'relative w-full overflow-hidden rounded-xl',
+                      'relative w-full',
                       aspectVariants({ aspect: item.image.aspect }),
                     )}
                   >
