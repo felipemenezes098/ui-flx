@@ -1,6 +1,7 @@
 import { carouselDefaults } from '../components/flx/blocks/carousel/carousel-defaults'
 import { contentDefaults } from '../components/flx/blocks/content/content-defaults'
 import { heroDefaults } from '../components/flx/blocks/hero/hero-defaults'
+import { logosDefaults } from '../components/flx/blocks/logos/logos-defaults'
 import { showcaseDefaults } from '../components/flx/blocks/showcase/showcase-defaults'
 
 export const blockDefaults = {
@@ -8,6 +9,7 @@ export const blockDefaults = {
   ...contentDefaults,
   ...carouselDefaults,
   ...showcaseDefaults,
+  ...logosDefaults,
 } as const
 
 type BlockSlug = keyof typeof blockDefaults

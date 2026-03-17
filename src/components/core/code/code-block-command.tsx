@@ -14,6 +14,7 @@ import { CodeBlockCopy } from './code-copy'
 export function CodeBlockCommand({
   command,
   isPackage = false,
+  isDevDependency = false,
   __npm__,
   __yarn__,
   __pnpm__,
@@ -21,6 +22,7 @@ export function CodeBlockCommand({
 }: React.ComponentProps<'pre'> & {
   command?: string
   isPackage?: boolean
+  isDevDependency?: boolean
   __npm__?: string
   __yarn__?: string
   __pnpm__?: string
@@ -31,34 +33,68 @@ export function CodeBlockCommand({
   const packageManager = config.packageManager || 'npm'
 
   const tabs = React.useMemo(() => {
+    const devFlag = isDevDependency
+      ? {
+          npm: '-D',
+          pnpm: '-D',
+          yarn: '-D',
+          bun: '-d',
+        }
+      : {
+          npm: '',
+          pnpm: '',
+          yarn: '',
+          bun: '',
+        }
+
     if (command) {
       return {
         npm:
-          __npm__ ?? (isPackage ? `npm install ${command}` : `npx ${command}`),
+          __npm__ ??
+          (isPackage
+            ? `npm install ${command} ${devFlag.npm}`.trim()
+            : `npx ${command}`),
+
         pnpm:
           __pnpm__ ??
-          (isPackage ? `pnpm add ${command}` : `pnpm dlx ${command}`),
+          (isPackage
+            ? `pnpm add ${command} ${devFlag.pnpm}`.trim()
+            : `pnpm dlx ${command}`),
+
         yarn:
           __yarn__ ??
-          (isPackage ? `yarn add ${command}` : `yarn dlx ${command}`),
+          (isPackage
+            ? `yarn add ${command} ${devFlag.yarn}`.trim()
+            : `yarn dlx ${command}`),
+
         bun:
-          __bun__ ?? (isPackage ? `bun add ${command}` : `bun dlx ${command}`),
+          __bun__ ??
+          (isPackage
+            ? `bun add ${command} ${devFlag.bun}`.trim()
+            : `bun dlx ${command}`),
       }
     }
+
     return {
       npm: __npm__,
       pnpm: __pnpm__,
       yarn: __yarn__,
       bun: __bun__,
     }
-  }, [command, isPackage, __npm__, __pnpm__, __yarn__, __bun__])
+  }, [
+    command,
+    isPackage,
+    isDevDependency,
+    __npm__,
+    __pnpm__,
+    __yarn__,
+    __bun__,
+  ])
 
-  const [code, setCode] = React.useState(
-    tabs[packageManager as keyof typeof tabs] ?? tabs.npm,
-  )
+  const [code, setCode] = React.useState(tabs[packageManager] ?? tabs.npm)
 
   React.useEffect(() => {
-    setCode(tabs[packageManager as keyof typeof tabs] ?? tabs.npm)
+    setCode(tabs[packageManager] ?? tabs.npm)
   }, [packageManager, tabs])
 
   return (

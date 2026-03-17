@@ -56,6 +56,9 @@ import { HeroContentMediaExample } from '@/components/flx/blocks/hero/hero-conte
 import { TextBadgesEditorFields } from '@/components/flx/blocks/hero/text-badges/editor/fields'
 import { TextBadges } from '@/components/flx/blocks/hero/text-badges/text-badges'
 import { TextBadgesExample } from '@/components/flx/blocks/hero/text-badges/text-badges-example'
+import { LogoMarqueeEditorFields } from '@/components/flx/blocks/logos/logo-marquee/editor/fields'
+import { LogoMarquee } from '@/components/flx/blocks/logos/logo-marquee/logo-marquee'
+import { LogoMarqueeExample } from '@/components/flx/blocks/logos/logo-marquee/logo-marquee-example'
 import { ShowcaseGridMediaCardsEditorFields } from '@/components/flx/blocks/showcase/grid-media-cards/editor/fields'
 import { GridMediaCards as ShowcaseGridMediaCards } from '@/components/flx/blocks/showcase/grid-media-cards/grid-media-cards'
 import { ShowcaseGridMediaCardsExample } from '@/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example'
@@ -77,7 +80,7 @@ export interface BlockCategory {
   description: string
   image: string
   slug: string
-  type: 'hero' | 'content' | 'showcase' | 'carousel'
+  type: 'hero' | 'content' | 'showcase' | 'carousel' | 'logos'
   blocks: BlockItem[]
 }
 
@@ -215,6 +218,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: MediaGridInteractiveEditorFields,
     defaults: blockDefaults['media-grid-interactive'].default,
     example: MediaGridInteractiveExample,
+  },
+  'logo-marquee': {
+    component: LogoMarquee,
+    editorFields: LogoMarqueeEditorFields,
+    defaults: blockDefaults['logo-marquee'].default,
+    example: LogoMarqueeExample,
   },
 }
 
@@ -392,6 +401,25 @@ export const blocks: BlockCategory[] = [
         description: 'Grid com cards de mídia para exibir informações.',
         image: '/images/blocks/showcase/showcaseGridImageCards.png',
         slug: 'showcase-grid-media-cards',
+      },
+    ],
+  },
+  {
+    category: 'Logos',
+    description: 'Minimalist logo carousels with auto-scroll and edge fade.',
+    image: '/images/blocks/logos/logoMarquee.png',
+    slug: 'logos',
+    type: 'logos',
+    blocks: [
+      {
+        name: 'Logo Marquee',
+        description:
+          'Logo carousel with auto-scroll, edge gradient and minimalist style.',
+        image: '/images/blocks/logos/logoMarquee.png',
+        slug: 'logo-marquee',
+        meta: {
+          containerClassName: 'max-w-full overflow-hidden px-0',
+        },
       },
     ],
   },
