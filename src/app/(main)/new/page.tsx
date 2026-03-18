@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 
-import { LogoMarquee } from '@/components/flx/blocks/logos/logo-marquee/logo-marquee'
-
 export const metadata: Metadata = {
   title: 'New',
   description:
@@ -49,10 +47,6 @@ export default function NewPage() {
   ]
 
   return (
-    <div className="mx-auto flex h-screen items-center justify-center px-3 py-8 md:max-w-5xl md:py-16 lg:max-w-6xl xl:max-w-6xl 2xl:max-w-[90rem]">
-      <section className="space-y-4">
-        <LogoMarquee items={logos} />
-      </section>
-    </div>
+    <div className="mx-auto px-3 py-8 md:max-w-5xl md:py-16 lg:max-w-6xl xl:max-w-6xl 2xl:max-w-[90rem]"></div>
   )
 }

@@ -53,6 +53,9 @@ import { BackgroundMediaEditorFields } from '@/components/flx/blocks/hero/backgr
 import { HeroContentMediaEditorFields } from '@/components/flx/blocks/hero/hero-content-media/editor/fields'
 import { HeroContentMedia } from '@/components/flx/blocks/hero/hero-content-media/hero-content-media'
 import { HeroContentMediaExample } from '@/components/flx/blocks/hero/hero-content-media/hero-content-media-example'
+import { HeroLogosCarouselEditorFields } from '@/components/flx/blocks/hero/hero-logos-carousel/editor/fields'
+import { HeroLogosCarousel } from '@/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel'
+import { HeroLogosCarouselExample } from '@/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example'
 import { TextBadgesEditorFields } from '@/components/flx/blocks/hero/text-badges/editor/fields'
 import { TextBadges } from '@/components/flx/blocks/hero/text-badges/text-badges'
 import { TextBadgesExample } from '@/components/flx/blocks/hero/text-badges/text-badges-example'
@@ -114,6 +117,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: HeroContentMediaEditorFields,
     defaults: blockDefaults['hero-content-media'].default,
     example: HeroContentMediaExample,
+  },
+  'hero-logos-carousel': {
+    component: HeroLogosCarousel,
+    editorFields: HeroLogosCarouselEditorFields,
+    defaults: blockDefaults['hero-logos-carousel'].default,
+    example: HeroLogosCarouselExample,
   },
   'carousel-focus': {
     component: CarouselFocus,
@@ -258,6 +267,16 @@ export const blocks: BlockCategory[] = [
         slug: 'hero-content-media',
         meta: {
           iframeHeight: 600,
+        },
+      },
+      {
+        name: 'Hero Logos Carousel',
+        description:
+          'Hero with title, description, two CTAs, logo marquee, and image carousel below.',
+        image: '/images/blocks/hero/heroLogosCarousel.png',
+        slug: 'hero-logos-carousel',
+        meta: {
+          iframeHeight: 1200,
         },
       },
     ],
