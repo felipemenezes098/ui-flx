@@ -38,7 +38,7 @@ export function LogoMarquee({ items, className }: Readonly<LogoMarqueeProps>) {
   if (!normalizedItems.length) return null
 
   return (
-    <div className={cn('relative w-full', className)}>
+    <div className="relative w-full">
       <Carousel
         setApi={setApi}
         opts={{

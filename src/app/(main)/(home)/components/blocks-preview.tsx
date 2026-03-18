@@ -33,7 +33,7 @@ export function BlocksPreview() {
   return (
     <div>
       <div className="relative max-h-[800px] overflow-hidden">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 p-1 sm:grid-cols-2 lg:grid-cols-3">
           {displayedBlocks.map((block) => (
             <Link
               key={`${block.categorySlug}-${block.slug}`}
@@ -66,8 +66,10 @@ export function BlocksPreview() {
             </Link>
           ))}
         </div>
+
+        {/* Gradiente sticky no bottom do scroll */}
         <div
-          className="from-background via-background/70 pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t to-transparent"
+          className="from-background via-background/70 pointer-events-none sticky bottom-0 h-32 bg-gradient-to-t to-transparent"
           aria-hidden
         />
       </div>
