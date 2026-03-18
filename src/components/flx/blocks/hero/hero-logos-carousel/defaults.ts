@@ -1,19 +1,19 @@
 import type { HeroLogosCarouselProps } from './hero-logos-carousel'
 
 export const heroLogosCarouselDefaultProps = {
-  title: 'Build faster with the best tools',
+  title: 'Ambitious ideas deserve world-class design',
   description:
-    'Integrate with your favorite platforms and ship with confidence. From databases to analytics, we have you covered.',
+    'We partner with startups to craft products that stand out, win trust, and scale with speed.',
   logosInfo: 'Our design crew worked with industry leaders',
   primaryCTA: {
     ctaEnabled: true,
-    text: 'Get started',
+    text: 'Get Started',
     link: '/',
     variant: 'default',
   },
   secondaryCTA: {
     ctaEnabled: true,
-    text: 'Learn more',
+    text: 'View Work',
     link: '/',
     variant: 'secondary',
   },
