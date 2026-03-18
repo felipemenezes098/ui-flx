@@ -272,6 +272,30 @@
       }
     },
     {
+      "name": "hero-logos-carousel",
+      "type": "registry:block",
+      "title": "Hero Logos Carousel",
+      "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
+      "registryDependencies": ["@flx/cta", "@flx/logo-marquee", "carousel"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 950,
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      }
+    },
+    {
       "name": "focus-grid",
       "type": "registry:block",
       "title": "Focus Grid",
