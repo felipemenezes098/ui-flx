@@ -523,6 +523,29 @@
           "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
         }
       ]
+    },
+    {
+      "name": "primary-item-grid",
+      "type": "registry:block",
+      "title": "Primary Item Grid",
+      "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 850
+      }
     }
   ]
 }
