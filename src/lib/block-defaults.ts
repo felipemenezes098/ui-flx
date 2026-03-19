@@ -1,3 +1,4 @@
+import { bentoGridsDefaults } from '../components/flx/blocks/bento-grids/bento-grids-defaults'
 import { carouselDefaults } from '../components/flx/blocks/carousel/carousel-defaults'
 import { contentDefaults } from '../components/flx/blocks/content/content-defaults'
 import { heroDefaults } from '../components/flx/blocks/hero/hero-defaults'
@@ -10,6 +11,7 @@ export const blockDefaults = {
   ...carouselDefaults,
   ...showcaseDefaults,
   ...logosDefaults,
+  ...bentoGridsDefaults,
 } as const
 
 type BlockSlug = keyof typeof blockDefaults

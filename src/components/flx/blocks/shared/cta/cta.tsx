@@ -16,6 +16,7 @@ export interface CtaProps {
   text: string
   link: string
   variant?: ButtonVariant
+  size?: 'default' | 'sm' | 'lg'
 }
 
 export function Cta({
@@ -28,9 +29,14 @@ export function Cta({
 
   return (
     <Button
-      className={cn('w-fit rounded-full px-5', className)}
+      className={cn(
+        'w-fit rounded-full',
+        cta?.size === 'sm' ? 'px-4' : 'px-5',
+        className,
+      )}
       variant={cta?.variant ?? 'default'}
       asChild
+      size={cta?.size ?? 'default'}
     >
       <Link
         href={cta?.link ?? ''}

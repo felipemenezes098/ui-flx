@@ -1,3 +1,6 @@
+import { PrimaryItemGridEditorFields } from '@/components/flx/blocks/bento-grids/primary-item-grid/editor/fields'
+import { PrimaryItemGrid } from '@/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid'
+import { PrimaryItemGridExample } from '@/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example'
 import { CarouselFocus } from '@/components/flx/blocks/carousel/carousel-focus/carousel-focus'
 import { CarouselFocusExample } from '@/components/flx/blocks/carousel/carousel-focus/carousel-focus-example'
 import { CarouselFocusEditorFields } from '@/components/flx/blocks/carousel/carousel-focus/editor/fields'
@@ -83,7 +86,7 @@ export interface BlockCategory {
   description: string
   image: string
   slug: string
-  type: 'hero' | 'content' | 'showcase' | 'carousel' | 'logos'
+  type: 'hero' | 'content' | 'showcase' | 'carousel' | 'logos' | 'bento-grids'
   blocks: BlockItem[]
 }
 
@@ -233,6 +236,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: LogoMarqueeEditorFields,
     defaults: blockDefaults['logo-marquee'].default,
     example: LogoMarqueeExample,
+  },
+  'primary-item-grid': {
+    component: PrimaryItemGrid,
+    editorFields: PrimaryItemGridEditorFields,
+    defaults: blockDefaults['primary-item-grid'].default,
+    example: PrimaryItemGridExample,
   },
 }
 
@@ -420,6 +429,26 @@ export const blocks: BlockCategory[] = [
         description: 'Grid com cards de mídia para exibir informações.',
         image: '/images/blocks/showcase/showcaseGridImageCards.png',
         slug: 'showcase-grid-media-cards',
+      },
+    ],
+  },
+  {
+    category: 'Bento grids',
+    description:
+      'Bento-style grids with a prominent primary tile and supporting cards.',
+    image: '/images/blocks/bento-grids/primaryItemGrid.png',
+    slug: 'bento-grids',
+    type: 'bento-grids',
+    blocks: [
+      {
+        name: 'Primary Item Grid',
+        description:
+          'Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.',
+        image: '/images/blocks/bento-grids/primaryItemGrid.png',
+        slug: 'primary-item-grid',
+        meta: {
+          iframeHeight: 900,
+        },
       },
     ],
   },
