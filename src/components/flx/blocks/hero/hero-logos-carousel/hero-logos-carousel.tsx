@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { LogoMarqueeItem } from '@/components/flx/blocks/logos/logo-marquee/logo-marquee'
@@ -105,12 +104,12 @@ export function HeroLogosCarousel({
                   >
                     <div className="bg-muted rounded-lg p-4">
                       <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                        <Image
+                        <img
                           src={item.image}
                           alt={item.title}
-                          fill
-                          className="object-cover"
-                          unoptimized
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 size-full object-cover"
                         />
                       </div>
                     </div>

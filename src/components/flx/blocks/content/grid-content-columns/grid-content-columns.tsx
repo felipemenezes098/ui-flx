@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
@@ -29,12 +28,12 @@ export function GridContentColumns({ items }: GridContentColumnsProps) {
         <div key={`${item.title}-${index}`} className="space-y-5">
           {item.media && (
             <div className="relative h-64 w-full overflow-hidden rounded-lg">
-              <Image
+              <img
                 src={item.media.src}
                 alt={item.title ?? 'Grid content columns image'}
-                className="h-full w-full object-cover"
-                fill
-                unoptimized
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 size-full object-cover"
               />
             </div>
           )}

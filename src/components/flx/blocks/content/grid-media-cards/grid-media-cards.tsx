@@ -1,6 +1,4 @@
 import { icons } from 'lucide-react'
-import Image from 'next/image'
-
 import { Icon } from '@/components/flx/blocks/shared/dynamic-icon/dynamic-icon'
 import { cn } from '@/lib/utils'
 
@@ -32,12 +30,12 @@ export function GridMediaCards({
             key={item.title + index}
             className="relative h-96 overflow-hidden rounded-lg"
           >
-            <Image
+            <img
               src={item.image.url}
               alt={item.image.alt}
-              className="object-cover"
-              fill
-              unoptimized
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full object-cover"
             />
             {item.image.overlay && (
               <div className="absolute inset-0 bg-black/50" />

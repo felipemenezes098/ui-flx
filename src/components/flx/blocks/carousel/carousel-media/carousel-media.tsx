@@ -2,7 +2,6 @@
 
 import type { EmblaOptionsType } from 'embla-carousel'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Balancer from 'react-wrap-balancer'
 
@@ -150,12 +149,12 @@ export function CarouselMedia({
                       {item.media && (
                         <>
                           <div className="relative h-full min-h-64 w-full md:min-h-96">
-                            <Image
+                            <img
                               src={item.media.src}
                               alt={item.title ?? 'Carousel media image'}
-                              className="h-full w-full object-cover"
-                              fill
-                              unoptimized
+                              loading="lazy"
+                              decoding="async"
+                              className="absolute inset-0 size-full object-cover"
                             />
                           </div>
                           {item.media.overlay && (

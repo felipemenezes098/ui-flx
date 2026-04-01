@@ -1,7 +1,5 @@
 import Balancer from 'react-wrap-balancer'
 import { createImageUrlBuilder } from '@sanity/image-url'
-import Image from 'next/image'
-
 import { Cta } from '@/components/flx/sanity/shared/cta'
 import { client } from '@/sanity/client'
 import { cn } from '@/lib/utils'
@@ -69,11 +67,12 @@ export function HeroContentMedia({ block }: Readonly<HeroContentMediaProps>) {
           )}
         >
           <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-[30rem]">
-            <Image
+            <img
               src={imageUrl}
               alt={block.media?.alt ?? block.title ?? 'Hero image'}
-              className="h-full w-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
-              fill
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
             />
           </div>
         </div>

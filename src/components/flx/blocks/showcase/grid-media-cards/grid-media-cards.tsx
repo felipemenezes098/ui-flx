@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
@@ -47,12 +46,12 @@ export function GridMediaCards({
             >
               {item.media && (
                 <div className="relative min-h-80 w-full overflow-hidden rounded-lg">
-                  <Image
+                  <img
                     src={item.media.src}
                     alt={item.title ?? 'Grid media cards image'}
-                    className="h-full w-full object-cover"
-                    fill
-                    unoptimized
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 size-full object-cover"
                   />
                 </div>
               )}

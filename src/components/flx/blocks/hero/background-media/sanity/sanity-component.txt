@@ -1,7 +1,5 @@
 import Balancer from "react-wrap-balancer";
 import { createImageUrlBuilder } from "@sanity/image-url";
-import Image from "next/image";
-
 import { Cta } from "@/components/core/cta";
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
@@ -24,11 +22,12 @@ export function BackgroundMedia({ block }: Readonly<BackgroundMediaProps>) {
     <div className="group/video group/media relative">
       {imageUrl && (
         <div className="relative min-h-96 w-full">
-          <Image
+          <img
             src={imageUrl}
             alt={block.title ?? "Hero background media"}
-            className="h-full w-full object-cover rounded-xl"
-            fill
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full rounded-xl object-cover"
           />
         </div>
       )}

@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createImageUrlBuilder } from "@sanity/image-url";
 
@@ -111,12 +110,12 @@ function ItemCard({
       }}
     >
       <div className="relative h-64 w-full">
-        <Image
+        <img
           src={item.image}
           alt={item.title}
-          fill
-          className="group-focus-visible:ring-ring/50 rounded-xl object-cover group-focus-visible:ring-2 group-focus-visible:outline-none"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          loading="lazy"
+          decoding="async"
+          className="group-focus-visible:ring-ring/50 absolute inset-0 size-full rounded-xl object-cover group-focus-visible:ring-2 group-focus-visible:outline-none"
         />
       </div>
       <div className="py-2">

@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -38,7 +36,7 @@ export function Cta({
       asChild
       size={cta?.size ?? 'default'}
     >
-      <Link
+      <a
         href={cta?.link ?? ''}
         target={cta?.link ? '_blank' : '_self'}
         rel={cta?.link ? 'noopener noreferrer' : undefined}
@@ -48,7 +46,7 @@ export function Cta({
         {cta?.link && (
           <span className="sr-only">{`${cta?.text} (opens in new tab)`}</span>
         )}
-      </Link>
+      </a>
     </Button>
   )
 }

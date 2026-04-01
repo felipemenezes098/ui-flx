@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
@@ -53,12 +52,12 @@ export function GridTwoColumns({
       {image && (
         <div className={cn('relative order-2 flex md:h-full md:items-center')}>
           <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg">
-            <Image
+            <img
               src={image.src}
               alt={title ?? 'Grid Two Columns Image'}
-              className="h-full w-full rounded-lg object-cover transition-all duration-200 group-hover/image:scale-105"
-              fill
-              unoptimized
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full rounded-lg object-cover transition-all duration-200 group-hover/image:scale-105"
             />
           </div>
         </div>

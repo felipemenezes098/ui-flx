@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edges'
@@ -72,14 +71,13 @@ export function TabsMedia({
                 index === safeIndex ? 'opacity-100' : 'opacity-0',
               )}
             >
-              <Image
+              <img
                 src={item.url}
                 alt={item.label}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={index === 0}
-                unoptimized
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={index === 0 ? 'high' : 'low'}
+                className="absolute inset-0 size-full object-cover"
               />
             </div>
           ))}
