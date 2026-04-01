@@ -10,10 +10,11 @@ import { cn } from '@/lib/utils'
 export function NavSection({
   section,
 }: Readonly<{
-  section: { name: string; href: string }
+  section: { name: string; href: string; isNew?: boolean }
 }>) {
   const pathname = usePathname()
   const isActive = pathname === section.href
+  const isNew = section.isNew ?? false
   return (
     <Link
       href={section.href}
@@ -28,6 +29,7 @@ export function NavSection({
         variant="ghost"
       >
         {section.name}
+        {isNew && <div className="h-2 w-2 rounded-full bg-green-400" />}
       </Button>
     </Link>
   )
