@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
@@ -27,12 +26,12 @@ export function BackgroundMedia({
     <div className="group/video group/media relative">
       {image && (
         <div className="relative min-h-120 w-full">
-          <Image
+          <img
             src={image.url}
             alt={image.alt ?? 'Hero background media'}
-            className="h-full w-full rounded-xl object-cover"
-            fill
-            unoptimized
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full rounded-xl object-cover"
           />
           {image.overlay && (
             <div className="absolute inset-0 rounded-xl bg-black/50" />

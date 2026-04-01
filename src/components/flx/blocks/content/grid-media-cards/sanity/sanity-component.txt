@@ -2,8 +2,6 @@
 
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { icons } from "lucide-react";
-import Image from "next/image";
-
 import { Icon } from "../shared/dynamic-icon";
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
@@ -45,11 +43,12 @@ export function GridMediaCards({ block }: Readonly<GridMediaCardsProps>) {
               className="relative h-96 overflow-hidden rounded-lg"
             >
               {imageUrl && (
-                <Image
+                <img
                   src={imageUrl}
                   alt={item.image?.alt ?? item.title ?? "Grid media card"}
-                  className="object-cover"
-                  fill
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover"
                 />
               )}
               {item.image?.overlay === true && (

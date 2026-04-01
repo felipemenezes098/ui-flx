@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 import { cn } from '@/lib/utils'
@@ -56,13 +54,12 @@ export function PrimaryItemGrid({
           </div>
 
           <div className="bg-muted relative min-h-64 w-full overflow-hidden rounded-xl md:min-h-0">
-            <Image
+            <img
               src={primary.media.url}
               alt={primary.media.title}
-              fill
-              className="object-cover"
-              unoptimized
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full object-cover"
             />
           </div>
         </div>
@@ -75,13 +72,12 @@ export function PrimaryItemGrid({
         >
           <div className="flex h-full flex-col gap-6">
             <div className="bg-muted relative aspect-[4/3] overflow-hidden rounded-xl">
-              <Image
+              <img
                 src={item.media.url}
                 alt={item.media.title}
-                fill
-                className="object-cover"
-                unoptimized
-                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 size-full object-cover"
               />
             </div>
             <div className="space-y-1">

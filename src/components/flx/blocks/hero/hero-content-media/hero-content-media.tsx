@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '@/components/flx/blocks/shared/cta/cta'
@@ -69,12 +68,12 @@ export function HeroContentMedia({
           )}
         >
           <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-[30rem]">
-            <Image
+            <img
               src={image.src}
               alt={image.alt ?? title ?? 'Hero image'}
-              className="h-full w-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
-              fill
-              unoptimized
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
             />
           </div>
         </div>

@@ -4,8 +4,6 @@ import Balancer from "react-wrap-balancer";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -130,11 +128,12 @@ export function CarouselMedia({ block }: Readonly<CarouselMediaProps>) {
                       {imageUrl && (
                         <>
                           <div className="relative h-full min-h-64 w-full md:min-h-96">
-                            <Image
+                            <img
                               src={imageUrl}
                               alt={item.title ?? "Carousel media image"}
-                              className="h-full w-full object-cover"
-                              fill
+                              loading="lazy"
+                              decoding="async"
+                              className="absolute inset-0 size-full object-cover"
                             />
                           </div>
                           <div className="absolute inset-0 bg-black/20" />
