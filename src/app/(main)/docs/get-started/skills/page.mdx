@@ -1,0 +1,94 @@
+export const metadata = {
+  title: 'AI skills',
+  description:
+    'Give your AI assistant clear context for Flx blocks, the @flx registry, and shadcn-based workflows.',
+  openGraph: {
+    title: 'AI skills',
+    description:
+      'Install the Flx agent skill so assistants follow registry patterns, examples, and shared blocks like Cta.',
+    type: 'article',
+  },
+}
+
+# AI skills
+
+Flx blocks are **copied into your repo** and **owned by you**. The **Flx skill** is a short guide so assistants use the right **props**, **`*-example.tsx`** files, and **`@flx`** installs—without reinventing markup.
+
+With the skill installed, you can ask for things like:
+
+- _“Add `GridTwoColumns` with this Unsplash URL as the image and a CTA to `/pricing`.”_
+- _“Why doesn’t my CTA show?”_ (hint: `ctaEnabled`)
+- _“Run `npx shadcn@latest add @flx/primary-item-grid` and show usage from the example file.”_
+- _“Match `registryDependencies` for this block so nothing is missing.”_
+
+The skill does **not** replace the shadcn CLI. Use **`npx shadcn@latest`** for adds; use the Flx skill so the model respects **Flx-specific shapes** (e.g. `image: { src, alt }` vs `media: { url, title }`).
+
+---
+
+## Install
+
+From any project where you want the skill available (your app repo, a monorepo package, etc.):
+
+<CodeBlock>
+  <CodeBlockCode
+    language="bash"
+    withCopy
+    code="npx skills add felipemenezes098/ui-flx --skill ui-flx"
+  />
+</CodeBlock>
+
+To install straight from the skill folder URL:
+
+<CodeBlock>
+  <CodeBlockCode
+    language="bash"
+    withCopy
+    code="npx skills add https://github.com/felipemenezes098/ui-flx/tree/main/.agents/skills/ui-flx"
+  />
+</CodeBlock>
+
+Pick your agent when prompted (Cursor, Claude Code, Codex, and others are supported by the [Skills CLI](https://github.com/vercel-labs/skills)).
+
+Learn more about the open ecosystem at [skills.sh](https://skills.sh).
+
+---
+
+## What’s included
+
+### Registry and `shadcn` CLI
+
+How **`@flx/<block>`** maps to the registry URL, what goes in **`components.json`**, and that **`npx shadcn@latest add`** is how blocks land in your tree.
+
+### Small, real examples
+
+The skill includes **concrete prompts** and **tiny TSX snippets** (e.g. **`GridTwoColumns`** with a real image URL, **`Cta`** with `ctaEnabled`) so the model doesn’t guess.
+
+### Example files
+
+Many blocks ship **`*-example.tsx`**. The skill tells assistants to treat that file as the **prop shape** reference and to swap demo copy/URLs for your production content.
+
+### Shared pieces
+
+**`Cta`**, **`ctaEnabled`**, image field shapes, and **`registryDependencies`** so installs stay complete.
+
+### Anti-patterns
+
+Brief list: wrong aliases, invented props, skipping dependencies, replacing blocks with ad-hoc `div`s.
+
+---
+
+## How it works
+
+1. **Discovery** — Standard [Agent Skill](https://agentskills.io): `SKILL.md` in `.agents/skills/ui-flx/`.
+2. **Install** — `npx skills` links or copies into your agent’s skills directory (e.g. `.agents/skills/` for Cursor).
+3. **Activation** — Metadata loads first; full instructions when the task matches Flx / `@flx` / blocks.
+4. **Together with shadcn** — Optional: [shadcn/ui skill](https://ui.shadcn.com/docs/skills) for primitives, themes, and `components.json`.
+
+---
+
+## Learn more
+
+- [Introduction](/docs/get-started/introduction) — Registry URL and first `@flx` add
+- [Blocks](/docs/get-started/blocks) — Browse all blocks
+- [skills.sh](https://skills.sh) — Discover other skills
+- [Skills CLI](https://github.com/vercel-labs/skills) — `add`, `list`, `remove`, agents

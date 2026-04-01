@@ -22,6 +22,11 @@ export const getStartedSections = [
     name: 'Blocks',
     href: '/docs/get-started/blocks',
   },
+  {
+    name: 'AI Skills',
+    href: '/docs/get-started/skills',
+    isNew: true,
+  },
 ]
 
 export const sharedSections = [
@@ -33,7 +38,7 @@ export const sharedSections = [
 
 export const docsSanitySections = [
   {
-    name: 'Getting started',
+    name: 'Getting Started',
     href: '/docs/sanity/getting-started',
   },
   {
