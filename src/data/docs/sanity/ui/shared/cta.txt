@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { cn } from '@/lib/utils'
 import { Cta as CtaType } from '@/sanity.types'
 
@@ -19,7 +17,7 @@ export function Cta({
       variant={cta?.variant ?? 'default'}
       asChild
     >
-      <Link
+      <a
         href={cta?.link ?? ''}
         target={cta?.link ? '_blank' : '_self'}
         rel={cta?.link ? 'noopener noreferrer' : undefined}
@@ -29,7 +27,7 @@ export function Cta({
         {cta?.link && (
           <span className="sr-only">{`${cta?.text} (opens in new tab)`}</span>
         )}
-      </Link>
+      </a>
     </Button>
   )
 }

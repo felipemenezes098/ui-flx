@@ -1,7 +1,5 @@
 import Balancer from "react-wrap-balancer";
 import { createImageUrlBuilder } from "@sanity/image-url";
-import Image from "next/image";
-
 import { Cta } from "@/components/flx/sanity/shared/cta";
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
@@ -35,11 +33,12 @@ export function GridContentColumns({
           <div key={`${item.title}-${index}`} className="space-y-5">
             {imageUrl && (
               <div className="relative h-64 w-full overflow-hidden rounded-lg">
-                <Image
+                <img
                   src={imageUrl}
                   alt={item.title ?? "Grid content columns image"}
-                  className="h-full w-full object-cover"
-                  fill
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover"
                 />
               </div>
             )}

@@ -1,7 +1,6 @@
 'use client'
 
 import AutoScroll from 'embla-carousel-auto-scroll'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import {
@@ -65,12 +64,13 @@ export function LogoMarquee({ items, className }: Readonly<LogoMarqueeProps>) {
               className="basis-auto pl-15"
             >
               <div className="flex h-12 items-center">
-                <Image
+                <img
                   src={item.url}
                   alt={item.title}
                   width={120}
                   height={32}
-                  unoptimized
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 w-auto object-contain opacity-60 grayscale transition-[opacity,filter] duration-300 ease-out hover:opacity-100 hover:grayscale-0 dark:invert"
                 />
               </div>

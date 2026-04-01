@@ -4,8 +4,6 @@ import { createImageUrlBuilder } from "@sanity/image-url";
 import { cn } from "@/lib/utils";
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
-import Image from "next/image";
-
 type ContentGridTwoColumnsBlock = Extract<
   Blocks[number],
   { _type: "contentGridTwoColumns" }
@@ -51,11 +49,12 @@ export function GridTwoColumns({ block }: Readonly<GridTwoColumnsProps>) {
       <div className={cn("order-2 relative flex md:h-full md:items-center")}>
         {imageUrl && (
           <div className="relative min-h-80 w-full overflow-hidden rounded-lg group/image">
-            <Image
+            <img
               src={imageUrl}
               alt={block.title ?? "Grid Two Columns Image"}
-              className="h-full w-full object-cover group-hover/image:scale-105 transition-all duration-300 rounded-lg"
-              fill
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full rounded-lg object-cover transition-all duration-300 group-hover/image:scale-105"
             />
           </div>
         )}

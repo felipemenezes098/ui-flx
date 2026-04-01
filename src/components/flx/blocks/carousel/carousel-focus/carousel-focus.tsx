@@ -3,7 +3,6 @@
 import { cva } from 'class-variance-authority'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { motion } from 'motion/react'
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 import {
@@ -149,13 +148,12 @@ export function CarouselFocus({
                       aspectVariants({ aspect: item.image.aspect }),
                     )}
                   >
-                    <Image
+                    <img
                       src={item.image.url}
                       alt=""
-                      className="pointer-events-none object-cover"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                      unoptimized
+                      loading="lazy"
+                      decoding="async"
+                      className="pointer-events-none absolute inset-0 size-full object-cover"
                     />
                   </span>
                 </button>
@@ -181,13 +179,12 @@ export function CarouselFocus({
                 onFocus={() => handleItemMouseEnter(index)}
                 onBlur={handleItemMouseLeave}
               >
-                <Image
+                <img
                   src={item.image.url}
                   alt=""
-                  className="pointer-events-none object-cover"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  unoptimized
+                  loading="lazy"
+                  decoding="async"
+                  className="pointer-events-none absolute inset-0 size-full object-cover"
                 />
                 <motion.span
                   className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent px-3 py-2.5 text-sm font-medium text-white"

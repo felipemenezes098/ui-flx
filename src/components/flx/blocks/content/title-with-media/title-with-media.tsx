@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Balancer from 'react-wrap-balancer'
 
 export interface TitleWithMediaProps {
@@ -23,12 +22,12 @@ export function TitleWithMedia({ title, media }: TitleWithMediaProps) {
       </div>
       {media && (
         <div className="relative min-h-96 w-full overflow-hidden rounded-lg">
-          <Image
+          <img
             src={media.src}
             alt={title ?? 'Title With Media Image'}
-            className="h-full w-full object-cover"
-            fill
-            unoptimized
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
           />
         </div>
       )}

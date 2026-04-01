@@ -2,7 +2,6 @@
 
 import { X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Balancer from 'react-wrap-balancer'
 
@@ -64,12 +63,12 @@ function ItemDialog({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-72 w-full overflow-hidden rounded-xl">
-          <Image
+          <img
             src={item.image.src}
             alt={item.image.alt}
-            className="object-cover"
-            fill
-            unoptimized
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
           />
         </div>
         <div className="flex flex-col gap-1 text-center">
@@ -127,12 +126,12 @@ export function MediaGridInteractive({
                   className="group relative block h-96 w-full [transform:translateZ(0)] cursor-pointer overflow-hidden rounded-lg"
                   onClick={() => setSelected(item)}
                 >
-                  <Image
+                  <img
                     src={item.image.src}
                     alt={item.image.alt}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    fill
-                    unoptimized
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-x-0 bottom-0 flex h-20 translate-y-full items-center justify-center bg-gradient-to-t from-black/60 to-transparent transition-transform duration-300 group-hover:translate-y-0">
                     <span className="text-xs font-medium text-white/90 uppercase">

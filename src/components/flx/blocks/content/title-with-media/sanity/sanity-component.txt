@@ -3,8 +3,6 @@ import { createImageUrlBuilder } from "@sanity/image-url";
 
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
-import Image from "next/image";
-
 type ContentTitleWithMediaBlock = Extract<
   Blocks[number],
   { _type: "contentTitleWithMedia" }
@@ -30,11 +28,12 @@ export function TitleWithMedia({ block }: Readonly<TitleWithMediaProps>) {
       </div>
       {imageUrl && (
         <div className="relative min-h-96 w-full overflow-hidden rounded-lg">
-          <Image
+          <img
             src={imageUrl}
             alt={block.title ?? "Title With Media Image"}
-            className="h-full w-full object-cover"
-            fill
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
           />
         </div>
       )}

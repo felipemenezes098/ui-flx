@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -83,14 +82,13 @@ export function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {
               index === selectedIndex ? 'opacity-100' : 'opacity-0',
             )}
           >
-            <Image
+            <img
               src={item.image.src}
               alt={item.image.alt || item.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority={index === 0}
-              unoptimized
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              className="absolute inset-0 size-full object-cover"
             />
           </div>
         ))}

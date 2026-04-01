@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export interface GridWithMediaTopProps {
   media: {
     url: string
@@ -19,12 +17,12 @@ export function GridWithMediaTop({
     <div className="space-y-8">
       {media && (
         <div className="relative max-h-140 min-h-96 w-full overflow-hidden rounded-lg">
-          <Image
+          <img
             src={media.url}
             alt={media.alt ?? 'Grid With Media Top'}
-            className="h-full w-full object-cover"
-            fill
-            unoptimized
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
           />
         </div>
       )}
