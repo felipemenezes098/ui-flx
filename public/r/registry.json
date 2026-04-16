@@ -479,6 +479,31 @@
       }
     },
     {
+      "name": "carousel-cards",
+      "type": "registry:block",
+      "title": "Carousel Cards",
+      "description": "A carousel of cards with a title and description.",
+      "registryDependencies": ["carousel", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 700,
+        "containerClassName": "max-w-full overflow-hidden px-0",
+        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+      }
+    },
+    {
       "name": "carousel-media",
       "type": "registry:block",
       "title": "Carousel Media",

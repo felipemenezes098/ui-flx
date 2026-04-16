@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { PrimaryItemGrid } from '@/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid'
+import { CarouselCards } from '@/components/flx/blocks/carousel/carousel-cards/carousel-cards'
 
 export const metadata: Metadata = {
   title: 'New',
@@ -22,62 +22,63 @@ export const metadata: Metadata = {
 
 export default function NewPage() {
   return (
-    <div className="mx-auto px-3 py-8 md:max-w-5xl md:py-16 lg:max-w-6xl xl:max-w-6xl 2xl:max-w-[90rem]">
-      <PrimaryItemGrid
-        primary={{
-          title: 'Build bento sections in minutes',
-          description:
-            'Create a bold primary feature with a CTA and media, then follow it with supporting image cards—clean, responsive, and easy to customize.',
-          cta: {
-            ctaEnabled: true,
-            text: 'Explore blocks',
-            link: '/blocks',
-            variant: 'default',
-          },
-          media: {
-            title: 'Bento section preview',
-            url: 'https://images.unsplash.com/photo-1624888726831-f06836b69e55?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          },
-        }}
-        items={[
-          {
-            title: 'Dynamic cards',
-            description:
-              'Swap images and copy without breaking layout or spacing.',
-            media: {
-              title: 'Reusable cards media',
-              url: 'https://images.unsplash.com/photo-1611310424006-42cf1e064288?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    <div className="mx-auto px-3 py-12 md:max-w-5xl lg:max-w-6xl 2xl:max-w-[90rem]">
+      <div className="mt-8">
+        <CarouselCards
+          title="New blocks for modern UI building."
+          description="Fresh, reusable pieces for fast product work."
+          items={[
+            {
+              title: 'Beautiful blocks',
+              description: 'Polished components that feel ready.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1545277048-000c86055339?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Beautiful blocks preview',
+              },
             },
-          },
-          {
-            title: 'Responsive by default',
-            description:
-              'Stacks on mobile and becomes a 3-column bento on larger screens.',
-            media: {
-              title: 'Responsive cards media',
-              url: 'https://images.unsplash.com/photo-1712068944624-395e0948a71d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            {
+              title: 'Ship faster',
+              description: 'Move from idea to screen quickly.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1574557398955-09174289ea44?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Ship faster preview',
+              },
             },
-          },
-          {
-            title: 'Clean visual hierarchy',
-            description:
-              'Primary content stands out while the supporting cards stay readable.',
-            media: {
-              title: 'Visual hierarchy media',
-              url: 'https://images.unsplash.com/photo-1617020329399-a1fe5d8646d5?q=80&w=1077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            {
+              title: 'Build clean',
+              description: 'Simple structure with room to breathe.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1595330495302-e257debfa664?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Build clean preview',
+              },
             },
-          },
-          {
-            title: 'Extendable cards',
-            description:
-              'Add more cards, switch aspect ratios, and tune the spacing.',
-            media: {
-              title: 'Extendable cards media',
-              url: 'https://images.unsplash.com/photo-1678567668518-fc22c9c76f1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            {
+              title: 'Launch ready',
+              description: 'Fast to use and easy to ship.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1543617934-70e4a9efad1c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Launch ready preview',
+              },
             },
-          },
-        ]}
-      />
+            {
+              title: 'Made to scale',
+              description: 'Reusable blocks for growing products.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1574557399375-c721d2371825?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Made to scale preview',
+              },
+            },
+            {
+              title: 'Ready to use',
+              description: 'Drop in and keep moving.',
+              media: {
+                src: 'https://images.unsplash.com/photo-1574557399909-c6df4fde191a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                alt: 'Ready to use preview',
+              },
+            },
+          ]}
+        />
+      </div>
     </div>
   )
 }
