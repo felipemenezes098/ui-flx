@@ -1,6 +1,9 @@
 import { PrimaryItemGridEditorFields } from '@/components/flx/blocks/bento-grids/primary-item-grid/editor/fields'
 import { PrimaryItemGrid } from '@/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid'
 import { PrimaryItemGridExample } from '@/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example'
+import { CarouselCards } from '@/components/flx/blocks/carousel/carousel-cards/carousel-cards'
+import { CarouselCardsExample } from '@/components/flx/blocks/carousel/carousel-cards/carousel-cards-example'
+import { CarouselCardsEditorFields } from '@/components/flx/blocks/carousel/carousel-cards/editor/fields'
 import { CarouselFocus } from '@/components/flx/blocks/carousel/carousel-focus/carousel-focus'
 import { CarouselFocusExample } from '@/components/flx/blocks/carousel/carousel-focus/carousel-focus-example'
 import { CarouselFocusEditorFields } from '@/components/flx/blocks/carousel/carousel-focus/editor/fields'
@@ -135,6 +138,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     variations: {
       'title-inside': CarouselFocusTitleInside,
     },
+  },
+  'carousel-cards': {
+    component: CarouselCards,
+    editorFields: CarouselCardsEditorFields,
+    defaults: blockDefaults['carousel-cards'].default,
+    example: CarouselCardsExample,
   },
   'carousel-media': {
     component: CarouselMedia,
@@ -413,6 +422,18 @@ export const blocks: BlockCategory[] = [
           containerClassName: 'max-w-full overflow-hidden px-0',
           componentClassName:
             '2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5',
+        },
+      },
+      {
+        name: 'Carousel Cards',
+        description: 'A carousel of cards with a title and description.',
+        image: '/images/blocks/carousel/carouselCards.png',
+        slug: 'carousel-cards',
+        meta: {
+          iframeHeight: 700,
+          containerClassName: 'max-w-full overflow-hidden px-0',
+          componentClassName:
+            '2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-10',
         },
       },
     ],
