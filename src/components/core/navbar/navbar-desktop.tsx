@@ -78,7 +78,9 @@ export function NavbarDesktop() {
                 </Link>
               </Button>
             </div>
-            <Separator orientation="vertical" className="!h-4" />
+            <div className="flex items-center">
+              <Separator orientation="vertical" className="!h-4" />
+            </div>
             <ThemeSwitcher />
           </div>
         </div>

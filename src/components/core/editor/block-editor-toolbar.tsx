@@ -171,7 +171,9 @@ export function BlockEditorTools() {
         >
           <Smartphone className="size-4" />
         </ToggleGroupItem>
-        <Separator orientation="vertical" className="!h-4" />
+        <div className="flex items-center">
+          <Separator orientation="vertical" className="!h-4" />
+        </div>
         <Button
           size="icon"
           variant="ghost"
@@ -184,7 +186,9 @@ export function BlockEditorTools() {
             <span className="sr-only">Preview Fullscreen</span>
           </Link>
         </Button>
-        <Separator orientation="vertical" className="!h-4" />
+        <div className="flex items-center">
+          <Separator orientation="vertical" className="!h-4" />
+        </div>
         <Button
           size="icon"
           variant="ghost"
@@ -208,13 +212,10 @@ export function BlockEditorTabs() {
       onValueChange={(value) => setView(value as 'preview' | 'code')}
     >
       <TabsList className="grid h-8 grid-cols-2 items-center rounded-md p-1">
-        <TabsTrigger
-          value="preview"
-          className={cn('h-6 rounded-sm px-2 text-xs')}
-        >
+        <TabsTrigger value="preview" className="h-6 rounded-sm px-2 text-xs">
           Preview
         </TabsTrigger>
-        <TabsTrigger value="code" className={cn('h-6 rounded-sm px-2 text-xs')}>
+        <TabsTrigger value="code" className="h-6 rounded-sm px-2 text-xs">
           Code
         </TabsTrigger>
       </TabsList>
@@ -230,7 +231,9 @@ export function BlockEditorToolbar() {
         <BlockEditorCli />
         <div className="ml-auto flex items-center gap-2">
           <BlockEditorTools />
-          <Separator orientation="vertical" className="mx-1 !h-4" />
+          <div className="flex items-center">
+            <Separator orientation="vertical" className="mx-1 !h-4" />
+          </div>
           <BlockEditorTabs />
         </div>
       </div>

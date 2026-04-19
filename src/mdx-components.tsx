@@ -335,7 +335,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           <div className="flex w-full flex-wrap justify-between gap-4 pr-4 pl-1 xl:flex-row xl:items-center">
             <div className="flex items-center gap-4">
               <BlockEditorTabs />
-              <Separator orientation="vertical" className="!h-5" />
+              <div className="flex items-center">
+                <Separator orientation="vertical" className="!h-5" />
+              </div>
               <BlockEditorTools />
             </div>
             <div className="flex flex-wrap items-center gap-4">
