@@ -71,6 +71,9 @@ import { LogoMarqueeExample } from '@/components/flx/blocks/logos/logo-marquee/l
 import { ShowcaseGridMediaCardsEditorFields } from '@/components/flx/blocks/showcase/grid-media-cards/editor/fields'
 import { GridMediaCards as ShowcaseGridMediaCards } from '@/components/flx/blocks/showcase/grid-media-cards/grid-media-cards'
 import { ShowcaseGridMediaCardsExample } from '@/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example'
+import { SingleTestimonialEditorFields } from '@/components/flx/blocks/testimonials/single-testimonial/editor/fields'
+import { SingleTestimonial } from '@/components/flx/blocks/testimonials/single-testimonial/single-testimonial'
+import { SingleTestimonialExample } from '@/components/flx/blocks/testimonials/single-testimonial/single-testimonial-example'
 
 import { blockDefaults, getBlockDefaults } from './block-defaults'
 
@@ -89,7 +92,14 @@ export interface BlockCategory {
   description: string
   image: string
   slug: string
-  type: 'hero' | 'content' | 'showcase' | 'carousel' | 'logos' | 'bento-grids'
+  type:
+    | 'hero'
+    | 'content'
+    | 'showcase'
+    | 'carousel'
+    | 'logos'
+    | 'bento-grids'
+    | 'testimonials'
   blocks: BlockItem[]
 }
 
@@ -251,6 +261,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: PrimaryItemGridEditorFields,
     defaults: blockDefaults['primary-item-grid'].default,
     example: PrimaryItemGridExample,
+  },
+  'single-testimonial': {
+    component: SingleTestimonial,
+    editorFields: SingleTestimonialEditorFields,
+    defaults: blockDefaults['single-testimonial'].default,
+    example: SingleTestimonialExample,
   },
 }
 
@@ -489,6 +505,22 @@ export const blocks: BlockCategory[] = [
         meta: {
           containerClassName: 'max-w-full overflow-hidden px-0',
         },
+      },
+    ],
+  },
+  {
+    category: 'Testimonials',
+    description: 'Minimal testimonial blocks for concise social proof.',
+    image: '/images/blocks/testimonials/singleTestimonial.png',
+    slug: 'testimonials',
+    type: 'testimonials',
+    blocks: [
+      {
+        name: 'Single Testimonial',
+        description:
+          'A single testimonial with quote, avatar, author name and role.',
+        image: '/images/blocks/testimonials/singleTestimonial.png',
+        slug: 'single-testimonial',
       },
     ],
   },
