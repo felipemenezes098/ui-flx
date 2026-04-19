@@ -18,7 +18,7 @@ export function SingleTestimonial({
   author,
 }: Readonly<SingleTestimonialProps>) {
   return (
-    <section className="mx-auto flex max-w-3xl flex-col gap-7 rounded-3xl text-center">
+    <div className="mx-auto flex max-w-3xl flex-col gap-7 rounded-3xl text-center">
       <p className="text-xl leading-tight font-medium tracking-tight md:text-[2rem]">
         "{quote}"
       </p>
@@ -39,6 +39,6 @@ export function SingleTestimonial({
           </p>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

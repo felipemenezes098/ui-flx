@@ -38,7 +38,7 @@ export function GridMediaCards({
         {cta && <Cta cta={cta} />}
       </div>
       {items && items.length > 0 && (
-        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
           {items.map((item, index) => (
             <li
               className="group/media group/video space-y-4"

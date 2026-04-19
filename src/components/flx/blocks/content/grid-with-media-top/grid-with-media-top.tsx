@@ -28,7 +28,7 @@ export function GridWithMediaTop({
       )}
 
       {items && items.length > 0 && (
-        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
           {items.map((item, index) => (
             <li key={`${item.title}-${index}`} className="flex flex-col gap-2">
               {item.title && (

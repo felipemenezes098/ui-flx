@@ -35,7 +35,7 @@ export function BadgeList({
               <li key={`${item}-${index}`}>
                 <Badge
                   variant="secondary"
-                  className="max-w-full px-4 py-2 text-sm wrap-break-word whitespace-normal md:max-w-none md:whitespace-nowrap"
+                  className="max-w-full p-3 text-sm wrap-break-word whitespace-normal md:max-w-none md:whitespace-nowrap"
                 >
                   {item}
                 </Badge>
