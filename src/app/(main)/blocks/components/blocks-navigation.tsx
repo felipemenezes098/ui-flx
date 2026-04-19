@@ -7,14 +7,12 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edges'
 import { blocks } from '@/lib/block-registry'
 import { cn } from '@/lib/utils'
+import { getValidBlocksCategorySlug } from '../lib/blocks-category'
 
-interface BlocksNavigationProps {
-  readonly activeTab: string
-}
-
-export function BlocksNavigation({ activeTab }: BlocksNavigationProps) {
+export function BlocksNavigation() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
 
   return (
     <ScrollFadeEdges

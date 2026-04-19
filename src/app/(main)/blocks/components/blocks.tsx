@@ -66,7 +66,7 @@ export function Blocks() {
   return (
     <div className="space-y-6">
       <div className="bg-background sticky top-14 z-30 w-full lg:hidden">
-        <BlocksNavigation activeTab={activeTab} />
+        <BlocksNavigation />
       </div>
       {blocks.map((block) => {
         if (!visitedRef.current.has(block.slug)) return null
