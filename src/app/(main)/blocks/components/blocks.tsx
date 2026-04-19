@@ -3,7 +3,7 @@
 import { EyeIcon, Palette } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
 import { BlockEditor } from '@/components/core/editor/block-editor'
@@ -18,7 +18,7 @@ import {
   BlockEditorTabs,
   BlockEditorTools,
 } from '@/components/core/editor/block-editor-toolbar'
-import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edges'
+import { BlocksNavigation } from './blocks-navigation'
 import { Button } from '@/components/ui/button'
 import {
   ResizableHandle,
@@ -26,20 +26,14 @@ import {
   ResizablePanelGroup,
 } from '@/components/ui/resizable'
 import { Separator } from '@/components/ui/separator'
+import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
 import { blocks } from '@/lib/block-registry'
 import { cn } from '@/lib/utils'
 
-function getValidCategorySlug(slug: string | null): string {
-  if (!slug) return blocks[0]?.slug ?? 'hero'
-  const exists = blocks.some((b) => b.slug === slug)
-  return exists ? slug : (blocks[0]?.slug ?? 'hero')
-}
-
 export function Blocks() {
-  const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const activeTab = getValidCategorySlug(searchParams.get('category'))
+  const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
 
   const visitedRef = useRef<Set<string>>(new Set())
   visitedRef.current.add(activeTab)
@@ -53,7 +47,7 @@ export function Blocks() {
       const scrollToBlock = () => {
         const el = document.getElementById(hash)
         if (el) {
-          const offset = 180
+          const offset = 50
           const y =
             el.getBoundingClientRect().top +
             (globalThis.window?.scrollY ?? 0) -
@@ -70,51 +64,9 @@ export function Blocks() {
   }, [activeTab])
 
   return (
-    <section className="grid grid-cols-1 gap-6">
-      <div className="bg-background sticky top-[55px] z-30 w-full">
-        <ScrollFadeEdges
-          direction="horizontal"
-          className="w-full"
-          scrollClassName="py-3 no-scrollbar"
-          fadeWidth={50}
-        >
-          <div className="inline-flex h-auto w-max flex-nowrap gap-2 p-0">
-            {blocks.map((block) => {
-              const isActive = activeTab === block.slug
-              const params = new URLSearchParams(searchParams.toString())
-              params.set('category', block.slug)
-              const href = `${pathname}?${params.toString()}`
-              return (
-                <Link
-                  key={block.slug}
-                  href={href}
-                  className={cn(
-                    'flex shrink-0 flex-col items-center gap-1.5 rounded-xl border transition-all',
-                    'border-border hover:border-primary p-1',
-                    isActive && 'border-primary',
-                  )}
-                  aria-current={isActive ? 'true' : undefined}
-                  aria-label={block.category}
-                >
-                  <div className="rounded-t-lg bg-white p-1">
-                    <div className="relative h-14 min-h-14 w-28 shrink-0 overflow-hidden rounded-md">
-                      <Image
-                        src={block.image}
-                        alt=""
-                        fill
-                        className="object-contain object-center"
-                        sizes="400px"
-                      />
-                    </div>
-                  </div>
-                  <span className="px-2 text-xs font-medium">
-                    {block.category}
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </ScrollFadeEdges>
+    <div className="space-y-6">
+      <div className="bg-background sticky top-14 z-30 w-full lg:hidden">
+        <BlocksNavigation activeTab={activeTab} />
       </div>
       {blocks.map((block) => {
         if (!visitedRef.current.has(block.slug)) return null
@@ -144,23 +96,18 @@ export function Blocks() {
                           <div className="flex items-center">
                             <Separator
                               orientation="vertical"
-                              className="!h-5 shrink-0"
+                              className="h-5! shrink-0"
                             />
                           </div>
-                          <div className="min-w-0 flex-1 overflow-hidden">
-                            <p className="truncate text-sm font-medium">
-                              {subBlock.description}
-                            </p>
-                          </div>
+                          <BlockEditorTools />
                         </div>
                         <div className="flex shrink-0 flex-wrap items-center gap-4">
-                          <BlockEditorTools />
-                          <div className="flex items-center">
-                            <Separator orientation="vertical" className="!h-5" />
-                          </div>
                           <BlockEditorCli />
                           <div className="flex items-center">
-                            <Separator orientation="vertical" className="!h-5" />
+                            <Separator
+                              orientation="vertical"
+                              className="h-5!"
+                            />
                           </div>
                           <div className="flex items-center gap-2">
                             <Button asChild variant="outline" size="sm">
@@ -235,15 +182,15 @@ export function Blocks() {
                     </div>
                   </BlockEditor>
                   {/* <BlockEditorDisplay
-                    category={block.slug}
-                    slug={subBlock.slug}
-                  /> */}
+                      category={block.slug}
+                      slug={subBlock.slug}
+                    /> */}
                 </div>
               ))}
             </div>
           </div>
         )
       })}
-    </section>
+    </div>
   )
 }

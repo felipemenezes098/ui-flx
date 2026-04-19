@@ -6,9 +6,6 @@ import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { blocks } from '@/lib/block-registry'
-import { cn } from '@/lib/utils'
-
-const imageHeights = ['h-38', 'h-42', 'h-44', 'h-48', 'h-44', 'h-48'] as const
 
 const allBlocks = blocks.flatMap((category) =>
   category.blocks.map((block) => ({
@@ -76,17 +73,12 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
           >
             <article>
               <div className="bg-white p-2">
-                <div
-                  className={cn(
-                    'relative',
-                    imageHeights[index % imageHeights.length],
-                  )}
-                >
+                <div className="relative h-44">
                   <Image
                     src={block.image}
                     alt={block.name}
                     fill
-                    className="object-contain object-top transition-transform duration-200 group-hover:scale-[1.02]"
+                    className="object-contain object-center transition-transform duration-200 group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 50vw, 50vw"
                   />
                 </div>

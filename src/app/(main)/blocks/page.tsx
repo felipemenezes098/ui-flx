@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="container-page mx-auto grid grid-cols-1 px-5">
-      <div className="py-6">
+    <main className="grid min-w-0 grid-cols-1">
+      <div className="space-y-4 py-6">
         <section>
           <div className="flex flex-col justify-center">
             <h1 className="mb-1 text-3xl font-bold">Blocks</h1>
