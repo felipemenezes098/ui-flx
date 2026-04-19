@@ -1,3 +1,4 @@
+import { testimonialsDefaults } from '@/components/flx/blocks/testimonials/testimonials-defaults'
 import { bentoGridsDefaults } from '../components/flx/blocks/bento-grids/bento-grids-defaults'
 import { carouselDefaults } from '../components/flx/blocks/carousel/carousel-defaults'
 import { contentDefaults } from '../components/flx/blocks/content/content-defaults'
@@ -12,6 +13,7 @@ export const blockDefaults = {
   ...showcaseDefaults,
   ...logosDefaults,
   ...bentoGridsDefaults,
+  ...testimonialsDefaults,
 } as const
 
 type BlockSlug = keyof typeof blockDefaults

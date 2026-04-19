@@ -571,6 +571,26 @@
       "meta": {
         "iframeHeight": 850
       }
+    },
+    {
+      "name": "single-testimonial",
+      "type": "registry:block",
+      "title": "Single Testimonial",
+      "description": "A minimal testimonial block with one quote, avatar, author name, and role.",
+      "registryDependencies": ["avatar"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
+        }
+      ]
     }
   ]
 }
