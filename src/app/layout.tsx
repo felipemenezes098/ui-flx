@@ -7,6 +7,7 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 import { Analytics } from '@/components/core/analytics'
 import { SpeedInsights } from '@/components/core/speed-insights'
 import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { siteConfig } from '@/config/site'
 import { UIProvider } from '@/contexts/ui-context'
 import { ConfigProvider } from '@/hooks/use-config'
@@ -85,27 +86,31 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} overflow-x-hidden font-sans antialiased`}
-      >
-        <QueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <UIProvider>
-              <ConfigProvider>
-                <BalancerProvider>{children}</BalancerProvider>
-              </ConfigProvider>
-            </UIProvider>
-          </ThemeProvider>
-        </QueryProvider>
-        <Toaster />
-        <Analytics />
-        <SpeedInsights />
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="overflow-x-hidden font-sans antialiased">
+        <TooltipProvider>
+          <QueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <UIProvider>
+                <ConfigProvider>
+                  <BalancerProvider>{children}</BalancerProvider>
+                </ConfigProvider>
+              </UIProvider>
+            </ThemeProvider>
+          </QueryProvider>
+          <Toaster />
+          <Analytics />
+          <SpeedInsights />
+        </TooltipProvider>
       </body>
     </html>
   )

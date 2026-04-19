@@ -141,10 +141,12 @@ export function Blocks() {
                       <div className="flex w-full flex-wrap justify-between gap-4 pr-4 pl-1 xl:flex-row xl:items-center">
                         <div className="flex min-w-0 items-center gap-4 xl:flex-1">
                           <BlockEditorTabs />
-                          <Separator
-                            orientation="vertical"
-                            className="!h-5 shrink-0"
-                          />
+                          <div className="flex items-center">
+                            <Separator
+                              orientation="vertical"
+                              className="!h-5 shrink-0"
+                            />
+                          </div>
                           <div className="min-w-0 flex-1 overflow-hidden">
                             <p className="truncate text-sm font-medium">
                               {subBlock.description}
@@ -153,9 +155,13 @@ export function Blocks() {
                         </div>
                         <div className="flex shrink-0 flex-wrap items-center gap-4">
                           <BlockEditorTools />
-                          <Separator orientation="vertical" className="!h-5" />
+                          <div className="flex items-center">
+                            <Separator orientation="vertical" className="!h-5" />
+                          </div>
                           <BlockEditorCli />
-                          <Separator orientation="vertical" className="!h-5" />
+                          <div className="flex items-center">
+                            <Separator orientation="vertical" className="!h-5" />
+                          </div>
                           <div className="flex items-center gap-2">
                             <Button asChild variant="outline" size="sm">
                               <Link

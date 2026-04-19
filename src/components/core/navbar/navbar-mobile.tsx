@@ -94,9 +94,13 @@ export function NavbarMobile() {
                     <Logo.Github className="size-4" />
                   </Link>
                 </Button>
-                <Separator orientation="vertical" className="!h-4" />
+                <div className="flex items-center">
+                  <Separator orientation="vertical" className="!h-4" />
+                </div>
                 <ThemeSwitcher />
-                <Separator orientation="vertical" className="!h-4" />
+                <div className="flex items-center">
+                  <Separator orientation="vertical" className="!h-4" />
+                </div>
                 <Button
                   variant="ghost"
                   className="hover:bg-muted h-7 rounded-lg px-2"

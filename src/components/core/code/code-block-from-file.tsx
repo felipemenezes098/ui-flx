@@ -41,7 +41,9 @@ export function CodeBlockFromFile({
           <div className="flex shrink-0 items-center gap-1">
             <CodeCollapsibleButton />
             {collapsible && (
-              <Separator orientation="vertical" className="!h-4" />
+              <div className="flex items-center">
+                <Separator orientation="vertical" className="!h-4" />
+              </div>
             )}
             <CodeBlockCopy fileContent={code} />
           </div>
