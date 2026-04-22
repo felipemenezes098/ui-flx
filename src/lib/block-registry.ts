@@ -62,6 +62,9 @@ import { HeroContentMediaExample } from '@/components/flx/blocks/hero/hero-conte
 import { HeroLogosCarouselEditorFields } from '@/components/flx/blocks/hero/hero-logos-carousel/editor/fields'
 import { HeroLogosCarousel } from '@/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel'
 import { HeroLogosCarouselExample } from '@/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example'
+import { HeroHeadlinePreviewEditorFields } from '@/components/flx/blocks/hero/hero-headline-preview/editor/fields'
+import { HeroHeadlinePreview } from '@/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview'
+import { HeroHeadlinePreviewExample } from '@/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example'
 import { TextBadgesEditorFields } from '@/components/flx/blocks/hero/text-badges/editor/fields'
 import { TextBadges } from '@/components/flx/blocks/hero/text-badges/text-badges'
 import { TextBadgesExample } from '@/components/flx/blocks/hero/text-badges/text-badges-example'
@@ -139,6 +142,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: HeroLogosCarouselEditorFields,
     defaults: blockDefaults['hero-logos-carousel'].default,
     example: HeroLogosCarouselExample,
+  },
+  'hero-headline-preview': {
+    component: HeroHeadlinePreview,
+    editorFields: HeroHeadlinePreviewEditorFields,
+    defaults: blockDefaults['hero-headline-preview'].default,
+    example: HeroHeadlinePreviewExample,
   },
   'carousel-focus': {
     component: CarouselFocus,
@@ -304,13 +313,23 @@ export const blocks: BlockCategory[] = [
         },
       },
       {
+        name: 'Hero Headline Preview',
+        description:
+          'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+        image: '/images/blocks/hero/heroHeadlinePreview.png',
+        slug: 'hero-headline-preview',
+        meta: {
+          iframeHeight: 860,
+        },
+      },
+      {
         name: 'Hero Logos Carousel',
         description:
           'Hero with title, description, two CTAs, logo marquee, and image carousel below.',
         image: '/images/blocks/hero/heroLogosCarousel.png',
         slug: 'hero-logos-carousel',
         meta: {
-          iframeHeight: 1200,
+          iframeHeight: 800,
         },
       },
     ],

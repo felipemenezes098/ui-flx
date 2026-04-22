@@ -35,7 +35,14 @@ export function GridMediaCards({
             <Balancer balance={0.5}>{title}</Balancer>
           </h2>
         )}
-        {cta && <Cta cta={cta} />}
+        {cta && (
+          <Cta
+            cta={{
+              ...cta,
+              size: 'sm',
+            }}
+          />
+        )}
       </div>
       {items && items.length > 0 && (
         <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
