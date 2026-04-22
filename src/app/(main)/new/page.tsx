@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { SingleTestimonial } from '@/components/flx/blocks/testimonials/single-testimonial/single-testimonial'
+import { HeroHeadlinePreviewExample } from '@/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example'
 
 export const metadata: Metadata = {
   title: 'New',
@@ -22,19 +22,8 @@ export const metadata: Metadata = {
 
 export default function NewPage() {
   return (
-    <div className="mx-auto px-3 py-16 md:max-w-5xl lg:max-w-6xl 2xl:max-w-[90rem]">
-      <SingleTestimonial
-        quote="Switching to these blocks gave our team a cleaner system and helped us launch polished pages in a fraction of the time."
-        author={{
-          name: 'Sophie Carter',
-          role: 'Product Design Lead at Northstar',
-          avatar: {
-            src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-            alt: 'Sophie Carter',
-            fallback: 'SC',
-          },
-        }}
-      />
-    </div>
+    <main className="mx-auto md:max-w-5xl lg:max-w-6xl 2xl:max-w-[90rem]">
+      <HeroHeadlinePreviewExample />
+    </main>
   )
 }

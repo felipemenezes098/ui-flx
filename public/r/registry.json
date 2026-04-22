@@ -291,7 +291,7 @@
         }
       ],
       "meta": {
-        "iframeHeight": 950,
+        "iframeHeight": 800,
         "containerClassName": "max-w-full overflow-hidden px-0"
       }
     },
@@ -431,6 +431,29 @@
       ],
       "meta": {
         "iframeHeight": 600
+      }
+    },
+    {
+      "name": "hero-headline-preview",
+      "type": "registry:block",
+      "title": "Hero Headline Preview",
+      "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 860
       }
     },
     {
