@@ -10,7 +10,7 @@ export interface GridContentCardsProps {
   items: {
     title: string
     description?: string
-    image: {
+    media: {
       src: string
       alt: string
     }
@@ -36,10 +36,10 @@ export function GridContentCards({ items }: Readonly<GridContentCardsProps>) {
             )}
           </CardHeader>
           <CardContent className="mt-auto pt-0 pb-0">
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+            <div className="relative aspect-video min-h-64 w-full overflow-hidden rounded-lg">
               <img
-                src={item.image.src}
-                alt={item.image.alt}
+                src={item.media.src}
+                alt={item.media.alt}
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 size-full object-cover"

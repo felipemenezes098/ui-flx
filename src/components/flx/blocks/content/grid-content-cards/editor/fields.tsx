@@ -35,7 +35,7 @@ export function GridContentCardsEditorFields({
         {
           title: 'New card',
           description: 'Short description for this card.',
-          image: {
+          media: {
             src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             alt: 'Card image',
           },
@@ -85,10 +85,10 @@ export function GridContentCardsEditorFields({
     value: string,
   ) => {
     const newItems = [...props.items]
-    const current = newItems[index].image ?? { src: '', alt: '' }
+    const current = newItems[index].media ?? { src: '', alt: '' }
     newItems[index] = {
       ...newItems[index],
-      image: { ...current, [field]: value },
+      media: { ...current, [field]: value },
     }
     const newProps = { ...props, items: newItems }
 
@@ -150,7 +150,7 @@ export function GridContentCardsEditorFields({
             <div className="space-y-2">
               <Label className="text-sm font-medium">Image URL</Label>
               <Input
-                value={item.image.src}
+                value={item.media.src}
                 onChange={(e) => updateItemImage(index, 'src', e.target.value)}
                 placeholder="https://example.com/image.jpg"
               />
@@ -159,7 +159,7 @@ export function GridContentCardsEditorFields({
             <div className="space-y-2">
               <Label className="text-sm font-medium">Image alt text</Label>
               <Input
-                value={item.image.alt}
+                value={item.media.alt}
                 onChange={(e) => updateItemImage(index, 'alt', e.target.value)}
                 placeholder="Image description"
               />
