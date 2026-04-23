@@ -44,7 +44,7 @@ export function BlocksSidebar() {
                 className={cn(
                   'text-foreground flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium',
                   'hover:bg-muted/70',
-                  isActive && 'bg-muted border-border border',
+                  isActive && 'bg-muted',
                 )}
               >
                 <div className="border-border relative h-9 w-9 shrink-0 overflow-hidden rounded-md border bg-white">
