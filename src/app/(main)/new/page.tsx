@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { HeroHeadlinePreviewExample } from '@/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example'
+import { GridContentCardsExample } from '@/components/flx/blocks/content/grid-content-cards/grid-content-cards-example'
 
 export const metadata: Metadata = {
   title: 'New',
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function NewPage() {
   return (
-    <main className="mx-auto md:max-w-5xl lg:max-w-6xl 2xl:max-w-[90rem]">
-      <HeroHeadlinePreviewExample />
+    <main className="mx-auto p-4 md:max-w-5xl lg:max-w-6xl 2xl:max-w-360">
+      <GridContentCardsExample />
     </main>
   )
 }

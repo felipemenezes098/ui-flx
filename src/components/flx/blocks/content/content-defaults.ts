@@ -5,6 +5,7 @@ import { FocusGridDescriptionAlways } from './focus-grid/examples/focus-grid-des
 import { FocusGridDimUnfocused } from './focus-grid/examples/focus-grid-dim-unfocused'
 import { FocusGridMinimalist } from './focus-grid/examples/focus-grid-minimalist'
 import { gridCardsDefaultProps } from './grid-cards/defaults'
+import { gridContentCardsDefaultProps } from './grid-content-cards/defaults'
 import { gridContentColumnsDefaultProps } from './grid-content-columns/defaults'
 import { gridMediaCardsDefaultProps } from './grid-media-cards/defaults'
 import { gridTwoColumnsDefaultProps } from './grid-two-columns/defaults'
@@ -23,6 +24,7 @@ export const contentDefaults = {
   'tabs-media': { default: tabsMediaDefaultProps },
   'grid-media-cards': { default: gridMediaCardsDefaultProps },
   'grid-content-columns': { default: gridContentColumnsDefaultProps },
+  'grid-content-cards': { default: gridContentCardsDefaultProps },
   'title-with-media': { default: titleWithMediaDefaultProps },
   'grid-with-media-top': { default: gridWithMediaTopDefaultProps },
   'icon-list': { default: iconListDefaultProps },

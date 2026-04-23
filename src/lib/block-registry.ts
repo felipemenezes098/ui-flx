@@ -26,6 +26,9 @@ import { FocusGridExample } from '@/components/flx/blocks/content/focus-grid/foc
 import { GridCardsEditorFields } from '@/components/flx/blocks/content/grid-cards/editor/fields'
 import { GridCards } from '@/components/flx/blocks/content/grid-cards/grid-cards'
 import { GridCardsExample } from '@/components/flx/blocks/content/grid-cards/grid-cards-example'
+import { GridContentCardsEditorFields } from '@/components/flx/blocks/content/grid-content-cards/editor/fields'
+import { GridContentCards } from '@/components/flx/blocks/content/grid-content-cards/grid-content-cards'
+import { GridContentCardsExample } from '@/components/flx/blocks/content/grid-content-cards/grid-content-cards-example'
 import { GridContentColumnsEditorFields } from '@/components/flx/blocks/content/grid-content-columns/editor/fields'
 import { GridContentColumns } from '@/components/flx/blocks/content/grid-content-columns/grid-content-columns'
 import { GridContentColumnsExample } from '@/components/flx/blocks/content/grid-content-columns/grid-content-columns-example'
@@ -198,6 +201,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: GridContentColumnsEditorFields,
     defaults: blockDefaults['grid-content-columns'].default,
     example: GridContentColumnsExample,
+  },
+  'grid-content-cards': {
+    component: GridContentCards,
+    editorFields: GridContentCardsEditorFields,
+    defaults: blockDefaults['grid-content-cards'].default,
+    example: GridContentCardsExample,
   },
   'grid-media-cards': {
     component: GridMediaCards,
@@ -420,6 +429,13 @@ export const blocks: BlockCategory[] = [
           'A grid of content columns with a media above the content.',
         image: '/images/blocks/content/contentGridContentColumns.png',
         slug: 'grid-content-columns',
+      },
+      {
+        name: 'Grid Content Cards',
+        description:
+          'Two-column grid of cards: title, description, and image at the bottom.',
+        image: '/images/blocks/content/gridContentCards.png',
+        slug: 'grid-content-cards',
       },
       {
         name: 'Title With Media',

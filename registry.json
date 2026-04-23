@@ -411,6 +411,26 @@
       }
     },
     {
+      "name": "grid-content-cards",
+      "type": "registry:block",
+      "title": "Grid Content Cards",
+      "description": "Two-column grid of cards: title, description, and image at the bottom.",
+      "registryDependencies": [],
+      "dependencies": ["card"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/content/grid-content-cards/grid-content-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/content/grid-content-cards/grid-content-cards-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards-example.tsx"
+        }
+      ]
+    },
+    {
       "name": "hero-content-media",
       "type": "registry:block",
       "title": "Hero Content Media",
