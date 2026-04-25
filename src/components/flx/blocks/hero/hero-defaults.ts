@@ -1,13 +1,13 @@
-import { backgroundMediaDefaultProps } from './background-media/defaults'
-import { heroContentMediaDefaultProps } from './hero-content-media/defaults'
-import { heroLogosCarouselDefaultProps } from './hero-logos-carousel/defaults'
-import { heroHeadlinePreviewDefaultProps } from './hero-headline-preview/defaults'
-import { textBadgesDefaultProps } from './text-badges/defaults'
+import { values as backgroundMediaValues } from './background-media/background-media-example'
+import { values as heroContentMediaValues } from './hero-content-media/hero-content-media-example'
+import { values as heroHeadlinePreviewValues } from './hero-headline-preview/hero-headline-preview-example'
+import { values as heroLogosCarouselValues } from './hero-logos-carousel/hero-logos-carousel-example'
+import { values as textBadgesValues } from './text-badges/text-badges-example'
 
 export const heroDefaults = {
-  'background-media': { default: backgroundMediaDefaultProps },
-  'hero-content-media': { default: heroContentMediaDefaultProps },
-  'hero-logos-carousel': { default: heroLogosCarouselDefaultProps },
-  'hero-headline-preview': { default: heroHeadlinePreviewDefaultProps },
-  'text-badges': { default: textBadgesDefaultProps },
+  'background-media': { default: backgroundMediaValues },
+  'hero-content-media': { default: heroContentMediaValues },
+  'hero-logos-carousel': { default: heroLogosCarouselValues },
+  'hero-headline-preview': { default: heroHeadlinePreviewValues },
+  'text-badges': { default: textBadgesValues },
 } as const

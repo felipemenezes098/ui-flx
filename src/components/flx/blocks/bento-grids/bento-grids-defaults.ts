@@ -1,5 +1,5 @@
-import { primaryItemGridDefaultProps } from './primary-item-grid/defaults'
+import { values as primaryItemGridValues } from './primary-item-grid/primary-item-grid-example'
 
 export const bentoGridsDefaults = {
-  'primary-item-grid': { default: primaryItemGridDefaultProps },
+  'primary-item-grid': { default: primaryItemGridValues },
 } as const

@@ -16,7 +16,7 @@
     },
     {
       "path": "src/components/flx/blocks/content/title-with-media/title-with-media-example.tsx",
-      "content": "import { TitleWithMedia, type TitleWithMediaProps } from './title-with-media'\n\nexport function TitleWithMediaExample() {\n  const values = {\n    title: 'Clarity in every detail',\n    media: {\n      src: 'https://images.unsplash.com/photo-1600297293222-09e4a39ecbb0?q=80&w=2094&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n      alt: 'Title with media image',\n    },\n  } satisfies TitleWithMediaProps\n\n  return <TitleWithMedia title={values.title} media={values.media} />\n}\n",
+      "content": "import { TitleWithMedia, type TitleWithMediaProps } from './title-with-media'\n\nexport const values = {\n  title: 'Clarity in every detail',\n  media: {\n    src: 'https://images.unsplash.com/photo-1600297293222-09e4a39ecbb0?q=80&w=2094&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    alt: 'Title with media image',\n  },\n} satisfies TitleWithMediaProps\n\nexport function TitleWithMediaExample() {\n  return <TitleWithMedia title={values.title} media={values.media} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/title-with-media/title-with-media-example.tsx"
     }

@@ -16,7 +16,7 @@
     },
     {
       "path": "src/components/flx/blocks/content/icon-list/icon-list-example.tsx",
-      "content": "import { IconList, type IconListProps } from './icon-list'\n\nexport function IconListExample() {\n  const values = {\n    title: 'Principles',\n    items: [\n      { title: 'Simple', icon: 'Zap' },\n      { title: 'Clear', icon: 'Shield' },\n      { title: 'Fast', icon: 'Code' },\n      { title: 'Stable', icon: 'Users' },\n      { title: 'Open', icon: 'Accessibility' },\n      { title: 'Inclusive', icon: 'Smartphone' },\n    ],\n  } satisfies IconListProps\n\n  return <IconList title={values.title} items={values.items} />\n}\n",
+      "content": "import { IconList, type IconListProps } from './icon-list'\n\nexport const values = {\n  title: 'Principles',\n  items: [\n    { title: 'Simple', icon: 'Zap' },\n    { title: 'Clear', icon: 'Shield' },\n    { title: 'Fast', icon: 'Code' },\n    { title: 'Stable', icon: 'Users' },\n    { title: 'Open', icon: 'Accessibility' },\n    { title: 'Inclusive', icon: 'Smartphone' },\n  ],\n} satisfies IconListProps\n\nexport function IconListExample() {\n  return <IconList title={values.title} items={values.items} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/icon-list/icon-list-example.tsx"
     }

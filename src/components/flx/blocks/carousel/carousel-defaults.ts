@@ -1,15 +1,15 @@
-import { carouselCardsDefaultProps } from './carousel-cards/defaults'
-import { carouselFocusDefaultProps } from './carousel-focus/defaults'
 import { CarouselFocusTitleInside } from './carousel-focus/examples/carousel-focus-title-inside'
-import { carouselMediaDefaultProps } from './carousel-media/defaults'
+import { values as carouselCardsValues } from './carousel-cards/carousel-cards-example'
+import { values as carouselFocusValues } from './carousel-focus/carousel-focus-example'
+import { values as carouselMediaValues } from './carousel-media/carousel-media-example'
 
 export const carouselDefaults = {
   'carousel-cards': {
-    default: carouselCardsDefaultProps,
+    default: carouselCardsValues,
   },
   'carousel-focus': {
-    default: carouselFocusDefaultProps,
+    default: carouselFocusValues,
     'title-inside': CarouselFocusTitleInside,
   },
-  'carousel-media': { default: carouselMediaDefaultProps },
+  'carousel-media': { default: carouselMediaValues },
 } as const

@@ -16,7 +16,7 @@
     },
     {
       "path": "src/components/flx/blocks/content/badge-list/badge-list-example.tsx",
-      "content": "import { BadgeList, type BadgeListProps } from './badge-list'\n\nexport function BadgeListExample() {\n  const values = {\n    title: 'Topics',\n    description: 'Explore by category or focus area.',\n    items: ['Design', 'Code', 'Ship', 'Scale', 'Open source', 'Docs'],\n  } satisfies BadgeListProps\n\n  return (\n    <BadgeList\n      title={values.title}\n      description={values.description}\n      items={values.items}\n    />\n  )\n}\n",
+      "content": "import { BadgeList, type BadgeListProps } from './badge-list'\n\nexport const values = {\n  title: 'Topics',\n  description: 'Explore by category or focus area.',\n  items: ['Design', 'Code', 'Ship', 'Scale', 'Open source', 'Docs'],\n} satisfies BadgeListProps\n\nexport function BadgeListExample() {\n  return (\n    <BadgeList\n      title={values.title}\n      description={values.description}\n      items={values.items}\n    />\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/badge-list/badge-list-example.tsx"
     }

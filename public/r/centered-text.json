@@ -18,7 +18,7 @@
     },
     {
       "path": "src/components/flx/blocks/content/centered-text/centered-text-example.tsx",
-      "content": "import { CenteredText, type CenteredTextProps } from './centered-text'\n\nexport function CenteredTextExample() {\n  const values = {\n    title: 'Simple & Elegant',\n    description: 'Display content in a minimal and visually appealing way.',\n    cta: {\n      ctaEnabled: true,\n      text: 'Click here',\n      link: '/',\n      variant: 'default',\n    },\n  } satisfies CenteredTextProps\n\n  return (\n    <CenteredText\n      title={values.title}\n      description={values.description}\n      cta={values.cta}\n    />\n  )\n}\n",
+      "content": "import { CenteredText, type CenteredTextProps } from './centered-text'\n\nexport const values = {\n  title: 'Simple & Elegant',\n  description: 'Display content in a minimal and visually appealing way.',\n  cta: {\n    ctaEnabled: true,\n    text: 'Click here',\n    link: '/',\n    variant: 'default',\n  },\n} satisfies CenteredTextProps\n\nexport function CenteredTextExample() {\n  return (\n    <CenteredText\n      title={values.title}\n      description={values.description}\n      cta={values.cta}\n    />\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/centered-text/centered-text-example.tsx"
     }

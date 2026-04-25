@@ -13,7 +13,7 @@ import { ButtonGithub } from './components/button-github'
 export const dynamic = 'force-static'
 export const revalidate = false
 
-const title = 'Simple. Beautiful. Your blocks.'
+const title = siteConfig.title
 const description = siteConfig.description
 
 export const metadata: Metadata = {
@@ -37,9 +37,9 @@ export default function HomePage() {
         <section>
           <div className="flex flex-col items-center gap-10 text-center">
             <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-4 md:gap-2">
+              <div className="flex flex-col items-center gap-4 md:gap-2">
                 <h1 className="max-w-6xl text-2xl font-bold md:text-4xl">
-                  Simple. Beautiful. Your blocks.
+                  {siteConfig.title}
                 </h1>
                 <p className="max-w-2xl text-base md:text-lg">
                   {siteConfig.description}

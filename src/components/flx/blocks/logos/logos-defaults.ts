@@ -1,5 +1,5 @@
-import { logoMarqueeDefaultProps } from './logo-marquee/defaults'
+import { values as logoMarqueeValues } from './logo-marquee/logo-marquee-example'
 
 export const logosDefaults = {
-  'logo-marquee': { default: logoMarqueeDefaultProps },
+  'logo-marquee': { default: logoMarqueeValues },
 } as const

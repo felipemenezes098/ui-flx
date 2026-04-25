@@ -1,7 +1,7 @@
-import { singleTestimonialDefaultProps } from './single-testimonial/defaults'
+import { values as singleTestimonialValues } from './single-testimonial/single-testimonial-example'
 
 export const testimonialsDefaults = {
   'single-testimonial': {
-    default: singleTestimonialDefaultProps,
+    default: singleTestimonialValues,
   },
 } as const

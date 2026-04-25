@@ -1,17 +1,17 @@
 import { CenteredText, type CenteredTextProps } from './centered-text'
 
-export function CenteredTextExample() {
-  const values = {
-    title: 'Simple & Elegant',
-    description: 'Display content in a minimal and visually appealing way.',
-    cta: {
-      ctaEnabled: true,
-      text: 'Click here',
-      link: '/',
-      variant: 'default',
-    },
-  } satisfies CenteredTextProps
+export const values = {
+  title: 'Simple & Elegant',
+  description: 'Display content in a minimal and visually appealing way.',
+  cta: {
+    ctaEnabled: true,
+    text: 'Click here',
+    link: '/',
+    variant: 'default',
+  },
+} satisfies CenteredTextProps
 
+export function CenteredTextExample() {
   return (
     <CenteredText
       title={values.title}

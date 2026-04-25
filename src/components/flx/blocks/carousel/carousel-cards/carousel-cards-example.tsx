@@ -1,6 +1,6 @@
 import { CarouselCards, CarouselCardsProps } from './carousel-cards'
 
-const values = {
+export const values = {
   title: 'New blocks for modern UI building.',
   description: 'Fresh, reusable pieces for fast product work.',
   items: [

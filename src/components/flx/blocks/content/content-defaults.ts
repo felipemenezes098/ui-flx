@@ -1,39 +1,39 @@
-import { badgeListDefaultProps } from './badge-list/defaults'
-import { centeredTextDefaultProps } from './centered-text/defaults'
-import { focusGridDefaultProps } from './focus-grid/defaults'
 import { FocusGridDescriptionAlways } from './focus-grid/examples/focus-grid-description-always'
 import { FocusGridDimUnfocused } from './focus-grid/examples/focus-grid-dim-unfocused'
 import { FocusGridMinimalist } from './focus-grid/examples/focus-grid-minimalist'
-import { gridCardsDefaultProps } from './grid-cards/defaults'
-import { gridContentCardsDefaultProps } from './grid-content-cards/defaults'
-import { gridContentColumnsDefaultProps } from './grid-content-columns/defaults'
-import { gridMediaCardsDefaultProps } from './grid-media-cards/defaults'
-import { gridTwoColumnsDefaultProps } from './grid-two-columns/defaults'
-import { gridWithMediaTopDefaultProps } from './grid-with-media-top/defaults'
-import { iconListDefaultProps } from './icon-list/defaults'
-import { mediaGridInteractiveDefaultProps } from './media-grid-interactive/defaults'
-import { selectRevealMediaDefaultProps } from './select-reveal-media/defaults'
-import { tabsMediaDefaultProps } from './tabs-media/defaults'
-import { titleWithMediaDefaultProps } from './title-with-media/defaults'
+import { values as badgeListValues } from './badge-list/badge-list-example'
+import { values as centeredTextValues } from './centered-text/centered-text-example'
+import { values as focusGridValues } from './focus-grid/focus-grid-example'
+import { values as gridCardsValues } from './grid-cards/grid-cards-example'
+import { values as gridContentCardsValues } from './grid-content-cards/grid-content-cards-example'
+import { values as gridContentColumnsValues } from './grid-content-columns/grid-content-columns-example'
+import { values as gridMediaCardsValues } from './grid-media-cards/grid-media-cards-example'
+import { values as gridTwoColumnsValues } from './grid-two-columns/grid-two-columns-example'
+import { values as gridWithMediaTopValues } from './grid-with-media-top/grid-with-media-top-example'
+import { values as iconListValues } from './icon-list/icon-list-example'
+import { values as mediaGridInteractiveValues } from './media-grid-interactive/media-grid-interactive-example'
+import { values as selectRevealMediaValues } from './select-reveal-media/select-reveal-media-example'
+import { values as tabsMediaValues } from './tabs-media/tabs-media-example'
+import { values as titleWithMediaValues } from './title-with-media/title-with-media-example'
 
 export const contentDefaults = {
-  'centered-text': { default: centeredTextDefaultProps },
-  'grid-cards': { default: gridCardsDefaultProps },
-  'grid-two-columns': { default: gridTwoColumnsDefaultProps },
-  'select-reveal-media': { default: selectRevealMediaDefaultProps },
-  'tabs-media': { default: tabsMediaDefaultProps },
-  'grid-media-cards': { default: gridMediaCardsDefaultProps },
-  'grid-content-columns': { default: gridContentColumnsDefaultProps },
-  'grid-content-cards': { default: gridContentCardsDefaultProps },
-  'title-with-media': { default: titleWithMediaDefaultProps },
-  'grid-with-media-top': { default: gridWithMediaTopDefaultProps },
-  'icon-list': { default: iconListDefaultProps },
-  'badge-list': { default: badgeListDefaultProps },
+  'centered-text': { default: centeredTextValues },
+  'grid-cards': { default: gridCardsValues },
+  'grid-two-columns': { default: gridTwoColumnsValues },
+  'select-reveal-media': { default: selectRevealMediaValues },
+  'tabs-media': { default: tabsMediaValues },
+  'grid-media-cards': { default: gridMediaCardsValues },
+  'grid-content-columns': { default: gridContentColumnsValues },
+  'grid-content-cards': { default: gridContentCardsValues },
+  'title-with-media': { default: titleWithMediaValues },
+  'grid-with-media-top': { default: gridWithMediaTopValues },
+  'icon-list': { default: iconListValues },
+  'badge-list': { default: badgeListValues },
   'focus-grid': {
-    default: focusGridDefaultProps,
+    default: focusGridValues,
     'dim-unfocused': FocusGridDimUnfocused,
     'description-always': FocusGridDescriptionAlways,
     minimalist: FocusGridMinimalist,
   },
-  'media-grid-interactive': { default: mediaGridInteractiveDefaultProps },
+  'media-grid-interactive': { default: mediaGridInteractiveValues },
 } as const
