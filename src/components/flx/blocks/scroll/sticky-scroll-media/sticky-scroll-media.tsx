@@ -93,6 +93,7 @@ export function StickyScrollMedia({ items }: Readonly<StickyScrollMediaProps>) {
               src={item.media}
               alt={item.title}
               className="absolute inset-0 aspect-4/3 h-full w-full object-cover"
+              initial={{ opacity: index === 0 ? 1 : 0 }}
               animate={{
                 opacity: activeIndex === index ? 1 : 0,
                 willChange: 'opacity',
