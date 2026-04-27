@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import React from 'react'
 
 import { siteConfig } from '@/config/site'
 import { blocks } from '@/lib/block-registry'
@@ -69,7 +68,7 @@ export default async function BlockEditorPreviewPage({
 
   return (
     <div className="container-page p-5">
-      <LiveEditor item={item} />
+      <LiveEditor item={item} category={categorySlug} />
     </div>
   )
 }

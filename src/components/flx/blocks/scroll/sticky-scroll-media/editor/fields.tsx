@@ -47,7 +47,8 @@ export function StickyScrollMediaEditorFields({
     const newItem = {
       title: 'New Item',
       description: 'Item description',
-      media: '',
+      media:
+        'https://images.unsplash.com/photo-1486092642310-0c4e84309adb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     }
 
     const newProps: StickyScrollMediaProps = {
@@ -81,24 +82,16 @@ export function StickyScrollMediaEditorFields({
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <Label className="text-sm font-medium">Items</Label>
-        <Button
-          onClick={addItem}
-          variant="outline"
-          size="sm"
-          className="h-8"
-        >
+        <Button onClick={addItem} variant="outline" size="sm" className="h-8">
           Add Item
         </Button>
       </div>
 
       <div className="space-y-6">
         {props.items.map((item, index) => (
-          <div
-            key={index}
-            className="space-y-3 rounded-md border p-4"
-          >
+          <div key={index} className="space-y-3 rounded-md border p-4">
             <div className="flex items-center justify-between">
-              <Label className="text-xs font-medium text-muted-foreground">
+              <Label className="text-muted-foreground text-xs font-medium">
                 Item {index + 1}
               </Label>
               {props.items.length > 1 && (
@@ -127,10 +120,7 @@ export function StickyScrollMediaEditorFields({
             </div>
 
             <div className="space-y-2">
-              <Label
-                htmlFor={`description-${index}`}
-                className="text-xs"
-              >
+              <Label htmlFor={`description-${index}`} className="text-xs">
                 Description
               </Label>
               <Textarea
