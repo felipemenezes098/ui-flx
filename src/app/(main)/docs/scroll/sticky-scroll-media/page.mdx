@@ -1,0 +1,72 @@
+export const metadata = {
+  title: 'Sticky Scroll Media',
+  description:
+    'Media element that stays fixed while content scrolls, changing based on scroll position.',
+  openGraph: {
+    title: 'Sticky Scroll Media',
+    description:
+      'Media element that stays fixed while content scrolls, changing based on scroll position.',
+    type: 'article',
+  },
+}
+
+<BlockHeader>
+  <BlockHeaderInfo>
+    <BlockHeaderTitle>Sticky Scroll Media</BlockHeaderTitle>
+    <BlockHeaderDescription>
+      A responsive scroll-based component featuring sticky media that changes as you scroll through content. On mobile, items stack vertically. On desktop, media stays sticky while text content scrolls past it.
+    </BlockHeaderDescription>
+  </BlockHeaderInfo>
+
+  <BlockHeaderActions>
+    <CopyPageMarkdown filePath="src/app/(main)/docs/scroll/sticky-scroll-media/page.mdx" />
+  </BlockHeaderActions>
+</BlockHeader>
+
+<BlockEditorDisplay category="scroll" slug="sticky-scroll-media" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/sticky-scroll-media" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+  title="sticky-scroll-media-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install motion</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+  collapsible
+  title="sticky-scroll-media.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

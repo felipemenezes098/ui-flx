@@ -634,6 +634,29 @@
           "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
         }
       ]
+    },
+    {
+      "name": "sticky-scroll-media",
+      "type": "registry:block",
+      "title": "Sticky Scroll Media",
+      "description": "Sticky media that changes as you scroll through text content.",
+      "registryDependencies": [],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+        },
+        {
+          "path": "src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
     }
   ]
 }
