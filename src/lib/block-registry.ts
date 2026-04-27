@@ -80,6 +80,9 @@ import { ShowcaseGridMediaCardsExample } from '@/components/flx/blocks/showcase/
 import { SingleTestimonialEditorFields } from '@/components/flx/blocks/testimonials/single-testimonial/editor/fields'
 import { SingleTestimonial } from '@/components/flx/blocks/testimonials/single-testimonial/single-testimonial'
 import { SingleTestimonialExample } from '@/components/flx/blocks/testimonials/single-testimonial/single-testimonial-example'
+import { StickyScrollMediaEditorFields } from '@/components/flx/blocks/scroll/sticky-scroll-media/editor/fields'
+import { StickyScrollMedia } from '@/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media'
+import { StickyScrollMediaExample } from '@/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example'
 
 import { blockDefaults, getBlockDefaults } from './block-defaults'
 
@@ -106,6 +109,7 @@ export interface BlockCategory {
     | 'logos'
     | 'bento-grids'
     | 'testimonials'
+    | 'scroll'
   blocks: BlockItem[]
 }
 
@@ -285,6 +289,12 @@ export const blockRegistry: Record<BlockSlug, BlockRegistryEntry> = {
     editorFields: SingleTestimonialEditorFields,
     defaults: blockDefaults['single-testimonial'].default,
     example: SingleTestimonialExample,
+  },
+  'sticky-scroll-media': {
+    component: StickyScrollMedia,
+    editorFields: StickyScrollMediaEditorFields,
+    defaults: blockDefaults['sticky-scroll-media'].default,
+    example: StickyScrollMediaExample,
   },
 }
 
@@ -556,6 +566,25 @@ export const blocks: BlockCategory[] = [
           'A single testimonial with quote, avatar, author name and role.',
         image: '/images/blocks/testimonials/singleTestimonial.png',
         slug: 'single-testimonial',
+      },
+    ],
+  },
+  {
+    category: 'Scroll',
+    description: 'Scroll-based interactive blocks with animations.',
+    image: '/images/blocks/scroll/stickyScrollMedia.png',
+    slug: 'scroll',
+    type: 'scroll',
+    blocks: [
+      {
+        name: 'Sticky Scroll Media',
+        description:
+          'Sticky media that changes as you scroll through text content.',
+        image: '/images/blocks/scroll/stickyScrollMedia.png',
+        slug: 'sticky-scroll-media',
+        meta: {
+          iframeHeight: 600,
+        },
       },
     ],
   },

@@ -5,6 +5,7 @@ import { contentDefaults } from '../components/flx/blocks/content/content-defaul
 import { heroDefaults } from '../components/flx/blocks/hero/hero-defaults'
 import { logosDefaults } from '../components/flx/blocks/logos/logos-defaults'
 import { showcaseDefaults } from '../components/flx/blocks/showcase/showcase-defaults'
+import { scrollDefaults } from '@/components/flx/blocks/scroll/scroll-defaults'
 
 export const blockDefaults = {
   ...heroDefaults,
@@ -14,6 +15,7 @@ export const blockDefaults = {
   ...logosDefaults,
   ...bentoGridsDefaults,
   ...testimonialsDefaults,
+  ...scrollDefaults,
 } as const
 
 type BlockSlug = keyof typeof blockDefaults

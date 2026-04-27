@@ -25,7 +25,6 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { siteConfig } from '@/config/site'
 import { useConfig } from '@/hooks/use-config'
-import { cn } from '@/lib/utils'
 
 import { Logo } from '../logo'
 import { useBlockEditor } from './block-editor'
