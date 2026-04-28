@@ -101,6 +101,7 @@ export interface BlockCategory {
   description: string
   image: string
   slug: string
+  hasNew?: boolean
   type:
     | 'hero'
     | 'content'
@@ -118,6 +119,7 @@ export interface BlockItem {
   description: string
   image: string
   slug: BlockSlug
+  hasNew?: boolean
   meta?: {
     containerClassName?: string
     iframeHeight?: number
@@ -574,6 +576,7 @@ export const blocks: BlockCategory[] = [
     description: 'Scroll-based interactive blocks with animations.',
     image: '/images/blocks/scroll/stickyScrollMedia.png',
     slug: 'scroll',
+    hasNew: true,
     type: 'scroll',
     blocks: [
       {
@@ -582,6 +585,7 @@ export const blocks: BlockCategory[] = [
           'Sticky media that changes as you scroll through text content.',
         image: '/images/blocks/scroll/stickyScrollMedia.png',
         slug: 'sticky-scroll-media',
+        hasNew: true,
         meta: {
           iframeHeight: 600,
         },

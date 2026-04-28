@@ -47,14 +47,19 @@ export function BlocksSidebar() {
                   isActive && 'bg-muted',
                 )}
               >
-                <div className="border-border relative h-9 w-9 shrink-0 overflow-hidden rounded-md border bg-white">
-                  <Image
-                    src={block.image}
-                    alt=""
-                    fill
-                    className="object-contain p-0.5"
-                    sizes="36px"
-                  />
+                <div className="relative h-9 w-9 shrink-0">
+                  <div className="border-border h-full w-full overflow-hidden rounded-md border bg-white">
+                    <Image
+                      src={block.image}
+                      alt=""
+                      fill
+                      className="object-contain p-0.5"
+                      sizes="36px"
+                    />
+                  </div>
+                  {block.hasNew && (
+                    <span className="ring-background absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 ring-2" />
+                  )}
                 </div>
                 <span className="truncate">{block.category}</span>
               </Link>

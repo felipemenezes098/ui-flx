@@ -9,6 +9,7 @@ import { siteConfig } from '@/config/site'
 import { BlockShowcase } from './components/block-showcase'
 import { BlocksPreview } from './components/blocks-preview'
 import { ButtonGithub } from './components/button-github'
+import { NewsBanner } from './components/news-banner'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -37,6 +38,7 @@ export default function HomePage() {
         <section>
           <div className="flex flex-col items-center gap-10 text-center">
             <div className="flex flex-col gap-6">
+              <NewsBanner />
               <div className="flex flex-col items-center gap-4 md:gap-2">
                 <h1 className="max-w-6xl text-2xl font-bold md:text-4xl">
                   {siteConfig.title}
