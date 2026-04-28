@@ -62,13 +62,14 @@ export default async function Layout({
                 <h3 className="text-muted-foreground ml-1.5 text-xs font-medium">
                   {block.category}
                 </h3>
-                <div className="ml-1 grid grid-cols-2 gap-3 pb-3">
+                <div className="flex flex-col gap-0.5">
                   {block.blocks.map((subBlock) => (
                     <NavBlockSection
                       section={{
                         name: subBlock.name,
                         href: `/docs/${block.slug}/${subBlock.slug}`,
                         image: subBlock.image,
+                        hasNew: subBlock.hasNew,
                       }}
                       key={subBlock.slug}
                     />
