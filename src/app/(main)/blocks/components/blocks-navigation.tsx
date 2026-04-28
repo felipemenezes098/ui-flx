@@ -32,15 +32,15 @@ export function BlocksNavigation() {
               key={block.slug}
               href={href}
               className={cn(
-                'flex shrink-0 flex-col items-center gap-1.5 rounded-xl border transition-all',
-                'border-border hover:border-primary p-1',
-                isActive && 'border-primary',
+                'group flex shrink-0 flex-col items-center gap-1.5 rounded-xl border transition-colors',
+                'border-border p-1',
+                isActive ? 'border-primary' : 'hover:border-primary/40',
               )}
               aria-current={isActive ? 'true' : undefined}
               aria-label={block.category}
             >
-              <div className="rounded-t-lg bg-white p-1">
-                <div className="relative h-14 min-h-14 w-28 shrink-0 overflow-hidden rounded-md">
+              <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 rounded-lg p-1.5">
+                <div className="relative h-14 min-h-14 w-28 shrink-0 overflow-hidden rounded-md bg-white">
                   <Image
                     src={block.image}
                     alt=""

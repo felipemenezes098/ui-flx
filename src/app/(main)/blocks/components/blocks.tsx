@@ -167,18 +167,24 @@ export function Blocks() {
                           </Link>
                         </Button>
                       </div>
-                      <div className="overflow-hidden rounded-xl border bg-white p-3">
-                        <Link href={`/docs/${block.slug}/${subBlock.slug}`}>
-                          <Image
-                            src={subBlock.image}
-                            alt={subBlock.name}
-                            data-block={subBlock.name}
-                            width={1440}
-                            height={900}
-                            className="object-cover"
-                          />
-                        </Link>
-                      </div>
+                      <Link
+                        href={`/docs/${block.slug}/${subBlock.slug}`}
+                        className="group border-border overflow-hidden rounded-xl border"
+                      >
+                        <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
+                          <div className="rounded-lg bg-white p-3">
+                            <Image
+                              src={subBlock.image}
+                              alt={subBlock.name}
+                              data-block={subBlock.name}
+                              width={0}
+                              height={0}
+                              sizes="100vw"
+                              className="h-auto w-full"
+                            />
+                          </div>
+                        </div>
+                      </Link>
                     </div>
                   </BlockEditor>
                   {/* <BlockEditorDisplay
