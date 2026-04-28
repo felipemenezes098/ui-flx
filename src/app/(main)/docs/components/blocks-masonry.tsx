@@ -61,37 +61,25 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
           })}
         </div>
       </div>
-      <div
-        className="columns-1 gap-4 space-y-4 md:columns-2 lg:gap-5 lg:space-y-5"
-        style={{ columnFill: 'balance' }}
-      >
-        {filteredBlocks.map((block, index) => (
+      <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
+        {filteredBlocks.map((block) => (
           <Link
             key={block.slug}
             href={`/${basePath}/${block.categorySlug}/${block.slug}`}
-            className="group hover:border-muted-foreground block break-inside-avoid overflow-hidden rounded-lg border"
+            className="group border-border focus-visible:outline-ring relative mb-6 flex break-inside-avoid flex-col overflow-hidden rounded-xl border focus-visible:outline-2 focus-visible:outline-offset-2"
           >
-            <article>
-              <div className="bg-white p-2">
-                <div className="relative h-44">
-                  <Image
-                    src={block.image}
-                    alt={block.name}
-                    fill
-                    className="object-contain object-center transition-transform duration-200 group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 50vw, 50vw"
-                  />
-                </div>
+            <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
+              <div className="rounded-lg bg-white p-3">
+                <Image
+                  src={block.image}
+                  alt={block.name}
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="h-auto w-full"
+                />
               </div>
-              <div className="border-t p-3 pt-2">
-                <span className="text-muted-foreground text-xs">
-                  {block.categoryName}
-                </span>
-                <h3 className="mt-0.5 font-medium tracking-tight">
-                  {block.name}
-                </h3>
-              </div>
-            </article>
+            </div>
           </Link>
         ))}
       </div>

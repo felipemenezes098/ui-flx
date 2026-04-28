@@ -14,7 +14,6 @@ export function ButtonGithub() {
   return (
     <Button
       asChild
-      size="sm"
       variant="ghost"
       className="rounded-xl"
       onMouseEnter={() => setIsHovered(true)}

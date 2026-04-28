@@ -3,7 +3,7 @@ export const siteConfig = {
   codeName: 'flx',
   url: 'https://ui.flexnative.com',
   ogImage: 'https://ui.flexnative.com/og.png',
-  title: 'UI blocks for building consistent interfaces',
+  title: 'UI blocks for consistent interfaces',
   description:
     'Beautifully designed, reusable UI blocks with clear structure. Built for consistent, scalable interfaces. Made to be customized and owned.',
   author: 'Felipe Menezes',
