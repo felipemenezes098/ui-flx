@@ -6,12 +6,7 @@ import { ArrowRight } from 'lucide-react'
 
 export function NewsBanner() {
   return (
-    <motion.div
-      initial={{ opacity: 0, filter: 'blur(6px)' }}
-      animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="flex justify-center"
-    >
+    <div className="flex justify-center">
       <Link
         href="/blocks?category=scroll"
         className="group bg-background relative flex items-center gap-2.5 overflow-hidden rounded-full border px-4 py-1.5 text-sm"
@@ -39,6 +34,6 @@ export function NewsBanner() {
 
         <ArrowRight className="text-muted-foreground h-3 w-3 transition-transform group-hover:translate-x-0.5" />
       </Link>
-    </motion.div>
+    </div>
   )
 }

@@ -8,14 +8,14 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
 
-export function ButtonGithub() {
+export function GitHubButton() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <Button
       asChild
       variant="ghost"
-      className="rounded-xl"
+      className="h-9.5 rounded-xl px-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -50,7 +50,7 @@ export function ButtonGithub() {
                 transition={{ duration: 0.12 }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <Star className="size-4" />
+                <Star className="size-4 text-yellow-400" />
               </motion.span>
             )}
           </AnimatePresence>

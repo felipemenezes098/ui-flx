@@ -1,7 +1,33 @@
+'use client'
+
 import Image from 'next/image'
+import { motion, type Variants } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+
+const grid: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14, delayChildren: 0.05 },
+  },
+}
+
+const column: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+}
+
+const card: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
+  },
+}
 
 function BlockHero() {
   return (
@@ -15,7 +41,7 @@ function BlockHero() {
           sizes="(max-width: 768px) 100vw, 33vw"
           unoptimized
         />
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-transparent to-transparent p-4">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/70 via-transparent to-transparent p-4">
           <p className="text-sm font-medium text-white">New collection 2025</p>
           <Button
             size="sm"
@@ -64,7 +90,7 @@ function BlockTeam() {
   return (
     <Card className="overflow-hidden p-0 shadow-none">
       <div className="flex flex-col">
-        <div className="relative aspect-[4/4] w-full border-b">
+        <div className="relative aspect-4/4 w-full border-b">
           <Image
             src="https://images.unsplash.com/photo-1670947841992-9a419324437e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
@@ -182,7 +208,7 @@ function BlockProductItems() {
               key={item.src + index}
               className="hover:bg-muted flex flex-col gap-2 rounded-sm p-2"
             >
-              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-sm">
+              <div className="relative aspect-3/2 w-full overflow-hidden rounded-sm">
                 <Image
                   src={item.src}
                   alt={item.name}
@@ -210,7 +236,7 @@ function BlockCollectionPeek() {
   return (
     <Card className="overflow-hidden border-0 p-0 shadow-none">
       <div className="grid grid-cols-2 gap-2">
-        <div className="relative aspect-[3/3] w-full">
+        <div className="relative aspect-3/3 w-full">
           <Image
             src="https://images.unsplash.com/photo-1688327009265-3e47cdab9dc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
@@ -220,7 +246,7 @@ function BlockCollectionPeek() {
             unoptimized
           />
         </div>
-        <div className="relative aspect-[3/3] w-full">
+        <div className="relative aspect-3/3 w-full">
           <Image
             src="https://images.unsplash.com/photo-1610795384821-2eed2f416f16?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
@@ -237,20 +263,40 @@ function BlockCollectionPeek() {
 
 export function BlockShowcase() {
   return (
-    <div className="grid gap-6 lg:grid-cols-3">
-      <div className="flex flex-col gap-3">
-        <BlockHero />
-      </div>
-      <div className="flex flex-col gap-3">
-        <BlockTeam />
-        <BlockCollectionPeek />
-      </div>
-      <div className="flex flex-col gap-3">
-        <BlockPersonCta />
-        <BlockProductList />
-        <BlockTestimonial />
-        <BlockProductItems />
-      </div>
-    </div>
+    <motion.div
+      className="grid gap-6 lg:grid-cols-3"
+      variants={grid}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-60px' }}
+    >
+      <motion.div className="flex flex-col gap-3" variants={column}>
+        <motion.div variants={card}>
+          <BlockHero />
+        </motion.div>
+      </motion.div>
+      <motion.div className="flex flex-col gap-3" variants={column}>
+        <motion.div variants={card}>
+          <BlockTeam />
+        </motion.div>
+        <motion.div variants={card}>
+          <BlockCollectionPeek />
+        </motion.div>
+      </motion.div>
+      <motion.div className="flex flex-col gap-3" variants={column}>
+        <motion.div variants={card}>
+          <BlockPersonCta />
+        </motion.div>
+        <motion.div variants={card}>
+          <BlockProductList />
+        </motion.div>
+        <motion.div variants={card}>
+          <BlockTestimonial />
+        </motion.div>
+        <motion.div variants={card}>
+          <BlockProductItems />
+        </motion.div>
+      </motion.div>
+    </motion.div>
   )
 }
