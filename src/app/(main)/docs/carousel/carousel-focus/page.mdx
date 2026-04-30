@@ -1,4 +1,4 @@
-export const metadata = {
+﻿export const metadata = {
   title: 'Carousel Focus',
   description:
     'Auto-scrolling carousel with hover focus, dimming, and animated title.',
@@ -14,7 +14,7 @@ export const metadata = {
   <BlockHeaderInfo>
     <BlockHeaderTitle>Carousel Focus</BlockHeaderTitle>
     <BlockHeaderDescription>
-      Auto-scrolling carousel that pauses on item hover, dims other items, and reveals an animated title — inside or outside the image.
+      Auto-scrolling carousel that pauses on item hover, dims other items, and reveals an animated title â€” inside or outside the image.
     </BlockHeaderDescription>
   </BlockHeaderInfo>
 
@@ -46,7 +46,7 @@ The block supports a **titlePlacement** prop that controls where the animated ti
 
 <BlockPreview category="carousel" slug="carousel-focus" />
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
 
 ### Title inside the image
 
@@ -59,7 +59,7 @@ When `titlePlacement` is `inside`, the title appears overlaid at the bottom of e
 />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/carousel/carousel-focus/examples/carousel-focus-title-inside.tsx"
+  filePath="registry/blocks/carousel/carousel-focus/examples/carousel-focus-title-inside.tsx"
   title="carousel-focus-title-inside.tsx"
 />
 
@@ -80,14 +80,14 @@ When `titlePlacement` is `inside`, the title appears overlaid at the bottom of e
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+  filePath="registry/blocks/carousel/carousel-focus/carousel-focus.tsx"
   collapsible
   title="carousel-focus.tsx"
 />
 
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
 
 </Steps>
 
@@ -102,7 +102,7 @@ When `titlePlacement` is `inside`, the title appears overlaid at the bottom of e
 Define the block in the Studio so editors can add and edit Carousel Focus. Add the schema and export it according to your project structure.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/carousel/carousel-focus/sanity/sanity-schema.txt"
+  filePath="registry/blocks/carousel/carousel-focus/sanity/sanity-schema.txt"
   language="ts"
   title="sanity/schema-types/blocks/carousel/carousel-focus.ts"
 />
@@ -112,7 +112,7 @@ Define the block in the Studio so editors can add and edit Carousel Focus. Add t
 Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/carousel/carousel-focus/sanity/sanity-component.txt"
+  filePath="registry/blocks/carousel/carousel-focus/sanity/sanity-component.txt"
   language="tsx"
   title="web/components/flx/sanity/carousel/carousel-focus.tsx"
   showLineNumbers

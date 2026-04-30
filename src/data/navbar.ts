@@ -4,6 +4,10 @@ export const dataNavbar = [
     href: '/blocks',
   },
   {
+    name: 'Components',
+    href: '/components',
+  },
+  {
     name: 'Docs',
     href: '/docs/get-started/blocks',
   },

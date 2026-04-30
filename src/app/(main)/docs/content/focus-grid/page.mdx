@@ -1,4 +1,4 @@
-export const metadata = {
+﻿export const metadata = {
   title: 'Focus Grid',
   description: 'Focus grid with items that expand and dim on focus.',
   openGraph: {
@@ -45,7 +45,7 @@ The block supports two props that change behavior: **dimUnfocused** (dim non-foc
 
 <BlockPreview category="content" slug="focus-grid" />
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/content/focus-grid/focus-grid-example.tsx" />
 
 ### Focused items are dimmed
 
@@ -54,7 +54,7 @@ When `dimUnfocused` is true, unfocused items are dimmed while another item is fo
 <BlockPreview category="content" slug="focus-grid" variation="dim-unfocused" />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-dim-unfocused.tsx"
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-dim-unfocused.tsx"
   title="focus-grid-dim-unfocused.tsx"
 />
 
@@ -69,7 +69,7 @@ When `descriptionOnFocus` is false, the description is always shown for all item
 />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-description-always.tsx"
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-description-always.tsx"
   title="focus-grid-description-always.tsx"
 />
 
@@ -85,7 +85,7 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
 />
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/examples/focus-grid-minimalist.tsx"
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-minimalist.tsx"
   title="focus-grid-minimalist.tsx"
 />
 
@@ -102,14 +102,14 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/focus-grid.tsx"
+  filePath="registry/blocks/content/focus-grid/focus-grid.tsx"
   collapsible
   title="focus-grid.tsx"
 />
 
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/content/focus-grid/focus-grid-example.tsx" />
 
 </Steps>
 
@@ -124,7 +124,7 @@ Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths t
 Define the block in the Studio so editors can add and edit Focus Grid. Add the schema and export it according to your project structure.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/sanity/sanity-schema.txt"
+  filePath="registry/blocks/content/focus-grid/sanity/sanity-schema.txt"
   language="ts"
   title="sanity/schema-types/blocks/content/focus-grid.ts"
 />
@@ -134,7 +134,7 @@ Define the block in the Studio so editors can add and edit Focus Grid. Add the s
 Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/focus-grid/sanity/sanity-component.txt"
+  filePath="registry/blocks/content/focus-grid/sanity/sanity-component.txt"
   language="tsx"
   title="web/components/flx/sanity/content/focus-grid.tsx"
   showLineNumbers

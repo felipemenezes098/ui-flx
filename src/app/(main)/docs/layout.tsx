@@ -1,4 +1,4 @@
-import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edges'
+import { ScrollFadeEdges } from '../../../../registry/blocks/shared/scroll-fade-edges'
 import { docsSanitySections, getStartedSections } from '@/data/docs/sections'
 import { blocks } from '@/lib/block-registry'
 

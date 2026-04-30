@@ -9,13 +9,13 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "src/components/flx/blocks/content/title-with-media/title-with-media.tsx",
+      "path": "registry/blocks/content/title-with-media/title-with-media.tsx",
       "content": "'use client'\n\nimport Balancer from 'react-wrap-balancer'\n\nexport interface TitleWithMediaProps {\n  title?: string\n  media: {\n    src: string\n    alt: string\n  }\n}\n\nexport function TitleWithMedia({ title, media }: TitleWithMediaProps) {\n  return (\n    <div className=\"flex flex-col gap-8\">\n      <div className=\"flex flex-col gap-2\">\n        {title && (\n          <h2 className=\"text-center text-2xl font-bold\">\n            <Balancer balance={0.5}>{title}</Balancer>\n          </h2>\n        )}\n      </div>\n      {media && (\n        <div className=\"relative min-h-96 w-full overflow-hidden rounded-lg\">\n          <img\n            src={media.src}\n            alt={title ?? 'Title With Media Image'}\n            loading=\"lazy\"\n            decoding=\"async\"\n            className=\"absolute inset-0 size-full object-cover\"\n          />\n        </div>\n      )}\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/title-with-media/title-with-media.tsx"
     },
     {
-      "path": "src/components/flx/blocks/content/title-with-media/title-with-media-example.tsx",
+      "path": "registry/blocks/content/title-with-media/title-with-media-example.tsx",
       "content": "import { TitleWithMedia, type TitleWithMediaProps } from './title-with-media'\n\nexport const values = {\n  title: 'Clarity in every detail',\n  media: {\n    src: 'https://images.unsplash.com/photo-1600297293222-09e4a39ecbb0?q=80&w=2094&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    alt: 'Title with media image',\n  },\n} satisfies TitleWithMediaProps\n\nexport function TitleWithMediaExample() {\n  return <TitleWithMedia title={values.title} media={values.media} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/title-with-media/title-with-media-example.tsx"

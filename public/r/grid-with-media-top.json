@@ -7,13 +7,13 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
+      "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
       "content": "export interface GridWithMediaTopProps {\n  media: {\n    url: string\n    alt: string\n  }\n  items: {\n    title: string\n    description: string\n  }[]\n}\n\nexport function GridWithMediaTop({\n  media,\n  items,\n}: Readonly<GridWithMediaTopProps>) {\n  return (\n    <div className=\"space-y-8\">\n      {media && (\n        <div className=\"relative max-h-140 min-h-96 w-full overflow-hidden rounded-lg\">\n          <img\n            src={media.url}\n            alt={media.alt ?? 'Grid With Media Top'}\n            loading=\"lazy\"\n            decoding=\"async\"\n            className=\"absolute inset-0 size-full object-cover\"\n          />\n        </div>\n      )}\n\n      {items && items.length > 0 && (\n        <ul className=\"m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3\">\n          {items.map((item, index) => (\n            <li key={`${item.title}-${index}`} className=\"flex flex-col gap-2\">\n              {item.title && (\n                <h3 className=\"text-lg font-medium\">{item.title}</h3>\n              )}\n              {item.description && (\n                <p className=\"text-muted-foreground max-w-md text-sm\">\n                  {item.description}\n                </p>\n              )}\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
     },
     {
-      "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
+      "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
       "content": "import {\n  GridWithMediaTop,\n  type GridWithMediaTopProps,\n} from './grid-with-media-top'\n\nexport const values = {\n  media: {\n    url: 'https://images.unsplash.com/photo-1765871319901-0aaafe3f1a2a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    alt: 'Section hero image',\n  },\n  items: [\n    {\n      title: 'Lightweight',\n      description: 'Only what you need. No bloat, no lock-in.',\n    },\n    {\n      title: 'Customizable',\n      description: 'Copy, tweak, and own. Built to fit your design system.',\n    },\n    {\n      title: 'Ready to ship',\n      description: 'Stable, accessible, and ready for production.',\n    },\n  ],\n} satisfies GridWithMediaTopProps\n\nexport function GridWithMediaTopExample() {\n  return <GridWithMediaTop media={values.media} items={values.items} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx"

@@ -1,11 +1,11 @@
-import { testimonialsDefaults } from '@/components/flx/blocks/testimonials/testimonials-defaults'
-import { bentoGridsDefaults } from '../components/flx/blocks/bento-grids/bento-grids-defaults'
-import { carouselDefaults } from '../components/flx/blocks/carousel/carousel-defaults'
-import { contentDefaults } from '../components/flx/blocks/content/content-defaults'
-import { heroDefaults } from '../components/flx/blocks/hero/hero-defaults'
-import { logosDefaults } from '../components/flx/blocks/logos/logos-defaults'
-import { showcaseDefaults } from '../components/flx/blocks/showcase/showcase-defaults'
-import { scrollDefaults } from '@/components/flx/blocks/scroll/scroll-defaults'
+import { testimonialsDefaults } from '../../registry/blocks/testimonials/testimonials-defaults'
+import { bentoGridsDefaults } from '../../registry/blocks/bento-grids/bento-grids-defaults'
+import { carouselDefaults } from '../../registry/blocks/carousel/carousel-defaults'
+import { contentDefaults } from '../../registry/blocks/content/content-defaults'
+import { heroDefaults } from '../../registry/blocks/hero/hero-defaults'
+import { logosDefaults } from '../../registry/blocks/logos/logos-defaults'
+import { showcaseDefaults } from '../../registry/blocks/showcase/showcase-defaults'
+import { scrollDefaults } from '../../registry/blocks/scroll/scroll-defaults'
 
 export const blockDefaults = {
   ...heroDefaults,
