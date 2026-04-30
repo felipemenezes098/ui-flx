@@ -1,4 +1,4 @@
-export const metadata = {
+﻿export const metadata = {
   title: 'Text Badges',
   description: 'A text badges with a title, CTA and badges.',
   openGraph: {
@@ -39,7 +39,7 @@ export const metadata = {
 ## Usage
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/hero/text-badges/text-badges-example.tsx"
+  filePath="registry/blocks/hero/text-badges/text-badges-example.tsx"
   title="text-badges-example.tsx"
 />
 
@@ -52,7 +52,7 @@ export const metadata = {
 <Step>Add CTA Component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/shared/cta/cta.tsx"
+  filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
 />
 
@@ -63,14 +63,14 @@ export const metadata = {
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/hero/text-badges/text-badges.tsx"
+  filePath="registry/blocks/hero/text-badges/text-badges.tsx"
   collapsible
   title="text-badges.tsx"
 />
 
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/hero/text-badges/text-badges-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/hero/text-badges/text-badges-example.tsx" />
 
 </Steps>
 
@@ -85,7 +85,7 @@ export const metadata = {
 Define the block in the Studio so editors can add and edit Text Badges. Add the schema and export it according to your project structure.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/hero/text-badges/sanity/sanity-schema.txt"
+  filePath="registry/blocks/hero/text-badges/sanity/sanity-schema.txt"
   language="ts"
   title="sanity/schema-types/blocks/hero/text-badges.ts"
 />
@@ -95,7 +95,7 @@ Define the block in the Studio so editors can add and edit Text Badges. Add the 
 Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/hero/text-badges/sanity/sanity-component.txt"
+  filePath="registry/blocks/hero/text-badges/sanity/sanity-component.txt"
   language="tsx"
   title="web/components/flx/sanity/hero/text-badges.tsx"
   showLineNumbers

@@ -11,7 +11,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "src/components/flx/blocks/shared/cta/cta.tsx",
+          "path": "registry/blocks/shared/cta/cta.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/cta/cta.tsx"
         }
@@ -26,7 +26,7 @@
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "src/components/flx/blocks/shared/scroll-fade-edges.tsx",
+          "path": "registry/blocks/shared/scroll-fade-edges.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/scroll-fade-edges.tsx"
         }
@@ -41,7 +41,7 @@
       "dependencies": ["lucide-react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx",
+          "path": "registry/blocks/shared/dynamic-icon/dynamic-icon.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
         }
@@ -56,12 +56,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx",
+          "path": "registry/blocks/content/grid-two-columns/grid-two-columns.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-two-columns/grid-two-columns-example.tsx",
+          "path": "registry/blocks/content/grid-two-columns/grid-two-columns-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-example.tsx"
         }
@@ -79,12 +79,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/centered-text/centered-text.tsx",
+          "path": "registry/blocks/content/centered-text/centered-text.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/centered-text/centered-text.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/centered-text/centered-text-example.tsx",
+          "path": "registry/blocks/content/centered-text/centered-text-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/centered-text/centered-text-example.tsx"
         }
@@ -102,12 +102,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-cards/grid-cards.tsx",
+          "path": "registry/blocks/content/grid-cards/grid-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-cards/grid-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-cards/grid-cards-example.tsx",
+          "path": "registry/blocks/content/grid-cards/grid-cards-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-cards/grid-cards-example.tsx"
         }
@@ -125,12 +125,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx",
+          "path": "registry/blocks/content/grid-media-cards/grid-media-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx",
+          "path": "registry/blocks/content/grid-media-cards/grid-media-cards-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx"
         }
@@ -148,12 +148,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
+          "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
+          "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx"
         }
@@ -171,12 +171,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/icon-list/icon-list.tsx",
+          "path": "registry/blocks/content/icon-list/icon-list.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/icon-list/icon-list-example.tsx",
+          "path": "registry/blocks/content/icon-list/icon-list-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/icon-list/icon-list-example.tsx"
         }
@@ -194,12 +194,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/badge-list/badge-list.tsx",
+          "path": "registry/blocks/content/badge-list/badge-list.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/badge-list/badge-list.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/badge-list/badge-list-example.tsx",
+          "path": "registry/blocks/content/badge-list/badge-list-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/badge-list/badge-list-example.tsx"
         }
@@ -214,12 +214,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx",
+          "path": "registry/blocks/content/grid-content-columns/grid-content-columns.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-content-columns/grid-content-columns-example.tsx",
+          "path": "registry/blocks/content/grid-content-columns/grid-content-columns-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns-example.tsx"
         }
@@ -234,12 +234,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/title-with-media/title-with-media.tsx",
+          "path": "registry/blocks/content/title-with-media/title-with-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/title-with-media/title-with-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/title-with-media/title-with-media-example.tsx",
+          "path": "registry/blocks/content/title-with-media/title-with-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/title-with-media/title-with-media-example.tsx"
         }
@@ -257,12 +257,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/background-media/background-media.tsx",
+          "path": "registry/blocks/hero/background-media/background-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/background-media/background-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/background-media/background-media-example.tsx",
+          "path": "registry/blocks/hero/background-media/background-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/background-media/background-media-example.tsx"
         }
@@ -280,12 +280,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
+          "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx",
+          "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx"
         }
@@ -304,12 +304,12 @@
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/focus-grid/focus-grid.tsx",
+          "path": "registry/blocks/content/focus-grid/focus-grid.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/focus-grid/focus-grid.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/focus-grid/focus-grid-example.tsx",
+          "path": "registry/blocks/content/focus-grid/focus-grid-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/focus-grid/focus-grid-example.tsx"
         }
@@ -327,12 +327,12 @@
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx",
+          "path": "registry/blocks/content/select-reveal-media/select-reveal-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/select-reveal-media/select-reveal-media-example.tsx",
+          "path": "registry/blocks/content/select-reveal-media/select-reveal-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-example.tsx"
         }
@@ -350,12 +350,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/tabs-media/tabs-media.tsx",
+          "path": "registry/blocks/content/tabs-media/tabs-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/tabs-media/tabs-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/tabs-media/tabs-media-example.tsx",
+          "path": "registry/blocks/content/tabs-media/tabs-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/tabs-media/tabs-media-example.tsx"
         }
@@ -373,12 +373,12 @@
       "dependencies": ["motion", "react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
+          "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx",
+          "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx"
         }
@@ -396,12 +396,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/text-badges/text-badges.tsx",
+          "path": "registry/blocks/hero/text-badges/text-badges.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/text-badges/text-badges-example.tsx",
+          "path": "registry/blocks/hero/text-badges/text-badges-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
         }
@@ -419,12 +419,12 @@
       "dependencies": ["card"],
       "files": [
         {
-          "path": "src/components/flx/blocks/content/grid-content-cards/grid-content-cards.tsx",
+          "path": "registry/blocks/content/grid-content-cards/grid-content-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/content/grid-content-cards/grid-content-cards-example.tsx",
+          "path": "registry/blocks/content/grid-content-cards/grid-content-cards-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards-example.tsx"
         }
@@ -439,12 +439,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media.tsx",
+          "path": "registry/blocks/hero/hero-content-media/hero-content-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx",
+          "path": "registry/blocks/hero/hero-content-media/hero-content-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx"
         }
@@ -462,12 +462,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
+          "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
         },
         {
-          "path": "src/components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx",
+          "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
         }
@@ -485,12 +485,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
+          "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx",
+          "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx"
         }
@@ -506,12 +506,12 @@
       "devDependencies": ["embla-carousel-auto-scroll"],
       "files": [
         {
-          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx",
+          "path": "registry/blocks/carousel/carousel-focus/carousel-focus.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
         },
         {
-          "path": "src/components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx",
+          "path": "registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx"
         }
@@ -530,12 +530,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx",
+          "path": "registry/blocks/carousel/carousel-cards/carousel-cards.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx"
         },
         {
-          "path": "src/components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx",
+          "path": "registry/blocks/carousel/carousel-cards/carousel-cards-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx"
         }
@@ -555,12 +555,12 @@
       "dependencies": ["react-wrap-balancer", "lucide-react"],
       "files": [
         {
-          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media.tsx",
+          "path": "registry/blocks/carousel/carousel-media/carousel-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx",
+          "path": "registry/blocks/carousel/carousel-media/carousel-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx"
         }
@@ -581,12 +581,12 @@
       "devDependencies": ["embla-carousel-auto-scroll"],
       "files": [
         {
-          "path": "src/components/flx/blocks/logos/logo-marquee/logo-marquee.tsx",
+          "path": "registry/blocks/logos/logo-marquee/logo-marquee.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/logos/logo-marquee/logo-marquee.tsx"
         },
         {
-          "path": "src/components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx",
+          "path": "registry/blocks/logos/logo-marquee/logo-marquee-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
         }
@@ -601,12 +601,12 @@
       "dependencies": ["react-wrap-balancer"],
       "files": [
         {
-          "path": "src/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
+          "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
         },
         {
-          "path": "src/components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx",
+          "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
         }
@@ -624,12 +624,12 @@
       "dependencies": [],
       "files": [
         {
-          "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx",
+          "path": "registry/blocks/testimonials/single-testimonial/single-testimonial.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
         },
         {
-          "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
+          "path": "registry/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
         }
@@ -644,12 +644,12 @@
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
+          "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
         },
         {
-          "path": "src/components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx",
+          "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
         }

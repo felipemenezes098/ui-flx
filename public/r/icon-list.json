@@ -9,13 +9,13 @@
   ],
   "files": [
     {
-      "path": "src/components/flx/blocks/content/icon-list/icon-list.tsx",
-      "content": "import { icons } from 'lucide-react'\n\nimport { Icon } from '@/components/flx/blocks/shared/dynamic-icon/dynamic-icon'\n\nexport interface IconListProps {\n  title: string\n  items: {\n    title: string\n    icon: string\n  }[]\n}\n\nexport function IconList({ title, items }: Readonly<IconListProps>) {\n  return (\n    <div className=\"grid w-full\">\n      <h2 className=\"mb-8 text-2xl font-bold\">{title}</h2>\n      <div className=\"grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3\">\n        {items.map((item, index) => (\n          <div className=\"flex items-center gap-3\" key={item.title + index}>\n            <Icon\n              name={item.icon as keyof typeof icons}\n              className=\"text-primary size-4 flex-shrink-0\"\n            />\n            <h3 className=\"text-base font-medium\">{item.title}</h3>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "path": "registry/blocks/content/icon-list/icon-list.tsx",
+      "content": "import { icons } from 'lucide-react'\n\nimport { Icon } from '../../shared/dynamic-icon/dynamic-icon'\n\nexport interface IconListProps {\n  title: string\n  items: {\n    title: string\n    icon: string\n  }[]\n}\n\nexport function IconList({ title, items }: Readonly<IconListProps>) {\n  return (\n    <div className=\"grid w-full\">\n      <h2 className=\"mb-8 text-2xl font-bold\">{title}</h2>\n      <div className=\"grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3\">\n        {items.map((item, index) => (\n          <div className=\"flex items-center gap-3\" key={item.title + index}>\n            <Icon\n              name={item.icon as keyof typeof icons}\n              className=\"text-primary size-4 flex-shrink-0\"\n            />\n            <h3 className=\"text-base font-medium\">{item.title}</h3>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
     },
     {
-      "path": "src/components/flx/blocks/content/icon-list/icon-list-example.tsx",
+      "path": "registry/blocks/content/icon-list/icon-list-example.tsx",
       "content": "import { IconList, type IconListProps } from './icon-list'\n\nexport const values = {\n  title: 'Principles',\n  items: [\n    { title: 'Simple', icon: 'Zap' },\n    { title: 'Clear', icon: 'Shield' },\n    { title: 'Fast', icon: 'Code' },\n    { title: 'Stable', icon: 'Users' },\n    { title: 'Open', icon: 'Accessibility' },\n    { title: 'Inclusive', icon: 'Smartphone' },\n  ],\n} satisfies IconListProps\n\nexport function IconListExample() {\n  return <IconList title={values.title} items={values.items} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/content/icon-list/icon-list-example.tsx"

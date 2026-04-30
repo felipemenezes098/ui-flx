@@ -1,4 +1,4 @@
-export const metadata = {
+﻿export const metadata = {
   title: 'Grid Media Cards',
   description: 'A grid of media cards with a title and items.',
   openGraph: {
@@ -39,7 +39,7 @@ export const metadata = {
 ## Usage
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx"
+  filePath="registry/blocks/content/grid-media-cards/grid-media-cards-example.tsx"
   title="grid-media-cards-example.tsx"
 />
 
@@ -52,21 +52,21 @@ export const metadata = {
 <Step>Add dynamic-icon Component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+  filePath="registry/blocks/shared/dynamic-icon/dynamic-icon.tsx"
   title="dynamic-icon.tsx"
 />
 
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx"
+  filePath="registry/blocks/content/grid-media-cards/grid-media-cards.tsx"
   collapsible
   title="grid-media-cards.tsx"
 />
 
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/content/grid-media-cards/grid-media-cards-example.tsx" />
 
 </Steps>
 
@@ -81,7 +81,7 @@ export const metadata = {
 Define the block in the Studio so editors can add and edit Grid Media Cards. Add the schema and export it according to your project structure.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/grid-media-cards/sanity/sanity-schema.txt"
+  filePath="registry/blocks/content/grid-media-cards/sanity/sanity-schema.txt"
   language="ts"
   title="sanity/schema-types/blocks/content/grid-media-cards.ts"
 />
@@ -91,7 +91,7 @@ Define the block in the Studio so editors can add and edit Grid Media Cards. Add
 Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/grid-media-cards/sanity/sanity-component.txt"
+  filePath="registry/blocks/content/grid-media-cards/sanity/sanity-component.txt"
   language="tsx"
   title="web/components/flx/sanity/content/grid-media-cards.tsx"
   showLineNumbers

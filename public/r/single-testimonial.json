@@ -9,13 +9,13 @@
   ],
   "files": [
     {
-      "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx",
+      "path": "registry/blocks/testimonials/single-testimonial/single-testimonial.tsx",
       "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\n\nexport interface SingleTestimonialProps {\n  quote: string\n  author: {\n    name: string\n    role: string\n    avatar: {\n      src?: string\n      alt?: string\n      fallback: string\n    }\n  }\n}\n\nexport function SingleTestimonial({\n  quote,\n  author,\n}: Readonly<SingleTestimonialProps>) {\n  return (\n    <div className=\"mx-auto flex max-w-3xl flex-col gap-7 rounded-3xl text-center\">\n      <p className=\"text-xl leading-tight font-medium tracking-tight md:text-[2rem]\">\n        \"{quote}\"\n      </p>\n\n      <div className=\"flex items-center justify-center gap-4\">\n        <Avatar size=\"default\" className=\"md:data-[size=default]:size-10\">\n          <AvatarImage\n            src={author.avatar.src}\n            alt={author.avatar.alt ?? author.name}\n          />\n          <AvatarFallback>{author.avatar.fallback}</AvatarFallback>\n        </Avatar>\n\n        <div className=\"flex flex-col items-start text-left\">\n          <p className=\"text-sm font-semibold md:text-base\">{author.name}</p>\n          <p className=\"text-muted-foreground text-xs md:text-sm\">\n            {author.role}\n          </p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
     },
     {
-      "path": "src/components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
+      "path": "registry/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
       "content": "import {\n  SingleTestimonial,\n  type SingleTestimonialProps,\n} from './single-testimonial'\n\nexport const values = {\n  quote:\n    'Switching to these blocks gave our team a cleaner system and helped us launch polished pages in a fraction of the time.',\n  author: {\n    name: 'Sophie Carter',\n    role: 'Product Design Lead at Northstar',\n    avatar: {\n      src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',\n      alt: 'Sophie Carter',\n      fallback: 'SC',\n    },\n  },\n} satisfies SingleTestimonialProps\n\nexport function SingleTestimonialExample() {\n  return <SingleTestimonial quote={values.quote} author={values.author} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"

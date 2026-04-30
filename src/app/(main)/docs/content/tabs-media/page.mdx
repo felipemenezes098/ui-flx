@@ -1,4 +1,4 @@
-export const metadata = {
+﻿export const metadata = {
   title: 'Tabs Media',
   description: 'Tabbed navigation that reveals a media for each tab.',
   openGraph: {
@@ -40,7 +40,7 @@ export const metadata = {
 ## Usage
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/tabs-media/tabs-media-example.tsx"
+  filePath="registry/blocks/content/tabs-media/tabs-media-example.tsx"
   title="tabs-media-example.tsx"
 />
 
@@ -53,21 +53,21 @@ export const metadata = {
 <Step>Add scroll-fade-edges</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/shared/scroll-fade-edges.tsx"
+  filePath="registry/blocks/shared/scroll-fade-edges.tsx"
   title="scroll-fade-edges.tsx"
 />
 
 <Step>Copy the component</Step>
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/tabs-media/tabs-media.tsx"
+  filePath="registry/blocks/content/tabs-media/tabs-media.tsx"
   collapsible
   title="tabs-media.tsx"
 />
 
 <Step>Use the component</Step>
 
-<CodeBlockFromFile filePath="src/components/flx/blocks/content/tabs-media/tabs-media-example.tsx" />
+<CodeBlockFromFile filePath="registry/blocks/content/tabs-media/tabs-media-example.tsx" />
 
 </Steps>
 
@@ -82,7 +82,7 @@ export const metadata = {
 Define the block in the Studio so editors can add and edit Tabs Media. Add the schema and export it according to your project structure.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/tabs-media/sanity/sanity-schema.txt"
+  filePath="registry/blocks/content/tabs-media/sanity/sanity-schema.txt"
   language="ts"
   title="sanity/schema-types/blocks/content/tabs-media.ts"
 />
@@ -92,7 +92,7 @@ Define the block in the Studio so editors can add and edit Tabs Media. Add the s
 Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
 
 <CodeBlockFromFile
-  filePath="src/components/flx/blocks/content/tabs-media/sanity/sanity-component.txt"
+  filePath="registry/blocks/content/tabs-media/sanity/sanity-component.txt"
   language="tsx"
   title="web/components/flx/sanity/content/tabs-media.tsx"
   showLineNumbers

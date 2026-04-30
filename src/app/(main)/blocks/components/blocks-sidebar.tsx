@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { ScrollFadeEdges } from '@/components/flx/blocks/shared/scroll-fade-edges'
+import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
 import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
 import { blocks } from '@/lib/block-registry'
 import { cn } from '@/lib/utils'
