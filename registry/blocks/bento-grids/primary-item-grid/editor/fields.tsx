@@ -52,7 +52,7 @@ export function PrimaryItemGridEditorFields({
     updatePrimary({ cta })
   }
 
-  const updatePrimaryMedia = (field: 'url' | 'title', value: string) => {
+  const updatePrimaryMedia = (field: 'src' | 'title', value: string) => {
     updatePrimary({
       media: { ...props.primary.media, [field]: value },
     })
@@ -70,7 +70,7 @@ export function PrimaryItemGridEditorFields({
         description: 'Description for this card.',
         media: {
           title: 'Card image',
-          url: 'https://images.unsplash.com/photo-1611310424006-42cf1e064288?q=80&w=687&auto=format&fit=crop',
+          src: 'https://images.unsplash.com/photo-1611310424006-42cf1e064288?q=80&w=687&auto=format&fit=crop',
         },
       },
     ])
@@ -175,8 +175,8 @@ export function PrimaryItemGridEditorFields({
         <div className="space-y-3 rounded-md border p-3">
           <Label className="text-sm font-medium">Primary media</Label>
           <Input
-            value={props.primary.media.url}
-            onChange={(e) => updatePrimaryMedia('url', e.target.value)}
+            value={props.primary.media.src}
+            onChange={(e) => updatePrimaryMedia('src', e.target.value)}
             placeholder="Image URL"
           />
           <Input
@@ -226,10 +226,10 @@ export function PrimaryItemGridEditorFields({
               rows={2}
             />
             <Input
-              value={item.media.url}
+              value={item.media.src}
               onChange={(e) =>
                 updateItem(index, {
-                  media: { ...item.media, url: e.target.value },
+                  media: { ...item.media, src: e.target.value },
                 })
               }
               placeholder="Image URL"

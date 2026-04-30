@@ -102,15 +102,7 @@ export interface BlockCategory {
   image: string
   slug: string
   hasNew?: boolean
-  type:
-    | 'hero'
-    | 'content'
-    | 'showcase'
-    | 'carousel'
-    | 'logos'
-    | 'bento-grids'
-    | 'testimonials'
-    | 'scroll'
+  type: string
   blocks: BlockItem[]
 }
 
@@ -318,12 +310,6 @@ export const blocks: BlockCategory[] = [
         },
       },
       {
-        name: 'Text Badges',
-        description: 'A text badges with a title, CTA and badges.',
-        image: '/images/blocks/hero/heroTextBadges.png',
-        slug: 'text-badges',
-      },
-      {
         name: 'Hero Content Media',
         description:
           'Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.',
@@ -352,6 +338,12 @@ export const blocks: BlockCategory[] = [
         meta: {
           iframeHeight: 800,
         },
+      },
+      {
+        name: 'Text Badges',
+        description: 'A text badges with a title, CTA and badges.',
+        image: '/images/blocks/hero/heroTextBadges.png',
+        slug: 'text-badges',
       },
     ],
   },

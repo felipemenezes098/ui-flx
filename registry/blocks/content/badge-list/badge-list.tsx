@@ -1,7 +1,6 @@
 import Balancer from 'react-wrap-balancer'
 
 import { Badge } from '@/components/ui/badge'
-import { cn } from '@/lib/utils'
 
 export interface BadgeListProps {
   title: string
@@ -15,22 +14,22 @@ export function BadgeList({
   items,
 }: Readonly<BadgeListProps>) {
   return (
-    <div className={cn('flex flex-col justify-center')}>
-      <div className="flex w-full flex-col space-y-8">
-        <div className={cn('flex flex-col gap-2')}>
+    <div className="flex flex-col justify-center">
+      <div className="flex w-full flex-col items-center space-y-8">
+        <div className="flex flex-col gap-2 text-center">
           {title && (
-            <h2 className={cn('text-2xl font-bold')}>
+            <h2 className="text-2xl font-bold">
               <Balancer balance={0.5}>{title}</Balancer>
             </h2>
           )}
           {description && (
-            <p className={cn('text-muted-foreground')}>
+            <p className="text-muted-foreground">
               <Balancer balance={0.5}>{description}</Balancer>
             </p>
           )}
         </div>
         {items && items.length > 0 && (
-          <ul className={cn('m-0 flex w-full list-none flex-wrap gap-3 p-0')}>
+          <ul className="m-0 flex w-full list-none flex-wrap items-center justify-center gap-3 p-0">
             {items.map((item, index) => (
               <li key={`${item}-${index}`}>
                 <Badge

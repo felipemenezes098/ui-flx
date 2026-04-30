@@ -20,7 +20,7 @@ interface TabsMediaEditorFieldsProps {
 function createEmptyItem(index: number): TabsMediaItem {
   return {
     label: `Tab ${index + 1}`,
-    url: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
   }
 }
 
@@ -134,14 +134,14 @@ export function TabsMediaEditorFields({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor={`tab-${index}-url`} className="text-xs">
+              <Label htmlFor={`tab-${index}-src`} className="text-xs">
                 Image URL
               </Label>
               <Input
-                id={`tab-${index}-url`}
-                type="url"
-                value={item.url}
-                onChange={(e) => updateItem(index, 'url', e.target.value)}
+                id={`tab-${index}-src`}
+                type="src"
+                value={item.src}
+                onChange={(e) => updateItem(index, 'src', e.target.value)}
                 placeholder="https://images.unsplash.com/..."
               />
             </div>

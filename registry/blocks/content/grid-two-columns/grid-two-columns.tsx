@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 export interface GridTwoColumnsProps {
   title: string
   description: string
-  image: {
+  media: {
     src: string
     alt: string
   }
@@ -17,7 +17,7 @@ export interface GridTwoColumnsProps {
 export function GridTwoColumns({
   title,
   description,
-  image,
+  media,
   cta,
 }: Readonly<GridTwoColumnsProps>) {
   return (
@@ -28,7 +28,7 @@ export function GridTwoColumns({
     >
       <div
         className={cn(
-          'order-1 flex w-full min-w-0 flex-col space-y-8 self-center overflow-x-hidden',
+          'order-1 flex w-full min-w-0 flex-col space-y-8 self-center',
         )}
       >
         <div className="space-y-6">
@@ -49,11 +49,11 @@ export function GridTwoColumns({
         </div>
         {cta && <Cta cta={cta} />}
       </div>
-      {image && (
+      {media && (
         <div className={cn('relative order-2 flex md:h-full md:items-center')}>
           <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg">
             <img
-              src={image.src}
+              src={media.src}
               alt={title ?? 'Grid Two Columns Image'}
               loading="lazy"
               decoding="async"

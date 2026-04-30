@@ -11,13 +11,13 @@ export const values = {
   primaryCTA: {
     ctaEnabled: true,
     text: 'Get Started',
-    link: '/',
+    link: '',
     variant: 'default',
   },
   secondaryCTA: {
     ctaEnabled: true,
     text: 'View Work',
-    link: '/',
+    link: '',
     variant: 'secondary',
   },
   logos: [

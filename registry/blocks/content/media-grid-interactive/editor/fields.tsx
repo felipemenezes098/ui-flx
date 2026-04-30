@@ -50,7 +50,7 @@ export function MediaGridInteractiveEditorFields({
     const newItems = [...props.items]
     newItems[index] = {
       ...newItems[index],
-      image: { ...newItems[index].image, [field]: value },
+      media: { ...newItems[index].media, [field]: value },
     }
     if (onUpdate) onUpdate({ ...props, items: newItems })
     else setInternalProps({ ...props, items: newItems })
@@ -64,9 +64,9 @@ export function MediaGridInteractiveEditorFields({
         {
           title: 'New Item',
           description: '',
-          image: {
-            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop',
-            alt: 'New item image',
+          media: {
+            src: 'https://medias.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop',
+            alt: 'New item media',
           },
         },
       ],
@@ -123,7 +123,7 @@ export function MediaGridInteractiveEditorFields({
         </div>
         {props.items.map((item, index) => (
           <div
-            key={`${item.title}-${item.image.src}-${index}`}
+            key={`${item.title}-${item.media.src}-${index}`}
             className="space-y-3 rounded-md border p-3"
           >
             <div className="flex items-center justify-between">
@@ -175,18 +175,18 @@ export function MediaGridInteractiveEditorFields({
                 <Label className="text-muted-foreground text-xs">Image</Label>
                 <div className="space-y-2">
                   <Input
-                    id={`item-${index}-image-src`}
+                    id={`item-${index}-media-src`}
                     type="url"
-                    value={item.image.src}
+                    value={item.media.src}
                     onChange={(e) =>
                       updateItemImage(index, 'src', e.target.value)
                     }
                     placeholder="Image URL"
                   />
                   <Input
-                    id={`item-${index}-image-alt`}
+                    id={`item-${index}-media-alt`}
                     type="text"
-                    value={item.image.alt}
+                    value={item.media.alt}
                     onChange={(e) =>
                       updateItemImage(index, 'alt', e.target.value)
                     }

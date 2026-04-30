@@ -46,7 +46,7 @@ export function HeroContentMediaEditorFields({
   const updateImage = (field: 'src' | 'alt', value: string) => {
     const newProps = {
       ...props,
-      image: { ...props.image, [field]: value },
+      media: { ...props.media, [field]: value },
     }
 
     if (onUpdate) {
@@ -134,30 +134,30 @@ export function HeroContentMediaEditorFields({
         <div className="space-y-2">
           <div className="space-y-2">
             <Label
-              htmlFor="image-src"
+              htmlFor="media-src"
               className="text-muted-foreground text-xs"
             >
               Image URL
             </Label>
             <Input
-              id="image-src"
+              id="media-src"
               type="url"
-              value={props.image.src}
+              value={props.media.src}
               onChange={(e) => updateImage('src', e.target.value)}
-              placeholder="https://example.com/image.jpg"
+              placeholder="https://example.com/media.jpg"
             />
           </div>
           <div className="space-y-2">
             <Label
-              htmlFor="image-alt"
+              htmlFor="media-alt"
               className="text-muted-foreground text-xs"
             >
               Alt Text
             </Label>
             <Input
-              id="image-alt"
+              id="media-alt"
               type="text"
-              value={props.image.alt}
+              value={props.media.alt}
               onChange={(e) => updateImage('alt', e.target.value)}
               placeholder="Image description"
             />

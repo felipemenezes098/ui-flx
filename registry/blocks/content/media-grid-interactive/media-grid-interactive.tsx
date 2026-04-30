@@ -8,7 +8,7 @@ import Balancer from 'react-wrap-balancer'
 export type MediaGridInteractiveItem = {
   title: string
   description?: string
-  image: { src: string; alt: string }
+  media: { src: string; alt: string }
 }
 
 export interface MediaGridInteractiveProps {
@@ -64,8 +64,8 @@ function ItemDialog({
       >
         <div className="relative h-72 w-full overflow-hidden rounded-xl">
           <img
-            src={item.image.src}
-            alt={item.image.alt}
+            src={item.media.src}
+            alt={item.media.alt}
             loading="lazy"
             decoding="async"
             className="absolute inset-0 size-full object-cover"
@@ -127,8 +127,8 @@ export function MediaGridInteractive({
                   onClick={() => setSelected(item)}
                 >
                   <img
-                    src={item.image.src}
-                    alt={item.image.alt}
+                    src={item.media.src}
+                    alt={item.media.alt}
                     loading="lazy"
                     decoding="async"
                     className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"

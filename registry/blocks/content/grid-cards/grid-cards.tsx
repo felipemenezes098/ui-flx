@@ -1,4 +1,6 @@
 import Balancer from 'react-wrap-balancer'
+import { Icon } from '../../shared/dynamic-icon/dynamic-icon'
+import { icons } from 'lucide-react'
 
 export interface GridCardsProps {
   title: string
@@ -30,6 +32,12 @@ export function GridCards({ title, items }: Readonly<GridCardsProps>) {
                 aria-labelledby={`card-title-${index}`}
               >
                 <div>
+                  {item.icon && (
+                    <Icon
+                      name={item.icon as keyof typeof icons}
+                      className="mb-2 size-5"
+                    />
+                  )}
                   <h3
                     id={`card-title-${index}`}
                     className="mb-2 text-lg font-semibold"

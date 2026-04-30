@@ -51,7 +51,7 @@ export function CarouselMediaEditorFields({
             alt: 'New item image',
             overlay: true,
           },
-          whiteTexts: false,
+          invert: false,
         },
       ],
     }
@@ -220,11 +220,11 @@ export function CarouselMediaEditorFields({
             </div>
 
             <div className="flex items-center justify-between space-x-2">
-              <Label className="text-sm font-medium">White Texts</Label>
+              <Label className="text-sm font-medium">Invert</Label>
               <Switch
-                checked={item.whiteTexts}
+                checked={item.invert}
                 onCheckedChange={(checked) =>
-                  updateItem(index, 'whiteTexts', checked)
+                  updateItem(index, 'invert', checked)
                 }
               />
             </div>

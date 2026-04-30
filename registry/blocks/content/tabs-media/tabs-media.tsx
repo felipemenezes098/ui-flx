@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 export interface TabsMediaItem {
   label: string
-  url: string
+  src: string
 }
 
 export interface TabsMediaProps {
@@ -65,14 +65,14 @@ export function TabsMedia({
         <div className="relative aspect-square max-h-120 min-h-100 w-full overflow-hidden rounded-2xl 2xl:max-h-150">
           {items.map((item, index) => (
             <div
-              key={`${index}-${item.url}`}
+              key={`${index}-${item.src}`}
               className={cn(
                 'absolute inset-0 transition-opacity duration-500',
                 index === safeIndex ? 'opacity-100' : 'opacity-0',
               )}
             >
               <img
-                src={item.url}
+                src={item.src}
                 alt={item.label}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"

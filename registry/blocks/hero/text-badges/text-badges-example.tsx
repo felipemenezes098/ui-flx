@@ -5,13 +5,13 @@ export const values = {
   primaryCTA: {
     ctaEnabled: true,
     text: 'Get started',
-    link: '/',
+    link: '',
     variant: 'default',
   },
   secondaryCTA: {
     ctaEnabled: true,
     text: 'Learn more',
-    link: '/',
+    link: '',
     variant: 'secondary',
   },
   features: [

@@ -48,7 +48,7 @@ export function CarouselFocusEditorFields({
       ...props,
       items: [
         ...props.items,
-        { title: 'New Item', image: { url: '', aspect: 'landscape' } },
+        { title: 'New Item', media: { src: '', aspect: 'landscape' } },
       ],
     }
 
@@ -84,16 +84,16 @@ export function CarouselFocusEditorFields({
     }
   }
 
-  const updateItemImage = (
+  const updateItemMedia = (
     index: number,
-    field: 'url' | 'aspect',
+    field: 'src' | 'aspect',
     value: string,
   ) => {
     const newItems = [...props.items]
     newItems[index] = {
       ...newItems[index],
-      image: {
-        ...newItems[index].image,
+      media: {
+        ...newItems[index].media,
         [field]: field === 'aspect' ? (value as CarouselFocusAspect) : value,
       },
     }
@@ -122,8 +122,8 @@ export function CarouselFocusEditorFields({
             <SelectValue placeholder="Select position" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="outside">Above image</SelectItem>
-            <SelectItem value="inside">Inside image (bottom)</SelectItem>
+            <SelectItem value="outside">Above media</SelectItem>
+            <SelectItem value="inside">Inside media (bottom)</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-muted-foreground text-xs">
@@ -168,18 +168,18 @@ export function CarouselFocusEditorFields({
             <div className="space-y-2">
               <Label className="text-sm font-medium">Image URL</Label>
               <Input
-                value={item.image.url ?? ''}
-                onChange={(e) => updateItemImage(index, 'url', e.target.value)}
-                placeholder="https://example.com/image.jpg"
+                value={item.media.src ?? ''}
+                onChange={(e) => updateItemMedia(index, 'src', e.target.value)}
+                placeholder="https://example.com/media.jpg"
               />
             </div>
 
             <div className="space-y-2">
               <Label className="text-sm font-medium">Aspect ratio</Label>
               <Select
-                value={item.image.aspect}
+                value={item.media.aspect}
                 onValueChange={(value) =>
-                  updateItemImage(index, 'aspect', value)
+                  updateItemMedia(index, 'aspect', value)
                 }
               >
                 <SelectTrigger className="w-full">

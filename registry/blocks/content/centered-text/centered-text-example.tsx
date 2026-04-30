@@ -6,7 +6,7 @@ export const values = {
   cta: {
     ctaEnabled: true,
     text: 'Click here',
-    link: '/',
+    link: '',
     variant: 'default',
   },
 } satisfies CenteredTextProps
