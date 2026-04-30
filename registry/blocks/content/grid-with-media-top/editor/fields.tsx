@@ -27,7 +27,7 @@ export function GridWithMediaTopEditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateMedia = (field: 'url' | 'alt', value: string) => {
+  const updateMedia = (field: 'src' | 'alt', value: string) => {
     const newProps: GridWithMediaTopProps = {
       ...props,
       media: { ...props.media, [field]: value },
@@ -91,16 +91,16 @@ export function GridWithMediaTopEditorFields({
         <div className="space-y-2">
           <div className="space-y-2">
             <Label
-              htmlFor="media-url"
+              htmlFor="media-src"
               className="text-muted-foreground text-xs"
             >
               Media URL
             </Label>
             <Input
-              id="media-url"
-              type="url"
-              value={props.media.url}
-              onChange={(e) => updateMedia('url', e.target.value)}
+              id="media-src"
+              type="src"
+              value={props.media.src}
+              onChange={(e) => updateMedia('src', e.target.value)}
               placeholder="https://example.com/image.jpg"
             />
           </div>

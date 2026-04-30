@@ -2,7 +2,6 @@ import Balancer from 'react-wrap-balancer'
 
 import type { CtaProps } from '../../shared/cta/cta'
 import { Cta } from '../../shared/cta/cta'
-import { cn } from '@/lib/utils'
 
 export interface CenteredTextProps {
   title: string
@@ -16,11 +15,7 @@ export function CenteredText({
   cta,
 }: Readonly<CenteredTextProps>) {
   return (
-    <div
-      className={cn(
-        'bg-muted/50 flex min-h-120 items-center justify-center rounded-xl p-5',
-      )}
-    >
+    <div className="bg-muted/50 flex min-h-120 items-center justify-center rounded-xl p-5">
       <div className="flex flex-col items-center space-y-4 self-center">
         <div className="space-y-2">
           {title && (

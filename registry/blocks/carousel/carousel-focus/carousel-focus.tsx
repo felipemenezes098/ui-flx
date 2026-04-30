@@ -15,14 +15,14 @@ import { cn } from '@/lib/utils'
 
 export type CarouselFocusAspect = 'landscape' | 'portrait' | 'wide'
 
-export interface CarouselFocusImage {
-  url: string
+export interface CarouselFocusMedia {
+  src: string
   aspect: CarouselFocusAspect
 }
 
 export interface CarouselFocusItem {
   title: string
-  image: CarouselFocusImage
+  media: CarouselFocusMedia
 }
 
 export type CarouselFocusTitlePlacement = 'inside' | 'outside'
@@ -108,7 +108,7 @@ export function CarouselFocus({
         }),
       ]}
       className="w-full"
-      aria-label="Carousel de imagens"
+      aria-label="Carousel de medians"
     >
       <CarouselContent className="-ml-4">
         {items.map((item, index) => {
@@ -145,11 +145,11 @@ export function CarouselFocus({
                   <span
                     className={cn(
                       'relative w-full',
-                      aspectVariants({ aspect: item.image.aspect }),
+                      aspectVariants({ aspect: item.media.aspect }),
                     )}
                   >
                     <img
-                      src={item.image.url}
+                      src={item.media.src}
                       alt=""
                       loading="lazy"
                       decoding="async"
@@ -170,7 +170,7 @@ export function CarouselFocus({
                 type="button"
                 aria-label={item.title}
                 className={cn(
-                  aspectVariants({ aspect: item.image.aspect }),
+                  aspectVariants({ aspect: item.media.aspect }),
                   'block w-full cursor-default border-0 bg-transparent p-0 text-left transition-opacity duration-300',
                   isDimmed && 'opacity-50',
                 )}
@@ -180,7 +180,7 @@ export function CarouselFocus({
                 onBlur={handleItemMouseLeave}
               >
                 <img
-                  src={item.image.url}
+                  src={item.media.src}
                   alt=""
                   loading="lazy"
                   decoding="async"

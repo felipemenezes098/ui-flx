@@ -12,7 +12,7 @@ export const values = {
         alt: 'Team collaboration',
         overlay: true,
       },
-      whiteTexts: true,
+      invert: true,
     },
     {
       title: 'Stay in control',
@@ -22,7 +22,7 @@ export const values = {
         alt: 'Developer at work',
         overlay: true,
       },
-      whiteTexts: true,
+      invert: true,
     },
     {
       title: 'Built together',
@@ -32,7 +32,7 @@ export const values = {
         alt: 'Team collaborating',
         overlay: true,
       },
-      whiteTexts: true,
+      invert: true,
     },
     {
       title: 'Performance first',
@@ -42,7 +42,7 @@ export const values = {
         alt: 'Developer on laptop',
         overlay: true,
       },
-      whiteTexts: true,
+      invert: true,
     },
   ],
   showNavigation: true,

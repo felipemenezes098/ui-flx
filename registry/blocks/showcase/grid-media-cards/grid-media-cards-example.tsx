@@ -37,7 +37,7 @@ export const values = {
   cta: {
     ctaEnabled: true,
     text: 'See all',
-    link: '/',
+    link: '',
     variant: 'outline',
   },
 } satisfies ShowcaseGridMediaCardsProps

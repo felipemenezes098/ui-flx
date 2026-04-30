@@ -14,7 +14,7 @@ export const values = {
   cta: {
     ctaEnabled: true,
     text: 'Explore Blocks',
-    link: '/blocks',
+    link: '',
     variant: 'default',
     size: 'lg',
   },

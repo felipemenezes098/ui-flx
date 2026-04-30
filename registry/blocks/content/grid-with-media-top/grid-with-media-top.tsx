@@ -1,6 +1,6 @@
 export interface GridWithMediaTopProps {
   media: {
-    url: string
+    src: string
     alt: string
   }
   items: {
@@ -18,7 +18,7 @@ export function GridWithMediaTop({
       {media && (
         <div className="relative max-h-140 min-h-96 w-full overflow-hidden rounded-lg">
           <img
-            src={media.url}
+            src={media.src}
             alt={media.alt ?? 'Grid With Media Top'}
             loading="lazy"
             decoding="async"

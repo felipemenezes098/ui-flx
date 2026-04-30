@@ -26,9 +26,9 @@ function createEmptyItem(index: number): SelectRevealMediaItem {
     id: `item-${Date.now()}-${index}`,
     title: 'New Item',
     description: 'Item description.',
-    image: {
-      src: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
-      alt: 'New item image',
+    media: {
+      src: 'https://medias.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
+      alt: 'New item media',
     },
   }
 }
@@ -70,7 +70,7 @@ export function SelectRevealMediaEditorFields({
     const newItems = [...items]
     newItems[index] = {
       ...newItems[index],
-      image: { ...newItems[index].image, [field]: value },
+      media: { ...newItems[index].media, [field]: value },
     }
     updateItems(newItems)
   }
@@ -143,7 +143,7 @@ export function SelectRevealMediaEditorFields({
               <div className="space-y-2">
                 <Input
                   type="url"
-                  value={item.image.src}
+                  value={item.media.src}
                   onChange={(e) =>
                     updateItemImage(index, 'src', e.target.value)
                   }
@@ -151,7 +151,7 @@ export function SelectRevealMediaEditorFields({
                 />
                 <Input
                   type="text"
-                  value={item.image.alt}
+                  value={item.media.alt}
                   onChange={(e) =>
                     updateItemImage(index, 'alt', e.target.value)
                   }

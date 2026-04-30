@@ -8,11 +8,11 @@ export interface GridMediaCardsProps {
     title: string
     description: string
     icon: string
-    image: {
-      url: string
+    invert?: boolean
+    media: {
+      src: string
       alt: string
       overlay?: boolean
-      whiteTexts?: boolean
     }
   }[]
 }
@@ -31,19 +31,19 @@ export function GridMediaCards({
             className="relative h-96 overflow-hidden rounded-lg"
           >
             <img
-              src={item.image.url}
-              alt={item.image.alt}
+              src={item.media.src}
+              alt={item.media.alt}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 size-full object-cover"
             />
-            {item.image.overlay && (
+            {item.media.overlay && (
               <div className="absolute inset-0 bg-black/50" />
             )}
             <div
               className={cn(
                 'absolute inset-0 flex flex-col justify-end p-6',
-                item.image.whiteTexts && 'text-white',
+                item.invert && 'text-white',
               )}
             >
               {item.icon && (

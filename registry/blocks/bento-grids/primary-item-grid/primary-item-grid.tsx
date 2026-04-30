@@ -3,7 +3,7 @@ import { Cta } from '../../shared/cta/cta'
 import { cn } from '@/lib/utils'
 
 export type PrimaryItemMedia = {
-  url: string
+  src: string
   title: string
 }
 
@@ -49,13 +49,13 @@ export function PrimaryItemGrid({
             </div>
 
             <div className="flex">
-              <Cta cta={{ ...primary.cta, size: 'sm' }} />
+              <Cta cta={{ ...primary.cta, variant: 'outline' }} />
             </div>
           </div>
 
           <div className="bg-muted relative min-h-64 w-full overflow-hidden rounded-xl md:min-h-0">
             <img
-              src={primary.media.url}
+              src={primary.media.src}
               alt={primary.media.title}
               loading="lazy"
               decoding="async"
@@ -67,13 +67,13 @@ export function PrimaryItemGrid({
 
       {items.map((item) => (
         <article
-          key={`${item.title}-${item.media.url}`}
+          key={`${item.title}-${item.media.src}`}
           className="bg-muted/50 col-span-1 overflow-hidden rounded-lg p-6"
         >
           <div className="flex h-full flex-col gap-6">
             <div className="bg-muted relative aspect-[4/3] overflow-hidden rounded-xl">
               <img
-                src={item.media.url}
+                src={item.media.src}
                 alt={item.media.title}
                 loading="lazy"
                 decoding="async"

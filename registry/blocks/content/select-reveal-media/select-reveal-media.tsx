@@ -9,7 +9,7 @@ export interface SelectRevealMediaItem {
   id: string
   title: string
   description: string
-  image: {
+  media: {
     src: string
     alt: string
   }
@@ -83,8 +83,8 @@ export function SelectRevealMedia({ items }: Readonly<SelectRevealMediaProps>) {
             )}
           >
             <img
-              src={item.image.src}
-              alt={item.image.alt || item.title}
+              src={item.media.src}
+              alt={item.media.alt || item.title}
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
               fetchPriority={index === 0 ? 'high' : 'low'}

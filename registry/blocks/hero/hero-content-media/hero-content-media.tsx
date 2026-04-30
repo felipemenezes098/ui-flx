@@ -7,9 +7,9 @@ import { cn } from '@/lib/utils'
 export interface HeroContentMediaProps {
   title: string
   description: string
-  image: {
+  media: {
     src: string
-    alt: string
+    alt?: string
   }
   primaryCTA?: CtaProps
   secondaryCTA?: CtaProps
@@ -18,7 +18,7 @@ export interface HeroContentMediaProps {
 export function HeroContentMedia({
   title,
   description,
-  image,
+  media,
   primaryCTA,
   secondaryCTA,
 }: Readonly<HeroContentMediaProps>) {
@@ -61,7 +61,7 @@ export function HeroContentMedia({
         </div>
       </div>
 
-      {image && (
+      {media && (
         <div
           className={cn(
             'relative order-2 flex md:h-full md:items-end md:justify-end',
@@ -69,8 +69,8 @@ export function HeroContentMedia({
         >
           <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-[30rem]">
             <img
-              src={image.src}
-              alt={image.alt ?? title ?? 'Hero image'}
+              src={media.src}
+              alt={media.alt ?? title ?? 'Hero media'}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 size-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"

@@ -48,15 +48,15 @@ export function GridMediaCardsEditorFields({
     }
   }
 
-  const updateItemImage = (
+  const updateItemMedia = (
     index: number,
-    field: 'url' | 'alt' | 'overlay' | 'whiteTexts',
+    field: 'src' | 'alt' | 'overlay',
     value: any,
   ) => {
     const newItems = [...props.items]
     newItems[index] = {
       ...newItems[index],
-      image: { ...newItems[index].image, [field]: value },
+      media: { ...newItems[index].media, [field]: value },
     }
     const newProps = { ...props, items: newItems }
 
@@ -76,11 +76,11 @@ export function GridMediaCardsEditorFields({
           title: 'New Item',
           description: 'Item description',
           icon: 'Circle',
-          image: {
-            url: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          invert: false,
+          media: {
+            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             alt: 'New item image',
             overlay: true,
-            whiteTexts: false,
           },
         },
       ],
@@ -195,39 +195,54 @@ export function GridMediaCardsEditorFields({
                   placeholder="Palette, Code, Users, etc."
                 />
               </div>
+              <div className="flex items-center justify-between">
+                <Label
+                  htmlFor={`item-${index}-invert`}
+                  className="text-muted-foreground text-xs"
+                >
+                  Invert
+                </Label>
+                <Switch
+                  id={`item-${index}-invert`}
+                  checked={item.invert || false}
+                  onCheckedChange={(checked) =>
+                    updateItem(index, 'invert', checked)
+                  }
+                />
+              </div>
               <div className="space-y-3 rounded-md border p-2">
-                <Label className="text-muted-foreground text-xs">Image</Label>
+                <Label className="text-muted-foreground text-xs">Media</Label>
                 <div className="space-y-2">
                   <div className="space-y-2">
                     <Label
-                      htmlFor={`item-${index}-image-url`}
+                      htmlFor={`item-${index}-media-src`}
                       className="text-muted-foreground text-xs"
                     >
                       Image URL
                     </Label>
                     <Input
-                      id={`item-${index}-image-url`}
+                      id={`item-${index}-media-src`}
                       type="url"
-                      value={item.image.url}
+                      value={item.media.src}
                       onChange={(e) =>
-                        updateItemImage(index, 'url', e.target.value)
+                        updateItemMedia(index, 'src', e.target.value)
                       }
                       placeholder="https://example.com/image.jpg"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label
-                      htmlFor={`item-${index}-image-alt`}
+                      htmlFor={`item-${index}-media-alt`}
                       className="text-muted-foreground text-xs"
                     >
                       Alt Text
                     </Label>
                     <Input
-                      id={`item-${index}-image-alt`}
+                      id={`item-${index}-media-alt`}
                       type="text"
-                      value={item.image.alt}
+                      value={item.media.alt}
                       onChange={(e) =>
-                        updateItemImage(index, 'alt', e.target.value)
+                        updateItemMedia(index, 'alt', e.target.value)
                       }
                       placeholder="Image description"
                     />
@@ -241,24 +256,9 @@ export function GridMediaCardsEditorFields({
                     </Label>
                     <Switch
                       id={`item-${index}-overlay`}
-                      checked={item.image.overlay || false}
+                      checked={item.media.overlay || false}
                       onCheckedChange={(checked) =>
-                        updateItemImage(index, 'overlay', checked)
-                      }
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <Label
-                      htmlFor={`item-${index}-white-texts`}
-                      className="text-muted-foreground text-xs"
-                    >
-                      White Texts
-                    </Label>
-                    <Switch
-                      id={`item-${index}-white-texts`}
-                      checked={item.image.whiteTexts || false}
-                      onCheckedChange={(checked) =>
-                        updateItemImage(index, 'whiteTexts', checked)
+                        updateItemMedia(index, 'overlay', checked)
                       }
                     />
                   </div>

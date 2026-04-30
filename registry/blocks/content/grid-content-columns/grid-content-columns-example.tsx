@@ -16,7 +16,7 @@ export const values = {
       cta: {
         ctaEnabled: true,
         text: 'Learn more',
-        link: '/',
+        link: '',
         variant: 'outline',
       },
     },
@@ -31,7 +31,7 @@ export const values = {
       cta: {
         ctaEnabled: true,
         text: 'Get started',
-        link: '/',
+        link: '',
         variant: 'outline',
       },
     },

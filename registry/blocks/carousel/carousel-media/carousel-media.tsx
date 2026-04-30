@@ -26,7 +26,7 @@ export interface CarouselMediaProps {
       alt: string
       overlay?: boolean
     }
-    whiteTexts: boolean
+    invert: boolean
   }[]
   showNavigation: boolean
   carouselOpts?: EmblaOptionsType
@@ -167,7 +167,7 @@ export function CarouselMedia({
                           {item.title && (
                             <h3
                               className={`text-xl font-medium ${
-                                item.whiteTexts ? 'text-white' : ''
+                                item.invert ? 'text-white' : ''
                               }`}
                             >
                               {item.title}
@@ -176,7 +176,7 @@ export function CarouselMedia({
                           {item.description && (
                             <p
                               className={`text-sm ${
-                                item.whiteTexts
+                                item.invert
                                   ? 'text-white'
                                   : 'text-muted-foreground'
                               }`}

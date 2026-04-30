@@ -43,10 +43,10 @@ export function BackgroundMediaEditorFields({
     }
   }
 
-  const updateImage = (field: 'url' | 'alt' | 'overlay', value: any) => {
+  const updateMedia = (field: 'src' | 'alt' | 'overlay', value: any) => {
     const newProps = {
       ...props,
-      image: { ...props.image, [field]: value },
+      media: { ...props.media, [field]: value },
     }
 
     if (onUpdate) {
@@ -111,25 +111,25 @@ export function BackgroundMediaEditorFields({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="imageUrl" className="text-sm font-medium">
+        <Label htmlFor="mediaUrl" className="text-sm font-medium">
           Image URL
         </Label>
         <Input
-          id="imageUrl"
-          value={props.image.url}
-          onChange={(e) => updateImage('url', e.target.value)}
-          placeholder="https://example.com/image.jpg"
+          id="mediaUrl"
+          value={props.media.src}
+          onChange={(e) => updateMedia('src', e.target.value)}
+          placeholder="https://example.com/media.jpg"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="imageAlt" className="text-sm font-medium">
+        <Label htmlFor="mediaAlt" className="text-sm font-medium">
           Image Alt Text
         </Label>
         <Input
-          id="imageAlt"
-          value={props.image.alt}
-          onChange={(e) => updateImage('alt', e.target.value)}
+          id="mediaAlt"
+          value={props.media.alt}
+          onChange={(e) => updateMedia('alt', e.target.value)}
           placeholder="Image description"
         />
       </div>
@@ -140,19 +140,19 @@ export function BackgroundMediaEditorFields({
         </Label>
         <Switch
           id="overlay"
-          checked={props.image.overlay ?? false}
-          onCheckedChange={(checked) => updateImage('overlay', checked)}
+          checked={props.media.overlay ?? false}
+          onCheckedChange={(checked) => updateMedia('overlay', checked)}
         />
       </div>
 
       <div className="flex items-center justify-between space-x-2">
-        <Label htmlFor="whiteTexts" className="text-sm font-medium">
-          White Texts
+        <Label htmlFor="invert" className="text-sm font-medium">
+          Invert
         </Label>
         <Switch
-          id="whiteTexts"
-          checked={props.whiteTexts}
-          onCheckedChange={(checked) => updateField('whiteTexts', checked)}
+          id="invert"
+          checked={props.invert}
+          onCheckedChange={(checked) => updateField('invert', checked)}
         />
       </div>
 
