@@ -8,12 +8,12 @@ import { useTheme } from 'next-themes'
 import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
 import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
-import { getValidBlocksCategorySlug } from '../lib/blocks-category'
+import { useBlocksNavCategorySlug } from '../lib/use-blocks-nav-category'
 
 export function BlocksNavigation() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
+  const navCategorySlug = useBlocksNavCategorySlug()
   const { resolvedTheme } = useTheme()
 
   return (
@@ -25,7 +25,8 @@ export function BlocksNavigation() {
     >
       <div className="inline-flex h-auto w-max flex-nowrap gap-2 p-0">
         {blocks.map((block) => {
-          const isActive = activeTab === block.slug
+          const isActive =
+            navCategorySlug !== null && navCategorySlug === block.slug
           const params = new URLSearchParams(searchParams.toString())
           params.set('category', block.slug)
           const href = `${pathname}?${params.toString()}`

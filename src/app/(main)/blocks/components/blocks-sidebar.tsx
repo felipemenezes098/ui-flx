@@ -5,15 +5,16 @@ import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useTheme } from 'next-themes'
 
-import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
-import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
+import { useBlocksNavCategorySlug } from '@/app/(main)/blocks/lib/use-blocks-nav-category'
 import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
+
+import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
 
 export function BlocksSidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
+  const navCategorySlug = useBlocksNavCategorySlug()
   const { resolvedTheme } = useTheme()
 
   return (
@@ -34,7 +35,8 @@ export function BlocksSidebar() {
       >
         <nav className="flex flex-col gap-0.5 pb-2">
           {blocks.map((block) => {
-            const isActive = activeTab === block.slug
+            const isActive =
+              navCategorySlug !== null && navCategorySlug === block.slug
             const params = new URLSearchParams(searchParams.toString())
             params.set('category', block.slug)
             const href = `${pathname}?${params.toString()}`
