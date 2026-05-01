@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
-import type { BlockCategory, BlockItem } from '@/lib/block-registry'
-import { blocks } from '@/lib/block-registry'
+import type { BlockCategory, BlockItem } from '@/lib/blocks-source'
+import { blocks } from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
 
 type BlockWithCategory = BlockItem & {
@@ -24,8 +25,16 @@ function getAllBlocks(): BlockWithCategory[] {
   )
 }
 
-function BlockImage({ src, alt }: { src: string; alt: string }) {
+function BlockImage({
+  src,
+  alt,
+}: {
+  src: { light: string; dark: string }
+  alt: string
+}) {
   const [loaded, setLoaded] = useState(false)
+  const { resolvedTheme } = useTheme()
+  const imageSrc = resolvedTheme === 'dark' ? src.dark : src.light
   return (
     <div
       className={cn(
@@ -34,7 +43,7 @@ function BlockImage({ src, alt }: { src: string; alt: string }) {
       )}
     >
       <Image
-        src={src}
+        src={imageSrc}
         alt={alt}
         width={0}
         height={0}

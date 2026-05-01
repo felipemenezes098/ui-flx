@@ -15,11 +15,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../hero-logos-carousel-example'
 
 import type { HeroLogosCarouselProps } from '../hero-logos-carousel'
-
-const defaults = blockDefaults['hero-logos-carousel'].default
 
 interface HeroLogosCarouselEditorFieldsProps {
   props?: HeroLogosCarouselProps

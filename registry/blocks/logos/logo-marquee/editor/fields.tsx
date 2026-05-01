@@ -6,11 +6,9 @@ import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../logo-marquee-example'
 
 import type { LogoMarqueeProps } from '../logo-marquee'
-
-const defaults = blockDefaults['logo-marquee'].default
 
 interface LogoMarqueeEditorFieldsProps {
   props?: LogoMarqueeProps

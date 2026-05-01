@@ -15,11 +15,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-media-cards-example'
 
 import type { ShowcaseGridMediaCardsProps } from '../grid-media-cards'
-
-const defaults = blockDefaults['showcase-grid-media-cards'].default
 
 interface ShowcaseGridMediaCardsEditorFieldsProps {
   props?: ShowcaseGridMediaCardsProps

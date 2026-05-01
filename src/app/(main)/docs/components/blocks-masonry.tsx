@@ -3,9 +3,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 
 const allBlocks = blocks.flatMap((category) =>
   category.blocks.map((block) => ({
@@ -23,6 +24,7 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
   const [selectedCategorySlug, setSelectedCategorySlug] = useState<
     string | null
   >(null)
+  const { resolvedTheme } = useTheme()
 
   const filteredBlocks =
     selectedCategorySlug == null
@@ -71,7 +73,9 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
             <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
               <div className="rounded-lg bg-white p-3">
                 <Image
-                  src={block.image}
+                  src={
+                    resolvedTheme === 'dark' ? block.image.dark : block.image.light
+                  }
                   alt={block.name}
                   width={0}
                   height={0}

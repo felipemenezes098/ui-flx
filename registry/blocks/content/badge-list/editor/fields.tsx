@@ -7,11 +7,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../badge-list-example'
 
 import type { BadgeListProps } from '../badge-list'
-
-const defaults = blockDefaults['badge-list'].default
 
 interface BadgeListEditorFieldsProps {
   props?: BadgeListProps

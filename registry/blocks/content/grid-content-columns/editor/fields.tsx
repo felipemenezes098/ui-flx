@@ -15,11 +15,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-content-columns-example'
 
 import type { GridContentColumnsProps } from '../grid-content-columns'
-
-const defaults = blockDefaults['grid-content-columns'].default
 
 interface GridContentColumnsEditorFieldsProps {
   props?: GridContentColumnsProps

@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "registry:build": "npx shadcn@latest build"
+    "registry:build": "npx shadcn@latest build",
+    "registry:sync": "npx tsx scripts/sync-registry.ts",
+    "registry:validate": "npx tsx scripts/sync-registry.ts --check"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

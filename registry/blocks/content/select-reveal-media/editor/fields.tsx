@@ -6,15 +6,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../select-reveal-media-example'
 
 import type {
   SelectRevealMediaItem,
   SelectRevealMediaProps,
 } from '../select-reveal-media'
-
-const defaults = blockDefaults['select-reveal-media']
-  .default as SelectRevealMediaProps
 
 interface SelectRevealMediaEditorFieldsProps {
   props?: SelectRevealMediaProps

@@ -15,11 +15,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../primary-item-grid-example'
 
 import type { PrimaryItemGridProps } from '../primary-item-grid'
-
-const defaults = blockDefaults['primary-item-grid'].default
 
 interface PrimaryItemGridEditorFieldsProps {
   props?: PrimaryItemGridProps

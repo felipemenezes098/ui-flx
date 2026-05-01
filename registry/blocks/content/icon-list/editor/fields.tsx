@@ -6,11 +6,9 @@ import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../icon-list-example'
 
 import type { IconListProps } from '../icon-list'
-
-const defaults = blockDefaults['icon-list'].default
 
 interface IconListEditorFieldsProps {
   props?: IconListProps

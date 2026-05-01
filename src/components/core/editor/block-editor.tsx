@@ -5,7 +5,7 @@ import { PanelImperativeHandle } from 'react-resizable-panels'
 import type { registryItemSchema } from 'shadcn/schema'
 import type { z } from 'zod'
 
-import { BlockItem, getBlockConfig } from '@/lib/block-registry'
+import { type BlockItem, getBlockConfig } from '@/lib/blocks-source'
 import type { FileTree } from '@/lib/registry-utils'
 import {
   createFileTreeForRegistryItemFiles,
@@ -90,7 +90,7 @@ export function BlockEditor({
     return {
       name: item?.name ?? slug,
       description: '',
-      image: '',
+      image: { light: '', dark: '' },
       slug: slug,
     } as BlockItem
   }, [category, slug, item])

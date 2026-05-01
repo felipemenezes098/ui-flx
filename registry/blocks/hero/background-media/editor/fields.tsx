@@ -13,11 +13,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../background-media-example'
 
 import type { BackgroundMediaProps } from '../background-media'
-
-const defaults = blockDefaults['background-media'].default
 
 interface BackgroundMediaEditorFieldsProps {
   props?: BackgroundMediaProps

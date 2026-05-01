@@ -3,16 +3,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { useTheme } from 'next-themes'
 
 import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
 import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
 
 export function BlocksSidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
+  const { resolvedTheme } = useTheme()
 
   return (
     <aside
@@ -50,7 +52,11 @@ export function BlocksSidebar() {
                 <div className="relative h-9 w-9 shrink-0">
                   <div className="border-border h-full w-full overflow-hidden rounded-md border bg-white">
                     <Image
-                      src={block.image}
+                      src={
+                        resolvedTheme === 'dark'
+                          ? block.image.dark
+                          : block.image.light
+                      }
                       alt=""
                       fill
                       className="object-contain p-0.5"

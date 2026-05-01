@@ -14,11 +14,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../text-badges-example'
 
 import type { TextBadgesProps } from '../text-badges'
-
-const defaults = blockDefaults['text-badges'].default
 
 interface TextBadgesEditorFieldsProps {
   props?: TextBadgesProps

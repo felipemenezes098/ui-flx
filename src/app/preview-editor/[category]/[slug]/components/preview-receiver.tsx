@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { getBlockComponent } from '@/lib/block-registry'
+import { getBlockComponent } from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
 
 interface PreviewReceiverProps {

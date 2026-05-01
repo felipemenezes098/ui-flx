@@ -13,11 +13,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../hero-content-media-example'
 
 import type { HeroContentMediaProps } from '../hero-content-media'
-
-const defaults = blockDefaults['hero-content-media'].default
 
 interface HeroContentMediaEditorFieldsProps {
   props?: HeroContentMediaProps

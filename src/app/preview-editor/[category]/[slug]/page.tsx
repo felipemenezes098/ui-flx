@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation'
 
-import { blocks, getBlockDefaultsFromRegistry } from '@/lib/block-registry'
-
-import registry from '../../../../../registry.json'
+import {
+  blocks,
+  getBlockBySlug,
+  getBlockDefaultsFromRegistry,
+} from '@/lib/blocks-source'
 
 import { PreviewReceiver } from './components/preview-receiver'
 
@@ -20,15 +22,15 @@ export default async function PreviewEditorPage({
   if (!item) return notFound()
 
   const initialProps = getBlockDefaultsFromRegistry(slug)
-  const registryItem = registry.items.find((i) => i.name === slug)
+  const manifest = getBlockBySlug(slug)
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center">
       <PreviewReceiver
         slug={slug}
         initialProps={initialProps}
-        componentClassName={registryItem?.meta?.componentClassName}
-        containerClassName={registryItem?.meta?.containerClassName}
+        componentClassName={manifest?.meta?.componentClassName}
+        containerClassName={manifest?.meta?.containerClassName}
       />
     </div>
   )

@@ -5,12 +5,9 @@ import * as React from 'react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../media-grid-interactive-example'
 
 import type { MediaGridInteractiveProps } from '../media-grid-interactive'
-
-const defaults = blockDefaults['media-grid-interactive']
-  .default as MediaGridInteractiveProps
 
 interface MediaGridInteractiveEditorFieldsProps {
   props?: MediaGridInteractiveProps

@@ -6,11 +6,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-media-cards-example'
 
 import type { GridMediaCardsProps } from '../grid-media-cards'
-
-const defaults = blockDefaults['grid-media-cards'].default
 
 interface GridMediaCardsEditorFieldsProps {
   props?: GridMediaCardsProps

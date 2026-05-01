@@ -13,11 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../carousel-focus-example'
 
 import type { CarouselFocusAspect, CarouselFocusProps } from '../carousel-focus'
-
-const defaults = blockDefaults['carousel-focus'].default
 
 interface CarouselFocusEditorFieldsProps {
   props?: CarouselFocusProps
