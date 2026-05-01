@@ -1,5 +1,5 @@
 /**
- * Sync registry.json from blocks-source manifests.
+ * Sync registry.json from catalog manifests.
  *
  * Updates `title`, `description`, and `meta.iframeHeight` in registry.json
  * to match manifest data. Shadcn-specific fields (files, registryDependencies,
