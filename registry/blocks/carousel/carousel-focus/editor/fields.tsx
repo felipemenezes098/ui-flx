@@ -46,7 +46,7 @@ export function CarouselFocusEditorFields({
       ...props,
       items: [
         ...props.items,
-        { title: 'New Item', media: { url: '', aspect: 'landscape' } },
+        { title: 'New Item', media: { src: '', aspect: 'landscape' } },
       ],
     }
 
@@ -84,7 +84,7 @@ export function CarouselFocusEditorFields({
 
   const updateItemMedia = (
     index: number,
-    field: 'url' | 'aspect',
+    field: 'src' | 'aspect',
     value: string,
   ) => {
     const newItems = [...props.items]
@@ -166,8 +166,8 @@ export function CarouselFocusEditorFields({
             <div className="space-y-2">
               <Label className="text-sm font-medium">Image URL</Label>
               <Input
-                value={item.media.url ?? ''}
-                onChange={(e) => updateItemMedia(index, 'url', e.target.value)}
+                value={item.media.src ?? ''}
+                onChange={(e) => updateItemMedia(index, 'src', e.target.value)}
                 placeholder="https://example.com/media.jpg"
               />
             </div>
