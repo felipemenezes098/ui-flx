@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "carousel-media",
   "title": "Carousel Media",
-  "description": "A carousel of media with a title and items.",
+  "description": "A carousel of media with a title and description.",
   "dependencies": [
     "react-wrap-balancer",
     "lucide-react"

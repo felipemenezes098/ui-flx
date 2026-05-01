@@ -1,6 +1,6 @@
 import { ScrollFadeEdges } from '../../../../registry/blocks/shared/scroll-fade-edges'
 import { docsSanitySections, getStartedSections } from '@/data/docs/sections'
-import { blocks } from '@/lib/blocks-source'
+import { blocks } from '@/lib/catalog'
 
 import { DocsPrevNext } from './components/docs-prev-next'
 import { NavBlockSection, NavSection } from './components/nav-section'

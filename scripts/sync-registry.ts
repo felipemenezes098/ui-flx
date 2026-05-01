@@ -12,7 +12,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import { allManifests } from '../src/lib/blocks-source'
+import { allManifests } from '../src/lib/catalog'
 
 const REGISTRY_PATH = path.resolve(process.cwd(), 'registry.json')
 const CHECK_ONLY = process.argv.includes('--check')

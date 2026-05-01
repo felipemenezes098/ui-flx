@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge-list",
   "title": "Badge List",
-  "description": "A list of badges with a title and items.",
+  "description": "List of badges with a title and items.",
   "dependencies": [],
   "registryDependencies": [
     "badge"

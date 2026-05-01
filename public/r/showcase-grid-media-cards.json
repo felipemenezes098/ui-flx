@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "showcase-grid-media-cards",
-  "title": "Showcase Grid Media Cards",
-  "description": "A grid of media cards with a title and items.",
+  "title": "Grid Media Cards",
+  "description": "Grid with media cards to display information.",
   "dependencies": [
     "react-wrap-balancer"
   ],

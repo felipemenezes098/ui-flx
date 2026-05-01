@@ -6,8 +6,8 @@ import { useState } from 'react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
-import type { BlockCategory, BlockItem } from '@/lib/blocks-source'
-import { blocks } from '@/lib/blocks-source'
+import type { BlockCategory, BlockItem } from '@/lib/catalog'
+import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 
 type BlockWithCategory = BlockItem & {

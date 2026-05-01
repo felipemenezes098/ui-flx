@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
-import { blocks } from '@/lib/blocks-source'
+import { blocks } from '@/lib/catalog'
 
 const allBlocks = blocks.flatMap((category) =>
   category.blocks.map((block) => ({
@@ -74,7 +74,9 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
               <div className="rounded-lg bg-white p-3">
                 <Image
                   src={
-                    resolvedTheme === 'dark' ? block.image.dark : block.image.light
+                    resolvedTheme === 'dark'
+                      ? block.image.dark
+                      : block.image.light
                   }
                   alt={block.name}
                   width={0}

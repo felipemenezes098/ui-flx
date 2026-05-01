@@ -3,15 +3,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { siteConfig } from '@/config/site'
-import {
-  blocks,
-  getBlockBySlug,
-  getBlockComponent,
-  getBlockDefaultsFromRegistry,
-  getBlockExample,
-  getBlockVariationExample,
-  getBlockVariationNames,
-} from '@/lib/blocks-source'
+import { blocks, getBlockBySlug } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 
 export const dynamic = 'force-static'
@@ -20,7 +12,8 @@ export const dynamicParams = false
 export function generateStaticParams() {
   return blocks.flatMap((category) =>
     category.blocks.flatMap((block) => {
-      const variations = getBlockVariationNames(block.slug)
+      const manifest = getBlockBySlug(block.slug)
+      const variations = Object.keys(manifest?.variations ?? {})
       const base = { category: category.slug, slug: block.slug }
       const defaultPath = { ...base, variation: undefined }
       const variationPaths = variations.map((v) => ({
@@ -81,15 +74,15 @@ export default async function BlockPreviewPage({
   const item = category.blocks.find((b) => b.slug === slug)
   if (!item) return notFound()
 
+  const manifest = getBlockBySlug(slug)
   const VariationExample = variationName
-    ? getBlockVariationExample(slug, variationName)
+    ? manifest?.variations?.[variationName]
     : null
-  const Example = VariationExample || getBlockExample(slug)
-  const Comp = Example || getBlockComponent(slug)
+  const Example = VariationExample || manifest?.example
+  const Comp = Example || manifest?.component
   if (!Comp) return notFound()
 
-  const defaults = getBlockDefaultsFromRegistry(slug, variationName)
-  const manifest = getBlockBySlug(slug)
+  const defaults = manifest?.defaults ?? {}
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center">
