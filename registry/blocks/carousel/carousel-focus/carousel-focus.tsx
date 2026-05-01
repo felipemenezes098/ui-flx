@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils'
 export type CarouselFocusAspect = 'landscape' | 'portrait' | 'wide'
 
 export interface CarouselFocusMedia {
-  src: string
+  url: string
   aspect: CarouselFocusAspect
 }
 
@@ -149,7 +149,7 @@ export function CarouselFocus({
                     )}
                   >
                     <img
-                      src={item.media.src}
+                      src={item.media.url}
                       alt=""
                       loading="lazy"
                       decoding="async"
@@ -180,7 +180,7 @@ export function CarouselFocus({
                 onBlur={handleItemMouseLeave}
               >
                 <img
-                  src={item.media.src}
+                  src={item.media.url}
                   alt=""
                   loading="lazy"
                   decoding="async"

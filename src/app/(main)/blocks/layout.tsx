@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { BlocksSidebar } from './components/blocks-sidebar'
 
 export default function BlocksLayout({
@@ -12,7 +14,9 @@ export default function BlocksLayout({
         style={{ '--header-height': '3.75rem' } as React.CSSProperties}
       >
         <div className="items-start lg:grid lg:grid-cols-[13.5rem_minmax(0,1fr)] lg:gap-x-8">
-          <BlocksSidebar />
+          <Suspense>
+            <BlocksSidebar />
+          </Suspense>
           <div className="min-w-0 flex-1">{children}</div>
         </div>
       </div>
