@@ -8,6 +8,7 @@
       "type": "registry:block",
       "title": "CTA (Call to Action)",
       "description": "Shared CTA component with link and button variant",
+      "dependencies": ["class-variance-authority"],
       "registryDependencies": ["button"],
       "files": [
         {
@@ -51,7 +52,7 @@
       "name": "grid-two-columns",
       "type": "registry:block",
       "title": "Grid Two Columns",
-      "description": "A responsive grid with two columns: text (title, description, CTA) and image.",
+      "description": "It shows two columns of information.",
       "registryDependencies": ["@flx/cta"],
       "dependencies": ["react-wrap-balancer"],
       "files": [
@@ -166,7 +167,7 @@
       "name": "icon-list",
       "type": "registry:block",
       "title": "Icon List",
-      "description": "A list of icons with a title and items.",
+      "description": "List of icons with a title and items.",
       "registryDependencies": ["@flx/dynamic-icon"],
       "dependencies": [],
       "files": [
@@ -189,7 +190,7 @@
       "name": "badge-list",
       "type": "registry:block",
       "title": "Badge List",
-      "description": "A list of badges with a title and items.",
+      "description": "List of badges with a title and items.",
       "registryDependencies": ["badge"],
       "dependencies": [],
       "files": [
@@ -209,7 +210,7 @@
       "name": "grid-content-columns",
       "type": "registry:block",
       "title": "Grid Content Columns",
-      "description": "A grid of content columns with a media and content.",
+      "description": "A grid of content columns with a media above the content.",
       "registryDependencies": ["@flx/cta"],
       "dependencies": ["react-wrap-balancer"],
       "files": [
@@ -228,7 +229,7 @@
     {
       "name": "title-with-media",
       "type": "registry:block",
-      "title": "A title with a media above",
+      "title": "Title With Media",
       "description": "A title with a media above the title.",
       "registryDependencies": [],
       "dependencies": ["react-wrap-balancer"],
@@ -251,7 +252,7 @@
     {
       "name": "background-media",
       "type": "registry:block",
-      "title": "A background media with a title, description and CTA",
+      "title": "Background Media",
       "description": "A background media with a title, description and CTA.",
       "registryDependencies": ["@flx/cta"],
       "dependencies": ["react-wrap-balancer"],
@@ -390,8 +391,8 @@
     {
       "name": "text-badges",
       "type": "registry:block",
-      "title": "A text badges with a title, CTA and badges",
-      "description": "A text badges with a title and CTA.",
+      "title": "Text Badges",
+      "description": "A text badges with a title, CTA and badges.",
       "registryDependencies": ["@flx/cta", "badge"],
       "dependencies": [],
       "files": [
@@ -479,8 +480,8 @@
     {
       "name": "showcase-grid-media-cards",
       "type": "registry:block",
-      "title": "Showcase Grid Media Cards",
-      "description": "A grid of media cards with a title and items.",
+      "title": "Grid Media Cards",
+      "description": "Grid with media cards to display information.",
       "registryDependencies": ["@flx/cta"],
       "dependencies": ["react-wrap-balancer"],
       "files": [
@@ -500,7 +501,7 @@
       "name": "carousel-focus",
       "type": "registry:block",
       "title": "Carousel Focus",
-      "description": "A carousel that pauses on item hover and reveals title.",
+      "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
       "registryDependencies": ["carousel"],
       "dependencies": ["motion", "class-variance-authority"],
       "devDependencies": ["embla-carousel-auto-scroll"],
@@ -550,7 +551,7 @@
       "name": "carousel-media",
       "type": "registry:block",
       "title": "Carousel Media",
-      "description": "A carousel of media with a title and items.",
+      "description": "A carousel of media with a title and description.",
       "registryDependencies": ["carousel", "button"],
       "dependencies": ["react-wrap-balancer", "lucide-react"],
       "files": [
@@ -619,7 +620,7 @@
       "name": "single-testimonial",
       "type": "registry:block",
       "title": "Single Testimonial",
-      "description": "A minimal testimonial block with one quote, avatar, author name, and role.",
+      "description": "A single testimonial with quote, avatar, author name and role.",
       "registryDependencies": ["avatar"],
       "dependencies": [],
       "files": [

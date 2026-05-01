@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "single-testimonial",
   "title": "Single Testimonial",
-  "description": "A minimal testimonial block with one quote, avatar, author name, and role.",
+  "description": "A single testimonial with quote, avatar, author name and role.",
   "dependencies": [],
   "registryDependencies": [
     "avatar"

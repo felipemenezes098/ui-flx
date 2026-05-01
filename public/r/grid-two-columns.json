@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-two-columns",
   "title": "Grid Two Columns",
-  "description": "A responsive grid with two columns: text (title, description, CTA) and image.",
+  "description": "It shows two columns of information.",
   "dependencies": [
     "react-wrap-balancer"
   ],

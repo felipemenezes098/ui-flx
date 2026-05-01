@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "background-media",
-  "title": "A background media with a title, description and CTA",
+  "title": "Background Media",
   "description": "A background media with a title, description and CTA.",
   "dependencies": [
     "react-wrap-balancer"

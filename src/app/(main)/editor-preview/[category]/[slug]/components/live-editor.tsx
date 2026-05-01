@@ -4,12 +4,8 @@ import * as React from 'react'
 import { Eye, PanelLeft } from 'lucide-react'
 import Link from 'next/link'
 
-import type { BlockItem } from '@/lib/blocks-source'
-import {
-  blocks,
-  getBlockDefaultsFromRegistry,
-  getBlockEditorFields,
-} from '@/lib/blocks-source'
+import type { BlockItem } from '@/lib/catalog'
+import { getBlockBySlug } from '@/lib/catalog'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
@@ -21,15 +17,12 @@ interface LiveEditorProps {
 }
 
 export function LiveEditor({ item, category }: Readonly<LiveEditorProps>) {
-  const EditorFields = getBlockEditorFields(item.slug)
-  const defaults = getBlockDefaultsFromRegistry(item.slug)
+  const manifest = getBlockBySlug(item.slug)
+  const EditorFields = manifest?.editorFields
+  const defaults = manifest?.defaults ?? {}
   const [props, setProps] = React.useState<Record<string, unknown>>(defaults)
   const [sidebarOpen, setSidebarOpen] = React.useState(true)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
-
-  const categorySlug = blocks.find((c) =>
-    c.blocks.some((b) => b.slug === item.slug),
-  )?.slug
 
   function sendPropsToIframe(currentProps: Record<string, unknown>) {
     iframeRef.current?.contentWindow?.postMessage(
@@ -79,7 +72,7 @@ export function LiveEditor({ item, category }: Readonly<LiveEditorProps>) {
         </div>
         <Button asChild variant="outline" size="sm">
           <Link
-            href={`/docs/${categorySlug}/${item.slug}`}
+            href={`/docs/${manifest?.category ?? category}/${item.slug}`}
             target="_blank"
             rel="noopener noreferrer"
           >

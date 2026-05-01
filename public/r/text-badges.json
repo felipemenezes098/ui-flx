@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-badges",
-  "title": "A text badges with a title, CTA and badges",
-  "description": "A text badges with a title and CTA.",
+  "title": "Text Badges",
+  "description": "A text badges with a title, CTA and badges.",
   "dependencies": [],
   "registryDependencies": [
     "@flx/cta",

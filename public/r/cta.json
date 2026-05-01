@@ -3,6 +3,9 @@
   "name": "cta",
   "title": "CTA (Call to Action)",
   "description": "Shared CTA component with link and button variant",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "button"
   ],

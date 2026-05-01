@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { getBlockComponent } from '@/lib/blocks-source'
+import { getBlockBySlug } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 
 interface PreviewReceiverProps {
@@ -18,17 +18,17 @@ export function PreviewReceiver({
   componentClassName,
   containerClassName,
 }: Readonly<PreviewReceiverProps>) {
-  const BlockComponent = getBlockComponent(slug)
+  const BlockComponent = getBlockBySlug(slug)?.component
   const [props, setProps] = React.useState(initialProps)
 
   React.useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (event.origin !== window.location.origin) return
+      if (event.origin !== globalThis.location.origin) return
       if (event.data?.type !== 'EDITOR_PROPS_UPDATE') return
       setProps(event.data.props as Record<string, unknown>)
     }
-    window.addEventListener('message', handleMessage)
-    return () => window.removeEventListener('message', handleMessage)
+    globalThis.addEventListener('message', handleMessage)
+    return () => globalThis.removeEventListener('message', handleMessage)
   }, [])
 
   if (!BlockComponent) return null

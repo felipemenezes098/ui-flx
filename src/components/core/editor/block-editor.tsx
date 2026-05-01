@@ -5,7 +5,7 @@ import { PanelImperativeHandle } from 'react-resizable-panels'
 import type { registryItemSchema } from 'shadcn/schema'
 import type { z } from 'zod'
 
-import { type BlockItem, getBlockConfig } from '@/lib/blocks-source'
+import { blocks, type BlockItem } from '@/lib/catalog'
 import type { FileTree } from '@/lib/registry-utils'
 import {
   createFileTreeForRegistryItemFiles,
@@ -84,7 +84,10 @@ export function BlockEditor({
     : `/preview/${category}/${slug}`
 
   const config = React.useMemo(() => {
-    const localConfig = getBlockConfig(category, slug)
+    const localConfig =
+      blocks
+        .find((c) => c.slug === category)
+        ?.blocks.find((b) => b.slug === slug) ?? null
     if (localConfig) return localConfig
 
     return {
