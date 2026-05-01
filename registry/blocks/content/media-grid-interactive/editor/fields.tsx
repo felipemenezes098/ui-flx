@@ -62,7 +62,7 @@ export function MediaGridInteractiveEditorFields({
           title: 'New Item',
           description: '',
           media: {
-            src: 'https://medias.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop',
+            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop',
             alt: 'New item media',
           },
         },

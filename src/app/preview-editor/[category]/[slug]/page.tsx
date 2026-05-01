@@ -1,10 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import {
-  blocks,
-  getBlockBySlug,
-  getBlockDefaultsFromRegistry,
-} from '@/lib/blocks-source'
+import { blocks, getBlockBySlug } from '@/lib/catalog'
 
 import { PreviewReceiver } from './components/preview-receiver'
 
@@ -21,8 +17,8 @@ export default async function PreviewEditorPage({
   const item = category.blocks.find((b) => b.slug === slug)
   if (!item) return notFound()
 
-  const initialProps = getBlockDefaultsFromRegistry(slug)
   const manifest = getBlockBySlug(slug)
+  const initialProps = manifest?.defaults ?? {}
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center">

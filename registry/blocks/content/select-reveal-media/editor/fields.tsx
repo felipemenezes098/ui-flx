@@ -24,7 +24,7 @@ function createEmptyItem(index: number): SelectRevealMediaItem {
     title: 'New Item',
     description: 'Item description.',
     media: {
-      src: 'https://medias.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
       alt: 'New item media',
     },
   }

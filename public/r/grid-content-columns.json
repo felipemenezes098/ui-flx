@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-content-columns",
   "title": "Grid Content Columns",
-  "description": "A grid of content columns with a media and content.",
+  "description": "A grid of content columns with a media above the content.",
   "dependencies": [
     "react-wrap-balancer"
   ],

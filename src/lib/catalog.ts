@@ -1,4 +1,9 @@
-import type { BlockCategory, BlockImage, BlockItem, BlockManifest } from './block-manifest-types'
+import type {
+  BlockCategory,
+  BlockImage,
+  BlockItem,
+  BlockManifest,
+} from '@/lib/block-manifest-types'
 
 import { manifest as backgroundMediaManifest } from '../../registry/blocks/hero/background-media/manifest'
 import { manifest as textBadgesManifest } from '../../registry/blocks/hero/text-badges/manifest'
@@ -28,50 +33,30 @@ import { manifest as logoMarqueeManifest } from '../../registry/blocks/logos/log
 import { manifest as singleTestimonialManifest } from '../../registry/blocks/testimonials/single-testimonial/manifest'
 import { manifest as stickyScrollMediaManifest } from '../../registry/blocks/scroll/sticky-scroll-media/manifest'
 
-export const allManifests: BlockManifest[] = [
-  backgroundMediaManifest,
-  textBadgesManifest,
-  heroContentMediaManifest,
-  heroLogosCarouselManifest,
-  heroHeadlinePreviewManifest,
-  carouselFocusManifest,
-  carouselCardsManifest,
-  carouselMediaManifest,
-  centeredTextManifest,
-  focusGridManifest,
-  gridCardsManifest,
-  gridContentCardsManifest,
-  gridContentColumnsManifest,
-  gridMediaCardsManifest,
-  gridTwoColumnsManifest,
-  gridWithMediaTopManifest,
-  iconListManifest,
-  badgeListManifest,
-  mediaGridInteractiveManifest,
-  selectRevealMediaManifest,
-  tabsMediaManifest,
-  titleWithMediaManifest,
-  showcaseGridMediaCardsManifest,
-  primaryItemGridManifest,
-  logoMarqueeManifest,
-  singleTestimonialManifest,
-  stickyScrollMediaManifest,
-]
-
-interface CategoryMeta {
+interface CategoryRow {
   slug: string
   category: string
   description: string
   type: string
   hasNew?: boolean
+  image: BlockImage
+  blocks: BlockManifest[]
 }
 
-const categoryMeta: CategoryMeta[] = [
+export const categories: CategoryRow[] = [
   {
     slug: 'hero',
     category: 'Hero',
     description: 'Components to display information in a hero section.',
     type: 'hero',
+    image: textBadgesManifest.image,
+    blocks: [
+      backgroundMediaManifest,
+      textBadgesManifest,
+      heroContentMediaManifest,
+      heroHeadlinePreviewManifest,
+      heroLogosCarouselManifest,
+    ],
   },
   {
     slug: 'content',
@@ -79,18 +64,39 @@ const categoryMeta: CategoryMeta[] = [
     description:
       'Content components to display information in an organized way.',
     type: 'content',
+    image: gridTwoColumnsManifest.image,
+    blocks: [
+      gridTwoColumnsManifest,
+      selectRevealMediaManifest,
+      centeredTextManifest,
+      focusGridManifest,
+      gridCardsManifest,
+      gridMediaCardsManifest,
+      tabsMediaManifest,
+      mediaGridInteractiveManifest,
+      gridWithMediaTopManifest,
+      iconListManifest,
+      badgeListManifest,
+      gridContentColumnsManifest,
+      gridContentCardsManifest,
+      titleWithMediaManifest,
+    ],
   },
   {
     slug: 'carousel',
     category: 'Carousel',
     description: 'A carousel that pauses on item hover and reveals title.',
     type: 'carousel',
+    image: carouselFocusManifest.image,
+    blocks: [carouselFocusManifest, carouselMediaManifest, carouselCardsManifest],
   },
   {
     slug: 'showcase',
     category: 'Showcase',
     description: 'Showcase components to display information.',
     type: 'showcase',
+    image: showcaseGridMediaCardsManifest.image,
+    blocks: [showcaseGridMediaCardsManifest],
   },
   {
     slug: 'bento-grids',
@@ -98,18 +104,24 @@ const categoryMeta: CategoryMeta[] = [
     description:
       'Bento-style grids with a prominent primary tile and supporting cards.',
     type: 'bento-grids',
+    image: primaryItemGridManifest.image,
+    blocks: [primaryItemGridManifest],
   },
   {
     slug: 'logos',
     category: 'Logos',
     description: 'Minimalist logo carousels with auto-scroll and edge fade.',
     type: 'logos',
+    image: logoMarqueeManifest.image,
+    blocks: [logoMarqueeManifest],
   },
   {
     slug: 'testimonials',
     category: 'Testimonials',
     description: 'Minimal testimonial blocks for concise social proof.',
     type: 'testimonials',
+    image: singleTestimonialManifest.image,
+    blocks: [singleTestimonialManifest],
   },
   {
     slug: 'scroll',
@@ -117,8 +129,12 @@ const categoryMeta: CategoryMeta[] = [
     description: 'Scroll-based interactive blocks with animations.',
     type: 'scroll',
     hasNew: true,
+    image: stickyScrollMediaManifest.image,
+    blocks: [stickyScrollMediaManifest],
   },
 ]
+
+export const allManifests: BlockManifest[] = categories.flatMap((c) => c.blocks)
 
 function manifestToBlockItem(m: BlockManifest): BlockItem {
   return {
@@ -131,75 +147,18 @@ function manifestToBlockItem(m: BlockManifest): BlockItem {
   }
 }
 
-export const blocks: BlockCategory[] = categoryMeta.map((cat) => {
-  const categoryBlocks = allManifests.filter((m) => m.category === cat.slug)
-  const firstImage: BlockImage = categoryBlocks[0]?.image ?? {
-    light: '',
-    dark: '',
-  }
-  return {
-    ...cat,
-    image: firstImage,
-    blocks: categoryBlocks.map(manifestToBlockItem),
-  }
-})
+export const blocks: BlockCategory[] = categories.map((cat) => ({
+  slug: cat.slug,
+  category: cat.category,
+  description: cat.description,
+  type: cat.type,
+  hasNew: cat.hasNew,
+  image: cat.image,
+  blocks: cat.blocks.map(manifestToBlockItem),
+}))
 
 export function getBlockBySlug(slug: string): BlockManifest | undefined {
   return allManifests.find((m) => m.slug === slug)
 }
 
-export function getBlockComponent(
-  slug: string,
-): React.ComponentType<any> | undefined {
-  return getBlockBySlug(slug)?.component
-}
-
-export function getBlockEditorFields(
-  slug: string,
-): React.ComponentType<any> | undefined {
-  return getBlockBySlug(slug)?.editorFields
-}
-
-export function getBlockExample(
-  slug: string,
-): React.ComponentType<any> | undefined {
-  return getBlockBySlug(slug)?.example
-}
-
-export function getBlockVariationExample(
-  slug: string,
-  variation: string,
-): React.ComponentType<any> | undefined {
-  return getBlockBySlug(slug)?.variations?.[variation]
-}
-
-export function getBlockVariationNames(slug: string): string[] {
-  return Object.keys(getBlockBySlug(slug)?.variations ?? {})
-}
-
-export function getBlockDefaults(
-  slug: string,
-  variation?: string,
-): Record<string, unknown> {
-  const manifest = getBlockBySlug(slug)
-  if (!manifest) return {}
-  return manifest.defaults as Record<string, unknown>
-}
-
-export function getBlockDefaultsFromRegistry(
-  slug: string,
-  variation?: string,
-): Record<string, unknown> {
-  return getBlockDefaults(slug, variation)
-}
-
-export function getBlockConfig(
-  categorySlug: string,
-  blockSlug: string,
-): BlockItem | null {
-  const category = blocks.find((c) => c.slug === categorySlug)
-  if (!category) return null
-  return category.blocks.find((b) => b.slug === blockSlug) ?? null
-}
-
-export type { BlockItem, BlockCategory, BlockImage, BlockManifest }
+export type { BlockCategory, BlockItem, BlockImage, BlockManifest }

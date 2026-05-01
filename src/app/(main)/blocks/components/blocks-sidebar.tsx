@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes'
 
 import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
 import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
-import { blocks } from '@/lib/blocks-source'
+import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 
 export function BlocksSidebar() {

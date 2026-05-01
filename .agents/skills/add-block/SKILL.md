@@ -2,7 +2,7 @@
 name: add-block
 description: >-
   Full workflow for adding a new UI block to ui-flx. Covers file structure,
-  manifest.ts, blocks-source.ts registration, registry.json entry, editor
+  manifest.ts, catalog.ts registration, registry.json entry, editor
   fields pattern, image light/dark, and validation commands. Triggers: "add
   block", "new block", "criar bloco", "novo bloco", "add a new section",
   or any request to create a new flx block.
@@ -156,22 +156,26 @@ Both are **required** (even if identical today). Put the preview screenshot at:
 
 ---
 
-## 5. Register in `src/lib/blocks-source.ts`
+## 5. Register in `src/blocks/catalog.ts`
 
-Add **two lines** — the import and the array entry:
+Add **two lines** — the import and the array entry in the correct category's `blocks` array:
 
 ```ts
 // At the top imports:
 import { manifest as myBlockManifest } from '../../registry/blocks/content/my-block/manifest'
 
-// In the allManifests array:
-export const allManifests: BlockManifest[] = [
-  // ...existing,
-  myBlockManifest,   // ← add here
-]
+// In the categories array, find the matching category and add to its blocks array:
+{
+  slug: 'content',
+  // ...
+  blocks: [
+    // ...existing,
+    myBlockManifest,   // ← add here in display order
+  ],
+},
 ```
 
-Order within the array = display order within the category.
+Position within the `blocks` array = display order within the category.
 
 ---
 
@@ -230,7 +234,7 @@ If `registry:validate` fails, it will print exactly which field is out of sync o
 - [ ] `<slug>-example.tsx` — exports `values` + named example component
 - [ ] `editor/fields.tsx` — imports defaults from `../<slug>-example`, not from any global file
 - [ ] `manifest.ts` — all fields filled including `image.light` and `image.dark`
-- [ ] `src/lib/blocks-source.ts` — import + array entry added
+- [ ] `src/blocks/catalog.ts` — manifest import + entry added to the correct category's `blocks` array
 - [ ] `registry.json` — entry with `name`, `type`, `files`, `registryDependencies`, `dependencies`
 - [ ] `npm run registry:validate` — passes
 - [ ] `npm run registry:sync` — runs without errors
@@ -257,7 +261,7 @@ Variations appear as separate preview routes: `/preview/<category>/<slug>/varian
 
 ## Key rules
 
-- **Never** import from `@/lib/block-defaults` or `@/lib/block-registry` — both were deleted. The only sources are the block's own files and `@/lib/blocks-source`.
-- **Never** import `registry.json` directly in app code — use `blocks-source` for runtime data.
+- **Never** import from `@/lib/block-defaults` or `@/lib/block-registry` — both were deleted. The only sources are the block's own files and `@/blocks/catalog`.
+- **Never** import `registry.json` directly in app code — use `@/blocks/catalog` for runtime data.
 - `image.light` and `image.dark` are **both required** in every manifest. `registry:validate` will fail if either is empty.
 - The `defaults` field in the manifest must point to the same `values` object exported by `<slug>-example.tsx`.

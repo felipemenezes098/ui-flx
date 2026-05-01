@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "title-with-media",
-  "title": "A title with a media above",
+  "title": "Title With Media",
   "description": "A title with a media above the title.",
   "dependencies": [
     "react-wrap-balancer"
