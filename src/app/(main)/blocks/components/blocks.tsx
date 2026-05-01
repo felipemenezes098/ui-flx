@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 
 import { BlockEditor } from '@/components/core/editor/block-editor'
 import {
@@ -27,11 +28,12 @@ import {
 } from '@/components/ui/resizable'
 import { Separator } from '@/components/ui/separator'
 import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
 
 export function Blocks() {
   const searchParams = useSearchParams()
+  const { resolvedTheme } = useTheme()
 
   const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
 
@@ -174,7 +176,11 @@ export function Blocks() {
                         <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
                           <div className="rounded-lg bg-white p-3">
                             <Image
-                              src={subBlock.image}
+                              src={
+                                resolvedTheme === 'dark'
+                                  ? subBlock.image.dark
+                                  : subBlock.image.light
+                              }
                               alt={subBlock.name}
                               data-block={subBlock.name}
                               width={0}

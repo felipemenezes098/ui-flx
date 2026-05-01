@@ -4,11 +4,9 @@ import * as React from 'react'
 
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../title-with-media-example'
 
 import type { TitleWithMediaProps } from '../title-with-media'
-
-const defaults = blockDefaults['title-with-media'].default
 
 interface TitleWithMediaEditorFieldsProps {
   props?: TitleWithMediaProps

@@ -4,12 +4,12 @@ import * as React from 'react'
 import { Eye, PanelLeft } from 'lucide-react'
 import Link from 'next/link'
 
-import type { BlockItem } from '@/lib/block-registry'
+import type { BlockItem } from '@/lib/blocks-source'
 import {
   blocks,
   getBlockDefaultsFromRegistry,
   getBlockEditorFields,
-} from '@/lib/block-registry'
+} from '@/lib/blocks-source'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 

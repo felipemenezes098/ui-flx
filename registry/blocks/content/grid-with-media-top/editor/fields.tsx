@@ -7,11 +7,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-with-media-top-example'
 
 import type { GridWithMediaTopProps } from '../grid-with-media-top'
-
-const defaults = blockDefaults['grid-with-media-top'].default
 
 interface GridWithMediaTopEditorFieldsProps {
   props?: GridWithMediaTopProps

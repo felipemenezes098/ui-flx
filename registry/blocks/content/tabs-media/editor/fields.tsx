@@ -6,11 +6,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../tabs-media-example'
 
 import type { TabsMediaItem, TabsMediaProps } from '../tabs-media'
-
-const defaults = blockDefaults['tabs-media'].default as TabsMediaProps
 
 interface TabsMediaEditorFieldsProps {
   props?: TabsMediaProps

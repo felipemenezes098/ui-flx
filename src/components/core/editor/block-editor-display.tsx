@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import * as React from 'react'
+import { useTheme } from 'next-themes'
 
 import {
   ResizableHandle,
@@ -25,6 +26,9 @@ import {
 
 export function BlockEditorDisplayContentMobile() {
   const { config: subBlock } = useBlockEditor()
+  const { resolvedTheme } = useTheme()
+  const imageSrc =
+    resolvedTheme === 'dark' ? subBlock.image.dark : subBlock.image.light
 
   return (
     <div className="flex flex-col gap-4 md:hidden">
@@ -38,7 +42,7 @@ export function BlockEditorDisplayContentMobile() {
       </div>
       <div className="overflow-hidden rounded-xl border p-3">
         <Image
-          src={subBlock.image}
+          src={imageSrc}
           alt={subBlock.name}
           data-block={subBlock.name}
           width={1440}

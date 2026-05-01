@@ -3,17 +3,16 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { siteConfig } from '@/config/site'
-import { getBlockVariationNames } from '@/lib/block-defaults'
 import {
   blocks,
+  getBlockBySlug,
   getBlockComponent,
   getBlockDefaultsFromRegistry,
   getBlockExample,
   getBlockVariationExample,
-} from '@/lib/block-registry'
+  getBlockVariationNames,
+} from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
-
-import registry from '../../../../../../registry.json'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -90,15 +89,14 @@ export default async function BlockPreviewPage({
   if (!Comp) return notFound()
 
   const defaults = getBlockDefaultsFromRegistry(slug, variationName)
-
-  const registryItem = registry.items.find((i) => i.name === slug)
+  const manifest = getBlockBySlug(slug)
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center">
       <div
         className={cn(
           'mx-auto h-full w-full max-w-6xl p-10',
-          registryItem?.meta?.containerClassName,
+          manifest?.meta?.containerClassName,
         )}
       >
         {Example ? (
@@ -106,7 +104,7 @@ export default async function BlockPreviewPage({
         ) : (
           <Comp
             {...defaults}
-            className={registryItem?.meta?.componentClassName}
+            className={manifest?.meta?.componentClassName}
             imageProps={{
               unoptimized: true,
             }}

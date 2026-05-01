@@ -13,11 +13,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../hero-headline-preview-example'
 
 import type { HeroHeadlinePreviewProps } from '../hero-headline-preview'
-
-const defaults = blockDefaults['hero-headline-preview'].default
 
 interface HeroHeadlinePreviewEditorFieldsProps {
   props?: HeroHeadlinePreviewProps

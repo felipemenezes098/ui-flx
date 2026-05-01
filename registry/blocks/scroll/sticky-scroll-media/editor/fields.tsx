@@ -6,12 +6,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
-import { blockDefaults } from '@/lib/block-defaults'
 import { Trash2 } from 'lucide-react'
 
-import type { StickyScrollMediaProps } from '../sticky-scroll-media'
+import { values as defaults } from '../sticky-scroll-media-example'
 
-const defaults = blockDefaults['sticky-scroll-media'].default
+import type { StickyScrollMediaProps } from '../sticky-scroll-media'
 
 interface StickyScrollMediaEditorFieldsProps {
   props?: StickyScrollMediaProps

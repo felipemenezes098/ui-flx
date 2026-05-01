@@ -1,4 +1,4 @@
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 
 export function getValidBlocksCategorySlug(slug: string | null): string {
   if (!slug) return blocks[0]?.slug ?? 'hero'

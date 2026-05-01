@@ -3,7 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
 
+import type { BlockImage } from '@/lib/block-manifest-types'
 import { cn } from '@/lib/utils'
 
 export function NavSection({
@@ -32,10 +34,13 @@ export function NavSection({
 export function NavBlockSection({
   section,
 }: Readonly<{
-  section: { name: string; href: string; image: string; hasNew?: boolean }
+  section: { name: string; href: string; image: BlockImage; hasNew?: boolean }
 }>) {
   const pathname = usePathname()
+  const { resolvedTheme } = useTheme()
   const isActive = pathname === section.href
+  const imageSrc =
+    resolvedTheme === 'dark' ? section.image.dark : section.image.light
   return (
     <Link
       href={section.href}
@@ -48,7 +53,7 @@ export function NavBlockSection({
       <div className="relative h-8 w-8 shrink-0">
         <div className="border-border h-full w-full overflow-hidden rounded-md border bg-white">
           <Image
-            src={section.image}
+            src={imageSrc}
             alt=""
             fill
             className="object-contain p-0.5"

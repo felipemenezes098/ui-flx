@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { siteConfig } from '@/config/site'
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 
 import { LiveEditor } from './components/live-editor'
 

@@ -3,9 +3,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { useTheme } from 'next-themes'
 
 import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
-import { blocks } from '@/lib/block-registry'
+import { blocks } from '@/lib/blocks-source'
 import { cn } from '@/lib/utils'
 import { getValidBlocksCategorySlug } from '../lib/blocks-category'
 
@@ -13,6 +14,7 @@ export function BlocksNavigation() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
+  const { resolvedTheme } = useTheme()
 
   return (
     <ScrollFadeEdges
@@ -42,7 +44,11 @@ export function BlocksNavigation() {
               <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 rounded-lg p-1.5">
                 <div className="relative h-14 min-h-14 w-28 shrink-0 overflow-hidden rounded-md bg-white">
                   <Image
-                    src={block.image}
+                    src={
+                      resolvedTheme === 'dark'
+                        ? block.image.dark
+                        : block.image.light
+                    }
                     alt=""
                     fill
                     className="object-contain object-center"

@@ -13,11 +13,9 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-two-columns-example'
 
 import type { GridTwoColumnsProps } from '../grid-two-columns'
-
-const defaults = blockDefaults['grid-two-columns'].default
 
 interface GridTwoColumnsEditorFieldsProps {
   props?: GridTwoColumnsProps

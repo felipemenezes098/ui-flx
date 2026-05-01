@@ -7,11 +7,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../focus-grid-example'
 
 import type { FocusGridItem, FocusGridProps } from '../focus-grid'
-
-const defaults = blockDefaults['focus-grid'].default
 
 interface FocusGridEditorFieldsProps {
   props?: FocusGridProps

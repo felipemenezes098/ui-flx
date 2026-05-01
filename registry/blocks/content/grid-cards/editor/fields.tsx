@@ -5,11 +5,9 @@ import * as React from 'react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { blockDefaults } from '@/lib/block-defaults'
+import { values as defaults } from '../grid-cards-example'
 
 import type { GridCardsProps } from '../grid-cards'
-
-const defaults = blockDefaults['grid-cards'].default
 
 interface GridCardsEditorFieldsProps {
   props?: GridCardsProps
