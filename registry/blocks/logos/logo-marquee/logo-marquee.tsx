@@ -71,7 +71,7 @@ export function LogoMarquee({ items, className }: Readonly<LogoMarqueeProps>) {
                   height={32}
                   loading="lazy"
                   decoding="async"
-                  className="h-8 w-auto object-contain opacity-60 grayscale transition-[opacity,filter] duration-300 ease-out hover:opacity-100 hover:grayscale-0 dark:invert"
+                  className="h-8 w-auto object-contain opacity-60 grayscale transition-[opacity,filter] duration-300 ease-out hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert"
                 />
               </div>
             </CarouselItem>
