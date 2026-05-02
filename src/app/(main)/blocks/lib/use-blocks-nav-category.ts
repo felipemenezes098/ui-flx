@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useLayoutEffect, useState } from 'react'
 
-import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
+import { getValidBlocksCategorySlug } from '../lib/blocks-category'
 
 export function useBlocksNavCategorySlug(): string | null {
   const searchParams = useSearchParams()

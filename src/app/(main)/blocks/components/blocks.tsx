@@ -27,7 +27,7 @@ import {
   ResizablePanelGroup,
 } from '@/components/ui/resizable'
 import { Separator } from '@/components/ui/separator'
-import { getValidBlocksCategorySlug } from '@/app/(main)/blocks/lib/blocks-category'
+import { getValidBlocksCategorySlug } from '../lib/blocks-category'
 import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 

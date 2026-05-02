@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useTheme } from 'next-themes'
 
-import { ScrollFadeEdges } from '../../../../../registry/blocks/shared/scroll-fade-edges'
+import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
 import { blocks } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 import { useBlocksNavCategorySlug } from '../lib/use-blocks-nav-category'
