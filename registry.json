@@ -255,7 +255,7 @@
       "title": "Background Media",
       "description": "A background media with a title, description and CTA.",
       "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "dependencies": ["motion", "react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/hero/background-media/background-media.tsx",

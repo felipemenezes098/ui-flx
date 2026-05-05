@@ -15,6 +15,7 @@ export const manifest: BlockManifest = {
   },
   meta: {
     iframeHeight: 800,
+    containerClassName: 'max-w-full overflow-hidden px-0',
   },
   component: HeroLogosCarousel,
   editorFields: HeroLogosCarouselEditorFields,

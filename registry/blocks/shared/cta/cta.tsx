@@ -35,7 +35,7 @@ export function Cta({
   cta,
   className,
   invert,
-}: Readonly<{ cta: CtaProps; className?: string; invert?: boolean }>) {
+}: Readonly<{ cta?: CtaProps; className?: string; invert?: boolean }>) {
   if (!cta?.ctaEnabled) {
     return null
   }
