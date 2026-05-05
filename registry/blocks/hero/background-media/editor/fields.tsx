@@ -154,6 +154,48 @@ export function BackgroundMediaEditorFields({
         />
       </div>
 
+      <div className="space-y-2">
+        <Label htmlFor="blockVariant" className="text-sm font-medium">
+          Variant
+        </Label>
+        <Select
+          value={props.variant ?? 'primary'}
+          onValueChange={(value) =>
+            updateField('variant', value as BackgroundMediaProps['variant'])
+          }
+        >
+          <SelectTrigger id="blockVariant" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="primary">Primary</SelectItem>
+            <SelectItem value="supporting">Supporting</SelectItem>
+            <SelectItem value="immersive">Immersive</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="blockAnimation" className="text-sm font-medium">
+          Animation
+        </Label>
+        <Select
+          value={props.animation ?? 'none'}
+          onValueChange={(value) =>
+            updateField('animation', value as BackgroundMediaProps['animation'])
+          }
+        >
+          <SelectTrigger id="blockAnimation" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">None</SelectItem>
+            <SelectItem value="subtle">Subtle</SelectItem>
+            <SelectItem value="emphasis">Emphasis</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="flex items-center justify-between rounded-md border p-3">
         <Label htmlFor="showCta" className="text-sm font-medium">
           Show CTA
