@@ -99,6 +99,14 @@ export function HeroContentMediaEditorFields({
     'link',
   ] as const
 
+  const blockVariantOptions = [
+    'standard',
+    'compact',
+    'prominent',
+  ] as const
+
+  const animationOptions = ['none', 'subtle', 'emphasis'] as const
+
   return (
     <div className="space-y-4">
       <div className="space-y-2">
@@ -125,6 +133,58 @@ export function HeroContentMediaEditorFields({
           placeholder="Enter description"
           rows={3}
         />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="variant" className="text-sm font-medium">
+          Variant
+        </Label>
+        <Select
+          value={props.variant ?? 'standard'}
+          onValueChange={(value) =>
+            updateField(
+              'variant',
+              value as (typeof blockVariantOptions)[number],
+            )
+          }
+        >
+          <SelectTrigger id="variant" className="w-full">
+            <SelectValue placeholder="Select variant" />
+          </SelectTrigger>
+          <SelectContent>
+            {blockVariantOptions.map((v) => (
+              <SelectItem key={v} value={v}>
+                {v.charAt(0).toUpperCase() + v.slice(1)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="animation" className="text-sm font-medium">
+          Animation
+        </Label>
+        <Select
+          value={props.animation ?? 'none'}
+          onValueChange={(value) =>
+            updateField(
+              'animation',
+              value as (typeof animationOptions)[number],
+            )
+          }
+        >
+          <SelectTrigger id="animation" className="w-full">
+            <SelectValue placeholder="Select animation" />
+          </SelectTrigger>
+          <SelectContent>
+            {animationOptions.map((a) => (
+              <SelectItem key={a} value={a}>
+                {a.charAt(0).toUpperCase() + a.slice(1)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="space-y-3 rounded-md border p-3">

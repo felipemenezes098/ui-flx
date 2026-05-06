@@ -7,6 +7,8 @@ export const values = {
   title: 'From idea to launch, without the friction.',
   description:
     'Focus on what matters. We handle the structure, theming, and responsive patterns so you can ship faster.',
+  variant: 'standard',
+  animation: 'emphasis',
   media: {
     src: 'https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Hero — product experience',
@@ -30,6 +32,8 @@ export function HeroContentMediaExample() {
     <HeroContentMedia
       title={values.title}
       description={values.description}
+      variant={values.variant}
+      animation={values.animation}
       media={values.media}
       primaryCTA={values.primaryCTA}
       secondaryCTA={values.secondaryCTA}
