@@ -63,14 +63,14 @@ export function BlocksMasonry({ basePath }: Readonly<BlocksMasonryProps>) {
           })}
         </div>
       </div>
-      <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
+      <div className="columns-1 gap-4 md:columns-2 lg:columns-3">
         {filteredBlocks.map((block) => (
           <Link
             key={block.slug}
             href={`/${basePath}/${block.categorySlug}/${block.slug}`}
-            className="group border-border focus-visible:outline-ring relative mb-6 flex break-inside-avoid flex-col overflow-hidden rounded-xl border focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="group focus-visible:outline-ring relative mb-6 flex break-inside-avoid flex-col overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2"
           >
-            <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
+            <div className="bg-muted/80 group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-2">
               <div className="rounded-lg bg-white p-3">
                 <Image
                   src={

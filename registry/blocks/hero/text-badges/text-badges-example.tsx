@@ -2,6 +2,8 @@ import { TextBadges, type TextBadgesProps } from './text-badges'
 
 export const values = {
   title: 'Design smarter. Ship faster. Delight users.',
+  variant: 'standard',
+  animation: 'emphasis',
   primaryCTA: {
     ctaEnabled: true,
     text: 'Get started',
@@ -25,6 +27,8 @@ export function TextBadgesExample() {
   return (
     <TextBadges
       title={values.title}
+      variant={values.variant}
+      animation={values.animation}
       primaryCTA={values.primaryCTA}
       secondaryCTA={values.secondaryCTA}
       features={values.features}
