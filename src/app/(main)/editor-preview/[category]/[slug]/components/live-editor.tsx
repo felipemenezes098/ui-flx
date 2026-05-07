@@ -86,7 +86,7 @@ export function LiveEditor({ item, category }: Readonly<LiveEditorProps>) {
           <EditorFields props={props} onUpdate={handleUpdate} />
         </EditorLayout.Sidebar>
         <EditorLayout.Preview>
-          <div className="h-[calc(100vh-10rem)] overflow-hidden rounded-lg border 2xl:max-h-200">
+          <div className="bg-card/80 dark:bg-background h-[calc(100vh-10rem)] overflow-hidden rounded-lg border 2xl:max-h-200">
             <iframe
               ref={iframeRef}
               src={`/preview-editor/${category}/${item.slug}`}

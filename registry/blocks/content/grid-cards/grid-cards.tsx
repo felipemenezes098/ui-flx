@@ -28,7 +28,7 @@ export function GridCards({ title, items }: Readonly<GridCardsProps>) {
           {items.map((item, index) => (
             <li key={`${item.title}-${index}`} className="h-full">
               <article
-                className="bg-secondary/60 h-full rounded-lg border-none p-6 shadow-none"
+                className="bg-card/60 h-full rounded-lg border p-6 shadow-none"
                 aria-labelledby={`card-title-${index}`}
               >
                 <div>

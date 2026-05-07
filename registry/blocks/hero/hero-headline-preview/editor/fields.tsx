@@ -113,6 +113,54 @@ export function HeroHeadlinePreviewEditorFields({
         />
       </div>
 
+      <div className="space-y-2">
+        <Label htmlFor="hero-headline-variant" className="text-sm font-medium">
+          Variant
+        </Label>
+        <Select
+          value={props.variant ?? 'standard'}
+          onValueChange={(value) =>
+            updateField('variant', value as HeroHeadlinePreviewProps['variant'])
+          }
+        >
+          <SelectTrigger id="hero-headline-variant" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="standard">Standard</SelectItem>
+            <SelectItem value="compact">Compact</SelectItem>
+            <SelectItem value="prominent">Prominent</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label
+          htmlFor="hero-headline-animation"
+          className="text-sm font-medium"
+        >
+          Animation
+        </Label>
+        <Select
+          value={props.animation ?? 'none'}
+          onValueChange={(value) =>
+            updateField(
+              'animation',
+              value as HeroHeadlinePreviewProps['animation'],
+            )
+          }
+        >
+          <SelectTrigger id="hero-headline-animation" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">None</SelectItem>
+            <SelectItem value="subtle">Subtle</SelectItem>
+            <SelectItem value="emphasis">Emphasis</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="space-y-3 rounded-md border p-3">
         <Label className="text-sm font-medium">Media</Label>
         <div className="space-y-2">

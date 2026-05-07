@@ -4,6 +4,8 @@ import {
 } from './select-reveal-media'
 
 export const values = {
+  variant: 'standard',
+  animation: 'emphasis',
   items: [
     {
       id: '1',
@@ -59,5 +61,11 @@ export const values = {
 } satisfies SelectRevealMediaProps
 
 export function SelectRevealMediaExample() {
-  return <SelectRevealMedia items={values.items} />
+  return (
+    <SelectRevealMedia
+      items={values.items}
+      variant={values.variant}
+      animation={values.animation}
+    />
+  )
 }

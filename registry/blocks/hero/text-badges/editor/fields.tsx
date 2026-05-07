@@ -140,6 +140,48 @@ export function TextBadgesEditorFields({
         />
       </div>
 
+      <div className="space-y-2">
+        <Label htmlFor="text-badges-variant" className="text-sm font-medium">
+          Variant
+        </Label>
+        <Select
+          value={props.variant ?? 'standard'}
+          onValueChange={(value) =>
+            updateField('variant', value as TextBadgesProps['variant'])
+          }
+        >
+          <SelectTrigger id="text-badges-variant" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="standard">Standard</SelectItem>
+            <SelectItem value="compact">Compact</SelectItem>
+            <SelectItem value="prominent">Prominent</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="text-badges-animation" className="text-sm font-medium">
+          Animation
+        </Label>
+        <Select
+          value={props.animation ?? 'none'}
+          onValueChange={(value) =>
+            updateField('animation', value as TextBadgesProps['animation'])
+          }
+        >
+          <SelectTrigger id="text-badges-animation" className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">None</SelectItem>
+            <SelectItem value="subtle">Subtle</SelectItem>
+            <SelectItem value="emphasis">Emphasis</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="space-y-4">
         <div className="flex items-center justify-between rounded-md border p-3">
           <Label className="text-sm font-medium">Enable Primary CTA</Label>

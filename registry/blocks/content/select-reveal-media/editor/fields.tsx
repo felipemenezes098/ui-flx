@@ -5,6 +5,13 @@ import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../select-reveal-media-example'
 
@@ -80,8 +87,75 @@ export function SelectRevealMediaEditorFields({
     updateItems(items.filter((_, i) => i !== index))
   }
 
+  const updateField = <K extends keyof SelectRevealMediaProps>(
+    key: K,
+    value: SelectRevealMediaProps[K],
+  ) => {
+    const newProps = { ...props, [key]: value }
+    if (onUpdate) {
+      onUpdate(newProps)
+    } else {
+      setInternalProps(newProps)
+    }
+  }
+
   return (
     <div className="space-y-4">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label
+            htmlFor="select-reveal-media-variant"
+            className="text-sm font-medium"
+          >
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as SelectRevealMediaProps['variant'])
+            }
+          >
+            <SelectTrigger id="select-reveal-media-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+              <SelectItem value="prominent">Prominent</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="select-reveal-media-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField(
+                'animation',
+                value as SelectRevealMediaProps['animation'],
+              )
+            }
+          >
+            <SelectTrigger
+              id="select-reveal-media-animation"
+              className="w-full"
+            >
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+              <SelectItem value="emphasis">Emphasis</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="flex items-center justify-between">
         <Label className="text-sm font-medium">Items</Label>
         <Button type="button" variant="outline" size="sm" onClick={addItem}>
