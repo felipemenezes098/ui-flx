@@ -1,0 +1,105 @@
+export const metadata = {
+  title: 'Grid Cards',
+  description: 'A grid of cards with a title and items.',
+  openGraph: {
+    title: 'Grid Cards',
+    description: 'A grid of cards with a title and items.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="grid-cards">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+# Grid Cards
+
+A grid of cards with an optional title and a list of items (title, description).
+
+<BlockLiveEditor.Fields />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/grid-cards" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-cards/grid-cards-example.tsx"
+  title="grid-cards-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-cards/grid-cards.tsx"
+  collapsible
+  title="grid-cards.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/grid-cards/grid-cards-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Grid Cards. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-cards/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/grid-cards.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-cards/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/grid-cards.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

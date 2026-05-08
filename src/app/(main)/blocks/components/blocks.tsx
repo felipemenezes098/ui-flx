@@ -114,18 +114,7 @@ export function Blocks() {
                           <div className="flex items-center gap-2">
                             <Button asChild variant="outline" size="sm">
                               <Link
-                                href={`/editor-preview/${block.slug}/${subBlock.slug}`}
-                                className="flex items-center gap-1.5"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Palette className="size-4 shrink-0" />
-                                <span>Edit</span>
-                              </Link>
-                            </Button>
-                            <Button asChild variant="outline" size="sm">
-                              <Link
-                                href={`/docs/${block.slug}/${subBlock.slug}`}
+                                href={`/blocks/${block.slug}/${subBlock.slug}`}
                                 className="flex items-center gap-1.5"
                               >
                                 <EyeIcon className="size-4 shrink-0" />

@@ -1,0 +1,112 @@
+export const metadata = {
+  title: 'Text Badges',
+  description: 'A text badges with a title, CTA and badges.',
+  openGraph: {
+    title: 'Text Badges',
+    description: 'A text badges with a title and CTA.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="hero" slug="text-badges">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+# Text Badges
+
+A text badges with a title, CTA and badges.
+
+<BlockLiveEditor.Fields />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/text-badges" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/text-badges/text-badges-example.tsx"
+  title="text-badges-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta/cta.tsx"
+  title="cta.tsx"
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/text-badges/text-badges.tsx"
+  collapsible
+  title="text-badges.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/text-badges/text-badges-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Text Badges. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/text-badges/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/hero/text-badges.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/text-badges/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/hero/text-badges.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

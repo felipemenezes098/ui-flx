@@ -101,7 +101,7 @@ function CategorySection({
             key={`${filterKey}-${block.slug}`}
             name={block.name}
             image={block.image}
-            href={`/blocks?category=${cat.slug}#${cat.slug}-${block.slug}`}
+            href={`/blocks/${cat.slug}/${block.slug}`}
             index={i}
             hasNew={block.hasNew}
           />
@@ -181,7 +181,11 @@ export function BlocksPreview() {
           className="flex flex-col gap-16"
         >
           {filtered.map((cat) => (
-            <CategorySection key={cat.slug} cat={cat} filterKey={active ?? 'all'} />
+            <CategorySection
+              key={cat.slug}
+              cat={cat}
+              filterKey={active ?? 'all'}
+            />
           ))}
         </motion.div>
       </AnimatePresence>

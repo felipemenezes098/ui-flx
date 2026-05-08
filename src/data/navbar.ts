@@ -4,7 +4,15 @@ export const dataNavbar = [
     href: '/blocks',
   },
   {
-    name: 'Docs',
-    href: '/docs/get-started/blocks',
+    name: 'CMS',
+    href: '/cms/sanity',
+  },
+  {
+    name: 'AI Skills',
+    href: '/ai',
+  },
+  {
+    name: 'Me',
+    href: '/me',
   },
 ]

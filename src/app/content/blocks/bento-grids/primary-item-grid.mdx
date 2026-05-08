@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Primary Item Grid',
+  description:
+    'Bento grid with a primary tile (two-thirds width) and supporting image cards.',
+  openGraph: {
+    title: 'Primary Item Grid',
+    description:
+      'Bento grid with a primary tile (two-thirds width) and supporting image cards.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="bento-grids" slug="primary-item-grid">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+# Primary Item Grid
+
+Three-column bento layout: a primary tile with title, description, CTA and media, followed by cards with media, title and description.
+
+<BlockLiveEditor.Fields />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/primary-item-grid" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
+  title="primary-item-grid-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA component</Step>
+
+The primary item uses the shared CTA. Copy it if you do not have it yet.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta/cta.tsx"
+  title="cta.tsx"
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
+  collapsible
+  title="primary-item-grid.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

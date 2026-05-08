@@ -1,0 +1,77 @@
+export const metadata = {
+  title: 'Grid Content Cards',
+  description:
+    'A two-column grid of cards with title, description, and bottom-aligned image.',
+  openGraph: {
+    title: 'Grid Content Cards',
+    description:
+      'A two-column grid of cards with title, description, and bottom-aligned image.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="grid-content-cards">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+# Grid Content Cards
+
+Responsive two-column grid: each item is a Card with title, description, and an image inset on the sides and flush to the bottom.
+
+<BlockLiveEditor.Fields />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/grid-content-cards" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-content-cards/grid-content-cards-example.tsx"
+  title="grid-content-cards-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install shadcn Card</Step>
+
+<CodeBlockCommand command="shadcn@latest add card" />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-content-cards/grid-content-cards.tsx"
+  collapsible
+  title="grid-content-cards.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/grid-content-cards/grid-content-cards-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

@@ -1,0 +1,151 @@
+export const metadata = {
+  title: 'Focus Grid',
+  description: 'Focus grid with items that expand and dim on focus.',
+  openGraph: {
+    title: 'Focus Grid',
+    description:
+      'Focus grid block with configurable dimUnfocused and descriptionOnFocus.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="focus-grid">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+# Focus Grid
+
+Grid of items that can be focused; supports dimming unfocused items and showing description only on focus.
+
+<BlockLiveEditor.Fields />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/focus-grid" />
+
+## Variations
+
+The block supports two props that change behavior: **dimUnfocused** (dim non-focused items) and **descriptionOnFocus** (show description only on focused item). Below are defaults and usage per variation.
+
+## Default
+
+<BlockPreview category="content" slug="focus-grid" />
+
+<CodeBlockFromFile filePath="registry/blocks/content/focus-grid/focus-grid-example.tsx" />
+
+### Focused items are dimmed
+
+When `dimUnfocused` is true, unfocused items are dimmed while another item is focused.
+
+<BlockPreview category="content" slug="focus-grid" variation="dim-unfocused" />
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-dim-unfocused.tsx"
+  title="focus-grid-dim-unfocused.tsx"
+/>
+
+### Always show descriptions
+
+When `descriptionOnFocus` is false, the description is always shown for all items.
+
+<BlockPreview
+  category="content"
+  slug="focus-grid"
+  variation="description-always"
+/>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-description-always.tsx"
+  title="focus-grid-description-always.tsx"
+/>
+
+<hr />
+
+Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths to fit the content.
+
+<BlockPreview
+  category="content"
+  slug="focus-grid"
+  variation="minimalist"
+  iframeHeight={500}
+/>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/examples/focus-grid-minimalist.tsx"
+  title="focus-grid-minimalist.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install motion</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/focus-grid.tsx"
+  collapsible
+  title="focus-grid.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/focus-grid/focus-grid-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Focus Grid. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/focus-grid.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/focus-grid/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/focus-grid.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
-import { CopyPageMarkdown } from './app/(main)/docs/components/copy-page-markdown'
 import { CodeBlock } from './components/core/code/code-block'
 import { CodeBlockCode } from './components/core/code/code-block-code'
 import { CodeBlockCommand } from './components/core/code/code-block-command'
@@ -313,7 +312,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <Link href={href}>{children}</Link>
       </Button>
     ),
-    CopyPageMarkdown,
     BlockPreview: ({
       category,
       slug,
