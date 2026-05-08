@@ -23,6 +23,11 @@ import {
   BlockEditorTabs,
   BlockEditorTools,
 } from './components/core/editor/block-editor-toolbar'
+import {
+  BlockLiveEditorRoot,
+  BlockLiveEditorFields,
+  BlockLiveEditorPreview,
+} from './components/core/editor/block-live-editor'
 import { BlockPreview } from './components/core/editor/block-preview'
 import { Button } from './components/ui/button'
 import {
@@ -376,6 +381,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <div className="my-6">
         <CodeBlockFromFile filePath={filePath} {...props} />
       </div>
+    ),
+    BlockLiveEditor: Object.assign(BlockLiveEditorRoot, {
+      Fields: BlockLiveEditorFields,
+      Preview: BlockLiveEditorPreview,
+    }),
+    BlockPageCols: Object.assign(
+      ({ children }: { children: React.ReactNode }) => (
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[440px_1fr]">
+          {children}
+        </div>
+      ),
+      {
+        Left: ({ children }: { children: React.ReactNode }) => (
+          <div className="min-w-0">{children}</div>
+        ),
+        Right: ({ children }: { children: React.ReactNode }) => (
+          <div className="sticky top-[80px] self-start">{children}</div>
+        ),
+      },
     ),
   }
 }

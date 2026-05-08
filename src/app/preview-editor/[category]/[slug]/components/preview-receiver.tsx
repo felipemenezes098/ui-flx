@@ -35,7 +35,10 @@ export function PreviewReceiver({
 
   return (
     <div
-      className={cn('mx-auto h-full w-full max-w-6xl p-10', containerClassName)}
+      className={cn(
+        'mx-auto h-full w-full overflow-hidden p-10',
+        containerClassName,
+      )}
     >
       <BlockComponent
         {...props}

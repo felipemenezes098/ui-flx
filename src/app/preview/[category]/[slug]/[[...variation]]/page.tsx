@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import React from 'react'
 
 import { siteConfig } from '@/config/site'
 import { blocks, getBlockBySlug } from '@/lib/catalog'
