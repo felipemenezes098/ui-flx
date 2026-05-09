@@ -24,6 +24,7 @@ export type CodeBlockCodeProps = {
   highlightLines?: string
   highlightWords?: string
   withCopy?: boolean
+  collapsible?: boolean
 } & React.HTMLProps<HTMLDivElement>
 
 function CodeBlockCode({
@@ -35,6 +36,7 @@ function CodeBlockCode({
   highlightLines,
   highlightWords,
   withCopy = false,
+  collapsible,
   ...props
 }: CodeBlockCodeProps) {
   const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null)
@@ -87,8 +89,9 @@ function CodeBlockCode({
   }, [code, language, theme, themeName, highlightLines, highlightWords])
 
   const classNames = cn(
-    'w-full overflow-auto no-scrollbar text-[13px] py-2 max-h-100 font-monos',
+    'w-full overflow-auto no-scrollbar text-[13px] py-2  font-monos',
     showLineNumbers && 'shiki-with-lines',
+    !collapsible && 'max-h-100',
     className,
   )
 

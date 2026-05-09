@@ -27,6 +27,7 @@ import {
   BlockLiveEditorFields,
   BlockLiveEditorPreview,
 } from './components/core/editor/block-live-editor'
+import { BlockLiveEditorPanel } from './components/core/editor/block-live-editor-panel'
 import { BlockPreview } from './components/core/editor/block-preview'
 import { Button } from './components/ui/button'
 import {
@@ -382,6 +383,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     BlockLiveEditor: Object.assign(BlockLiveEditorRoot, {
       Fields: BlockLiveEditorFields,
+      FieldsPanel: () => <BlockLiveEditorPanel className="mt-6" />,
       Preview: BlockLiveEditorPreview,
     }),
     BlockPageCols: Object.assign(

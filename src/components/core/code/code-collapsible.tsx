@@ -58,13 +58,13 @@ export function CodeCollapsible({
               duration: 0.25,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className="from-muted/80 via-muted/50 absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t to-transparent p-4 dark:from-black/40 dark:via-black/20 dark:to-black/5"
+            className="from-background via-background/70 absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t to-transparent p-4"
           >
             <CollapsibleTrigger asChild>
               <Button
                 variant="outline"
                 size="sm"
-                className="dark:bg-background dark:hover:bg-muted"
+                className="bg-card text-muted-foreground hover:bg-muted"
               >
                 Expand
               </Button>
@@ -85,7 +85,7 @@ export function CodeCollapsibleButton() {
       variant="ghost"
       size="sm"
       onClick={() => setIsOpened(!isOpened)}
-      className="text-muted-foreground"
+      className="bg-card text-muted-foreground hover:bg-muted/80"
     >
       {isOpened ? (
         <>
