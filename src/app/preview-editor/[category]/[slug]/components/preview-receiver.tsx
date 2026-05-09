@@ -36,7 +36,7 @@ export function PreviewReceiver({
   return (
     <div
       className={cn(
-        'mx-auto h-full w-full overflow-hidden p-10',
+        'mx-auto h-full w-full p-10',
         containerClassName,
       )}
     >

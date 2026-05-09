@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import { getBlockBySlug } from '@/lib/catalog'
 
+import { BlockPreviewToolbar } from './block-preview-toolbar'
+
 type BlockLiveEditorContextValue = {
   category: string
   slug: string
@@ -11,10 +13,16 @@ type BlockLiveEditorContextValue = {
   handleUpdate: (newProps: Record<string, unknown>) => void
   iframeRef: React.RefObject<HTMLIFrameElement | null>
   handleIframeLoad: () => void
+  expanded: boolean
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const BlockLiveEditorContext =
   React.createContext<BlockLiveEditorContextValue | null>(null)
+
+export function useBlockLiveEditorOptional() {
+  return React.useContext(BlockLiveEditorContext)
+}
 
 function useBlockLiveEditor() {
   const ctx = React.useContext(BlockLiveEditorContext)
@@ -30,6 +38,7 @@ export function BlockLiveEditorRoot({
   const manifest = getBlockBySlug(slug)
   const defaults = (manifest?.defaults ?? {}) as Record<string, unknown>
   const [props, setProps] = React.useState<Record<string, unknown>>(defaults)
+  const [expanded, setExpanded] = React.useState(false)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
 
   function sendPropsToIframe(currentProps: Record<string, unknown>) {
@@ -56,9 +65,11 @@ export function BlockLiveEditorRoot({
       handleUpdate,
       iframeRef,
       handleIframeLoad,
+      expanded,
+      setExpanded,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [category, slug, props],
+    [category, slug, props, expanded],
   )
 
   return (
@@ -78,23 +89,19 @@ export function BlockLiveEditorFields() {
   return <EditorFields props={props} onUpdate={handleUpdate} />
 }
 
-export function BlockLiveEditorPreview({
-  height,
-}: Readonly<{ height?: number }>) {
+export function BlockLiveEditorPreview() {
   const { category, slug, iframeRef, handleIframeLoad } = useBlockLiveEditor()
 
   return (
-    <div
-      className="bg-muted/50 dark:bg-muted/20 w-full overflow-hidden rounded-lg border"
-      style={{ height: height ?? 500 }}
-    >
+    <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
       <iframe
         ref={iframeRef}
         src={`/preview-editor/${category}/${slug}`}
         title="Block preview"
-        className="no-scrollbar h-full w-full border-0"
+        className="h-full w-full"
         onLoad={handleIframeLoad}
       />
+      <BlockPreviewToolbar />
     </div>
   )
 }

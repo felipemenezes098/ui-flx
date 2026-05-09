@@ -4,6 +4,8 @@ export default function BlocksLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="container-page mx-auto w-full px-5 py-6">{children}</div>
+    <div className="container-page container-page-inner relative mx-auto w-full">
+      {children}
+    </div>
   )
 }

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+export default function BlocksPage() {
   return (
     <main className="flex min-w-0 items-start gap-6">
       <Suspense>

@@ -3,7 +3,7 @@ export default function PreviewEditorLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <style>{`html, body { overflow: auto; scrollbar-width: none; -ms-overflow-style: none; } body::-webkit-scrollbar { display: none; }`}</style>
+      <style>{`html { scrollbar-width: none; -ms-overflow-style: none; } html::-webkit-scrollbar { display: none; }`}</style>
       {children}
     </>
   )

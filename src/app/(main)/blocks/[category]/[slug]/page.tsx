@@ -5,9 +5,13 @@ type Props = {
   params: Promise<{ category: string; slug: string }>
 }
 
-export async function generateMetadata({ params }: Readonly<Props>): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Readonly<Props>): Promise<Metadata> {
   const { category, slug } = await params
-  const { metadata } = await import(`@/app/content/blocks/${category}/${slug}.mdx`)
+  const { metadata } = await import(
+    `@/app/content/blocks/${category}/${slug}.mdx`
+  )
   return metadata ?? {}
 }
 

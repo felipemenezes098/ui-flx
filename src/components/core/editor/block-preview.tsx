@@ -1,4 +1,4 @@
-// Usually used for examples in the docs. It's not used in the editor.
+// Usually used for examples. It's not used in the editor as usual.
 
 'use client'
 

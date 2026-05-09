@@ -23,11 +23,16 @@ import {
   BlockEditorTools,
 } from './components/core/editor/block-editor-toolbar'
 import {
+  BlockPageColsRoot,
+  BlockPageColsLeft,
+  BlockPageColsRight,
+} from './components/core/editor/block-page-cols'
+import {
   BlockLiveEditorRoot,
   BlockLiveEditorFields,
   BlockLiveEditorPreview,
 } from './components/core/editor/block-live-editor'
-import { BlockLiveEditorPanel } from './components/core/editor/block-live-editor-panel'
+import { BlockLiveEditorFieldsPanel } from './components/core/editor/block-live-editor-fields-panel'
 import { BlockPreview } from './components/core/editor/block-preview'
 import { Button } from './components/ui/button'
 import {
@@ -102,7 +107,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       )
     },
     p: ({ children, ...props }: React.HTMLProps<HTMLParagraphElement>) => (
-      <p {...props} className="leading-7 [&:not(:first-child)]:mt-4">
+      <p {...props} className="leading-7 not-first:mt-4">
         {children}
       </p>
     ),
@@ -273,45 +278,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </div>
     ),
-    BlockHeader: ({ children, ...props }) => (
-      <header
-        className="mb-6 flex flex-col items-start justify-between space-y-2 md:flex-row md:space-y-0"
-        {...props}
-      >
-        {children}
-      </header>
-    ),
-    BlockHeaderInfo: ({ children, ...props }) => (
-      <div className="space-y-2" {...props}>
+    PageHeader: ({ children, ...props }: { children?: React.ReactNode }) => (
+      <div className="mt-30 space-y-2" {...props}>
         {children}
       </div>
     ),
-    BlockHeaderTitle: ({ children, ...props }) => (
-      <h1 className="scroll-m-20 text-3xl font-bold" {...props}>
+    PageTitle: ({
+      children,
+      ...props
+    }: React.HTMLProps<HTMLHeadingElement>) => (
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-wide" {...props}>
         {children}
       </h1>
     ),
-    BlockHeaderDescription: ({ children, ...props }) => (
-      <div className="text-muted-foreground max-w-prose text-base" {...props}>
+    PageDescription: ({
+      children,
+      ...props
+    }: React.HTMLProps<HTMLParagraphElement>) => (
+      <p
+        className="text-muted-foreground/80 text-base leading-relaxed"
+        {...props}
+      >
         {children}
-      </div>
-    ),
-    BlockHeaderActions: ({ children, ...props }) => (
-      <div className="flex items-center gap-2 pt-1" {...props}>
-        {children}
-      </div>
-    ),
-    CMSLink: ({ href, children }) => (
-      <Button variant="outline" size="sm" className="shadow-none" asChild>
-        <Link href={href} target="_blank" rel="noopener noreferrer">
-          {children}
-        </Link>
-      </Button>
-    ),
-    DocsLink: ({ href, children }) => (
-      <Button variant="outline" size="sm" className="shadow-none" asChild>
-        <Link href={href}>{children}</Link>
-      </Button>
+      </p>
     ),
     BlockPreview: ({
       category,
@@ -383,23 +372,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     BlockLiveEditor: Object.assign(BlockLiveEditorRoot, {
       Fields: BlockLiveEditorFields,
-      FieldsPanel: () => <BlockLiveEditorPanel className="mt-6" />,
+      FieldsPanel: () => <BlockLiveEditorFieldsPanel className="mt-6" />,
       Preview: BlockLiveEditorPreview,
     }),
-    BlockPageCols: Object.assign(
-      ({ children }: { children: React.ReactNode }) => (
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[440px_1fr]">
-          {children}
-        </div>
-      ),
-      {
-        Left: ({ children }: { children: React.ReactNode }) => (
-          <div className="min-w-0">{children}</div>
-        ),
-        Right: ({ children }: { children: React.ReactNode }) => (
-          <div className="sticky top-[80px] self-start">{children}</div>
-        ),
-      },
-    ),
+    BlockPageCols: Object.assign(BlockPageColsRoot, {
+      Left: BlockPageColsLeft,
+      Right: BlockPageColsRight,
+    }),
   }
 }

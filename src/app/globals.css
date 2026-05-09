@@ -66,7 +66,7 @@
   --accent-foreground: oklch(0.2435 0 0);
   --destructive: oklch(0.6271 0.1936 33.339);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.928 0 0);
+  --border: oklch(0.932 0 0);
   --input: oklch(0.8822 0 0);
   --ring: oklch(0.4341 0.0392 41.9938);
   --chart-1: oklch(0.4341 0.0392 41.9938);
@@ -175,7 +175,11 @@
 }
 
 .container-page {
-  @apply container mx-auto max-w-4xl md:max-w-5xl lg:max-w-[75rem] xl:max-w-[75rem] 2xl:max-w-[90rem];
+  @apply mx-auto max-w-4xl md:max-w-5xl lg:max-w-[75rem] xl:max-w-[75rem] 2xl:max-w-[90rem];
+}
+
+.container-page-inner {
+  @apply px-5;
 }
 
 .line.highlighted {
@@ -232,7 +236,7 @@
 
 .step::before {
   content: counter(step);
-  @apply bg-muted border-background absolute top-0 -left-12 flex h-8 w-8 items-center justify-center rounded-full border-4 text-sm font-medium;
+  @apply bg-muted/50 border-background absolute top-0 -left-12 flex h-8 w-8 items-center justify-center rounded-full border-4 text-sm font-medium;
 }
 
 /* Shiki Meta Highlight Styling */
