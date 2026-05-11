@@ -31,6 +31,7 @@ function BlockCard({
 
   return (
     <motion.div
+      className="w-full min-w-0"
       initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.1 }}
@@ -38,7 +39,7 @@ function BlockCard({
     >
       <Link
         href={href}
-        className="group border-border bg-card focus-visible:outline-ring relative flex flex-col overflow-hidden rounded-xl border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="group border-border bg-card focus-visible:outline-ring relative flex w-full min-w-0 flex-col overflow-hidden rounded-xl border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2"
       >
         {hasNew && (
           <span className="absolute top-2.5 right-2.5 z-10 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">
@@ -64,9 +65,9 @@ function BlockCard({
             onLoad={() => setLoaded(true)}
           />
         </div>
-        <div className="border-border/60 flex items-center justify-between border-t px-3 py-2.5">
+        <div className="border-border/60 flex items-center justify-center border-t px-3 py-2.5 md:justify-between">
           <span className="text-foreground text-sm font-medium">{name}</span>
-          <ArrowRight className="text-muted-foreground h-3.5 w-3.5 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
+          <ArrowRight className="text-muted-foreground hidden h-3.5 w-3.5 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 md:block" />
         </div>
       </Link>
     </motion.div>
@@ -81,7 +82,7 @@ function CategorySection({
   filterKey: string
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex w-full flex-col items-center gap-4 md:items-start">
       <div className="flex items-center gap-3">
         <h2 className="text-foreground text-sm font-semibold">
           {cat.category}
@@ -95,7 +96,7 @@ function CategorySection({
           </span>
         )}
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cat.blocks.map((block, i) => (
           <BlockCard
             key={`${filterKey}-${block.slug}`}
@@ -118,7 +119,7 @@ export function BlocksPreview() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="border-border/60 flex items-center justify-between border-b pb-4">
+      <div className="border-border/60 flex flex-col items-center justify-between gap-2 border-b pb-4 md:flex-row md:items-center md:justify-between">
         <p className="text-muted-foreground text-sm">
           <span className="text-foreground font-semibold">{totalBlocks}</span>{' '}
           blocks across{' '}
@@ -138,7 +139,7 @@ export function BlocksPreview() {
         </Button>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap justify-center gap-2 md:justify-start">
         <button
           onClick={() => setActive(null)}
           className={cn(

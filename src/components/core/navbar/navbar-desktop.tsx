@@ -21,7 +21,7 @@ export function NavbarDesktop() {
       className="bg-background sticky top-0 z-50 hidden w-full overflow-hidden md:block"
       aria-label="Main navigation"
     >
-      <div className="container-page px-5 py-3">
+      <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
           <nav className="flex items-center gap-2 text-sm">
             <Button

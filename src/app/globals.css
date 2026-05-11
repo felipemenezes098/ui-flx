@@ -175,11 +175,11 @@
 }
 
 .container-page {
-  @apply mx-auto max-w-4xl md:max-w-5xl lg:max-w-[75rem] xl:max-w-[75rem] 2xl:max-w-[90rem];
+  @apply mx-auto max-w-4xl md:max-w-5xl lg:max-w-[75rem] xl:max-w-[80rem] 2xl:max-w-[90rem];
 }
 
 .container-page-inner {
-  @apply px-5;
+  @apply p-5;
 }
 
 .line.highlighted {

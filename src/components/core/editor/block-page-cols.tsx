@@ -33,7 +33,11 @@ const leftPanel = {
 function BlockPageColsRoot({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <div className="flex gap-10">{children}</div>
+  return (
+    <div className="flex flex-col-reverse gap-8 lg:flex-row lg:gap-10">
+      {children}
+    </div>
+  )
 }
 
 function BlockPageColsLeft({
@@ -43,24 +47,26 @@ function BlockPageColsLeft({
   const expanded = ctx?.expanded ?? false
 
   return (
-    <motion.div
-      className="relative shrink-0"
-      style={{
-        width: LEFT_WIDTH,
-        pointerEvents: expanded ? 'none' : undefined,
-      }}
-      variants={leftPanel}
-      initial={false}
-      animate={expanded ? 'collapsed' : 'open'}
-    >
-      <div className="sticky top-10 z-10 h-0">
-        <div className="from-background via-background/70 pointer-events-none absolute inset-x-0 top-0 h-30 bg-gradient-to-b to-transparent" />
-      </div>
-      {children}
-      <div className="sticky bottom-0 z-10 h-0">
-        <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-30 bg-gradient-to-t to-transparent" />
-      </div>
-    </motion.div>
+    <>
+      <motion.div
+        className="relative hidden w-full shrink-0 lg:block lg:w-[380px]"
+        style={{
+          pointerEvents: expanded ? 'none' : undefined,
+        }}
+        variants={leftPanel}
+        initial={false}
+        animate={expanded ? 'collapsed' : 'open'}
+      >
+        <div className="sticky top-10 z-10 h-0">
+          <div className="from-background via-background/70 pointer-events-none absolute inset-x-0 top-0 h-30 bg-gradient-to-b to-transparent" />
+        </div>
+        {children}
+        <div className="sticky bottom-0 z-10 h-0">
+          <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-30 bg-gradient-to-t to-transparent p-10" />
+        </div>
+      </motion.div>
+      <div className="block lg:hidden">{children}</div>
+    </>
   )
 }
 
@@ -69,7 +75,7 @@ function BlockPageColsRight({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="min-w-0 flex-1">
-      <div className="sticky top-14">{children}</div>
+      <div className="mt-3 lg:sticky lg:top-16 lg:mt-0">{children}</div>
     </div>
   )
 }

@@ -279,7 +279,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </div>
     ),
     PageHeader: ({ children, ...props }: { children?: React.ReactNode }) => (
-      <div className="mt-30 space-y-2" {...props}>
+      <div className="space-y-2 first:mt-5 lg:mt-30" {...props}>
         {children}
       </div>
     ),

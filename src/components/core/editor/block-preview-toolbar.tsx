@@ -51,29 +51,31 @@ export function BlockPreviewToolbar() {
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <div className="dark:bg-card flex items-center gap-0.5 rounded-2xl border bg-white px-1.5 py-1.5">
-        <Button
-          variant={expanded ? 'secondary' : 'ghost'}
-          title={expanded ? 'Collapse preview' : 'Expand preview'}
-          onClick={() => setExpanded((v) => !v)}
-          aria-label={expanded ? 'Collapse preview' : 'Expand preview'}
-          className="gap-0 rounded-xl"
-        >
-          {expanded ? (
-            <Minimize2 className="size-3.5 shrink-0" />
-          ) : (
-            <Maximize2 className="size-3.5 shrink-0" />
-          )}
-          <span
-            className={cn(
-              'grid overflow-hidden transition-all duration-150',
-              expanded ? 'ml-1 grid-cols-[1fr]' : 'ml-0 grid-cols-[0fr]',
-            )}
+        <div className="hidden lg:block">
+          <Button
+            variant={expanded ? 'secondary' : 'ghost'}
+            title={expanded ? 'Collapse preview' : 'Expand preview'}
+            onClick={() => setExpanded((v) => !v)}
+            aria-label={expanded ? 'Collapse preview' : 'Expand preview'}
+            className="gap-0 rounded-xl"
           >
-            <span className="overflow-hidden text-xs whitespace-nowrap">
-              {expanded ? 'Collapse' : 'Expand'}
+            {expanded ? (
+              <Minimize2 className="size-3.5 shrink-0" />
+            ) : (
+              <Maximize2 className="size-3.5 shrink-0" />
+            )}
+            <span
+              className={cn(
+                'grid overflow-hidden transition-all duration-150',
+                expanded ? 'ml-1 grid-cols-[1fr]' : 'ml-0 grid-cols-[0fr]',
+              )}
+            >
+              <span className="overflow-hidden text-xs whitespace-nowrap">
+                {expanded ? 'Collapse' : 'Expand'}
+              </span>
             </span>
-          </span>
-        </Button>
+          </Button>
+        </div>
         <Button
           variant="ghost"
           title="Refresh preview"

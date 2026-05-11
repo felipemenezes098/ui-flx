@@ -1,3 +1,4 @@
+import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'
 
@@ -24,5 +25,10 @@ export default async function BlockPage({ params }: Readonly<Props>) {
 
   const components = useMDXComponents({})
 
-  return <Content components={components} />
+  return (
+    <div className="container-page flex flex-col gap-10 px-6">
+      <Content components={components} />
+      <Footer />
+    </div>
+  )
 }
