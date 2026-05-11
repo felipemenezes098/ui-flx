@@ -17,7 +17,8 @@ export const metadata = {
 <PageHeader>
   <PageTitle>Focus Grid</PageTitle>
   <PageDescription>
-    Grid of items that can be focused; supports dimming unfocused items and showing description only on focus.
+    Grid of items that can be focused; supports dimming unfocused items and
+    showing description only on focus.
   </PageDescription>
 </PageHeader>
 
@@ -36,57 +37,7 @@ export const metadata = {
 
 <CodeBlockCommand command="shadcn@latest add @flx/focus-grid" />
 
-## Variations
-
-The block supports two props that change behavior: **dimUnfocused** (dim non-focused items) and **descriptionOnFocus** (show description only on focused item). Below are defaults and usage per variation.
-
-## Default
-
-<BlockPreview category="content" slug="focus-grid" />
-
 <CodeBlockFromFile filePath="registry/blocks/content/focus-grid/focus-grid-example.tsx" />
-
-### Focused items are dimmed
-
-When `dimUnfocused` is true, unfocused items are dimmed while another item is focused.
-
-<BlockPreview category="content" slug="focus-grid" variation="dim-unfocused" />
-
-<CodeBlockFromFile
-  filePath="registry/blocks/content/focus-grid/examples/focus-grid-dim-unfocused.tsx"
-  title="focus-grid-dim-unfocused.tsx"
-/>
-
-### Always show descriptions
-
-When `descriptionOnFocus` is false, the description is always shown for all items.
-
-<BlockPreview
-  category="content"
-  slug="focus-grid"
-  variation="description-always"
-/>
-
-<CodeBlockFromFile
-  filePath="registry/blocks/content/focus-grid/examples/focus-grid-description-always.tsx"
-  title="focus-grid-description-always.tsx"
-/>
-
-<hr />
-
-Use fewer items for a cleaner, minimalist layout. The grid adjusts item widths to fit the content.
-
-<BlockPreview
-  category="content"
-  slug="focus-grid"
-  variation="minimalist"
-  iframeHeight={500}
-/>
-
-<CodeBlockFromFile
-  filePath="registry/blocks/content/focus-grid/examples/focus-grid-minimalist.tsx"
-  title="focus-grid-minimalist.tsx"
-/>
 
 </TabsContent>
 

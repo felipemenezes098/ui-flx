@@ -21,7 +21,7 @@ import {
 } from './block-editor-toolbar'
 
 export function BlockEditorDisplayContentMobile() {
-  const { config: subBlock, category } = useBlockEditor()
+  const { config: subBlock, previewSrc } = useBlockEditor()
 
   return (
     <div className="flex flex-col gap-4 md:hidden">
@@ -35,7 +35,7 @@ export function BlockEditorDisplayContentMobile() {
       </div>
       <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
         <iframe
-          src={`/preview-editor/${category}/${subBlock.slug}`}
+          src={previewSrc}
           title="Block preview"
           className="h-full w-full"
         />

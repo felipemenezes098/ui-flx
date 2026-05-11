@@ -77,12 +77,12 @@ function BlockPageColsLeft({
         initial={false}
         animate={expanded ? 'collapsed' : 'open'}
       >
-        <div className="sticky top-10 z-10 h-0">
+        <div className="sticky top-10 z-20 h-0">
           <div className="from-background via-background pointer-events-none absolute inset-x-0 top-0 h-30 bg-linear-to-b to-transparent" />
         </div>
         {breadcrumb}
         {children}
-        <div className="sticky bottom-0 z-10 h-0">
+        <div className="sticky bottom-0 z-20 h-0">
           <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-30 bg-linear-to-t to-transparent p-10" />
         </div>
       </motion.div>

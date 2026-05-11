@@ -93,7 +93,7 @@ export function BlockLiveEditorPreview() {
   const { category, slug, iframeRef, handleIframeLoad } = useBlockLiveEditor()
 
   return (
-    <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
+    <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh]">
       <iframe
         ref={iframeRef}
         src={`/preview-editor/${category}/${slug}`}

@@ -84,10 +84,10 @@ export default async function BlockPreviewPage({
   const defaults = manifest?.defaults ?? {}
 
   return (
-    <div className="bg-card/80 dark:bg-background flex min-h-screen w-full items-center justify-center">
+    <div className="flex min-h-screen w-full items-center justify-center">
       <div
         className={cn(
-          'container-page h-full w-full p-5',
+          'mx-auto h-full w-full max-w-7xl p-5',
           manifest?.meta?.containerClassName,
         )}
       >

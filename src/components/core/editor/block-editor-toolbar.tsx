@@ -170,35 +170,35 @@ export function BlockEditorTools() {
         >
           <Smartphone className="size-4" />
         </ToggleGroupItem>
-        <div className="flex items-center">
-          <Separator orientation="vertical" className="!h-4" />
-        </div>
-        <Button
-          size="icon"
-          variant="ghost"
-          className="size-6 rounded-sm p-0"
-          title="Preview Fullscreen"
-          asChild
-        >
-          <Link href={previewSrc ?? '#'} target="_blank">
-            <Fullscreen className="size-4" />
-            <span className="sr-only">Preview Fullscreen</span>
-          </Link>
-        </Button>
-        <div className="flex items-center">
-          <Separator orientation="vertical" className="!h-4" />
-        </div>
-        <Button
-          size="icon"
-          variant="ghost"
-          className="size-6 rounded-sm p-0"
-          title="Refresh Preview"
-          onClick={refreshPreview}
-        >
-          <RotateCw className="size-4" />
-          <span className="sr-only">Refresh Preview</span>
-        </Button>
       </ToggleGroup>
+      <div className="flex items-center">
+        <Separator orientation="vertical" className="!h-4" />
+      </div>
+      <Button
+        size="icon"
+        variant="ghost"
+        className="size-6 rounded-sm p-0"
+        title="Preview Fullscreen"
+        asChild
+      >
+        <Link href={previewSrc ?? '#'} target="_blank">
+          <Fullscreen className="size-4" />
+          <span className="sr-only">Preview Fullscreen</span>
+        </Link>
+      </Button>
+      <div className="flex items-center">
+        <Separator orientation="vertical" className="!h-4" />
+      </div>
+      <Button
+        size="icon"
+        variant="ghost"
+        className="size-6 rounded-sm p-0"
+        title="Refresh Preview"
+        onClick={refreshPreview}
+      >
+        <RotateCw className="size-4" />
+        <span className="sr-only">Refresh Preview</span>
+      </Button>
     </div>
   )
 }
