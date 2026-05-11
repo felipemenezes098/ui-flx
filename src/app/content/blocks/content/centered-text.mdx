@@ -1,0 +1,118 @@
+export const metadata = {
+  title: 'Centered Text',
+  description: 'Centered text block with title, description, and CTA.',
+  openGraph: {
+    title: 'Centered Text',
+    description: 'Centered text block with title, description, and CTA.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="centered-text">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Centered Text</PageTitle>
+  <PageDescription>
+    A centered text block with a title, description, and optional CTA.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/centered-text" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/centered-text/centered-text-example.tsx"
+  title="centered-text-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta/cta.tsx"
+  title="cta.tsx"
+  collapsible
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/centered-text/centered-text.tsx"
+  collapsible
+  title="centered-text.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/centered-text/centered-text-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Centered Text. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/centered-text/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/centered-text.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/centered-text/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/centered-text.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

@@ -21,7 +21,7 @@ export function BlocksSidebar() {
     <aside
       aria-label="Block categories"
       className={cn(
-        'sticky top-[calc(var(--header-height)+var(--top-spacing)+0.375rem)] z-30 hidden h-[calc(100svh-var(--header-height)-var(--top-spacing)-2.5rem)] w-54 shrink-0 self-start lg:flex lg:flex-col',
+        'sticky top-20 z-30 hidden h-[calc(100svh-80px)] w-54 shrink-0 self-start lg:flex lg:flex-col',
       )}
     >
       <ScrollFadeEdges

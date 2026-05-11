@@ -114,18 +114,7 @@ export function Blocks() {
                           <div className="flex items-center gap-2">
                             <Button asChild variant="outline" size="sm">
                               <Link
-                                href={`/editor-preview/${block.slug}/${subBlock.slug}`}
-                                className="flex items-center gap-1.5"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Palette className="size-4 shrink-0" />
-                                <span>Edit</span>
-                              </Link>
-                            </Button>
-                            <Button asChild variant="outline" size="sm">
-                              <Link
-                                href={`/docs/${block.slug}/${subBlock.slug}`}
+                                href={`/blocks/${block.slug}/${subBlock.slug}`}
                                 className="flex items-center gap-1.5"
                               >
                                 <EyeIcon className="size-4 shrink-0" />
@@ -163,34 +152,20 @@ export function Blocks() {
                           asChild
                           className="h-6.5 w-fit"
                         >
-                          <Link href={`/docs/${block.slug}/${subBlock.slug}`}>
+                          <Link href={`/blocks/${block.slug}/${subBlock.slug}`}>
                             <EyeIcon className="size-3.5 shrink-0" />
                             <span className="text-xs">View</span>
                           </Link>
                         </Button>
                       </div>
-                      <Link
-                        href={`/docs/${block.slug}/${subBlock.slug}`}
-                        className="group border-border overflow-hidden rounded-xl border"
-                      >
-                        <div className="bg-muted group-hover:bg-accent-foreground/6 dark:group-hover:bg-accent-foreground/20 p-3">
-                          <div className="rounded-lg bg-white p-3">
-                            <Image
-                              src={
-                                resolvedTheme === 'dark'
-                                  ? subBlock.image.dark
-                                  : subBlock.image.light
-                              }
-                              alt={subBlock.name}
-                              data-block={subBlock.name}
-                              width={0}
-                              height={0}
-                              sizes="100vw"
-                              className="h-auto w-full"
-                            />
-                          </div>
-                        </div>
-                      </Link>
+
+                      <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
+                        <iframe
+                          src={`/preview-editor/${block.slug}/${subBlock.slug}`}
+                          title="Block preview"
+                          className="h-full w-full"
+                        />
+                      </div>
                     </div>
                   </BlockEditor>
                   {/* <BlockEditorDisplay

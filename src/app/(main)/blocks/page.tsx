@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { Footer } from '@/components/core/footer'
 
 import { Blocks } from './components/blocks'
+import { BlocksSidebar } from './components/blocks-sidebar'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -25,23 +26,28 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+export default function BlocksPage() {
   return (
-    <main className="grid min-w-0 grid-cols-1">
-      <div className="space-y-4 py-6">
-        <section>
-          <div className="flex flex-col justify-center">
-            <h1 className="mb-1 text-3xl font-bold">Blocks</h1>
-            <p className="text-muted-foreground mb-4 text-balance">
-              All Blocks are ready to copy and paste into your websites.
-            </p>
-          </div>
-        </section>
-        <Suspense fallback={<BlocksFallback />}>
-          <Blocks />
-        </Suspense>
+    <main className="container-page container-page-inner flex min-w-0 items-start gap-6">
+      <Suspense>
+        <BlocksSidebar />
+      </Suspense>
+      <div className="min-w-0 flex-1">
+        <div className="space-y-4 py-6">
+          <section>
+            <div className="flex flex-col justify-center">
+              <h1 className="mb-1 text-3xl font-bold">Blocks</h1>
+              <p className="text-muted-foreground mb-4 text-balance">
+                All Blocks are ready to copy and paste into your websites.
+              </p>
+            </div>
+          </section>
+          <Suspense fallback={<BlocksFallback />}>
+            <Blocks />
+          </Suspense>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </main>
   )
 }

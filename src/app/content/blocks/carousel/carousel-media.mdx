@@ -1,0 +1,110 @@
+export const metadata = {
+  title: 'Carousel Media',
+  description: 'A carousel of media with a title and items.',
+  openGraph: {
+    title: 'Carousel Media',
+    description: 'A carousel of media with a title and items.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="carousel" slug="carousel-media">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Carousel Media</PageTitle>
+  <PageDescription>
+    A carousel of media with a title and items.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/carousel-media" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-media/carousel-media-example.tsx"
+  title="carousel-media-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-media/carousel-media.tsx"
+  collapsible
+  title="carousel-media.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-media/carousel-media-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Carousel Media. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-media/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/carousel/carousel-media.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-media/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/carousel/carousel-media.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

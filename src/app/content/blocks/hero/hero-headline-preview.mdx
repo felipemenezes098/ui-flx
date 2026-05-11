@@ -1,0 +1,90 @@
+export const metadata = {
+  title: 'Hero Headline Preview',
+  description:
+    'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+  openGraph: {
+    title: 'Hero Headline Preview',
+    description:
+      'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="hero" slug="hero-headline-preview">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Hero Headline Preview</PageTitle>
+  <PageDescription>
+    Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-headline-preview" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
+  title="hero-headline-preview-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta/cta.tsx"
+  title="cta.tsx"
+  collapsible
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
+  collapsible
+  title="hero-headline-preview.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

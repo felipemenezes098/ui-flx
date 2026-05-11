@@ -1,10 +1,8 @@
 import { CheckIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
-import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
-import { CopyPageMarkdown } from './app/(main)/docs/components/copy-page-markdown'
 import { CodeBlock } from './components/core/code/code-block'
 import { CodeBlockCode } from './components/core/code/code-block-code'
 import { CodeBlockCommand } from './components/core/code/code-block-command'
@@ -23,8 +21,18 @@ import {
   BlockEditorTabs,
   BlockEditorTools,
 } from './components/core/editor/block-editor-toolbar'
+import {
+  BlockPageColsRoot,
+  BlockPageColsLeft,
+  BlockPageColsRight,
+} from './components/core/editor/block-page-cols'
+import {
+  BlockLiveEditorRoot,
+  BlockLiveEditorFields,
+  BlockLiveEditorPreview,
+} from './components/core/editor/block-live-editor'
+import { BlockLiveEditorFieldsPanel } from './components/core/editor/block-live-editor-fields-panel'
 import { BlockPreview } from './components/core/editor/block-preview'
-import { Button } from './components/ui/button'
 import {
   ResizableHandle,
   ResizablePanel,
@@ -33,6 +41,10 @@ import {
 import { ScrollArea, ScrollBar } from './components/ui/scroll-area'
 import { Separator } from './components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
+import { siteConfig } from './config/site'
+import Link from 'next/link'
+import { Button } from './components/ui/button'
+import { Logo } from './components/core/logo'
 
 let headingCounter = 0
 
@@ -97,7 +109,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       )
     },
     p: ({ children, ...props }: React.HTMLProps<HTMLParagraphElement>) => (
-      <p {...props} className="leading-7 [&:not(:first-child)]:mt-4">
+      <p {...props} className="leading-7 not-first:mt-4">
         {children}
       </p>
     ),
@@ -268,47 +280,31 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </div>
     ),
-    BlockHeader: ({ children, ...props }) => (
-      <header
-        className="mb-6 flex flex-col items-start justify-between space-y-2 md:flex-row md:space-y-0"
-        {...props}
-      >
-        {children}
-      </header>
-    ),
-    BlockHeaderInfo: ({ children, ...props }) => (
-      <div className="space-y-2" {...props}>
+    PageHeader: ({ children, ...props }: { children?: React.ReactNode }) => (
+      <div className="space-y-2 first:mt-5 lg:mt-15" {...props}>
         {children}
       </div>
     ),
-    BlockHeaderTitle: ({ children, ...props }) => (
-      <h1 className="scroll-m-20 text-3xl font-bold" {...props}>
+    PageTitle: ({
+      children,
+      ...props
+    }: React.HTMLProps<HTMLHeadingElement>) => (
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-wide" {...props}>
         {children}
       </h1>
     ),
-    BlockHeaderDescription: ({ children, ...props }) => (
-      <div className="text-muted-foreground max-w-prose text-base" {...props}>
+    PageDescription: ({
+      children,
+      ...props
+    }: React.HTMLProps<HTMLDivElement>) => (
+      <div
+        role="doc-subtitle"
+        className="text-muted-foreground/80 text-base leading-relaxed [&_p]:m-0"
+        {...props}
+      >
         {children}
       </div>
     ),
-    BlockHeaderActions: ({ children, ...props }) => (
-      <div className="flex items-center gap-2 pt-1" {...props}>
-        {children}
-      </div>
-    ),
-    CMSLink: ({ href, children }) => (
-      <Button variant="outline" size="sm" className="shadow-none" asChild>
-        <Link href={href} target="_blank" rel="noopener noreferrer">
-          {children}
-        </Link>
-      </Button>
-    ),
-    DocsLink: ({ href, children }) => (
-      <Button variant="outline" size="sm" className="shadow-none" asChild>
-        <Link href={href}>{children}</Link>
-      </Button>
-    ),
-    CopyPageMarkdown,
     BlockPreview: ({
       category,
       slug,
@@ -375,6 +371,33 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CodeBlockFromFile: ({ filePath, ...props }) => (
       <div className="my-6">
         <CodeBlockFromFile filePath={filePath} {...props} />
+      </div>
+    ),
+    BlockLiveEditor: Object.assign(BlockLiveEditorRoot, {
+      Fields: BlockLiveEditorFields,
+      FieldsPanel: () => <BlockLiveEditorFieldsPanel className="mt-6" />,
+      Preview: BlockLiveEditorPreview,
+    }),
+    BlockPageCols: Object.assign(BlockPageColsRoot, {
+      Left: BlockPageColsLeft,
+      Right: BlockPageColsRight,
+    }),
+    Contact: () => (
+      <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-2 rounded-lg border p-3">
+        <span className="text-sm">Need help? Contact me</span>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href={siteConfig.links.twitter} target="_blank">
+              <Logo.X className="size-3" />/ Twitter
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="sm">
+            <Link href={siteConfig.links.linkedin} target="_blank">
+              <Logo.Linkedin className="size-3" />
+              LinkedIn
+            </Link>
+          </Button>
+        </div>
       </div>
     ),
   }

@@ -21,7 +21,7 @@ export function CodeBlock({
     <CodeBlockProvider collapsible={collapsible} defaultOpen={defaultOpen}>
       <div
         className={cn(
-          'bg-muted/50 relative w-full overflow-hidden rounded-xl',
+          'bg-card relative w-full overflow-hidden rounded-xl border',
           className,
         )}
       >

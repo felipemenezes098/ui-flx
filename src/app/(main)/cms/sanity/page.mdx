@@ -1,0 +1,202 @@
+export const metadata = {
+  title: 'Sanity',
+  description:
+    'How I wire Flexnative blocks to Sanity (schemas, registry, render): rough notes, adapt to your project.',
+  openGraph: {
+    title: 'Sanity',
+    description:
+      'Sanity notes for Flexnative blocks: work in progress, patterns you can adapt.',
+    type: 'article',
+  },
+}
+
+# CMS
+
+<div className="mt-3" />
+
+<Callout>
+  **Work in progress:** I have not wired every block to Sanity yet. Some have
+  schema and Studio/UI; I add the rest over time.
+</Callout>
+
+<Callout>
+  **Example repository:** See the [example
+  repository](https://github.com/felipemenezes098/ui-flx-example) with Sanity
+  schemas, block registry, and UI components already wired up. Clone it to
+  explore a full setup or use it as reference while you adapt the steps below to
+  your project.
+  {''}
+  You can also import the data exported from the example repository to your
+  project. Check the
+  [README.md](https://github.com/felipemenezes098/ui-flx-example/blob/main/README.md)
+  for more details.
+</Callout>
+
+The blocks are open source like the rest of Flexnative. This page is just how I
+set up **Sanity**: shared objects, the blocks array, registry, `render-block`,
+page wiring.
+
+Your folders, plugins, and schema habits will differ. Take the idea, then change
+paths and types to match your repo. Same point as on the About page: keep the
+shape obvious so tools (and AI) can reuse catalog examples and rebuild things in
+**your** layout.
+
+Right now Flexnative ships **Sanity** wiring in the open repo. Another CMS might
+appear later too.
+
+Treat the snippets as a starter layout and adjust them for your Studio and app.
+
+<Callout>
+  **Sanity Typegen:** I've used **[Sanity
+  TypeGen](https://www.sanity.io/docs/apis-and-sdks/sanity-typegen)** to
+  generate TypeScript types from the schema. The registry and components import
+  types **from the generated file** (e.g. `Blocks`, `Home` in
+  `sanity.types.ts`). Configure and run typegen in your project per the
+  [official
+  documentation](https://www.sanity.io/docs/apis-and-sdks/sanity-typegen).
+</Callout>
+
+## Shared objects (optional)
+
+Blocks that use CTA, links, etc. reuse shared objects. Example: the `cta` object. See [Shared objects](#shared-objects) below for the list.
+
+You need to **export and include** these types in your schema according to your project’s context (e.g. an objects index that re-exports `cta` and others).
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/shared/objects-cta.txt"
+  language="ts"
+  title="Example: schema-types/objects/cta.ts"
+/>
+
+## Define a block (e.g. Grid Two Columns)
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/grid-two-columns-schema.txt"
+  language="ts"
+  title="schema-types/blocks/content/grid-two-columns.ts"
+/>
+
+## Define the blocks array (blocks.ts)
+
+This is how I use blocks on a page: an array per category (e.g. content) referenced on the document type. When you add blocks or categories, update this file. The values in `of` refer to the schema **type** — if the type doesn’t exist in the project, the Studio will break.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/schema-blocks.txt"
+  language="ts"
+  title="schema-types/blocks/blocks.ts"
+  highlightLines="3-5,13-18"
+/>
+
+---
+
+## Define a page type (e.g. home)
+
+A document type like `home` uses the `blocks` array so editors can add blocks in the Studio. The field `type: 'blocks'` references the blocks schema defined in `blocks.ts`.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/home-type.txt"
+  language="ts"
+  title="schema-types/pages/home-type.ts"
+  highlightLines="15-18"
+/>
+
+---
+
+## Block registry (UI)
+
+When adding a new block, register it here. Import types from the generated file (e.g. `Blocks` from `sanity.types.ts`).
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/registry.txt"
+  language="tsx"
+  title="components/flx/sanity/blocks/registry.ts"
+  highlightLines="1,8-14"
+/>
+
+## Render block
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/render-block.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+## Blocks component
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/blocks.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+---
+
+## Example page
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/example-page.txt"
+  language="tsx"
+  title="app/(pages)/page.tsx"
+  showLineNumbers
+/>
+
+---
+
+## Shared objects
+
+Shared objects are reusable schema types in the Studio. Blocks that need a call-to-action or other shared fields use these. Each object has a **Schema** (Studio) and a **UI** component that consumes data from Sanity types. Select an object below.
+
+<Tabs defaultValue="cta" className="mt-4 w-full">
+<div className="sticky top-14 z-10 bg-background pt-1 pb-2">
+  <TabsList className="gap-2 bg-transparent">
+    <TabsTrigger value="cta">CTA</TabsTrigger>
+    <TabsTrigger value="dynamic-icon">Dynamic Icon</TabsTrigger>
+  </TabsList>
+</div>
+
+  <TabsContent value="cta">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+The CTA object defines the schema for call-to-action fields (text, link, variant). Include it in your schema and export it according to your project’s structure.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/studio/shared/objects-cta.txt"
+  language="ts"
+  title="schema-types/objects/cta.ts"
+/>
+
+<Step>CTA component (UI)</Step>
+
+Component that consumes `CtaType` from your generated types (e.g. `sanity.types.ts`). Use this in blocks that have a CTA field from Sanity.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/shared/cta.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+  </TabsContent>
+
+  <TabsContent value="dynamic-icon">
+
+<Steps>
+
+<Step>Dynamic Icon component (UI)</Step>
+
+Reusable icon component that renders Lucide icons by name. Use it in blocks when the schema stores an icon name (e.g. from a string field). No Studio schema — only UI.
+
+<CodeBlockFromFile
+  filePath="src/data/docs/sanity/ui/shared/dynamic-icon.txt"
+  language="tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+  </TabsContent>
+</Tabs>

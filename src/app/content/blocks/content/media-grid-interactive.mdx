@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Media Grid Interactive',
+  description:
+    'A grid of media items with title and description. Click to open a dialog with details.',
+  openGraph: {
+    title: 'Media Grid Interactive',
+    description:
+      'A grid of media items with title and description. Click to open a dialog with details.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="media-grid-interactive">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Media Grid Interactive</PageTitle>
+  <PageDescription>
+    A grid of media items with a title and description. Click any item to open a dialog with image, title, and full description. Supports controlled and uncontrolled modes.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/media-grid-interactive" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx"
+  title="media-grid-interactive-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="motion react-wrap-balancer lucide-react" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/media-grid-interactive/media-grid-interactive.tsx"
+  collapsible
+  title="media-grid-interactive.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

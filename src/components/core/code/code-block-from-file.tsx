@@ -58,6 +58,7 @@ export function CodeBlockFromFile({
           highlightLines={highlightLines}
           highlightWords={highlightWords}
           withCopy={!hasHeader}
+          collapsible={collapsible}
         />
       </CodeCollapsible>
     </CodeBlock>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import React from 'react'
 
 import { siteConfig } from '@/config/site'
 import { blocks, getBlockBySlug } from '@/lib/catalog'
@@ -88,7 +87,7 @@ export default async function BlockPreviewPage({
     <div className="bg-card/80 dark:bg-background flex min-h-screen w-full items-center justify-center">
       <div
         className={cn(
-          'mx-auto h-full w-full max-w-6xl p-10',
+          'container-page h-full w-full p-5',
           manifest?.meta?.containerClassName,
         )}
       >

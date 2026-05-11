@@ -1,0 +1,62 @@
+export const metadata = {
+  title: 'Introduction',
+  description:
+    'Flexnative: UI blocks for your stack. Yours to customize, extend, and own. Built on shadcn/ui.',
+  openGraph: {
+    title: 'Introduction',
+    description:
+      'Flexnative: UI blocks for your stack. Yours to customize, extend, and own.',
+    type: 'article',
+  },
+}
+
+# About
+
+I created Flexnative to make building interfaces feel simpler, more consistent, and easier to evolve over time.
+
+For me, the real value is not just having UI blocks ready to use. It is having a way to distribute taste, patterns, and decisions in a format that is easy to copy, easy to understand, and easy to keep consistent across different projects.
+
+I like the shadcn approach because it gives you the code directly. You own it. You can tweak it, extend it, and update it without being locked in a package. Flexnative follows that same idea. It is focused on the kind of UI I like to build: website sections, reusable blocks, reusable components, and patterns that work well in real products.
+
+What makes this even more powerful is how it works with AI. When the structure is clear and the examples are simple, AI can follow the same patterns much more reliably. That makes it easier to generate, adapt, and scale UI without losing consistency.
+
+What I want with Flexnative is simple:
+
+- make UI faster to build
+- keep things visually consistent
+- make examples easy to understand
+- make the code friendly for developers and for AI
+- keep the source in your hands so you can adapt it however you want
+
+This is not about shipping blocks for the sake of shipping blocks.
+
+It is about creating a practical way to build and scale UI without turning every project into a reinvention of the same decisions.
+
+I use Flexnative because it helps me work faster, think more clearly, and keep a better standard across projects. And that is the kind of tool I want to share.
+
+## Registry setup
+
+To make sure the `@flx` registry is available, add this to your `components.json`:
+
+<CodeBlock>
+  <CodeBlockCode
+    language="json"
+    withCopy
+    code={`
+  "registries": {
+    "@flx": {
+      "url": "https://ui.flexnative.com/r/{name}.json"
+    }
+  }`}
+  />
+</CodeBlock>
+
+Then you can use the `@flx` registry in your project. For example, to add the `cta` block, you can run:
+
+<CodeBlock>
+  <CodeBlockCode
+    language="bash"
+    withCopy
+    code="npx shadcn@latest add @flx/cta"
+  />
+</CodeBlock>

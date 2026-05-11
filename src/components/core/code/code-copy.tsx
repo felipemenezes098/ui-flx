@@ -31,7 +31,7 @@ export function CodeBlockCopy({ fileContent, className }: CodeBlockCopyProps) {
       size="icon"
       onClick={handleCopy}
       className={cn(
-        'dark:bg-muted/50 dark:hover:bg-muted/80 bg-accent/50 h-7 w-fit gap-1 px-2',
+        'bg-card text-muted-foreground hover:bg-muted/80 h-7 w-fit gap-1 px-2',
         className,
       )}
     >

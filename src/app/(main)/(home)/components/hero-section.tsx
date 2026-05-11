@@ -1,80 +1,66 @@
 'use client'
 
-import { motion, Variants } from 'motion/react'
+import { motion } from 'motion/react'
 
 import { siteConfig } from '@/config/site'
+import { TextAnimate } from '@/components/core/text-animated'
 
 import { GitHubButton } from './github-button'
 import { ExploreButton } from './explore-button'
 import { NewsBanner } from './news-banner'
 
-const container: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.05 },
-  },
-}
-
-const bannerVariants: Variants = {
-  hidden: { opacity: 0, y: -6 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
-}
-
-const headingVariants: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
-  },
-}
-
-const descVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
-}
-
-const buttonsVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.3, ease: 'easeOut' },
-  },
-}
-
 export function HeroSection() {
   return (
-    <motion.div
-      className="flex flex-col items-center gap-8 text-center"
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.div variants={bannerVariants}>
+    <div className="flex flex-col items-center gap-8 text-center">
+      <motion.div
+        initial={{ opacity: 0, filter: 'blur(6px)' }}
+        animate={{ opacity: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 0.4, ease: 'easeOut', delay: 0 }}
+      >
         <NewsBanner />
       </motion.div>
+
       <div className="flex flex-col items-center gap-4">
-        <motion.h1
-          variants={headingVariants}
-          className="max-w-6xl text-2xl font-bold md:text-3xl"
+        <TextAnimate
+          as="h1"
+          animation="blurIn"
+          by="word"
+          duration={0.4}
+          delay={0.1}
+          startOnView={false}
+          className="max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl"
         >
           {siteConfig.title}
-        </motion.h1>
-        <motion.p
-          variants={descVariants}
+        </TextAnimate>
+
+        <TextAnimate
+          animation="blurIn"
+          by="text"
+          duration={0.45}
+          delay={0.85}
+          startOnView={false}
           className="text-muted-foreground max-w-2xl text-base"
         >
           {siteConfig.description}
-        </motion.p>
+        </TextAnimate>
       </div>
-      <motion.div
-        variants={buttonsVariants}
-        className="flex flex-wrap items-center justify-center gap-2"
-      >
-        <ExploreButton />
-        <GitHubButton />
-      </motion.div>
-    </motion.div>
+
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, filter: 'blur(4px)', y: 4 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{ duration: 0.35, ease: 'easeOut', delay: 1.35 }}
+        >
+          <ExploreButton />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, filter: 'blur(4px)', y: 4 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{ duration: 0.35, ease: 'easeOut', delay: 1.5 }}
+        >
+          <GitHubButton />
+        </motion.div>
+      </div>
+    </div>
   )
 }

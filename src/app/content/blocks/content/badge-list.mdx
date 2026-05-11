@@ -1,0 +1,110 @@
+export const metadata = {
+  title: 'Badge List',
+  description: 'A list of badges with a title and items.',
+  openGraph: {
+    title: 'Badge List',
+    description: 'A list of badges with a title and items.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="badge-list">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Badge List</PageTitle>
+  <PageDescription>
+    A list of badges with a title and items.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/badge-list" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/badge-list/badge-list-example.tsx"
+  title="badge-list-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/badge-list/badge-list.tsx"
+  collapsible
+  title="badge-list.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/badge-list/badge-list-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Badge List. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/badge-list/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/badge-list.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/badge-list/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/badge-list.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

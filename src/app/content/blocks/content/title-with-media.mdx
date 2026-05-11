@@ -1,0 +1,110 @@
+export const metadata = {
+  title: 'Title With Media',
+  description: 'A title with a media above the title.',
+  openGraph: {
+    title: 'Title With Media',
+    description: 'A title with a media above the title.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="title-with-media">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Title With Media</PageTitle>
+  <PageDescription>
+    A title with a media above the title.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/title-with-media" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/title-with-media/title-with-media-example.tsx"
+  title="title-with-media-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/title-with-media/title-with-media.tsx"
+  collapsible
+  title="title-with-media.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/title-with-media/title-with-media-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Title With Media. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/title-with-media/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/title-with-media.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/title-with-media/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/title-with-media.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

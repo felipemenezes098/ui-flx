@@ -21,7 +21,7 @@ export default async function PreviewEditorPage({
   const initialProps = manifest?.defaults ?? {}
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center">
+    <div className="no-scrollbar dark:bg-muted/20 flex min-h-screen w-full items-center justify-center">
       <PreviewReceiver
         slug={slug}
         initialProps={initialProps}

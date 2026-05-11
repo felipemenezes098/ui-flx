@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Sticky Scroll Media',
+  description:
+    'Media element that stays fixed while content scrolls, changing based on scroll position.',
+  openGraph: {
+    title: 'Sticky Scroll Media',
+    description:
+      'Media element that stays fixed while content scrolls, changing based on scroll position.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="scroll" slug="sticky-scroll-media">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Sticky Scroll Media</PageTitle>
+  <PageDescription>
+    A responsive scroll-based component featuring sticky media that changes as you scroll through content. On mobile, items stack vertically. On desktop, media stays sticky while text content scrolls past it.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/sticky-scroll-media" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+  title="sticky-scroll-media-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install motion</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+  collapsible
+  title="sticky-scroll-media.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

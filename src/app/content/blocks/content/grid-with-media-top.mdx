@@ -1,0 +1,106 @@
+export const metadata = {
+  title: 'Grid With Media Top',
+  description: 'Media on top with information below.',
+  openGraph: {
+    title: 'Grid With Media Top',
+    description: 'Media on top with information below.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="grid-with-media-top">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Grid With Media Top</PageTitle>
+  <PageDescription>
+    Media on top with information below.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/grid-with-media-top" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx"
+  title="grid-with-media-top-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
+  collapsible
+  title="grid-with-media-top.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Grid With Media Top. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-with-media-top/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/grid-with-media-top.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/grid-with-media-top/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/grid-with-media-top.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

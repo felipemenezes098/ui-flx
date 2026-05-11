@@ -110,7 +110,7 @@ export function NavbarMobile() {
                   <Link href="/" className="flex items-center gap-1.5">
                     <Logo.Flexnative className="text-primary h-6 w-auto" />
                     <span className="text-sm font-medium">
-                      {siteConfig.name}
+                      {siteConfig.shortName}
                     </span>
                   </Link>
                 </Button>

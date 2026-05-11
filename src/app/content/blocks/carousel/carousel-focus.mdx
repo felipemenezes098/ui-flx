@@ -1,0 +1,134 @@
+export const metadata = {
+  title: 'Carousel Focus',
+  description:
+    'Auto-scrolling carousel with hover focus, dimming, and animated title.',
+  openGraph: {
+    title: 'Carousel Focus',
+    description:
+      'Auto-scrolling carousel with hover focus, dimming, and animated title placement inside or outside the image.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="carousel" slug="carousel-focus">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Carousel Focus</PageTitle>
+  <PageDescription>
+    Auto-scrolling carousel that pauses on item hover, dims other items, and reveals an animated title “inside” or “outside” the image.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/carousel-focus" />
+
+## Variations
+
+The block supports a **titlePlacement** prop that controls where the animated title appears: `outside` (above the image, default) or `inside` (overlaid at the bottom of the image with a gradient).
+
+## Default
+
+<BlockPreview category="carousel" slug="carousel-focus" />
+
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
+
+### Title inside the image
+
+When `titlePlacement` is `inside`, the title appears overlaid at the bottom of each image with a gradient background.
+
+<BlockPreview
+  category="carousel"
+  slug="carousel-focus"
+  variation="title-inside"
+/>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-focus/examples/carousel-focus-title-inside.tsx"
+  title="carousel-focus-title-inside.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand
+  command="embla-carousel-auto-scroll"
+  isPackage
+  isDevDependency
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-focus/carousel-focus.tsx"
+  collapsible
+  title="carousel-focus.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Carousel Focus. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-focus/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/carousel/carousel-focus.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-focus/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/carousel/carousel-focus.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

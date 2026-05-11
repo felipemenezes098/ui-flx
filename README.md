@@ -1,4 +1,4 @@
-# Flx
+# Flexnative
 
 Reusable UI blocks for building consistent, scalable interfaces.
 
@@ -7,11 +7,7 @@ Preview components with real props directly in the docs, and plug in Sanity if y
 
 Built on [shadcn/ui](https://ui.shadcn.com).
 
-![Flx – UI blocks](public/images/docs/flx.png)
-
-## Documentation
-
-Visit [ui.flexnative.com/docs](https://ui.flexnative.com/docs) for the full documentation, block reference, and examples.
+![Flexnative – UI blocks](public/images/docs/flx.png)
 
 ## Contributing
 

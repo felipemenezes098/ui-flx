@@ -1,9 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-import * as React from 'react'
-import { useTheme } from 'next-themes'
-
 import {
   ResizableHandle,
   ResizablePanel,
@@ -25,10 +21,7 @@ import {
 } from './block-editor-toolbar'
 
 export function BlockEditorDisplayContentMobile() {
-  const { config: subBlock } = useBlockEditor()
-  const { resolvedTheme } = useTheme()
-  const imageSrc =
-    resolvedTheme === 'dark' ? subBlock.image.dark : subBlock.image.light
+  const { config: subBlock, category } = useBlockEditor()
 
   return (
     <div className="flex flex-col gap-4 md:hidden">
@@ -40,14 +33,11 @@ export function BlockEditorDisplayContentMobile() {
           {subBlock.name}
         </div>
       </div>
-      <div className="overflow-hidden rounded-xl border p-3">
-        <Image
-          src={imageSrc}
-          alt={subBlock.name}
-          data-block={subBlock.name}
-          width={1440}
-          height={900}
-          className="object-cover dark:hidden"
+      <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
+        <iframe
+          src={`/preview-editor/${category}/${subBlock.slug}`}
+          title="Block preview"
+          className="h-full w-full"
         />
       </div>
     </div>
@@ -55,7 +45,7 @@ export function BlockEditorDisplayContentMobile() {
 }
 
 function BlockEditorDisplayContent() {
-  const { config: subBlock, item: registryItem } = useBlockEditor()
+  const { item: registryItem } = useBlockEditor()
 
   return (
     <div className="hidden flex-col gap-4 md:flex">

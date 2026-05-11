@@ -1,0 +1,111 @@
+export const metadata = {
+  title: 'Select Reveal Media',
+  description: 'List of items: select one to reveal its description and image.',
+  openGraph: {
+    title: 'Select Reveal Media',
+    description:
+      'Content block with a selectable list and a media preview that updates on selection.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="select-reveal-media">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Select Reveal Media</PageTitle>
+  <PageDescription>
+    A list of items on the left. When you select an item, its description expands inline and its image is shown on the right with a smooth transition.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/select-reveal-media" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/select-reveal-media/select-reveal-media-example.tsx"
+  title="select-reveal-media-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install motion</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/select-reveal-media/select-reveal-media.tsx"
+  collapsible
+  title="select-reveal-media.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/select-reveal-media/select-reveal-media-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Select Reveal Media. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/select-reveal-media/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/select-reveal-media.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/select-reveal-media/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/select-reveal-media.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>
