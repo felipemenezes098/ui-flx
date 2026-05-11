@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="container-page container-page-inner">
+    <main className="container-page container-page-inner pb-0!">
       <div className="flex flex-col gap-20 px-3 py-8 md:py-16">
         <section className="flex flex-col items-center gap-8 text-center">
           <HeroSection />

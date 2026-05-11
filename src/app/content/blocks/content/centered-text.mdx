@@ -13,11 +13,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Centered Text
+<PageHeader>
+  <PageTitle>Centered Text</PageTitle>
+  <PageDescription>
+    A centered text block with a title, description, and optional CTA.
+  </PageDescription>
+</PageHeader>
 
-A centered text block with a title, description, and optional CTA.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -50,6 +53,7 @@ A centered text block with a title, description, and optional CTA.
 <CodeBlockFromFile
   filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
+  collapsible
 />
 
 <Step>Install react-wrap-balancer</Step>
@@ -101,6 +105,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

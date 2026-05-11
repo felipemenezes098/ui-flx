@@ -13,11 +13,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Grid Media Cards
+<PageHeader>
+  <PageTitle>Grid Media Cards</PageTitle>
+  <PageDescription>
+    A grid of media cards with a title and items (image, icon, title, description). Supports overlay and white text on images.
+  </PageDescription>
+</PageHeader>
 
-A grid of media cards with a title and items (image, icon, title, description). Supports overlay and white text on images.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -50,6 +53,7 @@ A grid of media cards with a title and items (image, icon, title, description). 
 <CodeBlockFromFile
   filePath="registry/blocks/shared/dynamic-icon/dynamic-icon.tsx"
   title="dynamic-icon.tsx"
+  collapsible
 />
 
 <Step>Copy the component</Step>
@@ -97,6 +101,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

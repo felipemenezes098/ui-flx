@@ -5,7 +5,7 @@ description: >-
   manifest.ts, catalog.ts registration, registry.json entry, editor
   fields pattern, image light/dark, and validation commands. Triggers: "add
   block", "new block", "criar bloco", "novo bloco", "add a new section",
-  or any request to create a new flx block.
+  or any request to create a new Flexnative block.
 ---
 
 # Add a new block to ui-flx
@@ -94,7 +94,8 @@ export function MyBlockEditorFields({
   props: externalProps,
   onUpdate,
 }: MyBlockEditorFieldsProps = {}) {
-  const [internalProps, setInternalProps] = React.useState<MyBlockProps>(defaults)
+  const [internalProps, setInternalProps] =
+    React.useState<MyBlockProps>(defaults)
   const props = externalProps ?? internalProps
 
   const updateField = (field: keyof MyBlockProps, value: unknown) => {
@@ -107,7 +108,10 @@ export function MyBlockEditorFields({
     <div className="space-y-4">
       <div className="space-y-2">
         <Label>Title</Label>
-        <Input value={props.title} onChange={(e) => updateField('title', e.target.value)} />
+        <Input
+          value={props.title}
+          onChange={(e) => updateField('title', e.target.value)}
+        />
       </div>
     </div>
   )
@@ -130,17 +134,17 @@ export const manifest: BlockManifest = {
   slug: 'my-block',
   name: 'My Block',
   description: 'Short description of what the block does.',
-  category: 'content',           // must match an existing category slug
+  category: 'content', // must match an existing category slug
   image: {
     light: '/images/blocks/content/myBlock.png',
     dark: '/images/blocks/content/myBlock.png',
   },
   meta: {
-    iframeHeight: 600,           // optional — height in px for the preview iframe
+    iframeHeight: 600, // optional — height in px for the preview iframe
     // containerClassName: '...' // optional — only for carousel/logo-style blocks
     // componentClassName: '...' // optional — rare
   },
-  hasNew: true,                  // optional — shows badge in sidebar
+  hasNew: true, // optional — shows badge in sidebar
   component: MyBlock,
   editorFields: MyBlockEditorFields,
   example: MyBlockExample,

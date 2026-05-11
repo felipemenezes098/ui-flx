@@ -15,11 +15,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Hero Content Media
+<PageHeader>
+  <PageTitle>Hero Content Media</PageTitle>
+  <PageDescription>
+    Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.
+  </PageDescription>
+</PageHeader>
 
-Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -52,6 +55,7 @@ Hero with content on the left (title, description, two CTAs) and media on the ri
 <CodeBlockFromFile
   filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
+  collapsible
 />
 
 <Step>Install react-wrap-balancer</Step>
@@ -103,6 +107,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

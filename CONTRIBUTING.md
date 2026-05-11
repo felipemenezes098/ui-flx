@@ -1,8 +1,8 @@
 # Contributing
 
-Thanks for your interest in contributing to **Flx**. I'm happy to have you here.
+Thanks for your interest in contributing to **Flexnative**. I'm happy to have you here.
 
-Flx is a collection of UI blocks ready for your stack—yours to customize, extend, and own. Before you get started, take a moment to read this guide and check [open issues](https://github.com/felipemenezes098/ui-flx/issues) and [pull requests](https://github.com/felipemenezes098/ui-flx/pulls) to see if someone is already working on something similar.
+Flexnative is a collection of UI blocks ready for your stack—yours to customize, extend, and own. Before you get started, take a moment to read this guide and check [open issues](https://github.com/felipemenezes098/ui-flx/issues) and [pull requests](https://github.com/felipemenezes098/ui-flx/pulls) to see if someone is already working on something similar.
 
 If you need any help, open a [Discussion](https://github.com/felipemenezes098/ui-flx/discussions) or reach out to [@fmenezes\_](https://x.com/fmenezes_).
 
@@ -14,8 +14,6 @@ If you need any help, open a [Discussion](https://github.com/felipemenezes098/ui
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/).
 - **Animations**: [Motion](https://motion.dev/) (formerly Framer Motion).
 - **Icons**: [Lucide React](https://lucide.dev/).
-
-Full documentation: [flexnative.com/docs](https://ui.flexnative.com/docs).
 
 ## Development
 

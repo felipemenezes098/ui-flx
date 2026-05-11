@@ -15,11 +15,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Hero Logos Carousel
+<PageHeader>
+  <PageTitle>Hero Logos Carousel</PageTitle>
+  <PageDescription>
+    Hero with title, description, two CTAs, a logos info line, logo marquee (auto-scroll), and a manual image carousel below.
+  </PageDescription>
+</PageHeader>
 
-Hero with title, description, two CTAs, a logos info line, logo marquee (auto-scroll), and a manual image carousel below.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -53,6 +56,7 @@ The block uses the shared CTA for primary and secondary buttons. Copy it if you 
 <CodeBlockFromFile
   filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
+  collapsible
 />
 
 <Step>Add Logo Marquee component</Step>
@@ -91,6 +95,8 @@ The block uses the Logo Marquee for the logos strip. Copy the component and inst
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

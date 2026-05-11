@@ -8,7 +8,7 @@ export const dataNavbar = [
     href: '/cms/sanity',
   },
   {
-    name: 'AI Skills',
+    name: 'AI',
     href: '/ai',
   },
   {

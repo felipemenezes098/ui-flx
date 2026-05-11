@@ -296,13 +296,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PageDescription: ({
       children,
       ...props
-    }: React.HTMLProps<HTMLParagraphElement>) => (
-      <p
-        className="text-muted-foreground/80 text-base leading-relaxed"
+    }: React.HTMLProps<HTMLDivElement>) => (
+      <div
+        role="doc-subtitle"
+        className="text-muted-foreground/80 text-base leading-relaxed [&_p]:m-0"
         {...props}
       >
         {children}
-      </p>
+      </div>
     ),
     BlockPreview: ({
       category,

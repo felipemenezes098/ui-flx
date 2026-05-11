@@ -1,22 +1,23 @@
-import { Logo } from '@/components/core/logo'
-
 export const metadata = {
   title: 'Sanity',
   description:
-    'Sanity setup for UI Blocks: shared objects, block schema, blocks array, page type, registry, render-block, and example page.',
+    'How I wire Flexnative blocks to Sanity (schemas, registry, render): rough notes, adapt to your project.',
   openGraph: {
     title: 'Sanity',
-    description: 'Sanity setup for UI Blocks.',
+    description:
+      'Sanity notes for Flexnative blocks: work in progress, patterns you can adapt.',
     type: 'article',
   },
 }
 
-<div className="mb-2 flex items-center gap-2">
-  <Logo.Sanity className="size-7" />
-  <h1 className="text-3xl font-bold">Getting started</h1>
-</div>
+# CMS
 
 <div className="mt-3" />
+
+<Callout>
+  **Work in progress:** I have not wired every block to Sanity yet. Some have
+  schema and Studio/UI; I add the rest over time.
+</Callout>
 
 <Callout>
   **Example repository:** See the [example
@@ -31,7 +32,19 @@ export const metadata = {
   for more details.
 </Callout>
 
-**Sanity** is a powerful CMS, and each project can have its own specifics (folder structure, conventions, plugins, etc.). This documentation shows the most **minimal** approach — only what’s needed to use the blocks. You should adapt the examples to your setup, rules, and context.
+The blocks are open source like the rest of Flexnative. This page is just how I
+set up **Sanity**: shared objects, the blocks array, registry, `render-block`,
+page wiring.
+
+Your folders, plugins, and schema habits will differ. Take the idea, then change
+paths and types to match your repo. Same point as on the About page: keep the
+shape obvious so tools (and AI) can reuse catalog examples and rebuild things in
+**your** layout.
+
+Right now Flexnative ships **Sanity** wiring in the open repo. Another CMS might
+appear later too.
+
+Treat the snippets as a starter layout and adjust them for your Studio and app.
 
 <Callout>
   **Sanity Typegen:** I've used **[Sanity

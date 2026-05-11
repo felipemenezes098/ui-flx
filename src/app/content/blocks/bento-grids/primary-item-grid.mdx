@@ -15,11 +15,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Primary Item Grid
+<PageHeader>
+  <PageTitle>Primary Item Grid</PageTitle>
+  <PageDescription>
+    Three-column bento layout: a primary tile with title, description, CTA and media, followed by cards with media, title and description.
+  </PageDescription>
+</PageHeader>
 
-Three-column bento layout: a primary tile with title, description, CTA and media, followed by cards with media, title and description.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -53,6 +56,7 @@ The primary item uses the shared CTA. Copy it if you do not have it yet.
 <CodeBlockFromFile
   filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
+  collapsible
 />
 
 <Step>Copy the component</Step>
@@ -71,6 +75,8 @@ The primary item uses the shared CTA. Copy it if you do not have it yet.
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

@@ -15,11 +15,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Hero Headline Preview
+<PageHeader>
+  <PageTitle>Hero Headline Preview</PageTitle>
+  <PageDescription>
+    Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.
+  </PageDescription>
+</PageHeader>
 
-Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -51,6 +54,7 @@ Centered headline, one primary CTA, and full-width preview media with a soft bot
 <CodeBlockFromFile
   filePath="registry/blocks/shared/cta/cta.tsx"
   title="cta.tsx"
+  collapsible
 />
 
 <Step>Install react-wrap-balancer</Step>
@@ -73,6 +77,8 @@ Centered headline, one primary CTA, and full-width preview media with a soft bot
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

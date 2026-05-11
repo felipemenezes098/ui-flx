@@ -14,11 +14,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Tabs Media
+<PageHeader>
+  <PageTitle>Tabs Media</PageTitle>
+  <PageDescription>
+    A set of tabs at the top. When you switch tabs, the corresponding image is revealed with a smooth fade transition.
+  </PageDescription>
+</PageHeader>
 
-A set of tabs at the top. When you switch tabs, the corresponding image is revealed with a smooth fade transition.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -51,6 +54,7 @@ A set of tabs at the top. When you switch tabs, the corresponding image is revea
 <CodeBlockFromFile
   filePath="registry/blocks/shared/scroll-fade-edges.tsx"
   title="scroll-fade-edges.tsx"
+  collapsible
 />
 
 <Step>Copy the component</Step>
@@ -98,6 +102,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

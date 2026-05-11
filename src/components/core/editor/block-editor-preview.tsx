@@ -1,7 +1,6 @@
 'use client'
 
 import { Loader2Icon } from 'lucide-react'
-import * as React from 'react'
 
 import {
   ResizableHandle,
@@ -31,7 +30,7 @@ export function BlockEditorPreview() {
 
   const height =
     iframeHeight ?? item.meta?.iframeHeight ?? config.meta?.iframeHeight ?? 600
-  const src = previewSrc ?? `/preview/content/${item.name}`
+  const src = previewSrc
 
   const handleLoad = () => {
     setIsLoading(false)

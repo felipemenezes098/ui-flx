@@ -1,5 +1,6 @@
 export const siteConfig = {
-  name: 'Flx',
+  name: 'Flexnative',
+  shortName: 'Flx',
   codeName: 'flx',
   url: 'https://ui.flexnative.com',
   ogImage: 'https://ui.flexnative.com/og.png',

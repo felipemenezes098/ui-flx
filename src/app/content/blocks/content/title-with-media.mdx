@@ -13,11 +13,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Title With Media
+<PageHeader>
+  <PageTitle>Title With Media</PageTitle>
+  <PageDescription>
+    A title with a media above the title.
+  </PageDescription>
+</PageHeader>
 
-A title with a media above the title.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -94,6 +97,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

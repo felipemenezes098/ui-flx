@@ -14,11 +14,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Focus Grid
+<PageHeader>
+  <PageTitle>Focus Grid</PageTitle>
+  <PageDescription>
+    Grid of items that can be focused; supports dimming unfocused items and showing description only on focus.
+  </PageDescription>
+</PageHeader>
 
-Grid of items that can be focused; supports dimming unfocused items and showing description only on focus.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -140,6 +143,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

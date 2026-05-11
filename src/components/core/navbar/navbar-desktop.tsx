@@ -35,7 +35,12 @@ export function NavbarDesktop() {
                   <div className="relative size-5 overflow-hidden rounded-xl">
                     <Logo.Flexnative className="text-primary mt-0.5 h-6 w-auto" />
                   </div>
-                  <span className="text-sm font-medium">{siteConfig.name}</span>
+                  <span className="block text-sm font-medium md:hidden">
+                    {siteConfig.shortName}
+                  </span>
+                  <span className="hidden text-sm font-medium md:block">
+                    {siteConfig.name}
+                  </span>
                 </div>
               </Link>
             </Button>

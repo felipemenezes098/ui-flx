@@ -34,12 +34,7 @@ export function PreviewReceiver({
   if (!BlockComponent) return null
 
   return (
-    <div
-      className={cn(
-        'container-page container-page-inner h-full w-full',
-        containerClassName,
-      )}
-    >
+    <div className={cn('container-page h-full w-full p-5', containerClassName)}>
       <BlockComponent
         {...props}
         className={componentClassName}

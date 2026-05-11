@@ -14,11 +14,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Select Reveal Media
+<PageHeader>
+  <PageTitle>Select Reveal Media</PageTitle>
+  <PageDescription>
+    A list of items on the left. When you select an item, its description expands inline and its image is shown on the right with a smooth transition.
+  </PageDescription>
+</PageHeader>
 
-A list of items on the left. When you select an item, its description expands inline and its image is shown on the right with a smooth transition.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -95,6 +98,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

@@ -13,11 +13,14 @@ export const metadata = {
 
 <BlockPageCols.Left>
 
-# Icon List
+<PageHeader>
+  <PageTitle>Icon List</PageTitle>
+  <PageDescription>
+    A list of icons with a title and items.
+  </PageDescription>
+</PageHeader>
 
-A list of icons with a title and items.
-
-<BlockLiveEditor.Fields />
+<BlockLiveEditor.FieldsPanel />
 
 ## Implementation
 
@@ -50,6 +53,7 @@ A list of icons with a title and items.
 <CodeBlockFromFile
   filePath="registry/blocks/shared/dynamic-icon/dynamic-icon.tsx"
   title="dynamic-icon.tsx"
+  collapsible
 />
 
 <Step>Copy the component</Step>
@@ -97,6 +101,8 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
+
+<Contact />
 
 </BlockPageCols.Left>
 

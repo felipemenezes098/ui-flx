@@ -1,27 +1,26 @@
 ---
 name: ui-flx
 description: >-
-  Flx UI blocks—copy-paste React sections on shadcn/ui + Tailwind, installed with npx shadcn@latest add @flx/<name>.
-  Use for Flx blocks under components/flx/blocks, the @flx registry, public/r JSON, *-example.tsx prop shapes,
+  Flexnative UI blocks—copy-paste React sections on shadcn/ui + Tailwind, installed with npx shadcn@latest add @flx/<name>.
+  Use for Flexnative blocks under components/flx/blocks, the @flx registry, public/r JSON, *-example.tsx prop shapes,
   Cta and image props. Triggers: @flx, ui.flexnative.com/r, grid-two-columns, primary-item-grid, hero blocks, etc.
 ---
 
-# Flx UI blocks
+# Flexnative UI blocks
 
-Flx blocks are **source you own**. Install with the **shadcn CLI** and the **`@flx`** registry—there is no separate Flx CLI.
+Flexnative blocks are **source you own**. Install with the **shadcn CLI** and the **`@flx`** registry—there is no separate Flexnative CLI.
 
 ```bash
-# 1) Put @flx in components.json (see Flx docs), then:
 npx shadcn@latest add @flx/grid-two-columns
 npx shadcn@latest add @flx/cta
 ```
 
 ## Example requests (what users say)
 
-Good prompts the assistant should handle with Flx conventions:
+Good prompts the assistant should handle with Flexnative conventions:
 
-- “Add **GridTwoColumns** with title *Hello*, description, image **https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800**, alt *City at dusk*.”
-- “Use **`@flx/cta`** with label *Get started*, link `/signup`, variant `default`.”
+- “Add **GridTwoColumns** with title _Hello_, description, image **https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800**, alt _City at dusk_.”
+- “Use **`@flx/cta`** with label _Get started_, link `/signup`, variant `default`.”
 - “My button disappeared—fix the **Cta**.” → Check **`ctaEnabled: true`**; if `false` or missing, the component renders **nothing**.
 - “Install **primary-item-grid** and wire the hero image.” → Open **`primary-item-grid-example.tsx`** and copy the **`primary`** / **`items`** shape; images use **`{ url, title }`** (`title` is used for **alt**).
 
@@ -57,8 +56,7 @@ export function Section() {
 
 ```tsx
 import { Cta } from '@/components/flx/blocks/shared/cta/cta'
-
-<Cta
+;<Cta
   cta={{
     ctaEnabled: true,
     text: 'Read the docs',
@@ -86,11 +84,11 @@ import { Cta } from '@/components/flx/blocks/shared/cta/cta'
 
 ## Where things live
 
-| What | Where |
-|------|--------|
-| Blocks | `src/components/flx/blocks/<category>/<name>/` |
-| Registry JSON | `public/r/<name>.json` |
-| Prop examples | `*-example.tsx` next to the block |
+| What          | Where                                          |
+| ------------- | ---------------------------------------------- |
+| Blocks        | `src/components/flx/blocks/<category>/<name>/` |
+| Registry JSON | `public/r/<name>.json`                         |
+| Prop examples | `*-example.tsx` next to the block              |
 
 Optional: if the project uses **Sanity**, some blocks include **`sanity/sanity-component.txt`** for Studio snippets—that is **not** required for plain React usage.
 
@@ -98,4 +96,3 @@ Optional: if the project uses **Sanity**, some blocks include **`sanity/sanity-c
 
 - [skills.sh](https://skills.sh) — Agent skills
 - [shadcn CLI](https://ui.shadcn.com/docs/cli)
-- Flx: [Introduction](https://ui.flexnative.com/docs/get-started/introduction) and block pages under `/docs`
