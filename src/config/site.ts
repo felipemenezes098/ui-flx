@@ -10,6 +10,8 @@ export const siteConfig = {
   links: {
     twitter: 'https://x.com/fmenezes_',
     github: 'https://github.com/felipemenezes098/ui-flx',
+    linkedin:
+      'https://www.linkedin.com/in/felipe-menezes-9b088920b/?locale=en-US',
   },
 }
 

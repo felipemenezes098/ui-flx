@@ -1,6 +1,5 @@
 import { CheckIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
-import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
@@ -34,7 +33,6 @@ import {
 } from './components/core/editor/block-live-editor'
 import { BlockLiveEditorFieldsPanel } from './components/core/editor/block-live-editor-fields-panel'
 import { BlockPreview } from './components/core/editor/block-preview'
-import { Button } from './components/ui/button'
 import {
   ResizableHandle,
   ResizablePanel,
@@ -43,6 +41,10 @@ import {
 import { ScrollArea, ScrollBar } from './components/ui/scroll-area'
 import { Separator } from './components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
+import { siteConfig } from './config/site'
+import Link from 'next/link'
+import { Button } from './components/ui/button'
+import { Logo } from './components/core/logo'
 
 let headingCounter = 0
 
@@ -279,7 +281,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </div>
     ),
     PageHeader: ({ children, ...props }: { children?: React.ReactNode }) => (
-      <div className="space-y-2 first:mt-5 lg:mt-30" {...props}>
+      <div className="space-y-2 first:mt-5 lg:mt-15" {...props}>
         {children}
       </div>
     ),
@@ -379,5 +381,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       Left: BlockPageColsLeft,
       Right: BlockPageColsRight,
     }),
+    Contact: () => (
+      <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-2 rounded-lg border p-3">
+        <span className="text-sm">Need help? Contact me</span>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href={siteConfig.links.twitter} target="_blank">
+              <Logo.X className="size-3" />/ Twitter
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="sm">
+            <Link href={siteConfig.links.linkedin} target="_blank">
+              <Logo.Linkedin className="size-3" />
+              LinkedIn
+            </Link>
+          </Button>
+        </div>
+      </div>
+    ),
   }
 }

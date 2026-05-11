@@ -1,3 +1,4 @@
+import { BlockLivePageNavProvider } from '@/components/core/editor/block-live-breadcrumb'
 import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'
@@ -19,16 +20,20 @@ export async function generateMetadata({
 export default async function BlockPage({ params }: Readonly<Props>) {
   const { category, slug } = await params
 
-  const { default: Content } = await import(
-    `@/app/content/blocks/${category}/${slug}.mdx`
-  )
+  const mod = await import(`@/app/content/blocks/${category}/${slug}.mdx`)
+  const Content = mod.default
+  const blockMeta = mod.metadata as { title?: string } | undefined
 
   const components = useMDXComponents({})
+  const blockTitle =
+    typeof blockMeta?.title === 'string' ? blockMeta.title : undefined
 
   return (
-    <div className="container-page flex flex-col gap-10 px-6">
-      <Content components={components} />
-      <Footer />
-    </div>
+    <BlockLivePageNavProvider value={{ category, slug, blockTitle }}>
+      <div className="container-page flex flex-col gap-10 px-6">
+        <Content components={components} />
+        <Footer />
+      </div>
+    </BlockLivePageNavProvider>
   )
 }

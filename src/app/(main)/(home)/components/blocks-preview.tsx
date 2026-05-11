@@ -133,7 +133,7 @@ export function BlocksPreview() {
           className="-mr-2 gap-1.5 text-sm"
         >
           <Link href="/blocks">
-            View all
+            Preview all
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </Button>

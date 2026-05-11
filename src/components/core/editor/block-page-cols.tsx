@@ -2,7 +2,12 @@
 
 import { motion } from 'motion/react'
 
+import {
+  BlockLiveBreadcrumb,
+  useBlockLivePageNavOptional,
+} from './block-live-breadcrumb'
 import { useBlockLiveEditorOptional } from './block-live-editor'
+import { cn } from '@/lib/utils'
 
 const LEFT_WIDTH = 340
 const GAP = 40
@@ -33,8 +38,14 @@ const leftPanel = {
 function BlockPageColsRoot({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const { expanded } = useBlockLiveEditorOptional() ?? { expanded: false }
   return (
-    <div className="flex flex-col-reverse gap-8 lg:flex-row lg:gap-10">
+    <div
+      className={cn(
+        'flex flex-col-reverse gap-8 lg:flex-row lg:gap-10',
+        expanded && 'lg:gap-0',
+      )}
+    >
       {children}
     </div>
   )
@@ -44,7 +55,16 @@ function BlockPageColsLeft({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const ctx = useBlockLiveEditorOptional()
+  const nav = useBlockLivePageNavOptional()
   const expanded = ctx?.expanded ?? false
+
+  const breadcrumb = nav ? (
+    <BlockLiveBreadcrumb
+      category={nav.category}
+      slug={nav.slug}
+      blockTitle={nav.blockTitle}
+    />
+  ) : null
 
   return (
     <>
@@ -58,14 +78,18 @@ function BlockPageColsLeft({
         animate={expanded ? 'collapsed' : 'open'}
       >
         <div className="sticky top-10 z-10 h-0">
-          <div className="from-background via-background/70 pointer-events-none absolute inset-x-0 top-0 h-30 bg-gradient-to-b to-transparent" />
+          <div className="from-background via-background pointer-events-none absolute inset-x-0 top-0 h-30 bg-linear-to-b to-transparent" />
         </div>
+        {breadcrumb}
         {children}
         <div className="sticky bottom-0 z-10 h-0">
-          <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-30 bg-gradient-to-t to-transparent p-10" />
+          <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-30 bg-linear-to-t to-transparent p-10" />
         </div>
       </motion.div>
-      <div className="block lg:hidden">{children}</div>
+      <div className="block lg:hidden">
+        {breadcrumb}
+        {children}
+      </div>
     </>
   )
 }
