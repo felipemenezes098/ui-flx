@@ -63,7 +63,7 @@ export function CarouselCards({
 
   if (!items || items.length === 0) return null
 
-  const containerWidthClassName = cn('w-full max-w-6xl mx-auto px-4', className)
+  const containerWidthClassName = cn('w-full max-w-8xl mx-auto px-4', className)
 
   return (
     <div className="flex w-full flex-col gap-8 md:gap-10">

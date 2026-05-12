@@ -23,11 +23,10 @@ export function NavbarDesktop() {
     >
       <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
-          <nav className="flex items-center gap-2 text-sm">
+          <nav className="flex items-center gap-1 text-sm">
             <Button
               variant="ghost"
               className="hover:bg-muted h-7 rounded-lg px-2"
-              size="sm"
               asChild
             >
               <Link href="/">

@@ -4,6 +4,18 @@ import { blocks, getBlockBySlug } from '@/lib/catalog'
 
 import { PreviewReceiver } from './components/preview-receiver'
 
+export const dynamic = 'force-static'
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return blocks.flatMap((category) =>
+    category.blocks.map((block) => ({
+      category: category.slug,
+      slug: block.slug,
+    })),
+  )
+}
+
 export default async function PreviewEditorPage({
   params,
 }: Readonly<{
@@ -21,7 +33,7 @@ export default async function PreviewEditorPage({
   const initialProps = manifest?.defaults ?? {}
 
   return (
-    <div className="no-scrollbar dark:bg-muted/20 flex min-h-screen w-full items-center justify-center">
+    <div className="no-scrollbar flex min-h-screen w-full">
       <PreviewReceiver
         slug={slug}
         initialProps={initialProps}

@@ -2,20 +2,30 @@
 
 import * as React from 'react'
 
+import { motion } from 'motion/react'
 import {
   Fullscreen,
   Maximize2,
   Minimize2,
   Moon,
+  Palette,
   RotateCcw,
   Sun,
 } from 'lucide-react'
-import { motion } from 'motion/react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import { isPresetId, presets } from 'registry/presets/presets-config'
 
 import { useBlockLiveEditorOptional } from './block-live-editor'
 
@@ -30,7 +40,15 @@ export function BlockPreviewToolbar() {
 
   if (!ctx) return null
 
-  const { expanded, setExpanded, iframeRef, category, slug } = ctx
+  const {
+    expanded,
+    setExpanded,
+    iframeRef,
+    category,
+    slug,
+    preset,
+    setPreset,
+  } = ctx
   const isDark = theme !== 'light'
 
   function handleRefresh() {
@@ -41,6 +59,10 @@ export function BlockPreviewToolbar() {
 
   function handleThemeToggle() {
     setTheme(isDark ? 'light' : 'dark')
+  }
+
+  function handlePresetValue(next: string) {
+    if (isPresetId(next)) setPreset(next)
   }
 
   return (
@@ -100,6 +122,47 @@ export function BlockPreviewToolbar() {
             )}
           </Button>
         )}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              title="Preview preset"
+              aria-label="Preview preset"
+              className="rounded-xl"
+            >
+              <Palette className="size-3.5 shrink-0" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent side="top" align="center" className="min-w-52">
+            <DropdownMenuLabel className="text-muted-foreground font-normal">
+              Preview preset
+            </DropdownMenuLabel>
+            <DropdownMenuRadioGroup
+              value={preset}
+              onValueChange={handlePresetValue}
+            >
+              {presets.map((p) => (
+                <DropdownMenuRadioItem
+                  key={p.id}
+                  value={p.id}
+                  textValue={p.name}
+                  className="gap-2.5 pr-8 pl-2"
+                >
+                  <span
+                    data-preset={p.id}
+                    className="border-border/60 bg-background flex shrink-0 items-center gap-0.5 rounded-md border p-0.5"
+                    aria-hidden
+                  >
+                    <span className="bg-primary size-2.5 rounded-full" />
+                    <span className="bg-muted size-2.5 rounded-full" />
+                  </span>
+                  <span className="min-w-0 font-medium">{p.name}</span>
+                </DropdownMenuRadioItem>
+              ))}
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
         <Button
           variant="ghost"
           title="Fullscreen"
@@ -107,7 +170,10 @@ export function BlockPreviewToolbar() {
           className="rounded-xl"
           asChild
         >
-          <Link href={`/preview-editor/${category}/${slug}`} target="_blank">
+          <Link
+            href={`/preview-editor/${category}/${slug}`}
+            target="_blank"
+          >
             <Fullscreen className="size-3.5 shrink-0" />
           </Link>
         </Button>

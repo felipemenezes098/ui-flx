@@ -4,6 +4,10 @@ export const dataNavbar = [
     href: '/blocks',
   },
   {
+    name: 'Presets',
+    href: '/presets',
+  },
+  {
     name: 'CMS',
     href: '/cms/sanity',
   },
