@@ -2,7 +2,13 @@
 
 import * as React from 'react'
 
+import type { PresetId } from 'registry/presets/presets-config'
 import { getBlockBySlug } from '@/lib/catalog'
+import {
+  FALLBACK_PRESET,
+  readPresetFromStorage,
+  writePresetToStorage,
+} from '@/lib/preset-storage'
 
 import { BlockPreviewToolbar } from './block-preview-toolbar'
 
@@ -11,6 +17,8 @@ type BlockLiveEditorContextValue = {
   slug: string
   props: Record<string, unknown>
   handleUpdate: (newProps: Record<string, unknown>) => void
+  preset: PresetId
+  setPreset: (next: PresetId) => void
   iframeRef: React.RefObject<HTMLIFrameElement | null>
   handleIframeLoad: () => void
   expanded: boolean
@@ -38,23 +46,52 @@ export function BlockLiveEditorRoot({
   const manifest = getBlockBySlug(slug)
   const defaults = (manifest?.defaults ?? {}) as Record<string, unknown>
   const [props, setProps] = React.useState<Record<string, unknown>>(defaults)
+  const [preset, setPresetState] = React.useState<PresetId>(FALLBACK_PRESET)
   const [expanded, setExpanded] = React.useState(false)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
 
-  function sendPropsToIframe(currentProps: Record<string, unknown>) {
-    iframeRef.current?.contentWindow?.postMessage(
-      { type: 'EDITOR_PROPS_UPDATE', props: currentProps },
-      globalThis.location.origin,
+  const propsRef = React.useRef(props)
+  const presetRef = React.useRef(preset)
+  propsRef.current = props
+  presetRef.current = preset
+
+  React.useLayoutEffect(() => {
+    const stored = readPresetFromStorage()
+    if (stored) {
+      setPresetState(stored)
+      presetRef.current = stored
+    }
+  }, [])
+
+  const broadcast = React.useCallback(() => {
+    const win = iframeRef.current?.contentWindow
+    if (!win) return
+    const origin = globalThis.location.origin
+    win.postMessage(
+      { type: 'EDITOR_PROPS_UPDATE', props: propsRef.current },
+      origin,
     )
-  }
+    win.postMessage(
+      { type: 'EDITOR_PRESET_UPDATE', preset: presetRef.current },
+      origin,
+    )
+  }, [])
 
   function handleUpdate(newProps: Record<string, unknown>) {
     setProps(newProps)
-    sendPropsToIframe(newProps)
+    propsRef.current = newProps
+    broadcast()
+  }
+
+  function setPreset(next: PresetId) {
+    setPresetState(next)
+    presetRef.current = next
+    writePresetToStorage(next)
+    broadcast()
   }
 
   function handleIframeLoad() {
-    sendPropsToIframe(props)
+    broadcast()
   }
 
   const contextValue = React.useMemo(
@@ -63,13 +100,15 @@ export function BlockLiveEditorRoot({
       slug,
       props,
       handleUpdate,
+      preset,
+      setPreset,
       iframeRef,
       handleIframeLoad,
       expanded,
       setExpanded,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [category, slug, props, expanded],
+    [category, slug, props, preset, expanded],
   )
 
   return (
