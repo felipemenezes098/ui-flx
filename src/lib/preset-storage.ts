@@ -1,41 +1,65 @@
-import type { PresetId } from 'registry/presets/presets-config'
-import { isPresetId, presets } from 'registry/presets/presets-config'
+import type { PresetId } from '@/lib/presets-config'
+import { isPresetId, presets } from '@/lib/presets-config'
 
 export const PRESET_STORAGE_KEY = 'presets:config'
 
 export const FALLBACK_PRESET: PresetId = 'flint'
 
+export type PresetNamespace = 'blocks' | 'patterns'
+
 export type PresetStoredConfig = {
-  id: PresetId
-  name: string
+  blocks?: { id: PresetId; name: string }
+  patterns?: { id: PresetId; name: string }
 }
 
 function presetNameFor(id: PresetId): string {
   return presets.find((p) => p.id === id)?.name ?? id
 }
 
-export function readPresetFromStorage(): PresetId | null {
-  if (typeof globalThis.window === 'undefined') return null
+function safeRead(): Record<string, unknown> {
+  if (typeof globalThis.window === 'undefined') return {}
   try {
     const raw = globalThis.window.localStorage.getItem(PRESET_STORAGE_KEY)
-    if (!raw) return null
-    const parsed = JSON.parse(raw) as unknown
-    if (!parsed || typeof parsed !== 'object') return null
-    const id = (parsed as { id?: unknown }).id
-    if (typeof id !== 'string' || !isPresetId(id)) return null
-    return id
+    if (!raw) return {}
+    const parsed = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {}
+    return parsed as Record<string, unknown>
   } catch {
-    return null
+    return {}
   }
 }
 
-export function writePresetToStorage(id: PresetId): void {
+export function readPresetFromStorage(namespace: PresetNamespace): PresetId | null {
+  if (typeof globalThis.window === 'undefined') return null
+  const stored = safeRead()
+
+  // New namespaced format
+  const ns = stored[namespace]
+  if (ns && typeof ns === 'object') {
+    const id = (ns as { id?: unknown }).id
+    if (typeof id === 'string' && isPresetId(id)) return id
+  }
+
+  // Legacy flat format — migrate to blocks namespace only
+  if (namespace === 'blocks') {
+    const id = (stored as { id?: unknown }).id
+    if (typeof id === 'string' && isPresetId(id)) return id
+  }
+
+  return null
+}
+
+export function writePresetToStorage(namespace: PresetNamespace, id: PresetId): void {
   if (typeof globalThis.window === 'undefined') return
   try {
-    const payload: PresetStoredConfig = { id, name: presetNameFor(id) }
+    const current = safeRead()
+    // Strip legacy flat fields if present
+    delete current.id
+    delete current.name
+    current[namespace] = { id, name: presetNameFor(id) }
     globalThis.window.localStorage.setItem(
       PRESET_STORAGE_KEY,
-      JSON.stringify(payload),
+      JSON.stringify(current),
     )
   } catch {
     // quota / private mode

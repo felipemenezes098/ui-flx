@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 
 import { PresetScope } from '@/components/core/preset/preset-scope'
-import type { PresetId } from 'registry/presets/presets-config'
+import type { PresetId } from '@/lib/presets-config'
 import { cn } from '@/lib/utils'
 
-import { presets } from 'registry/presets/presets-config'
+import { presets } from '@/lib/presets-config'
 
 import { PresetStage } from './preset-stage'
 

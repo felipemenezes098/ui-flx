@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-02",
+  "title": "Grouped Select",
+  "description": "Select with grouped options and controlled state.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-02.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Label } from '@/components/ui/label'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport default function Select02() {\n  const [value, setValue] = useState<string>('')\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <Label htmlFor=\"timezone\">Timezone</Label>\n      <Select value={value} onValueChange={setValue}>\n        <SelectTrigger id=\"timezone\" className=\"w-56\">\n          <SelectValue placeholder=\"Select timezone\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectGroup>\n            <SelectLabel>Americas</SelectLabel>\n            <SelectItem value=\"utc-5\">Eastern Time (UTC-5)</SelectItem>\n            <SelectItem value=\"utc-6\">Central Time (UTC-6)</SelectItem>\n            <SelectItem value=\"utc-7\">Mountain Time (UTC-7)</SelectItem>\n            <SelectItem value=\"utc-8\">Pacific Time (UTC-8)</SelectItem>\n          </SelectGroup>\n          <SelectGroup>\n            <SelectLabel>Europe</SelectLabel>\n            <SelectItem value=\"utc+0\">London (UTC+0)</SelectItem>\n            <SelectItem value=\"utc+1\">Paris (UTC+1)</SelectItem>\n            <SelectItem value=\"utc+2\">Kyiv (UTC+2)</SelectItem>\n          </SelectGroup>\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

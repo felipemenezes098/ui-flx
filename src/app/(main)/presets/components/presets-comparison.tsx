@@ -7,7 +7,7 @@ import type { PresetCssMap } from '@/app/(main)/presets/lib/load-preset-css'
 import { PresetScope } from '@/components/core/preset/preset-scope'
 import { Button } from '@/components/ui/button'
 
-import { presets } from 'registry/presets/presets-config'
+import { presets } from '@/lib/presets-config'
 
 import { PresetGetDialog } from './preset-get-dialog'
 

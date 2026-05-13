@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 
-import type { PresetConfig } from 'registry/presets/presets-config'
+import type { PresetConfig } from '@/lib/presets-config'
 import { CodeBlock } from '@/components/core/code/code-block'
 
 export function PresetGetDialog({

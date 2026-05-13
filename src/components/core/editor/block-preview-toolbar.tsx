@@ -25,7 +25,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
-import { isPresetId, presets } from 'registry/presets/presets-config'
+import { isPresetId, presets } from '@/lib/presets-config'
 
 import { useBlockLiveEditorOptional } from './block-live-editor'
 
@@ -170,10 +170,7 @@ export function BlockPreviewToolbar() {
           className="rounded-xl"
           asChild
         >
-          <Link
-            href={`/preview-editor/${category}/${slug}`}
-            target="_blank"
-          >
+          <Link href={`/preview-editor/${category}/${slug}`} target="_blank">
             <Fullscreen className="size-3.5 shrink-0" />
           </Link>
         </Button>

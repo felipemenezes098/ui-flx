@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 
-import { presets } from 'registry/presets/presets-config'
+import { presets } from '@/lib/presets-config'
 
 const ease = [0.22, 0.61, 0.36, 1] as const
 

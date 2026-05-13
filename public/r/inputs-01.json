@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inputs-01",
+  "title": "Input with Label",
+  "description": "Accessible labeled input with live error state.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/inputs/inputs-01.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\n\nexport default function Inputs01() {\n  const [value, setValue] = useState('')\n  const hasError = value.length > 0 && value.length < 3\n\n  return (\n    <div className=\"flex w-64 flex-col gap-1.5\">\n      <Label htmlFor=\"name\" className={hasError ? 'text-destructive' : ''}>\n        Full name\n      </Label>\n      <Input\n        id=\"name\"\n        placeholder=\"John Doe\"\n        value={value}\n        onChange={(e) => setValue(e.target.value)}\n        aria-invalid={hasError}\n        className={\n          hasError ? 'border-destructive focus-visible:ring-destructive' : ''\n        }\n      />\n      {hasError && (\n        <p className=\"text-destructive text-xs\">\n          Name must be at least 3 characters.\n        </p>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/inputs/inputs-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

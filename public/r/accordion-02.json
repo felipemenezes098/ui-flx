@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-02",
+  "title": "FAQ Accordion",
+  "description": "FAQ layout with data-driven questions and answers.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-02.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\n\nconst faqs = [\n  {\n    question: 'How do I get started?',\n    answer:\n      'Install the CLI, pick your components, and paste them into your project.',\n  },\n  {\n    question: 'Do I need to install all components?',\n    answer:\n      'No. Each component is standalone — add only what you need, nothing more.',\n  },\n  {\n    question: 'Can I customize the styles?',\n    answer:\n      'Yes. Every component is plain code in your repo. Change anything you like.',\n  },\n  {\n    question: 'Does it support dark mode?',\n    answer:\n      'Yes. All components use CSS variables and respond to your theme automatically.',\n  },\n]\n\nexport default function Accordion02() {\n  return (\n    <div className=\"w-80\">\n      <p className=\"mb-4 text-sm font-medium\">Frequently asked questions</p>\n      <Accordion type=\"single\" collapsible>\n        {faqs.map((faq, i) => (\n          <AccordionItem key={i} value={`faq-${i}`}>\n            <AccordionTrigger className=\"text-sm\">\n              {faq.question}\n            </AccordionTrigger>\n            <AccordionContent className=\"text-muted-foreground text-sm\">\n              {faq.answer}\n            </AccordionContent>\n          </AccordionItem>\n        ))}\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

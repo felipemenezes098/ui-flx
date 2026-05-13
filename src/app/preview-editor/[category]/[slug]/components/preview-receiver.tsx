@@ -3,11 +3,11 @@
 import * as React from 'react'
 
 import { PresetScope } from '@/components/core/preset/preset-scope'
-import type { PresetId } from 'registry/presets/presets-config'
+import type { PresetId } from '@/lib/presets-config'
 import { getBlockBySlug } from '@/lib/catalog'
 import { FALLBACK_PRESET, readPresetFromStorage } from '@/lib/preset-storage'
 import { cn } from '@/lib/utils'
-import { isPresetId } from 'registry/presets/presets-config'
+import { isPresetId } from '@/lib/presets-config'
 
 interface PreviewReceiverProps {
   slug: string
@@ -27,7 +27,7 @@ export function PreviewReceiver({
   const [preset, setPreset] = React.useState<PresetId>(FALLBACK_PRESET)
 
   React.useLayoutEffect(() => {
-    const stored = readPresetFromStorage()
+    const stored = readPresetFromStorage('blocks')
     if (stored) setPreset(stored)
   }, [])
 

@@ -658,6 +658,141 @@
       "meta": {
         "iframeHeight": 600
       }
+    },
+    {
+      "name": "select-01",
+      "type": "registry:block",
+      "title": "Basic Select",
+      "description": "Simple single-value select with label.",
+      "registryDependencies": ["select", "label"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-02",
+      "type": "registry:block",
+      "title": "Grouped Select",
+      "description": "Select with grouped options and controlled state.",
+      "registryDependencies": ["select", "label"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-01",
+      "type": "registry:block",
+      "title": "Confirm Dialog",
+      "description": "Simple confirmation dialog with cancel and confirm actions.",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-02",
+      "type": "registry:block",
+      "title": "Form Dialog",
+      "description": "Dialog containing a form with inputs and save action.",
+      "registryDependencies": ["dialog", "button", "input", "label"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-03",
+      "type": "registry:block",
+      "title": "Alert Dialog",
+      "description": "Destructive action warning dialog with clear messaging.",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inputs-01",
+      "type": "registry:block",
+      "title": "Input with Label",
+      "description": "Accessible labeled input with live error state.",
+      "registryDependencies": ["input", "label"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/inputs/inputs-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/inputs/inputs-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inputs-02",
+      "type": "registry:block",
+      "title": "Input with Icon",
+      "description": "Search input with a leading icon.",
+      "registryDependencies": ["input"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/inputs/inputs-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/inputs/inputs-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion-01",
+      "type": "registry:block",
+      "title": "Basic Accordion",
+      "description": "Single-open accordion with three collapsible items.",
+      "registryDependencies": ["accordion"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion-02",
+      "type": "registry:block",
+      "title": "FAQ Accordion",
+      "description": "FAQ layout with data-driven questions and answers.",
+      "registryDependencies": ["accordion"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-02.tsx"
+        }
+      ]
     }
   ]
 }

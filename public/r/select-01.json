@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-01",
+  "title": "Basic Select",
+  "description": "Simple single-value select with label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-01.tsx",
+      "content": "'use client'\n\nimport { Label } from '@/components/ui/label'\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport default function Select01() {\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <Label htmlFor=\"framework\">Framework</Label>\n      <Select>\n        <SelectTrigger id=\"framework\" className=\"w-48\">\n          <SelectValue placeholder=\"Select a framework\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"next\">Next.js</SelectItem>\n          <SelectItem value=\"remix\">Remix</SelectItem>\n          <SelectItem value=\"astro\">Astro</SelectItem>\n          <SelectItem value=\"nuxt\">Nuxt.js</SelectItem>\n          <SelectItem value=\"sveltekit\">SvelteKit</SelectItem>\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

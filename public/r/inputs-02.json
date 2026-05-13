@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inputs-02",
+  "title": "Input with Icon",
+  "description": "Search input with a leading icon.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/inputs/inputs-02.tsx",
+      "content": "'use client'\n\nimport { Search } from 'lucide-react'\n\nimport { Input } from '@/components/ui/input'\n\nexport default function Inputs02() {\n  return (\n    <div className=\"relative w-64\">\n      <Search className=\"text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2\" />\n      <Input className=\"pl-9\" placeholder=\"Search...\" type=\"search\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/inputs/inputs-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
