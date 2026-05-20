@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-05",
+  "title": "With Object",
+  "description": "with object values.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-05.tsx",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select05() {\n  const items = [\n    {\n      value: 'free',\n      label: 'Free',\n      description: 'Up to 3 projects, 1 user',\n    },\n    {\n      value: 'pro',\n      label: 'Pro',\n      description: 'Unlimited projects, 5 users',\n    },\n    {\n      value: 'team',\n      label: 'Team',\n      description: 'Unlimited projects, 20 users',\n    },\n  ]\n\n  return (\n    <Select defaultValue=\"free\">\n      <SelectTrigger className=\"h-11! w-full max-w-64 *:data-[slot=select-value]:text-start\">\n        <SelectValue placeholder=\"Select a plan\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          {items.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              <span className=\"flex flex-col gap-0.5\">\n                <span className=\"text-sm font-medium\">{item.label}</span>\n                <span className=\"text-muted-foreground text-xs font-normal\">\n                  {item.description}\n                </span>\n              </span>\n            </SelectItem>\n          ))}\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

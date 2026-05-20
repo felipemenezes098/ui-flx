@@ -49,23 +49,25 @@ export function PatternPreviewWrapper({ children }: { children: ReactNode }) {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between gap-4">
         <nav className="flex flex-wrap gap-1.5">
-          {patternCategories.map((category) => {
-            const isActive = pathname === `/patterns/${category.slug}`
-            return (
-              <Link
-                key={category.slug}
-                href={`/patterns/${category.slug}`}
-                className={cn(
-                  'rounded-full px-3 py-1 text-sm font-medium transition-colors',
-                  isActive
-                    ? 'bg-foreground text-background'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted',
-                )}
-              >
-                {category.name}
-              </Link>
-            )
-          })}
+          {patternCategories
+            .toSorted((a, b) => a.name.localeCompare(b.name))
+            .map((category) => {
+              const isActive = pathname === `/patterns/${category.slug}`
+              return (
+                <Link
+                  key={category.slug}
+                  href={`/patterns/${category.slug}`}
+                  className={cn(
+                    'rounded-full px-3 py-1 text-sm font-medium transition-colors',
+                    isActive
+                      ? 'bg-foreground text-background'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted',
+                  )}
+                >
+                  {category.name}
+                </Link>
+              )
+            })}
         </nav>
 
         {/* Desktop: inline indicators */}

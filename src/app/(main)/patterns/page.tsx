@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Footer } from '@/components/core/footer'
-import { patternCategories } from '@/lib/patterns-catalog'
+import { patternCategories, PatternCategory } from '@/lib/patterns-catalog'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -36,31 +36,33 @@ export default function PatternsPage() {
 
         <section>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {patternCategories.map((category) => (
-              <Link
-                key={category.slug}
-                href={`/patterns/${category.slug}`}
-                className="group flex flex-col gap-2.5"
-              >
-                <div className="border-border bg-muted relative aspect-square overflow-hidden rounded-xl border">
-                  <Image
-                    src={category.image.light}
-                    alt={category.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:hidden"
-                  />
-                  <Image
-                    src={category.image.dark}
-                    alt={category.name}
-                    fill
-                    className="hidden object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:block"
-                  />
-                </div>
-                <span className="text-foreground text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
-                  {category.name}
-                </span>
-              </Link>
-            ))}
+            {patternCategories
+              .toSorted((a, b) => a.name.localeCompare(b.name))
+              .map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/patterns/${category.slug}`}
+                  className="group flex flex-col gap-2.5"
+                >
+                  <div className="border-border bg-muted relative aspect-square overflow-hidden rounded-xl border">
+                    <Image
+                      src={category.image.light}
+                      alt={category.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:hidden"
+                    />
+                    <Image
+                      src={category.image.dark}
+                      alt={category.name}
+                      fill
+                      className="hidden object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:block"
+                    />
+                  </div>
+                  <span className="text-foreground text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
+                    {category.name}
+                  </span>
+                </Link>
+              ))}
           </div>
         </section>
       </div>

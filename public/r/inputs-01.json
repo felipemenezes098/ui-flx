@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "inputs-01",
   "title": "Input with Label",
-  "description": "Accessible labeled input with live error state.",
+  "description": "Accessible labeled input with error state.",
   "dependencies": [],
   "registryDependencies": [
     "input",

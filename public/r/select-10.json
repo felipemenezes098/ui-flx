@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-10",
+  "title": "With Label",
+  "description": "Accessible field label linked to the select trigger.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-10.tsx",
+      "content": "import { Label } from '@/components/ui/label'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select10() {\n  return (\n    <div className=\"flex w-full max-w-56 flex-col gap-2\">\n      <Label htmlFor=\"team-select\">Team</Label>\n      <Select defaultValue=\"design\">\n        <SelectTrigger id=\"team-select\" className=\"w-full\">\n          <SelectValue placeholder=\"Select a team\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectGroup>\n            <SelectItem value=\"design\">Design</SelectItem>\n            <SelectItem value=\"engineering\">Engineering</SelectItem>\n            <SelectItem value=\"marketing\">Marketing</SelectItem>\n            <SelectItem value=\"support\">Support</SelectItem>\n          </SelectGroup>\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

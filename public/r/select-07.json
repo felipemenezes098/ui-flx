@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-07",
+  "title": "Disabled Items",
+  "description": "Select with individual disabled options.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-07.tsx",
+      "content": "import {\r\n  Select,\r\n  SelectContent,\r\n  SelectGroup,\r\n  SelectItem,\r\n  SelectTrigger,\r\n  SelectValue,\r\n} from '@/components/ui/select'\r\n\r\nexport function Select07() {\r\n  return (\r\n    <Select defaultValue=\"pro\">\r\n      <SelectTrigger className=\"w-full max-w-56\">\r\n        <SelectValue placeholder=\"Select a plan\" />\r\n      </SelectTrigger>\r\n      <SelectContent>\r\n        <SelectGroup>\r\n          <SelectItem value=\"free\">Free</SelectItem>\r\n          <SelectItem value=\"pro\">Pro</SelectItem>\r\n          <SelectItem value=\"enterprise\" disabled>\r\n            Enterprise\r\n          </SelectItem>\r\n          <SelectItem value=\"custom\" disabled>\r\n            Custom (contact sales)\r\n          </SelectItem>\r\n        </SelectGroup>\r\n      </SelectContent>\r\n    </Select>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

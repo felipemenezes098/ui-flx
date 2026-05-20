@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-11",
+  "title": "In Form",
+  "description": "Select composed with Field, FieldLabel, and description.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-11.tsx",
+      "content": "import {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select11() {\n  return (\n    <FieldGroup className=\"w-full max-w-sm\">\n      <Field>\n        <FieldLabel htmlFor=\"department-select\">Department</FieldLabel>\n        <Select defaultValue=\"engineering\">\n          <SelectTrigger id=\"department-select\" className=\"w-full\">\n            <SelectValue placeholder=\"Select department\" />\n          </SelectTrigger>\n          <SelectContent>\n            <SelectGroup>\n              <SelectItem value=\"design\">Design</SelectItem>\n              <SelectItem value=\"engineering\">Engineering</SelectItem>\n              <SelectItem value=\"marketing\">Marketing</SelectItem>\n              <SelectItem value=\"support\">Support</SelectItem>\n            </SelectGroup>\n          </SelectContent>\n        </Select>\n        <FieldDescription>\n          Choose the team that will review your request.\n        </FieldDescription>\n      </Field>\n    </FieldGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

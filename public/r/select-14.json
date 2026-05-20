@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-14",
+  "title": "With inline label",
+  "description": "Muted prefix label inside the trigger, left of the selected value.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-14.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst priorities = [\n  { value: 'low', label: 'Low' },\n  { value: 'medium', label: 'Medium' },\n  { value: 'high', label: 'High' },\n  { value: 'urgent', label: 'Urgent' },\n] as const\n\nexport function Select14() {\n  const [value, setValue] = useState<string>(priorities[0].value)\n\n  const selected = priorities.find((item) => item.value === value)\n\n  return (\n    <Select value={value} onValueChange={setValue}>\n      <SelectTrigger className=\"w-full max-w-48\" aria-label=\"Select priority\">\n        <SelectValue placeholder=\"Select priority\">\n          {selected && (\n            <span>\n              <span className=\"text-muted-foreground\">Priority:</span>{' '}\n              {selected.label}\n            </span>\n          )}\n        </SelectValue>\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          {priorities.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              {item.label}\n            </SelectItem>\n          ))}\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "inputs-02",
   "title": "Input with Icon",
-  "description": "Search input with a leading icon.",
+  "description": "Input with leading or trailing icon.",
   "dependencies": [
     "lucide-react"
   ],

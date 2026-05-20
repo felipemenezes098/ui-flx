@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-12",
+  "title": "React Hook Form + Zod",
+  "description": "Controller binds Select to RHF; Zod resolver drives FieldError on submit.",
+  "dependencies": [
+    "react-hook-form",
+    "zod",
+    "@hookform/resolvers",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "select",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-12.tsx",
+      "content": "'use client'\n\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { Controller, useForm } from 'react-hook-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst departments = [\n  { value: 'design', label: 'Design' },\n  { value: 'engineering', label: 'Engineering' },\n  { value: 'marketing', label: 'Marketing' },\n  { value: 'support', label: 'Support' },\n] as const\n\nconst formSchema = z.object({\n  department: z.string().min(1, 'Select a department.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function Select12() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      department: '',\n    },\n  })\n\n  function onSubmit(data: FormValues) {\n    const label = departments.find(\n      (item) => item.value === data.department,\n    )?.label\n    toast.success('Submitted', {\n      description: label ?? data.department,\n    })\n  }\n\n  return (\n    <form\n      id=\"select-rhf-form\"\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <FieldGroup>\n        <Controller\n          name=\"department\"\n          control={form.control}\n          render={({ field, fieldState }) => (\n            <Field data-invalid={fieldState.invalid}>\n              <FieldLabel htmlFor=\"select-rhf-department\">\n                Department\n              </FieldLabel>\n              <Select value={field.value} onValueChange={field.onChange}>\n                <SelectTrigger\n                  id=\"select-rhf-department\"\n                  className=\"w-full\"\n                  aria-invalid={fieldState.invalid}\n                >\n                  <SelectValue placeholder=\"Select department\" />\n                </SelectTrigger>\n                <SelectContent>\n                  <SelectGroup>\n                    {departments.map((item) => (\n                      <SelectItem key={item.value} value={item.value}>\n                        {item.label}\n                      </SelectItem>\n                    ))}\n                  </SelectGroup>\n                </SelectContent>\n              </Select>\n              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n            </Field>\n          )}\n        />\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-03",
   "title": "Alert Dialog",
-  "description": "Destructive action warning dialog with clear messaging.",
+  "description": "Destructive action warning with clear messaging.",
   "dependencies": [],
   "registryDependencies": [
     "dialog",
@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/dialog/dialog-03.tsx",
-      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport default function Dialog03() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"destructive\">Delete account</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Delete account</DialogTitle>\n          <DialogDescription>\n            This will permanently delete your account and all associated data.\n            This action{' '}\n            <span className=\"text-foreground font-medium\">cannot be undone</span>\n            .\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"outline\">Cancel</Button>\n          <Button variant=\"destructive\">Delete account</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport default function Dialog03() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"destructive\">Delete account</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Delete account</DialogTitle>\n          <DialogDescription>\n            This will permanently delete your account and all associated data.\n            This action{' '}\n            <span className=\"text-foreground font-medium\">\n              cannot be undone\n            </span>\n            .\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button variant=\"destructive\">Delete account</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/dialog/dialog-03.tsx"
     }

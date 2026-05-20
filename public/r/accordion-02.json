@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-02",
   "title": "FAQ Accordion",
-  "description": "FAQ layout with data-driven questions and answers.",
+  "description": "FAQ layout with styled questions and answers.",
   "dependencies": [],
   "registryDependencies": [
     "accordion"

@@ -7,7 +7,7 @@ import { getPatternsByNames } from '@/lib/patterns-utils'
 import { PatternCard } from '../components/pattern-card'
 import { PatternDetails } from '../components/pattern-details'
 import { PatternGrid } from '../components/pattern-grid'
-import { PatternLoader } from '../components/pattern-loader'
+import { PatternRenderer } from '../components/pattern-renderer'
 import { PatternPreviewWrapper } from '../components/pattern-preview-wrapper'
 
 export const dynamic = 'force-static'
@@ -57,7 +57,7 @@ export default async function PatternCategoryPage({
                 item={item}
                 actions={<PatternDetails item={item} />}
               >
-                <PatternLoader name={item.name} />
+                <PatternRenderer name={item.name} />
               </PatternCard>
             ))}
           </PatternGrid>

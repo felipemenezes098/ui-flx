@@ -8,8 +8,12 @@
       "type": "registry:block",
       "title": "CTA (Call to Action)",
       "description": "Shared CTA component with link and button variant",
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["button"],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
           "path": "registry/blocks/shared/cta/cta.tsx",
@@ -24,7 +28,9 @@
       "title": "Scroll Fade Edges",
       "description": "A component that fades the edges of a scrollable area.",
       "registryDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/shared/scroll-fade-edges.tsx",
@@ -39,7 +45,9 @@
       "title": "Dynamic Icon",
       "description": "A dynamic icon component with a name and size.",
       "registryDependencies": [],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/blocks/shared/dynamic-icon/dynamic-icon.tsx",
@@ -53,8 +61,12 @@
       "type": "registry:block",
       "title": "Grid Two Columns",
       "description": "It shows two columns of information.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/grid-two-columns/grid-two-columns.tsx",
@@ -76,8 +88,12 @@
       "type": "registry:block",
       "title": "Centered Text",
       "description": "A centered text block with a title, description, and CTA.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/centered-text/centered-text.tsx",
@@ -100,7 +116,9 @@
       "title": "Grid Cards",
       "description": "A grid of cards with a title and items.",
       "registryDependencies": [],
-      "dependencies": ["react-wrap-balancer"],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/grid-cards/grid-cards.tsx",
@@ -122,7 +140,9 @@
       "type": "registry:block",
       "title": "Grid Media Cards",
       "description": "A grid of media cards with a title and items.",
-      "registryDependencies": ["@flx/dynamic-icon"],
+      "registryDependencies": [
+        "@flx/dynamic-icon"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -168,7 +188,9 @@
       "type": "registry:block",
       "title": "Icon List",
       "description": "List of icons with a title and items.",
-      "registryDependencies": ["@flx/dynamic-icon"],
+      "registryDependencies": [
+        "@flx/dynamic-icon"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -191,7 +213,9 @@
       "type": "registry:block",
       "title": "Badge List",
       "description": "List of badges with a title and items.",
-      "registryDependencies": ["badge"],
+      "registryDependencies": [
+        "badge"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -211,8 +235,12 @@
       "type": "registry:block",
       "title": "Grid Content Columns",
       "description": "A grid of content columns with a media above the content.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/grid-content-columns/grid-content-columns.tsx",
@@ -232,7 +260,9 @@
       "title": "Title With Media",
       "description": "A title with a media above the title.",
       "registryDependencies": [],
-      "dependencies": ["react-wrap-balancer"],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/title-with-media/title-with-media.tsx",
@@ -254,8 +284,13 @@
       "type": "registry:block",
       "title": "Background Media",
       "description": "A background media with a title, description and CTA.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["motion", "react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "motion",
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero/background-media/background-media.tsx",
@@ -277,8 +312,14 @@
       "type": "registry:block",
       "title": "Hero Logos Carousel",
       "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
-      "registryDependencies": ["@flx/cta", "@flx/logo-marquee", "carousel"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta",
+        "@flx/logo-marquee",
+        "carousel"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
@@ -302,7 +343,9 @@
       "title": "Focus Grid",
       "description": "A focus grid with items that can be focused and dimmed.",
       "registryDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/focus-grid/focus-grid.tsx",
@@ -324,8 +367,12 @@
       "type": "registry:block",
       "title": "Select Reveal Media",
       "description": "List of items: select one to reveal its description and media.",
-      "registryDependencies": ["button"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/select-reveal-media/select-reveal-media.tsx",
@@ -347,8 +394,13 @@
       "type": "registry:block",
       "title": "Tabs Media",
       "description": "Tabbed navigation that reveals a media for each tab.",
-      "registryDependencies": ["tabs", "@flx/scroll-fade-edges"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "tabs",
+        "@flx/scroll-fade-edges"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/tabs-media/tabs-media.tsx",
@@ -371,7 +423,10 @@
       "title": "Media Grid Interactive",
       "description": "A grid of items with a title and description, clickable to view details.",
       "registryDependencies": [],
-      "dependencies": ["motion", "react-wrap-balancer"],
+      "dependencies": [
+        "motion",
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
@@ -393,7 +448,10 @@
       "type": "registry:block",
       "title": "Text Badges",
       "description": "A text badges with a title, CTA and badges.",
-      "registryDependencies": ["@flx/cta", "badge"],
+      "registryDependencies": [
+        "@flx/cta",
+        "badge"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -417,7 +475,9 @@
       "title": "Grid Content Cards",
       "description": "Two-column grid of cards: title, description, and image at the bottom.",
       "registryDependencies": [],
-      "dependencies": ["card"],
+      "dependencies": [
+        "card"
+      ],
       "files": [
         {
           "path": "registry/blocks/content/grid-content-cards/grid-content-cards.tsx",
@@ -436,8 +496,12 @@
       "type": "registry:block",
       "title": "Hero Content Media",
       "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero/hero-content-media/hero-content-media.tsx",
@@ -459,8 +523,12 @@
       "type": "registry:block",
       "title": "Hero Headline Preview",
       "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
@@ -482,8 +550,12 @@
       "type": "registry:block",
       "title": "Grid Media Cards",
       "description": "Grid with media cards to display information.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
@@ -502,9 +574,16 @@
       "type": "registry:block",
       "title": "Carousel Focus",
       "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
-      "registryDependencies": ["carousel"],
-      "dependencies": ["motion", "class-variance-authority"],
-      "devDependencies": ["embla-carousel-auto-scroll"],
+      "registryDependencies": [
+        "carousel"
+      ],
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "devDependencies": [
+        "embla-carousel-auto-scroll"
+      ],
       "files": [
         {
           "path": "registry/blocks/carousel/carousel-focus/carousel-focus.tsx",
@@ -527,7 +606,10 @@
       "type": "registry:block",
       "title": "Carousel Cards",
       "description": "A carousel of cards with a title and description.",
-      "registryDependencies": ["carousel", "button"],
+      "registryDependencies": [
+        "carousel",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -552,8 +634,14 @@
       "type": "registry:block",
       "title": "Carousel Media",
       "description": "A carousel of media with a title and description.",
-      "registryDependencies": ["carousel", "button"],
-      "dependencies": ["react-wrap-balancer", "lucide-react"],
+      "registryDependencies": [
+        "carousel",
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/blocks/carousel/carousel-media/carousel-media.tsx",
@@ -577,9 +665,13 @@
       "type": "registry:block",
       "title": "Logo Marquee",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
-      "registryDependencies": ["carousel"],
+      "registryDependencies": [
+        "carousel"
+      ],
       "dependencies": [],
-      "devDependencies": ["embla-carousel-auto-scroll"],
+      "devDependencies": [
+        "embla-carousel-auto-scroll"
+      ],
       "files": [
         {
           "path": "registry/blocks/logos/logo-marquee/logo-marquee.tsx",
@@ -598,8 +690,12 @@
       "type": "registry:block",
       "title": "Primary Item Grid",
       "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
-      "registryDependencies": ["@flx/cta"],
-      "dependencies": ["react-wrap-balancer"],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
       "files": [
         {
           "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
@@ -621,7 +717,9 @@
       "type": "registry:block",
       "title": "Single Testimonial",
       "description": "A single testimonial with quote, avatar, author name and role.",
-      "registryDependencies": ["avatar"],
+      "registryDependencies": [
+        "avatar"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -642,7 +740,9 @@
       "title": "Sticky Scroll Media",
       "description": "Sticky media that changes as you scroll through text content.",
       "registryDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
@@ -662,9 +762,12 @@
     {
       "name": "select-01",
       "type": "registry:block",
-      "title": "Basic Select",
-      "description": "Simple single-value select with label.",
-      "registryDependencies": ["select", "label"],
+      "title": "Basic",
+      "description": "Single-value dropdown.",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -677,9 +780,12 @@
     {
       "name": "select-02",
       "type": "registry:block",
-      "title": "Grouped Select",
-      "description": "Select with grouped options and controlled state.",
-      "registryDependencies": ["select", "label"],
+      "title": "Grouped",
+      "description": "Options organized into labeled groups.",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -690,11 +796,253 @@
       ]
     },
     {
+      "name": "select-03",
+      "type": "registry:block",
+      "title": "Disabled",
+      "description": "Non-interactive select state.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-04",
+      "type": "registry:block",
+      "title": "With Icons",
+      "description": "Options with leading icons.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-04.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-05",
+      "type": "registry:block",
+      "title": "With Object",
+      "description": "with object values.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-05.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-06",
+      "type": "registry:block",
+      "title": "With description only items",
+      "description": "Select with description only items.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-06.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-07",
+      "type": "registry:block",
+      "title": "Disabled Items",
+      "description": "Select with individual disabled options.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-07.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-08.tsx"
+        }
+      ],
+      "title": "With Avatar",
+      "description": "User picker with avatars in trigger and options."
+    },
+    {
+      "name": "select-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-09.tsx"
+        }
+      ],
+      "title": "Custom Border & Background",
+      "description": "Muted background and custom border on the trigger."
+    },
+    {
+      "name": "select-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-10.tsx"
+        }
+      ],
+      "title": "With Label",
+      "description": "Accessible field label linked to the select trigger."
+    },
+    {
+      "name": "select-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-11.tsx"
+        }
+      ],
+      "title": "In Form",
+      "description": "Select composed with Field, FieldLabel, and description."
+    },
+    {
+      "name": "select-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds Select to RHF; Zod resolver drives FieldError on submit."
+    },
+    {
+      "name": "select-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires Select; Zod onSubmit validator surfaces FieldError when touched."
+    },
+    {
+      "name": "select-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-14.tsx"
+        }
+      ],
+      "title": "With inline label",
+      "description": "Muted prefix label inside the trigger, left of the selected value."
+    },
+    {
+      "name": "select-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/select/select-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-15.tsx"
+        }
+      ],
+      "title": "Animated content",
+      "description": "Popper position plus Popover-style origin-aware fade, zoom, and slide (duration-200)."
+    },
+    {
       "name": "dialog-01",
       "type": "registry:block",
       "title": "Confirm Dialog",
-      "description": "Simple confirmation dialog with cancel and confirm actions.",
-      "registryDependencies": ["dialog", "button"],
+      "description": "Simple confirmation dialog with cancel and confirm.",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -708,8 +1056,13 @@
       "name": "dialog-02",
       "type": "registry:block",
       "title": "Form Dialog",
-      "description": "Dialog containing a form with inputs and save action.",
-      "registryDependencies": ["dialog", "button", "input", "label"],
+      "description": "Dialog wrapping a form with validation.",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "label"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -723,8 +1076,11 @@
       "name": "dialog-03",
       "type": "registry:block",
       "title": "Alert Dialog",
-      "description": "Destructive action warning dialog with clear messaging.",
-      "registryDependencies": ["dialog", "button"],
+      "description": "Destructive action warning with clear messaging.",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -738,8 +1094,11 @@
       "name": "inputs-01",
       "type": "registry:block",
       "title": "Input with Label",
-      "description": "Accessible labeled input with live error state.",
-      "registryDependencies": ["input", "label"],
+      "description": "Accessible labeled input with error state.",
+      "registryDependencies": [
+        "input",
+        "label"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -753,9 +1112,13 @@
       "name": "inputs-02",
       "type": "registry:block",
       "title": "Input with Icon",
-      "description": "Search input with a leading icon.",
-      "registryDependencies": ["input"],
-      "dependencies": ["lucide-react"],
+      "description": "Input with leading or trailing icon.",
+      "registryDependencies": [
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/patterns/inputs/inputs-02.tsx",
@@ -768,8 +1131,10 @@
       "name": "accordion-01",
       "type": "registry:block",
       "title": "Basic Accordion",
-      "description": "Single-open accordion with three collapsible items.",
-      "registryDependencies": ["accordion"],
+      "description": "Single or multiple open sections.",
+      "registryDependencies": [
+        "accordion"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -783,8 +1148,10 @@
       "name": "accordion-02",
       "type": "registry:block",
       "title": "FAQ Accordion",
-      "description": "FAQ layout with data-driven questions and answers.",
-      "registryDependencies": ["accordion"],
+      "description": "FAQ layout with styled questions and answers.",
+      "registryDependencies": [
+        "accordion"
+      ],
       "dependencies": [],
       "files": [
         {

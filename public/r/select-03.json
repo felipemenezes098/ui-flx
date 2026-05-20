@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-03",
+  "title": "Disabled",
+  "description": "Non-interactive select state.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-03.tsx",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select03() {\n  return (\n    <Select disabled>\n      <SelectTrigger className=\"w-full max-w-56\" disabled>\n        <SelectValue placeholder=\"Select a status\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectItem value=\"active\">Active</SelectItem>\n          <SelectItem value=\"draft\">Draft</SelectItem>\n          <SelectItem value=\"pending\">Pending</SelectItem>\n          <SelectItem value=\"archived\">Archived</SelectItem>\n          <SelectItem value=\"deleted\">Deleted</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

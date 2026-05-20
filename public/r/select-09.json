@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-09",
+  "title": "Custom Border & Background",
+  "description": "Muted background and custom border on the trigger.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-09.tsx",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select09() {\n  return (\n    <Select defaultValue=\"design\">\n      <SelectTrigger className=\"border-border/60 bg-muted hover:bg-muted/80 w-full max-w-56 border shadow-none\">\n        <SelectValue placeholder=\"Select a team\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectItem value=\"design\">Design</SelectItem>\n          <SelectItem value=\"engineering\">Engineering</SelectItem>\n          <SelectItem value=\"marketing\">Marketing</SelectItem>\n          <SelectItem value=\"support\">Support</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

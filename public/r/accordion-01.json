@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-01",
   "title": "Basic Accordion",
-  "description": "Single-open accordion with three collapsible items.",
+  "description": "Single or multiple open sections.",
   "dependencies": [],
   "registryDependencies": [
     "accordion"
