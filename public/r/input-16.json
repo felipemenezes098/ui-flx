@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-16",
+  "title": "With email domain",
+  "description": "InputGroup suffix addon locks the @company.com domain beside the username field.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-16.tsx",
+      "content": "import {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n  InputGroupText,\n} from '@/components/ui/input-group'\n\nexport function Input16() {\n  return (\n    <InputGroup className=\"max-w-sm\">\n      <InputGroupInput placeholder=\"username\" />\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupText>@company.com</InputGroupText>\n      </InputGroupAddon>\n    </InputGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-16.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

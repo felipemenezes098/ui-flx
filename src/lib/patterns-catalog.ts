@@ -24,7 +24,7 @@ export const patternCategories: PatternCategory[] = [
     slug: 'select',
     name: 'Select',
     description:
-      'Dropdown selects with labels, validation, and custom triggers.',
+      'A set of select patterns for single-value, grouped, disabled, and more.',
     image: {
       light:
         'https://images.unsplash.com/photo-1557683316-973673baf926?w=600&q=80&auto=format',
@@ -50,6 +50,12 @@ export const patternCategories: PatternCategory[] = [
         slug: 'select-04',
         name: 'With Icons',
         description: 'Options with leading icons.',
+      },
+      {
+        slug: 'select-16',
+        name: 'Icon in the trigger',
+        description:
+          'Leading icon in the trigger updates with the selection; dropdown options are text only.',
       },
       {
         slug: 'select-05',
@@ -150,8 +156,8 @@ export const patternCategories: PatternCategory[] = [
     ],
   },
   {
-    slug: 'inputs',
-    name: 'Inputs',
+    slug: 'input',
+    name: 'Input',
     description:
       'Form inputs, text fields, and interactive controls for data entry.',
     image: {
@@ -161,14 +167,113 @@ export const patternCategories: PatternCategory[] = [
     },
     items: [
       {
-        slug: 'inputs-01',
-        name: 'Input with Label',
-        description: 'Accessible labeled input with error state.',
+        slug: 'input-01',
+        name: 'Basic',
+        description: 'Basic input with placeholder.',
       },
       {
-        slug: 'inputs-02',
-        name: 'Input with Icon',
-        description: 'Input with leading or trailing icon.',
+        slug: 'input-03',
+        name: 'Disabled',
+        description: 'Disabled input.',
+      },
+      {
+        slug: 'input-02',
+        name: 'With Addon',
+        description: 'Input with trailing search icon addon.',
+      },
+      {
+        slug: 'input-04',
+        name: 'With Addon in the end',
+        description: 'Input with trailing icon addon.',
+      },
+      {
+        slug: 'input-16',
+        name: 'With email domain',
+        description:
+          'InputGroup suffix addon locks the @company.com domain beside the username field.',
+        isNew: true,
+      },
+      {
+        slug: 'input-05',
+        name: 'With prefix and suffix',
+        description: 'Fixed text addons at the start and end of the field.',
+        isNew: true,
+      },
+      {
+        slug: 'input-06',
+        name: 'With loading spinner',
+        description: 'Spinning loader in the trailing addon while searching.',
+        isNew: true,
+      },
+      {
+        slug: 'input-07',
+        name: 'With clear button',
+        description:
+          'Clear button appears in the trailing addon when the field has text.',
+        isNew: true,
+      },
+      {
+        slug: 'input-08',
+        name: 'With tooltip',
+        description:
+          'Help icon in the trailing addon opens a tooltip on hover.',
+        isNew: true,
+      },
+      {
+        slug: 'input-09',
+        name: 'With popover',
+        description:
+          'Info button in the trailing addon opens a popover with helper content.',
+        isNew: true,
+      },
+      {
+        slug: 'input-10',
+        name: 'With dropdown menu',
+        description:
+          'Trailing addon button opens a menu to choose search scope.',
+        isNew: true,
+      },
+      {
+        slug: 'input-11',
+        name: 'In Form',
+        description: 'Input composed with Field, FieldLabel, and description.',
+        isNew: true,
+      },
+      {
+        slug: 'input-12',
+        name: 'React Hook Form + Zod',
+        description:
+          'Controller binds Input to RHF; Zod resolver drives FieldError on submit.',
+        isNew: true,
+      },
+      {
+        slug: 'input-13',
+        name: 'TanStack Form + Zod',
+        description:
+          'form.Field wires Input; Zod onSubmit validator surfaces FieldError when touched.',
+        isNew: true,
+      },
+      {
+        slug: 'input-14',
+        name: 'With search button',
+        description:
+          'ButtonGroup pairs a text input with a trailing search action button.',
+        isNew: true,
+      },
+
+      {
+        slug: 'input-15',
+        name: 'With currency select',
+        description:
+          'Nested ButtonGroup: currency Select, amount input, and submit icon button.',
+        isNew: true,
+      },
+      {
+        slug: 'input-17',
+        name: 'With nested input group',
+        description:
+          'Attach button plus InputGroup message field and send action in a ButtonGroup.',
+        isNew: true,
       },
     ],
   },

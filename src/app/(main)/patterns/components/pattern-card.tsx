@@ -19,11 +19,11 @@ export function PatternCard({
   return (
     <div
       className={cn(
-        'group border-border bg-card relative overflow-hidden rounded-xl border',
+        'group border-border bg-card relative overflow-visible rounded-xl border',
         className,
       )}
     >
-      <div className="flex min-h-48 items-center justify-center p-8">
+      <div className="flex min-h-48 items-center justify-center overflow-visible p-8">
         {children}
       </div>
       <div className="border-border flex items-center justify-between border-t px-4 py-2.5">

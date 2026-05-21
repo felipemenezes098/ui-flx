@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-17",
+  "title": "With nested input group",
+  "description": "Attach button plus InputGroup message field and send action in a ButtonGroup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input-group",
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-17.tsx",
+      "content": "import { ArrowUpIcon, PlusIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n} from '@/components/ui/input-group'\n\nexport function Input17() {\n  return (\n    <ButtonGroup className=\"max-w-md\">\n      <ButtonGroup>\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Add attachment\">\n          <PlusIcon />\n        </Button>\n      </ButtonGroup>\n      <ButtonGroup className=\"min-w-0 flex-1\">\n        <InputGroup className=\"w-full\">\n          <InputGroupInput placeholder=\"Send a message...\" />\n          <InputGroupAddon align=\"inline-end\">\n            <InputGroupButton aria-label=\"Send message\" size=\"icon-xs\">\n              <ArrowUpIcon />\n            </InputGroupButton>\n          </InputGroupAddon>\n        </InputGroup>\n      </ButtonGroup>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-17.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
