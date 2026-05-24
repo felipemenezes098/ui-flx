@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-05",
+  "title": "With trailing icon",
+  "description": "Icon after the label via data-icon=\"inline-end\".",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-05.tsx",
+      "content": "import { ArrowRightIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button05() {\n  return (\n    <Button variant=\"outline\">\n      Continue\n      <ArrowRightIcon data-icon=\"inline-end\" />\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

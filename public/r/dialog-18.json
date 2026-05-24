@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-18",
+  "title": "Stacked actions",
+  "description": "Full-width footer buttons for mobile-friendly CTAs.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-18.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport function Dialog18() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Upgrade plan</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-sm\">\n        <DialogHeader>\n          <DialogTitle>Upgrade to Pro</DialogTitle>\n          <DialogDescription>\n            Unlock unlimited projects, priority support, and advanced analytics.\n          </DialogDescription>\n        </DialogHeader>\n        <div className=\"bg-muted/40 flex flex-col gap-1 rounded-lg border px-4 py-3\">\n          <div className=\"flex items-baseline gap-1\">\n            <span className=\"text-2xl font-semibold\">$24</span>\n            <span className=\"text-muted-foreground text-sm\">/ month</span>\n          </div>\n          <p className=\"text-muted-foreground text-xs\">\n            Billed annually. Cancel anytime.\n          </p>\n        </div>\n        <DialogFooter className=\"flex-col gap-2 sm:flex-col\">\n          <Button className=\"w-full\">Upgrade now</Button>\n          <DialogClose asChild>\n            <Button variant=\"outline\" className=\"w-full\">\n              Maybe later\n            </Button>\n          </DialogClose>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-18.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

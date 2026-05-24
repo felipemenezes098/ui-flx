@@ -8,12 +8,8 @@
       "type": "registry:block",
       "title": "CTA (Call to Action)",
       "description": "Shared CTA component with link and button variant",
-      "dependencies": [
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/blocks/shared/cta/cta.tsx",
@@ -28,9 +24,7 @@
       "title": "Scroll Fade Edges",
       "description": "A component that fades the edges of a scrollable area.",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/blocks/shared/scroll-fade-edges.tsx",
@@ -45,9 +39,7 @@
       "title": "Dynamic Icon",
       "description": "A dynamic icon component with a name and size.",
       "registryDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/blocks/shared/dynamic-icon/dynamic-icon.tsx",
@@ -61,12 +53,8 @@
       "type": "registry:block",
       "title": "Grid Two Columns",
       "description": "It shows two columns of information.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/grid-two-columns/grid-two-columns.tsx",
@@ -88,12 +76,8 @@
       "type": "registry:block",
       "title": "Centered Text",
       "description": "A centered text block with a title, description, and CTA.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/centered-text/centered-text.tsx",
@@ -116,9 +100,7 @@
       "title": "Grid Cards",
       "description": "A grid of cards with a title and items.",
       "registryDependencies": [],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/grid-cards/grid-cards.tsx",
@@ -140,9 +122,7 @@
       "type": "registry:block",
       "title": "Grid Media Cards",
       "description": "A grid of media cards with a title and items.",
-      "registryDependencies": [
-        "@flx/dynamic-icon"
-      ],
+      "registryDependencies": ["@flx/dynamic-icon"],
       "dependencies": [],
       "files": [
         {
@@ -188,9 +168,7 @@
       "type": "registry:block",
       "title": "Icon List",
       "description": "List of icons with a title and items.",
-      "registryDependencies": [
-        "@flx/dynamic-icon"
-      ],
+      "registryDependencies": ["@flx/dynamic-icon"],
       "dependencies": [],
       "files": [
         {
@@ -213,9 +191,7 @@
       "type": "registry:block",
       "title": "Badge List",
       "description": "List of badges with a title and items.",
-      "registryDependencies": [
-        "badge"
-      ],
+      "registryDependencies": ["badge"],
       "dependencies": [],
       "files": [
         {
@@ -235,12 +211,8 @@
       "type": "registry:block",
       "title": "Grid Content Columns",
       "description": "A grid of content columns with a media above the content.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/grid-content-columns/grid-content-columns.tsx",
@@ -260,9 +232,7 @@
       "title": "Title With Media",
       "description": "A title with a media above the title.",
       "registryDependencies": [],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/title-with-media/title-with-media.tsx",
@@ -284,13 +254,8 @@
       "type": "registry:block",
       "title": "Background Media",
       "description": "A background media with a title, description and CTA.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "motion",
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["motion", "react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/hero/background-media/background-media.tsx",
@@ -312,14 +277,8 @@
       "type": "registry:block",
       "title": "Hero Logos Carousel",
       "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
-      "registryDependencies": [
-        "@flx/cta",
-        "@flx/logo-marquee",
-        "carousel"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta", "@flx/logo-marquee", "carousel"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
@@ -343,9 +302,7 @@
       "title": "Focus Grid",
       "description": "A focus grid with items that can be focused and dimmed.",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/blocks/content/focus-grid/focus-grid.tsx",
@@ -367,12 +324,8 @@
       "type": "registry:block",
       "title": "Select Reveal Media",
       "description": "List of items: select one to reveal its description and media.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "motion"
-      ],
+      "registryDependencies": ["button"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/blocks/content/select-reveal-media/select-reveal-media.tsx",
@@ -394,13 +347,8 @@
       "type": "registry:block",
       "title": "Tabs Media",
       "description": "Tabbed navigation that reveals a media for each tab.",
-      "registryDependencies": [
-        "tabs",
-        "@flx/scroll-fade-edges"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["tabs", "@flx/scroll-fade-edges"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/tabs-media/tabs-media.tsx",
@@ -423,10 +371,7 @@
       "title": "Media Grid Interactive",
       "description": "A grid of items with a title and description, clickable to view details.",
       "registryDependencies": [],
-      "dependencies": [
-        "motion",
-        "react-wrap-balancer"
-      ],
+      "dependencies": ["motion", "react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
@@ -448,10 +393,7 @@
       "type": "registry:block",
       "title": "Text Badges",
       "description": "A text badges with a title, CTA and badges.",
-      "registryDependencies": [
-        "@flx/cta",
-        "badge"
-      ],
+      "registryDependencies": ["@flx/cta", "badge"],
       "dependencies": [],
       "files": [
         {
@@ -475,9 +417,7 @@
       "title": "Grid Content Cards",
       "description": "Two-column grid of cards: title, description, and image at the bottom.",
       "registryDependencies": [],
-      "dependencies": [
-        "card"
-      ],
+      "dependencies": ["card"],
       "files": [
         {
           "path": "registry/blocks/content/grid-content-cards/grid-content-cards.tsx",
@@ -496,12 +436,8 @@
       "type": "registry:block",
       "title": "Hero Content Media",
       "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/hero/hero-content-media/hero-content-media.tsx",
@@ -523,12 +459,8 @@
       "type": "registry:block",
       "title": "Hero Headline Preview",
       "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
@@ -550,12 +482,8 @@
       "type": "registry:block",
       "title": "Grid Media Cards",
       "description": "Grid with media cards to display information.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
@@ -574,16 +502,9 @@
       "type": "registry:block",
       "title": "Carousel Focus",
       "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
-      "registryDependencies": [
-        "carousel"
-      ],
-      "dependencies": [
-        "motion",
-        "class-variance-authority"
-      ],
-      "devDependencies": [
-        "embla-carousel-auto-scroll"
-      ],
+      "registryDependencies": ["carousel"],
+      "dependencies": ["motion", "class-variance-authority"],
+      "devDependencies": ["embla-carousel-auto-scroll"],
       "files": [
         {
           "path": "registry/blocks/carousel/carousel-focus/carousel-focus.tsx",
@@ -606,10 +527,7 @@
       "type": "registry:block",
       "title": "Carousel Cards",
       "description": "A carousel of cards with a title and description.",
-      "registryDependencies": [
-        "carousel",
-        "button"
-      ],
+      "registryDependencies": ["carousel", "button"],
       "dependencies": [],
       "files": [
         {
@@ -634,14 +552,8 @@
       "type": "registry:block",
       "title": "Carousel Media",
       "description": "A carousel of media with a title and description.",
-      "registryDependencies": [
-        "carousel",
-        "button"
-      ],
-      "dependencies": [
-        "react-wrap-balancer",
-        "lucide-react"
-      ],
+      "registryDependencies": ["carousel", "button"],
+      "dependencies": ["react-wrap-balancer", "lucide-react"],
       "files": [
         {
           "path": "registry/blocks/carousel/carousel-media/carousel-media.tsx",
@@ -665,13 +577,9 @@
       "type": "registry:block",
       "title": "Logo Marquee",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
-      "registryDependencies": [
-        "carousel"
-      ],
+      "registryDependencies": ["carousel"],
       "dependencies": [],
-      "devDependencies": [
-        "embla-carousel-auto-scroll"
-      ],
+      "devDependencies": ["embla-carousel-auto-scroll"],
       "files": [
         {
           "path": "registry/blocks/logos/logo-marquee/logo-marquee.tsx",
@@ -690,12 +598,8 @@
       "type": "registry:block",
       "title": "Primary Item Grid",
       "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
+      "registryDependencies": ["@flx/cta"],
+      "dependencies": ["react-wrap-balancer"],
       "files": [
         {
           "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
@@ -717,9 +621,7 @@
       "type": "registry:block",
       "title": "Single Testimonial",
       "description": "A single testimonial with quote, avatar, author name and role.",
-      "registryDependencies": [
-        "avatar"
-      ],
+      "registryDependencies": ["avatar"],
       "dependencies": [],
       "files": [
         {
@@ -740,9 +642,7 @@
       "title": "Sticky Scroll Media",
       "description": "Sticky media that changes as you scroll through text content.",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
@@ -764,10 +664,7 @@
       "type": "registry:block",
       "title": "Basic",
       "description": "Single-value dropdown.",
-      "registryDependencies": [
-        "select",
-        "label"
-      ],
+      "registryDependencies": ["select", "label"],
       "dependencies": [],
       "files": [
         {
@@ -782,10 +679,7 @@
       "type": "registry:block",
       "title": "Grouped",
       "description": "Options organized into labeled groups.",
-      "registryDependencies": [
-        "select",
-        "label"
-      ],
+      "registryDependencies": ["select", "label"],
       "dependencies": [],
       "files": [
         {
@@ -800,9 +694,7 @@
       "type": "registry:block",
       "title": "Disabled",
       "description": "Non-interactive select state.",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -817,12 +709,8 @@
       "type": "registry:block",
       "title": "With Icons",
       "description": "Options with leading icons.",
-      "registryDependencies": [
-        "select"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["select"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/select/select-04.tsx",
@@ -836,9 +724,7 @@
       "type": "registry:block",
       "title": "With Object",
       "description": "with object values.",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -853,9 +739,7 @@
       "type": "registry:block",
       "title": "With description only items",
       "description": "Select with description only items.",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -870,9 +754,7 @@
       "type": "registry:block",
       "title": "Disabled Items",
       "description": "Select with individual disabled options.",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -885,10 +767,7 @@
     {
       "name": "select-08",
       "type": "registry:block",
-      "registryDependencies": [
-        "select",
-        "avatar"
-      ],
+      "registryDependencies": ["select", "avatar"],
       "dependencies": [],
       "files": [
         {
@@ -903,9 +782,7 @@
     {
       "name": "select-09",
       "type": "registry:block",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -920,10 +797,7 @@
     {
       "name": "select-10",
       "type": "registry:block",
-      "registryDependencies": [
-        "select",
-        "label"
-      ],
+      "registryDependencies": ["select", "label"],
       "dependencies": [],
       "files": [
         {
@@ -938,10 +812,7 @@
     {
       "name": "select-11",
       "type": "registry:block",
-      "registryDependencies": [
-        "select",
-        "field"
-      ],
+      "registryDependencies": ["select", "field"],
       "dependencies": [],
       "files": [
         {
@@ -956,11 +827,7 @@
     {
       "name": "select-12",
       "type": "registry:block",
-      "registryDependencies": [
-        "select",
-        "field",
-        "button"
-      ],
+      "registryDependencies": ["select", "field", "button"],
       "dependencies": [
         "react-hook-form",
         "zod",
@@ -980,16 +847,8 @@
     {
       "name": "select-13",
       "type": "registry:block",
-      "registryDependencies": [
-        "select",
-        "field",
-        "button"
-      ],
-      "dependencies": [
-        "@tanstack/react-form",
-        "zod",
-        "sonner"
-      ],
+      "registryDependencies": ["select", "field", "button"],
+      "dependencies": ["@tanstack/react-form", "zod", "sonner"],
       "files": [
         {
           "path": "registry/patterns/select/select-13.tsx",
@@ -1003,9 +862,7 @@
     {
       "name": "select-14",
       "type": "registry:block",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -1020,9 +877,7 @@
     {
       "name": "select-15",
       "type": "registry:block",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -1037,9 +892,7 @@
     {
       "name": "select-16",
       "type": "registry:block",
-      "registryDependencies": [
-        "select"
-      ],
+      "registryDependencies": ["select"],
       "dependencies": [],
       "files": [
         {
@@ -1054,12 +907,7 @@
     {
       "name": "dialog-01",
       "type": "registry:block",
-      "title": "Confirm Dialog",
-      "description": "Simple confirmation dialog with cancel and confirm.",
-      "registryDependencies": [
-        "dialog",
-        "button"
-      ],
+      "registryDependencies": ["dialog", "button"],
       "dependencies": [],
       "files": [
         {
@@ -1067,19 +915,14 @@
           "type": "registry:component",
           "target": "components/flx/patterns/dialog/dialog-01.tsx"
         }
-      ]
+      ],
+      "title": "Confirm action",
+      "description": "Polished yes/no with icon and clear hierarchy."
     },
     {
       "name": "dialog-02",
       "type": "registry:block",
-      "title": "Form Dialog",
-      "description": "Dialog wrapping a form with validation.",
-      "registryDependencies": [
-        "dialog",
-        "button",
-        "input",
-        "label"
-      ],
+      "registryDependencies": ["dialog", "button", "input", "field"],
       "dependencies": [],
       "files": [
         {
@@ -1087,17 +930,14 @@
           "type": "registry:component",
           "target": "components/flx/patterns/dialog/dialog-02.tsx"
         }
-      ]
+      ],
+      "title": "Edit profile",
+      "description": "FieldGroup form with Save and Cancel footer."
     },
     {
       "name": "dialog-03",
       "type": "registry:block",
-      "title": "Alert Dialog",
-      "description": "Destructive action warning with clear messaging.",
-      "registryDependencies": [
-        "dialog",
-        "button"
-      ],
+      "registryDependencies": ["dialog", "button"],
       "dependencies": [],
       "files": [
         {
@@ -1105,17 +945,303 @@
           "type": "registry:component",
           "target": "components/flx/patterns/dialog/dialog-03.tsx"
         }
-      ]
+      ],
+      "title": "Delete account",
+      "description": "Destructive warning with icon and emphasized copy."
+    },
+    {
+      "name": "dialog-04",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "separator"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-04.tsx"
+        }
+      ],
+      "title": "Terms, sticky footer",
+      "description": "Long scroll body; Accept and Decline pinned footer."
+    },
+    {
+      "name": "dialog-05",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "input", "label"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-05.tsx"
+        }
+      ],
+      "title": "Share link",
+      "description": "Readonly URL with copy control; minimal footer."
+    },
+    {
+      "name": "dialog-06",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-06.tsx"
+        }
+      ],
+      "title": "Sticky header",
+      "description": "Header fixed; scrollable changelog-style body."
+    },
+    {
+      "name": "dialog-08",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "input-otp", "field"],
+      "dependencies": ["input-otp"],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-08.tsx"
+        }
+      ],
+      "title": "Verify code (OTP)",
+      "description": "6-digit InputOTP with separator; Verify footer."
+    },
+    {
+      "name": "dialog-09",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-09.tsx"
+        }
+      ],
+      "title": "Onboarding welcome",
+      "description": "Compact hero image, title, and description; dual CTAs."
+    },
+    {
+      "name": "dialog-10",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-10.tsx"
+        }
+      ],
+      "title": "Footer-only dismiss",
+      "description": "showCloseButton false; dismiss via footer only."
+    },
+    {
+      "name": "dialog-11",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "avatar"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-11.tsx"
+        }
+      ],
+      "title": "Pick teammates",
+      "description": "Scrollable avatar rows with selection; Invite footer."
+    },
+    {
+      "name": "dialog-12",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-12.tsx"
+        }
+      ],
+      "title": "Success",
+      "description": "Completion check icon and Continue action."
+    },
+    {
+      "name": "dialog-13",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "input", "field"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-13.tsx"
+        }
+      ],
+      "title": "Type to confirm",
+      "description": "Type delete to enable destructive button."
+    },
+    {
+      "name": "dialog-14",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "separator", "switch"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-14.tsx"
+        }
+      ],
+      "title": "Settings sections",
+      "description": "Notifications and Security blocks via Separator."
+    },
+    {
+      "name": "dialog-15",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-15.tsx"
+        }
+      ],
+      "title": "Choose image",
+      "description": "Thumbnail grid with selection ring."
+    },
+    {
+      "name": "dialog-16",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "input", "field"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-16.tsx"
+        }
+      ],
+      "title": "Invite team",
+      "description": "Icon header plus email field."
+    },
+    {
+      "name": "dialog-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "field",
+        "textarea"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-17.tsx"
+        }
+      ],
+      "title": "Long form, sticky footer",
+      "description": "Many fields in scroll; footer-only sticky."
+    },
+    {
+      "name": "dialog-18",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-18.tsx"
+        }
+      ],
+      "title": "Stacked actions",
+      "description": "Full-width footer buttons for mobile-friendly CTAs."
+    },
+    {
+      "name": "dialog-19",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "field", "input", "select"],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-19.tsx"
+        }
+      ],
+      "title": "React Hook Form",
+      "description": "Dialog form with RHF, Zod resolver, and FieldError on invalid fields."
+    },
+    {
+      "name": "dialog-20",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "field", "input", "select"],
+      "dependencies": ["@tanstack/react-form", "zod", "sonner"],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-20.tsx"
+        }
+      ],
+      "title": "TanStack Form",
+      "description": "Dialog form with TanStack Form and Zod onSubmit validation."
+    },
+    {
+      "name": "dialog-21",
+      "type": "registry:block",
+      "registryDependencies": ["dialog", "button", "field", "input"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-21.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-21.tsx"
+        }
+      ],
+      "title": "Nested dialog",
+      "description": "Dialog inside a dialog — e.g. avatar picker from profile."
+    },
+    {
+      "name": "dialog-22",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "dropdown-menu",
+        "field",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dialog/dialog-22.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-22.tsx"
+        }
+      ],
+      "title": "From dropdown",
+      "description": "Dialog triggered by a DropdownMenuItem with onSelect preventDefault."
     },
     {
       "name": "input-01",
       "type": "registry:block",
       "title": "Basic",
       "description": "Basic input with placeholder.",
-      "registryDependencies": [
-        "input",
-        "label"
-      ],
+      "registryDependencies": ["input", "label"],
       "dependencies": [],
       "files": [
         {
@@ -1130,12 +1256,8 @@
       "type": "registry:block",
       "title": "With Addon",
       "description": "Input with trailing search icon addon.",
-      "registryDependencies": [
-        "input"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-02.tsx",
@@ -1149,9 +1271,7 @@
       "type": "registry:block",
       "title": "Disabled",
       "description": "Disabled input.",
-      "registryDependencies": [
-        "input"
-      ],
+      "registryDependencies": ["input"],
       "dependencies": [],
       "files": [
         {
@@ -1166,9 +1286,7 @@
       "type": "registry:block",
       "title": "With Addon in the end",
       "description": "Input with trailing icon addon.",
-      "registryDependencies": [
-        "input"
-      ],
+      "registryDependencies": ["input"],
       "dependencies": [],
       "files": [
         {
@@ -1181,9 +1299,7 @@
     {
       "name": "input-05",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group"
-      ],
+      "registryDependencies": ["input-group"],
       "dependencies": [],
       "files": [
         {
@@ -1198,12 +1314,8 @@
     {
       "name": "input-06",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-06.tsx",
@@ -1217,13 +1329,8 @@
     {
       "name": "input-07",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group",
-        "button"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group", "button"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-07.tsx",
@@ -1237,14 +1344,8 @@
     {
       "name": "input-08",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group",
-        "button",
-        "tooltip"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group", "button", "tooltip"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-08.tsx",
@@ -1258,14 +1359,8 @@
     {
       "name": "input-09",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group",
-        "button",
-        "popover"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group", "button", "popover"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-09.tsx",
@@ -1279,14 +1374,8 @@
     {
       "name": "input-10",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group",
-        "button",
-        "dropdown-menu"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group", "button", "dropdown-menu"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-10.tsx",
@@ -1300,10 +1389,7 @@
     {
       "name": "input-11",
       "type": "registry:block",
-      "registryDependencies": [
-        "input",
-        "field"
-      ],
+      "registryDependencies": ["input", "field"],
       "dependencies": [],
       "files": [
         {
@@ -1318,11 +1404,7 @@
     {
       "name": "input-12",
       "type": "registry:block",
-      "registryDependencies": [
-        "input",
-        "field",
-        "button"
-      ],
+      "registryDependencies": ["input", "field", "button"],
       "dependencies": [
         "react-hook-form",
         "zod",
@@ -1342,16 +1424,8 @@
     {
       "name": "input-13",
       "type": "registry:block",
-      "registryDependencies": [
-        "input",
-        "field",
-        "button"
-      ],
-      "dependencies": [
-        "@tanstack/react-form",
-        "zod",
-        "sonner"
-      ],
+      "registryDependencies": ["input", "field", "button"],
+      "dependencies": ["@tanstack/react-form", "zod", "sonner"],
       "files": [
         {
           "path": "registry/patterns/input/input-13.tsx",
@@ -1365,14 +1439,8 @@
     {
       "name": "input-14",
       "type": "registry:block",
-      "registryDependencies": [
-        "input",
-        "button",
-        "button-group"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input", "button", "button-group"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-14.tsx",
@@ -1386,9 +1454,7 @@
     {
       "name": "input-16",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group"
-      ],
+      "registryDependencies": ["input-group"],
       "dependencies": [],
       "files": [
         {
@@ -1403,15 +1469,8 @@
     {
       "name": "input-15",
       "type": "registry:block",
-      "registryDependencies": [
-        "input",
-        "button",
-        "button-group",
-        "select"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input", "button", "button-group", "select"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-15.tsx",
@@ -1425,14 +1484,8 @@
     {
       "name": "input-17",
       "type": "registry:block",
-      "registryDependencies": [
-        "input-group",
-        "button",
-        "button-group"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["input-group", "button", "button-group"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/patterns/input/input-17.tsx",
@@ -1444,38 +1497,589 @@
       "description": "Attach button plus InputGroup message field and send action in a ButtonGroup."
     },
     {
-      "name": "accordion-01",
+      "name": "button-01",
       "type": "registry:block",
-      "title": "Basic Accordion",
-      "description": "Single or multiple open sections.",
-      "registryDependencies": [
-        "accordion"
-      ],
+      "registryDependencies": ["button"],
       "dependencies": [],
       "files": [
         {
-          "path": "registry/patterns/accordion/accordion-01.tsx",
+          "path": "registry/patterns/button/button-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/patterns/accordion/accordion-01.tsx"
+          "target": "components/flx/patterns/button/button-01.tsx"
         }
-      ]
+      ],
+      "title": "Basic",
+      "description": "Default button with text label."
     },
     {
-      "name": "accordion-02",
+      "name": "button-02",
       "type": "registry:block",
-      "title": "FAQ Accordion",
-      "description": "FAQ layout with styled questions and answers.",
-      "registryDependencies": [
-        "accordion"
-      ],
+      "registryDependencies": ["button"],
       "dependencies": [],
       "files": [
         {
-          "path": "registry/patterns/accordion/accordion-02.tsx",
+          "path": "registry/patterns/button/button-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/patterns/accordion/accordion-02.tsx"
+          "target": "components/flx/patterns/button/button-02.tsx"
         }
-      ]
+      ],
+      "title": "Variants",
+      "description": "All six variants side-by-side: default, secondary, outline, ghost, destructive, link."
+    },
+    {
+      "name": "button-03",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-03.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Extra small, small, default, and large sizes."
+    },
+    {
+      "name": "button-04",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-04.tsx"
+        }
+      ],
+      "title": "With leading icon",
+      "description": "Icon before the label via data-icon=\"inline-start\"."
+    },
+    {
+      "name": "button-05",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-05.tsx"
+        }
+      ],
+      "title": "With trailing icon",
+      "description": "Icon after the label via data-icon=\"inline-end\"."
+    },
+    {
+      "name": "button-06",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-06.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Square icon-only buttons in every icon size."
+    },
+    {
+      "name": "button-07",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-07.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Disabled state across variants."
+    },
+    {
+      "name": "button-08",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-08.tsx"
+        }
+      ],
+      "title": "Loading",
+      "description": "Spinner icon + disabled while async work runs."
+    },
+    {
+      "name": "button-09",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-09.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "asChild renders the button as an anchor tag."
+    },
+    {
+      "name": "button-10",
+      "type": "registry:block",
+      "registryDependencies": ["button", "avatar"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-10.tsx"
+        }
+      ],
+      "title": "With avatar",
+      "description": "User picker style — avatar leading the label."
+    },
+    {
+      "name": "button-11",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-11.tsx"
+        }
+      ],
+      "title": "Hover slide arrow",
+      "description": "CTA arrow nudges right on hover."
+    },
+    {
+      "name": "button-12",
+      "type": "registry:block",
+      "registryDependencies": ["button", "badge"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-12.tsx"
+        }
+      ],
+      "title": "With badge",
+      "description": "Notification count badge overlapping an icon button."
+    },
+    {
+      "name": "button-13",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-13.tsx"
+        }
+      ],
+      "title": "Copy to clipboard",
+      "description": "Icon and label swap to a check on copy."
+    },
+    {
+      "name": "button-14",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-14.tsx"
+        }
+      ],
+      "title": "Hover rotate refresh",
+      "description": "Refresh icon rotates 180° on hover."
+    },
+    {
+      "name": "button-15",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-15.tsx"
+        }
+      ],
+      "title": "Hamburger toggle",
+      "description": "Three bars morph into an X on press."
+    },
+    {
+      "name": "button-16",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-16.tsx"
+        }
+      ],
+      "title": "Basic group",
+      "description": "Horizontal ButtonGroup with merged borders."
+    },
+    {
+      "name": "button-17",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-17.tsx"
+        }
+      ],
+      "title": "Vertical group",
+      "description": "Stacked ButtonGroup via orientation=\"vertical\"."
+    },
+    {
+      "name": "button-18",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-18.tsx"
+        }
+      ],
+      "title": "Icon toolbar",
+      "description": "Icon-only formatting toolbar in a ButtonGroup."
+    },
+    {
+      "name": "button-20",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-20.tsx"
+        }
+      ],
+      "title": "With label prefix",
+      "description": "ButtonGroupText leads an action cluster."
+    },
+    {
+      "name": "button-21",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group", "dropdown-menu"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-21.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-21.tsx"
+        }
+      ],
+      "title": "Split button",
+      "description": "Primary action + chevron DropdownMenu trigger."
+    },
+    {
+      "name": "button-22",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-22.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-22.tsx"
+        }
+      ],
+      "title": "Pagination",
+      "description": "Prev / page numbers / Next inside a ButtonGroup."
+    },
+    {
+      "name": "button-23",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-23.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-23.tsx"
+        }
+      ],
+      "title": "Copy field",
+      "description": "ButtonGroupText value with a trailing copy button."
+    },
+    {
+      "name": "button-24",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-24.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-24.tsx"
+        }
+      ],
+      "title": "Group with disabled",
+      "description": "ButtonGroup with one disabled step."
+    },
+    {
+      "name": "button-25",
+      "type": "registry:block",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-25.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-25.tsx"
+        }
+      ],
+      "title": "Destructive pair",
+      "description": "Cancel + Delete spaced action pair."
+    },
+    {
+      "name": "button-26",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group", "select"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-26.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-26.tsx"
+        }
+      ],
+      "title": "With select",
+      "description": "ButtonGroup pairs a sort Select with a direction toggle button."
+    },
+    {
+      "name": "button-27",
+      "type": "registry:block",
+      "registryDependencies": ["button", "button-group", "popover"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/button/button-27.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-27.tsx"
+        }
+      ],
+      "title": "With popover swatch",
+      "description": "Color swatch Popover trigger inside a ButtonGroup with hex label."
+    },
+    {
+      "name": "tabs-01",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Three tabs with the default filled variant."
+    },
+    {
+      "name": "tabs-02",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-02.tsx"
+        }
+      ],
+      "title": "Line variant",
+      "description": "Underline indicator instead of filled background."
+    },
+    {
+      "name": "tabs-04",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-04.tsx"
+        }
+      ],
+      "title": "Vertical line",
+      "description": "Vertical orientation with line variant — sidebar nav."
+    },
+    {
+      "name": "tabs-05",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-05.tsx"
+        }
+      ],
+      "title": "Disabled tab",
+      "description": "One trigger disabled while others stay interactive."
+    },
+    {
+      "name": "tabs-06",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-06.tsx"
+        }
+      ],
+      "title": "With icons",
+      "description": "Leading icons in each trigger via data-icon."
+    },
+    {
+      "name": "tabs-07",
+      "type": "registry:block",
+      "registryDependencies": ["tabs", "badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-07.tsx"
+        }
+      ],
+      "title": "With count badges",
+      "description": "Trigger labels paired with secondary count badges."
+    },
+    {
+      "name": "tabs-08",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-08.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Compact icon-only triggers for view switching."
+    },
+    {
+      "name": "tabs-10",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-10.tsx"
+        }
+      ],
+      "title": "Icon with title",
+      "description": "Icon stacked above the title in each trigger, with a visual panel below."
+    },
+    {
+      "name": "tabs-11",
+      "type": "registry:block",
+      "registryDependencies": ["tabs", "card", "button", "input", "field"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-11.tsx"
+        }
+      ],
+      "title": "Account and password",
+      "description": "Forms in each TabsContent inside a Card — canonical shadcn example."
+    },
+    {
+      "name": "tabs-12",
+      "type": "registry:block",
+      "registryDependencies": ["tabs", "card", "separator"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-12.tsx"
+        }
+      ],
+      "title": "In card",
+      "description": "Tabs inside a card with stats, member list, and billing summary panels."
+    },
+    {
+      "name": "tabs-13",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-13.tsx"
+        }
+      ],
+      "title": "Preview and code",
+      "description": "Docs-style switch between live preview and code snippet."
+    },
+    {
+      "name": "tabs-14",
+      "type": "registry:block",
+      "registryDependencies": ["tabs", "badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-14.tsx"
+        }
+      ],
+      "title": "Pricing toggle",
+      "description": "Monthly versus yearly billing toggle swaps the price."
+    },
+    {
+      "name": "tabs-15",
+      "type": "registry:block",
+      "registryDependencies": ["tabs"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tabs/tabs-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-15.tsx"
+        }
+      ],
+      "title": "Custom trigger",
+      "description": "Pill triggers with muted active state and cross-fading image panels."
     }
   ]
 }

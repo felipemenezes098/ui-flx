@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-01",
-  "title": "Confirm Dialog",
-  "description": "Simple confirmation dialog with cancel and confirm.",
+  "title": "Confirm action",
+  "description": "Polished yes/no with icon and clear hierarchy.",
   "dependencies": [],
   "registryDependencies": [
     "dialog",
@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/dialog/dialog-01.tsx",
-      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport default function Dialog01() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Open dialog</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Confirm action</DialogTitle>\n          <DialogDescription>\n            Are you sure you want to continue? This action cannot be undone.\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button>Confirm</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "content": "import { CircleAlertIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport function Dialog01() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Publish changes</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <div className=\"flex flex-col gap-3\">\n            <div className=\"bg-muted flex size-10 items-center justify-center rounded-full\">\n              <CircleAlertIcon />\n            </div>\n            <div className=\"flex flex-col gap-2\">\n              <DialogTitle>Publish changes?</DialogTitle>\n              <DialogDescription>\n                Your draft will go live for all workspace members. You can\n                revert within 30 days from version history.\n              </DialogDescription>\n            </div>\n          </div>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button>Publish</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/dialog/dialog-01.tsx"
     }

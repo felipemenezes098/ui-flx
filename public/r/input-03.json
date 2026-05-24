@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/patterns/input/input-03.tsx",
-      "content": "import { Input } from '@/components/ui/input'\r\n\r\nexport function Input03() {\r\n  return <Input placeholder=\"Shadcn\" className=\"w-sm\" disabled />\r\n}\r\n",
+      "content": "import { Input } from '@/components/ui/input'\r\n\r\nexport function Input03() {\r\n  return <Input placeholder=\"Shadcn\" className=\"max-w-sm\" disabled />\r\n}\r\n",
       "type": "registry:component",
       "target": "components/flx/patterns/input/input-03.tsx"
     }

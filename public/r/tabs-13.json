@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-13",
+  "title": "Preview and code",
+  "description": "Docs-style switch between live preview and code snippet.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-13.tsx",
+      "content": "import { CodeIcon, EyeIcon } from 'lucide-react'\n\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs13() {\n  return (\n    <Tabs defaultValue=\"preview\" className=\"w-full max-w-md items-center gap-4\">\n      <TabsList variant=\"line\">\n        <TabsTrigger value=\"preview\">\n          <EyeIcon data-icon=\"inline-start\" />\n          Preview\n        </TabsTrigger>\n        <TabsTrigger value=\"code\">\n          <CodeIcon data-icon=\"inline-start\" />\n          Code\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"preview\" className=\"w-full\">\n        <div className=\"bg-muted/40 flex h-28 items-center justify-center rounded-md border\">\n          <span className=\"text-muted-foreground text-sm\">Live preview</span>\n        </div>\n      </TabsContent>\n      <TabsContent value=\"code\" className=\"w-full\">\n        <pre className=\"bg-muted text-muted-foreground overflow-x-auto rounded-md border p-3 font-mono text-xs\">\n          {`<Button>Click me</Button>`}\n        </pre>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

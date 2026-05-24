@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-08",
+  "title": "Icon only",
+  "description": "Compact icon-only triggers for view switching.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-08.tsx",
+      "content": "import { GridIcon, LayoutListIcon, RowsIcon } from 'lucide-react'\n\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs08() {\n  return (\n    <Tabs defaultValue=\"grid\" className=\"w-full max-w-xs\">\n      <TabsList>\n        <TabsTrigger value=\"grid\" aria-label=\"Grid view\">\n          <GridIcon />\n        </TabsTrigger>\n        <TabsTrigger value=\"list\" aria-label=\"List view\">\n          <LayoutListIcon />\n        </TabsTrigger>\n        <TabsTrigger value=\"rows\" aria-label=\"Rows view\">\n          <RowsIcon />\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"grid\" className=\"w-full pt-4\">\n        <div className=\"grid w-full grid-cols-3 gap-2\">\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n          <div className=\"bg-muted/80 aspect-square rounded-md border\" />\n        </div>\n      </TabsContent>\n      <TabsContent value=\"list\" className=\"w-full pt-4\">\n        <ul className=\"w-full space-y-2\">\n          <li className=\"flex w-full items-center gap-2\">\n            <div className=\"bg-muted/80 size-8 shrink-0 rounded-md border\" />\n            <div className=\"bg-muted/50 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"flex w-full items-center gap-2\">\n            <div className=\"bg-muted/80 size-8 shrink-0 rounded-md border\" />\n            <div className=\"bg-muted/50 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"flex w-full items-center gap-2\">\n            <div className=\"bg-muted/80 size-8 shrink-0 rounded-md border\" />\n            <div className=\"bg-muted/50 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"flex w-full items-center gap-2\">\n            <div className=\"bg-muted/80 size-8 shrink-0 rounded-md border\" />\n            <div className=\"bg-muted/50 h-2 flex-1 rounded-full\" />\n          </li>\n        </ul>\n      </TabsContent>\n      <TabsContent value=\"rows\" className=\"w-full pt-4\">\n        <ul className=\"w-full space-y-2\">\n          <li className=\"bg-muted/50 flex h-14 w-full items-center gap-2 rounded-md border px-2 py-2\">\n            <div className=\"bg-muted/80 size-6 shrink-0 rounded border\" />\n            <div className=\"bg-muted/80 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"bg-muted/50 flex h-10 w-full items-center gap-2 rounded-md border px-2 py-2\">\n            <div className=\"bg-muted/80 size-6 shrink-0 rounded border\" />\n            <div className=\"bg-muted/80 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"bg-muted/50 flex h-12 w-full items-center gap-2 rounded-md border px-2 py-2\">\n            <div className=\"bg-muted/80 size-6 shrink-0 rounded border\" />\n            <div className=\"bg-muted/80 h-2 flex-1 rounded-full\" />\n          </li>\n          <li className=\"bg-muted/50 flex h-9 w-full items-center gap-2 rounded-md border px-2 py-2\">\n            <div className=\"bg-muted/80 size-6 shrink-0 rounded border\" />\n            <div className=\"bg-muted/80 h-2 flex-1 rounded-full\" />\n          </li>\n        </ul>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

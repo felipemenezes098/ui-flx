@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-02",
+  "title": "Line variant",
+  "description": "Underline indicator instead of filled background.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-02.tsx",
+      "content": "import {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs02() {\n  return (\n    <Tabs defaultValue=\"overview\" className=\"w-full max-w-md items-center\">\n      <TabsList variant=\"line\">\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"activity\">Activity</TabsTrigger>\n        <TabsTrigger value=\"reports\">Reports</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\" className=\"text-muted-foreground pt-4\">\n        Snapshot of your workspace.\n      </TabsContent>\n      <TabsContent value=\"activity\" className=\"text-muted-foreground pt-4\">\n        Latest events across your team.\n      </TabsContent>\n      <TabsContent value=\"reports\" className=\"text-muted-foreground pt-4\">\n        Generated reports and exports.\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

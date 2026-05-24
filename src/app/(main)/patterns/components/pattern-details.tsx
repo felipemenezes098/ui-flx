@@ -41,50 +41,18 @@ export function PatternDetails({ item }: PatternDetailsProps) {
 
   return (
     <div className="flex items-center gap-0.5">
-      <Dialog open={openPrompt} onOpenChange={setOpenPrompt}>
-        <DialogTrigger asChild>
-          <Button
-            variant="ghost"
-            size="sm"
-            aria-label="AI prompt"
-            className="text-muted-foreground hover:text-foreground gap-1.5"
-          >
-            <BrainIcon className="size-3" />
-            AI
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>{item.title}</DialogTitle>
-          </DialogHeader>
-          <div className="flex max-w-full min-w-0 flex-col gap-2">
-            <CodeBlockCommand
-              command={`shadcn@latest add @${siteConfig.codeName}/${item.name}`}
-            />
-            {isLoading && (
-              <div className="bg-muted h-48 animate-pulse rounded-xl" />
-            )}
-            {!isLoading && code && (
-              <CodeBlock>
-                <CodeBlockCode code={code} language="tsx" withCopy />
-              </CodeBlock>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
       <Dialog open={openCode} onOpenChange={setOpenCode}>
         <DialogTrigger asChild>
           <Button
-            variant="ghost"
-            size="sm"
+            variant="secondary"
+            size="icon"
             aria-label="View code"
-            className="text-muted-foreground hover:text-foreground gap-1.5"
+            className="bg-muted/60 hover:bg-muted/80 rounded-full"
           >
             <CodeIcon className="size-3" />
-            Code
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
+        <DialogContent className="max-h-[95vh] overflow-y-auto sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle>{item.title}</DialogTitle>
           </DialogHeader>

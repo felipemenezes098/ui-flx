@@ -12,28 +12,30 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
+  SelectValue,
 } from '@/components/ui/select'
 
 const currencies = [
-  { value: 'usd', symbol: '$', label: 'US Dollar' },
-  { value: 'eur', symbol: '€', label: 'Euro' },
-  { value: 'gbp', symbol: '£', label: 'British Pound' },
+  { value: '$', label: 'US Dollar' },
+  { value: '€', label: 'Euro' },
+  { value: '£', label: 'British Pound' },
 ] as const
 
 export function Input15() {
   const [currency, setCurrency] = useState<string>(currencies[0].value)
-  const selected = currencies.find((item) => item.value === currency)
 
   return (
     <ButtonGroup className="max-w-sm">
       <ButtonGroup>
         <Select value={currency} onValueChange={setCurrency}>
-          <SelectTrigger>{selected?.symbol}</SelectTrigger>
-          <SelectContent position="popper" sideOffset={4}>
+          <SelectTrigger>
+            <SelectValue>{currency}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
             <SelectGroup>
               {currencies.map((item) => (
                 <SelectItem key={item.value} value={item.value}>
-                  {item.symbol}{' '}
+                  {item.value}{' '}
                   <span className="text-muted-foreground">{item.label}</span>
                 </SelectItem>
               ))}

@@ -5,10 +5,11 @@ import { getCategoryBySlug, patternCategories } from '@/lib/patterns-catalog'
 import { getPatternsByNames } from '@/lib/patterns-utils'
 
 import { PatternCard } from '../components/pattern-card'
+import { PatternCategoryNav } from '../components/pattern-category-nav'
 import { PatternDetails } from '../components/pattern-details'
 import { PatternGrid } from '../components/pattern-grid'
 import { PatternRenderer } from '../components/pattern-renderer'
-import { PatternPreviewWrapper } from '../components/pattern-preview-wrapper'
+import { Footer } from '@/components/core/footer'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -30,9 +31,9 @@ export async function generateMetadata({
 
 export default async function PatternCategoryPage({
   params,
-}: {
+}: Readonly<{
   params: Promise<{ category: string }>
-}) {
+}>) {
   const { category: slug } = await params
   const category = getCategoryBySlug(slug)
   if (!category) notFound()
@@ -40,16 +41,17 @@ export default async function PatternCategoryPage({
   const items = getPatternsByNames(category.items.map((i) => i.slug))
 
   return (
-    <main className="container-page container-page-inner min-w-0">
-      <div className="flex flex-col gap-10 px-3 py-10 md:py-14">
-        <section className="max-w-xl">
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-            {category.name}
-          </h1>
-          <p className="text-muted-foreground mt-2">{category.description}</p>
-        </section>
+    <div>
+      <main className="container-page container-page-inner min-w-0">
+        <div className="flex flex-col gap-8 px-3 py-10">
+          <section className="max-w-xl">
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+              {category.name}
+            </h1>
+            <p className="text-muted-foreground mt-2">{category.description}</p>
+          </section>
 
-        <PatternPreviewWrapper>
+          <PatternCategoryNav />
           <PatternGrid>
             {items.map((item) => (
               <PatternCard
@@ -61,8 +63,9 @@ export default async function PatternCategoryPage({
               </PatternCard>
             ))}
           </PatternGrid>
-        </PatternPreviewWrapper>
-      </div>
-    </main>
+        </div>
+      </main>
+      <Footer />
+    </div>
   )
 }

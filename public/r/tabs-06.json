@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-06",
+  "title": "With icons",
+  "description": "Leading icons in each trigger via data-icon.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-06.tsx",
+      "content": "import { BarChart3Icon, BellIcon, UserIcon } from 'lucide-react'\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'\n\nexport function Tabs06() {\n  return (\n    <Tabs defaultValue=\"account\" className=\"w-full max-w-md\">\n      <TabsList>\n        <TabsTrigger value=\"account\">\n          <UserIcon data-icon=\"inline-start\" />\n          Account\n        </TabsTrigger>\n        <TabsTrigger value=\"notifications\">\n          <BellIcon data-icon=\"inline-start\" />\n          Notifications\n        </TabsTrigger>\n        <TabsTrigger value=\"analytics\">\n          <BarChart3Icon data-icon=\"inline-start\" />\n          Analytics\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"account\" className=\"w-full pt-4\">\n        <div className=\"bg-muted/40 flex w-full items-center gap-3 rounded-lg border px-3 py-3\">\n          <span className=\"bg-muted flex size-9 shrink-0 items-center justify-center rounded-full text-xs font-medium\">\n            JD\n          </span>\n          <div className=\"min-w-0\">\n            <p className=\"truncate text-sm font-medium\">Jane Doe</p>\n            <p className=\"text-muted-foreground truncate text-xs\">\n              jane@acme.co\n            </p>\n          </div>\n        </div>\n      </TabsContent>\n      <TabsContent value=\"notifications\" className=\"w-full pt-4\">\n        <ul className=\"w-full space-y-2\">\n          <li className=\"flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5\">\n            <span className=\"text-sm\">Product updates</span>\n            <span className=\"bg-primary size-4 rounded-full\" aria-hidden />\n          </li>\n          <li className=\"flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5\">\n            <span className=\"text-sm\">Comments</span>\n            <span className=\"bg-primary size-4 rounded-full\" aria-hidden />\n          </li>\n          <li className=\"flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5\">\n            <span className=\"text-sm\">Marketing</span>\n            <span className=\"bg-muted size-4 rounded-full\" aria-hidden />\n          </li>\n        </ul>\n      </TabsContent>\n      <TabsContent value=\"analytics\" className=\"w-full pt-4\">\n        <dl className=\"grid w-full grid-cols-2 gap-3\">\n          <div className=\"bg-muted/40 rounded-lg border px-3 py-3\">\n            <dt className=\"text-muted-foreground text-xs\">Views</dt>\n            <dd className=\"text-xl font-semibold tabular-nums\">2.4k</dd>\n          </div>\n          <div className=\"bg-muted/40 rounded-lg border px-3 py-3\">\n            <dt className=\"text-muted-foreground text-xs\">Conversion</dt>\n            <dd className=\"text-xl font-semibold tabular-nums\">3.8%</dd>\n          </div>\n        </dl>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-23",
+  "title": "Copy field",
+  "description": "ButtonGroupText value with a trailing copy button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-23.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon, CopyIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup, ButtonGroupText } from '@/components/ui/button-group'\n\nexport function Button23() {\n  const [copied, setCopied] = useState(false)\n  const value = 'ui.flexnative.com'\n\n  function handleCopy() {\n    navigator.clipboard.writeText(value)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <ButtonGroup>\n      <ButtonGroupText className=\"font-mono\">{value}</ButtonGroupText>\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        onClick={handleCopy}\n        aria-label=\"Copy token\"\n      >\n        {copied ? <CheckIcon className=\"text-emerald-500\" /> : <CopyIcon />}\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-23.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

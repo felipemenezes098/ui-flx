@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-06",
+  "title": "Icon only",
+  "description": "Square icon-only buttons in every icon size.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-06.tsx",
+      "content": "import { SettingsIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button06() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Button size=\"icon-xs\" variant=\"outline\" aria-label=\"Settings\">\n        <SettingsIcon />\n      </Button>\n      <Button size=\"icon-sm\" variant=\"outline\" aria-label=\"Settings\">\n        <SettingsIcon />\n      </Button>\n      <Button size=\"icon\" variant=\"outline\" aria-label=\"Settings\">\n        <SettingsIcon />\n      </Button>\n      <Button size=\"icon-lg\" variant=\"outline\" aria-label=\"Settings\">\n        <SettingsIcon />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

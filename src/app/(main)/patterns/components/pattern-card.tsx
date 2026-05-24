@@ -15,18 +15,18 @@ export function PatternCard({
   children,
   actions,
   className,
-}: PatternCardProps) {
+}: Readonly<PatternCardProps>) {
   return (
     <div
       className={cn(
-        'group border-border bg-card relative overflow-visible rounded-xl border',
+        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2',
         className,
       )}
     >
-      <div className="flex min-h-48 items-center justify-center overflow-visible p-8">
+      <div className="border-border bg-card flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border p-8">
         {children}
       </div>
-      <div className="border-border flex items-center justify-between border-t px-4 py-2.5">
+      <div className="flex items-center justify-between pr-0.5 pl-1.5">
         <span className="line-clamp-1 truncate text-sm font-medium">
           {item.title}
         </span>

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-05",
+  "title": "Disabled tab",
+  "description": "One trigger disabled while others stay interactive.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-05.tsx",
+      "content": "import {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs05() {\n  return (\n    <Tabs defaultValue=\"overview\" className=\"w-full max-w-md items-center\">\n      <TabsList>\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"activity\">Activity</TabsTrigger>\n        <TabsTrigger value=\"reports\" disabled>\n          Reports\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\" className=\"text-muted-foreground pt-2\">\n        Snapshot of your workspace.\n      </TabsContent>\n      <TabsContent value=\"activity\" className=\"text-muted-foreground pt-2\">\n        Latest events across your team.\n      </TabsContent>\n      <TabsContent value=\"reports\" className=\"text-muted-foreground pt-2\">\n        Reports unavailable on the current plan.\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

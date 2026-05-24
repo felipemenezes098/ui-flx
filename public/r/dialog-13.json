@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-13",
+  "title": "Type to confirm",
+  "description": "Type delete to enable destructive button.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button",
+    "input",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-13.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nimport { Field, FieldDescription, FieldLabel } from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nconst CONFIRM_TEXT = 'delete'\n\nexport function Dialog13() {\n  const [value, setValue] = useState('')\n  const canDelete = value === CONFIRM_TEXT\n\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"destructive\">Delete project</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Delete project</DialogTitle>\n          <DialogDescription>\n            This removes all files, comments, and history. Type{' '}\n            <span className=\"text-foreground font-mono font-medium\">\n              {CONFIRM_TEXT}\n            </span>{' '}\n            to confirm.\n          </DialogDescription>\n        </DialogHeader>\n        <Field>\n          <FieldLabel htmlFor=\"dialog-13-confirm\">Confirmation</FieldLabel>\n          <Input\n            id=\"dialog-13-confirm\"\n            value={value}\n            onChange={(e) => setValue(e.target.value)}\n            placeholder={CONFIRM_TEXT}\n            autoComplete=\"off\"\n          />\n          <FieldDescription>\n            The destructive action stays disabled until the text matches.\n          </FieldDescription>\n        </Field>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button variant=\"destructive\" disabled={!canDelete}>\n            Delete project\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

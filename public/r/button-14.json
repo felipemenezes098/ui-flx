@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-14",
+  "title": "Hover rotate refresh",
+  "description": "Refresh icon rotates 180° on hover.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-14.tsx",
+      "content": "import { RefreshCwIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button14() {\n  return (\n    <Button variant=\"outline\" className=\"group/refresh\">\n      <RefreshCwIcon\n        data-icon=\"inline-start\"\n        className=\"transition-transform duration-500 group-hover/refresh:rotate-180\"\n      />\n      Refresh\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

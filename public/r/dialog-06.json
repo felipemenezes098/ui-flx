@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-06",
+  "title": "Sticky header",
+  "description": "Header fixed; scrollable changelog-style body.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-06.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nconst releases = [\n  {\n    version: '2.4.0',\n    date: 'May 12',\n    tag: 'Latest',\n    highlights: ['Pattern gallery filters', 'Registry sync improvements'],\n  },\n  {\n    version: '2.3.2',\n    date: 'Apr 28',\n    highlights: ['Tabs pattern pack', 'Dark mode contrast fixes'],\n  },\n  {\n    version: '2.3.0',\n    date: 'Apr 10',\n    highlights: ['Input OTP component', 'Dialog pattern examples'],\n  },\n  {\n    version: '2.2.1',\n    date: 'Mar 22',\n    highlights: ['Button group variants', 'Select avatar triggers'],\n  },\n  {\n    version: '2.2.0',\n    date: 'Mar 1',\n    highlights: ['New blocks registry', 'Preview performance'],\n  },\n]\n\nexport function Dialog06() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">View changelog</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Release notes</DialogTitle>\n          <DialogDescription>\n            Header stays visible while you scroll through recent updates.\n          </DialogDescription>\n        </DialogHeader>\n        <div className=\"-mx-4 max-h-[50vh] overflow-y-auto px-4\">\n          <div className=\"relative flex flex-col gap-0 pb-2\">\n            <div\n              className=\"bg-border absolute top-2 bottom-2 left-[11px] w-px\"\n              aria-hidden\n            />\n            {releases.map((release) => (\n              <div key={release.version} className=\"relative flex gap-4 py-3\">\n                <div className=\"bg-background relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full border\">\n                  <span className=\"bg-primary size-2 rounded-full\" />\n                </div>\n                <div className=\"flex min-w-0 flex-1 flex-col gap-2\">\n                  <div className=\"flex flex-wrap items-center gap-2\">\n                    <span className=\"text-sm font-medium\">{release.version}</span>\n                    <span className=\"text-muted-foreground text-xs\">\n                      {release.date}\n                    </span>\n                    {release.tag ? (\n                      <Badge variant=\"secondary\" className=\"h-5 px-1.5 text-xs\">\n                        {release.tag}\n                      </Badge>\n                    ) : null}\n                  </div>\n                  <ul className=\"flex flex-col gap-1\">\n                    {release.highlights.map((item) => (\n                      <li\n                        key={item}\n                        className=\"text-muted-foreground text-sm leading-relaxed\"\n                      >\n                        {item}\n                      </li>\n                    ))}\n                  </ul>\n                </div>\n              </div>\n            ))}\n          </div>\n        </div>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,4 +1,4 @@
-'use client'
+import { CircleAlertIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -12,24 +12,32 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 
-export default function Dialog01() {
+export function Dialog01() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Open dialog</Button>
+        <Button variant="outline">Publish changes</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Confirm action</DialogTitle>
-          <DialogDescription>
-            Are you sure you want to continue? This action cannot be undone.
-          </DialogDescription>
+          <div className="flex flex-col gap-3">
+            <div className="bg-muted flex size-10 items-center justify-center rounded-full">
+              <CircleAlertIcon />
+            </div>
+            <div className="flex flex-col gap-2">
+              <DialogTitle>Publish changes?</DialogTitle>
+              <DialogDescription>
+                Your draft will go live for all workspace members. You can
+                revert within 30 days from version history.
+              </DialogDescription>
+            </div>
+          </div>
         </DialogHeader>
         <DialogFooter>
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button>Confirm</Button>
+          <Button>Publish</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

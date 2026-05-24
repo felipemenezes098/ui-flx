@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { Footer } from '@/components/core/footer'
-import { patternCategories, PatternCategory } from '@/lib/patterns-catalog'
+import { patternCategories } from '@/lib/patterns-catalog'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -35,32 +34,23 @@ export default function PatternsPage() {
         </section>
 
         <section>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {patternCategories
               .toSorted((a, b) => a.name.localeCompare(b.name))
               .map((category) => (
                 <Link
                   key={category.slug}
                   href={`/patterns/${category.slug}`}
-                  className="group flex flex-col gap-2.5"
+                  className="group"
                 >
-                  <div className="border-border bg-muted relative aspect-square overflow-hidden rounded-xl border">
-                    <Image
-                      src={category.image.light}
-                      alt={category.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:hidden"
-                    />
-                    <Image
-                      src={category.image.dark}
-                      alt={category.name}
-                      fill
-                      className="hidden object-cover transition-transform duration-500 group-hover:scale-[1.04] dark:block"
-                    />
+                  <div className="bg-card/50 border-border flex flex-col gap-3 rounded-xl border p-3">
+                    <div className="border-border bg-muted/40 relative aspect-square overflow-hidden rounded-lg border transition-transform duration-200 ease-out group-hover:-translate-y-0.5">
+                      <category.preview />
+                    </div>
+                    <span className="text-foreground px-0.5 text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
+                      {category.name}
+                    </span>
                   </div>
-                  <span className="text-foreground text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
-                    {category.name}
-                  </span>
                 </Link>
               ))}
           </div>

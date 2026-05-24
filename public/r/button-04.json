@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-04",
+  "title": "With leading icon",
+  "description": "Icon before the label via data-icon=\"inline-start\".",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-04.tsx",
+      "content": "import { PlusIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button04() {\n  return (\n    <Button variant=\"outline\">\n      <PlusIcon data-icon=\"inline-start\" />\n      New project\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

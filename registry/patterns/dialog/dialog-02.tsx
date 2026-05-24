@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -11,10 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 
-export default function Dialog02() {
+export function Dialog02() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,19 +22,20 @@ export default function Dialog02() {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Update your display name and username below.
+            Update your display name and username. Changes apply across the
+            workspace.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-2">
-          <div className="flex flex-col gap-1.5">
-            <Label htmlFor="name">Display name</Label>
-            <Input id="name" defaultValue="John Doe" />
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <Label htmlFor="username">Username</Label>
-            <Input id="username" defaultValue="@johndoe" />
-          </div>
-        </div>
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="dialog-02-name">Display name</FieldLabel>
+            <Input id="dialog-02-name" defaultValue="Felipe Menezes" />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="dialog-02-username">Username</FieldLabel>
+            <Input id="dialog-02-username" defaultValue="fmenezes_" />
+          </Field>
+        </FieldGroup>
         <DialogFooter>
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>

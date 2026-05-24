@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/input/input-01.tsx",
-      "content": "import { Input } from '@/components/ui/input'\n\nexport function Input01() {\n  return <Input placeholder=\"Shadcn\" className=\"w-sm\" />\n}\n",
+      "content": "import { Input } from '@/components/ui/input'\n\nexport function Input01() {\n  return <Input placeholder=\"Shadcn\" className=\"max-w-sm\" />\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/input/input-01.tsx"
     }
