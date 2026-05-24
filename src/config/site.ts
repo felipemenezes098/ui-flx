@@ -4,9 +4,9 @@ export const siteConfig = {
   codeName: 'flx',
   url: 'https://ui.flexnative.com',
   ogImage: 'https://ui.flexnative.com/og.png',
-  title: 'UI blocks for consistent interfaces',
+  title: 'UI Blocks & Patterns',
   description:
-    'Beautifully designed, reusable UI blocks with clear structure. Built for consistent, scalable interfaces. Made to be customized and owned.',
+    'Copy-paste sections and components built on shadcn/ui and Tailwind CSS. Designed to be extended and owned.',
   author: 'Felipe Menezes',
   links: {
     twitter: 'https://x.com/fmenezes_',

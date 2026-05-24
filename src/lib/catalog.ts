@@ -1,9 +1,22 @@
+import type { ComponentType } from 'react'
+
 import type {
   BlockCategory,
   BlockImage,
   BlockItem,
   BlockManifest,
 } from '@/lib/block-manifest-types'
+
+import {
+  HeroConcept,
+  ContentConcept,
+  CarouselConcept,
+  ShowcaseConcept,
+  BentoGridConcept,
+  LogosConcept,
+  TestimonialsConcept,
+  ScrollConcept,
+} from '@/lib/block-concepts'
 
 import { manifest as backgroundMediaManifest } from 'registry/blocks/hero/background-media/manifest'
 import { manifest as textBadgesManifest } from 'registry/blocks/hero/text-badges/manifest'
@@ -40,6 +53,7 @@ interface CategoryRow {
   type: string
   hasNew?: boolean
   image: BlockImage
+  concept: ComponentType
   blocks: BlockManifest[]
 }
 
@@ -50,6 +64,7 @@ export const categories: CategoryRow[] = [
     description: 'Components to display information in a hero section.',
     type: 'hero',
     image: textBadgesManifest.image,
+    concept: HeroConcept,
     blocks: [
       backgroundMediaManifest,
       heroLogosCarouselManifest,
@@ -65,6 +80,7 @@ export const categories: CategoryRow[] = [
       'Content components to display information in an organized way.',
     type: 'content',
     image: tabsMediaManifest.image,
+    concept: ContentConcept,
     blocks: [
       selectRevealMediaManifest,
       gridMediaCardsManifest,
@@ -88,6 +104,7 @@ export const categories: CategoryRow[] = [
     description: 'A carousel that pauses on item hover and reveals title.',
     type: 'carousel',
     image: carouselFocusManifest.image,
+    concept: CarouselConcept,
     blocks: [
       carouselFocusManifest,
       carouselMediaManifest,
@@ -100,6 +117,7 @@ export const categories: CategoryRow[] = [
     description: 'Showcase components to display information.',
     type: 'showcase',
     image: showcaseGridMediaCardsManifest.image,
+    concept: ShowcaseConcept,
     blocks: [showcaseGridMediaCardsManifest],
   },
   {
@@ -109,6 +127,7 @@ export const categories: CategoryRow[] = [
       'Bento-style grids with a prominent primary tile and supporting cards.',
     type: 'bento-grids',
     image: primaryItemGridManifest.image,
+    concept: BentoGridConcept,
     blocks: [primaryItemGridManifest],
   },
   {
@@ -117,6 +136,7 @@ export const categories: CategoryRow[] = [
     description: 'Minimalist logo carousels with auto-scroll and edge fade.',
     type: 'logos',
     image: logoMarqueeManifest.image,
+    concept: LogosConcept,
     blocks: [logoMarqueeManifest],
   },
   {
@@ -125,6 +145,7 @@ export const categories: CategoryRow[] = [
     description: 'Minimal testimonial blocks for concise social proof.',
     type: 'testimonials',
     image: singleTestimonialManifest.image,
+    concept: TestimonialsConcept,
     blocks: [singleTestimonialManifest],
   },
   {
@@ -134,6 +155,7 @@ export const categories: CategoryRow[] = [
     type: 'scroll',
     hasNew: true,
     image: stickyScrollMediaManifest.image,
+    concept: ScrollConcept,
     blocks: [stickyScrollMediaManifest],
   },
 ]
@@ -150,6 +172,23 @@ function manifestToBlockItem(m: BlockManifest): BlockItem {
     meta: m.meta,
   }
 }
+
+export type BlockCategoryWithConcept = BlockCategory & {
+  concept: ComponentType
+}
+
+export const blockCategories: BlockCategoryWithConcept[] = categories.map(
+  (cat) => ({
+    slug: cat.slug,
+    category: cat.category,
+    description: cat.description,
+    type: cat.type,
+    hasNew: cat.hasNew,
+    image: cat.image,
+    concept: cat.concept,
+    blocks: cat.blocks.map(manifestToBlockItem),
+  }),
+)
 
 export const blocks: BlockCategory[] = categories.map((cat) => ({
   slug: cat.slug,

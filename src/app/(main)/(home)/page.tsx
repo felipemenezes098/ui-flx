@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Footer } from '@/components/core/footer'
 import { siteConfig } from '@/config/site'
 
-import { BlocksPreview } from './components/blocks-preview'
+import { HomePreview } from './components/blocks-preview'
 import { HeroSection } from './components/hero-section'
 
 export const dynamic = 'force-static'
@@ -33,7 +33,7 @@ export default function HomePage() {
           <HeroSection />
         </section>
         <section>
-          <BlocksPreview />
+          <HomePreview />
         </section>
       </div>
       <Footer />
