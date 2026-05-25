@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-04",
+  "title": "With Icons",
+  "description": "Options with leading icons.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-04.tsx",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\nimport {\n  CircleIcon,\n  TriangleAlertIcon,\n  CheckCircleIcon,\n  XCircleIcon,\n  ClockIcon,\n} from 'lucide-react'\n\nconst items = [\n  {\n    value: 'none',\n    label: 'None',\n    icon: CircleIcon,\n  },\n\n  {\n    value: 'low',\n    label: 'Low',\n    icon: ClockIcon,\n  },\n  {\n    value: 'medium',\n    label: 'Medium',\n    icon: TriangleAlertIcon,\n  },\n  {\n    value: 'high',\n    label: 'High',\n    icon: XCircleIcon,\n  },\n  {\n    value: 'done',\n    label: 'Done',\n    icon: CheckCircleIcon,\n  },\n]\n\nexport function Select04() {\n  return (\n    <Select defaultValue=\"done\">\n      <SelectTrigger className=\"w-full max-w-56\">\n        <SelectValue placeholder=\"Select a priority\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          {items.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              <item.icon className=\"size-3.5\" />\n              <span>{item.label}</span>\n            </SelectItem>\n          ))}\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

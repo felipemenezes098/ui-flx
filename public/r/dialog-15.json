@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-15",
+  "title": "Choose image",
+  "description": "Thumbnail grid with selection ring.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-15.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nimport { cn } from '@/lib/utils'\n\nconst images = [\n  {\n    id: '1',\n    src: 'https://images.unsplash.com/photo-1635746065098-a0ae3eadfa6f?q=80&w=400&auto=format&fit=crop',\n    alt: 'Gradient abstract',\n  },\n  {\n    id: '2',\n    src: 'https://images.unsplash.com/photo-1530912780732-0d2507ded3e8?q=80&w=400&auto=format&fit=crop',\n    alt: 'Soft shapes',\n  },\n  {\n    id: '3',\n    src: 'https://images.unsplash.com/photo-1719448683263-8424028681f2?q=80&w=400&auto=format&fit=crop',\n    alt: 'Blue waves',\n  },\n  {\n    id: '4',\n    src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop',\n    alt: 'Purple flow',\n  },\n  {\n    id: '5',\n    src: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=400&auto=format&fit=crop',\n    alt: 'Color mesh',\n  },\n  {\n    id: '6',\n    src: 'https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=400&auto=format&fit=crop',\n    alt: 'Warm gradient',\n  },\n]\n\nexport function Dialog15() {\n  const [selected, setSelected] = useState(images[0].id)\n\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Choose cover</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Choose image</DialogTitle>\n          <DialogDescription>\n            Pick a cover image for your project page.\n          </DialogDescription>\n        </DialogHeader>\n        <div className=\"grid grid-cols-3 gap-2\">\n          {images.map((image) => (\n            <button\n              key={image.id}\n              type=\"button\"\n              onClick={() => setSelected(image.id)}\n              className={cn(\n                'focus-visible:ring-ring relative aspect-square overflow-hidden rounded-lg border-2 focus-visible:ring-2 focus-visible:outline-none',\n                selected === image.id\n                  ? 'border-primary ring-primary/20 ring-2'\n                  : 'border-transparent',\n              )}\n            >\n              <img\n                src={image.src}\n                alt={image.alt}\n                className=\"size-full object-cover\"\n              />\n            </button>\n          ))}\n        </div>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button>Choose</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-15.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

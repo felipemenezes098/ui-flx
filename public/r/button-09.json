@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-09",
+  "title": "As link",
+  "description": "asChild renders the button as an anchor tag.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-09.tsx",
+      "content": "import { ExternalLinkIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button09() {\n  return (\n    <Button asChild variant=\"link\">\n      <a href=\"https://ui.shadcn.com\" target=\"_blank\" rel=\"noreferrer\">\n        Read the docs\n        <ExternalLinkIcon data-icon=\"inline-end\" />\n      </a>\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

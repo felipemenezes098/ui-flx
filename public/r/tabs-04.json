@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-04",
+  "title": "Vertical line",
+  "description": "Vertical orientation with line variant — sidebar nav.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-04.tsx",
+      "content": "import {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs04() {\n  return (\n    <Tabs\n      defaultValue=\"profile\"\n      orientation=\"vertical\"\n      className=\"w-full max-w-md\"\n    >\n      <TabsList variant=\"line\">\n        <TabsTrigger value=\"profile\">Profile</TabsTrigger>\n        <TabsTrigger value=\"billing\">Billing</TabsTrigger>\n        <TabsTrigger value=\"team\">Team</TabsTrigger>\n        <TabsTrigger value=\"security\">Security</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"profile\" className=\"text-muted-foreground px-4\">\n        Update your personal details and avatar.\n      </TabsContent>\n      <TabsContent value=\"billing\" className=\"text-muted-foreground px-4\">\n        Manage invoices and payment methods.\n      </TabsContent>\n      <TabsContent value=\"team\" className=\"text-muted-foreground px-4\">\n        Invite members and assign roles.\n      </TabsContent>\n      <TabsContent value=\"security\" className=\"text-muted-foreground px-4\">\n        Configure two-factor authentication.\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

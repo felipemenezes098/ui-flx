@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import type { PresetId } from 'registry/presets/presets-config'
+import type { PresetId } from '@/lib/presets-config'
 import { getBlockBySlug } from '@/lib/catalog'
 import {
   FALLBACK_PRESET,
@@ -56,7 +56,7 @@ export function BlockLiveEditorRoot({
   presetRef.current = preset
 
   React.useLayoutEffect(() => {
-    const stored = readPresetFromStorage()
+    const stored = readPresetFromStorage('blocks')
     if (stored) {
       setPresetState(stored)
       presetRef.current = stored
@@ -86,7 +86,7 @@ export function BlockLiveEditorRoot({
   function setPreset(next: PresetId) {
     setPresetState(next)
     presetRef.current = next
-    writePresetToStorage(next)
+    writePresetToStorage('blocks', next)
     broadcast()
   }
 

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-16",
+  "title": "Basic group",
+  "description": "Horizontal ButtonGroup with merged borders.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-16.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\n\nexport function Button16() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"outline\">Day</Button>\n      <Button variant=\"outline\">Week</Button>\n      <Button variant=\"outline\">Month</Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-16.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

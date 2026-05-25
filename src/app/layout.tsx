@@ -107,10 +107,10 @@ export default function RootLayout({
               </UIProvider>
             </ThemeProvider>
           </QueryProvider>
-          <Toaster />
           <Analytics />
           <SpeedInsights />
         </TooltipProvider>
+        <Toaster />
       </body>
     </html>
   )

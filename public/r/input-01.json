@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-01",
+  "title": "Basic",
+  "description": "Basic input with placeholder.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-01.tsx",
+      "content": "import { Input } from '@/components/ui/input'\n\nexport function Input01() {\n  return <Input placeholder=\"Shadcn\" className=\"max-w-sm\" />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

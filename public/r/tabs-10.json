@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-10",
+  "title": "Icon with title",
+  "description": "Icon stacked above the title in each trigger, with a visual panel below.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-10.tsx",
+      "content": "import { LayersIcon, PaletteIcon, RocketIcon } from 'lucide-react'\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'\n\nexport function Tabs10() {\n  return (\n    <Tabs defaultValue=\"build\" className=\"w-full max-w-sm\">\n      <TabsList variant=\"line\" className=\"mb-2.5 h-auto w-full gap-0 p-0\">\n        <TabsTrigger\n          value=\"design\"\n          className=\"h-auto min-w-0 flex-1 flex-col gap-1.5 px-2 py-2.5\"\n        >\n          <PaletteIcon className=\"size-4 shrink-0\" />\n          <span className=\"text-xs font-medium\">Design</span>\n        </TabsTrigger>\n        <TabsTrigger\n          value=\"build\"\n          className=\"h-auto min-w-0 flex-1 flex-col gap-1.5 px-2 py-2.5\"\n        >\n          <LayersIcon className=\"size-4 shrink-0\" />\n          <span className=\"text-xs font-medium\">Build</span>\n        </TabsTrigger>\n        <TabsTrigger\n          value=\"ship\"\n          className=\"h-auto min-w-0 flex-1 flex-col gap-1.5 px-2 py-2.5\"\n        >\n          <RocketIcon className=\"size-4 shrink-0\" />\n          <span className=\"text-xs font-medium\">Ship</span>\n        </TabsTrigger>\n      </TabsList>\n\n      <TabsContent value=\"design\" className=\"w-full pt-4\">\n        <div className=\"w-full space-y-3\">\n          <div className=\"grid grid-cols-4 gap-2\">\n            <div className=\"bg-primary h-9 rounded-md\" />\n            <div className=\"bg-muted h-9 rounded-md\" />\n            <div className=\"bg-accent h-9 rounded-md\" />\n            <div className=\"bg-secondary h-9 rounded-md\" />\n          </div>\n          <div className=\"space-y-2\">\n            <div className=\"bg-muted/70 h-2.5 w-full rounded-full\" />\n            <div className=\"bg-muted/50 h-2 w-4/5 rounded-full\" />\n            <div className=\"bg-muted/35 h-2 w-3/5 rounded-full\" />\n          </div>\n        </div>\n      </TabsContent>\n\n      <TabsContent value=\"build\" className=\"w-full pt-4\">\n        <div className=\"w-full space-y-2\">\n          <div className=\"bg-muted/60 h-14 w-full rounded-lg border\" />\n          <div className=\"bg-muted/40 h-10 w-[85%] rounded-lg border\" />\n          <div className=\"bg-muted/25 h-8 w-[65%] rounded-lg border\" />\n        </div>\n      </TabsContent>\n\n      <TabsContent value=\"ship\" className=\"w-full pt-4\">\n        <div className=\"w-full space-y-2\">\n          <div className=\"bg-muted/50 flex h-24 w-full flex-col gap-2 rounded-lg border p-2\">\n            <div className=\"flex gap-1.5\">\n              <span className=\"bg-muted size-2 rounded-full\" />\n              <span className=\"bg-muted size-2 rounded-full\" />\n              <span className=\"bg-muted size-2 rounded-full\" />\n            </div>\n            <div className=\"bg-background flex-1 rounded-md border\" />\n          </div>\n          <div className=\"grid grid-cols-2 gap-2\">\n            <div className=\"bg-muted/40 h-9 rounded-md border\" />\n            <div className=\"bg-muted/40 h-9 rounded-md border\" />\n          </div>\n        </div>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-07",
+  "title": "With count badges",
+  "description": "Trigger labels paired with secondary count badges.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-07.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs07() {\n  return (\n    <Tabs defaultValue=\"inbox\" className=\"w-full max-w-md\">\n      <TabsList variant=\"line\">\n        <TabsTrigger value=\"inbox\">\n          Inbox\n          <Badge variant=\"secondary\">12</Badge>\n        </TabsTrigger>\n        <TabsTrigger value=\"drafts\">\n          Drafts\n          <Badge variant=\"secondary\">3</Badge>\n        </TabsTrigger>\n        <TabsTrigger value=\"archive\">Archive</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"inbox\" className=\"w-full pt-4\">\n        <ul className=\"divide-border/60 w-full divide-y rounded-lg border\">\n          <li className=\"flex items-center gap-3 px-3 py-2.5 first:rounded-t-lg\">\n            <span className=\"bg-primary size-2 shrink-0 rounded-full\" aria-hidden />\n            <span className=\"truncate text-sm font-medium\">\n              Q2 roadmap review\n            </span>\n          </li>\n          <li className=\"flex items-center gap-3 px-3 py-2.5\">\n            <span className=\"bg-primary size-2 shrink-0 rounded-full\" aria-hidden />\n            <span className=\"truncate text-sm font-medium\">\n              Design system handoff\n            </span>\n          </li>\n          <li className=\"flex items-center gap-3 px-3 py-2.5 last:rounded-b-lg\">\n            <span className=\"size-2 shrink-0 rounded-full\" aria-hidden />\n            <span className=\"text-muted-foreground truncate text-sm\">\n              Invoice #1042\n            </span>\n          </li>\n        </ul>\n      </TabsContent>\n      <TabsContent value=\"drafts\" className=\"w-full pt-4\">\n        <ul className=\"w-full space-y-2\">\n          <li className=\"text-muted-foreground rounded-lg border border-dashed px-3 py-2.5 text-sm\">\n            Weekly update\n          </li>\n          <li className=\"text-muted-foreground rounded-lg border border-dashed px-3 py-2.5 text-sm\">\n            Partnership intro\n          </li>\n        </ul>\n      </TabsContent>\n      <TabsContent value=\"archive\" className=\"w-full pt-4\">\n        <div className=\"text-muted-foreground w-full rounded-lg border border-dashed px-4 py-8\">\n          <p className=\"text-sm font-medium text-foreground\">All caught up</p>\n          <p className=\"text-xs\">Archived threads appear here.</p>\n        </div>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

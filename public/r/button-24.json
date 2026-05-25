@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-24",
+  "title": "Group with disabled",
+  "description": "ButtonGroup with one disabled step.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-24.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\n\nexport function Button24() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"outline\">Draft</Button>\n      <Button variant=\"outline\">Review</Button>\n      <Button variant=\"outline\" disabled>\n        Publish\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-24.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

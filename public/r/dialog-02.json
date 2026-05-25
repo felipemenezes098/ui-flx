@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-02",
+  "title": "Edit profile",
+  "description": "FieldGroup form with Save and Cancel footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button",
+    "input",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-02.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nimport { Field, FieldGroup, FieldLabel } from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nexport function Dialog02() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Edit profile</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Edit profile</DialogTitle>\n          <DialogDescription>\n            Update your display name and username. Changes apply across the\n            workspace.\n          </DialogDescription>\n        </DialogHeader>\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"dialog-02-name\">Display name</FieldLabel>\n            <Input id=\"dialog-02-name\" defaultValue=\"Felipe Menezes\" />\n          </Field>\n          <Field>\n            <FieldLabel htmlFor=\"dialog-02-username\">Username</FieldLabel>\n            <Input id=\"dialog-02-username\" defaultValue=\"fmenezes_\" />\n          </Field>\n        </FieldGroup>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button type=\"submit\">Save changes</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

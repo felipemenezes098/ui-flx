@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-13",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires Input; Zod onSubmit validator surfaces FieldError when touched.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "input",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-13.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nconst formSchema = z.object({\n  displayName: z.string().min(1, 'Enter a display name.'),\n})\n\nexport function Input13() {\n  const form = useForm({\n    defaultValues: {\n      displayName: '',\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      toast.success('Submitted', {\n        description: value.displayName,\n      })\n    },\n  })\n\n  return (\n    <form\n      id=\"input-tanstack-form\"\n      onSubmit={(e) => {\n        e.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <FieldGroup>\n        <form.Field name=\"displayName\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n\n            return (\n              <Field data-invalid={isInvalid}>\n                <FieldLabel htmlFor={field.name}>Display name</FieldLabel>\n                <Input\n                  id={field.name}\n                  name={field.name}\n                  value={field.state.value}\n                  onBlur={field.handleBlur}\n                  onChange={(e) => field.handleChange(e.target.value)}\n                  placeholder=\"Enter your name\"\n                  aria-invalid={isInvalid}\n                />\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </Field>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

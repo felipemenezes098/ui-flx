@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-14",
+  "title": "Pricing toggle",
+  "description": "Monthly versus yearly billing toggle swaps the price.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-14.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs14() {\n  return (\n    <Tabs defaultValue=\"yearly\" className=\"w-full max-w-sm items-center gap-6\">\n      <TabsList className=\"w-full\">\n        <TabsTrigger value=\"monthly\">Monthly</TabsTrigger>\n        <TabsTrigger value=\"yearly\">\n          Yearly\n          <Badge variant=\"secondary\">−20%</Badge>\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"monthly\" className=\"text-center\">\n        <div className=\"flex items-baseline justify-center gap-1\">\n          <span className=\"text-3xl font-semibold\">$12</span>\n          <span className=\"text-muted-foreground text-sm\">/ month</span>\n        </div>\n        <p className=\"text-muted-foreground mt-1 text-sm\">\n          Billed monthly. Cancel anytime.\n        </p>\n      </TabsContent>\n      <TabsContent value=\"yearly\" className=\"text-center\">\n        <div className=\"flex items-baseline justify-center gap-1\">\n          <span className=\"text-3xl font-semibold\">$115</span>\n          <span className=\"text-muted-foreground text-sm\">/ year</span>\n        </div>\n        <p className=\"text-muted-foreground mt-1 text-sm\">\n          Two months free vs monthly billing.\n        </p>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

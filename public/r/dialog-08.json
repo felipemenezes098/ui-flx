@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-08",
+  "title": "Verify code (OTP)",
+  "description": "6-digit InputOTP with separator; Verify footer.",
+  "dependencies": [
+    "input-otp"
+  ],
+  "registryDependencies": [
+    "dialog",
+    "button",
+    "input-otp",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-08.tsx",
+      "content": "import { REGEXP_ONLY_DIGITS } from 'input-otp'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nimport { Field, FieldDescription, FieldLabel } from '@/components/ui/field'\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from '@/components/ui/input-otp'\n\nexport function Dialog08() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Verify email</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-sm\">\n        <DialogHeader className=\"text-center sm:text-center\">\n          <DialogTitle>Check your email</DialogTitle>\n          <DialogDescription>\n            We sent a 6-digit code to{' '}\n            <span className=\"text-foreground font-medium\">j•••@example.com</span>\n          </DialogDescription>\n        </DialogHeader>\n        <Field className=\"items-center gap-4\">\n          <FieldLabel htmlFor=\"dialog-08-otp\" className=\"sr-only\">\n            Verification code\n          </FieldLabel>\n          <InputOTP\n            id=\"dialog-08-otp\"\n            maxLength={6}\n            pattern={REGEXP_ONLY_DIGITS}\n            containerClassName=\"justify-center\"\n          >\n            <InputOTPGroup>\n              <InputOTPSlot index={0} />\n              <InputOTPSlot index={1} />\n              <InputOTPSlot index={2} />\n            </InputOTPGroup>\n            <InputOTPSeparator />\n            <InputOTPGroup>\n              <InputOTPSlot index={3} />\n              <InputOTPSlot index={4} />\n              <InputOTPSlot index={5} />\n            </InputOTPGroup>\n          </InputOTP>\n          <FieldDescription className=\"text-center\">\n            <button\n              type=\"button\"\n              className=\"text-foreground underline underline-offset-4 hover:no-underline\"\n            >\n              Resend code\n            </button>\n            <span className=\"text-muted-foreground\"> · expires in 10 min</span>\n          </FieldDescription>\n        </Field>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button>Verify</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

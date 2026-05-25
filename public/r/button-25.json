@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-25",
+  "title": "Destructive pair",
+  "description": "Cancel + Delete spaced action pair.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-25.tsx",
+      "content": "import { Trash2Icon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button25() {\n  return (\n    <div className=\"flex items-center gap-2\">\n      <Button variant=\"outline\">Cancel</Button>\n      <Button variant=\"destructive\">\n        <Trash2Icon data-icon=\"inline-start\" />\n        Delete\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-25.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

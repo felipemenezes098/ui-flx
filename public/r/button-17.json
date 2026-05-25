@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-17",
+  "title": "Vertical group",
+  "description": "Stacked ButtonGroup via orientation=\"vertical\".",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-17.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\n\nexport function Button17() {\n  return (\n    <ButtonGroup orientation=\"vertical\">\n      <Button variant=\"outline\">Profile</Button>\n      <Button variant=\"outline\">Billing</Button>\n      <Button variant=\"outline\">Team</Button>\n      <Button variant=\"outline\">Settings</Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-17.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

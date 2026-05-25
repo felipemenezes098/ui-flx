@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-07",
+  "title": "Disabled",
+  "description": "Disabled state across variants.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-07.tsx",
+      "content": "import { Button } from '@/components/ui/button'\n\nexport function Button07() {\n  return <Button disabled>Disabled</Button>\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

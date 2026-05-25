@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-13",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires Select; Zod onSubmit validator surfaces FieldError when touched.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "select",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-13.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst departments = [\n  { value: 'design', label: 'Design' },\n  { value: 'engineering', label: 'Engineering' },\n  { value: 'marketing', label: 'Marketing' },\n  { value: 'support', label: 'Support' },\n] as const\n\nconst formSchema = z.object({\n  department: z.string().min(1, 'Select a department.'),\n})\n\nexport function Select13() {\n  const form = useForm({\n    defaultValues: {\n      department: '',\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      const label = departments.find(\n        (item) => item.value === value.department,\n      )?.label\n      toast.success('Submitted', {\n        description: label ?? value.department,\n      })\n    },\n  })\n\n  return (\n    <form\n      id=\"select-tanstack-form\"\n      onSubmit={(e) => {\n        e.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <FieldGroup>\n        <form.Field name=\"department\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n\n            return (\n              <Field data-invalid={isInvalid}>\n                <FieldLabel htmlFor={field.name}>Department</FieldLabel>\n                <Select\n                  value={field.state.value}\n                  onValueChange={(value) => {\n                    field.handleChange(value)\n                    field.handleBlur()\n                  }}\n                >\n                  <SelectTrigger\n                    id={field.name}\n                    className=\"w-full\"\n                    aria-invalid={isInvalid}\n                  >\n                    <SelectValue placeholder=\"Select department\" />\n                  </SelectTrigger>\n                  <SelectContent>\n                    <SelectGroup>\n                      {departments.map((item) => (\n                        <SelectItem key={item.value} value={item.value}>\n                          {item.label}\n                        </SelectItem>\n                      ))}\n                    </SelectGroup>\n                  </SelectContent>\n                </Select>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </Field>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

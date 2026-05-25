@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-26",
+  "title": "With select",
+  "description": "ButtonGroup pairs a sort Select with a direction toggle button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-26.tsx",
+      "content": "import { ArrowDownUpIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Button26() {\n  return (\n    <ButtonGroup>\n      <Select defaultValue=\"newest\">\n        <SelectTrigger>\n          <SelectValue />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectGroup>\n            <SelectItem value=\"newest\">Newest</SelectItem>\n            <SelectItem value=\"oldest\">Oldest</SelectItem>\n            <SelectItem value=\"popular\">Most popular</SelectItem>\n            <SelectItem value=\"price-asc\">Price: low to high</SelectItem>\n          </SelectGroup>\n        </SelectContent>\n      </Select>\n      <Button variant=\"outline\" aria-label=\"Toggle sort direction\">\n        <ArrowDownUpIcon />\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-26.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-04",
+  "title": "With Addon in the end",
+  "description": "Input with trailing icon addon.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-04.tsx",
+      "content": "import { EyeOffIcon } from 'lucide-react'\r\n\r\nimport {\r\n  InputGroup,\r\n  InputGroupAddon,\r\n  InputGroupInput,\r\n} from '@/components/ui/input-group'\r\n\r\nexport function Input04() {\r\n  return (\r\n    <InputGroup>\r\n      <InputGroupInput type=\"password\" placeholder=\"Enter password\" />\r\n      <InputGroupAddon align=\"inline-end\">\r\n        <EyeOffIcon />\r\n      </InputGroupAddon>\r\n    </InputGroup>\r\n  )\r\n}\r\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

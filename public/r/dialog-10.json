@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-10",
+  "title": "Footer-only dismiss",
+  "description": "showCloseButton false; dismiss via footer only.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dialog/dialog-10.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\n\nexport function Dialog10() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Submit feedback</Button>\n      </DialogTrigger>\n      <DialogContent showCloseButton={false} className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle>Thanks for your feedback</DialogTitle>\n          <DialogDescription>\n            We read every response. Use the footer to dismiss — there is no\n            corner close button on this dialog.\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button className=\"w-full sm:w-auto\">Done</Button>\n          </DialogClose>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dialog/dialog-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

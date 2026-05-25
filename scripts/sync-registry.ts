@@ -1,9 +1,10 @@
 /**
- * Sync registry.json from catalog manifests.
+ * Sync registry.json metadata from catalog sources.
  *
- * Updates `title`, `description`, and `meta.iframeHeight` in registry.json
- * to match manifest data. Shadcn-specific fields (files, registryDependencies,
- * dependencies) are NOT modified — those remain manually maintained.
+ * Blocks: `title`, `description`, `meta.iframeHeight` from block manifests (catalog.ts).
+ * Patterns: `title`, `description` from patterns-catalog.ts.
+ *
+ * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified.
  *
  * Usage:
  *   npx tsx scripts/sync-registry.ts
@@ -13,6 +14,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { allManifests } from '../src/lib/catalog'
+import { allPatterns } from '../src/lib/patterns-catalog'
 
 const REGISTRY_PATH = path.resolve(process.cwd(), 'registry.json')
 const CHECK_ONLY = process.argv.includes('--check')
@@ -32,24 +34,48 @@ type Registry = {
   items: RegistryItem[]
 }
 
+type CatalogEntry = {
+  slug: string
+  name: string
+  description?: string
+  categoryLabel: string
+  meta?: { iframeHeight?: number }
+}
+
 const registry: Registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf-8'))
 
 let changed = false
 const issues: string[] = []
 
-for (const manifest of allManifests) {
-  const item = registry.items.find((i) => i.name === manifest.slug)
+const catalogEntries: CatalogEntry[] = [
+  ...allManifests.map((manifest) => ({
+    slug: manifest.slug,
+    name: manifest.name,
+    description: manifest.description,
+    categoryLabel: manifest.category,
+    meta: manifest.meta,
+  })),
+  ...allPatterns.map((pattern) => ({
+    slug: pattern.slug,
+    name: pattern.name,
+    description: pattern.description,
+    categoryLabel: pattern.categorySlug,
+  })),
+]
+
+function syncEntry(entry: CatalogEntry) {
+  const item = registry.items.find((i) => i.name === entry.slug)
 
   if (!item) {
     issues.push(
-      `  MISSING in registry.json: "${manifest.slug}" (category: ${manifest.category})`,
+      `  MISSING in registry.json: "${entry.slug}" (category: ${entry.categoryLabel})`,
     )
-    continue
+    return
   }
 
-  const expectedTitle = manifest.name
-  const expectedDescription = manifest.description
-  const expectedIframeHeight = manifest.meta?.iframeHeight
+  const expectedTitle = entry.name
+  const expectedDescription = entry.description ?? ''
+  const expectedIframeHeight = entry.meta?.iframeHeight
 
   if (
     item.title !== expectedTitle ||
@@ -58,15 +84,15 @@ for (const manifest of allManifests) {
       item.meta?.iframeHeight !== expectedIframeHeight)
   ) {
     if (CHECK_ONLY) {
-      issues.push(`  OUT OF SYNC: "${manifest.slug}"`)
+      issues.push(`  OUT OF SYNC: "${entry.slug}"`)
       if (item.title !== expectedTitle) {
         issues.push(
-          `    title: registry="${item.title}" manifest="${expectedTitle}"`,
+          `    title: registry="${item.title}" catalog="${expectedTitle}"`,
         )
       }
       if (item.description !== expectedDescription) {
         issues.push(
-          `    description: registry="${item.description}" manifest="${expectedDescription}"`,
+          `    description: registry="${item.description}" catalog="${expectedDescription}"`,
         )
       }
       if (
@@ -74,7 +100,7 @@ for (const manifest of allManifests) {
         item.meta?.iframeHeight !== expectedIframeHeight
       ) {
         issues.push(
-          `    meta.iframeHeight: registry=${item.meta?.iframeHeight} manifest=${expectedIframeHeight}`,
+          `    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`,
         )
       }
     } else {
@@ -84,22 +110,15 @@ for (const manifest of allManifests) {
         item.meta = { ...(item.meta ?? {}), iframeHeight: expectedIframeHeight }
       }
       changed = true
-      console.log(`  Updated: ${manifest.slug}`)
+      console.log(`  Updated: ${entry.slug}`)
     }
   }
 }
 
-// Check for manifest slugs not in registry.json
-const registryNames = new Set(registry.items.map((i) => i.name))
-for (const manifest of allManifests) {
-  if (!registryNames.has(manifest.slug)) {
-    issues.push(
-      `  MISSING in registry.json: "${manifest.slug}" — add it manually with files/deps.`,
-    )
-  }
+for (const entry of catalogEntries) {
+  syncEntry(entry)
 }
 
-// Check for image.light and image.dark
 for (const manifest of allManifests) {
   if (!manifest.image?.light || !manifest.image?.dark) {
     issues.push(
@@ -114,7 +133,7 @@ if (CHECK_ONLY) {
     issues.forEach((i) => console.error(i))
     process.exit(1)
   } else {
-    console.log('Registry validation PASSED — all manifests in sync.')
+    console.log('Registry validation PASSED — catalog and registry.json in sync.')
   }
 } else {
   if (issues.length > 0) {

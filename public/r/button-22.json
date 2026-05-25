@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-22",
+  "title": "Pagination",
+  "description": "Prev / page numbers / Next inside a ButtonGroup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-22.tsx",
+      "content": "import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\n\nexport function Button22() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"outline\" size=\"icon\" aria-label=\"Previous page\">\n        <ChevronLeftIcon />\n      </Button>\n      <Button variant=\"outline\">1</Button>\n      <Button variant=\"outline\" aria-current=\"page\">\n        2\n      </Button>\n      <Button variant=\"outline\">3</Button>\n      <Button variant=\"outline\">4</Button>\n      <Button variant=\"outline\" size=\"icon\" aria-label=\"Next page\">\n        <ChevronRightIcon />\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-22.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

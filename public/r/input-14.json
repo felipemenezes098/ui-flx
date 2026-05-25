@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-14",
+  "title": "With search button",
+  "description": "ButtonGroup pairs a text input with a trailing search action button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input",
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-14.tsx",
+      "content": "import { SearchIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\nimport { Input } from '@/components/ui/input'\n\nexport function Input14() {\n  return (\n    <ButtonGroup className=\"max-w-sm\">\n      <Input placeholder=\"Search...\" />\n      <Button variant=\"outline\" aria-label=\"Search\">\n        <SearchIcon />\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

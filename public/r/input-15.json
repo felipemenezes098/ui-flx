@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-15",
+  "title": "With currency select",
+  "description": "Nested ButtonGroup: currency Select, amount input, and submit icon button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input",
+    "button",
+    "button-group",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-15.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { ArrowRightIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup } from '@/components/ui/button-group'\nimport { Input } from '@/components/ui/input'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst currencies = [\n  { value: '$', label: 'US Dollar' },\n  { value: '€', label: 'Euro' },\n  { value: '£', label: 'British Pound' },\n] as const\n\nexport function Input15() {\n  const [currency, setCurrency] = useState<string>(currencies[0].value)\n\n  return (\n    <ButtonGroup className=\"max-w-sm\">\n      <ButtonGroup>\n        <Select value={currency} onValueChange={setCurrency}>\n          <SelectTrigger>\n            <SelectValue>{currency}</SelectValue>\n          </SelectTrigger>\n          <SelectContent>\n            <SelectGroup>\n              {currencies.map((item) => (\n                <SelectItem key={item.value} value={item.value}>\n                  {item.value}{' '}\n                  <span className=\"text-muted-foreground\">{item.label}</span>\n                </SelectItem>\n              ))}\n            </SelectGroup>\n          </SelectContent>\n        </Select>\n        <Input placeholder=\"10.00\" inputMode=\"decimal\" />\n      </ButtonGroup>\n      <ButtonGroup>\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Submit amount\">\n          <ArrowRightIcon />\n        </Button>\n      </ButtonGroup>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-15.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

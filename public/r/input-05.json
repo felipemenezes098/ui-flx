@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-05",
+  "title": "With prefix and suffix",
+  "description": "Fixed text addons at the start and end of the field.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-05.tsx",
+      "content": "import {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n  InputGroupText,\n} from '@/components/ui/input-group'\n\nexport function Input05() {\n  return (\n    <InputGroup className=\"max-w-sm\">\n      <InputGroupAddon>\n        <InputGroupText>https://</InputGroupText>\n      </InputGroupAddon>\n      <InputGroupInput placeholder=\"example\" className=\"pl-0.5!\" />\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupText>.com</InputGroupText>\n      </InputGroupAddon>\n    </InputGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

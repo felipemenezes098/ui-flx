@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-06",
+  "title": "With loading spinner",
+  "description": "Spinning loader in the trailing addon while searching.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/input/input-06.tsx",
+      "content": "import { Loader2Icon } from 'lucide-react'\n\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from '@/components/ui/input-group'\n\nexport function Input06() {\n  return (\n    <InputGroup className=\"max-w-sm\">\n      <InputGroupInput placeholder=\"Searching...\" />\n      <InputGroupAddon align=\"inline-end\">\n        <Loader2Icon className=\"text-muted-foreground size-4 animate-spin\" />\n      </InputGroupAddon>\n    </InputGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/input/input-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

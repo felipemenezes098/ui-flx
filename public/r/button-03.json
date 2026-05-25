@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-03",
+  "title": "Sizes",
+  "description": "Extra small, small, default, and large sizes.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-03.tsx",
+      "content": "import { Button } from '@/components/ui/button'\n\nexport function Button03() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-2\">\n      <Button variant=\"outline\" size=\"xs\">\n        Extra small\n      </Button>\n      <Button variant=\"outline\" size=\"sm\">\n        Small\n      </Button>\n      <Button variant=\"outline\" size=\"default\">\n        Default\n      </Button>\n      <Button variant=\"outline\" size=\"lg\">\n        Large\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

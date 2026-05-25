@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-01",
+  "title": "Basic",
+  "description": "Single-value dropdown.",
+  "dependencies": [],
+  "registryDependencies": [
+    "select",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/select/select-01.tsx",
+      "content": "import {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Select01() {\n  return (\n    <Select>\n      <SelectTrigger className=\"w-full max-w-56\">\n        <SelectValue placeholder=\"Select a framework\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectItem value=\"next\">Next.js</SelectItem>\n          <SelectItem value=\"remix\">Remix</SelectItem>\n          <SelectItem value=\"astro\">Astro</SelectItem>\n          <SelectItem value=\"nuxt\">Nuxt.js</SelectItem>\n          <SelectItem value=\"sveltekit\">SvelteKit</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/select/select-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

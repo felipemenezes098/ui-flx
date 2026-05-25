@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-13",
+  "title": "Copy to clipboard",
+  "description": "Icon and label swap to a check on copy.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-13.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon, CopyIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button13() {\n  const [copied, setCopied] = useState(false)\n\n  function handleCopy() {\n    navigator.clipboard.writeText('npm install shadcn')\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={handleCopy}>\n      {copied ? (\n        <CheckIcon data-icon=\"inline-start\" className=\"text-emerald-500\" />\n      ) : (\n        <CopyIcon data-icon=\"inline-start\" />\n      )}\n      {copied ? 'Copied' : 'Copy'}\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

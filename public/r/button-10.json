@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-10",
+  "title": "With avatar",
+  "description": "User picker style — avatar leading the label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-10.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\n\nexport function Button10() {\n  return (\n    <Button variant=\"outline\" className=\"pl-1\">\n      <Avatar size=\"sm\">\n        <AvatarImage\n          src=\"https://github.com/shadcn.png\"\n          alt=\"shadcn\"\n        />\n        <AvatarFallback>SC</AvatarFallback>\n      </Avatar>\n      shadcn\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

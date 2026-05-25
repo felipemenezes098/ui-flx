@@ -1,5 +1,9 @@
 export const dataNavbar = [
   {
+    name: 'Patterns',
+    href: '/patterns',
+  },
+  {
     name: 'Blocks',
     href: '/blocks',
   },

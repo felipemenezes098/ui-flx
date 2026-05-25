@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-11",
+  "title": "Account and password",
+  "description": "Forms in each TabsContent inside a Card — canonical shadcn example.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tabs",
+    "card",
+    "button",
+    "input",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tabs/tabs-11.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Field, FieldGroup, FieldLabel } from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs'\n\nexport function Tabs11() {\n  return (\n    <Tabs defaultValue=\"account\" className=\"w-full max-w-md gap-4\">\n      <TabsList className=\"w-full\">\n        <TabsTrigger value=\"account\">Account</TabsTrigger>\n        <TabsTrigger value=\"password\">Password</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"account\">\n        <Card>\n          <CardHeader>\n            <CardTitle>Account</CardTitle>\n            <CardDescription>\n              Update your profile details. Click save when done.\n            </CardDescription>\n          </CardHeader>\n          <CardContent>\n            <FieldGroup>\n              <Field>\n                <FieldLabel htmlFor=\"tabs11-name\">Name</FieldLabel>\n                <Input id=\"tabs11-name\" defaultValue=\"shadcn\" />\n              </Field>\n              <Field>\n                <FieldLabel htmlFor=\"tabs11-username\">Username</FieldLabel>\n                <Input id=\"tabs11-username\" defaultValue=\"@shadcn\" />\n              </Field>\n            </FieldGroup>\n          </CardContent>\n          <CardFooter>\n            <Button>Save changes</Button>\n          </CardFooter>\n        </Card>\n      </TabsContent>\n      <TabsContent value=\"password\">\n        <Card>\n          <CardHeader>\n            <CardTitle>Password</CardTitle>\n            <CardDescription>\n              You will be signed out after changing your password.\n            </CardDescription>\n          </CardHeader>\n          <CardContent>\n            <FieldGroup>\n              <Field>\n                <FieldLabel htmlFor=\"tabs11-current\">\n                  Current password\n                </FieldLabel>\n                <Input id=\"tabs11-current\" type=\"password\" />\n              </Field>\n              <Field>\n                <FieldLabel htmlFor=\"tabs11-new\">New password</FieldLabel>\n                <Input id=\"tabs11-new\" type=\"password\" />\n              </Field>\n            </FieldGroup>\n          </CardContent>\n          <CardFooter>\n            <Button>Update password</Button>\n          </CardFooter>\n        </Card>\n      </TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tabs/tabs-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

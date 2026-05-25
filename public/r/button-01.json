@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-01",
+  "title": "Basic",
+  "description": "Default button with text label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/button/button-01.tsx",
+      "content": "import { Button } from '@/components/ui/button'\n\nexport function Button01() {\n  return <Button>Button</Button>\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/button/button-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
