@@ -12,10 +12,6 @@ export const dataNavbar = [
     href: '/presets',
   },
   {
-    name: 'CMS',
-    href: '/cms/sanity',
-  },
-  {
     name: 'AI',
     href: '/ai',
   },
