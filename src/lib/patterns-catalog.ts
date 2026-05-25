@@ -28,8 +28,7 @@ export const patternCategories: PatternCategory[] = [
   {
     slug: 'select',
     name: 'Select',
-    description:
-      'A set of select patterns for single-value, grouped, disabled, and more.',
+    description: 'Pick one option from a list.',
     preview: SelectConcept,
     items: [
       {
@@ -130,8 +129,7 @@ export const patternCategories: PatternCategory[] = [
   {
     slug: 'dialog',
     name: 'Dialog',
-    description:
-      'Modal dialogs for confirmations, forms, and contextual actions.',
+    description: 'Focused panel that opens above the page.',
     preview: DialogConcept,
     items: [
       {
@@ -269,8 +267,7 @@ export const patternCategories: PatternCategory[] = [
   {
     slug: 'input',
     name: 'Input',
-    description:
-      'Form inputs, text fields, and interactive controls for data entry.',
+    description: 'Fields for typing and entering values.',
     preview: InputConcept,
     items: [
       {
@@ -387,8 +384,7 @@ export const patternCategories: PatternCategory[] = [
   {
     slug: 'button',
     name: 'Button',
-    description:
-      'Button and ButtonGroup patterns — variants, sizes, icons, toolbars, split actions, and more.',
+    description: 'Triggers for clicks and actions.',
     preview: ButtonConcept,
     items: [
       {
@@ -555,8 +551,7 @@ export const patternCategories: PatternCategory[] = [
   {
     slug: 'tabs',
     name: 'Tabs',
-    description:
-      'Tab patterns — variants, orientations, badges, forms, code preview, and more.',
+    description: 'Switch between views on the same page.',
     preview: TabsConcept,
     items: [
       {

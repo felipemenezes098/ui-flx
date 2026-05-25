@@ -2,8 +2,7 @@
 
 import * as React from 'react'
 import { PanelImperativeHandle } from 'react-resizable-panels'
-import type { registryItemSchema } from 'shadcn/schema'
-import type { z } from 'zod'
+import type { RegistryItem } from 'shadcn/schema'
 
 import { blocks, type BlockItem } from '@/lib/catalog'
 import type { FileTree } from '@/lib/registry-utils'
@@ -15,7 +14,7 @@ import {
 type LoadStatus = 'loading' | 'success' | 'not-found' | 'error'
 
 type BlockEditorContextValue = {
-  item: z.infer<typeof registryItemSchema>
+  item: RegistryItem
   config: BlockItem
   view: 'code' | 'preview'
   setView: (view: 'code' | 'preview') => void
@@ -63,9 +62,7 @@ export function BlockEditor({
   iframeHeight,
   children,
 }: BlockEditorProps) {
-  const [item, setItem] = React.useState<z.infer<
-    typeof registryItemSchema
-  > | null>(null)
+  const [item, setItem] = React.useState<RegistryItem | null>(null)
 
   const [tree, setTree] = React.useState<FileTree[] | null>(null)
   const [view, setView] = React.useState<'preview' | 'code'>('preview')

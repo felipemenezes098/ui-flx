@@ -1,5 +1,4 @@
-import { registryItemSchema } from 'shadcn/schema'
-import { z } from 'zod'
+import { registryItemSchema, type RegistryItem } from 'shadcn/schema'
 
 export type FileTree = {
   name: string
@@ -11,7 +10,7 @@ export type FileTree = {
  * Fetches a registry item from the public/r directory
  * and resolves all registryDependencies recursively
  */
-export async function getRegistryItem(name: string) {
+export async function getRegistryItem(name: string): Promise<RegistryItem | null> {
   try {
     const response = await fetch(`/r/${name}.json`)
     if (!response.ok) {
@@ -27,7 +26,9 @@ export async function getRegistryItem(name: string) {
     }
 
     // Resolve registry dependencies recursively
-    const resolvedItem = await resolveRegistryDependencies(parsed.data)
+    const resolvedItem = await resolveRegistryDependencies(
+      parsed.data as RegistryItem,
+    )
 
     return resolvedItem
   } catch (error) {
@@ -40,9 +41,9 @@ export async function getRegistryItem(name: string) {
  * Resolves registry dependencies recursively and merges all files
  */
 async function resolveRegistryDependencies(
-  item: z.infer<typeof registryItemSchema>,
+  item: RegistryItem,
   visited: Set<string> = new Set(),
-): Promise<z.infer<typeof registryItemSchema>> {
+): Promise<RegistryItem> {
   // Avoid circular dependencies
   if (visited.has(item.name)) {
     return item
@@ -78,7 +79,7 @@ async function resolveRegistryDependencies(
 
       // Recursively resolve nested dependencies
       const resolvedDep = await resolveRegistryDependencies(
-        parsedDep.data,
+        parsedDep.data as RegistryItem,
         visited,
       )
 
@@ -143,12 +144,6 @@ export function createFileTreeForRegistryItemFiles(
   return root
 }
 
-/**
- * Type for registry item with inferred schema
- */
-export type RegistryItem = z.infer<typeof registryItemSchema>
+export type { RegistryItem }
 
-/**
- * Type for registry item file
- */
 export type RegistryItemFile = NonNullable<RegistryItem['files']>[number]

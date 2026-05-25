@@ -1,12 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useTheme } from 'next-themes'
 
 import { useBlocksNavCategorySlug } from '../lib/use-blocks-nav-category'
-import { blocks } from '@/lib/catalog'
+import { blockCategories } from '@/lib/catalog'
 import { cn } from '@/lib/utils'
 
 import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
@@ -15,7 +13,6 @@ export function BlocksSidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const navCategorySlug = useBlocksNavCategorySlug()
-  const { resolvedTheme } = useTheme()
 
   return (
     <aside
@@ -34,12 +31,13 @@ export function BlocksSidebar() {
         bottomThreshold={4}
       >
         <nav className="flex flex-col gap-0.5 pb-2">
-          {blocks.map((block) => {
+          {blockCategories.map((block) => {
             const isActive =
               navCategorySlug !== null && navCategorySlug === block.slug
             const params = new URLSearchParams(searchParams.toString())
             params.set('category', block.slug)
             const href = `${pathname}?${params.toString()}`
+            const Concept = block.concept
             return (
               <Link
                 key={block.slug}
@@ -51,19 +49,18 @@ export function BlocksSidebar() {
                   isActive && 'bg-muted',
                 )}
               >
-                <div className="relative h-9 w-9 shrink-0">
-                  <div className="border-border h-full w-full overflow-hidden rounded-md border bg-white">
-                    <Image
-                      src={
-                        resolvedTheme === 'dark'
-                          ? block.image.dark
-                          : block.image.light
-                      }
-                      alt=""
-                      fill
-                      className="object-contain p-0.5"
-                      sizes="36px"
-                    />
+                <div className="relative h-9 w-12 shrink-0">
+                  <div className="relative h-full w-full overflow-hidden rounded-md border bg-muted/40">
+                    <div
+                      className="absolute top-0 left-0 origin-top-left"
+                      style={{
+                        width: '200px',
+                        height: '150px',
+                        transform: 'scale(0.24)',
+                      }}
+                    >
+                      <Concept />
+                    </div>
                   </div>
                   {block.hasNew && (
                     <span className="ring-background absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 ring-2" />
