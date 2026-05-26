@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-15",
+  "title": "Settings row",
+  "description": "Title and description with a trailing Switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-15.tsx",
+      "content": "import {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { Switch } from '@/components/ui/switch'\n\nconst settings = [\n  {\n    title: 'Marketing emails',\n    description: 'Product updates, tips, and announcements.',\n    defaultChecked: true,\n  },\n  {\n    title: 'Security alerts',\n    description: 'Sign-in notifications and password changes.',\n    defaultChecked: true,\n  },\n  {\n    title: 'Weekly digest',\n    description: 'A summary of your team activity every Monday.',\n    defaultChecked: false,\n  },\n]\n\nexport function Item15() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {settings.map((s) => (\n        <Item key={s.title} variant=\"outline\">\n          <ItemContent>\n            <ItemTitle>{s.title}</ItemTitle>\n            <ItemDescription>{s.description}</ItemDescription>\n          </ItemContent>\n          <ItemActions>\n            <Switch defaultChecked={s.defaultChecked} />\n          </ItemActions>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-15.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

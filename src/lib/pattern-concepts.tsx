@@ -79,6 +79,31 @@ export function ButtonConcept() {
   )
 }
 
+export function ItemConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-2">
+        <div className="bg-card dark:bg-muted flex items-center gap-2.5 rounded-md border px-3 py-2.5 shadow-sm">
+          <div className="bg-foreground/15 size-7 shrink-0 rounded-full" />
+          <div className="flex flex-1 flex-col gap-1.5">
+            <div className="bg-foreground/20 h-1.5 w-20 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-28 rounded-full" />
+          </div>
+          <div className="bg-foreground/10 h-5 w-10 rounded" />
+        </div>
+        <div className="bg-card dark:bg-muted flex items-center gap-2.5 rounded-md border px-3 py-2.5 shadow-sm">
+          <div className="bg-foreground/15 size-7 shrink-0 rounded-sm" />
+          <div className="flex flex-1 flex-col gap-1.5">
+            <div className="bg-foreground/20 h-1.5 w-16 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-24 rounded-full" />
+          </div>
+          <div className="bg-primary/70 size-5 rounded-full" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

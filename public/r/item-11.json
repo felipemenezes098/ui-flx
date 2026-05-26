@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-11",
+  "title": "Group",
+  "description": "ItemGroup with ItemSeparator dividers between rows.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-11.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemSeparator,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { CreditCardIcon, MailIcon, ShieldIcon } from 'lucide-react'\n\nconst items = [\n  {\n    icon: MailIcon,\n    title: 'Email preferences',\n    description: 'Choose which product emails you receive.',\n  },\n  {\n    icon: ShieldIcon,\n    title: 'Security',\n    description: 'Password, sessions, and two-factor auth.',\n  },\n  {\n    icon: CreditCardIcon,\n    title: 'Billing',\n    description: 'Plan, invoices, and payment methods.',\n  },\n]\n\nexport function Item11() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {items.map((item, index) => (\n        <div key={item.title}>\n          <Item>\n            <ItemMedia variant=\"icon\">\n              <item.icon />\n            </ItemMedia>\n            <ItemContent>\n              <ItemTitle>{item.title}</ItemTitle>\n              <ItemDescription>{item.description}</ItemDescription>\n            </ItemContent>\n          </Item>\n          {index < items.length - 1 && <ItemSeparator />}\n        </div>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

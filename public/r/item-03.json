@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-03",
+  "title": "Variants",
+  "description": "Default, outline, and muted variants side-by-side.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-03.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item03() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-3\">\n      <Item variant=\"default\">\n        <ItemContent>\n          <ItemTitle>Default</ItemTitle>\n          <ItemDescription>Borderless, transparent background.</ItemDescription>\n        </ItemContent>\n      </Item>\n      <Item variant=\"outline\">\n        <ItemContent>\n          <ItemTitle>Outline</ItemTitle>\n          <ItemDescription>Visible border, no fill.</ItemDescription>\n        </ItemContent>\n      </Item>\n      <Item variant=\"muted\">\n        <ItemContent>\n          <ItemTitle>Muted</ItemTitle>\n          <ItemDescription>Soft muted background, no border.</ItemDescription>\n        </ItemContent>\n      </Item>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

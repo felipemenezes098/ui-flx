@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-13",
+  "title": "Notifications",
+  "description": "Icon media, unread dot in the title, time footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-13.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemFooter,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { AtSignIcon, GitPullRequestIcon, MessageSquareIcon } from 'lucide-react'\n\nconst notifications = [\n  {\n    icon: GitPullRequestIcon,\n    title: 'Marcus requested review',\n    description: 'PR #482 · Refactor billing module',\n    time: '2m ago',\n    unread: true,\n  },\n  {\n    icon: AtSignIcon,\n    title: 'Sarah mentioned you',\n    description: '\"Can you take a look at the spec?\"',\n    time: '1h ago',\n    unread: true,\n  },\n  {\n    icon: MessageSquareIcon,\n    title: 'New comment on RFC-12',\n    description: 'Priya: \"+1 on the staged rollout plan.\"',\n    time: 'Yesterday',\n    unread: false,\n  },\n]\n\nexport function Item13() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {notifications.map((n) => (\n        <Item key={n.title} variant=\"outline\">\n          <ItemMedia variant=\"icon\">\n            <n.icon />\n          </ItemMedia>\n          <ItemContent>\n            <ItemTitle>\n              {n.title}\n              {n.unread && (\n                <span\n                  aria-label=\"Unread\"\n                  className=\"bg-primary inline-block size-1.5 rounded-full\"\n                />\n              )}\n            </ItemTitle>\n            <ItemDescription>{n.description}</ItemDescription>\n          </ItemContent>\n          <ItemFooter className=\"basis-auto\">\n            <span className=\"text-muted-foreground text-xs\">{n.time}</span>\n          </ItemFooter>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

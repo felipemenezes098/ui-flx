@@ -76,7 +76,9 @@ function CategoryCard({
         <CategoryPreviewCardFooter>
           <CategoryPreviewCardTitle>{name}</CategoryPreviewCardTitle>
           {sublabel && (
-            <CategoryPreviewCardSublabel>{sublabel}</CategoryPreviewCardSublabel>
+            <CategoryPreviewCardSublabel>
+              {sublabel}
+            </CategoryPreviewCardSublabel>
           )}
         </CategoryPreviewCardFooter>
       </CategoryPreviewCard>
@@ -84,7 +86,11 @@ function CategoryCard({
   )
 }
 
-export function HomePreview() {
+export function Preview() {
+  const sortedPatternCategories = [...patternCategories].sort((a, b) =>
+    a.name.localeCompare(b.name),
+  )
+
   const totalPatterns = patternCategories.reduce(
     (acc, cat) => acc + cat.items.length,
     0,
@@ -105,7 +111,7 @@ export function HomePreview() {
           showViewAll={false}
         />
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-          {patternCategories.map((cat) => (
+          {sortedPatternCategories.map((cat) => (
             <CategoryCard
               key={cat.slug}
               name={cat.name}

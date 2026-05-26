@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-06",
+  "title": "With avatar",
+  "description": "User avatar in ItemMedia variant=\"image\".",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-06.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item06() {\n  return (\n    <Item variant=\"outline\" className=\"w-full max-w-md\">\n      <ItemMedia variant=\"image\">\n        <Avatar className=\"size-full rounded-sm\">\n          <AvatarImage\n            src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80\"\n            alt=\"\"\n          />\n          <AvatarFallback>SC</AvatarFallback>\n        </Avatar>\n      </ItemMedia>\n      <ItemContent>\n        <ItemTitle>Sarah Chen</ItemTitle>\n        <ItemDescription>Product designer · Berlin</ItemDescription>\n      </ItemContent>\n    </Item>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-17",
+  "title": "Stat rows",
+  "description": "Stacked KPI rows with label, value, and trend delta.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-17.tsx",
+      "content": "import {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { TrendingDownIcon, TrendingUpIcon } from 'lucide-react'\n\nconst stats = [\n  {\n    label: 'Revenue',\n    value: '$48,210',\n    delta: '+12.4% vs last month',\n    trending: 'up' as const,\n  },\n  {\n    label: 'New customers',\n    value: '1,284',\n    delta: '+4.1% vs last month',\n    trending: 'up' as const,\n  },\n  {\n    label: 'Churn',\n    value: '2.1%',\n    delta: '-0.3% vs last month',\n    trending: 'down' as const,\n  },\n]\n\nexport function Item17() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {stats.map((s) => {\n        const Trend = s.trending === 'up' ? TrendingUpIcon : TrendingDownIcon\n        return (\n          <Item key={s.label} variant=\"outline\">\n            <ItemContent>\n              <ItemDescription>{s.label}</ItemDescription>\n              <ItemTitle className=\"text-lg\">{s.value}</ItemTitle>\n            </ItemContent>\n            <ItemActions>\n              <span className=\"text-muted-foreground inline-flex items-center gap-1 text-xs\">\n                <Trend className=\"size-3.5\" />\n                {s.delta}\n              </span>\n            </ItemActions>\n          </Item>\n        )\n      })}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-17.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

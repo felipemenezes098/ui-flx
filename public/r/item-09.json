@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-09",
+  "title": "Header and footer",
+  "description": "ItemHeader badge plus ItemFooter metadata row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-09.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemFooter,\n  ItemHeader,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item09() {\n  return (\n    <Item variant=\"outline\" className=\"w-full max-w-md\">\n      <ItemHeader>\n        <Badge variant=\"secondary\">Draft</Badge>\n        <span className=\"text-muted-foreground text-xs\">#PR-482</span>\n      </ItemHeader>\n      <ItemContent>\n        <ItemTitle>Refactor billing module</ItemTitle>\n        <ItemDescription>\n          Splits subscriptions and one-off charges into separate services.\n        </ItemDescription>\n      </ItemContent>\n      <ItemFooter>\n        <span className=\"text-muted-foreground text-xs\">Updated 2h ago</span>\n        <span className=\"text-muted-foreground text-xs\">3 reviewers</span>\n      </ItemFooter>\n    </Item>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-10",
+  "title": "As link",
+  "description": "asChild anchor turns the whole row into a link.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-10.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { ArrowUpRightIcon, BookOpenIcon } from 'lucide-react'\n\nexport function Item10() {\n  return (\n    <Item asChild variant=\"outline\" className=\"w-full max-w-md\">\n      <a href=\"#\">\n        <ItemMedia variant=\"icon\">\n          <BookOpenIcon />\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle>Read the documentation</ItemTitle>\n          <ItemDescription>\n            Learn how to compose blocks with patterns.\n          </ItemDescription>\n        </ItemContent>\n        <ArrowUpRightIcon className=\"text-muted-foreground size-4\" />\n      </a>\n    </Item>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

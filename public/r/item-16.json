@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-16",
+  "title": "Integrations",
+  "description": "Brand icon, status badge in title, connect Switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "switch",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-16.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { Switch } from '@/components/ui/switch'\nimport { GithubIcon, SlackIcon, ZapIcon } from 'lucide-react'\n\nconst integrations = [\n  {\n    icon: GithubIcon,\n    name: 'GitHub',\n    description: 'Sync issues and pull requests.',\n    connected: true,\n  },\n  {\n    icon: SlackIcon,\n    name: 'Slack',\n    description: 'Post updates to channels.',\n    connected: true,\n  },\n  {\n    icon: ZapIcon,\n    name: 'Zapier',\n    description: 'Trigger workflows from events.',\n    connected: false,\n  },\n]\n\nexport function Item16() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {integrations.map((i) => (\n        <Item key={i.name} variant=\"outline\">\n          <ItemMedia variant=\"icon\">\n            <i.icon />\n          </ItemMedia>\n          <ItemContent>\n            <ItemTitle>\n              {i.name}\n              <Badge variant={i.connected ? 'secondary' : 'outline'}>\n                {i.connected ? 'Connected' : 'Off'}\n              </Badge>\n            </ItemTitle>\n            <ItemDescription>{i.description}</ItemDescription>\n          </ItemContent>\n          <ItemActions>\n            <Switch defaultChecked={i.connected} />\n          </ItemActions>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-16.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
