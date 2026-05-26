@@ -19,11 +19,11 @@ export function PatternCard({
   return (
     <div
       className={cn(
-        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2',
+        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2 shadow-xs',
         className,
       )}
     >
-      <div className="border-border bg-card flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border p-8">
+      <div className="border-border bg-card dark:bg-background flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border p-8">
         {children}
       </div>
       <div className="flex items-center justify-between pr-0.5 pl-1.5">

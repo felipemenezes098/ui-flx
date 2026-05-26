@@ -50,7 +50,7 @@ export function BlocksSidebar() {
                 )}
               >
                 <div className="relative h-9 w-12 shrink-0">
-                  <div className="relative h-full w-full overflow-hidden rounded-md border bg-muted/40">
+                  <div className="bg-muted/40 dark:bg-background relative h-full w-full overflow-hidden rounded-md border">
                     <div
                       className="absolute top-0 left-0 origin-top-left"
                       style={{

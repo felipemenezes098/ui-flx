@@ -76,53 +76,45 @@ export const patternCategories: PatternCategory[] = [
         slug: 'select-08',
         name: 'With Avatar',
         description: 'User picker with avatars in trigger and options.',
-        isNew: true,
       },
       {
         slug: 'select-09',
         name: 'Custom Border & Background',
         description: 'Muted background and custom border on the trigger.',
-        isNew: true,
       },
       {
         slug: 'select-10',
         name: 'With Label',
         description: 'Accessible field label linked to the select trigger.',
-        isNew: true,
       },
       {
         slug: 'select-14',
         name: 'With inline label',
         description:
           'Muted prefix label inside the trigger, left of the selected value.',
-        isNew: true,
       },
       {
         slug: 'select-15',
         name: 'Animated content',
         description:
           'Popper position plus Popover-style origin-aware fade, zoom, and slide (duration-200).',
-        isNew: true,
       },
       {
         slug: 'select-11',
         name: 'In Form',
         description: 'Select composed with Field, FieldLabel, and description.',
-        isNew: true,
       },
       {
         slug: 'select-12',
         name: 'React Hook Form + Zod',
         description:
           'Controller binds Select to RHF; Zod resolver drives FieldError on submit.',
-        isNew: true,
       },
       {
         slug: 'select-13',
         name: 'TanStack Form + Zod',
         description:
           'form.Field wires Select; Zod onSubmit validator surfaces FieldError when touched.',
-        isNew: true,
       },
     ],
   },
@@ -136,131 +128,110 @@ export const patternCategories: PatternCategory[] = [
         slug: 'dialog-01',
         name: 'Confirm action',
         description: 'Polished yes/no with icon and clear hierarchy.',
-        isNew: true,
       },
       {
         slug: 'dialog-02',
         name: 'Edit profile',
         description: 'FieldGroup form with Save and Cancel footer.',
-        isNew: true,
       },
       {
         slug: 'dialog-03',
         name: 'Delete account',
         description: 'Destructive warning with icon and emphasized copy.',
-        isNew: true,
       },
       {
         slug: 'dialog-04',
         name: 'Terms, sticky footer',
         description: 'Long scroll body; Accept and Decline pinned footer.',
-        isNew: true,
       },
       {
         slug: 'dialog-05',
         name: 'Share link',
         description: 'Readonly URL with copy control; minimal footer.',
-        isNew: true,
       },
       {
         slug: 'dialog-06',
         name: 'Sticky header',
-        description:
-          'Header fixed; scrollable changelog-style body.',
-        isNew: true,
+        description: 'Header fixed; scrollable changelog-style body.',
       },
       {
         slug: 'dialog-08',
         name: 'Verify code (OTP)',
         description: '6-digit InputOTP with separator; Verify footer.',
-        isNew: true,
       },
       {
         slug: 'dialog-09',
         name: 'Onboarding welcome',
         description: 'Compact hero image, title, and description; dual CTAs.',
-        isNew: true,
       },
       {
         slug: 'dialog-10',
         name: 'Footer-only dismiss',
         description: 'showCloseButton false; dismiss via footer only.',
-        isNew: true,
       },
       {
         slug: 'dialog-11',
         name: 'Pick teammates',
         description: 'Scrollable avatar rows with selection; Invite footer.',
-        isNew: true,
       },
       {
         slug: 'dialog-12',
         name: 'Success',
         description: 'Completion check icon and Continue action.',
-        isNew: true,
       },
       {
         slug: 'dialog-13',
         name: 'Type to confirm',
         description: 'Type delete to enable destructive button.',
-        isNew: true,
       },
       {
         slug: 'dialog-14',
         name: 'Settings sections',
         description: 'Notifications and Security blocks via Separator.',
-        isNew: true,
       },
       {
         slug: 'dialog-15',
         name: 'Choose image',
         description: 'Thumbnail grid with selection ring.',
-        isNew: true,
       },
       {
         slug: 'dialog-16',
         name: 'Invite team',
         description: 'Icon header plus email field.',
-        isNew: true,
       },
       {
         slug: 'dialog-17',
         name: 'Long form, sticky footer',
         description: 'Many fields in scroll; footer-only sticky.',
-        isNew: true,
       },
       {
         slug: 'dialog-18',
         name: 'Stacked actions',
         description: 'Full-width footer buttons for mobile-friendly CTAs.',
-        isNew: true,
       },
       {
         slug: 'dialog-19',
         name: 'React Hook Form',
         description:
           'Dialog form with RHF, Zod resolver, and FieldError on invalid fields.',
-        isNew: true,
       },
       {
         slug: 'dialog-20',
         name: 'TanStack Form',
         description:
           'Dialog form with TanStack Form and Zod onSubmit validation.',
-        isNew: true,
       },
       {
         slug: 'dialog-21',
         name: 'Nested dialog',
-        description: 'Dialog inside a dialog — e.g. avatar picker from profile.',
-        isNew: true,
+        description:
+          'Dialog inside a dialog — e.g. avatar picker from profile.',
       },
       {
         slug: 'dialog-22',
         name: 'From dropdown',
         description:
           'Dialog triggered by a DropdownMenuItem with onSelect preventDefault.',
-        isNew: true,
       },
     ],
   },
@@ -295,74 +266,63 @@ export const patternCategories: PatternCategory[] = [
         name: 'With email domain',
         description:
           'InputGroup suffix addon locks the @company.com domain beside the username field.',
-        isNew: true,
       },
       {
         slug: 'input-05',
         name: 'With prefix and suffix',
         description: 'Fixed text addons at the start and end of the field.',
-        isNew: true,
       },
       {
         slug: 'input-06',
         name: 'With loading spinner',
         description: 'Spinning loader in the trailing addon while searching.',
-        isNew: true,
       },
       {
         slug: 'input-07',
         name: 'With clear button',
         description:
           'Clear button appears in the trailing addon when the field has text.',
-        isNew: true,
       },
       {
         slug: 'input-08',
         name: 'With tooltip',
         description:
           'Help icon in the trailing addon opens a tooltip on hover.',
-        isNew: true,
       },
       {
         slug: 'input-09',
         name: 'With popover',
         description:
           'Info button in the trailing addon opens a popover with helper content.',
-        isNew: true,
       },
       {
         slug: 'input-10',
         name: 'With dropdown menu',
         description:
           'Trailing addon button opens a menu to choose search scope.',
-        isNew: true,
       },
       {
         slug: 'input-11',
         name: 'In Form',
         description: 'Input composed with Field, FieldLabel, and description.',
-        isNew: true,
       },
       {
         slug: 'input-12',
         name: 'React Hook Form + Zod',
         description:
           'Controller binds Input to RHF; Zod resolver drives FieldError on submit.',
-        isNew: true,
       },
       {
         slug: 'input-13',
         name: 'TanStack Form + Zod',
         description:
           'form.Field wires Input; Zod onSubmit validator surfaces FieldError when touched.',
-        isNew: true,
       },
       {
         slug: 'input-14',
         name: 'With search button',
         description:
           'ButtonGroup pairs a text input with a trailing search action button.',
-        isNew: true,
       },
 
       {
@@ -370,14 +330,12 @@ export const patternCategories: PatternCategory[] = [
         name: 'With currency select',
         description:
           'Nested ButtonGroup: currency Select, amount input, and submit icon button.',
-        isNew: true,
       },
       {
         slug: 'input-17',
         name: 'With nested input group',
         description:
           'Attach button plus InputGroup message field and send action in a ButtonGroup.',
-        isNew: true,
       },
     ],
   },
@@ -391,160 +349,134 @@ export const patternCategories: PatternCategory[] = [
         slug: 'button-01',
         name: 'Basic',
         description: 'Default button with text label.',
-        isNew: true,
       },
       {
         slug: 'button-02',
         name: 'Variants',
         description:
           'All six variants side-by-side: default, secondary, outline, ghost, destructive, link.',
-        isNew: true,
       },
       {
         slug: 'button-03',
         name: 'Sizes',
         description: 'Extra small, small, default, and large sizes.',
-        isNew: true,
       },
       {
         slug: 'button-04',
         name: 'With leading icon',
         description: 'Icon before the label via data-icon="inline-start".',
-        isNew: true,
       },
       {
         slug: 'button-05',
         name: 'With trailing icon',
         description: 'Icon after the label via data-icon="inline-end".',
-        isNew: true,
       },
       {
         slug: 'button-06',
         name: 'Icon only',
         description: 'Square icon-only buttons in every icon size.',
-        isNew: true,
       },
       {
         slug: 'button-07',
         name: 'Disabled',
         description: 'Disabled state across variants.',
-        isNew: true,
       },
       {
         slug: 'button-08',
         name: 'Loading',
         description: 'Spinner icon + disabled while async work runs.',
-        isNew: true,
       },
       {
         slug: 'button-09',
         name: 'As link',
         description: 'asChild renders the button as an anchor tag.',
-        isNew: true,
       },
       {
         slug: 'button-10',
         name: 'With avatar',
         description: 'User picker style — avatar leading the label.',
-        isNew: true,
       },
       {
         slug: 'button-11',
         name: 'Hover slide arrow',
         description: 'CTA arrow nudges right on hover.',
-        isNew: true,
       },
       {
         slug: 'button-12',
         name: 'With badge',
         description: 'Notification count badge overlapping an icon button.',
-        isNew: true,
       },
       {
         slug: 'button-13',
         name: 'Copy to clipboard',
         description: 'Icon and label swap to a check on copy.',
-        isNew: true,
       },
       {
         slug: 'button-14',
         name: 'Hover rotate refresh',
         description: 'Refresh icon rotates 180° on hover.',
-        isNew: true,
       },
       {
         slug: 'button-15',
         name: 'Hamburger toggle',
         description: 'Three bars morph into an X on press.',
-        isNew: true,
       },
       {
         slug: 'button-16',
         name: 'Basic group',
         description: 'Horizontal ButtonGroup with merged borders.',
-        isNew: true,
       },
       {
         slug: 'button-17',
         name: 'Vertical group',
         description: 'Stacked ButtonGroup via orientation="vertical".',
-        isNew: true,
       },
       {
         slug: 'button-18',
         name: 'Icon toolbar',
         description: 'Icon-only formatting toolbar in a ButtonGroup.',
-        isNew: true,
       },
       {
         slug: 'button-20',
         name: 'With label prefix',
         description: 'ButtonGroupText leads an action cluster.',
-        isNew: true,
       },
       {
         slug: 'button-21',
         name: 'Split button',
         description: 'Primary action + chevron DropdownMenu trigger.',
-        isNew: true,
       },
       {
         slug: 'button-22',
         name: 'Pagination',
         description: 'Prev / page numbers / Next inside a ButtonGroup.',
-        isNew: true,
       },
       {
         slug: 'button-23',
         name: 'Copy field',
         description: 'ButtonGroupText value with a trailing copy button.',
-        isNew: true,
       },
       {
         slug: 'button-24',
         name: 'Group with disabled',
         description: 'ButtonGroup with one disabled step.',
-        isNew: true,
       },
       {
         slug: 'button-25',
         name: 'Destructive pair',
         description: 'Cancel + Delete spaced action pair.',
-        isNew: true,
       },
       {
         slug: 'button-26',
         name: 'With select',
         description:
           'ButtonGroup pairs a sort Select with a direction toggle button.',
-        isNew: true,
       },
       {
         slug: 'button-27',
         name: 'With popover swatch',
         description:
           'Color swatch Popover trigger inside a ButtonGroup with hex label.',
-        isNew: true,
       },
     ],
   },
@@ -558,83 +490,70 @@ export const patternCategories: PatternCategory[] = [
         slug: 'tabs-01',
         name: 'Basic',
         description: 'Three tabs with the default filled variant.',
-        isNew: true,
       },
       {
         slug: 'tabs-02',
         name: 'Line variant',
         description: 'Underline indicator instead of filled background.',
-        isNew: true,
       },
       {
         slug: 'tabs-04',
         name: 'Vertical line',
         description: 'Vertical orientation with line variant — sidebar nav.',
-        isNew: true,
       },
       {
         slug: 'tabs-05',
         name: 'Disabled tab',
         description: 'One trigger disabled while others stay interactive.',
-        isNew: true,
       },
       {
         slug: 'tabs-06',
         name: 'With icons',
         description: 'Leading icons in each trigger via data-icon.',
-        isNew: true,
       },
       {
         slug: 'tabs-07',
         name: 'With count badges',
         description: 'Trigger labels paired with secondary count badges.',
-        isNew: true,
       },
       {
         slug: 'tabs-08',
         name: 'Icon only',
         description: 'Compact icon-only triggers for view switching.',
-        isNew: true,
       },
       {
         slug: 'tabs-10',
         name: 'Icon with title',
         description:
           'Icon stacked above the title in each trigger, with a visual panel below.',
-        isNew: true,
       },
       {
         slug: 'tabs-11',
         name: 'Account and password',
         description:
           'Forms in each TabsContent inside a Card — canonical shadcn example.',
-        isNew: true,
       },
       {
         slug: 'tabs-12',
         name: 'In card',
         description:
           'Tabs inside a card with stats, member list, and billing summary panels.',
-        isNew: true,
       },
       {
         slug: 'tabs-13',
         name: 'Preview and code',
         description: 'Docs-style switch between live preview and code snippet.',
-        isNew: true,
       },
       {
         slug: 'tabs-14',
         name: 'Pricing toggle',
         description: 'Monthly versus yearly billing toggle swaps the price.',
-        isNew: true,
       },
       {
         slug: 'tabs-15',
         name: 'Custom trigger',
         description:
           'Pill triggers with muted active state and cross-fading image panels.',
-        isNew: true,
       },
     ],
   },

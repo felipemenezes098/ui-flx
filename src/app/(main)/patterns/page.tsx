@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import {
+  CategoryPreviewCard,
+  CategoryPreviewCardFooter,
+  CategoryPreviewCardPreview,
+  CategoryPreviewCardTitle,
+} from '@/components/core/category-preview-card'
 import { Footer } from '@/components/core/footer'
 import { patternCategories } from '@/lib/patterns-catalog'
 
@@ -43,14 +49,16 @@ export default function PatternsPage() {
                   href={`/patterns/${category.slug}`}
                   className="group"
                 >
-                  <div className="bg-card/50 border-border flex flex-col gap-3 rounded-xl border p-3">
-                    <div className="border-border bg-muted/40 relative aspect-square overflow-hidden rounded-lg border transition-transform duration-200 ease-out group-hover:-translate-y-0.5">
+                  <CategoryPreviewCard>
+                    <CategoryPreviewCardPreview className="aspect-square">
                       <category.preview />
-                    </div>
-                    <span className="text-foreground px-0.5 text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
-                      {category.name}
-                    </span>
-                  </div>
+                    </CategoryPreviewCardPreview>
+                    <CategoryPreviewCardFooter>
+                      <CategoryPreviewCardTitle>
+                        {category.name}
+                      </CategoryPreviewCardTitle>
+                    </CategoryPreviewCardFooter>
+                  </CategoryPreviewCard>
                 </Link>
               ))}
           </div>

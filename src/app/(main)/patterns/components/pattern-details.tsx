@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { BrainIcon, CodeIcon } from 'lucide-react'
+import { CodeIcon } from 'lucide-react'
 import type { RegistryItem } from 'shadcn/schema'
 
 import { useQuery } from '@tanstack/react-query'
@@ -25,7 +25,6 @@ interface PatternDetailsProps {
 
 export function PatternDetails({ item }: PatternDetailsProps) {
   const [openCode, setOpenCode] = useState(false)
-  const [openPrompt, setOpenPrompt] = useState(false)
 
   const { data: code, isLoading } = useQuery({
     queryKey: ['pattern-code', item.name],
@@ -47,7 +46,7 @@ export function PatternDetails({ item }: PatternDetailsProps) {
             variant="secondary"
             size="icon"
             aria-label="View code"
-            className="bg-muted/60 hover:bg-muted/80 rounded-full"
+            className="bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground rounded-full transition-none"
           >
             <CodeIcon className="size-3" />
           </Button>
@@ -59,12 +58,13 @@ export function PatternDetails({ item }: PatternDetailsProps) {
           <div className="flex max-w-full min-w-0 flex-col gap-2">
             <CodeBlockCommand
               command={`shadcn@latest add @${siteConfig.codeName}/${item.name}`}
+              className="dark:bg-background/40"
             />
             {isLoading && (
               <div className="bg-muted h-48 animate-pulse rounded-xl" />
             )}
             {!isLoading && code && (
-              <CodeBlock>
+              <CodeBlock className="dark:bg-background/40">
                 <CodeBlockCode code={code} language="tsx" withCopy />
               </CodeBlock>
             )}

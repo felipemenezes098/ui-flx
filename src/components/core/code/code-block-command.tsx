@@ -19,6 +19,7 @@ export function CodeBlockCommand({
   __yarn__,
   __pnpm__,
   __bun__,
+  className,
 }: React.ComponentProps<'pre'> & {
   command?: string
   isPackage?: boolean
@@ -27,6 +28,7 @@ export function CodeBlockCommand({
   __yarn__?: string
   __pnpm__?: string
   __bun__?: string
+  className?: string
 }) {
   const [config, setConfig] = useConfig()
 
@@ -98,7 +100,7 @@ export function CodeBlockCommand({
   }, [packageManager, tabs])
 
   return (
-    <CodeBlock>
+    <CodeBlock className={className}>
       <Tabs
         value={packageManager}
         className="w-full gap-0"

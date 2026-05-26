@@ -4,6 +4,14 @@ import type { ComponentType } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
+import {
+  CategoryPreviewCard,
+  CategoryPreviewCardBadge,
+  CategoryPreviewCardFooter,
+  CategoryPreviewCardPreview,
+  CategoryPreviewCardSublabel,
+  CategoryPreviewCardTitle,
+} from '@/components/core/category-preview-card'
 import { blockCategories } from '@/lib/catalog'
 import { patternCategories } from '@/lib/patterns-catalog'
 
@@ -60,28 +68,18 @@ function CategoryCard({
 }>) {
   return (
     <Link href={href} className="group">
-      <div className="bg-card/50 border-border flex flex-col gap-3 rounded-xl border p-3">
-        <div
-          className={`border-border bg-muted/40 relative overflow-hidden rounded-lg border transition-transform duration-200 ease-out group-hover:-translate-y-0.5 ${aspectClass}`}
-        >
-          {hasNew && (
-            <span className="absolute top-2 right-2 z-10 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold text-white">
-              New
-            </span>
-          )}
+      <CategoryPreviewCard>
+        <CategoryPreviewCardPreview className={aspectClass}>
+          {hasNew && <CategoryPreviewCardBadge />}
           <Concept />
-        </div>
-        <div className="flex flex-col items-center gap-0.5 px-0.5">
-          <span className="text-foreground text-center text-sm font-medium group-hover:underline group-hover:underline-offset-4">
-            {name}
-          </span>
+        </CategoryPreviewCardPreview>
+        <CategoryPreviewCardFooter>
+          <CategoryPreviewCardTitle>{name}</CategoryPreviewCardTitle>
           {sublabel && (
-            <span className="text-muted-foreground text-center text-xs">
-              {sublabel}
-            </span>
+            <CategoryPreviewCardSublabel>{sublabel}</CategoryPreviewCardSublabel>
           )}
-        </div>
-      </div>
+        </CategoryPreviewCardFooter>
+      </CategoryPreviewCard>
     </Link>
   )
 }
