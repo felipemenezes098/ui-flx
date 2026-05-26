@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-02",
+  "title": "Basic",
+  "description": "Title plus supporting description.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-02.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item02() {\n  return (\n    <Item className=\"w-full max-w-md\">\n      <ItemContent>\n        <ItemTitle>Two-factor authentication</ItemTitle>\n        <ItemDescription>\n          Add an extra layer of security to your account.\n        </ItemDescription>\n      </ItemContent>\n    </Item>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

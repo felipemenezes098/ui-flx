@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-20",
+  "title": "In dropdown menu",
+  "description": "size=\"xs\" user header inside DropdownMenuContent.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "avatar",
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-20.tsx",
+      "content": "'use client'\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { LogOutIcon, SettingsIcon } from 'lucide-react'\n\nexport function Item20() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Account</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-60 p-2\">\n        <Item size=\"xs\">\n          <ItemMedia variant=\"image\">\n            <Avatar className=\"size-full rounded-sm\">\n              <AvatarImage\n                src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80\"\n                alt=\"\"\n              />\n              <AvatarFallback>SC</AvatarFallback>\n            </Avatar>\n          </ItemMedia>\n          <ItemContent>\n            <ItemTitle>Sarah Chen</ItemTitle>\n            <ItemDescription>sarah@example.com</ItemDescription>\n          </ItemContent>\n        </Item>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>\n          <SettingsIcon />\n          Settings\n        </DropdownMenuItem>\n        <DropdownMenuItem>\n          <LogOutIcon />\n          Log out\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-20.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

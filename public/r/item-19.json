@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-19",
+  "title": "Activity feed",
+  "description": "Icon timeline rows with relative time footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-19.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemFooter,\n  ItemGroup,\n  ItemMedia,\n  ItemSeparator,\n  ItemTitle,\n} from '@/components/ui/item'\nimport {\n  CheckCircle2Icon,\n  GitCommitIcon,\n  RocketIcon,\n  UserPlusIcon,\n} from 'lucide-react'\n\nconst events = [\n  {\n    icon: GitCommitIcon,\n    title: 'Marcus pushed 3 commits',\n    description: 'main · feat: split billing service',\n    time: '2m ago',\n  },\n  {\n    icon: UserPlusIcon,\n    title: 'Priya joined the workspace',\n    description: 'Invited by Sarah Chen',\n    time: '1h ago',\n  },\n  {\n    icon: CheckCircle2Icon,\n    title: 'Release v2.4.0 marked stable',\n    description: 'All canary metrics green for 24h',\n    time: '4h ago',\n  },\n  {\n    icon: RocketIcon,\n    title: 'Deploy succeeded',\n    description: 'production · 1m 42s',\n    time: 'Yesterday',\n  },\n]\n\nexport function Item19() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {events.map((e, index) => (\n        <div key={e.title}>\n          <Item>\n            <ItemMedia variant=\"icon\">\n              <e.icon />\n            </ItemMedia>\n            <ItemContent>\n              <ItemTitle>{e.title}</ItemTitle>\n              <ItemDescription>{e.description}</ItemDescription>\n            </ItemContent>\n            <ItemFooter className=\"basis-auto\">\n              <span className=\"text-muted-foreground text-xs\">{e.time}</span>\n            </ItemFooter>\n          </Item>\n          {index < events.length - 1 && <ItemSeparator />}\n        </div>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-19.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

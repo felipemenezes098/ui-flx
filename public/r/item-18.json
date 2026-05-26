@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-18",
+  "title": "Pricing tiers",
+  "description": "Stacked tier rows with Popular badge, price, and CTA button.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "badge",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-18.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemTitle,\n} from '@/components/ui/item'\n\nconst tiers = [\n  {\n    name: 'Starter',\n    price: '$0',\n    description: 'For tinkering and side projects.',\n    cta: 'Start free',\n    popular: false,\n  },\n  {\n    name: 'Pro',\n    price: '$24/mo',\n    description: 'For solo founders and small teams.',\n    cta: 'Upgrade',\n    popular: true,\n  },\n  {\n    name: 'Team',\n    price: '$96/mo',\n    description: 'Shared workspaces and SSO.',\n    cta: 'Contact sales',\n    popular: false,\n  },\n]\n\nexport function Item18() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {tiers.map((t) => (\n        <Item key={t.name} variant=\"outline\">\n          <ItemContent>\n            <ItemTitle>\n              {t.name}\n              {t.popular && <Badge>Popular</Badge>}\n              <span className=\"text-muted-foreground text-xs font-normal\">\n                {t.price}\n              </span>\n            </ItemTitle>\n            <ItemDescription>{t.description}</ItemDescription>\n          </ItemContent>\n          <ItemActions>\n            <Button variant={t.popular ? 'default' : 'outline'} size=\"sm\">\n              {t.cta}\n            </Button>\n          </ItemActions>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-18.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

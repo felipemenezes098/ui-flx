@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-24",
+  "title": "Empty team",
+  "description": "Avatar stack as media for an empty state with invite action.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "avatar",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-24.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemHeader,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item24() {\n  return (\n    <Item variant=\"outline\" className=\"w-full max-w-md\">\n      <ItemHeader className=\"justify-start\">\n        <div className=\"*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:grayscale *:data-[slot=avatar]:ring-2\">\n          <Avatar>\n            <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n            <AvatarFallback>CN</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/maxleiter.png\"\n              alt=\"@maxleiter\"\n            />\n            <AvatarFallback>LR</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/evilrabbit.png\"\n              alt=\"@evilrabbit\"\n            />\n            <AvatarFallback>ER</AvatarFallback>\n          </Avatar>\n        </div>\n      </ItemHeader>\n      <ItemContent>\n        <ItemTitle>No team members</ItemTitle>\n        <ItemDescription>\n          Invite your team to collaborate on this project.\n        </ItemDescription>\n      </ItemContent>\n      <ItemActions>\n        <Button size=\"sm\" variant=\"outline\">\n          Invite\n        </Button>\n      </ItemActions>\n    </Item>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-24.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

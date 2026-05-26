@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-04",
+  "title": "Sizes",
+  "description": "Default, sm, and xs sizes side-by-side.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-04.tsx",
+      "content": "import {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemTitle,\n} from '@/components/ui/item'\n\nexport function Item04() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-3\">\n      <Item variant=\"outline\" size=\"default\">\n        <ItemContent>\n          <ItemTitle>Default size</ItemTitle>\n          <ItemDescription>Comfortable padding and gap.</ItemDescription>\n        </ItemContent>\n      </Item>\n      <Item variant=\"outline\" size=\"sm\">\n        <ItemContent>\n          <ItemTitle>Small size</ItemTitle>\n          <ItemDescription>Denser rows for lists.</ItemDescription>\n        </ItemContent>\n      </Item>\n      <Item variant=\"outline\" size=\"xs\">\n        <ItemContent>\n          <ItemTitle>Extra small</ItemTitle>\n          <ItemDescription>Compact, menu-friendly.</ItemDescription>\n        </ItemContent>\n      </Item>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

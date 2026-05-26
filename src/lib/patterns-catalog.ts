@@ -4,6 +4,7 @@ import {
   ButtonConcept,
   DialogConcept,
   InputConcept,
+  ItemConcept,
   SelectConcept,
   TabsConcept,
 } from './pattern-concepts'
@@ -477,6 +478,143 @@ export const patternCategories: PatternCategory[] = [
         name: 'With popover swatch',
         description:
           'Color swatch Popover trigger inside a ButtonGroup with hex label.',
+      },
+    ],
+  },
+  {
+    slug: 'item',
+    name: 'Item',
+    description: 'Show entries in lists, feeds, and settings rows.',
+    preview: ItemConcept,
+    items: [
+      {
+        slug: 'item-02',
+        name: 'Basic',
+        description: 'Title plus supporting description.',
+        isNew: true,
+      },
+      {
+        slug: 'item-03',
+        name: 'Variants',
+        description: 'Default, outline, and muted variants side-by-side.',
+        isNew: true,
+      },
+      {
+        slug: 'item-04',
+        name: 'Sizes',
+        description: 'Default, sm, and xs sizes side-by-side.',
+        isNew: true,
+      },
+      {
+        slug: 'item-05',
+        name: 'With icon',
+        description: 'Leading icon via ItemMedia variant="icon".',
+        isNew: true,
+      },
+      {
+        slug: 'item-06',
+        name: 'With avatar',
+        description: 'User avatar in ItemMedia variant="image".',
+        isNew: true,
+      },
+      {
+        slug: 'item-07',
+        name: 'With thumbnail',
+        description: 'Image thumbnail in ItemMedia variant="image".',
+        isNew: true,
+      },
+      {
+        slug: 'item-08',
+        name: 'With actions',
+        description: 'Avatar, name, role, and a trailing action button.',
+        isNew: true,
+      },
+      {
+        slug: 'item-09',
+        name: 'Header and footer',
+        description: 'ItemHeader badge plus ItemFooter metadata row.',
+        isNew: true,
+      },
+      {
+        slug: 'item-10',
+        name: 'As link',
+        description: 'asChild anchor turns the whole row into a link.',
+        isNew: true,
+      },
+      {
+        slug: 'item-11',
+        name: 'Group',
+        description: 'ItemGroup with ItemSeparator dividers between rows.',
+        isNew: true,
+      },
+      {
+        slug: 'item-12',
+        name: 'User list',
+        description: 'Avatars with name, role, and Follow action per row.',
+        isNew: true,
+      },
+      {
+        slug: 'item-13',
+        name: 'Notifications',
+        description: 'Icon media, unread dot in the title, time footer.',
+        isNew: true,
+      },
+      {
+        slug: 'item-14',
+        name: 'File list',
+        description:
+          'File icon, name, size meta, and DropdownMenu actions per row.',
+        isNew: true,
+      },
+      {
+        slug: 'item-15',
+        name: 'Settings row',
+        description: 'Title and description with a trailing Switch.',
+        isNew: true,
+      },
+      {
+        slug: 'item-16',
+        name: 'Integrations',
+        description: 'Brand icon, status badge in title, connect Switch.',
+        isNew: true,
+      },
+      {
+        slug: 'item-17',
+        name: 'Stat rows',
+        description: 'Stacked KPI rows with label, value, and trend delta.',
+        isNew: true,
+      },
+      {
+        slug: 'item-18',
+        name: 'Pricing tiers',
+        description:
+          'Stacked tier rows with Popular badge, price, and CTA button.',
+        isNew: true,
+      },
+      {
+        slug: 'item-19',
+        name: 'Activity feed',
+        description: 'Icon timeline rows with relative time footer.',
+        isNew: true,
+      },
+      {
+        slug: 'item-20',
+        name: 'In dropdown menu',
+        description: 'size="xs" user header inside DropdownMenuContent.',
+        isNew: true,
+      },
+      {
+        slug: 'item-21',
+        name: 'In popover',
+        description: 'File group with thumbnails inside a Popover.',
+        isNew: true,
+      },
+      {
+        slug: 'item-24',
+        name: 'Empty team',
+        description:
+          'Avatar stack as media for an empty state with invite action.',
+        isNew: true,
       },
     ],
   },

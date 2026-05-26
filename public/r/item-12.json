@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-12",
+  "title": "User list",
+  "description": "Avatars with name, role, and Follow action per row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "item",
+    "avatar",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/item/item-12.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\n\nconst users = [\n  {\n    name: 'Sarah Chen',\n    role: 'Product designer',\n    initials: 'SC',\n    avatar:\n      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',\n  },\n  {\n    name: 'Marcus Lee',\n    role: 'Engineering manager',\n    initials: 'ML',\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',\n  },\n  {\n    name: 'Priya Patel',\n    role: 'Data scientist',\n    initials: 'PP',\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',\n  },\n]\n\nexport function Item12() {\n  return (\n    <ItemGroup className=\"w-full max-w-md\">\n      {users.map((user) => (\n        <Item key={user.name} variant=\"outline\">\n          <ItemMedia variant=\"image\">\n            <Avatar className=\"size-full rounded-sm\">\n              <AvatarImage src={user.avatar} alt=\"\" />\n              <AvatarFallback>{user.initials}</AvatarFallback>\n            </Avatar>\n          </ItemMedia>\n          <ItemContent>\n            <ItemTitle>{user.name}</ItemTitle>\n            <ItemDescription>{user.role}</ItemDescription>\n          </ItemContent>\n          <ItemActions>\n            <Button variant=\"outline\" size=\"sm\">\n              Follow\n            </Button>\n          </ItemActions>\n        </Item>\n      ))}\n    </ItemGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/item/item-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
