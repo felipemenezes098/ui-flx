@@ -104,6 +104,22 @@ export function ItemConcept() {
   )
 }
 
+export function TooltipConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex flex-col items-center gap-2">
+        <div className="bg-foreground flex items-center rounded-md px-3 py-1.5 shadow-md">
+          <div className="bg-background/70 h-1.5 w-16 rounded-full" />
+        </div>
+        <div className="bg-foreground size-2 -translate-y-3 rotate-45 rounded-[2px]" />
+        <div className="bg-card dark:bg-muted flex h-8 items-center justify-center rounded-md border px-5 shadow-sm">
+          <div className="bg-foreground/20 h-1.5 w-10 rounded-full" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

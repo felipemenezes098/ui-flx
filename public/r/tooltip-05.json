@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-05",
+  "title": "Custom delay",
+  "description": "Per-tooltip delayDuration overrides the provider.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-05.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip05() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Tooltip delayDuration={0}>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">Instant</Button>\n        </TooltipTrigger>\n        <TooltipContent>Opens with no delay</TooltipContent>\n      </Tooltip>\n      <Tooltip delayDuration={500}>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">500ms</Button>\n        </TooltipTrigger>\n        <TooltipContent>Opens after 500ms hover</TooltipContent>\n      </Tooltip>\n      <Tooltip delayDuration={1200}>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">1.2s</Button>\n        </TooltipTrigger>\n        <TooltipContent>Opens after 1.2s hover</TooltipContent>\n      </Tooltip>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
