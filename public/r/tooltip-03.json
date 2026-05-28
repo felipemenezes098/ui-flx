@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-03",
+  "title": "With shortcut",
+  "description": "Label paired with a keyboard shortcut kbd.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-03.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip03() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button>Save</Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        Save changes\n        <kbd\n          data-slot=\"kbd\"\n          className=\"bg-background/20 text-background ml-1 inline-flex h-5 items-center gap-0.5 rounded px-1.5 font-mono text-[10px] font-medium\"\n        >\n          ⌘S\n        </kbd>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

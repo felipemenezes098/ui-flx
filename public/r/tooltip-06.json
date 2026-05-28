@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-06",
+  "title": "Rich content",
+  "description": "Title plus supporting description in the content.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-06.tsx",
+      "content": "import { InfoIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip06() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Plan info\">\n          <InfoIcon />\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent className=\"max-w-xs flex-col items-start gap-1 px-3 py-2 text-left\">\n        <p className=\"text-sm font-medium\">Pro plan</p>\n        <p className=\"text-background/70 text-xs leading-snug\">\n          Unlimited projects, priority support, and access to premium blocks.\n        </p>\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

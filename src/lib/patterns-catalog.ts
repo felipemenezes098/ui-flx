@@ -7,6 +7,7 @@ import {
   ItemConcept,
   SelectConcept,
   TabsConcept,
+  TooltipConcept,
 } from './pattern-concepts'
 
 export interface PatternItem {
@@ -692,6 +693,76 @@ export const patternCategories: PatternCategory[] = [
         name: 'Custom trigger',
         description:
           'Pill triggers with muted active state and cross-fading image panels.',
+      },
+    ],
+  },
+  {
+    slug: 'tooltip',
+    name: 'Tooltip',
+    description: 'Quick hints that appear on hover or focus.',
+    preview: TooltipConcept,
+    items: [
+      {
+        slug: 'tooltip-01',
+        name: 'Basic',
+        description: 'Default dark tooltip on a button.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-02',
+        name: 'Sides',
+        description: 'Place the tooltip on top, right, bottom, or left.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-03',
+        name: 'With shortcut',
+        description: 'Label paired with a keyboard shortcut kbd.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-04',
+        name: 'On icon button',
+        description: 'Labels icon-only buttons in a toolbar.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-05',
+        name: 'Custom delay',
+        description: 'Per-tooltip delayDuration overrides the provider.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-06',
+        name: 'Rich content',
+        description: 'Title plus supporting description in the content.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-07',
+        name: 'Light via dark class',
+        description:
+          'Apply the `dark` class to TooltipContent to flip local CSS variables and render a light tooltip in light mode.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-08',
+        name: 'Colored',
+        description:
+          'Primary and destructive backgrounds with matching arrow override.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-09',
+        name: 'No arrow',
+        description: 'Hide the pointer arrow for a flatter look.',
+        isNew: true,
+      },
+      {
+        slug: 'tooltip-10',
+        name: 'Side offset',
+        description: 'Adjust the gap between trigger and content.',
+        isNew: true,
       },
     ],
   },

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-10",
+  "title": "Side offset",
+  "description": "Adjust the gap between trigger and content.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-10.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip10() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">offset 4</Button>\n        </TooltipTrigger>\n        <TooltipContent sideOffset={4}>Small gap</TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">offset 12</Button>\n        </TooltipTrigger>\n        <TooltipContent sideOffset={12}>Medium gap</TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">offset 20</Button>\n        </TooltipTrigger>\n        <TooltipContent sideOffset={20}>Large gap</TooltipContent>\n      </Tooltip>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

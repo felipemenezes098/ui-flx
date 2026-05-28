@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-07",
+  "title": "Light via dark class",
+  "description": "Apply the `dark` class to TooltipContent to flip local CSS variables and render a light tooltip in light mode.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-07.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\n// Trick: applying the `dark` class to TooltipContent flips its local CSS\n// variables to the dark-scheme values, so `bg-foreground` (default tooltip\n// background) resolves to a light color — and the arrow follows automatically\n// because it also reads `--foreground`. In dark mode this is a no-op.\nexport function Tooltip07() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent className=\"dark\">Light tooltip via dark class</TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

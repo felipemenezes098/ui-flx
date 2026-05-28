@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-04",
+  "title": "On icon button",
+  "description": "Labels icon-only buttons in a toolbar.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-04.tsx",
+      "content": "import { BellIcon, SearchIcon, SettingsIcon, TrashIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nconst actions = [\n  { icon: SearchIcon, label: 'Search' },\n  { icon: BellIcon, label: 'Notifications' },\n  { icon: SettingsIcon, label: 'Settings' },\n  { icon: TrashIcon, label: 'Delete' },\n]\n\nexport function Tooltip04() {\n  return (\n    <div className=\"flex items-center gap-2\">\n      {actions.map(({ icon: Icon, label }) => (\n        <Tooltip key={label}>\n          <TooltipTrigger asChild>\n            <Button variant=\"outline\" size=\"icon\" aria-label={label}>\n              <Icon />\n            </Button>\n          </TooltipTrigger>\n          <TooltipContent>{label}</TooltipContent>\n        </Tooltip>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

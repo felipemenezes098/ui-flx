@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-02",
+  "title": "Sides",
+  "description": "Place the tooltip on top, right, bottom, or left.",
+  "dependencies": [],
+  "registryDependencies": [
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/tooltip/tooltip-02.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip02() {\n  return (\n    <div className=\"grid grid-cols-3 grid-rows-3 gap-3\">\n      <div className=\"col-start-2 row-start-1 flex justify-center\">\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button variant=\"outline\">Top</Button>\n          </TooltipTrigger>\n          <TooltipContent side=\"top\">Tooltip on top</TooltipContent>\n        </Tooltip>\n      </div>\n      <div className=\"col-start-1 row-start-2 flex justify-start\">\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button variant=\"outline\">Left</Button>\n          </TooltipTrigger>\n          <TooltipContent side=\"left\">Tooltip on left</TooltipContent>\n        </Tooltip>\n      </div>\n      <div className=\"col-start-3 row-start-2 flex justify-end\">\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button variant=\"outline\">Right</Button>\n          </TooltipTrigger>\n          <TooltipContent side=\"right\">Tooltip on right</TooltipContent>\n        </Tooltip>\n      </div>\n      <div className=\"col-start-2 row-start-3 flex justify-center\">\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button variant=\"outline\">Bottom</Button>\n          </TooltipTrigger>\n          <TooltipContent side=\"bottom\">Tooltip on bottom</TooltipContent>\n        </Tooltip>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/tooltip/tooltip-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -2904,6 +2904,186 @@
       ],
       "title": "Custom trigger",
       "description": "Pill triggers with muted active state and cross-fading image panels."
+    },
+    {
+      "name": "tooltip-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Default dark tooltip on a button."
+    },
+    {
+      "name": "tooltip-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-02.tsx"
+        }
+      ],
+      "title": "Sides",
+      "description": "Place the tooltip on top, right, bottom, or left."
+    },
+    {
+      "name": "tooltip-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-03.tsx"
+        }
+      ],
+      "title": "With shortcut",
+      "description": "Label paired with a keyboard shortcut kbd."
+    },
+    {
+      "name": "tooltip-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-04.tsx"
+        }
+      ],
+      "title": "On icon button",
+      "description": "Labels icon-only buttons in a toolbar."
+    },
+    {
+      "name": "tooltip-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-05.tsx"
+        }
+      ],
+      "title": "Custom delay",
+      "description": "Per-tooltip delayDuration overrides the provider."
+    },
+    {
+      "name": "tooltip-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-06.tsx"
+        }
+      ],
+      "title": "Rich content",
+      "description": "Title plus supporting description in the content."
+    },
+    {
+      "name": "tooltip-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-07.tsx"
+        }
+      ],
+      "title": "Light via dark class",
+      "description": "Apply the `dark` class to TooltipContent to flip local CSS variables and render a light tooltip in light mode."
+    },
+    {
+      "name": "tooltip-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-08.tsx"
+        }
+      ],
+      "title": "Colored",
+      "description": "Primary, secondary, and destructive tooltips with arrow color matching the content."
+    },
+    {
+      "name": "tooltip-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-09.tsx"
+        }
+      ],
+      "title": "No arrow",
+      "description": "Hide the pointer arrow for a flatter look."
+    },
+    {
+      "name": "tooltip-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/tooltip/tooltip-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tooltip/tooltip-10.tsx"
+        }
+      ],
+      "title": "Side offset",
+      "description": "Adjust the gap between trigger and content."
     }
   ]
 }
