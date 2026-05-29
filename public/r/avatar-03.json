@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-03",
+  "title": "Icon fallback",
+  "description": "Generic user icon when there is no image or name.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-03.tsx",
+      "content": "import { UserIcon } from 'lucide-react'\n\nimport { Avatar, AvatarFallback } from '@/components/ui/avatar'\n\nexport function Avatar03() {\n  return (\n    <Avatar>\n      <AvatarFallback>\n        <UserIcon className=\"size-4\" />\n      </AvatarFallback>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

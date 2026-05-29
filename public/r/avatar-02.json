@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-02",
+  "title": "Fallback initials",
+  "description": "Missing image falls back to initials.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-02.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\n\n// Empty src forces the AvatarFallback to render — initials are the fallback.\nexport function Avatar02() {\n  return (\n    <Avatar>\n      <AvatarImage src=\"\" alt=\"Liam Carter\" />\n      <AvatarFallback>LC</AvatarFallback>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

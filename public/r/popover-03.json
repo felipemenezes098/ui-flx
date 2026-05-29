@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-03",
+  "title": "Sides",
+  "description": "Place the popover on top, right, bottom, or left of the trigger.",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/popover/popover-03.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nconst sides = ['top', 'right', 'bottom', 'left'] as const\n\nexport function Popover03() {\n  return (\n    <div className=\"grid w-fit grid-cols-3 grid-rows-3 gap-2\">\n      <div />\n      <SideButton side=\"top\" />\n      <div />\n      <SideButton side=\"left\" />\n      <div />\n      <SideButton side=\"right\" />\n      <div />\n      <SideButton side=\"bottom\" />\n      <div />\n    </div>\n  )\n}\n\nfunction SideButton({ side }: { side: (typeof sides)[number] }) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\" className=\"w-24 capitalize\">\n          {side}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent side={side} className=\"w-auto px-3 py-2 text-sm\">\n        Side <span className=\"font-medium\">{side}</span>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/popover/popover-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

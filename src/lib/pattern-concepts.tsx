@@ -120,6 +120,58 @@ export function TooltipConcept() {
   )
 }
 
+export function BreadcrumbConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex items-center gap-2">
+        <div className="bg-foreground/12 h-1.5 w-10 rounded-full" />
+        <div className="border-t-foreground/20 border-r-foreground/20 size-1.5 -rotate-45 border-t border-r" />
+        <div className="bg-foreground/12 h-1.5 w-12 rounded-full" />
+        <div className="border-t-foreground/20 border-r-foreground/20 size-1.5 -rotate-45 border-t border-r" />
+        <div className="bg-foreground/30 h-1.5 w-14 rounded-full" />
+      </div>
+    </div>
+  )
+}
+
+export function AvatarConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="relative">
+        <div className="bg-card dark:bg-muted relative flex size-20 items-end justify-center overflow-hidden rounded-full border shadow-sm">
+          <div className="bg-foreground/20 absolute top-4 size-7 rounded-full" />
+          <div className="bg-foreground/20 h-8 w-12 rounded-t-full" />
+        </div>
+        <div className="bg-primary ring-card dark:ring-muted absolute right-1 bottom-1 size-4 rounded-full ring-4" />
+      </div>
+    </div>
+  )
+}
+
+export function PopoverConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col items-center gap-2">
+        <div className="bg-card dark:bg-muted flex h-8 items-center rounded-md border px-4 shadow-sm">
+          <div className="bg-foreground/20 h-1.5 w-12 rounded-full" />
+        </div>
+        <div className="bg-card dark:bg-muted relative w-full rounded-lg border p-3 shadow-md">
+          <div className="bg-card dark:bg-muted absolute -top-1 left-1/2 size-2 -translate-x-1/2 rotate-45 border-t border-l" />
+          <div className="mb-2 flex flex-col gap-1.5">
+            <div className="bg-foreground/25 h-1.5 w-20 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-full rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-3/4 rounded-full" />
+          </div>
+          <div className="flex justify-end gap-1.5">
+            <div className="bg-foreground/10 h-5 w-10 rounded" />
+            <div className="bg-primary h-5 w-10 rounded" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

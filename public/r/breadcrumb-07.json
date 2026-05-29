@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-07",
+  "title": "Responsive collapse",
+  "description": "Dropdown on small screens, full inline path from sm up.",
+  "dependencies": [],
+  "registryDependencies": [
+    "breadcrumb",
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/breadcrumb/breadcrumb-07.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\n// Collapse middle levels into a dropdown on small screens, expand them inline\n// from the sm breakpoint up. Resize the preview to see it switch.\nexport function Breadcrumb07() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem className=\"sm:hidden\">\n          <DropdownMenu>\n            <DropdownMenuTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon-xs\" aria-label=\"Toggle menu\">\n                <BreadcrumbEllipsis />\n              </Button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"start\">\n              <DropdownMenuItem>Workspace</DropdownMenuItem>\n              <DropdownMenuItem>Projects</DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator className=\"sm:hidden\" />\n        <BreadcrumbItem className=\"hidden sm:inline-flex\">\n          <BreadcrumbLink href=\"#\">Workspace</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator className=\"hidden sm:inline-flex\" />\n        <BreadcrumbItem className=\"hidden sm:inline-flex\">\n          <BreadcrumbLink href=\"#\">Projects</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator className=\"hidden sm:inline-flex\" />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Acme Website</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/breadcrumb/breadcrumb-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

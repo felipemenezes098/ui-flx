@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-06",
+  "title": "Dimensions form",
+  "description": "Inline labeled inputs — canonical shadcn dimensions example.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "popover",
+    "button",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/popover/popover-06.tsx",
+      "content": "import { Settings2Icon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Field, FieldGroup, FieldLabel } from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nexport function Popover06() {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">\n          <Settings2Icon data-icon=\"inline-start\" />\n          Dimensions\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-80\">\n        <PopoverHeader>\n          <PopoverTitle>Dimensions</PopoverTitle>\n          <PopoverDescription>\n            Set the dimensions for the layer.\n          </PopoverDescription>\n        </PopoverHeader>\n        <FieldGroup>\n          <Field orientation=\"horizontal\">\n            <FieldLabel htmlFor=\"width\" className=\"w-20\">\n              Width\n            </FieldLabel>\n            <Input id=\"width\" defaultValue=\"100%\" className=\"h-8\" />\n          </Field>\n          <Field orientation=\"horizontal\">\n            <FieldLabel htmlFor=\"max-width\" className=\"w-20\">\n              Max width\n            </FieldLabel>\n            <Input id=\"max-width\" defaultValue=\"300px\" className=\"h-8\" />\n          </Field>\n          <Field orientation=\"horizontal\">\n            <FieldLabel htmlFor=\"height\" className=\"w-20\">\n              Height\n            </FieldLabel>\n            <Input id=\"height\" defaultValue=\"25px\" className=\"h-8\" />\n          </Field>\n          <Field orientation=\"horizontal\">\n            <FieldLabel htmlFor=\"max-height\" className=\"w-20\">\n              Max height\n            </FieldLabel>\n            <Input id=\"max-height\" defaultValue=\"none\" className=\"h-8\" />\n          </Field>\n        </FieldGroup>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/popover/popover-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

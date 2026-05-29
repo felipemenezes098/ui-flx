@@ -1,14 +1,19 @@
 import type { ComponentType } from 'react'
 
 import {
+  AvatarConcept,
+  BreadcrumbConcept,
   ButtonConcept,
   DialogConcept,
   InputConcept,
   ItemConcept,
+  PopoverConcept,
   SelectConcept,
   TabsConcept,
   TooltipConcept,
 } from './pattern-concepts'
+
+export type PatternGridColumns = 2 | 3
 
 export interface PatternItem {
   slug: string
@@ -16,6 +21,7 @@ export interface PatternItem {
   description?: string
   isNew?: boolean
   prompt?: string
+  span?: 'full'
 }
 
 export interface PatternCategory {
@@ -24,9 +30,87 @@ export interface PatternCategory {
   description: string
   preview: ComponentType
   items: PatternItem[]
+  hasNew?: boolean
+  grid?: {
+    columns?: PatternGridColumns
+  }
 }
 
 export const patternCategories: PatternCategory[] = [
+  {
+    slug: 'avatar',
+    name: 'Avatar',
+    description: 'Represent a user or entity with an image or initials.',
+    preview: AvatarConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'avatar-01',
+        name: 'Basic',
+        description: 'Image avatar with an initials fallback.',
+      },
+      {
+        slug: 'avatar-02',
+        name: 'Fallback initials',
+        description: 'Missing image falls back to initials.',
+      },
+      {
+        slug: 'avatar-03',
+        name: 'Icon fallback',
+        description: 'Generic user icon when there is no image or name.',
+      },
+      {
+        slug: 'avatar-04',
+        name: 'Sizes',
+        description: 'Small, default, and large sizes side-by-side.',
+      },
+      {
+        slug: 'avatar-05',
+        name: 'Colored fallback',
+        description: 'Tinted initials fallbacks using semantic tokens.',
+      },
+      {
+        slug: 'avatar-06',
+        name: 'Status badge',
+        description: 'Presence dot via AvatarBadge — online, away, offline.',
+      },
+      {
+        slug: 'avatar-07',
+        name: 'Badge with icon',
+        description: 'Verified check icon inside the AvatarBadge.',
+      },
+      {
+        slug: 'avatar-08',
+        name: 'With name',
+        description: 'Avatar beside a name and email — a user row.',
+      },
+      {
+        slug: 'avatar-09',
+        name: 'Group',
+        description: 'Overlapping AvatarGroup stack of members.',
+      },
+      {
+        slug: 'avatar-10',
+        name: 'Group with count',
+        description: 'AvatarGroupCount shows the overflow tally.',
+      },
+      {
+        slug: 'avatar-11',
+        name: 'Group with tooltip',
+        description: 'Hover each avatar in the group to reveal its name.',
+      },
+      {
+        slug: 'avatar-12',
+        name: 'Loading skeleton',
+        description: 'Skeleton placeholder while the avatar loads.',
+      },
+      {
+        slug: 'avatar-13',
+        name: 'Icon on top',
+        description: 'Icon badge pinned to the top-right corner.',
+      },
+    ],
+  },
   {
     slug: 'select',
     name: 'Select',
@@ -492,130 +576,109 @@ export const patternCategories: PatternCategory[] = [
         slug: 'item-02',
         name: 'Basic',
         description: 'Title plus supporting description.',
-        isNew: true,
       },
       {
         slug: 'item-03',
         name: 'Variants',
         description: 'Default, outline, and muted variants side-by-side.',
-        isNew: true,
       },
       {
         slug: 'item-04',
         name: 'Sizes',
         description: 'Default, sm, and xs sizes side-by-side.',
-        isNew: true,
       },
       {
         slug: 'item-05',
         name: 'With icon',
         description: 'Leading icon via ItemMedia variant="icon".',
-        isNew: true,
       },
       {
         slug: 'item-06',
         name: 'With avatar',
         description: 'User avatar in ItemMedia variant="image".',
-        isNew: true,
       },
       {
         slug: 'item-07',
         name: 'With thumbnail',
         description: 'Image thumbnail in ItemMedia variant="image".',
-        isNew: true,
       },
       {
         slug: 'item-08',
         name: 'With actions',
         description: 'Avatar, name, role, and a trailing action button.',
-        isNew: true,
       },
       {
         slug: 'item-09',
         name: 'Header and footer',
         description: 'ItemHeader badge plus ItemFooter metadata row.',
-        isNew: true,
       },
       {
         slug: 'item-10',
         name: 'As link',
         description: 'asChild anchor turns the whole row into a link.',
-        isNew: true,
       },
       {
         slug: 'item-11',
         name: 'Group',
         description: 'ItemGroup with ItemSeparator dividers between rows.',
-        isNew: true,
       },
       {
         slug: 'item-12',
         name: 'User list',
         description: 'Avatars with name, role, and Follow action per row.',
-        isNew: true,
       },
       {
         slug: 'item-13',
         name: 'Notifications',
         description: 'Icon media, unread dot in the title, time footer.',
-        isNew: true,
       },
       {
         slug: 'item-14',
         name: 'File list',
         description:
           'File icon, name, size meta, and DropdownMenu actions per row.',
-        isNew: true,
       },
       {
         slug: 'item-15',
         name: 'Settings row',
         description: 'Title and description with a trailing Switch.',
-        isNew: true,
       },
       {
         slug: 'item-16',
         name: 'Integrations',
         description: 'Brand icon, status badge in title, connect Switch.',
-        isNew: true,
       },
       {
         slug: 'item-17',
         name: 'Stat rows',
         description: 'Stacked KPI rows with label, value, and trend delta.',
-        isNew: true,
       },
       {
         slug: 'item-18',
         name: 'Pricing tiers',
         description:
           'Stacked tier rows with Popular badge, price, and CTA button.',
-        isNew: true,
       },
       {
         slug: 'item-19',
         name: 'Activity feed',
         description: 'Icon timeline rows with relative time footer.',
-        isNew: true,
       },
       {
         slug: 'item-20',
         name: 'In dropdown menu',
         description: 'size="xs" user header inside DropdownMenuContent.',
-        isNew: true,
       },
       {
         slug: 'item-21',
         name: 'In popover',
         description: 'File group with thumbnails inside a Popover.',
-        isNew: true,
       },
       {
         slug: 'item-24',
         name: 'Empty team',
         description:
           'Avatar stack as media for an empty state with invite action.',
-        isNew: true,
       },
     ],
   },
@@ -697,72 +760,207 @@ export const patternCategories: PatternCategory[] = [
     ],
   },
   {
+    slug: 'popover',
+    name: 'Popover',
+    description: 'Floating panels triggered by a click.',
+    preview: PopoverConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'popover-01',
+        name: 'Basic',
+        description: 'Default popover with a button trigger and simple text.',
+      },
+      {
+        slug: 'popover-02',
+        name: 'With header',
+        description:
+          'PopoverHeader, PopoverTitle, and PopoverDescription composition.',
+      },
+      {
+        slug: 'popover-03',
+        name: 'Sides',
+        description:
+          'Place the popover on top, right, bottom, or left of the trigger.',
+      },
+      {
+        slug: 'popover-04',
+        name: 'Alignment',
+        description:
+          'Align the content to the start, center, or end of the trigger.',
+      },
+      {
+        slug: 'popover-05',
+        name: 'Custom width',
+        description:
+          'Override the default width via className on PopoverContent.',
+      },
+      {
+        slug: 'popover-06',
+        name: 'Dimensions form',
+        description:
+          'Inline labeled inputs — canonical shadcn dimensions example.',
+      },
+      {
+        slug: 'popover-07',
+        name: 'Notification settings',
+        description:
+          'Switches with labels and descriptions inside the popover.',
+      },
+      {
+        slug: 'popover-08',
+        name: 'Color picker',
+        description: 'Swatch grid with a check icon on the active color.',
+      },
+      {
+        slug: 'popover-09',
+        name: 'Share link',
+        description: 'Readonly URL input with a trailing copy button.',
+      },
+      {
+        slug: 'popover-10',
+        name: 'Notifications list',
+        description: 'Item rows with icon media, unread dot, and meta footer.',
+      },
+      {
+        slug: 'popover-11',
+        name: 'Profile card',
+        description: 'Banner image, avatar, bio, and follow / message actions.',
+      },
+      {
+        slug: 'popover-12',
+        name: 'Cover picker',
+        description:
+          'Thumbnail grid with a selection ring for choosing a cover image.',
+      },
+      {
+        slug: 'popover-13',
+        name: 'Filters',
+        description:
+          'Grouped ToggleGroup filters with reset and apply actions.',
+      },
+      {
+        slug: 'popover-14',
+        name: 'Scrollable list',
+        description:
+          'Member list inside a ScrollArea for long content within a fixed-height popover.',
+      },
+    ],
+  },
+  {
     slug: 'tooltip',
     name: 'Tooltip',
     description: 'Quick hints that appear on hover or focus.',
     preview: TooltipConcept,
+    hasNew: true,
     items: [
       {
         slug: 'tooltip-01',
         name: 'Basic',
         description: 'Default dark tooltip on a button.',
-        isNew: true,
       },
       {
         slug: 'tooltip-02',
         name: 'Sides',
         description: 'Place the tooltip on top, right, bottom, or left.',
-        isNew: true,
       },
       {
         slug: 'tooltip-03',
         name: 'With shortcut',
         description: 'Label paired with a keyboard shortcut kbd.',
-        isNew: true,
       },
       {
         slug: 'tooltip-04',
         name: 'On icon button',
         description: 'Labels icon-only buttons in a toolbar.',
-        isNew: true,
       },
       {
         slug: 'tooltip-05',
         name: 'Custom delay',
         description: 'Per-tooltip delayDuration overrides the provider.',
-        isNew: true,
       },
       {
         slug: 'tooltip-06',
         name: 'Rich content',
         description: 'Title plus supporting description in the content.',
-        isNew: true,
       },
       {
         slug: 'tooltip-07',
         name: 'Light via dark class',
         description:
           'Apply the `dark` class to TooltipContent to flip local CSS variables and render a light tooltip in light mode.',
-        isNew: true,
       },
       {
         slug: 'tooltip-08',
         name: 'Colored',
         description:
           'Primary and destructive backgrounds with matching arrow override.',
-        isNew: true,
       },
       {
         slug: 'tooltip-09',
         name: 'No arrow',
         description: 'Hide the pointer arrow for a flatter look.',
-        isNew: true,
       },
       {
         slug: 'tooltip-10',
         name: 'Side offset',
         description: 'Adjust the gap between trigger and content.',
-        isNew: true,
+      },
+    ],
+  },
+  {
+    slug: 'breadcrumb',
+    name: 'Breadcrumb',
+    description: 'Show the path to the current page.',
+    preview: BreadcrumbConcept,
+    hasNew: true,
+    grid: { columns: 2 },
+    items: [
+      {
+        slug: 'breadcrumb-01',
+        name: 'Basic',
+        description: 'Links with a current page and chevron separators.',
+      },
+      {
+        slug: 'breadcrumb-02',
+        name: 'With icons',
+        description: 'Leading icon per crumb — file-path style.',
+      },
+      {
+        slug: 'breadcrumb-03',
+        name: 'Custom separator',
+        description: 'Swap the chevron for a slash via separator children.',
+      },
+      {
+        slug: 'breadcrumb-04',
+        name: 'Dot separator',
+        description: 'Lighter middle dot divider between crumbs.',
+      },
+      {
+        slug: 'breadcrumb-05',
+        name: 'With ellipsis',
+        description: 'BreadcrumbEllipsis collapses the middle levels.',
+      },
+      {
+        slug: 'breadcrumb-06',
+        name: 'With dropdown',
+        description: 'Ghost icon Button opens a menu of the hidden levels.',
+      },
+      {
+        slug: 'breadcrumb-07',
+        name: 'Responsive collapse',
+        description: 'Dropdown on small screens, full inline path from sm up.',
+      },
+      {
+        slug: 'breadcrumb-08',
+        name: 'As link',
+        description:
+          'asChild renders a custom external <a> with target and rel.',
+      },
+      {
+        slug: 'breadcrumb-09',
+        name: 'Dropdown at end',
+        description: 'Last crumb is a Button switcher for sibling pages.',
       },
     ],
   },

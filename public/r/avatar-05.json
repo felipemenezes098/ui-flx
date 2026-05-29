@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-05",
+  "title": "Colored fallback",
+  "description": "Tinted initials fallbacks using semantic tokens.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-05.tsx",
+      "content": "import { Avatar, AvatarFallback } from '@/components/ui/avatar'\n\nconst people = [\n  { initials: 'SR', className: 'bg-primary text-primary-foreground' },\n  { initials: 'LC', className: 'bg-secondary text-secondary-foreground' },\n  { initials: 'AM', className: 'bg-accent text-accent-foreground' },\n  { initials: 'JD', className: 'bg-muted text-foreground' },\n]\n\nexport function Avatar05() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      {people.map(({ initials, className }) => (\n        <Avatar key={initials}>\n          <AvatarFallback className={className}>{initials}</AvatarFallback>\n        </Avatar>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

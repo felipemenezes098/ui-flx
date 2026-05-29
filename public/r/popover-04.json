@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-04",
+  "title": "Alignment",
+  "description": "Align the content to the start, center, or end of the trigger.",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/popover/popover-04.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nconst aligns = ['start', 'center', 'end'] as const\n\nexport function Popover04() {\n  return (\n    <div className=\"flex w-full max-w-xs flex-col gap-3\">\n      {aligns.map((align) => (\n        <Popover key={align}>\n          <PopoverTrigger asChild>\n            <Button variant=\"outline\" className=\"w-full justify-between\">\n              <span className=\"capitalize\">Align {align}</span>\n              <span className=\"text-muted-foreground text-xs\">Open ↓</span>\n            </Button>\n          </PopoverTrigger>\n          <PopoverContent\n            align={align}\n            className=\"w-32 px-3 py-2 text-sm\"\n          >\n            <span className=\"font-medium capitalize\">{align}</span>\n          </PopoverContent>\n        </Popover>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/popover/popover-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

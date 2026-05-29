@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-09",
+  "title": "Dropdown at end",
+  "description": "Last crumb is a Button switcher for sibling pages.",
+  "dependencies": [],
+  "registryDependencies": [
+    "breadcrumb",
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/breadcrumb/breadcrumb-09.tsx",
+      "content": "import { CheckIcon, ChevronDownIcon } from 'lucide-react'\n\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb'\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\n// The last crumb is a switcher: a Button opens sibling pages of the current\n// level, with a check on the active one.\nexport function Breadcrumb09() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Docs</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Components</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <DropdownMenu>\n            <DropdownMenuTrigger asChild>\n              <Button variant=\"ghost\" size=\"xs\" className=\"-ml-1\">\n                Breadcrumb\n                <ChevronDownIcon data-icon=\"inline-end\" />\n              </Button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"start\">\n              <DropdownMenuItem>\n                <CheckIcon data-icon=\"inline-start\" />\n                Breadcrumb\n              </DropdownMenuItem>\n              <DropdownMenuItem className=\"pl-7\">Button</DropdownMenuItem>\n              <DropdownMenuItem className=\"pl-7\">Dropdown Menu</DropdownMenuItem>\n              <DropdownMenuItem className=\"pl-7\">Tooltip</DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/breadcrumb/breadcrumb-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

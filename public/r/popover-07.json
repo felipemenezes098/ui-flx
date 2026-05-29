@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-07",
+  "title": "Notification settings",
+  "description": "Switches with labels and descriptions inside the popover.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "popover",
+    "button",
+    "field",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/popover/popover-07.tsx",
+      "content": "import { BellIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport { Switch } from '@/components/ui/switch'\n\nconst settings = [\n  {\n    id: 'product-updates',\n    label: 'Product updates',\n    description: 'New releases and improvements.',\n    defaultChecked: true,\n  },\n  {\n    id: 'weekly-digest',\n    label: 'Weekly digest',\n    description: 'Summary of activity every Monday.',\n    defaultChecked: true,\n  },\n  {\n    id: 'marketing',\n    label: 'Marketing',\n    description: 'Offers, tips, and partnerships.',\n    defaultChecked: false,\n  },\n] as const\n\nexport function Popover07() {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          size=\"icon\"\n          aria-label=\"Notification settings\"\n        >\n          <BellIcon />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-80\">\n        <PopoverHeader>\n          <PopoverTitle>Notifications</PopoverTitle>\n          <PopoverDescription>\n            Choose what you want to hear about.\n          </PopoverDescription>\n        </PopoverHeader>\n        <FieldGroup className=\"gap-4\">\n          {settings.map((s) => (\n            <Field key={s.id} orientation=\"horizontal\">\n              <div className=\"flex flex-1 flex-col gap-0.5\">\n                <FieldLabel htmlFor={s.id}>{s.label}</FieldLabel>\n                <FieldDescription>{s.description}</FieldDescription>\n              </div>\n              <Switch id={s.id} defaultChecked={s.defaultChecked} />\n            </Field>\n          ))}\n        </FieldGroup>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/popover/popover-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

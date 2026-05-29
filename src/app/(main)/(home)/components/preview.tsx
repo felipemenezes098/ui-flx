@@ -118,6 +118,7 @@ export function Preview() {
               href={`/patterns/${cat.slug}`}
               concept={cat.preview}
               aspectClass="aspect-square"
+              hasNew={cat.hasNew}
             />
           ))}
         </div>
