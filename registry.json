@@ -2906,6 +2906,514 @@
       "description": "Pill triggers with muted active state and cross-fading image panels."
     },
     {
+      "name": "avatar-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Image avatar with an initials fallback."
+    },
+    {
+      "name": "avatar-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-02.tsx"
+        }
+      ],
+      "title": "Fallback initials",
+      "description": "Missing image falls back to initials."
+    },
+    {
+      "name": "avatar-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-03.tsx"
+        }
+      ],
+      "title": "Icon fallback",
+      "description": "Generic user icon when there is no image or name."
+    },
+    {
+      "name": "avatar-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-04.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Small, default, and large sizes side-by-side."
+    },
+    {
+      "name": "avatar-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-05.tsx"
+        }
+      ],
+      "title": "Colored fallback",
+      "description": "Tinted initials fallbacks using semantic tokens."
+    },
+    {
+      "name": "avatar-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-06.tsx"
+        }
+      ],
+      "title": "Status badge",
+      "description": "Presence dot via AvatarBadge — online, away, offline."
+    },
+    {
+      "name": "avatar-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-07.tsx"
+        }
+      ],
+      "title": "Badge with icon",
+      "description": "Verified check icon inside the AvatarBadge."
+    },
+    {
+      "name": "avatar-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-08.tsx"
+        }
+      ],
+      "title": "With name",
+      "description": "Avatar beside a name and email — a user row."
+    },
+    {
+      "name": "avatar-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-09.tsx"
+        }
+      ],
+      "title": "Group",
+      "description": "Overlapping AvatarGroup stack of members."
+    },
+    {
+      "name": "avatar-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-10.tsx"
+        }
+      ],
+      "title": "Group with count",
+      "description": "AvatarGroupCount shows the overflow tally."
+    },
+    {
+      "name": "avatar-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "tooltip"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-11.tsx"
+        }
+      ],
+      "title": "Group with tooltip",
+      "description": "Hover each avatar in the group to reveal its name."
+    },
+    {
+      "name": "avatar-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-12.tsx"
+        }
+      ],
+      "title": "Loading skeleton",
+      "description": "Skeleton placeholder while the avatar loads."
+    },
+    {
+      "name": "avatar-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/avatar/avatar-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-13.tsx"
+        }
+      ],
+      "title": "Top",
+      "description": "Icon badge pinned to the top-right corner."
+    },
+    {
+      "name": "popover-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Default popover with a button trigger and simple text."
+    },
+    {
+      "name": "popover-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-02.tsx"
+        }
+      ],
+      "title": "With header",
+      "description": "PopoverHeader, PopoverTitle, and PopoverDescription composition."
+    },
+    {
+      "name": "popover-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-03.tsx"
+        }
+      ],
+      "title": "Sides",
+      "description": "Place the popover on top, right, bottom, or left of the trigger."
+    },
+    {
+      "name": "popover-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-04.tsx"
+        }
+      ],
+      "title": "Alignment",
+      "description": "Align the content to the start, center, or end of the trigger."
+    },
+    {
+      "name": "popover-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-05.tsx"
+        }
+      ],
+      "title": "Custom width",
+      "description": "Override the default width via className on PopoverContent."
+    },
+    {
+      "name": "popover-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "field",
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-06.tsx"
+        }
+      ],
+      "title": "Dimensions form",
+      "description": "Inline labeled inputs — canonical shadcn dimensions example."
+    },
+    {
+      "name": "popover-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "field",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-07.tsx"
+        }
+      ],
+      "title": "Notification settings",
+      "description": "Switches with labels and descriptions inside the popover."
+    },
+    {
+      "name": "popover-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-08.tsx"
+        }
+      ],
+      "title": "Color picker",
+      "description": "Swatch grid with a check icon on the active color."
+    },
+    {
+      "name": "popover-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "input-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-09.tsx"
+        }
+      ],
+      "title": "Share link",
+      "description": "Readonly URL input with a trailing copy button."
+    },
+    {
+      "name": "popover-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "badge",
+        "item",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-10.tsx"
+        }
+      ],
+      "title": "Notifications list",
+      "description": "Item rows with icon media, unread dot, and meta footer."
+    },
+    {
+      "name": "popover-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "avatar"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-11.tsx"
+        }
+      ],
+      "title": "Profile card",
+      "description": "Banner image, avatar, bio, and follow / message actions."
+    },
+    {
+      "name": "popover-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-12.tsx"
+        }
+      ],
+      "title": "Cover picker",
+      "description": "Thumbnail grid with a selection ring for choosing a cover image."
+    },
+    {
+      "name": "popover-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "badge",
+        "field",
+        "separator",
+        "toggle-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-13.tsx"
+        }
+      ],
+      "title": "Filters",
+      "description": "Grouped ToggleGroup filters with reset and apply actions."
+    },
+    {
+      "name": "popover-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "avatar",
+        "scroll-area",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/popover/popover-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-14.tsx"
+        }
+      ],
+      "title": "Scrollable list",
+      "description": "Member list inside a ScrollArea for long content within a fixed-height popover."
+    },
+    {
       "name": "tooltip-01",
       "type": "registry:block",
       "registryDependencies": [
@@ -2966,7 +3474,9 @@
         "tooltip",
         "button"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/patterns/tooltip/tooltip-04.tsx",
@@ -3002,7 +3512,9 @@
         "tooltip",
         "button"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/patterns/tooltip/tooltip-06.tsx",
@@ -3047,7 +3559,7 @@
         }
       ],
       "title": "Colored",
-      "description": "Primary, secondary, and destructive tooltips with arrow color matching the content."
+      "description": "Primary and destructive backgrounds with matching arrow override."
     },
     {
       "name": "tooltip-09",
@@ -3084,6 +3596,165 @@
       ],
       "title": "Side offset",
       "description": "Adjust the gap between trigger and content."
+    },
+    {
+      "name": "breadcrumb-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Links with a current page and chevron separators."
+    },
+    {
+      "name": "breadcrumb-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-02.tsx"
+        }
+      ],
+      "title": "With icon",
+      "description": "Leading home icon on the first crumb."
+    },
+    {
+      "name": "breadcrumb-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-03.tsx"
+        }
+      ],
+      "title": "Custom separator",
+      "description": "Swap the chevron for a slash via separator children."
+    },
+    {
+      "name": "breadcrumb-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-04.tsx"
+        }
+      ],
+      "title": "Dot separator",
+      "description": "Lighter middle dot divider between crumbs."
+    },
+    {
+      "name": "breadcrumb-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-05.tsx"
+        }
+      ],
+      "title": "With ellipsis",
+      "description": "BreadcrumbEllipsis collapses the middle levels."
+    },
+    {
+      "name": "breadcrumb-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-06.tsx"
+        }
+      ],
+      "title": "With dropdown",
+      "description": "Ghost icon Button opens a menu of the hidden levels."
+    },
+    {
+      "name": "breadcrumb-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-07.tsx"
+        }
+      ],
+      "title": "Responsive collapse",
+      "description": "Dropdown on small screens, full inline path from sm up."
+    },
+    {
+      "name": "breadcrumb-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-08.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "asChild renders a custom external <a> with target and rel."
+    },
+    {
+      "name": "breadcrumb-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/breadcrumb/breadcrumb-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-09.tsx"
+        }
+      ],
+      "title": "Dropdown at end",
+      "description": "Last crumb is a Button switcher for sibling pages."
     }
   ]
 }

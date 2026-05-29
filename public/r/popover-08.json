@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-08",
+  "title": "Color picker",
+  "description": "Swatch grid with a check icon on the active color.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/popover/popover-08.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport { cn } from '@/lib/utils'\n\nconst swatches = [\n  { hex: '#EF4444', className: 'bg-red-500' },\n  { hex: '#F97316', className: 'bg-orange-500' },\n  { hex: '#F59E0B', className: 'bg-amber-500' },\n  { hex: '#84CC16', className: 'bg-lime-500' },\n  { hex: '#10B981', className: 'bg-emerald-500' },\n  { hex: '#14B8A6', className: 'bg-teal-500' },\n  { hex: '#0EA5E9', className: 'bg-sky-500' },\n  { hex: '#3B82F6', className: 'bg-blue-500' },\n  { hex: '#6366F1', className: 'bg-indigo-500' },\n  { hex: '#8B5CF6', className: 'bg-violet-500' },\n  { hex: '#EC4899', className: 'bg-pink-500' },\n  { hex: '#F43F5E', className: 'bg-rose-500' },\n] as const\n\nexport function Popover08() {\n  const [color, setColor] = useState<(typeof swatches)[number]>(swatches[7])\n\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">\n          <span\n            className={cn('size-4 rounded-sm', color.className)}\n            aria-hidden\n          />\n          <span className=\"font-mono text-xs\">{color.hex}</span>\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent align=\"start\" className=\"w-auto p-3\">\n        <div className=\"grid grid-cols-6 gap-1.5\">\n          {swatches.map((s) => (\n            <button\n              key={s.hex}\n              type=\"button\"\n              aria-label={s.hex}\n              onClick={() => setColor(s)}\n              className={cn(\n                'flex size-7 items-center justify-center rounded-md outline-none transition',\n                s.className,\n                'hover:ring-ring focus-visible:ring-ring hover:ring-2 focus-visible:ring-2',\n              )}\n            >\n              {color.hex === s.hex && (\n                <CheckIcon className=\"size-3.5 text-white drop-shadow\" />\n              )}\n            </button>\n          ))}\n        </div>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/popover/popover-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

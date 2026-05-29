@@ -2,12 +2,15 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getCategoryBySlug, patternCategories } from '@/lib/patterns-catalog'
-import { getPatternsByNames } from '@/lib/patterns-utils'
+import { getPatternByName } from '@/lib/patterns-utils'
 
 import { PatternCard } from '../components/pattern-card'
 import { PatternCategoryNav } from '../components/pattern-category-nav'
 import { PatternDetails } from '../components/pattern-details'
-import { PatternGrid } from '../components/pattern-grid'
+import {
+  PatternGrid,
+  patternGridItemVariants,
+} from '../components/pattern-grid'
 import { PatternRenderer } from '../components/pattern-renderer'
 import { Footer } from '@/components/core/footer'
 
@@ -38,7 +41,7 @@ export default async function PatternCategoryPage({
   const category = getCategoryBySlug(slug)
   if (!category) notFound()
 
-  const items = getPatternsByNames(category.items.map((i) => i.slug))
+  const columns = category.grid?.columns ?? 3
 
   return (
     <div>
@@ -52,16 +55,25 @@ export default async function PatternCategoryPage({
           </section>
 
           <PatternCategoryNav />
-          <PatternGrid>
-            {items.map((item) => (
-              <PatternCard
-                key={item.name}
-                item={item}
-                actions={<PatternDetails item={item} />}
-              >
-                <PatternRenderer name={item.name} />
-              </PatternCard>
-            ))}
+          <PatternGrid columns={columns}>
+            {category.items.map((catalogItem) => {
+              const item = getPatternByName(catalogItem.slug)
+              if (!item) return null
+
+              return (
+                <PatternCard
+                  key={item.name}
+                  item={item}
+                  className={patternGridItemVariants({
+                    span: catalogItem.span ?? 'default',
+                    columns,
+                  })}
+                  actions={<PatternDetails item={item} />}
+                >
+                  <PatternRenderer name={item.name} />
+                </PatternCard>
+              )
+            })}
           </PatternGrid>
         </div>
       </main>

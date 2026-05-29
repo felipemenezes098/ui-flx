@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import {
   CategoryPreviewCard,
+  CategoryPreviewCardBadge,
   CategoryPreviewCardFooter,
   CategoryPreviewCardPreview,
   CategoryPreviewCardTitle,
@@ -51,6 +52,7 @@ export default function PatternsPage() {
                 >
                   <CategoryPreviewCard>
                     <CategoryPreviewCardPreview className="aspect-square">
+                      {category.hasNew && <CategoryPreviewCardBadge />}
                       <category.preview />
                     </CategoryPreviewCardPreview>
                     <CategoryPreviewCardFooter>

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-13",
+  "title": "Top",
+  "description": "Icon badge pinned to the top-right corner.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-13.tsx",
+      "content": "import { CameraIcon } from 'lucide-react'\n\nimport {\n  Avatar,\n  AvatarBadge,\n  AvatarFallback,\n  AvatarImage,\n} from '@/components/ui/avatar'\n\n// AvatarBadge sits bottom-right by default. Flip it to the top-right corner\n// with `top-0 bottom-auto` so it rests on the edge rather than over the face.\nexport function Avatar13() {\n  return (\n    <Avatar size=\"lg\">\n      <AvatarImage\n        src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop\"\n        alt=\"Sofia Rodrigues\"\n      />\n      <AvatarFallback>SR</AvatarFallback>\n      <AvatarBadge className=\"top-0 bottom-auto group-data-[size=lg]/avatar:[&>svg]:size-2\">\n        <CameraIcon />\n      </AvatarBadge>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-11",
+  "title": "Group with tooltip",
+  "description": "Hover each avatar in the group to reveal its name.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-11.tsx",
+      "content": "import {\n  Avatar,\n  AvatarFallback,\n  AvatarGroup,\n  AvatarImage,\n} from '@/components/ui/avatar'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nconst members = [\n  {\n    name: 'Sofia Rodrigues',\n    initials: 'SR',\n    src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',\n  },\n  {\n    name: 'Liam Carter',\n    initials: 'LC',\n    src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',\n  },\n  {\n    name: 'Ana Moreira',\n    initials: 'AM',\n    src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',\n  },\n]\n\nexport function Avatar11() {\n  return (\n    <AvatarGroup>\n      {members.map((member) => (\n        <Tooltip key={member.name}>\n          <TooltipTrigger asChild>\n            <Avatar>\n              <AvatarImage src={member.src} alt={member.name} />\n              <AvatarFallback>{member.initials}</AvatarFallback>\n            </Avatar>\n          </TooltipTrigger>\n          <TooltipContent>{member.name}</TooltipContent>\n        </Tooltip>\n      ))}\n    </AvatarGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

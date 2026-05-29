@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-12",
+  "title": "Loading skeleton",
+  "description": "Skeleton placeholder while the avatar loads.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-12.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Avatar12() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Skeleton className=\"size-8 rounded-full\" />\n      <div className=\"flex flex-col gap-1.5\">\n        <Skeleton className=\"h-3.5 w-24\" />\n        <Skeleton className=\"h-3 w-32\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

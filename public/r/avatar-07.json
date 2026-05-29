@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-07",
+  "title": "Badge with icon",
+  "description": "Verified check icon inside the AvatarBadge.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-07.tsx",
+      "content": "import { CheckIcon } from 'lucide-react'\n\nimport {\n  Avatar,\n  AvatarBadge,\n  AvatarFallback,\n  AvatarImage,\n} from '@/components/ui/avatar'\n\nexport function Avatar07() {\n  return (\n    <Avatar size=\"lg\">\n      <AvatarImage\n        src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop\"\n        alt=\"Sofia Rodrigues — verified\"\n      />\n      <AvatarFallback>SR</AvatarFallback>\n      <AvatarBadge>\n        <CheckIcon />\n      </AvatarBadge>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
