@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-04",
+  "title": "Sizes",
+  "description": "Small, default, and large sizes side-by-side.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-04.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\n\nconst src =\n  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'\n\nexport function Avatar04() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <Avatar size=\"sm\">\n        <AvatarImage src={src} alt=\"Sofia Rodrigues\" />\n        <AvatarFallback>SR</AvatarFallback>\n      </Avatar>\n      <Avatar>\n        <AvatarImage src={src} alt=\"Sofia Rodrigues\" />\n        <AvatarFallback>SR</AvatarFallback>\n      </Avatar>\n      <Avatar size=\"lg\">\n        <AvatarImage src={src} alt=\"Sofia Rodrigues\" />\n        <AvatarFallback>SR</AvatarFallback>\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

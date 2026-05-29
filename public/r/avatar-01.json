@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-01",
+  "title": "Basic",
+  "description": "Image avatar with an initials fallback.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-01.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\n\nexport function Avatar01() {\n  return (\n    <Avatar>\n      <AvatarImage\n        src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop\"\n        alt=\"Sofia Rodrigues\"\n      />\n      <AvatarFallback>SR</AvatarFallback>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

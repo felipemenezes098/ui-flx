@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-06",
+  "title": "Status badge",
+  "description": "Presence dot via AvatarBadge — online, away, offline.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/avatar/avatar-06.tsx",
+      "content": "import {\n  Avatar,\n  AvatarBadge,\n  AvatarFallback,\n  AvatarImage,\n} from '@/components/ui/avatar'\n\nexport function Avatar06() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <Avatar>\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop\"\n          alt=\"Sofia Rodrigues — online\"\n        />\n        <AvatarFallback>SR</AvatarFallback>\n        <AvatarBadge className=\"bg-emerald-500\" />\n      </Avatar>\n      <Avatar>\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop\"\n          alt=\"Liam Carter — away\"\n        />\n        <AvatarFallback>LC</AvatarFallback>\n        <AvatarBadge className=\"bg-amber-500\" />\n      </Avatar>\n      <Avatar>\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop\"\n          alt=\"Ana Moreira — offline\"\n        />\n        <AvatarFallback>AM</AvatarFallback>\n        <AvatarBadge className=\"bg-muted-foreground\" />\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/avatar/avatar-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

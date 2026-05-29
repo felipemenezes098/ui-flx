@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-06",
+  "title": "With dropdown",
+  "description": "Ghost icon Button opens a menu of the hidden levels.",
+  "dependencies": [],
+  "registryDependencies": [
+    "breadcrumb",
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/breadcrumb/breadcrumb-06.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\nexport function Breadcrumb06() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <DropdownMenu>\n            <DropdownMenuTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon-xs\" aria-label=\"Toggle menu\">\n                <BreadcrumbEllipsis />\n              </Button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"start\">\n              <DropdownMenuItem>Documentation</DropdownMenuItem>\n              <DropdownMenuItem>Building Your Application</DropdownMenuItem>\n              <DropdownMenuItem>Data Fetching</DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Caching</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Revalidating</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/breadcrumb/breadcrumb-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

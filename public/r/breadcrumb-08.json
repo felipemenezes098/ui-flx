@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-08",
+  "title": "As link",
+  "description": "asChild renders a custom external <a> with target and rel.",
+  "dependencies": [],
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/breadcrumb/breadcrumb-08.tsx",
+      "content": "import { ArrowUpRightIcon } from 'lucide-react'\n\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb'\n\nexport function Breadcrumb08() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink asChild>\n            <a href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\">\n              Docs\n            </a>\n          </BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink asChild>\n            <a\n              href=\"#\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n              className=\"flex items-center gap-1\"\n            >\n              Changelog\n              <ArrowUpRightIcon className=\"size-3.5\" />\n            </a>\n          </BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>v2.0</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/breadcrumb/breadcrumb-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

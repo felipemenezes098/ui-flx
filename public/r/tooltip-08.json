@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-08",
   "title": "Colored",
-  "description": "Primary, secondary, and destructive tooltips with arrow color matching the content.",
+  "description": "Primary and destructive backgrounds with matching arrow override.",
   "dependencies": [],
   "registryDependencies": [
     "tooltip",
