@@ -1,6 +1,12 @@
 'use client'
 
-import { AlertCircle, ArrowRight, Check, CopyIcon } from 'lucide-react'
+import {
+  AlertCircle,
+  ArrowRight,
+  Check,
+  CopyIcon,
+  TerminalIcon,
+} from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useState } from 'react'
 
@@ -12,6 +18,7 @@ interface IntentHeroProps {
   best: string
   caveat: string
   prompt: string
+  install: string
   children: ReactNode
 }
 
@@ -20,14 +27,15 @@ export function IntentHero({
   best,
   caveat,
   prompt,
+  install,
   children,
 }: Readonly<IntentHeroProps>) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<'prompt' | 'install' | null>(null)
 
-  async function handleCopy() {
-    await copyToClipboard(prompt)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+  async function handleCopy(kind: 'prompt' | 'install', text: string) {
+    await copyToClipboard(text)
+    setCopied(kind)
+    setTimeout(() => setCopied(null), 2000)
   }
 
   return (
@@ -67,6 +75,10 @@ export function IntentHero({
                 {caveat}
               </p>
             </div>
+            <p className="text-muted-foreground/55 mt-1 border-t pt-2.5 text-[11px] leading-relaxed">
+              Example result — your output may vary with your context and the
+              prompt you pass.
+            </p>
           </div>
         </div>
 
@@ -76,20 +88,37 @@ export function IntentHero({
               <span className="text-primary font-mono">$</span>
               Prompt
             </span>
-            <Button
-              type="button"
-              size="xs"
-              variant="outline"
-              onClick={handleCopy}
-              className="h-7 gap-1.5"
-            >
-              {copied ? (
-                <Check className="size-3.5 text-green-400" aria-hidden />
-              ) : (
-                <CopyIcon className="size-3.5" aria-hidden />
-              )}
-              {copied ? 'Copied' : 'Copy prompt'}
-            </Button>
+            <div className="flex items-center gap-1.5">
+              <Button
+                type="button"
+                size="xs"
+                variant="ghost"
+                onClick={() => handleCopy('install', install)}
+                title={install}
+                className="text-muted-foreground hover:text-foreground h-7 gap-1.5"
+              >
+                {copied === 'install' ? (
+                  <Check className="size-3.5 text-emerald-500" aria-hidden />
+                ) : (
+                  <TerminalIcon className="size-3.5" aria-hidden />
+                )}
+                {copied === 'install' ? 'Copied' : 'Install'}
+              </Button>
+              <Button
+                type="button"
+                size="xs"
+                variant="outline"
+                onClick={() => handleCopy('prompt', prompt)}
+                className="h-7 gap-1.5"
+              >
+                {copied === 'prompt' ? (
+                  <Check className="size-3.5 text-green-400" aria-hidden />
+                ) : (
+                  <CopyIcon className="size-3.5" aria-hidden />
+                )}
+                {copied === 'prompt' ? 'Copied' : 'Copy prompt'}
+              </Button>
+            </div>
           </div>
           <pre className="text-muted-foreground max-h-72 flex-1 overflow-auto p-5 font-mono text-[13px] leading-relaxed whitespace-pre-wrap lg:max-h-none">
             {prompt}
@@ -97,7 +126,7 @@ export function IntentHero({
           <div className="border-t px-5 py-3">
             <p className="text-muted-foreground inline-flex items-center gap-1.5 text-xs">
               <ArrowRight className="size-3 shrink-0" aria-hidden />
-              Paste into your AI tool and adapt it to your scenario.
+              Paste into your AI tool and adapt it to your context.
             </p>
           </div>
         </div>

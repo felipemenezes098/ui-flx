@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/core/footer'
 import { allIntents, getIntentManifest } from '@/lib/intent-catalog'
+import { buildDecisionExports, buildIntentDocs } from '@/lib/intent-exports'
 
 import { DecisionAlternatives } from '../components/decision-alternatives'
 import { DecisionExports } from '../components/decision-exports'
@@ -47,6 +48,13 @@ export default async function IntentPage({
   const alternatives = manifest.decisions.filter((d) => d !== recommended)
   const RecommendedDemo = recommended.demo
 
+  const recommendedExports = buildDecisionExports(manifest, recommended)
+  const docs = buildIntentDocs(manifest)
+  const alternativeItems = alternatives.map((decision) => ({
+    decision,
+    exports: buildDecisionExports(manifest, decision),
+  }))
+
   return (
     <div>
       <main className="container-page container-page-inner min-w-0">
@@ -78,14 +86,25 @@ export default async function IntentPage({
             name={recommended.name}
             best={recommended.best}
             caveat={recommended.caveat}
-            prompt={manifest.exports.prompt}
+            prompt={recommendedExports.prompt}
+            install={recommendedExports.install}
           >
             <RecommendedDemo />
           </IntentHero>
 
-          <DecisionAlternatives alternatives={alternatives} />
+          <DecisionAlternatives
+            items={alternativeItems.map(({ decision, exports }) => ({
+              slug: decision.slug,
+              name: decision.name,
+              best: decision.best,
+              caveat: decision.caveat,
+              demo: decision.demo,
+              prompt: exports.prompt,
+              install: exports.install,
+            }))}
+          />
 
-          <DecisionExports exports={manifest.exports} />
+          <DecisionExports spec={docs.spec} rules={docs.rules} />
         </div>
       </main>
       <Footer />

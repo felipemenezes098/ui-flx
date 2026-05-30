@@ -3124,7 +3124,7 @@
           "target": "components/flx/patterns/avatar/avatar-13.tsx"
         }
       ],
-      "title": "Top",
+      "title": "Icon on top",
       "description": "Icon badge pinned to the top-right corner."
     },
     {
@@ -3559,7 +3559,7 @@
         }
       ],
       "title": "Colored",
-      "description": "Primary and destructive backgrounds with matching arrow override."
+      "description": "Primary, secondary, and destructive tooltips with arrow color matching the content."
     },
     {
       "name": "tooltip-09",
@@ -3628,8 +3628,8 @@
           "target": "components/flx/patterns/breadcrumb/breadcrumb-02.tsx"
         }
       ],
-      "title": "With icon",
-      "description": "Leading home icon on the first crumb."
+      "title": "With icons",
+      "description": "Leading icon per crumb — file-path style."
     },
     {
       "name": "breadcrumb-03",
@@ -3755,6 +3755,68 @@
       ],
       "title": "Dropdown at end",
       "description": "Last crumb is a Button switcher for sibling pages."
+    },
+    {
+      "name": "show-team-members-avatar-group",
+      "type": "registry:block",
+      "title": "Avatar Group",
+      "description": "Avatar Group — Show Team Members.",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "separator",
+        "tooltip"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/show-team-members/avatar-group.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/show-team-members/avatar-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "show-team-members-compact-list",
+      "type": "registry:block",
+      "title": "Compact List",
+      "description": "Compact List — Show Team Members.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/intent/show-team-members/compact-list.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/show-team-members/compact-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "show-team-members-teammate-picker",
+      "type": "registry:block",
+      "title": "Teammate Picker",
+      "description": "Teammate Picker — Show Team Members.",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/show-team-members/teammate-picker.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/show-team-members/teammate-picker.tsx"
+        }
+      ]
     }
   ]
 }

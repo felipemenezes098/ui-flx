@@ -21,16 +21,8 @@ export interface IntentDecision {
   tags: string[]
   caveat: string
   patterns: string[]
-  components: string[]
   recommended?: boolean
   demo: ComponentType
-}
-
-export interface IntentExports {
-  prompt: string
-  skill: string
-  spec: string
-  rules: string
 }
 
 export interface IntentManifest {
@@ -39,5 +31,4 @@ export interface IntentManifest {
   problem: string
   domain: string
   decisions: IntentDecision[]
-  exports: IntentExports
 }

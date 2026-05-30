@@ -1,21 +1,24 @@
 'use client'
 
-import { ClipboardList, MessageSquareText, ShieldCheck } from 'lucide-react'
+import { ClipboardList, ShieldCheck } from 'lucide-react'
 
 import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import type { IntentExports } from '@/lib/intent-catalog'
 
 const formats = [
   { key: 'spec', label: 'Spec', icon: ClipboardList },
   { key: 'rules', label: 'Rules', icon: ShieldCheck },
-  { key: 'prompt', label: 'Prompt', icon: MessageSquareText },
 ] as const
 
+type FormatKey = (typeof formats)[number]['key']
+
 export function DecisionExports({
-  exports: exp,
-}: Readonly<{ exports: IntentExports }>) {
+  spec,
+  rules,
+}: Readonly<{ spec: string; rules: string }>) {
+  const content: Record<FormatKey, string> = { spec, rules }
+
   return (
     <section className="flex flex-col gap-4 border-t pt-8">
       <Tabs defaultValue="spec" className="gap-4">
@@ -43,7 +46,7 @@ export function DecisionExports({
         {formats.map(({ key }) => (
           <TabsContent key={key} value={key} className="mt-0">
             <CodeBlock className="dark:bg-background/40">
-              <CodeBlockCode code={exp[key]} language="markdown" withCopy />
+              <CodeBlockCode code={content[key]} language="markdown" withCopy />
             </CodeBlock>
           </TabsContent>
         ))}

@@ -14,6 +14,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { allManifests } from '../src/lib/catalog'
+import { allIntents } from '../src/lib/intent-catalog'
 import { allPatterns } from '../src/lib/patterns-catalog'
 
 const REGISTRY_PATH = path.resolve(process.cwd(), 'registry.json')
@@ -46,6 +47,56 @@ const registry: Registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf-8'))
 
 let changed = false
 const issues: string[] = []
+
+/**
+ * Sync intent decision metadata into registry.json.
+ * registryDependencies + dependencies stay in registry.json (shadcn fields).
+ */
+function syncIntentItems() {
+  for (const entry of allIntents) {
+    const manifest = entry.manifest
+    if (!manifest) continue
+
+    for (const decision of manifest.decisions) {
+      const name = `${manifest.slug}-${decision.slug}`
+      const file = `${decision.slug}.tsx`
+      const expectedFiles = [
+        {
+          path: `registry/intent/${manifest.slug}/${file}`,
+          type: 'registry:component',
+          target: `components/flx/intent/${manifest.slug}/${file}`,
+        },
+      ]
+      const expectedTitle = decision.name
+      const expectedDescription = `${decision.name} — ${manifest.name}.`
+
+      const existing = registry.items.find((i) => i.name === name)
+
+      if (!existing) {
+        issues.push(`  MISSING in registry.json: "${name}" (intent decision)`)
+        continue
+      }
+
+      const drifted =
+        JSON.stringify(existing.files ?? []) !==
+          JSON.stringify(expectedFiles) ||
+        existing.title !== expectedTitle ||
+        existing.description !== expectedDescription
+
+      if (drifted) {
+        if (CHECK_ONLY) {
+          issues.push(`  OUT OF SYNC: "${name}" (intent decision)`)
+        } else {
+          existing.title = expectedTitle
+          existing.description = expectedDescription
+          existing.files = expectedFiles
+          changed = true
+          console.log(`  Updated intent item: ${name}`)
+        }
+      }
+    }
+  }
+}
 
 const catalogEntries: CatalogEntry[] = [
   ...allManifests.map((manifest) => ({
@@ -118,6 +169,8 @@ function syncEntry(entry: CatalogEntry) {
 for (const entry of catalogEntries) {
   syncEntry(entry)
 }
+
+syncIntentItems()
 
 for (const manifest of allManifests) {
   if (!manifest.image?.light || !manifest.image?.dark) {

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "show-team-members-compact-list",
+  "title": "Compact List",
+  "description": "Compact List — Show Team Members.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "badge",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/show-team-members/compact-list.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Badge } from '@/components/ui/badge'\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from '@/components/ui/item'\nimport { cn } from '@/lib/utils'\n\nconst members = [\n  {\n    name: 'Sofia Rodrigues',\n    role: 'Product designer',\n    initials: 'SR',\n    online: true,\n    src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',\n  },\n  {\n    name: 'Liam Carter',\n    role: 'Engineering manager',\n    initials: 'LC',\n    online: false,\n    src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',\n  },\n  {\n    name: 'Ana Moreira',\n    role: 'Data scientist',\n    initials: 'AM',\n    online: false,\n    src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',\n  },\n]\n\nexport function CompactListDecision() {\n  return (\n    <div className=\"bg-card w-full max-w-xs rounded-xl border p-2 shadow-sm\">\n      <div className=\"flex items-center justify-between px-2 py-1.5\">\n        <span className=\"text-sm font-semibold\">Members</span>\n        <Badge variant=\"secondary\" className=\"rounded-full\">\n          5\n        </Badge>\n      </div>\n      <ItemGroup className=\"gap-0.5\">\n        {members.map((member) => (\n          <Item key={member.name} size=\"sm\" className=\"rounded-lg\">\n            <ItemMedia variant=\"image\">\n              <Avatar className=\"size-8\">\n                <AvatarImage src={member.src} alt={member.name} />\n                <AvatarFallback>{member.initials}</AvatarFallback>\n              </Avatar>\n            </ItemMedia>\n            <ItemContent>\n              <ItemTitle className=\"flex items-center gap-1.5\">\n                {member.name}\n                <span\n                  className={cn(\n                    'size-1.5 rounded-full',\n                    member.online\n                      ? 'bg-emerald-500'\n                      : 'bg-muted-foreground/30',\n                  )}\n                />\n              </ItemTitle>\n              <ItemDescription>{member.role}</ItemDescription>\n            </ItemContent>\n          </Item>\n        ))}\n      </ItemGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/show-team-members/compact-list.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

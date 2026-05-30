@@ -8,7 +8,6 @@ import { manifest as showTeamMembers } from 'registry/intent/show-team-members/m
 
 export type {
   IntentDecision,
-  IntentExports,
   IntentManifest,
 } from '@/lib/intent-manifest-types'
 
