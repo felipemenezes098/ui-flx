@@ -1,5 +1,7 @@
 import type { RegistryItem } from 'shadcn/schema'
 
+import { patternCategories } from '@/lib/patterns-catalog'
+
 import registry from '../../registry.json'
 
 const items = registry.items as unknown as RegistryItem[]
@@ -13,4 +15,14 @@ export function getPatternsByNames(names: string[]): RegistryItem[] {
 
 export function getPatternByName(name: string): RegistryItem | undefined {
   return items.find((item) => item.name === name)
+}
+
+export function getPatternHref(slug: string): string | undefined {
+  for (const category of patternCategories) {
+    if (category.items.some((item) => item.slug === slug)) {
+      return `/patterns/${category.slug}#${slug}`
+    }
+  }
+
+  return undefined
 }

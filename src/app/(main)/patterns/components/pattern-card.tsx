@@ -18,8 +18,9 @@ export function PatternCard({
 }: Readonly<PatternCardProps>) {
   return (
     <div
+      id={item.name}
       className={cn(
-        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2 shadow-xs',
+        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2 shadow-xs scroll-mt-24',
         className,
       )}
     >
