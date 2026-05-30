@@ -1,13 +1,14 @@
+import { ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/core/footer'
 import { allIntents, getIntentManifest } from '@/lib/intent-catalog'
 
-import { PatternGrid } from '../../patterns/components/pattern-grid'
-import { DecisionCard } from '../components/decision-card'
+import { DecisionAlternatives } from '../components/decision-alternatives'
 import { DecisionExports } from '../components/decision-exports'
-import { ExportButtons } from '../components/export-buttons'
+import { IntentHero } from '../components/intent-hero'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -41,42 +42,48 @@ export default async function IntentPage({
 
   if (!manifest) notFound()
 
-  const decisions = [...manifest.decisions].sort((a, b) => {
-    if (a.recommended) return -1
-    if (b.recommended) return 1
-    return 0
-  })
+  const recommended =
+    manifest.decisions.find((d) => d.recommended) ?? manifest.decisions[0]
+  const alternatives = manifest.decisions.filter((d) => d !== recommended)
+  const RecommendedDemo = recommended.demo
 
   return (
     <div>
       <main className="container-page container-page-inner min-w-0">
-        <div className="flex flex-col gap-8 px-3 py-10">
-          <div className="flex flex-col gap-2">
-            <section className="max-w-xl">
+        <div className="flex flex-col gap-12 px-3">
+          <div className="flex flex-col gap-5">
+            <Link
+              href="/ai"
+              className="text-muted-foreground hover:text-foreground group inline-flex w-fit items-center gap-1.5 text-sm transition-colors"
+            >
+              <ArrowLeft
+                className="size-3.5 transition-transform group-hover:-translate-x-0.5"
+                aria-hidden
+              />
+              All intents
+            </Link>
+
+            <header className="flex max-w-xl flex-col gap-2">
+              <span className="text-muted-foreground text-sm font-medium">
+                You want to
+              </span>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
                 {manifest.name}
               </h1>
-              <p className="text-muted-foreground mt-2">{manifest.problem}</p>
-            </section>
-            <ExportButtons exports={manifest.exports} className="mt-4" />
+              <p className="text-muted-foreground mt-1">{manifest.problem}</p>
+            </header>
           </div>
 
-          <PatternGrid columns={3}>
-            {decisions.map((decision) => {
-              const Demo = decision.demo
-              return (
-                <DecisionCard
-                  key={decision.slug}
-                  name={decision.name}
-                  best={decision.best}
-                  caveat={decision.caveat}
-                  recommended={decision.recommended}
-                >
-                  <Demo />
-                </DecisionCard>
-              )
-            })}
-          </PatternGrid>
+          <IntentHero
+            name={recommended.name}
+            best={recommended.best}
+            caveat={recommended.caveat}
+            prompt={manifest.exports.prompt}
+          >
+            <RecommendedDemo />
+          </IntentHero>
+
+          <DecisionAlternatives alternatives={alternatives} />
 
           <DecisionExports exports={manifest.exports} />
         </div>
