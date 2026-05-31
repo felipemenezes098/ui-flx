@@ -1,7 +1,7 @@
 'use client'
 
 import { Check, ChevronDownIcon } from 'lucide-react'
-import * as React from 'react'
+import { AnimatePresence, motion } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
 import { ButtonGroup } from '@/components/ui/button-group'
@@ -14,10 +14,17 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { siteConfig } from '@/config/site'
 import { useConfig } from '@/hooks/use-config'
+import { useCopy } from '@/hooks/use-copy'
 
 import { Logo } from '../logo'
 
 type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun'
+
+const copyTransition = {
+  type: 'spring',
+  duration: 0.3,
+  bounce: 0,
+} as const
 
 const PACKAGE_MANAGERS: { name: PackageManager; command: string }[] = [
   {
@@ -43,16 +50,14 @@ export function RegistryCli({
   size = 'sm',
 }: Readonly<{ registryName: string; size?: 'sm' | 'xs' }>) {
   const [config, setConfig] = useConfig()
-  const [isCopied, setIsCopied] = React.useState(false)
+  const { copied, copy } = useCopy()
 
   const packageManager = config.packageManager ?? 'pnpm'
 
   const copyCommand = () => {
     const pm = PACKAGE_MANAGERS.find((p) => p.name === packageManager)
     const command = pm ? `${pm.command}/${registryName}` : ''
-    navigator.clipboard.writeText(command)
-    setIsCopied(true)
-    setTimeout(() => setIsCopied(false), 2000)
+    if (command) copy(command)
   }
 
   const handleSelectPackageManager = (name: PackageManager) => {
@@ -67,12 +72,25 @@ export function RegistryCli({
         size={size}
         onClick={copyCommand}
       >
-        {isCopied ? (
-          <Check className="size-3.5" />
-        ) : (
-          <Logo.ShadcnIcon className="size-3.5" />
-        )}
-        <span className="truncate font-mono text-xs">
+        <span className="relative grid size-3.5 shrink-0 place-items-center">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.div
+              key={copied ? 'check' : 'copy'}
+              initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+              transition={copyTransition}
+              className="flex items-center justify-center"
+            >
+              {copied ? (
+                <Check className="size-3.5" aria-hidden />
+              ) : (
+                <Logo.ShadcnIcon className="size-3.5" aria-hidden />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </span>
+        <span className="truncate text-xs">
           @{siteConfig.codeName}/{registryName}
         </span>
       </Button>

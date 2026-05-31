@@ -2,10 +2,10 @@
 
 import { CheckIcon, CopyIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useState } from 'react'
 
+import { Button } from '@/components/ui/button'
+import { useCopy } from '@/hooks/use-copy'
 import { cn } from '@/lib/utils'
-import { copyToClipboard } from '@/utils/copy-to-clipboard'
 
 type CodeBlockCopyProps = {
   fileContent: string
@@ -18,46 +18,42 @@ const copyTransition = {
   bounce: 0,
 } as const
 
-export function CodeBlockCopy({ fileContent, className }: CodeBlockCopyProps) {
-  const [isCopied, setIsCopied] = useState(false)
-
-  function handleCopy() {
-    if (!fileContent) return
-
-    copyToClipboard(fileContent)
-
-    setIsCopied(true)
-    setTimeout(() => setIsCopied(false), 2000)
-  }
+export function CodeBlockCopy({
+  fileContent,
+  className,
+}: Readonly<CodeBlockCopyProps>) {
+  const { copied, copy } = useCopy()
 
   return (
-    <button
+    <Button
       type="button"
-      onClick={handleCopy}
-      aria-label={isCopied ? 'Copied' : 'Copy code'}
+      variant="ghost"
+      size="sm"
+      aria-label={copied ? 'Copied' : 'Copy code'}
       className={cn(
-        'bg-card text-muted-foreground hover:bg-muted/80 focus-visible:ring-ring/50 inline-flex h-7 shrink-0 items-center justify-center rounded-md px-2 transition-colors outline-none focus-visible:ring-3',
+        'bg-card text-muted-foreground hover:bg-muted/80 h-7 shrink-0 px-2 shadow-none',
         className,
       )}
+      onClick={() => fileContent && copy(fileContent)}
     >
-      <span className="relative grid size-3.5 place-items-center">
+      <span className="relative grid size-3.5 shrink-0 place-items-center">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
-            key={isCopied ? 'check' : 'copy'}
+            key={copied ? 'check' : 'copy'}
             initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
             transition={copyTransition}
             className="flex items-center justify-center"
           >
-            {isCopied ? (
-              <CheckIcon className="size-3.5" />
+            {copied ? (
+              <CheckIcon className="size-3.5" aria-hidden />
             ) : (
-              <CopyIcon className="size-3.5" />
+              <CopyIcon className="size-3.5" aria-hidden />
             )}
           </motion.div>
         </AnimatePresence>
       </span>
-    </button>
+    </Button>
   )
 }

@@ -4,7 +4,8 @@
   "title": "Copy to clipboard",
   "description": "Icon and label swap to a check on copy.",
   "dependencies": [
-    "lucide-react"
+    "lucide-react",
+    "motion"
   ],
   "registryDependencies": [
     "button"
@@ -12,7 +13,7 @@
   "files": [
     {
       "path": "registry/patterns/button/button-13.tsx",
-      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon, CopyIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button13() {\n  const [copied, setCopied] = useState(false)\n\n  function handleCopy() {\n    navigator.clipboard.writeText('npm install shadcn')\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={handleCopy}>\n      {copied ? (\n        <CheckIcon data-icon=\"inline-start\" className=\"text-emerald-500\" />\n      ) : (\n        <CopyIcon data-icon=\"inline-start\" />\n      )}\n      {copied ? 'Copied' : 'Copy'}\n    </Button>\n  )\n}\n",
+      "content": "'use client'\n\nimport { CheckIcon, CopyIcon } from 'lucide-react'\nimport { AnimatePresence, motion } from 'motion/react'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\n\nconst copyTransition = {\n  type: 'spring',\n  duration: 0.3,\n  bounce: 0,\n} as const\n\nexport function Button13() {\n  const [copied, setCopied] = useState(false)\n\n  function handleCopy() {\n    navigator.clipboard.writeText('npm install shadcn')\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={handleCopy}>\n      <span\n        data-icon=\"inline-start\"\n        className=\"relative grid size-3.5 shrink-0 place-items-center\"\n      >\n        <AnimatePresence mode=\"popLayout\" initial={false}>\n          <motion.div\n            key={copied ? 'check' : 'copy'}\n            initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}\n            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}\n            exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}\n            transition={copyTransition}\n            className=\"flex items-center justify-center\"\n          >\n            {copied ? (\n              <CheckIcon className=\"size-3.5\" aria-hidden />\n            ) : (\n              <CopyIcon className=\"size-3.5\" aria-hidden />\n            )}\n          </motion.div>\n        </AnimatePresence>\n      </span>\n      <span>Copy</span>\n    </Button>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/button/button-13.tsx"
     }

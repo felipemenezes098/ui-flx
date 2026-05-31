@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/patterns/button/button-14.tsx",
-      "content": "import { RefreshCwIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button14() {\n  return (\n    <Button variant=\"outline\" className=\"group/refresh\">\n      <RefreshCwIcon\n        data-icon=\"inline-start\"\n        className=\"transition-transform duration-500 group-hover/refresh:rotate-180\"\n      />\n      Refresh\n    </Button>\n  )\n}\n",
+      "content": "'use client'\n\nimport { RefreshCwIcon } from 'lucide-react'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button14() {\n  const [turns, setTurns] = useState(0)\n\n  return (\n    <Button variant=\"outline\" onClick={() => setTurns((value) => value + 1)}>\n      <RefreshCwIcon\n        data-icon=\"inline-start\"\n        className=\"transition-transform duration-500 ease-in-out\"\n        style={{ transform: `rotate(${turns * 360}deg)` }}\n      />\n      Refresh\n    </Button>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/button/button-14.tsx"
     }

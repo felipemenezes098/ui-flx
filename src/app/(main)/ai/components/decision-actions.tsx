@@ -30,9 +30,8 @@ export function DecisionActions({ view }: Readonly<{ view: DecisionView }>) {
       <CopyButton
         text={prompt}
         label="Copy prompt"
-        copiedLabel="Copied"
         size="sm"
-        className="w-full"
+        className="w-full text-xs"
       />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
         <DialogTrigger asChild>
@@ -41,7 +40,7 @@ export function DecisionActions({ view }: Readonly<{ view: DecisionView }>) {
             size="sm"
             variant="outline"
             aria-label="View code"
-            className="w-full"
+            className="w-full text-xs"
           >
             <CodeIcon className="size-3.5" aria-hidden />
             Code

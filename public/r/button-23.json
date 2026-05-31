@@ -4,7 +4,8 @@
   "title": "Copy field",
   "description": "ButtonGroupText value with a trailing copy button.",
   "dependencies": [
-    "lucide-react"
+    "lucide-react",
+    "motion"
   ],
   "registryDependencies": [
     "button",
@@ -13,7 +14,7 @@
   "files": [
     {
       "path": "registry/patterns/button/button-23.tsx",
-      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon, CopyIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup, ButtonGroupText } from '@/components/ui/button-group'\n\nexport function Button23() {\n  const [copied, setCopied] = useState(false)\n  const value = 'ui.flexnative.com'\n\n  function handleCopy() {\n    navigator.clipboard.writeText(value)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <ButtonGroup>\n      <ButtonGroupText className=\"font-mono\">{value}</ButtonGroupText>\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        onClick={handleCopy}\n        aria-label=\"Copy token\"\n      >\n        {copied ? <CheckIcon className=\"text-emerald-500\" /> : <CopyIcon />}\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "content": "'use client'\n\nimport { CheckIcon, CopyIcon } from 'lucide-react'\nimport { AnimatePresence, motion } from 'motion/react'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport { ButtonGroup, ButtonGroupText } from '@/components/ui/button-group'\n\nconst copyTransition = {\n  type: 'spring',\n  duration: 0.3,\n  bounce: 0,\n} as const\n\nexport function Button23() {\n  const [copied, setCopied] = useState(false)\n  const value = 'ui.flexnative.com'\n\n  function handleCopy() {\n    navigator.clipboard.writeText(value)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <ButtonGroup>\n      <ButtonGroupText className=\"font-mono\">{value}</ButtonGroupText>\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        onClick={handleCopy}\n        aria-label=\"Copy token\"\n      >\n        <span className=\"relative grid size-4 shrink-0 place-items-center\">\n          <AnimatePresence mode=\"popLayout\" initial={false}>\n            <motion.div\n              key={copied ? 'check' : 'copy'}\n              initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}\n              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}\n              exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}\n              transition={copyTransition}\n              className=\"flex items-center justify-center\"\n            >\n              {copied ? (\n                <CheckIcon className=\"size-4\" aria-hidden />\n              ) : (\n                <CopyIcon className=\"size-4\" aria-hidden />\n              )}\n            </motion.div>\n          </AnimatePresence>\n        </span>\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/button/button-23.tsx"
     }

@@ -10,6 +10,7 @@ import { buildDecisionView, buildIntentDocs } from './lib/intent-view'
 import { DecisionAlternatives } from '../components/decision-alternatives'
 import { DecisionExports } from '../components/decision-exports'
 import { IntentHero } from '../components/intent-hero'
+import { Button } from '@/components/ui/button'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -61,16 +62,15 @@ export default async function IntentPage({
       <main className="container-page container-page-inner min-w-0">
         <div className="flex flex-col gap-12 px-3">
           <div className="flex flex-col gap-5">
-            <Link
-              href="/ai"
-              className="text-muted-foreground hover:text-foreground group inline-flex w-fit items-center gap-1.5 text-sm transition-colors"
+            <Button
+              variant="secondary"
+              asChild
+              className="text-muted-foreground hover:text-foreground w-fit rounded-full"
             >
-              <ArrowLeft
-                className="size-3.5 transition-transform group-hover:-translate-x-0.5"
-                aria-hidden
-              />
-              All intents
-            </Link>
+              <Link href="/ai">
+                <ArrowLeft className="size-3.5" aria-hidden />
+              </Link>
+            </Button>
 
             <header className="flex max-w-xl flex-col gap-2">
               <span className="text-muted-foreground text-sm font-medium">

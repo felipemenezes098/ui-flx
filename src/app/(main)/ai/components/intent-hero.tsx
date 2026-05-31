@@ -22,7 +22,7 @@ export function IntentHero({
   const [panel, setPanel] = useState('prompt')
 
   return (
-    <section className="bg-card relative overflow-hidden rounded-2xl border shadow-sm">
+    <section className="bg-card dark:bg-background relative overflow-hidden rounded-2xl border shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b px-5 py-3">
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <span className="relative flex size-2">
@@ -38,7 +38,7 @@ export function IntentHero({
 
       <div className="grid min-w-0 lg:h-[30rem] lg:grid-cols-2">
         <div className="flex min-w-0 flex-col border-b lg:border-r lg:border-b-0">
-          <div className="bg-muted/20 dark:bg-background/40 relative flex min-w-0 flex-1 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
+          <div className="bg-muted/20 dark:bg-background relative flex min-w-0 flex-1 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
             <div className="relative max-w-full min-w-0">{children}</div>
           </div>
           <div className="flex flex-col gap-2 border-t px-5 py-4 text-sm">
@@ -91,7 +91,6 @@ export function IntentHero({
                 <CopyButton
                   text={prompt}
                   label="Copy prompt"
-                  copiedLabel="Copied"
                   className="gap-1.5 text-xs"
                 />
               )}
@@ -101,7 +100,6 @@ export function IntentHero({
                   <CopyButton
                     text={activeFile?.content ?? ''}
                     label="Copy code"
-                    copiedLabel="Copied"
                     className="gap-1.5 text-xs"
                   />
                 </>
