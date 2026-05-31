@@ -1,61 +1,25 @@
 'use client'
 
-import {
-  AlertCircle,
-  ArrowRight,
-  Check,
-  CopyIcon,
-} from 'lucide-react'
+import { AlertCircle, ArrowRight, Check } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useState } from 'react'
 
-import { RegistryCli } from '@/components/core/editor/block-editor-toolbar'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
+import { CopyButton } from '@/components/core/code/copy-button'
+import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import type { IntentCodeFile } from '@/lib/intent-exports'
+import { useActiveFile } from '@/hooks/use-active-file'
+import type { DecisionView } from '@/lib/intent-manifest-types'
 import { cn } from '@/lib/utils'
-import { copyToClipboard } from '@/utils/copy-to-clipboard'
-
-interface IntentHeroProps {
-  name: string
-  best: string
-  caveat: string
-  prompt: string
-  codeFiles?: IntentCodeFile[]
-  children: ReactNode
-  registryName: string
-}
 
 export function IntentHero({
-  name,
-  best,
-  caveat,
-  prompt,
-  codeFiles = [],
+  view,
   children,
-  registryName,
-}: Readonly<IntentHeroProps>) {
-  const [copied, setCopied] = useState(false)
-  const [copiedCode, setCopiedCode] = useState(false)
+}: Readonly<{ view: DecisionView; children: ReactNode }>) {
+  const { name, best, caveat, prompt, codeFiles, registryName } = view
+  const { activeFile, setActiveName } = useActiveFile(codeFiles)
   const [panel, setPanel] = useState('prompt')
-  const [activeName, setActiveName] = useState(codeFiles[0]?.name ?? null)
-
-  const activeFile =
-    codeFiles.find((file) => file.name === activeName) ?? codeFiles[0] ?? null
-
-  async function handleCopyPrompt() {
-    await copyToClipboard(prompt)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
-  async function handleCopyCode() {
-    await copyToClipboard(activeFile?.content ?? '')
-    setCopiedCode(true)
-    setTimeout(() => setCopiedCode(false), 2000)
-  }
 
   return (
     <section className="bg-card relative overflow-hidden rounded-2xl border shadow-sm">
@@ -106,7 +70,7 @@ export function IntentHero({
           onValueChange={setPanel}
           className="bg-muted/30 dark:bg-background/30 flex min-h-0 min-w-0 flex-col gap-0 overflow-hidden"
         >
-          <div className="flex items-center justify-between gap-2 border-b px-4 py-2">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
             <TabsList className="bg-muted/50 h-auto gap-0.5 rounded-md border p-0.5 shadow-none">
               <TabsTrigger
                 value="prompt"
@@ -122,41 +86,27 @@ export function IntentHero({
                 Code
               </TabsTrigger>
             </TabsList>
-            {panel === 'prompt' && (
-              <Button
-                type="button"
-                size="xs"
-                variant="outline"
-                onClick={handleCopyPrompt}
-                className="h-7 gap-1.5"
-              >
-                {copied ? (
-                  <Check className="size-3.5 text-green-400" aria-hidden />
-                ) : (
-                  <CopyIcon className="size-3.5" aria-hidden />
-                )}
-                {copied ? 'Copied' : 'Copy prompt'}
-              </Button>
-            )}
-            {panel === 'code' && (
-              <div className="flex min-w-0 items-center gap-1.5">
-                <RegistryCli registryName={registryName} size="xs" />
-                <Button
-                  type="button"
-                  size="xs"
-                  variant="outline"
-                  onClick={handleCopyCode}
-                  className="h-7 gap-1.5"
-                >
-                  {copiedCode ? (
-                    <Check className="size-3.5 text-green-400" aria-hidden />
-                  ) : (
-                    <CopyIcon className="size-3.5" aria-hidden />
-                  )}
-                  {copiedCode ? 'Copied' : 'Copy code'}
-                </Button>
-              </div>
-            )}
+            <div className="flex min-w-0 flex-wrap items-center justify-end gap-1.5">
+              {panel === 'prompt' && (
+                <CopyButton
+                  text={prompt}
+                  label="Copy prompt"
+                  copiedLabel="Copied"
+                  className="gap-1.5 text-xs"
+                />
+              )}
+              {panel === 'code' && (
+                <>
+                  <RegistryCli registryName={registryName} />
+                  <CopyButton
+                    text={activeFile?.content ?? ''}
+                    label="Copy code"
+                    copiedLabel="Copied"
+                    className="gap-1.5 text-xs"
+                  />
+                </>
+              )}
+            </div>
           </div>
 
           <TabsContent

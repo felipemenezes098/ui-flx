@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/core/footer'
 import { allIntents, getIntentManifest } from '@/lib/intent-catalog'
-import { buildDecisionExports, buildIntentDocs } from '@/lib/intent-exports'
+import { buildDecisionView, buildIntentDocs } from '@/lib/intent-view'
 
 import { DecisionAlternatives } from '../components/decision-alternatives'
 import { DecisionExports } from '../components/decision-exports'
@@ -46,14 +46,15 @@ export default async function IntentPage({
   const recommended =
     manifest.decisions.find((d) => d.recommended) ?? manifest.decisions[0]
   const alternatives = manifest.decisions.filter((d) => d !== recommended)
-  const RecommendedDemo = recommended.demo
 
-  const recommendedExports = buildDecisionExports(manifest, recommended)
-  const docs = buildIntentDocs(manifest)
-  const alternativeItems = alternatives.map((decision) => ({
-    decision,
-    exports: buildDecisionExports(manifest, decision),
+  const recommendedView = buildDecisionView(manifest, recommended)
+  const alternativeItems = alternatives.map((d) => ({
+    view: buildDecisionView(manifest, d),
+    Demo: d.demo,
   }))
+  const docs = buildIntentDocs(manifest)
+
+  const RecommendedDemo = recommended.demo
 
   return (
     <div>
@@ -82,29 +83,11 @@ export default async function IntentPage({
             </header>
           </div>
 
-          <IntentHero
-            name={recommended.name}
-            best={recommended.best}
-            caveat={recommended.caveat}
-            prompt={recommendedExports.prompt}
-            codeFiles={recommendedExports.codeFiles}
-            registryName={recommendedExports.registryName}
-          >
+          <IntentHero view={recommendedView}>
             <RecommendedDemo />
           </IntentHero>
 
-          <DecisionAlternatives
-            items={alternativeItems.map(({ decision, exports }) => ({
-              slug: decision.slug,
-              name: decision.name,
-              best: decision.best,
-              caveat: decision.caveat,
-              demo: decision.demo,
-              prompt: exports.prompt,
-              registryName: exports.registryName,
-              codeFiles: exports.codeFiles,
-            }))}
-          />
+          <DecisionAlternatives items={alternativeItems} />
 
           <DecisionExports spec={docs.spec} rules={docs.rules} />
         </div>

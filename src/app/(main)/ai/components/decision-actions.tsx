@@ -1,11 +1,12 @@
 'use client'
 
-import { Check, CodeIcon, CopyIcon } from 'lucide-react'
+import { CodeIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { CodeBlockCommand } from '@/components/core/code/code-block-command'
+import { CopyButton } from '@/components/core/code/copy-button'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -15,50 +16,24 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { siteConfig } from '@/config/site'
-import type { IntentCodeFile } from '@/lib/intent-exports'
+import { useActiveFile } from '@/hooks/use-active-file'
+import type { DecisionView } from '@/lib/intent-manifest-types'
 import { cn } from '@/lib/utils'
-import { copyToClipboard } from '@/utils/copy-to-clipboard'
 
-export function DecisionActions({
-  name,
-  prompt,
-  registryName,
-  codeFiles = [],
-}: Readonly<{
-  name: string
-  prompt: string
-  registryName: string
-  codeFiles?: IntentCodeFile[]
-}>) {
-  const [copied, setCopied] = useState(false)
+export function DecisionActions({ view }: Readonly<{ view: DecisionView }>) {
+  const { name, prompt, registryName, codeFiles } = view
   const [openCode, setOpenCode] = useState(false)
-  const [activeName, setActiveName] = useState(codeFiles[0]?.name ?? null)
-
-  const activeFile =
-    codeFiles.find((file) => file.name === activeName) ?? codeFiles[0] ?? null
-
-  async function handleCopyPrompt() {
-    await copyToClipboard(prompt)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+  const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
     <div className="grid w-full grid-cols-2 gap-2">
-      <Button
-        type="button"
+      <CopyButton
+        text={prompt}
+        label="Copy prompt"
+        copiedLabel="Copied"
         size="sm"
-        variant="outline"
-        onClick={handleCopyPrompt}
         className="w-full"
-      >
-        {copied ? (
-          <Check className="size-3.5 text-emerald-500" aria-hidden />
-        ) : (
-          <CopyIcon className="size-3.5" aria-hidden />
-        )}
-        {copied ? 'Copied' : 'Copy prompt'}
-      </Button>
+      />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
         <DialogTrigger asChild>
           <Button

@@ -1,20 +1,19 @@
-import {
-  type IntentDecision,
-  type IntentManifest,
-} from '@/lib/intent-manifest-types'
-import {
-  getPublicRegistryItem,
-  getRegistryItemByName,
-} from '@/lib/registry-utils.server'
+import type { RegistryItem } from 'shadcn/schema'
+
 import { siteConfig } from '@/config/site'
+import type {
+  DecisionView,
+  IntentCodeFile,
+  IntentDecision,
+  IntentManifest,
+} from '@/lib/intent-manifest-types'
+import { getRegistryItem } from '@/lib/registry-utils.server'
 
 /**
- * Server-only. Generates self-contained export artifacts for an intent
- * decision. Do not import from client components — call this in a server
- * component and pass the resulting strings down as props.
- *
- * Install deps come from registry.json (same data as public/r/*.json), like
- * block-editor does via getRegistryItem.
+ * Server-only. Builds the self-contained view-model for an intent decision —
+ * the registry item, install command, prompt, and code files. Do not import
+ * from client components: call in a server component and pass the resulting
+ * `DecisionView` down as a single prop.
  */
 
 const REGISTRY_BASE_URL = siteConfig.url
@@ -26,30 +25,24 @@ function pretty(slug: string): string {
     .join(' ')
 }
 
-function decisionRegistryName(
+function registryNameFor(
   manifest: IntentManifest,
   decision: IntentDecision,
 ): string {
   return `${manifest.slug}-${decision.slug}`
 }
 
-function decisionComponentList(
-  manifest: IntentManifest,
-  decision: IntentDecision,
-): string {
-  const item = getRegistryItemByName(decisionRegistryName(manifest, decision))
+/** Single source of the install command shown across the AI surface. */
+export function installCommand(registryName: string): string {
+  return `npx shadcn@latest add @${siteConfig.codeName}/${registryName}`
+}
+
+function componentList(item: RegistryItem | undefined): string {
   const slugs = item?.registryDependencies ?? []
   return slugs.map(pretty).join(', ') || 'shadcn/ui primitives'
 }
 
-export type IntentCodeFile = {
-  name: string
-  content: string
-}
-
-function intentCodeFiles(registryName: string): IntentCodeFile[] {
-  const item =
-    getPublicRegistryItem(registryName) ?? getRegistryItemByName(registryName)
+function toCodeFiles(item: RegistryItem | undefined): IntentCodeFile[] {
   if (!item?.files) return []
 
   return item.files
@@ -63,30 +56,17 @@ function intentCodeFiles(registryName: string): IntentCodeFile[] {
     })
 }
 
-export interface DecisionExports {
-  registryName: string
-  registryDependencies: string[]
-  dependencies: string[]
-  registryUrl: string
-  install: string
-  prompt: string
-  codeFiles: IntentCodeFile[]
-}
-
-export function buildDecisionExports(
+function buildPrompt(
   manifest: IntentManifest,
   decision: IntentDecision,
-): DecisionExports {
-  const registryName = decisionRegistryName(manifest, decision)
-  const item = getRegistryItemByName(registryName)
-  const registryDependencies = item?.registryDependencies ?? []
-  const dependencies = item?.dependencies ?? []
+  item: RegistryItem | undefined,
+  registryName: string,
+  install: string,
+): string {
   const registryUrl = `${REGISTRY_BASE_URL}/r/${registryName}.json`
-  const install = `npx shadcn@latest add @${siteConfig.codeName}/${registryName}`
+  const baseList = (item?.registryDependencies ?? []).map(pretty).join(', ')
 
-  const baseList = registryDependencies.map(pretty).join(', ')
-
-  const prompt = `# Intent: ${manifest.name}
+  return `# Intent: ${manifest.name}
 ${manifest.problem}
 
 ## Decision: ${decision.name}
@@ -107,15 +87,25 @@ colors, and typography. Keep the interaction shown in the preview.
 If the registry is not an option, recreate the same concept with ${
     baseList || 'shadcn/ui primitives'
   }: keep the layout and behavior, not the literal markup.`
+}
+
+export function buildDecisionView(
+  manifest: IntentManifest,
+  decision: IntentDecision,
+): DecisionView {
+  const registryName = registryNameFor(manifest, decision)
+  const item = getRegistryItem(registryName)
+  const install = installCommand(registryName)
 
   return {
+    slug: decision.slug,
+    name: decision.name,
+    best: decision.best,
+    caveat: decision.caveat,
     registryName,
-    registryDependencies,
-    dependencies,
-    registryUrl,
     install,
-    prompt,
-    codeFiles: intentCodeFiles(registryName),
+    prompt: buildPrompt(manifest, decision, item, registryName, install),
+    codeFiles: toCodeFiles(item),
   }
 }
 
@@ -138,7 +128,7 @@ ${manifest.decisions
 ### ${d.name}${d.recommended ? ' (default)' : ''}
 - Use when: ${d.best}
 - Caveat: ${d.caveat}
-- Components: ${decisionComponentList(manifest, d)}`,
+- Components: ${componentList(getRegistryItem(registryNameFor(manifest, d)))}`,
   )
   .join('\n')}`
 
