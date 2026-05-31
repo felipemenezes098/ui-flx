@@ -2,7 +2,10 @@ import {
   type IntentDecision,
   type IntentManifest,
 } from '@/lib/intent-manifest-types'
-import { getRegistryItemByName } from '@/lib/registry-utils.server'
+import {
+  getPublicRegistryItem,
+  getRegistryItemByName,
+} from '@/lib/registry-utils.server'
 import { siteConfig } from '@/config/site'
 
 /**
@@ -39,6 +42,27 @@ function decisionComponentList(
   return slugs.map(pretty).join(', ') || 'shadcn/ui primitives'
 }
 
+export type IntentCodeFile = {
+  name: string
+  content: string
+}
+
+function intentCodeFiles(registryName: string): IntentCodeFile[] {
+  const item =
+    getPublicRegistryItem(registryName) ?? getRegistryItemByName(registryName)
+  if (!item?.files) return []
+
+  return item.files
+    .filter((f) => f.content)
+    .map((f) => {
+      const path = f.target ?? f.path
+      return {
+        name: path.split('/').pop() ?? path,
+        content: f.content as string,
+      }
+    })
+}
+
 export interface DecisionExports {
   registryName: string
   registryDependencies: string[]
@@ -46,6 +70,7 @@ export interface DecisionExports {
   registryUrl: string
   install: string
   prompt: string
+  codeFiles: IntentCodeFile[]
 }
 
 export function buildDecisionExports(
@@ -57,7 +82,7 @@ export function buildDecisionExports(
   const registryDependencies = item?.registryDependencies ?? []
   const dependencies = item?.dependencies ?? []
   const registryUrl = `${REGISTRY_BASE_URL}/r/${registryName}.json`
-  const install = `npx shadcn@latest add ${registryUrl}`
+  const install = `npx shadcn@latest add @${siteConfig.codeName}/${registryName}`
 
   const baseList = registryDependencies.map(pretty).join(', ')
 
@@ -90,6 +115,7 @@ If the registry is not an option, recreate the same concept with ${
     registryUrl,
     install,
     prompt,
+    codeFiles: intentCodeFiles(registryName),
   }
 }
 

@@ -64,8 +64,10 @@ const PACKAGE_MANAGERS = [
   },
 ]
 
-export function BlockEditorCli() {
-  const { item } = useBlockEditor()
+export function RegistryCli({
+  registryName,
+  size = 'sm',
+}: Readonly<{ registryName: string; size?: 'sm' | 'xs' }>) {
   const [config, setConfig] = useConfig()
   const [isCopied, setIsCopied] = React.useState(false)
 
@@ -73,7 +75,7 @@ export function BlockEditorCli() {
 
   const copyCommand = () => {
     const pm = PACKAGE_MANAGERS.find((p) => p.name === packageManager)
-    const command = pm ? `${pm.command}/${item.name}` : ''
+    const command = pm ? `${pm.command}/${registryName}` : ''
     navigator.clipboard.writeText(command)
     setIsCopied(true)
     setTimeout(() => setIsCopied(false), 2000)
@@ -89,17 +91,17 @@ export function BlockEditorCli() {
     <ButtonGroup>
       <Button
         variant="outline"
-        className="w-fit gap-1 px-2 shadow-none"
-        size="sm"
+        className="w-fit max-w-48 gap-1 px-2 shadow-none"
+        size={size}
         onClick={copyCommand}
       >
         {isCopied ? (
-          <Check className="size-4 text-green-500" />
+          <Check className="size-3.5 text-green-500" />
         ) : (
-          <Logo.ShadcnIcon className="size-4" />
+          <Logo.ShadcnIcon className="size-3.5" />
         )}
-        <span>
-          @{siteConfig.codeName}/{item.name}
+        <span className="truncate font-mono text-xs">
+          @{siteConfig.codeName}/{registryName}
         </span>
       </Button>
       <DropdownMenu>
@@ -107,9 +109,9 @@ export function BlockEditorCli() {
           <Button
             variant="outline"
             className="w-fit gap-1 px-2 !pl-2 shadow-none"
-            size="sm"
+            size={size}
           >
-            <ChevronDownIcon />
+            <ChevronDownIcon className="size-3.5" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-44">
@@ -129,6 +131,11 @@ export function BlockEditorCli() {
       </DropdownMenu>
     </ButtonGroup>
   )
+}
+
+export function BlockEditorCli() {
+  const { item } = useBlockEditor()
+  return <RegistryCli registryName={item.name} />
 }
 
 export function BlockEditorTools() {

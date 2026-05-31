@@ -87,7 +87,8 @@ export default async function IntentPage({
             best={recommended.best}
             caveat={recommended.caveat}
             prompt={recommendedExports.prompt}
-            install={recommendedExports.install}
+            codeFiles={recommendedExports.codeFiles}
+            registryName={recommendedExports.registryName}
           >
             <RecommendedDemo />
           </IntentHero>
@@ -100,7 +101,8 @@ export default async function IntentPage({
               caveat: decision.caveat,
               demo: decision.demo,
               prompt: exports.prompt,
-              install: exports.install,
+              registryName: exports.registryName,
+              codeFiles: exports.codeFiles,
             }))}
           />
 
