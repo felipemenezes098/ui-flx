@@ -68,7 +68,7 @@ export function RegistryCli({
         onClick={copyCommand}
       >
         {isCopied ? (
-          <Check className="size-3.5 text-green-500" />
+          <Check className="size-3.5" />
         ) : (
           <Logo.ShadcnIcon className="size-3.5" />
         )}

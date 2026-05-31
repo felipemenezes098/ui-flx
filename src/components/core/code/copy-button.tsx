@@ -12,6 +12,7 @@ interface CopyButtonProps extends ComponentProps<typeof Button> {
   copiedLabel?: string
 }
 
+/** Button that copies `text` and swaps its icon/label while copied. */
 export function CopyButton({
   text,
   label = 'Copy',
@@ -31,7 +32,7 @@ export function CopyButton({
       {...props}
     >
       {copied ? (
-        <Check className="size-3.5 text-emerald-500" aria-hidden />
+        <Check className="size-3.5" aria-hidden />
       ) : (
         <CopyIcon className="size-3.5" aria-hidden />
       )}

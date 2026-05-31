@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/core/footer'
 import { allIntents, getIntentManifest } from '@/lib/intent-catalog'
-import { buildDecisionView, buildIntentDocs } from '@/lib/intent-view'
+import { buildDecisionView, buildIntentDocs } from './lib/intent-view'
 
 import { DecisionAlternatives } from '../components/decision-alternatives'
 import { DecisionExports } from '../components/decision-exports'
