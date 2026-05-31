@@ -114,7 +114,7 @@ export function CodeBlockCommand({
       >
         <CodeBlockGroup>
           <div className="flex items-center gap-2">
-            <div className="border-border bg-background flex size-7 items-center justify-center rounded-md border">
+            <div className="border-border flex size-7 items-center justify-center rounded-md border">
               <TerminalIcon className="size-3.5" />
             </div>
             <TabsList className="h-7 gap-1 bg-transparent p-0">

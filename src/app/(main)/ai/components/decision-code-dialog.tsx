@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { CodeBlockCommand } from '@/components/core/code/code-block-command'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -50,30 +51,37 @@ export function DecisionCodeDialog({
             command={`shadcn@latest add @${siteConfig.codeName}/${registryName}`}
             className="dark:bg-background/40"
           />
-          {codeFiles.length > 1 ? (
-            <div className="flex flex-wrap gap-1.5">
-              {codeFiles.map((file) => (
-                <button
-                  key={file.name}
-                  type="button"
-                  onClick={() => setActiveName(file.name)}
-                  className={cn(
-                    'border-border hover:bg-muted rounded-full border px-2.5 py-0.5 font-mono text-[11px] transition-colors',
-                    activeFile?.name === file.name &&
-                      'border-foreground/20 bg-muted text-foreground',
-                  )}
-                >
-                  {file.name}
-                </button>
-              ))}
-            </div>
-          ) : null}
+
           {activeFile ? (
             <CodeBlock className="dark:bg-background/40">
+              {codeFiles.length > 0 && (
+                <div className="mb-1 flex flex-wrap gap-1.5 border-b px-4 py-2.5">
+                  {codeFiles.map((file) => (
+                    <Badge
+                      key={file.name}
+                      variant="outline"
+                      asChild
+                      className={cn(
+                        'cursor-pointer font-mono text-[11px] font-normal transition-colors',
+                        activeFile?.name === file.name &&
+                          'border-foreground/20 bg-muted/30 text-foreground',
+                      )}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveName(file.name)}
+                      >
+                        {file.name}
+                      </button>
+                    </Badge>
+                  ))}
+                </div>
+              )}
               <CodeBlockCode
                 code={activeFile.content}
                 language="tsx"
                 withCopy
+                className="lg:max-h-80"
               />
             </CodeBlock>
           ) : (
