@@ -10,6 +10,7 @@ export const manifest: IntentManifest = {
   problem:
     'Display the members of a project or task in a way that fits the space you have.',
   domain: 'collaboration',
+  grid: { columns: 2 },
   decisions: [
     {
       slug: 'avatar-group',

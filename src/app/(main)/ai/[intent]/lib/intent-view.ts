@@ -102,6 +102,7 @@ export function buildDecisionView(
     name: decision.name,
     best: decision.best,
     caveat: decision.caveat,
+    styles: decision.styles,
     registryName,
     install,
     prompt: buildPrompt(manifest, decision, item, registryName, install),

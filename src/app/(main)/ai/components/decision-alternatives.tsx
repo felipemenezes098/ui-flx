@@ -1,8 +1,13 @@
 import { AlertCircle, Check } from 'lucide-react'
 import type { ComponentType } from 'react'
 
-import type { DecisionView } from '@/lib/intent-manifest-types'
+import type {
+  DecisionView,
+  IntentGridColumns,
+} from '@/lib/intent-manifest-types'
+import { cn } from '@/lib/utils'
 
+import { intentGridItemVariants, IntentGrid } from './intent-grid'
 import { DecisionActions } from './decision-actions'
 
 export interface AlternativeItem {
@@ -12,7 +17,8 @@ export interface AlternativeItem {
 
 export function DecisionAlternatives({
   items,
-}: Readonly<{ items: AlternativeItem[] }>) {
+  columns = 2,
+}: Readonly<{ items: AlternativeItem[]; columns?: IntentGridColumns }>) {
   if (items.length === 0) return null
 
   return (
@@ -24,11 +30,17 @@ export function DecisionAlternatives({
         </p>
       </div>
 
-      <div className="grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2">
+      <IntentGrid columns={columns} className="auto-rows-fr gap-4">
         {items.map(({ view, Demo }) => (
           <div
             key={view.slug}
-            className="border-border bg-card/50 flex h-full flex-col gap-3 rounded-xl border p-2"
+            className={cn(
+              'border-border bg-card/50 flex h-full flex-col gap-3 rounded-xl border p-2',
+              intentGridItemVariants({
+                span: view.styles?.span ?? 'default',
+                columns,
+              }),
+            )}
           >
             <div className="border-border bg-card dark:bg-background flex min-h-44 flex-1 items-center justify-center overflow-hidden rounded-lg border p-6">
               <div className="scale-90">
@@ -59,7 +71,7 @@ export function DecisionAlternatives({
             </div>
           </div>
         ))}
-      </div>
+      </IntentGrid>
     </section>
   )
 }

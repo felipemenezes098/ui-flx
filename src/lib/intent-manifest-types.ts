@@ -1,10 +1,20 @@
 import type { ComponentType } from 'react'
 
+export type IntentGridColumns = 2 | 3 | 4
+
+export interface IntentDecisionStyles {
+  span?: 'full'
+  className?: string
+}
+
 export interface IntentEntry {
   slug: string
   name: string
   problem: string
   comingSoon?: boolean
+  grid?: {
+    columns?: IntentGridColumns
+  }
   manifest?: IntentManifest
 }
 
@@ -22,6 +32,7 @@ export interface IntentDecision {
   caveat: string
   patterns: string[]
   recommended?: boolean
+  styles?: IntentDecisionStyles
   demo: ComponentType
 }
 
@@ -30,6 +41,9 @@ export interface IntentManifest {
   name: string
   problem: string
   domain: string
+  grid?: {
+    columns?: IntentGridColumns
+  }
   decisions: IntentDecision[]
 }
 
@@ -52,6 +66,7 @@ export interface DecisionView {
   name: string
   best: string
   caveat: string
+  styles?: IntentDecisionStyles
   registryName: string
   install: string
   prompt: string

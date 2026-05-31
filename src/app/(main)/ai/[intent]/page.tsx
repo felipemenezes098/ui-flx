@@ -87,7 +87,10 @@ export default async function IntentPage({
             <RecommendedDemo />
           </IntentHero>
 
-          <DecisionAlternatives items={alternativeItems} />
+          <DecisionAlternatives
+            items={alternativeItems}
+            columns={manifest.grid?.columns ?? 2}
+          />
 
           <DecisionExports spec={docs.spec} rules={docs.rules} />
         </div>

@@ -17,6 +17,7 @@ import { useConfig } from '@/hooks/use-config'
 import { useCopy } from '@/hooks/use-copy'
 
 import { Logo } from '../logo'
+import { cn } from '@/lib/utils'
 
 type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun'
 
@@ -48,11 +49,19 @@ const PACKAGE_MANAGERS: { name: PackageManager; command: string }[] = [
 export function RegistryCli({
   registryName,
   size = 'sm',
-}: Readonly<{ registryName: string; size?: 'sm' | 'xs' }>) {
+  className,
+  labelClassName,
+}: Readonly<{
+  registryName: string
+  size?: 'sm' | 'xs'
+  className?: string
+  labelClassName?: string
+}>) {
   const [config, setConfig] = useConfig()
   const { copied, copy } = useCopy()
 
   const packageManager = config.packageManager ?? 'pnpm'
+  const registryLabel = `@${siteConfig.codeName}/${registryName}`
 
   const copyCommand = () => {
     const pm = PACKAGE_MANAGERS.find((p) => p.name === packageManager)
@@ -68,9 +77,10 @@ export function RegistryCli({
     <ButtonGroup>
       <Button
         variant="outline"
-        className="w-fit max-w-48 gap-1 px-2 shadow-none"
+        className={cn('w-fit max-w-48 gap-1 px-2 shadow-none', className)}
         size={size}
         onClick={copyCommand}
+        aria-label={labelClassName ? registryLabel : undefined}
       >
         <span className="relative grid size-3.5 shrink-0 place-items-center">
           <AnimatePresence mode="popLayout" initial={false}>
@@ -90,8 +100,8 @@ export function RegistryCli({
             </motion.div>
           </AnimatePresence>
         </span>
-        <span className="truncate text-xs">
-          @{siteConfig.codeName}/{registryName}
+        <span className={cn('truncate text-xs', labelClassName)}>
+          {registryLabel}
         </span>
       </Button>
       <DropdownMenu>

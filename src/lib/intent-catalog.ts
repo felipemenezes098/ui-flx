@@ -8,6 +8,8 @@ import { manifest as showTeamMembers } from 'registry/intent/show-team-members/m
 
 export type {
   IntentDecision,
+  IntentDecisionStyles,
+  IntentGridColumns,
   IntentManifest,
 } from '@/lib/intent-manifest-types'
 
@@ -16,6 +18,7 @@ function fromManifest(manifest: IntentManifest): IntentEntry {
     slug: manifest.slug,
     name: manifest.name,
     problem: manifest.problem,
+    grid: manifest.grid,
     manifest,
   }
 }
