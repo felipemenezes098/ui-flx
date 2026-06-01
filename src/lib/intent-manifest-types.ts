@@ -41,6 +41,7 @@ export interface IntentManifest {
   name: string
   problem: string
   domain: string
+  concept: ComponentType
   grid?: {
     columns?: IntentGridColumns
   }

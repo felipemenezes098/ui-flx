@@ -31,12 +31,12 @@ export const metadata: Metadata = {
 function IntentPreviewCard({
   name,
   href,
-  preview: Preview,
+  concept: Concept,
   comingSoon,
 }: Readonly<{
   name: string
   href?: string
-  preview?: ComponentType
+  concept?: ComponentType
   comingSoon?: boolean
 }>) {
   const card = (
@@ -48,13 +48,7 @@ function IntentPreviewCard({
             <IntentSoonConcept />
           </>
         ) : (
-          Preview && (
-            <div className="pointer-events-none flex size-full items-center justify-center p-6">
-              <div className="scale-[0.72]">
-                <Preview />
-              </div>
-            </div>
-          )
+          Concept && <Concept />
         )}
       </CategoryPreviewCardPreview>
       <CategoryPreviewCardFooter>
@@ -107,25 +101,17 @@ export default function AiPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {domain.intents.map((intent) => {
-                    const recommended =
-                      intent.manifest?.decisions.find((d) => d.recommended) ??
-                      intent.manifest?.decisions[0]
-
-                    return (
-                      <IntentPreviewCard
-                        key={intent.slug}
-                        name={intent.name}
-                        href={
-                          intent.comingSoon
-                            ? undefined
-                            : `/ai/${intent.slug}`
-                        }
-                        preview={recommended?.demo}
-                        comingSoon={intent.comingSoon}
-                      />
-                    )
-                  })}
+                  {domain.intents.map((intent) => (
+                    <IntentPreviewCard
+                      key={intent.slug}
+                      name={intent.name}
+                      href={
+                        intent.comingSoon ? undefined : `/ai/${intent.slug}`
+                      }
+                      concept={intent.manifest?.concept}
+                      comingSoon={intent.comingSoon}
+                    />
+                  ))}
                 </div>
               </section>
             )

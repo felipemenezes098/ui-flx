@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-a-plan-upgrade-panel",
+  "title": "Upgrade Panel",
+  "description": "Upgrade Panel — Select a Plan.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/select-a-plan/upgrade-panel.tsx",
+      "content": "import { ArrowRightIcon, CheckIcon, ZapIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Separator } from '@/components/ui/separator'\n\nconst unlocks = ['Unlimited projects', '100 GB storage', 'Advanced analytics']\n\nexport function UpgradePanelDecision() {\n  const used = 3\n  const limit = 3\n  const pct = Math.min(100, (used / limit) * 100)\n\n  return (\n    <div className=\"bg-card w-full max-w-xs rounded-xl border p-5 shadow-sm\">\n      <div className=\"flex items-center justify-between\">\n        <span className=\"text-sm font-semibold\">Starter plan</span>\n        <span className=\"bg-muted text-muted-foreground rounded-full px-2 py-0.5 text-[11px] font-medium\">\n          Current\n        </span>\n      </div>\n\n      <div className=\"mt-4 flex flex-col gap-1.5\">\n        <div className=\"flex items-center justify-between text-xs\">\n          <span className=\"text-muted-foreground\">Projects</span>\n          <span className=\"text-foreground font-medium\">\n            {used} / {limit}\n          </span>\n        </div>\n        <div className=\"bg-muted h-1.5 overflow-hidden rounded-full\">\n          <div\n            className=\"bg-foreground h-full rounded-full\"\n            style={{ width: `${pct}%` }}\n          />\n        </div>\n        <span className=\"text-muted-foreground/80 text-[11px]\">\n          You&apos;ve hit your project limit.\n        </span>\n      </div>\n\n      <Separator className=\"my-4\" />\n\n      <div className=\"flex items-center gap-2\">\n        <span className=\"bg-primary/10 flex size-7 items-center justify-center rounded-full\">\n          <ZapIcon className=\"text-primary size-3.5\" />\n        </span>\n        <div className=\"flex flex-col\">\n          <span className=\"text-sm font-semibold\">Upgrade to Pro</span>\n          <span className=\"text-muted-foreground text-xs\">$29/mo</span>\n        </div>\n      </div>\n\n      <ul className=\"mt-3 flex flex-col gap-1.5\">\n        {unlocks.map((item) => (\n          <li\n            key={item}\n            className=\"text-muted-foreground flex items-center gap-2 text-xs\"\n          >\n            <CheckIcon className=\"text-primary size-3.5 shrink-0\" />\n            {item}\n          </li>\n        ))}\n      </ul>\n\n      <Button size=\"sm\" className=\"mt-4 w-full\">\n        Upgrade now\n        <ArrowRightIcon className=\"size-3.5\" />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/select-a-plan/upgrade-panel.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

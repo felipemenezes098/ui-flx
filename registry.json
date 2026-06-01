@@ -3800,6 +3800,186 @@
       ]
     },
     {
+      "name": "confirm-destructive-action-simple-dialog",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/confirm-destructive-action/simple-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/confirm-destructive-action/simple-dialog.tsx"
+        }
+      ],
+      "title": "Simple Dialog",
+      "description": "Simple Dialog — Confirm Destructive Action."
+    },
+    {
+      "name": "confirm-destructive-action-type-to-confirm",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/confirm-destructive-action/type-to-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/confirm-destructive-action/type-to-confirm.tsx"
+        }
+      ],
+      "title": "Type to Confirm",
+      "description": "Type to Confirm — Confirm Destructive Action."
+    },
+    {
+      "name": "confirm-destructive-action-popover-confirm",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/confirm-destructive-action/popover-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/confirm-destructive-action/popover-confirm.tsx"
+        }
+      ],
+      "title": "Popover Confirm",
+      "description": "Popover Confirm — Confirm Destructive Action."
+    },
+    {
+      "name": "select-a-plan-tiered-cards",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/select-a-plan/tiered-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/tiered-cards.tsx"
+        }
+      ],
+      "title": "Tiered Cards",
+      "description": "Tiered Cards — Select a Plan."
+    },
+    {
+      "name": "select-a-plan-comparison-table",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/select-a-plan/comparison-table.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/comparison-table.tsx"
+        }
+      ],
+      "title": "Comparison Table",
+      "description": "Comparison Table — Select a Plan."
+    },
+    {
+      "name": "select-a-plan-upgrade-panel",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/select-a-plan/upgrade-panel.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/upgrade-panel.tsx"
+        }
+      ],
+      "title": "Upgrade Panel",
+      "description": "Upgrade Panel — Select a Plan."
+    },
+    {
+      "name": "sign-in-social-first",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/intent/sign-in/social-first.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/social-first.tsx"
+        }
+      ],
+      "title": "Social First",
+      "description": "Social First — Sign In."
+    },
+    {
+      "name": "sign-in-email-password",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/intent/sign-in/email-password.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/email-password.tsx"
+        }
+      ],
+      "title": "Email & Password",
+      "description": "Email & Password — Sign In."
+    },
+    {
+      "name": "sign-in-magic-link",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/sign-in/magic-link.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/magic-link.tsx"
+        }
+      ],
+      "title": "Magic Link",
+      "description": "Magic Link — Sign In."
+    },
+    {
       "name": "show-team-members-teammate-picker",
       "type": "registry:block",
       "title": "Teammate Picker",

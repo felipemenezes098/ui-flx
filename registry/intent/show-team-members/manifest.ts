@@ -1,6 +1,7 @@
 import type { IntentManifest } from '@/lib/intent-manifest-types'
 
 import { AvatarGroupDecision } from './avatar-group'
+import { ShowTeamMembersConcept } from './concept'
 import { CompactListDecision } from './compact-list'
 import { TeammatePickerDecision } from './teammate-picker'
 
@@ -10,6 +11,7 @@ export const manifest: IntentManifest = {
   problem:
     'Display the members of a project or task in a way that fits the space you have.',
   domain: 'collaboration',
+  concept: ShowTeamMembersConcept,
   grid: { columns: 2 },
   decisions: [
     {

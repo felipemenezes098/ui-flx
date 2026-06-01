@@ -51,11 +51,7 @@ export function IntentHero({
       </div>
 
       <div
-        className={cn(
-          'grid min-w-0 lg:h-120',
-          styles?.className,
-          !isFull && 'lg:grid-cols-5',
-        )}
+        className={cn('grid min-w-0', !isFull && 'lg:relative lg:grid-cols-5')}
       >
         <div
           className={cn(
@@ -63,10 +59,17 @@ export function IntentHero({
             !isFull && 'border-b lg:col-span-3 lg:border-r lg:border-b-0',
           )}
         >
-          <div className="bg-muted/20 dark:bg-background relative flex min-w-0 flex-1 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
-            <div className="relative max-w-full min-w-0">{children}</div>
+          <div className="bg-muted/20 dark:bg-background relative flex shrink-0 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
+            <div
+              className={cn(
+                'relative flex w-full max-w-full min-w-0 items-center justify-center overflow-hidden py-1 lg:min-h-70',
+                styles?.className,
+              )}
+            >
+              {children}
+            </div>
           </div>
-          <div className="flex flex-col gap-2 border-t px-5 py-4 text-sm">
+          <div className="flex shrink-0 flex-col gap-2 border-t px-5 py-4 text-sm">
             <div className="grid grid-cols-[auto_1fr] gap-x-2.5">
               <Check
                 className="mt-0.5 size-4 shrink-0 text-emerald-600 dark:text-emerald-400"
@@ -90,13 +93,18 @@ export function IntentHero({
           </div>
         </div>
 
-        {!isFull && (
-          <Tabs
-            value={panel}
-            onValueChange={setPanel}
-            className="bg-muted/30 dark:bg-background/30 flex min-h-0 min-w-0 flex-col gap-0 overflow-hidden lg:col-span-2"
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
+        <Tabs
+          value={panel}
+          onValueChange={setPanel}
+          className={cn(
+            'bg-muted/30 dark:bg-background/30 flex min-h-0 min-w-0 flex-col gap-0 overflow-hidden',
+            'max-lg:h-80',
+            isFull
+              ? 'lg:hidden'
+              : 'lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-2/5',
+          )}
+        >
+            <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
               <TabsList className="bg-muted/50 h-auto gap-0.5 rounded-md border p-0.5 shadow-none">
                 <TabsTrigger
                   value="prompt"
@@ -139,12 +147,12 @@ export function IntentHero({
 
             <TabsContent
               value="prompt"
-              className="mt-0 flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden"
+              className="mt-0 flex min-h-0 min-w-0 flex-1 basis-0 flex-col overflow-hidden"
             >
-              <pre className="text-muted-foreground max-h-72 min-w-0 flex-1 overflow-auto p-5 font-mono text-[13px] leading-relaxed whitespace-pre-wrap lg:max-h-none">
+              <pre className="text-muted-foreground no-scrollbar h-0 min-h-0 min-w-0 flex-1 overflow-auto p-5 font-mono text-[13px] leading-relaxed whitespace-pre-wrap">
                 {prompt}
               </pre>
-              <div className="border-t px-5 py-3">
+              <div className="shrink-0 border-t px-5 py-3">
                 <p className="text-muted-foreground inline-flex items-center gap-1.5 text-xs">
                   <ArrowRight className="size-3 shrink-0" aria-hidden />
                   Paste into your AI tool and adapt it to your context.
@@ -154,9 +162,9 @@ export function IntentHero({
 
             <TabsContent
               value="code"
-              className="mt-0 flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden"
+              className="mt-0 flex min-h-0 min-w-0 flex-1 basis-0 flex-col overflow-hidden"
             >
-              <div className="flex flex-wrap gap-1.5 border-b px-4 py-2.5">
+              <div className="flex shrink-0 flex-wrap gap-1.5 border-b px-4 py-2.5">
                 {codeFiles.length > 0 ? (
                   codeFiles.map((file) => (
                     <Badge
@@ -183,12 +191,13 @@ export function IntentHero({
                   </p>
                 )}
               </div>
-              <div className="no-scrollbar bg-muted/5 min-h-0 min-w-0 flex-1 overflow-auto pr-3 pl-1">
+              <div className="no-scrollbar bg-muted/5 h-0 min-h-0 min-w-0 flex-1 overflow-y-auto pr-3 pl-1">
                 {activeFile ? (
                   <CodeBlockCode
                     code={activeFile.content}
                     language="tsx"
-                    className="max-h-110"
+                    collapsible
+                    className="max-h-none overflow-visible"
                   />
                 ) : (
                   <p className="text-muted-foreground flex h-full items-center justify-center p-5 text-sm italic">
@@ -198,7 +207,6 @@ export function IntentHero({
               </div>
             </TabsContent>
           </Tabs>
-        )}
       </div>
     </section>
   )
