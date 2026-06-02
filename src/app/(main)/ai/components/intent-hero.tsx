@@ -26,29 +26,22 @@ export function IntentHero({
 
   return (
     <section className="bg-card dark:bg-background relative overflow-hidden rounded-2xl border shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b px-5 py-3">
-        <span className="inline-flex items-center gap-2 text-sm font-semibold">
-          <span className="relative flex size-2">
-            <span className="bg-primary/60 absolute inline-flex size-full animate-ping rounded-full" />
-            <span className="bg-primary relative inline-flex size-2 rounded-full" />
+      {isFull && (
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b px-5 py-3">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold">
+            {name}
           </span>
-          {name}
-          <span className="text-primary text-xs font-medium tracking-wide uppercase">
-            · Recommended
-          </span>
-        </span>
-        {isFull && (
           <div className="flex shrink-0 items-center gap-2">
+            <DecisionCodeDialog view={view} />
             <CopyButton
               text={prompt}
               label="Copy prompt"
               size="sm"
               className="text-xs"
             />
-            <DecisionCodeDialog view={view} />
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div
         className={cn('grid min-w-0', !isFull && 'lg:relative lg:grid-cols-5')}

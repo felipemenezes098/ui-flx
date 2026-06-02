@@ -9,18 +9,34 @@ import { DecisionCodeDialog } from './decision-code-dialog'
 export function DecisionActions({
   view,
   className,
-}: Readonly<{ view: DecisionView; className?: string }>) {
+  layout = 'grid',
+}: Readonly<{
+  view: DecisionView
+  className?: string
+  layout?: 'grid' | 'inline'
+}>) {
   const { prompt } = view
+  const isInline = layout === 'inline'
 
   return (
-    <div className={cn('grid w-full grid-cols-2 gap-2', className)}>
+    <div
+      className={cn(
+        isInline
+          ? 'flex shrink-0 items-center gap-2'
+          : 'grid w-full grid-cols-2 gap-2',
+        className,
+      )}
+    >
+      <DecisionCodeDialog
+        view={view}
+        className={isInline ? undefined : 'w-full'}
+      />
       <CopyButton
         text={prompt}
         label="Copy prompt"
         size="sm"
-        className="w-full text-xs"
+        className={cn('text-xs', !isInline && 'w-full')}
       />
-      <DecisionCodeDialog view={view} className="w-full" />
     </div>
   )
 }

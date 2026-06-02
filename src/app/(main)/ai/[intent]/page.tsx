@@ -8,7 +8,6 @@ import { allIntents, getIntentManifest } from '@/lib/intent-catalog'
 import { buildDecisionView, buildIntentDocs } from './lib/intent-view'
 
 import { DecisionAlternatives } from '../components/decision-alternatives'
-import { DecisionExports } from '../components/decision-exports'
 import { IntentHero } from '../components/intent-hero'
 import { Button } from '@/components/ui/button'
 
@@ -91,8 +90,6 @@ export default async function IntentPage({
             items={alternativeItems}
             columns={manifest.grid?.columns ?? 2}
           />
-
-          <DecisionExports spec={docs.spec} rules={docs.rules} />
         </div>
       </main>
       <Footer />
