@@ -41,16 +41,16 @@ export function DecisionAlternatives({
               }),
             )}
           >
-            <div className="flex items-center justify-between gap-3 px-1.5 pt-1.5">
-              <span className="min-w-0 truncate text-sm font-medium">
-                {view.name}
-              </span>
-              <DecisionActions view={view} layout="inline" />
-            </div>
             <div className="border-border bg-card dark:bg-background flex min-h-44 flex-1 items-center justify-center overflow-hidden rounded-lg border p-6">
               <div>
                 <Demo />
               </div>
+            </div>
+            <div className="flex items-center justify-between gap-3 px-1.5">
+              <span className="min-w-0 truncate text-sm font-medium">
+                {view.name}
+              </span>
+              <DecisionActions view={view} layout="inline" />
             </div>
           </div>
         ))}

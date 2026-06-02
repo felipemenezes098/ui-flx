@@ -12,10 +12,6 @@ export const dataNavbar = [
     href: '/blocks',
   },
   {
-    name: 'Presets',
-    href: '/presets',
-  },
-  {
     name: 'Me',
     href: '/me',
   },
