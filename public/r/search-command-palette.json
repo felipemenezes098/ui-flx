@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-command-palette",
+  "title": "Command Palette",
+  "description": "Command Palette — Search.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/search/command-palette.tsx",
+      "content": "import {\n  FileTextIcon,\n  LayoutDashboardIcon,\n  PlusIcon,\n  SettingsIcon,\n  UserPlusIcon,\n} from 'lucide-react'\n\nimport {\n  Command,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from '@/components/ui/command'\n\nexport function CommandPaletteDecision() {\n  return (\n    <div className=\"bg-muted/40 flex w-full max-w-sm items-start justify-center rounded-xl border p-4\">\n      <Command className=\"bg-popover w-full rounded-xl border shadow-lg\">\n        <CommandInput placeholder=\"Type a command or search…\" />\n        <CommandList>\n          <CommandGroup heading=\"Navigation\">\n            <CommandItem>\n              <LayoutDashboardIcon />\n              <span>Go to Dashboard</span>\n            </CommandItem>\n            <CommandItem>\n              <FileTextIcon />\n              <span>Open Documents</span>\n            </CommandItem>\n          </CommandGroup>\n          <CommandSeparator />\n          <CommandGroup heading=\"Actions\">\n            <CommandItem>\n              <PlusIcon />\n              <span>New project</span>\n              <CommandShortcut>⌘N</CommandShortcut>\n            </CommandItem>\n            <CommandItem>\n              <UserPlusIcon />\n              <span>Invite member</span>\n              <CommandShortcut>⌘I</CommandShortcut>\n            </CommandItem>\n            <CommandItem>\n              <SettingsIcon />\n              <span>Open settings</span>\n              <CommandShortcut>⌘,</CommandShortcut>\n            </CommandItem>\n          </CommandGroup>\n        </CommandList>\n      </Command>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/search/command-palette.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

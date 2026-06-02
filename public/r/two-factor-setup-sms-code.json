@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-setup-sms-code",
+  "title": "SMS Code",
+  "description": "SMS Code — Two-Factor Setup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/two-factor-setup/sms-code.tsx",
+      "content": "import { SmartphoneIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\n\nexport function SmsCodeDecision() {\n  return (\n    <div className=\"bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm\">\n      <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n        <SmartphoneIcon className=\"text-primary size-5\" />\n      </div>\n      <div className=\"mt-3 flex flex-col gap-1\">\n        <span className=\"text-base font-semibold\">Verify by SMS</span>\n        <span className=\"text-muted-foreground text-xs\">\n          We&apos;ll text a code to your phone each time you sign in. Add the\n          number to protect.\n        </span>\n      </div>\n\n      <div className=\"mt-5 flex flex-col gap-1.5\">\n        <Label htmlFor=\"tf-phone\" className=\"text-xs\">\n          Phone number\n        </Label>\n        <Input\n          id=\"tf-phone\"\n          type=\"tel\"\n          placeholder=\"+1 (555) 000-0000\"\n          autoComplete=\"tel\"\n        />\n      </div>\n\n      <Button className=\"mt-4 w-full\">Send code</Button>\n\n      <p className=\"text-muted-foreground/80 mt-4 text-center text-[11px]\">\n        Carrier rates may apply. SMS is less secure than an app.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/two-factor-setup/sms-code.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

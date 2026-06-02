@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-06",
+  "title": "Advanced options",
+  "description": "Form reveals extra fields behind an Advanced options toggle.",
+  "dependencies": [],
+  "registryDependencies": [
+    "collapsible",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/collapsible/collapsible-06.tsx",
+      "content": "import {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible'\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\nimport { ChevronDownIcon } from 'lucide-react'\n\nexport function Collapsible06() {\n  return (\n    <form className=\"w-full max-w-sm space-y-4\">\n      <div className=\"space-y-2\">\n        <Label htmlFor=\"name\">Project name</Label>\n        <Input id=\"name\" placeholder=\"my-app\" />\n      </div>\n      <Collapsible className=\"group space-y-4\">\n        <CollapsibleTrigger className=\"text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm font-medium\">\n          <ChevronDownIcon className=\"size-4 transition-transform group-data-[state=open]:rotate-180\" />\n          Advanced options\n        </CollapsibleTrigger>\n        <CollapsibleContent className=\"data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down space-y-4 overflow-hidden p-1\">\n          <div className=\"space-y-2\">\n            <Label htmlFor=\"region\">Region</Label>\n            <Input id=\"region\" placeholder=\"us-east-1\" />\n          </div>\n          <div className=\"space-y-2\">\n            <Label htmlFor=\"branch\">Production branch</Label>\n            <Input id=\"branch\" placeholder=\"main\" />\n          </div>\n        </CollapsibleContent>\n      </Collapsible>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/collapsible/collapsible-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

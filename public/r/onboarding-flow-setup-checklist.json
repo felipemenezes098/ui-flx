@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "onboarding-flow-setup-checklist",
+  "title": "Setup Checklist",
+  "description": "Setup Checklist — Welcome Flow.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/onboarding-flow/setup-checklist.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { ArrowRightIcon, CheckIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Progress } from '@/components/ui/progress'\nimport { cn } from '@/lib/utils'\n\ntype Task = {\n  id: string\n  title: string\n  description: string\n}\n\nconst TASKS: Task[] = [\n  {\n    id: 'profile',\n    title: 'Complete your profile',\n    description: 'Add a name and photo so teammates recognize you.',\n  },\n  {\n    id: 'workspace',\n    title: 'Create a workspace',\n    description: 'Give your team a home for projects.',\n  },\n  {\n    id: 'invite',\n    title: 'Invite teammates',\n    description: 'Bring the people you work with on board.',\n  },\n  {\n    id: 'project',\n    title: 'Start your first project',\n    description: 'Create a project to see the product in action.',\n  },\n]\n\nexport function SetupChecklistDecision() {\n  const [done, setDone] = useState<Record<string, boolean>>({ profile: true })\n  const completed = Object.values(done).filter(Boolean).length\n  const pct = Math.round((completed / TASKS.length) * 100)\n\n  function toggle(id: string) {\n    setDone((d) => ({ ...d, [id]: !d[id] }))\n  }\n\n  return (\n    <div className=\"bg-card w-full max-w-sm rounded-xl border p-5 shadow-sm\">\n      <div className=\"flex flex-col gap-1\">\n        <h3 className=\"text-sm font-semibold\">Get started</h3>\n        <p className=\"text-muted-foreground text-xs\">\n          {completed} of {TASKS.length} complete\n        </p>\n      </div>\n      <Progress value={pct} className=\"mt-3 h-1.5\" />\n\n      <ul className=\"mt-4 flex flex-col gap-1\">\n        {TASKS.map((task) => {\n          const checked = !!done[task.id]\n          return (\n            <li key={task.id}>\n              <button\n                type=\"button\"\n                onClick={() => toggle(task.id)}\n                className=\"hover:bg-muted/50 flex w-full items-start gap-3 rounded-lg p-2 text-left transition-colors\"\n              >\n                <span\n                  className={cn(\n                    'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border',\n                    checked\n                      ? 'bg-primary border-primary text-primary-foreground'\n                      : 'border-muted-foreground/40',\n                  )}\n                >\n                  {checked && <CheckIcon className=\"size-3\" />}\n                </span>\n                <span className=\"flex flex-col gap-0.5\">\n                  <span\n                    className={cn(\n                      'text-xs font-medium',\n                      checked && 'text-muted-foreground line-through',\n                    )}\n                  >\n                    {task.title}\n                  </span>\n                  <span className=\"text-muted-foreground text-[11px]\">\n                    {task.description}\n                  </span>\n                </span>\n                <ArrowRightIcon\n                  className={cn(\n                    'text-muted-foreground/50 mt-0.5 ml-auto size-3.5 shrink-0',\n                    checked && 'invisible',\n                  )}\n                />\n              </button>\n            </li>\n          )\n        })}\n      </ul>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/onboarding-flow/setup-checklist.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

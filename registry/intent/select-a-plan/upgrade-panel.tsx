@@ -11,7 +11,7 @@ export function UpgradePanelDecision() {
   const pct = Math.min(100, (used / limit) * 100)
 
   return (
-    <div className="bg-card w-full max-w-xs rounded-xl border p-5 shadow-sm">
+    <div className="bg-card w-full min-w-64 rounded-xl border p-5 shadow-sm">
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold">Starter plan</span>
         <span className="bg-muted text-muted-foreground rounded-full px-2 py-0.5 text-[11px] font-medium">

@@ -4,10 +4,17 @@ import type {
   IntentManifest,
 } from '@/lib/intent-manifest-types'
 
+import { manifest as checkoutPayment } from 'registry/intent/checkout-payment/manifest'
 import { manifest as confirmDestructiveAction } from 'registry/intent/confirm-destructive-action/manifest'
+import { manifest as emptyState } from 'registry/intent/empty-state/manifest'
+import { manifest as inviteTeammates } from 'registry/intent/invite-teammates/manifest'
+import { manifest as onboardingFlow } from 'registry/intent/onboarding-flow/manifest'
+import { manifest as resetPassword } from 'registry/intent/reset-password/manifest'
+import { manifest as search } from 'registry/intent/search/manifest'
 import { manifest as selectAPlan } from 'registry/intent/select-a-plan/manifest'
 import { manifest as showTeamMembers } from 'registry/intent/show-team-members/manifest'
 import { manifest as signIn } from 'registry/intent/sign-in/manifest'
+import { manifest as twoFactorSetup } from 'registry/intent/two-factor-setup/manifest'
 
 export type {
   IntentDecision,
@@ -35,17 +42,36 @@ export const intentDomains: IntentDomain[] = [
   {
     slug: 'collaboration',
     name: 'Collaboration',
-    intents: [fromManifest(showTeamMembers)],
+    intents: [fromManifest(showTeamMembers), fromManifest(inviteTeammates)],
   },
   {
     slug: 'billing',
     name: 'Billing',
-    intents: [fromManifest(selectAPlan)],
+    intents: [fromManifest(selectAPlan), fromManifest(checkoutPayment)],
   },
   {
     slug: 'auth',
     name: 'Auth',
-    intents: [fromManifest(signIn)],
+    intents: [
+      fromManifest(signIn),
+      fromManifest(resetPassword),
+      fromManifest(twoFactorSetup),
+    ],
+  },
+  {
+    slug: 'feedback',
+    name: 'Feedback',
+    intents: [fromManifest(emptyState)],
+  },
+  {
+    slug: 'discovery',
+    name: 'Discovery',
+    intents: [fromManifest(search)],
+  },
+  {
+    slug: 'onboarding',
+    name: 'Onboarding',
+    intents: [fromManifest(onboardingFlow)],
   },
 ]
 

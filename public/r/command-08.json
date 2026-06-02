@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-08",
+  "title": "Grouped picker",
+  "description": "Options split into labeled groups with separators — timezones by region.",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "command",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/command/command-08.tsx",
+      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n} from '@/components/ui/command'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport { ChevronsUpDownIcon } from 'lucide-react'\nimport { useState } from 'react'\n\nconst regions = [\n  {\n    label: 'Americas',\n    zones: [\n      { value: 'pst', label: 'Pacific (PST)' },\n      { value: 'est', label: 'Eastern (EST)' },\n      { value: 'brt', label: 'Brasília (BRT)' },\n    ],\n  },\n  {\n    label: 'Europe',\n    zones: [\n      { value: 'gmt', label: 'London (GMT)' },\n      { value: 'cet', label: 'Berlin (CET)' },\n    ],\n  },\n  {\n    label: 'Asia',\n    zones: [\n      { value: 'ist', label: 'Mumbai (IST)' },\n      { value: 'jst', label: 'Tokyo (JST)' },\n    ],\n  },\n]\n\nconst allZones = regions.flatMap((region) => region.zones)\n\nexport function Command08() {\n  const [open, setOpen] = useState(false)\n  const [value, setValue] = useState('')\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          role=\"combobox\"\n          aria-expanded={open}\n          className=\"w-60 justify-between font-normal\"\n        >\n          {value\n            ? allZones.find((zone) => zone.value === value)?.label\n            : 'Select timezone...'}\n          <ChevronsUpDownIcon className=\"text-muted-foreground\" />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-60 p-0\" align=\"start\">\n        <Command>\n          <CommandInput placeholder=\"Search timezone...\" />\n          <CommandList>\n            <CommandEmpty>No timezone found.</CommandEmpty>\n            {regions.map((region, index) => (\n              <div key={region.label}>\n                {index > 0 && <CommandSeparator />}\n                <CommandGroup heading={region.label}>\n                  {region.zones.map((zone) => (\n                    <CommandItem\n                      key={zone.value}\n                      value={zone.value}\n                      data-checked={value === zone.value}\n                      onSelect={(current) => {\n                        setValue(current === value ? '' : current)\n                        setOpen(false)\n                      }}\n                    >\n                      {zone.label}\n                    </CommandItem>\n                  ))}\n                </CommandGroup>\n              </div>\n            ))}\n          </CommandList>\n        </Command>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/command/command-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

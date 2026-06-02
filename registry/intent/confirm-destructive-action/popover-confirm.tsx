@@ -36,7 +36,7 @@ export function PopoverConfirmDecision() {
                   size="icon-sm"
                   className="text-muted-foreground hover:text-destructive shrink-0"
                 >
-                  <Trash2Icon className="size-3.5" />
+                  <Trash2Icon className="size-4" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-56" side="left">

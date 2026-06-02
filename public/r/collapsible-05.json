@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-05",
+  "title": "Sidebar nav group",
+  "description": "Collapsible navigation sections with sub-items and a rotating chevron.",
+  "dependencies": [],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/collapsible/collapsible-05.tsx",
+      "content": "import {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible'\nimport {\n  ChevronRightIcon,\n  LayoutDashboardIcon,\n  SettingsIcon,\n} from 'lucide-react'\n\nconst groups = [\n  {\n    label: 'Platform',\n    icon: LayoutDashboardIcon,\n    defaultOpen: true,\n    items: ['Overview', 'Projects', 'Deployments', 'Analytics'],\n  },\n  {\n    label: 'Settings',\n    icon: SettingsIcon,\n    defaultOpen: false,\n    items: ['General', 'Members', 'Billing', 'Integrations'],\n  },\n]\n\nexport function Collapsible05() {\n  return (\n    <nav className=\"w-full max-w-60 space-y-1 rounded-lg border p-2\">\n      {groups.map((group) => (\n        <Collapsible\n          key={group.label}\n          defaultOpen={group.defaultOpen}\n          className=\"group/nav\"\n        >\n          <CollapsibleTrigger className=\"hover:bg-accent flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium\">\n            <group.icon className=\"text-muted-foreground size-4 shrink-0\" />\n            {group.label}\n            <ChevronRightIcon className=\"text-muted-foreground ml-auto size-4 shrink-0 transition-transform group-data-[state=open]/nav:rotate-90\" />\n          </CollapsibleTrigger>\n          <CollapsibleContent className=\"overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\n            <ul className=\"mt-1 ml-4 space-y-0.5 border-l pl-4\">\n              {group.items.map((item) => (\n                <li key={item}>\n                  <a\n                    href=\"#\"\n                    className=\"hover:bg-accent text-muted-foreground hover:text-foreground block rounded-md px-2 py-1.5 text-sm\"\n                  >\n                    {item}\n                  </a>\n                </li>\n              ))}\n            </ul>\n          </CollapsibleContent>\n        </Collapsible>\n      ))}\n    </nav>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/collapsible/collapsible-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

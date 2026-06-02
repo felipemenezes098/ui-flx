@@ -44,10 +44,24 @@ If you can't articulate a strong `best` (when to reach for it) **and** a strong
 
 ### How many decisions?
 
-**Not fixed at two.** The number of decisions = the number of trade-offs worth
-teaching. Two is the minimum; three is common; four+ is fine when each adds a
-genuinely different context. Don't pad with near-duplicates, and don't collapse
-two real forks into one. One decision = no choice = it's a pattern, not an intent.
+**Do NOT default to two.** Two is the *minimum*, not the target. The number of
+decisions = the number of trade-offs worth teaching — derive it from the
+problem, never from habit. Most strong intents have **three or more**: the
+canonical fork is usually a triad (e.g. sign-in → social / email-password /
+magic-link; empty-state → first-run / no-results / error-state).
+
+Before settling on a count, **enumerate every legitimate solution and its
+trade-off**, then keep each one that wins in a genuinely different context:
+
+- Stop at two ONLY when a third honest fork does not exist — not because two
+  feels like enough.
+- Three is common; four+ is fine when each adds a real, distinct context.
+- Don't pad with near-duplicates, and don't collapse two real forks into one.
+- One decision = no choice = it's a pattern, not an intent.
+
+Litmus: if you wrote two decisions, ask "what's the third way someone solves
+this, and when does it win?" — if you can answer with a strong `best`+`caveat`,
+it belongs.
 
 ### Elaborate decisions are welcome
 
@@ -153,7 +167,7 @@ export const manifest: IntentManifest = {
   problem: '<One sentence describing the UI problem this intent solves.>',
   domain: '<domain-slug>', // must match an existing domain slug in intent-catalog.ts
   concept: MyIntentNameConcept,
-  grid: { columns: 2 }, // optional — columns for DecisionAlternatives (2 | 3 | 4), defaults to 2
+  grid: { columns: 2 }, // columns for the ALTERNATIVES grid only — see "Grid sizing" below
   decisions: [
     {
       slug: '<decision-a-slug>',
@@ -186,6 +200,47 @@ export const manifest: IntentManifest = {
 ```
 
 Exactly **one** decision must have `recommended: true` — it becomes the hero.
+
+### Grid sizing (`grid.columns` + `styles.span`)
+
+These two settings work together. Get them wrong and the alternatives grid looks
+lopsided. The key fact most people miss:
+
+> **The recommended decision is the hero — it renders ABOVE the grid, outside it.
+> `grid.columns` describes only the REMAINING decisions (the alternatives).**
+
+So the count that matters for the grid is `decisions.length - 1` (everything that
+isn't the hero). Pick `columns` so those alternatives tile into **full rows** with
+no orphan hanging on the last row.
+
+**`styles.span: 'full'` means "this decision is big / needs room."** Use it when
+the demo is wide or tall (pricing tables, comparison grids, dashboards,
+multi-step flows). Effects:
+- In the **hero**: hides the side tabs, moves actions into the header, full width.
+- In the **alternatives grid**: that decision consumes an **entire row** by itself.
+
+Because a `span: 'full'` alternative eats a whole row, it changes the math — the
+*other* alternatives must still tile evenly into the columns you set.
+
+Worked examples (`A` = alternatives = non-hero decisions):
+
+| Total decisions | A (non-hero) | spans among A | `grid.columns` | Why |
+|---|---|---|---|---|
+| 2 | 1 | none | omit (or 1) | one alternative, no grid needed |
+| 3 | 2 | none | **2** | 2 alternatives fill one clean row of 2 |
+| 3 | 2 | both `full` | **1** | each full span owns a row → 1 column keeps them aligned |
+| 4 | 3 | none | **3** | 3 alternatives = one row of 3 |
+| 5 | 4 | none | **2** | 4 tile into 2 rows of 2 |
+| 5 | 4 | one `full` | **2** (or 1) | full span takes its own row; remaining **3** must still close — see note |
+
+**The "must close" rule:** a `span: 'full'` alternative sits on its own row, so
+subtract it and check that the *rest* divide evenly into `columns`. If removing
+the spans leaves an awkward remainder (e.g. 3 non-span alternatives in a
+2-column grid → a lonely orphan), either drop to `columns: 1`, add/merge a
+decision, or promote another to `full` so every row is balanced. Never leave a
+single orphan card dangling under a full-width row.
+
+Rule of thumb: **omit `grid` entirely when there's only one alternative.**
 
 ---
 
@@ -258,7 +313,7 @@ If `registry:validate` prints `MISSING in registry.json: "<name>" (intent decisi
 - Registry entry `name` must be exactly `<intent-slug>-<decision-slug>` — this is how `intent-view.ts` resolves the code files and how the sync script finds the entry
 - `patterns` is optional — only include slugs that exist in `src/lib/patterns-catalog.ts`; leave `[]` or omit if none apply
 - Exactly **one** decision gets `recommended: true`
-- `grid.columns` controls `DecisionAlternatives` layout — omit if only one alternative (no grid needed)
+- `grid.columns` counts only the **non-hero** decisions (the hero renders above the grid). Size it from `decisions.length - 1` and keep `span: 'full'` spans from leaving an orphan card — see "Grid sizing". Omit if only one alternative.
 - `styles` on a decision is optional — only set when the default hero (`lg:h-120` + tabs) doesn't fit
 - `registryDependencies` and `dependencies` in `registry.json` are **never touched by sync** — maintain them manually
 
@@ -277,11 +332,14 @@ This skill touches the same handful of files every time. Minimize round-trips:
    missing ones up front (see the shadcn step) so you don't discover gaps mid-write.
 3. **Write all decision files + concept + manifest, then register.** Group the
    edits; don't interleave reads between every Write.
-4. **Sizing — decide up front, avoid rework:**
+4. **Sizing — decide up front, avoid rework** (full rules in "Grid sizing" above):
    - Narrow card demos (`max-w-xs`, e.g. a login card) → default hero, no `styles`.
    - Wide demos (pricing cards, comparison tables, dashboards) → `styles: { span: 'full' }`
-     on that decision. `span: 'full'` makes the hero hide the side tabs and gives
-     full width; in the alternatives grid it spans all columns.
+     on that decision because it's big / needs room. In the hero it hides the side
+     tabs; in the alternatives grid it owns a full row.
+   - Set `grid.columns` from the **non-hero** count (`decisions.length - 1`), then
+     verify any `full` spans still leave the remaining alternatives tiling into
+     clean rows. Omit `grid` when there's only one alternative.
 5. **registry.json:** insert new entries next to sibling intent entries. You only
    author `name`, `type`, `registryDependencies`, `dependencies`, `files: []`.
    `registryDependencies`/`dependencies` are **yours forever**; sync fills the rest.
@@ -302,7 +360,8 @@ This skill touches the same handful of files every time. Minimize round-trips:
 - [ ] `registry/intent/<intent-slug>/` folder created
 - [ ] One `<decision-slug>.tsx` per decision — named export `<PascalCase>Decision()`; elaborate/stateful is fine
 - [ ] `concept.tsx` — wireframe for the `/ai` gallery card, referenced as `concept` in the manifest
-- [ ] `manifest.ts` — all required fields; exactly one `recommended: true`; decision count = trade-offs worth teaching
+- [ ] `manifest.ts` — all required fields; exactly one `recommended: true`; decision count = trade-offs worth teaching (don't stop at 2 by default)
+- [ ] `grid.columns` sized from the non-hero count; any `span: 'full'` leaves no orphan card (see "Grid sizing")
 - [ ] `src/lib/intent-catalog.ts` — manifest imported + `fromManifest()` entry in the correct domain
 - [ ] `registry.json` — one entry per decision with `name`, `type`, `registryDependencies`, `dependencies`
 - [ ] `npm run registry:sync` — fills `title`, `description`, `files` from manifest

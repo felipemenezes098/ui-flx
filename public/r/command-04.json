@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-04",
+  "title": "Async loading",
+  "description": "Debounced search with a spinner and empty state — shouldFilter off.",
+  "dependencies": [],
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/command/command-04.tsx",
+      "content": "'use client'\n\nimport {\n  Command,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/components/ui/command'\nimport { PackageIcon, SearchXIcon, TrendingUpIcon } from 'lucide-react'\nimport { useEffect, useState } from 'react'\n\nconst registry = [\n  'react',\n  'react-dom',\n  'radix-ui',\n  'tailwindcss',\n  'typescript',\n  'next',\n  'zod',\n]\n\nconst popular = ['react', 'next', 'tailwindcss']\nconst skeletonWidths = ['58%', '44%', '66%']\n\nexport function Command04() {\n  const [query, setQuery] = useState('')\n  const [loading, setLoading] = useState(false)\n  const [results, setResults] = useState<string[]>([])\n\n  useEffect(() => {\n    if (!query.trim()) {\n      setResults([])\n      setLoading(false)\n      return\n    }\n    setLoading(true)\n    const id = setTimeout(() => {\n      setResults(\n        registry.filter((item) => item.includes(query.toLowerCase().trim())),\n      )\n      setLoading(false)\n    }, 600)\n    return () => clearTimeout(id)\n  }, [query])\n\n  return (\n    <Command\n      shouldFilter={false}\n      className=\"size-auto w-full max-w-md rounded-lg border shadow-sm\"\n    >\n      <CommandInput\n        placeholder=\"Search npm packages...\"\n        value={query}\n        onValueChange={setQuery}\n      />\n      <CommandList className=\"min-h-32\">\n        {loading &&\n          skeletonWidths.map((width, index) => (\n            <div\n              key={index}\n              className=\"flex items-center gap-2 px-3 py-2\"\n              aria-hidden\n            >\n              <div className=\"bg-muted size-4 shrink-0 animate-pulse rounded\" />\n              <div\n                className=\"bg-muted h-3 animate-pulse rounded\"\n                style={{ width }}\n              />\n            </div>\n          ))}\n\n        {!loading && !query.trim() && (\n          <CommandGroup heading=\"Popular\">\n            {popular.map((item) => (\n              <CommandItem key={item} value={item}>\n                <TrendingUpIcon />\n                <span>{item}</span>\n              </CommandItem>\n            ))}\n          </CommandGroup>\n        )}\n\n        {!loading && query.trim() && results.length === 0 && (\n          <div className=\"text-muted-foreground flex flex-col items-center gap-1.5 py-8 text-sm\">\n            <SearchXIcon className=\"size-5 opacity-50\" />\n            No packages match “{query.trim()}”.\n          </div>\n        )}\n\n        {!loading && results.length > 0 && (\n          <CommandGroup heading=\"Results\">\n            {results.map((item) => (\n              <CommandItem key={item} value={item}>\n                <PackageIcon />\n                <span>{item}</span>\n              </CommandItem>\n            ))}\n          </CommandGroup>\n        )}\n      </CommandList>\n    </Command>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/command/command-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

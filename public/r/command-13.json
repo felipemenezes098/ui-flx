@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-13",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires the combobox; Zod onSubmit validator surfaces FieldError when touched.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "popover",
+    "command",
+    "button",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/command/command-13.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/components/ui/command'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport { cn } from '@/lib/utils'\nimport { ChevronsUpDownIcon } from 'lucide-react'\nimport { useState } from 'react'\n\nconst frameworks = [\n  { value: 'next', label: 'Next.js' },\n  { value: 'sveltekit', label: 'SvelteKit' },\n  { value: 'nuxt', label: 'Nuxt' },\n  { value: 'remix', label: 'Remix' },\n  { value: 'astro', label: 'Astro' },\n] as const\n\nconst formSchema = z.object({\n  framework: z.string().min(1, 'Select a framework.'),\n})\n\nexport function Command13() {\n  const [open, setOpen] = useState(false)\n  const form = useForm({\n    defaultValues: {\n      framework: '',\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      toast.success('Submitted', {\n        description: frameworks.find((item) => item.value === value.framework)\n          ?.label,\n      })\n    },\n  })\n\n  return (\n    <form\n      id=\"command-tanstack-form\"\n      onSubmit={(event) => {\n        event.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <FieldGroup>\n        <form.Field name=\"framework\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n\n            return (\n              <Field data-invalid={isInvalid}>\n                <FieldLabel htmlFor={field.name}>Framework</FieldLabel>\n                <Popover open={open} onOpenChange={setOpen}>\n                  <PopoverTrigger asChild>\n                    <Button\n                      id={field.name}\n                      type=\"button\"\n                      variant=\"outline\"\n                      role=\"combobox\"\n                      aria-expanded={open}\n                      aria-invalid={isInvalid}\n                      className=\"w-full justify-between font-normal\"\n                    >\n                      <span\n                        className={cn(\n                          !field.state.value && 'text-muted-foreground',\n                        )}\n                      >\n                        {field.state.value\n                          ? frameworks.find(\n                              (item) => item.value === field.state.value,\n                            )?.label\n                          : 'Select framework'}\n                      </span>\n                      <ChevronsUpDownIcon className=\"text-muted-foreground\" />\n                    </Button>\n                  </PopoverTrigger>\n                  <PopoverContent\n                    className=\"w-(--radix-popover-trigger-width) p-0\"\n                    align=\"start\"\n                  >\n                    <Command>\n                      <CommandInput placeholder=\"Search framework...\" />\n                      <CommandList>\n                        <CommandEmpty>No framework found.</CommandEmpty>\n                        <CommandGroup>\n                          {frameworks.map((item) => (\n                            <CommandItem\n                              key={item.value}\n                              value={item.value}\n                              data-checked={field.state.value === item.value}\n                              onSelect={(current) => {\n                                field.handleChange(\n                                  current === field.state.value ? '' : current,\n                                )\n                                field.handleBlur()\n                                setOpen(false)\n                              }}\n                            >\n                              {item.label}\n                            </CommandItem>\n                          ))}\n                        </CommandGroup>\n                      </CommandList>\n                    </Command>\n                  </PopoverContent>\n                </Popover>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </Field>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/command/command-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

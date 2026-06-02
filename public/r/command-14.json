@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-14",
+  "title": "Multiple — count summary",
+  "description": "Trigger shows “first, +N” with a separate button to clear all.",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "command",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/command/command-14.tsx",
+      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/components/ui/command'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\nimport { cn } from '@/lib/utils'\nimport { ChevronsUpDownIcon, XIcon } from 'lucide-react'\nimport { useState } from 'react'\n\nconst skills = [\n  { value: 'react', label: 'React' },\n  { value: 'typescript', label: 'TypeScript' },\n  { value: 'node', label: 'Node.js' },\n  { value: 'figma', label: 'Figma' },\n  { value: 'graphql', label: 'GraphQL' },\n  { value: 'rust', label: 'Rust' },\n]\n\nexport function Command14() {\n  const [open, setOpen] = useState(false)\n  const [selected, setSelected] = useState<string[]>([\n    'react',\n    'typescript',\n    'node',\n  ])\n\n  const toggle = (value: string) =>\n    setSelected((prev) =>\n      prev.includes(value)\n        ? prev.filter((item) => item !== value)\n        : [...prev, value],\n    )\n\n  const labels = skills\n    .filter((skill) => selected.includes(skill.value))\n    .map((skill) => skill.label)\n\n  const summary =\n    labels.length === 0\n      ? 'Select skills...'\n      : labels.length === 1\n        ? labels[0]\n        : `${labels[0]}, +${labels.length - 1}`\n\n  return (\n    <div className=\"flex w-72 items-center gap-1\">\n      <Popover open={open} onOpenChange={setOpen}>\n        <PopoverTrigger asChild>\n          <Button\n            variant=\"outline\"\n            role=\"combobox\"\n            aria-expanded={open}\n            className=\"flex-1 justify-between font-normal\"\n          >\n            <span className={cn(selected.length === 0 && 'text-muted-foreground')}>\n              {summary}\n            </span>\n            <ChevronsUpDownIcon className=\"text-muted-foreground\" />\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent\n          className=\"w-(--radix-popover-trigger-width) p-0\"\n          align=\"start\"\n        >\n          <Command>\n            <CommandInput placeholder=\"Search skills...\" />\n            <CommandList>\n              <CommandEmpty>No skill found.</CommandEmpty>\n              <CommandGroup>\n                {skills.map((skill) => (\n                  <CommandItem\n                    key={skill.value}\n                    value={skill.value}\n                    data-checked={selected.includes(skill.value)}\n                    onSelect={() => toggle(skill.value)}\n                  >\n                    {skill.label}\n                  </CommandItem>\n                ))}\n              </CommandGroup>\n            </CommandList>\n          </Command>\n        </PopoverContent>\n      </Popover>\n      {selected.length > 0 && (\n        <Button\n          variant=\"ghost\"\n          size=\"icon\"\n          aria-label=\"Clear all\"\n          onClick={() => setSelected([])}\n        >\n          <XIcon />\n        </Button>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/command/command-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

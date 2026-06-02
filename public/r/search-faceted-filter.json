@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-faceted-filter",
+  "title": "Faceted Filter",
+  "description": "Faceted Filter — Search.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "checkbox",
+    "command",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/search/faceted-filter.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Command,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/components/ui/command'\nimport { Separator } from '@/components/ui/separator'\n\nconst categories = [\n  { id: 'apparel', name: 'Apparel', count: 128, checked: true },\n  { id: 'shoes', name: 'Shoes', count: 64, checked: false },\n  { id: 'accessories', name: 'Accessories', count: 32, checked: false },\n]\n\nconst products = [\n  { name: 'Merino Crew Tee', price: '$48' },\n  { name: 'Linen Overshirt', price: '$120' },\n  { name: 'Stretch Chino', price: '$88' },\n]\n\nexport function FacetedFilterDecision() {\n  return (\n    <div className=\"bg-card flex w-full max-w-sm flex-col gap-4 rounded-xl border p-5 shadow-sm\">\n      <div className=\"flex flex-col gap-2.5\">\n        <span className=\"text-xs font-medium\">Category</span>\n        {categories.map((opt) => (\n          <label\n            key={opt.id}\n            className=\"flex cursor-pointer items-center gap-2.5 text-sm\"\n          >\n            <Checkbox defaultChecked={opt.checked} />\n            <span className=\"flex-1\">{opt.name}</span>\n            <span className=\"text-muted-foreground text-xs\">{opt.count}</span>\n          </label>\n        ))}\n      </div>\n      <Separator />\n      <Command className=\"rounded-lg border shadow-none\">\n        <CommandInput placeholder=\"Search products…\" />\n        <CommandList className=\"max-h-none\">\n          <CommandGroup heading=\"Results\">\n            {products.map((p) => (\n              <CommandItem key={p.name}>\n                <span className=\"flex-1\">{p.name}</span>\n                <span className=\"text-muted-foreground text-xs\">{p.price}</span>\n              </CommandItem>\n            ))}\n          </CommandGroup>\n        </CommandList>\n      </Command>\n      <div className=\"flex items-center justify-between\">\n        <span className=\"text-muted-foreground text-xs\">224 results</span>\n        <Badge variant=\"secondary\">2 filters</Badge>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/search/faceted-filter.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

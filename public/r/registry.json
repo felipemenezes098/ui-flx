@@ -3759,6 +3759,510 @@
       "description": "Last crumb is a Button switcher for sibling pages."
     },
     {
+      "name": "collapsible-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Canonical starred-repos toggle with a chevron trigger."
+    },
+    {
+      "name": "collapsible-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-02.tsx"
+        }
+      ],
+      "title": "FAQ list",
+      "description": "Stacked question rows; each answer expands with an animated chevron."
+    },
+    {
+      "name": "collapsible-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-03.tsx"
+        }
+      ],
+      "title": "File tree",
+      "description": "Nested folders built purely from Collapsible — folder icons swap on open."
+    },
+    {
+      "name": "collapsible-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-04.tsx"
+        }
+      ],
+      "title": "Read more",
+      "description": "Truncated paragraph reveals the rest; trigger label swaps to Show less."
+    },
+    {
+      "name": "collapsible-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-05.tsx"
+        }
+      ],
+      "title": "Sidebar nav group",
+      "description": "Collapsible navigation sections with sub-items and a rotating chevron."
+    },
+    {
+      "name": "collapsible-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/collapsible/collapsible-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-06.tsx"
+        }
+      ],
+      "title": "Advanced options",
+      "description": "Form reveals extra fields behind an Advanced options toggle."
+    },
+    {
+      "name": "command-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Canonical command menu with grouped items, icons, and shortcuts."
+    },
+    {
+      "name": "command-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command",
+        "button",
+        "dialog"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-02.tsx"
+        }
+      ],
+      "title": "Command dialog",
+      "description": "Spotlight-style ⌘K palette toggled by a button or keyboard shortcut."
+    },
+    {
+      "name": "command-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command",
+        "button",
+        "dialog",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-03.tsx"
+        }
+      ],
+      "title": "Global search",
+      "description": "Rich search dialog with recent, pages, and people plus a hint footer."
+    },
+    {
+      "name": "command-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-04.tsx"
+        }
+      ],
+      "title": "Async loading",
+      "description": "Debounced search with a spinner and empty state — shouldFilter off."
+    },
+    {
+      "name": "command-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-05.tsx"
+        }
+      ],
+      "title": "Combobox",
+      "description": "Popover + Command framework picker with a check mark."
+    },
+    {
+      "name": "command-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-06.tsx"
+        }
+      ],
+      "title": "Combobox with clear",
+      "description": "Selected value shows an inline X that clears without reopening."
+    },
+    {
+      "name": "command-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-07.tsx"
+        }
+      ],
+      "title": "Multiple — chips",
+      "description": "Multi-select showing every choice as a removable badge chip in the trigger."
+    },
+    {
+      "name": "command-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-14.tsx"
+        }
+      ],
+      "title": "Multiple — count summary",
+      "description": "Trigger shows “first, +N” with a separate button to clear all."
+    },
+    {
+      "name": "command-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "badge",
+        "separator"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-15.tsx"
+        }
+      ],
+      "title": "Multiple — faceted filter",
+      "description": "Dashed trigger with count badges, checkbox rows, facet counts, and a clear footer."
+    },
+    {
+      "name": "command-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-08.tsx"
+        }
+      ],
+      "title": "Grouped picker",
+      "description": "Options split into labeled groups with separators — timezones by region."
+    },
+    {
+      "name": "command-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-09.tsx"
+        }
+      ],
+      "title": "Assignee picker",
+      "description": "Avatars with name and email subtext in the trigger and options."
+    },
+    {
+      "name": "command-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-10.tsx"
+        }
+      ],
+      "title": "Status picker",
+      "description": "Ghost trigger with a colored status dot — issue-tracker style."
+    },
+    {
+      "name": "command-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-11.tsx"
+        }
+      ],
+      "title": "With label",
+      "description": "Combobox composed with an accessible field Label."
+    },
+    {
+      "name": "command-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds the combobox to RHF; Zod resolver drives FieldError on submit."
+    },
+    {
+      "name": "command-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/command/command-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the combobox; Zod onSubmit validator surfaces FieldError when touched."
+    },
+    {
+      "name": "empty-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/empty/empty-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Icon, title, and description for an empty list."
+    },
+    {
+      "name": "empty-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/empty/empty-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-02.tsx"
+        }
+      ],
+      "title": "With actions",
+      "description": "First-run state with primary and secondary CTAs."
+    },
+    {
+      "name": "empty-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/empty/empty-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-03.tsx"
+        }
+      ],
+      "title": "No results",
+      "description": "Search empty state with a clear-filters action."
+    },
+    {
+      "name": "empty-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "avatar",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/empty/empty-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-04.tsx"
+        }
+      ],
+      "title": "Avatar group",
+      "description": "Bordered empty team card with an avatar stack and invite."
+    },
+    {
+      "name": "empty-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "dialog",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/empty/empty-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-05.tsx"
+        }
+      ],
+      "title": "In dialog",
+      "description": "Empty inbox state composed inside a Dialog."
+    },
+    {
       "name": "show-team-members-avatar-group",
       "type": "registry:block",
       "title": "Avatar Group",
@@ -3987,11 +4491,10 @@
       "registryDependencies": [
         "avatar",
         "button",
+        "command",
         "separator"
       ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": [],
       "files": [
         {
           "path": "registry/intent/show-team-members/teammate-picker.tsx",
@@ -3999,6 +4502,475 @@
           "target": "components/flx/intent/show-team-members/teammate-picker.tsx"
         }
       ]
+    },
+    {
+      "name": "empty-state-first-run",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "empty"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/empty-state/first-run.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/empty-state/first-run.tsx"
+        }
+      ],
+      "title": "First Run",
+      "description": "First Run — Empty State."
+    },
+    {
+      "name": "empty-state-error-state",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "empty"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/empty-state/error-state.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/empty-state/error-state.tsx"
+        }
+      ],
+      "title": "Error State",
+      "description": "Error State — Empty State."
+    },
+    {
+      "name": "empty-state-no-results",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "empty"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/empty-state/no-results.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/empty-state/no-results.tsx"
+        }
+      ],
+      "title": "No Results",
+      "description": "No Results — Empty State."
+    },
+    {
+      "name": "onboarding-flow-intro-slides",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/onboarding-flow/intro-slides.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/onboarding-flow/intro-slides.tsx"
+        }
+      ],
+      "title": "Intro Slides",
+      "description": "Intro Slides — Welcome Flow."
+    },
+    {
+      "name": "onboarding-flow-stepped-wizard",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/onboarding-flow/stepped-wizard.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/onboarding-flow/stepped-wizard.tsx"
+        }
+      ],
+      "title": "Stepped Wizard",
+      "description": "Stepped Wizard — Welcome Flow."
+    },
+    {
+      "name": "onboarding-flow-setup-checklist",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "progress"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/onboarding-flow/setup-checklist.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/onboarding-flow/setup-checklist.tsx"
+        }
+      ],
+      "title": "Setup Checklist",
+      "description": "Setup Checklist — Welcome Flow."
+    },
+    {
+      "name": "onboarding-flow-product-tour",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/onboarding-flow/product-tour.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/onboarding-flow/product-tour.tsx"
+        }
+      ],
+      "title": "Product Tour",
+      "description": "Product Tour — Welcome Flow."
+    },
+    {
+      "name": "reset-password-email-link",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/reset-password/email-link.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/email-link.tsx"
+        }
+      ],
+      "title": "Email Link",
+      "description": "Email Link — Reset Password."
+    },
+    {
+      "name": "reset-password-otp-code",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input-otp"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/reset-password/otp-code.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/otp-code.tsx"
+        }
+      ],
+      "title": "OTP Code",
+      "description": "OTP Code — Reset Password."
+    },
+    {
+      "name": "reset-password-security-questions",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/reset-password/security-questions.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/security-questions.tsx"
+        }
+      ],
+      "title": "Security Questions",
+      "description": "Security Questions — Reset Password."
+    },
+    {
+      "name": "two-factor-setup-authenticator-app",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input-otp"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/two-factor-setup/authenticator-app.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/authenticator-app.tsx"
+        }
+      ],
+      "title": "Authenticator App",
+      "description": "Authenticator App — Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-sms-code",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/two-factor-setup/sms-code.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/sms-code.tsx"
+        }
+      ],
+      "title": "SMS Code",
+      "description": "SMS Code — Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-passkey",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/two-factor-setup/passkey.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/passkey.tsx"
+        }
+      ],
+      "title": "Passkey",
+      "description": "Passkey — Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-backup-codes",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/two-factor-setup/backup-codes.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/backup-codes.tsx"
+        }
+      ],
+      "title": "Backup Codes",
+      "description": "Backup Codes — Two-Factor Setup."
+    },
+    {
+      "name": "checkout-payment-single-page",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/checkout-payment/single-page.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/checkout-payment/single-page.tsx"
+        }
+      ],
+      "title": "Single Page",
+      "description": "Single Page — Checkout & Payment."
+    },
+    {
+      "name": "checkout-payment-multi-step",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/checkout-payment/multi-step.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/checkout-payment/multi-step.tsx"
+        }
+      ],
+      "title": "Multi-Step Wizard",
+      "description": "Multi-Step Wizard — Checkout & Payment."
+    },
+    {
+      "name": "checkout-payment-express-wallet",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/checkout-payment/express-wallet.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/checkout-payment/express-wallet.tsx"
+        }
+      ],
+      "title": "Express Wallet",
+      "description": "Express Wallet — Checkout & Payment."
+    },
+    {
+      "name": "invite-teammates-email-invite-list",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "input",
+        "select",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/invite-teammates/email-invite-list.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/invite-teammates/email-invite-list.tsx"
+        }
+      ],
+      "title": "Email Invite List",
+      "description": "Email Invite List — Invite Teammates."
+    },
+    {
+      "name": "invite-teammates-invite-link",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/invite-teammates/invite-link.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/invite-teammates/invite-link.tsx"
+        }
+      ],
+      "title": "Shareable Link",
+      "description": "Shareable Link — Invite Teammates."
+    },
+    {
+      "name": "invite-teammates-bulk-csv",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/invite-teammates/bulk-csv.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/invite-teammates/bulk-csv.tsx"
+        }
+      ],
+      "title": "Bulk CSV Import",
+      "description": "Bulk CSV Import — Invite Teammates."
+    },
+    {
+      "name": "search-inline-instant",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/search/inline-instant.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/search/inline-instant.tsx"
+        }
+      ],
+      "title": "Inline Instant Results",
+      "description": "Inline Instant Results — Search."
+    },
+    {
+      "name": "search-command-palette",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/search/command-palette.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/search/command-palette.tsx"
+        }
+      ],
+      "title": "Command Palette",
+      "description": "Command Palette — Search."
+    },
+    {
+      "name": "search-faceted-filter",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "checkbox",
+        "command",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/intent/search/faceted-filter.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/search/faceted-filter.tsx"
+        }
+      ],
+      "title": "Faceted Filter",
+      "description": "Faceted Filter — Search."
     }
   ]
 }

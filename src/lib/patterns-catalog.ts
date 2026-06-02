@@ -4,7 +4,10 @@ import {
   AvatarConcept,
   BreadcrumbConcept,
   ButtonConcept,
+  CollapsibleConcept,
+  CommandConcept,
   DialogConcept,
+  EmptyConcept,
   InputConcept,
   ItemConcept,
   PopoverConcept,
@@ -960,6 +963,183 @@ export const patternCategories: PatternCategory[] = [
         slug: 'breadcrumb-09',
         name: 'Dropdown at end',
         description: 'Last crumb is a Button switcher for sibling pages.',
+      },
+    ],
+  },
+  {
+    slug: 'collapsible',
+    name: 'Collapsible',
+    description: 'Show and hide a section of content with a trigger.',
+    preview: CollapsibleConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'collapsible-01',
+        name: 'Basic',
+        description: 'Canonical starred-repos toggle with a chevron trigger.',
+      },
+      {
+        slug: 'collapsible-02',
+        name: 'FAQ list',
+        description:
+          'Stacked question rows; each answer expands with an animated chevron.',
+      },
+      {
+        slug: 'collapsible-03',
+        name: 'File tree',
+        description:
+          'Nested folders built purely from Collapsible — folder icons swap on open.',
+      },
+      {
+        slug: 'collapsible-04',
+        name: 'Read more',
+        description:
+          'Truncated paragraph reveals the rest; trigger label swaps to Show less.',
+      },
+      {
+        slug: 'collapsible-05',
+        name: 'Sidebar nav group',
+        description:
+          'Collapsible navigation sections with sub-items and a rotating chevron.',
+      },
+      {
+        slug: 'collapsible-06',
+        name: 'Advanced options',
+        description:
+          'Form reveals extra fields behind an Advanced options toggle.',
+      },
+    ],
+  },
+  {
+    slug: 'command',
+    name: 'Command',
+    description: 'Fast, composable command menu and searchable pickers.',
+    preview: CommandConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'command-01',
+        name: 'Basic',
+        description:
+          'Canonical command menu with grouped items, icons, and shortcuts.',
+      },
+      {
+        slug: 'command-02',
+        name: 'Command dialog',
+        description:
+          'Spotlight-style ⌘K palette toggled by a button or keyboard shortcut.',
+      },
+      {
+        slug: 'command-03',
+        name: 'Global search',
+        description:
+          'Rich search dialog with recent, pages, and people plus a hint footer.',
+      },
+      {
+        slug: 'command-04',
+        name: 'Async loading',
+        description:
+          'Debounced search with a spinner and empty state — shouldFilter off.',
+      },
+      {
+        slug: 'command-05',
+        name: 'Combobox',
+        description: 'Popover + Command framework picker with a check mark.',
+      },
+      {
+        slug: 'command-06',
+        name: 'Combobox with clear',
+        description:
+          'Selected value shows an inline X that clears without reopening.',
+      },
+      {
+        slug: 'command-07',
+        name: 'Multiple — chips',
+        description:
+          'Multi-select showing every choice as a removable badge chip in the trigger.',
+      },
+      {
+        slug: 'command-14',
+        name: 'Multiple — count summary',
+        description:
+          'Trigger shows “first, +N” with a separate button to clear all.',
+      },
+      {
+        slug: 'command-15',
+        name: 'Multiple — faceted filter',
+        description:
+          'Dashed trigger with count badges, checkbox rows, facet counts, and a clear footer.',
+      },
+      {
+        slug: 'command-08',
+        name: 'Grouped picker',
+        description:
+          'Options split into labeled groups with separators — timezones by region.',
+      },
+      {
+        slug: 'command-09',
+        name: 'Assignee picker',
+        description:
+          'Avatars with name and email subtext in the trigger and options.',
+      },
+      {
+        slug: 'command-10',
+        name: 'Status picker',
+        description:
+          'Ghost trigger with a colored status dot — issue-tracker style.',
+      },
+      {
+        slug: 'command-11',
+        name: 'With label',
+        description: 'Combobox composed with an accessible field Label.',
+      },
+      {
+        slug: 'command-12',
+        name: 'React Hook Form + Zod',
+        description:
+          'Controller binds the combobox to RHF; Zod resolver drives FieldError on submit.',
+      },
+      {
+        slug: 'command-13',
+        name: 'TanStack Form + Zod',
+        description:
+          'form.Field wires the combobox; Zod onSubmit validator surfaces FieldError when touched.',
+      },
+    ],
+  },
+  {
+    slug: 'empty',
+    name: 'Empty',
+    description: 'Placeholder states when there is nothing to show.',
+    preview: EmptyConcept,
+    hasNew: true,
+    grid: { columns: 2 },
+    items: [
+      {
+        slug: 'empty-01',
+        name: 'Basic',
+        description: 'Icon, title, and description for an empty list.',
+      },
+      {
+        slug: 'empty-02',
+        name: 'With actions',
+        description: 'First-run state with primary and secondary CTAs.',
+      },
+      {
+        slug: 'empty-03',
+        name: 'No results',
+        description: 'Search empty state with a clear-filters action.',
+      },
+      {
+        slug: 'empty-04',
+        name: 'Avatar group',
+        description:
+          'Bordered empty team card with an avatar stack and invite.',
+      },
+      {
+        slug: 'empty-05',
+        name: 'In dialog',
+        description: 'Empty inbox state composed inside a Dialog.',
       },
     ],
   },

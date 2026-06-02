@@ -172,6 +172,70 @@ export function PopoverConcept() {
   )
 }
 
+export function CollapsibleConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-2">
+        <div className="bg-card dark:bg-muted flex h-8 items-center justify-between rounded-md border px-3 shadow-sm">
+          <div className="bg-foreground/20 h-1.5 w-16 rounded-full" />
+          <div className="border-b-foreground/30 border-r-foreground/30 size-1.5 -translate-y-0.5 rotate-45 border-r border-b" />
+        </div>
+        <div className="bg-card dark:bg-muted flex flex-col gap-1.5 rounded-md border p-3 shadow-sm">
+          <div className="bg-foreground/10 h-1.5 w-full rounded-full" />
+          <div className="bg-foreground/10 h-1.5 w-4/5 rounded-full" />
+          <div className="bg-foreground/10 h-1.5 w-2/3 rounded-full" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function CommandConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-2">
+        <div className="bg-card dark:bg-muted flex h-9 items-center justify-between rounded-md border px-3 shadow-sm">
+          <div className="bg-foreground/15 h-1.5 w-20 rounded-full" />
+          <div className="text-foreground/30 flex flex-col gap-0.5">
+            <div className="border-b-foreground/30 border-r-foreground/30 size-1 -rotate-[135deg] border-r border-b" />
+            <div className="border-b-foreground/30 border-r-foreground/30 size-1 rotate-45 border-r border-b" />
+          </div>
+        </div>
+        <div className="bg-card dark:bg-muted rounded-md border p-1 shadow-md">
+          <div className="bg-foreground/5 mb-1 flex h-6 items-center rounded px-2">
+            <div className="bg-foreground/15 h-1.5 w-14 rounded-full" />
+          </div>
+          <div className="bg-foreground/5 flex h-6 items-center justify-between rounded px-2">
+            <div className="bg-foreground/20 h-1.5 w-16 rounded-full" />
+            <div className="border-b-primary border-l-primary size-1.5 -rotate-45 border-b border-l" />
+          </div>
+          <div className="flex h-6 items-center px-2">
+            <div className="bg-foreground/10 h-1.5 w-12 rounded-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function EmptyConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="border-foreground/15 flex w-full flex-col items-center gap-2.5 rounded-lg border border-dashed p-6">
+        <div className="bg-muted flex size-9 items-center justify-center rounded-lg">
+          <div className="border-foreground/25 size-3.5 rounded border" />
+        </div>
+        <div className="bg-foreground/20 h-1.5 w-20 rounded-full" />
+        <div className="flex w-full flex-col items-center gap-1">
+          <div className="bg-foreground/10 h-1.5 w-32 rounded-full" />
+          <div className="bg-foreground/10 h-1.5 w-24 rounded-full" />
+        </div>
+        <div className="bg-primary mt-1 h-6 w-20 rounded-md shadow-sm" />
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

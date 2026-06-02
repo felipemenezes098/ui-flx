@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-setup-passkey",
+  "title": "Passkey",
+  "description": "Passkey — Two-Factor Setup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/two-factor-setup/passkey.tsx",
+      "content": "import { FingerprintIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function PasskeyDecision() {\n  return (\n    <div className=\"bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm\">\n      <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n        <FingerprintIcon className=\"text-primary size-5\" />\n      </div>\n      <div className=\"mt-3 flex flex-col gap-1\">\n        <span className=\"text-base font-semibold\">Add a passkey</span>\n        <span className=\"text-muted-foreground text-xs\">\n          Use Face ID, a fingerprint, or a security key. Nothing to type, and\n          nothing phishable.\n        </span>\n      </div>\n\n      <ul className=\"text-muted-foreground mt-4 flex flex-col gap-2 text-xs\">\n        <li className=\"flex items-center gap-2\">\n          <span className=\"bg-primary size-1.5 rounded-full\" />\n          Works across your synced devices\n        </li>\n        <li className=\"flex items-center gap-2\">\n          <span className=\"bg-primary size-1.5 rounded-full\" />\n          Resistant to phishing and credential theft\n        </li>\n      </ul>\n\n      <Button className=\"mt-5 w-full\">\n        <FingerprintIcon />\n        Create passkey\n      </Button>\n\n      <p className=\"text-muted-foreground/80 mt-4 text-center text-[11px]\">\n        Requires a device with biometrics or a hardware key.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/two-factor-setup/passkey.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

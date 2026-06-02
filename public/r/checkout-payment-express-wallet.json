@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkout-payment-express-wallet",
+  "title": "Express Wallet",
+  "description": "Express Wallet — Checkout & Payment.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/checkout-payment/express-wallet.tsx",
+      "content": "import { CreditCardIcon, LockIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Input } from '@/components/ui/input'\n\nexport function ExpressWalletDecision() {\n  return (\n    <div className=\"bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm\">\n      <div className=\"flex flex-col gap-1\">\n        <span className=\"text-base font-semibold\">Express checkout</span>\n        <span className=\"text-muted-foreground text-xs\">\n          Pay in one tap — no forms, shipping and card pulled from your wallet.\n        </span>\n      </div>\n\n      <div className=\"mt-4 flex flex-col gap-2\">\n        <button className=\"flex h-10 items-center justify-center gap-1.5 rounded-md bg-black text-sm font-medium text-white\">\n          <span className=\"text-base\"></span> Pay\n        </button>\n        <button className=\"flex h-10 items-center justify-center gap-1.5 rounded-md border bg-white text-sm font-medium text-black\">\n          <span className=\"font-semibold\">\n            <span className=\"text-[#4285F4]\">G</span>\n            <span className=\"text-[#EA4335]\">o</span>\n            <span className=\"text-[#FBBC05]\">o</span>\n            <span className=\"text-[#4285F4]\">g</span>\n            <span className=\"text-[#34A853]\">l</span>\n            <span className=\"text-[#EA4335]\">e</span>\n          </span>\n          Pay\n        </button>\n        <button className=\"flex h-10 items-center justify-center gap-1 rounded-md bg-[#003087] text-sm font-bold text-white\">\n          <span className=\"text-[#009cde]\">Pay</span>\n          <span>Pal</span>\n        </button>\n      </div>\n\n      <div className=\"my-4 flex items-center gap-2\">\n        <span className=\"bg-border h-px flex-1\" />\n        <span className=\"text-muted-foreground text-[11px]\">\n          or pay with card\n        </span>\n        <span className=\"bg-border h-px flex-1\" />\n      </div>\n\n      <div className=\"relative\">\n        <CreditCardIcon className=\"text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2\" />\n        <Input\n          inputMode=\"numeric\"\n          placeholder=\"Card number\"\n          className=\"pl-9\"\n        />\n      </div>\n      <Button variant=\"outline\" className=\"mt-2 w-full\">\n        <LockIcon />\n        Pay $120.00\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/checkout-payment/express-wallet.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
