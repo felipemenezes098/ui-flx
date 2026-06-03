@@ -1,16 +1,22 @@
 import type { ComponentType } from 'react'
 
 import {
+  AccordionConcept,
   AvatarConcept,
+  BadgeConcept,
+  BannerConcept,
   BreadcrumbConcept,
   ButtonConcept,
   CheckboxConcept,
   CollapsibleConcept,
   CommandConcept,
   DialogConcept,
+  DropdownConcept,
   EmptyConcept,
   InputConcept,
   ItemConcept,
+  LoadingConcept,
+  PaginationConcept,
   PopoverConcept,
   SelectConcept,
   SwitchConcept,
@@ -27,6 +33,7 @@ export interface PatternItem {
   description?: string
   prompt?: string
   span?: 'full'
+  isNew?: boolean
 }
 
 export interface PatternCategory {
@@ -47,7 +54,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Avatar',
     description: 'Represent a user or entity with an image or initials.',
     preview: AvatarConcept,
-    hasNew: true,
     items: [
       {
         slug: 'avatar-01',
@@ -113,6 +119,226 @@ export const patternCategories: PatternCategory[] = [
         slug: 'avatar-13',
         name: 'Icon on top',
         description: 'Icon badge pinned to the top-right corner.',
+      },
+    ],
+  },
+  {
+    slug: 'badge',
+    name: 'Badge',
+    description: 'Compact labels for status, counts, and metadata.',
+    preview: BadgeConcept,
+    items: [
+      {
+        slug: 'badge-01',
+        name: 'Basic',
+        description: 'A single default badge.',
+      },
+      {
+        slug: 'badge-02',
+        name: 'Variants',
+        description:
+          'All six variants side-by-side: default, secondary, destructive, outline, ghost, link.',
+      },
+      {
+        slug: 'badge-03',
+        name: 'With icon',
+        description: 'Leading verified icon before the label.',
+      },
+      {
+        slug: 'badge-04',
+        name: 'With status dot',
+        description: 'A colored presence dot beside an outline label.',
+      },
+      {
+        slug: 'badge-05',
+        name: 'Status colors',
+        description: 'Tinted success, warning, error, and info states.',
+      },
+      {
+        slug: 'badge-06',
+        name: 'Count',
+        description: 'Pill-shaped numeric counts with tabular figures.',
+      },
+      {
+        slug: 'badge-07',
+        name: 'As link',
+        description:
+          'asChild renders the badge as an anchor with a trailing icon.',
+      },
+      {
+        slug: 'badge-08',
+        name: 'Removable',
+        description: 'Dismissible tag chips with a trailing remove button.',
+      },
+      {
+        slug: 'badge-09',
+        name: 'With avatar',
+        description: 'Assignee chip with a leading avatar inside the badge.',
+      },
+      {
+        slug: 'badge-10',
+        name: 'Sizes',
+        description: 'Small, default, and large sizes via className.',
+      },
+      {
+        slug: 'badge-11',
+        name: 'Trend delta',
+        description: 'Up and down arrows with tinted gain / loss percentages.',
+      },
+      {
+        slug: 'badge-12',
+        name: 'Icon only',
+        description: 'Square icon-only badges across variants.',
+      },
+      {
+        slug: 'badge-13',
+        name: 'Tag list',
+        description: 'A wrapping group of outline badges as tags.',
+      },
+    ],
+  },
+  {
+    slug: 'banner',
+    name: 'Banner',
+    description:
+      'Page-level announcements, alerts, and promos that span the full width.',
+    preview: BannerConcept,
+    grid: { columns: 1 },
+    items: [
+      {
+        slug: 'banner-01',
+        name: 'Basic',
+        description: 'Icon, message, and a subtle bordered surface.',
+      },
+      {
+        slug: 'banner-02',
+        name: 'Variants',
+        description: 'Info, success, warning, and error tones stacked.',
+      },
+      {
+        slug: 'banner-03',
+        name: 'Dismissible',
+        description: 'A close button hides the banner with a restore link.',
+      },
+      {
+        slug: 'banner-04',
+        name: 'With actions',
+        description: 'Message paired with Later and Update now buttons.',
+      },
+      {
+        slug: 'banner-06',
+        name: 'Announcement bar',
+        description: 'Full-width gradient promo with a New tag and arrow.',
+      },
+      {
+        slug: 'banner-07',
+        name: 'Expandable',
+        description: 'Collapsible release notes that reveal highlights.',
+      },
+      {
+        slug: 'banner-09',
+        name: 'Maintenance',
+        description: 'Amber system notice with a pulsing status dot.',
+      },
+      {
+        slug: 'banner-11',
+        name: 'Email verification',
+        description: 'Blue prompt with a Resend email action that confirms.',
+      },
+      {
+        slug: 'banner-12',
+        name: 'Stacked',
+        description: 'A list of dismissible notices, each removed on its own.',
+      },
+      {
+        slug: 'banner-14',
+        name: 'With progress',
+        description: 'Live import banner with a spinner and a progress bar.',
+      },
+    ],
+  },
+  {
+    slug: 'accordion',
+    name: 'Accordion',
+    description: 'Stacked sections that expand and collapse one at a time.',
+    preview: AccordionConcept,
+    items: [
+      {
+        slug: 'accordion-01',
+        name: 'Basic',
+        description: 'Single collapsible item open at a time — the default.',
+      },
+      {
+        slug: 'accordion-02',
+        name: 'Multiple',
+        description: 'type="multiple" keeps several sections open at once.',
+      },
+      {
+        slug: 'accordion-03',
+        name: 'With icons',
+        description: 'Leading icon beside each trigger label.',
+      },
+      {
+        slug: 'accordion-04',
+        name: 'FAQ',
+        description: 'A titled question-and-answer list.',
+      },
+      {
+        slug: 'accordion-05',
+        name: 'Separated cards',
+        description: 'Each item is a bordered card with spacing between them.',
+      },
+      {
+        slug: 'accordion-06',
+        name: 'Plus / minus icon',
+        description:
+          'Radix primitive swaps a plus for a minus instead of a chevron.',
+      },
+      {
+        slug: 'accordion-07',
+        name: 'Left chevron',
+        description:
+          'Radix primitive places a rotating chevron before the label.',
+      },
+      {
+        slug: 'accordion-09',
+        name: 'Rich content',
+        description: 'Lists, links, and a button inside the panel body.',
+      },
+      {
+        slug: 'accordion-10',
+        name: 'Disabled item',
+        description: 'One trigger disabled while the others stay interactive.',
+      },
+      {
+        slug: 'accordion-11',
+        name: 'Nested',
+        description: 'An accordion rendered inside another panel body.',
+      },
+      {
+        slug: 'accordion-12',
+        name: 'Ghost',
+        description: 'Borderless minimal rows with an active color on open.',
+      },
+      {
+        slug: 'accordion-13',
+        name: 'Filled trigger',
+        description: 'Each trigger sits on a muted, rounded background.',
+      },
+      {
+        slug: 'accordion-14',
+        name: 'Expand all',
+        description: 'Controlled value with expand-all / collapse-all buttons.',
+      },
+      {
+        slug: 'accordion-15',
+        name: 'Settings sections',
+        description: 'Grouped switch rows revealed inside each panel.',
+      },
+      {
+        slug: 'accordion-16',
+        name: 'With subtitle',
+        description: 'Two-line trigger pairing a title with helper text.',
       },
     ],
   },
@@ -214,7 +440,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Checkbox',
     description: 'Toggle one or many options on and off.',
     preview: CheckboxConcept,
-    hasNew: true,
     items: [
       {
         slug: 'checkbox-01',
@@ -288,7 +513,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Switch',
     description: 'Toggle a single setting on or off.',
     preview: SwitchConcept,
-    hasNew: true,
     items: [
       {
         slug: 'switch-01',
@@ -366,7 +590,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Table',
     description: 'Display rows and columns of structured data.',
     preview: TableConcept,
-    hasNew: true,
     grid: { columns: 1 },
     items: [
       {
@@ -591,6 +814,111 @@ export const patternCategories: PatternCategory[] = [
         name: 'From dropdown',
         description:
           'Dialog triggered by a DropdownMenuItem with onSelect preventDefault.',
+      },
+    ],
+  },
+  {
+    slug: 'dropdown',
+    name: 'Dropdown',
+    description: 'Menu of actions and choices triggered by a button.',
+    preview: DropdownConcept,
+    items: [
+      {
+        slug: 'dropdown-01',
+        name: 'Basic',
+        description: 'Label, separator, and a list of action items.',
+      },
+      {
+        slug: 'dropdown-02',
+        name: 'With icons and shortcuts',
+        description: 'Leading icons paired with trailing keyboard shortcuts.',
+      },
+      {
+        slug: 'dropdown-03',
+        name: 'Grouped',
+        description: 'Multiple labeled groups divided by separators.',
+      },
+      {
+        slug: 'dropdown-04',
+        name: 'Destructive item',
+        description: 'A red Delete action via variant="destructive".',
+      },
+      {
+        slug: 'dropdown-05',
+        name: 'Disabled items',
+        description: 'Non-interactive items dimmed with the disabled prop.',
+      },
+      {
+        slug: 'dropdown-06',
+        name: 'Checkbox items',
+        description: 'Toggle multiple view options with checkbox items.',
+      },
+      {
+        slug: 'dropdown-07',
+        name: 'Radio group',
+        description: 'Pick a single value from a DropdownMenuRadioGroup.',
+      },
+      {
+        slug: 'dropdown-08',
+        name: 'Submenu',
+        description: 'Nested DropdownMenuSub reveals a flyout of options.',
+      },
+      {
+        slug: 'dropdown-09',
+        name: 'Account menu',
+        description: 'Avatar trigger with a name and email header block.',
+      },
+      {
+        slug: 'dropdown-10',
+        name: 'Icon button actions',
+        description: 'Ghost ellipsis trigger opens a compact actions menu.',
+      },
+      {
+        slug: 'dropdown-11',
+        name: 'Table row actions',
+        description: 'Per-row ellipsis menu with edit, copy, and remove.',
+      },
+      {
+        slug: 'dropdown-12',
+        name: 'Sides and alignment',
+        description: 'Align start or end and open the menu to the side.',
+      },
+      {
+        slug: 'dropdown-13',
+        name: 'Controlled open',
+        description: 'Drive the open state with useState and onOpenChange.',
+      },
+      {
+        slug: 'dropdown-14',
+        name: 'Theme switcher',
+        description: 'Radio group toggling light, dark, and system themes.',
+      },
+      {
+        slug: 'dropdown-15',
+        name: 'Multi-select filter',
+        description: 'Checkbox items with a count badge and a clear action.',
+      },
+      {
+        slug: 'dropdown-16',
+        name: 'Notifications',
+        description: 'Bell trigger with an unread badge and an activity list.',
+      },
+      {
+        slug: 'dropdown-17',
+        name: 'With dialog',
+        description: 'A menu item opens a controlled confirmation dialog.',
+      },
+      {
+        slug: 'dropdown-18',
+        name: 'React Hook Form + Zod',
+        description:
+          'Controller binds a radio group to RHF; Zod requires a selection.',
+      },
+      {
+        slug: 'dropdown-19',
+        name: 'TanStack Form + Zod',
+        description:
+          'form.Field wires the radio group; Zod onSubmit surfaces FieldError.',
       },
     ],
   },
@@ -1037,7 +1365,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Popover',
     description: 'Floating panels triggered by a click.',
     preview: PopoverConcept,
-    hasNew: true,
     items: [
       {
         slug: 'popover-01',
@@ -1125,7 +1452,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Tooltip',
     description: 'Quick hints that appear on hover or focus.',
     preview: TooltipConcept,
-    hasNew: true,
     items: [
       {
         slug: 'tooltip-01',
@@ -1186,7 +1512,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Breadcrumb',
     description: 'Show the path to the current page.',
     preview: BreadcrumbConcept,
-    hasNew: true,
     grid: { columns: 2 },
     items: [
       {
@@ -1238,11 +1563,59 @@ export const patternCategories: PatternCategory[] = [
     ],
   },
   {
+    slug: 'pagination',
+    name: 'Pagination',
+    description: 'Split content across pages and navigate between them.',
+    preview: PaginationConcept,
+    grid: { columns: 2 },
+    items: [
+      {
+        slug: 'pagination-01',
+        name: 'Basic',
+        description: 'Numbers with ellipsis, previous, and next links.',
+      },
+      {
+        slug: 'pagination-02',
+        name: 'Compact',
+        description: 'Inline numbers from sm up, “Page X of Y” on mobile.',
+      },
+      {
+        slug: 'pagination-03',
+        name: 'Interactive window',
+        description: 'Stateful current page with a sliding ellipsis range.',
+      },
+      {
+        slug: 'pagination-04',
+        name: 'Rows per page',
+        description: 'Page-size select with first, prev, next, and last.',
+      },
+      {
+        slug: 'pagination-05',
+        name: 'Results summary',
+        description: 'Showing 1–10 of 97 alongside the page controls.',
+      },
+      {
+        slug: 'pagination-06',
+        name: 'Article prev / next',
+        description: 'Two linked cards with titles for adjacent articles.',
+      },
+      {
+        slug: 'pagination-07',
+        name: 'Dots',
+        description: 'Carousel-style dots; the active page expands to a pill.',
+      },
+      {
+        slug: 'pagination-08',
+        name: 'Jump to page',
+        description: 'Numeric input to jump directly to any page.',
+      },
+    ],
+  },
+  {
     slug: 'collapsible',
     name: 'Collapsible',
     description: 'Show and hide a section of content with a trigger.',
     preview: CollapsibleConcept,
-    hasNew: true,
     items: [
       {
         slug: 'collapsible-01',
@@ -1286,7 +1659,6 @@ export const patternCategories: PatternCategory[] = [
     name: 'Command',
     description: 'Fast, composable command menu and searchable pickers.',
     preview: CommandConcept,
-    hasNew: true,
     items: [
       {
         slug: 'command-01',
@@ -1379,11 +1751,73 @@ export const patternCategories: PatternCategory[] = [
     ],
   },
   {
+    slug: 'loading',
+    name: 'Loading',
+    description: 'Spinners, skeletons, and progress for pending states.',
+    preview: LoadingConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'loading-01',
+        name: 'Basic',
+        description: 'A single centered spinner.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-02',
+        name: 'Sizes',
+        description: 'Spinner from sm to xl side-by-side.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-03',
+        name: 'Search input',
+        description: 'Debounced search with a trailing spinner while loading.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-04',
+        name: 'With label',
+        description: 'Spinner above a title and helper text.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-05',
+        name: 'Command menu',
+        description: 'Command palette with a spinner while results load.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-06',
+        name: 'In buttons',
+        description: 'Disabled buttons with a leading spinner.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-07',
+        name: 'Combobox popover',
+        description: 'Click to open; a spinner runs while options load.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-08',
+        name: 'Searchable picker',
+        description: 'Lists members on open; typing triggers a search spinner.',
+        isNew: true,
+      },
+      {
+        slug: 'loading-09',
+        name: 'Determinate progress',
+        description: 'A progress bar that fills with a live percentage.',
+        isNew: true,
+      },
+    ],
+  },
+  {
     slug: 'empty',
     name: 'Empty',
     description: 'Placeholder states when there is nothing to show.',
     preview: EmptyConcept,
-    hasNew: true,
     grid: { columns: 2 },
     items: [
       {

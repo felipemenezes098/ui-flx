@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-12",
+  "title": "Icon only",
+  "description": "Square icon-only badges across variants.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-12.tsx",
+      "content": "import { CheckIcon, StarIcon, ZapIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nexport function Badge12() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Badge className=\"size-5 rounded-full p-0\">\n        <CheckIcon />\n      </Badge>\n      <Badge variant=\"secondary\" className=\"size-5 rounded-full p-0\">\n        <StarIcon />\n      </Badge>\n      <Badge variant=\"outline\" className=\"size-5 rounded-full p-0\">\n        <ZapIcon />\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

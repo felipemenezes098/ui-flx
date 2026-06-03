@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-06",
+  "title": "Count",
+  "description": "Pill-shaped numeric counts with tabular figures.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-06.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge06() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Badge className=\"min-w-5 justify-center rounded-full px-1 tabular-nums\">\n        3\n      </Badge>\n      <Badge\n        variant=\"secondary\"\n        className=\"min-w-5 justify-center rounded-full px-1 tabular-nums\"\n      >\n        24\n      </Badge>\n      <Badge\n        variant=\"destructive\"\n        className=\"min-w-5 justify-center rounded-full px-1 tabular-nums\"\n      >\n        99+\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

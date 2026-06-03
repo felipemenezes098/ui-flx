@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-06",
+  "title": "Plus / minus icon",
+  "description": "Radix primitive swaps a plus for a minus instead of a chevron.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-06.tsx",
+      "content": "import { PlusIcon } from 'lucide-react'\nimport { Accordion as AccordionPrimitive } from 'radix-ui'\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n} from '@/components/ui/accordion'\n\nconst faqs = [\n  {\n    q: 'How do I reset my password?',\n    a: 'Open the sign-in page, choose \"Forgot password\", and follow the emailed link to set a new one.',\n  },\n  {\n    q: 'Can I invite teammates?',\n    a: 'Yes. Invite unlimited teammates from the Members tab — they each get their own seat.',\n  },\n  {\n    q: 'Where is my data stored?',\n    a: 'Data is encrypted at rest and stored in the region you select when you create your workspace.',\n  },\n]\n\nexport function Accordion06() {\n  return (\n    <Accordion type=\"single\" collapsible className=\"w-full max-w-md\">\n      {faqs.map((faq) => (\n        <AccordionItem key={faq.q} value={faq.q}>\n          <AccordionPrimitive.Header className=\"flex\">\n            <AccordionPrimitive.Trigger className=\"flex flex-1 items-center justify-between gap-4 py-4 text-left text-sm font-medium transition-all outline-none focus-visible:underline disabled:pointer-events-none disabled:opacity-50 aria-expanded:[&>svg]:rotate-180 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 aria-expanded:[&>svg>path:last-child]:rotate-90 aria-expanded:[&>svg>path:last-child]:opacity-0\">\n              {faq.q}\n              <PlusIcon\n                aria-hidden\n                className=\"pointer-events-none size-4 shrink-0 opacity-60 transition-transform duration-200\"\n              />\n            </AccordionPrimitive.Trigger>\n          </AccordionPrimitive.Header>\n          <AccordionContent className=\"text-muted-foreground\">\n            {faq.a}\n          </AccordionContent>\n        </AccordionItem>\n      ))}\n    </Accordion>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

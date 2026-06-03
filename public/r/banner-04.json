@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-04",
+  "title": "With actions",
+  "description": "Message paired with Later and Update now buttons.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-04.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { ArrowUpCircle, X } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Banner04() {\n  const [open, setOpen] = useState(true)\n\n  if (!open) {\n    return (\n      <button\n        type=\"button\"\n        onClick={() => setOpen(true)}\n        className=\"text-muted-foreground hover:text-foreground text-sm underline-offset-4 hover:underline\"\n      >\n        Show banner again\n      </button>\n    )\n  }\n\n  return (\n    <div className=\"flex w-full flex-col gap-3 rounded-lg border bg-card px-4 py-3.5 shadow-sm sm:flex-row sm:items-center\">\n      <span className=\"bg-primary/10 text-primary flex size-9 shrink-0 items-center justify-center rounded-full\">\n        <ArrowUpCircle className=\"size-5\" />\n      </span>\n      <div className=\"flex flex-1 flex-col gap-0.5\">\n        <p className=\"text-sm font-medium\">Update available — v2.4.0</p>\n        <p className=\"text-muted-foreground text-sm\">\n          Restart the app to install the latest improvements and fixes.\n        </p>\n      </div>\n      <div className=\"flex shrink-0 items-center gap-2\">\n        <Button\n          variant=\"ghost\"\n          size=\"sm\"\n          onClick={() => setOpen(false)}\n          className=\"text-muted-foreground\"\n        >\n          Later\n        </Button>\n        <Button size=\"sm\">Update now</Button>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

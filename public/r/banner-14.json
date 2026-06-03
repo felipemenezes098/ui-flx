@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-14",
+  "title": "With progress",
+  "description": "Live import banner with a spinner and a progress bar.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-14.tsx",
+      "content": "'use client'\n\nimport { useEffect, useState } from 'react'\nimport { CheckCircle2, Loader2, UploadCloud } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Progress } from '@/components/ui/progress'\n\nexport function Banner14() {\n  const [value, setValue] = useState(12)\n\n  useEffect(() => {\n    if (value >= 100) return\n    const timer = setTimeout(() => {\n      setValue((prev) => Math.min(prev + 11, 100))\n    }, 800)\n    return () => clearTimeout(timer)\n  }, [value])\n\n  const done = value >= 100\n\n  return (\n    <div className=\"bg-card flex w-full flex-col gap-3 rounded-lg border px-4 py-3.5 shadow-sm\">\n      <div className=\"flex items-center gap-3\">\n        <span className=\"bg-primary/10 text-primary flex size-9 shrink-0 items-center justify-center rounded-full\">\n          {done ? (\n            <CheckCircle2 className=\"size-5 text-emerald-600 dark:text-emerald-400\" />\n          ) : (\n            <UploadCloud className=\"size-5\" />\n          )}\n        </span>\n        <div className=\"flex flex-1 flex-col gap-0.5\">\n          <p className=\"flex items-center gap-2 text-sm font-medium\">\n            {done ? 'Import complete' : 'Importing your data'}\n            {!done && (\n              <Loader2 className=\"text-muted-foreground size-3.5 animate-spin\" />\n            )}\n          </p>\n          <p className=\"text-muted-foreground text-sm\">\n            {done\n              ? '1,284 records imported successfully.'\n              : `Processing records — ${value}%`}\n          </p>\n        </div>\n        {done && (\n          <Button\n            variant=\"outline\"\n            size=\"sm\"\n            onClick={() => setValue(12)}\n            className=\"shrink-0\"\n          >\n            Run again\n          </Button>\n        )}\n      </div>\n      <Progress value={value} className=\"h-1.5\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

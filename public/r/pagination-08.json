@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-08",
+  "title": "Jump to page",
+  "description": "Numeric input to jump directly to any page.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-08.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Input } from '@/components/ui/input'\n\nconst TOTAL_PAGES = 24\n\nexport function Pagination08() {\n  const [page, setPage] = useState(1)\n  const [draft, setDraft] = useState('1')\n\n  const commit = (value: string) => {\n    const next = Math.min(TOTAL_PAGES, Math.max(1, Number(value) || 1))\n    setPage(next)\n    setDraft(`${next}`)\n  }\n\n  const go = (next: number) => {\n    setPage(next)\n    setDraft(`${next}`)\n  }\n\n  return (\n    <div className=\"flex items-center gap-2\">\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        disabled={page === 1}\n        onClick={() => go(Math.max(1, page - 1))}\n        aria-label=\"Previous page\"\n      >\n        <ChevronLeftIcon />\n      </Button>\n\n      <div className=\"flex items-center gap-2 text-sm font-medium\">\n        <Input\n          value={draft}\n          inputMode=\"numeric\"\n          aria-label=\"Page number\"\n          onChange={(e) => setDraft(e.target.value.replace(/\\D/g, ''))}\n          onBlur={(e) => commit(e.target.value)}\n          onKeyDown={(e) => {\n            if (e.key === 'Enter') commit((e.target as HTMLInputElement).value)\n          }}\n          className=\"h-9 w-14 text-center tabular-nums\"\n        />\n        <span className=\"text-muted-foreground whitespace-nowrap\">\n          of {TOTAL_PAGES}\n        </span>\n      </div>\n\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        disabled={page === TOTAL_PAGES}\n        onClick={() => go(Math.min(TOTAL_PAGES, page + 1))}\n        aria-label=\"Next page\"\n      >\n        <ChevronRightIcon />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

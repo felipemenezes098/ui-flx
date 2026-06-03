@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-04",
+  "title": "FAQ",
+  "description": "A titled question-and-answer list.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-04.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\n\nconst faqs = [\n  {\n    q: 'Can I cancel my subscription anytime?',\n    a: 'Yes. Your plan stays active until the end of the current billing period, and you keep full access until then.',\n  },\n  {\n    q: 'Do you offer refunds?',\n    a: 'We refund unused time on annual plans within 30 days of purchase. Monthly plans are non-refundable.',\n  },\n  {\n    q: 'Can I switch plans later?',\n    a: 'Absolutely — upgrade or downgrade at any time. Changes are prorated against your next invoice.',\n  },\n  {\n    q: 'Is there a free trial?',\n    a: 'Every plan includes a 14-day free trial. No credit card is required to start.',\n  },\n]\n\nexport function Accordion04() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <h3 className=\"mb-4 text-lg font-semibold\">Frequently asked questions</h3>\n      <Accordion type=\"single\" collapsible>\n        {faqs.map((faq, index) => (\n          <AccordionItem key={faq.q} value={`faq-${index}`}>\n            <AccordionTrigger>{faq.q}</AccordionTrigger>\n            <AccordionContent className=\"text-muted-foreground leading-relaxed\">\n              {faq.a}\n            </AccordionContent>\n          </AccordionItem>\n        ))}\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

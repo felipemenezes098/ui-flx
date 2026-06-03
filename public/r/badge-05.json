@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-05",
+  "title": "Status colors",
+  "description": "Tinted success, warning, error, and info states.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-05.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge05() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Badge className=\"border-transparent bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\">\n        Success\n      </Badge>\n      <Badge className=\"border-transparent bg-amber-500/10 text-amber-600 dark:text-amber-400\">\n        Warning\n      </Badge>\n      <Badge className=\"border-transparent bg-red-500/10 text-red-600 dark:text-red-400\">\n        Error\n      </Badge>\n      <Badge className=\"border-transparent bg-blue-500/10 text-blue-600 dark:text-blue-400\">\n        Info\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

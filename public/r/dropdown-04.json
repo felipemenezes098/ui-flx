@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-04",
+  "title": "Destructive item",
+  "description": "A red Delete action via variant=\"destructive\".",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-04.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport { CopyIcon, PencilIcon, TrashIcon } from 'lucide-react'\n\nexport function Dropdown04() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Manage\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-44\">\n        <DropdownMenuItem>\n          <PencilIcon />\n          Edit\n        </DropdownMenuItem>\n        <DropdownMenuItem>\n          <CopyIcon />\n          Duplicate\n        </DropdownMenuItem>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem variant=\"destructive\">\n          <TrashIcon />\n          Delete\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-01",
+  "title": "Basic",
+  "description": "Label, separator, and a list of action items.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-01.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\nexport function Dropdown01() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Open menu\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-44\">\n        <DropdownMenuLabel>My account</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>Profile</DropdownMenuItem>\n        <DropdownMenuItem>Billing</DropdownMenuItem>\n        <DropdownMenuItem>Settings</DropdownMenuItem>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>Log out</DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

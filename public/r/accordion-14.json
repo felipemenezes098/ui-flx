@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-14",
+  "title": "Expand all",
+  "description": "Controlled value with expand-all / collapse-all buttons.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-14.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\nimport { Button } from '@/components/ui/button'\n\nconst items = [\n  {\n    value: 'item-1',\n    title: 'Step 1 — Create your account',\n    body: 'Sign up with your email and verify it to unlock your workspace.',\n  },\n  {\n    value: 'item-2',\n    title: 'Step 2 — Invite your team',\n    body: 'Add teammates by email and assign them roles.',\n  },\n  {\n    value: 'item-3',\n    title: 'Step 3 — Connect your tools',\n    body: 'Link the integrations your team already uses.',\n  },\n]\n\nconst allValues = items.map((item) => item.value)\n\nexport function Accordion14() {\n  const [open, setOpen] = useState<string[]>([allValues[0]])\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-3\">\n      <div className=\"flex justify-end gap-2\">\n        <Button\n          variant=\"outline\"\n          size=\"sm\"\n          onClick={() => setOpen(allValues)}\n          disabled={open.length === allValues.length}\n        >\n          Expand all\n        </Button>\n        <Button\n          variant=\"outline\"\n          size=\"sm\"\n          onClick={() => setOpen([])}\n          disabled={open.length === 0}\n        >\n          Collapse all\n        </Button>\n      </div>\n      <Accordion type=\"multiple\" value={open} onValueChange={setOpen}>\n        {items.map((item) => (\n          <AccordionItem key={item.value} value={item.value}>\n            <AccordionTrigger>{item.title}</AccordionTrigger>\n            <AccordionContent className=\"text-muted-foreground\">\n              {item.body}\n            </AccordionContent>\n          </AccordionItem>\n        ))}\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -120,13 +120,13 @@ export function PatternCategoryNav() {
         <div
           ref={fadeLeftRef}
           aria-hidden
-          className="from-background pointer-events-none absolute top-0 bottom-0 left-0 z-10 bg-gradient-to-r to-transparent"
+          className="from-background via-background/80 pointer-events-none absolute top-0 bottom-0 left-0 z-10 bg-gradient-to-r to-transparent"
           style={{ width: FADE_WIDTH }}
         />
         <div
           ref={fadeRightRef}
           aria-hidden
-          className="from-background pointer-events-none absolute top-0 right-0 bottom-0 z-10 bg-gradient-to-l to-transparent"
+          className="from-background via-background/80 pointer-events-none absolute top-0 right-0 bottom-0 z-10 bg-gradient-to-l to-transparent"
           style={{ width: FADE_WIDTH }}
         />
 

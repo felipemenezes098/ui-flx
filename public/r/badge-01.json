@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-01",
+  "title": "Basic",
+  "description": "A single default badge.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-01.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge01() {\n  return <Badge>Badge</Badge>\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

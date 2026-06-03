@@ -19,6 +19,37 @@ export function SelectConcept() {
   )
 }
 
+export function DropdownConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col items-center gap-2">
+        <div className="bg-card dark:bg-muted flex h-8 items-center gap-2 rounded-md border px-3 shadow-sm">
+          <div className="bg-foreground/15 h-1.5 w-12 rounded-full" />
+          <div className="border-t-foreground/30 h-0 w-0 border-x-[3px] border-t-4 border-x-transparent" />
+        </div>
+        <div className="bg-card dark:bg-muted w-full rounded-md border p-1 shadow-md">
+          <div className="px-2 py-1">
+            <div className="bg-foreground/20 h-1.5 w-10 rounded-full" />
+          </div>
+          <div className="bg-foreground/5 flex h-6 items-center gap-2 rounded px-2">
+            <div className="bg-foreground/20 size-2.5 rounded-sm" />
+            <div className="bg-foreground/20 h-1.5 w-16 rounded-full" />
+            <div className="bg-foreground/10 ml-auto h-1.5 w-5 rounded-full" />
+          </div>
+          <div className="flex h-6 items-center gap-2 px-2">
+            <div className="bg-foreground/15 size-2.5 rounded-sm" />
+            <div className="bg-foreground/12 h-1.5 w-12 rounded-full" />
+          </div>
+          <div className="flex h-6 items-center gap-2 px-2">
+            <div className="bg-foreground/15 size-2.5 rounded-sm" />
+            <div className="bg-foreground/12 h-1.5 w-14 rounded-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function DialogConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
@@ -129,6 +160,101 @@ export function BreadcrumbConcept() {
         <div className="bg-foreground/12 h-1.5 w-12 rounded-full" />
         <div className="border-t-foreground/20 border-r-foreground/20 size-1.5 -rotate-45 border-t border-r" />
         <div className="bg-foreground/30 h-1.5 w-14 rounded-full" />
+      </div>
+    </div>
+  )
+}
+
+export function PaginationConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex items-center gap-1.5">
+        <div className="border-foreground/20 flex h-7 items-center gap-1 rounded-md border px-2">
+          <div className="border-b-foreground/40 border-l-foreground/40 size-1.5 rotate-45 border-b border-l" />
+          <div className="bg-foreground/20 h-1.5 w-6 rounded-full" />
+        </div>
+        <div className="border-foreground/15 flex size-7 items-center justify-center rounded-md border">
+          <div className="bg-foreground/25 h-1.5 w-1.5 rounded-full" />
+        </div>
+        <div className="bg-foreground flex size-7 items-center justify-center rounded-md">
+          <div className="bg-background h-1.5 w-1.5 rounded-full" />
+        </div>
+        <div className="border-foreground/15 flex size-7 items-center justify-center rounded-md border">
+          <div className="bg-foreground/25 h-1.5 w-1.5 rounded-full" />
+        </div>
+        <div className="text-foreground/30 flex size-7 items-end justify-center pb-1.5 text-xs leading-none">
+          ⋯
+        </div>
+        <div className="border-foreground/20 flex h-7 items-center gap-1 rounded-md border px-2">
+          <div className="bg-foreground/20 h-1.5 w-6 rounded-full" />
+          <div className="border-t-foreground/40 border-r-foreground/40 size-1.5 -rotate-45 border-t border-r" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function BadgeConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="bg-primary flex h-5 items-center rounded-full px-2.5 shadow-sm">
+          <div className="bg-primary-foreground/40 h-1.5 w-8 rounded-full" />
+        </div>
+        <div className="bg-foreground/10 flex h-5 items-center gap-1 rounded-full px-2.5">
+          <div className="size-1.5 rounded-full bg-emerald-500" />
+          <div className="bg-foreground/30 h-1.5 w-6 rounded-full" />
+        </div>
+        <div className="border-foreground/20 flex h-5 items-center rounded-full border px-2.5">
+          <div className="bg-foreground/25 h-1.5 w-7 rounded-full" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function BannerConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-2">
+        <div className="bg-primary flex items-center justify-center gap-2 rounded-md px-3 py-2 shadow-sm">
+          <div className="bg-primary-foreground/40 h-1.5 w-32 rounded-full" />
+        </div>
+        <div className="bg-card dark:bg-muted relative flex items-center gap-2.5 rounded-md border px-3 py-2.5 shadow-sm">
+          <div className="bg-primary/15 size-6 shrink-0 rounded-full" />
+          <div className="flex flex-1 flex-col gap-1.5">
+            <div className="bg-foreground/20 h-1.5 w-20 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-28 rounded-full" />
+          </div>
+          <div className="bg-foreground/10 size-3 shrink-0 rounded" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function AccordionConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="bg-card dark:bg-muted w-full divide-y rounded-md border shadow-sm">
+        <div className="flex flex-col gap-2 px-4 py-3">
+          <div className="flex items-center justify-between">
+            <div className="bg-foreground/25 h-1.5 w-24 rounded-full" />
+            <div className="border-b-foreground/40 border-l-foreground/40 size-1.5 -translate-y-0.5 -rotate-45 border-b border-l" />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <div className="bg-foreground/10 h-1.5 w-full rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-2/3 rounded-full" />
+          </div>
+        </div>
+        <div className="flex items-center justify-between px-4 py-3">
+          <div className="bg-foreground/15 h-1.5 w-20 rounded-full" />
+          <div className="border-t-foreground/30 border-r-foreground/30 size-1.5 translate-y-0.5 -rotate-45 border-t border-r" />
+        </div>
+        <div className="flex items-center justify-between px-4 py-3">
+          <div className="bg-foreground/15 h-1.5 w-16 rounded-full" />
+          <div className="border-t-foreground/30 border-r-foreground/30 size-1.5 translate-y-0.5 -rotate-45 border-t border-r" />
+        </div>
       </div>
     </div>
   )
@@ -300,6 +426,23 @@ export function SwitchConcept() {
           <div className="bg-input flex h-4 w-7 items-center rounded-full px-0.5 shadow-sm">
             <div className="bg-background size-3 rounded-full" />
           </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function LoadingConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-3">
+        <div className="bg-card dark:bg-muted flex h-9 items-center justify-between rounded-md border px-3 shadow-sm">
+          <div className="bg-foreground/15 h-1.5 w-24 rounded-full" />
+          <div className="border-foreground/15 border-t-primary size-3.5 animate-spin rounded-full border-2" />
+        </div>
+        <div className="bg-primary flex h-9 items-center justify-center gap-2 rounded-md px-4 shadow-sm">
+          <div className="border-primary-foreground/40 border-t-primary-foreground size-3.5 animate-spin rounded-full border-2" />
+          <div className="bg-primary-foreground/40 h-1.5 w-12 rounded-full" />
         </div>
       </div>
     </div>

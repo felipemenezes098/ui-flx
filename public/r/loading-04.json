@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-04",
+  "title": "With label",
+  "description": "Spinner above a title and helper text.",
+  "dependencies": [],
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/loading/loading-04.tsx",
+      "content": "import { Spinner } from '@/components/ui/spinner'\n\nexport function Loading04() {\n  return (\n    <div className=\"flex w-full flex-col items-center py-6\">\n      <div className=\"flex flex-col items-center gap-3\">\n        <Spinner className=\"text-primary size-8\" />\n        <div className=\"flex flex-col items-center gap-0.5\">\n          <p className=\"text-sm font-medium\">Preparing your workspace</p>\n          <p className=\"text-muted-foreground text-xs\">\n            This will only take a moment.\n          </p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/loading/loading-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

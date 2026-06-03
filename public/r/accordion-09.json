@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-09",
+  "title": "Rich content",
+  "description": "Lists, links, and a button inside the panel body.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-09.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\nimport { Button } from '@/components/ui/button'\nimport { ArrowRightIcon } from 'lucide-react'\n\nexport function Accordion09() {\n  return (\n    <Accordion\n      type=\"single\"\n      collapsible\n      defaultValue=\"features\"\n      className=\"w-full max-w-md\"\n    >\n      <AccordionItem value=\"features\">\n        <AccordionTrigger>What is included?</AccordionTrigger>\n        <AccordionContent className=\"text-muted-foreground\">\n          <p>Every plan ships with the core toolkit:</p>\n          <ul className=\"list-disc space-y-1 pl-5\">\n            <li>Unlimited projects and members</li>\n            <li>Role-based access control</li>\n            <li>Audit logs and exports</li>\n          </ul>\n          <p className=\"mt-4\">\n            Read the full{' '}\n            <a href=\"#\" className=\"text-foreground\">\n              feature comparison\n            </a>{' '}\n            for details.\n          </p>\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"contact\">\n        <AccordionTrigger>Need a custom plan?</AccordionTrigger>\n        <AccordionContent className=\"text-muted-foreground\">\n          <p>Talk to our team about volume pricing and enterprise features.</p>\n          <Button size=\"sm\" className=\"mt-1\">\n            Contact sales\n            <ArrowRightIcon data-icon=\"inline-end\" />\n          </Button>\n        </AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

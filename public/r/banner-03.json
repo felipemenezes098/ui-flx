@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-03",
+  "title": "Dismissible",
+  "description": "A close button hides the banner with a restore link.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-03.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Sparkles, X } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Banner03() {\n  const [open, setOpen] = useState(true)\n\n  if (!open) {\n    return (\n      <button\n        type=\"button\"\n        onClick={() => setOpen(true)}\n        className=\"text-muted-foreground hover:text-foreground text-sm underline-offset-4 hover:underline\"\n      >\n        Show banner again\n      </button>\n    )\n  }\n\n  return (\n    <div className=\"relative flex w-full items-center gap-3 rounded-lg border bg-card px-4 py-3 pr-12 text-sm shadow-sm\">\n      <span className=\"bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-full\">\n        <Sparkles className=\"size-4\" />\n      </span>\n      <p className=\"text-muted-foreground\">\n        <span className=\"text-foreground font-medium\">What&apos;s new.</span>{' '}\n        We&apos;ve refreshed the editor with faster autosave.\n      </p>\n      <Button\n        variant=\"ghost\"\n        size=\"icon-sm\"\n        onClick={() => setOpen(false)}\n        aria-label=\"Dismiss banner\"\n        className=\"text-muted-foreground absolute top-1/2 right-2 -translate-y-1/2\"\n      >\n        <X />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

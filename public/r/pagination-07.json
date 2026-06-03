@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-07",
+  "title": "Dots",
+  "description": "Carousel-style dots; the active page expands to a pill.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-07.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { cn } from '@/lib/utils'\n\nconst TOTAL = 6\n\nexport function Pagination07() {\n  const [page, setPage] = useState(0)\n\n  return (\n    <nav\n      aria-label=\"pagination\"\n      className=\"bg-muted/60 flex items-center gap-2 rounded-full p-2\"\n    >\n      {Array.from({ length: TOTAL }).map((_, i) => {\n        const isActive = i === page\n        return (\n          <button\n            key={i}\n            type=\"button\"\n            aria-label={`Go to page ${i + 1}`}\n            aria-current={isActive ? 'page' : undefined}\n            onClick={() => setPage(i)}\n            className={cn(\n              'h-2 rounded-full transition-all duration-300 ease-out',\n              isActive\n                ? 'bg-foreground w-6'\n                : 'bg-foreground/25 hover:bg-foreground/40 w-2',\n            )}\n          />\n        )\n      })}\n    </nav>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

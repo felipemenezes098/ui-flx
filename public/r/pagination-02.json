@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-02",
+  "title": "Compact",
+  "description": "Inline numbers from sm up, “Page X of Y” on mobile.",
+  "dependencies": [],
+  "registryDependencies": [
+    "pagination"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-02.tsx",
+      "content": "'use client'\n\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from '@/components/ui/pagination'\n\nexport function Pagination02() {\n  return (\n    <Pagination>\n      {/* Demo links — cancel navigation so the page does not jump */}\n      <PaginationContent\n        onClick={(e) => e.preventDefault()}\n        className=\"w-full justify-between sm:w-auto sm:justify-center\"\n      >\n        <PaginationItem>\n          <PaginationPrevious href=\"#\" />\n        </PaginationItem>\n\n        {/* Inline numbers from sm up */}\n        <div className=\"hidden items-center gap-1 sm:flex\">\n          <PaginationItem>\n            <PaginationLink href=\"#\">1</PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\" isActive>\n              2\n            </PaginationLink>\n          </PaginationItem>\n          <PaginationItem>\n            <PaginationLink href=\"#\">3</PaginationLink>\n          </PaginationItem>\n        </div>\n\n        {/* Text indicator on small screens */}\n        <span className=\"text-muted-foreground text-sm font-medium tabular-nums sm:hidden\">\n          Page 2 of 3\n        </span>\n\n        <PaginationItem>\n          <PaginationNext href=\"#\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

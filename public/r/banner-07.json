@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-07",
+  "title": "Expandable",
+  "description": "Collapsible release notes that reveal highlights.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-07.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport {\n  Bug,\n  ChevronDown,\n  Megaphone,\n  Sparkles,\n  Zap,\n  type LucideIcon,\n} from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { cn } from '@/lib/utils'\n\nconst highlights: { icon: LucideIcon; title: string; body: string }[] = [\n  {\n    icon: Sparkles,\n    title: 'Command palette',\n    body: 'Jump to anything with ⌘K — pages, settings, and actions.',\n  },\n  {\n    icon: Zap,\n    title: '3× faster boards',\n    body: 'Large workspaces now load in a fraction of the time.',\n  },\n  {\n    icon: Bug,\n    title: 'Filter fix',\n    body: 'Filters no longer reset when navigating between views.',\n  },\n]\n\nexport function Banner07() {\n  const [open, setOpen] = useState(false)\n\n  return (\n    <div className=\"bg-card w-full overflow-hidden rounded-lg border shadow-sm\">\n      <button\n        type=\"button\"\n        onClick={() => setOpen((prev) => !prev)}\n        aria-expanded={open}\n        className=\"flex w-full items-center gap-3 px-4 py-3 text-left text-sm\"\n      >\n        <span className=\"bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-full\">\n          <Megaphone className=\"size-4\" />\n        </span>\n        <span className=\"flex-1\">\n          <span className=\"font-medium\">Release 3.0 is here</span>\n          <span className=\"text-muted-foreground\"> — 3 highlights</span>\n        </span>\n        <ChevronDown\n          className={cn(\n            'text-muted-foreground size-4 shrink-0 transition-transform',\n            open && 'rotate-180',\n          )}\n        />\n      </button>\n      <div\n        className={cn(\n          'grid transition-all duration-300',\n          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',\n        )}\n      >\n        <div className=\"overflow-hidden\">\n          <div className=\"flex flex-col gap-3 border-t px-4 py-4\">\n            {highlights.map((item) => {\n              const Icon = item.icon\n              return (\n                <div key={item.title} className=\"flex items-start gap-3\">\n                  <span className=\"bg-muted text-foreground flex size-7 shrink-0 items-center justify-center rounded-md\">\n                    <Icon className=\"size-3.5\" />\n                  </span>\n                  <div className=\"flex flex-col gap-0.5\">\n                    <p className=\"text-sm font-medium\">{item.title}</p>\n                    <p className=\"text-muted-foreground text-sm\">{item.body}</p>\n                  </div>\n                </div>\n              )\n            })}\n            <div className=\"flex items-center justify-between pt-1\">\n              <span className=\"text-muted-foreground text-xs\">\n                Shipped June 3, 2026\n              </span>\n              <Button variant=\"outline\" size=\"sm\">\n                Full changelog\n              </Button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

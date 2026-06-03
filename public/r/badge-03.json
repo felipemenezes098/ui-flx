@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-03",
+  "title": "With icon",
+  "description": "Leading verified icon before the label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-03.tsx",
+      "content": "import { BadgeCheckIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nexport function Badge03() {\n  return (\n    <Badge variant=\"secondary\">\n      <BadgeCheckIcon data-icon=\"inline-start\" />\n      Verified\n    </Badge>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

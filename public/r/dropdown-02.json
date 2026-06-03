@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-02",
+  "title": "With icons and shortcuts",
+  "description": "Leading icons paired with trailing keyboard shortcuts.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-02.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  CreditCardIcon,\n  KeyboardIcon,\n  LogOutIcon,\n  SettingsIcon,\n  UserIcon,\n} from 'lucide-react'\n\nexport function Dropdown02() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Account\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-52\">\n        <DropdownMenuLabel>My account</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>\n          <UserIcon />\n          Profile\n          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>\n        </DropdownMenuItem>\n        <DropdownMenuItem>\n          <CreditCardIcon />\n          Billing\n          <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>\n        </DropdownMenuItem>\n        <DropdownMenuItem>\n          <SettingsIcon />\n          Settings\n          <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>\n        </DropdownMenuItem>\n        <DropdownMenuItem>\n          <KeyboardIcon />\n          Shortcuts\n          <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>\n        </DropdownMenuItem>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>\n          <LogOutIcon />\n          Log out\n          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

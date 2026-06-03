@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-04",
+  "title": "With status dot",
+  "description": "A colored presence dot beside an outline label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-04.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge04() {\n  return (\n    <Badge variant=\"outline\">\n      <span className=\"size-1.5 rounded-full bg-emerald-500\" aria-hidden />\n      Online\n    </Badge>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-06",
+  "title": "Announcement bar",
+  "description": "Full-width gradient promo with a New tag and arrow.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-06.tsx",
+      "content": "import { ArrowRight } from 'lucide-react'\n\nexport function Banner06() {\n  return (\n    <div className=\"group flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-4 py-2.5 text-center text-sm font-medium text-white shadow-sm\">\n      <span className=\"rounded-full bg-white/20 px-2 py-0.5 text-xs font-semibold tracking-wide uppercase\">\n        New\n      </span>\n      <span>Introducing AI-assisted workflows — try it free for 14 days</span>\n      <ArrowRight className=\"size-4 transition-transform group-hover:translate-x-0.5\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

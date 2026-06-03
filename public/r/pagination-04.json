@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-04",
+  "title": "Rows per page",
+  "description": "Page-size select with first, prev, next, and last.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-04.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport {\n  ChevronLeftIcon,\n  ChevronRightIcon,\n  ChevronsLeftIcon,\n  ChevronsRightIcon,\n} from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst TOTAL = 87\n\nexport function Pagination04() {\n  const [pageSize, setPageSize] = useState(10)\n  const [page, setPage] = useState(1)\n  const pageCount = Math.ceil(TOTAL / pageSize)\n\n  return (\n    <div className=\"flex w-full max-w-2xl flex-col items-center justify-between gap-4 sm:flex-row\">\n      <div className=\"flex items-center gap-2\">\n        <span className=\"text-muted-foreground text-sm font-medium whitespace-nowrap\">\n          Rows per page\n        </span>\n        <Select\n          value={`${pageSize}`}\n          onValueChange={(v) => {\n            setPageSize(Number(v))\n            setPage(1)\n          }}\n        >\n          <SelectTrigger size=\"sm\" className=\"w-[4.5rem]\">\n            <SelectValue />\n          </SelectTrigger>\n          <SelectContent>\n            {[10, 20, 30, 50].map((size) => (\n              <SelectItem key={size} value={`${size}`}>\n                {size}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n      </div>\n\n      <div className=\"flex items-center gap-4\">\n        <span className=\"text-sm font-medium tabular-nums\">\n          Page {page} of {pageCount}\n        </span>\n        <div className=\"flex items-center gap-1\">\n          <Button\n            variant=\"outline\"\n            size=\"icon-sm\"\n            disabled={page === 1}\n            onClick={() => setPage(1)}\n            aria-label=\"First page\"\n          >\n            <ChevronsLeftIcon />\n          </Button>\n          <Button\n            variant=\"outline\"\n            size=\"icon-sm\"\n            disabled={page === 1}\n            onClick={() => setPage((p) => Math.max(1, p - 1))}\n            aria-label=\"Previous page\"\n          >\n            <ChevronLeftIcon />\n          </Button>\n          <Button\n            variant=\"outline\"\n            size=\"icon-sm\"\n            disabled={page === pageCount}\n            onClick={() => setPage((p) => Math.min(pageCount, p + 1))}\n            aria-label=\"Next page\"\n          >\n            <ChevronRightIcon />\n          </Button>\n          <Button\n            variant=\"outline\"\n            size=\"icon-sm\"\n            disabled={page === pageCount}\n            onClick={() => setPage(pageCount)}\n            aria-label=\"Last page\"\n          >\n            <ChevronsRightIcon />\n          </Button>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

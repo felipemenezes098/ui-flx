@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-12",
+  "title": "Stacked",
+  "description": "A list of dismissible notices, each removed on its own.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-12.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport {\n  AlertTriangle,\n  CheckCircle2,\n  Info,\n  X,\n  type LucideIcon,\n} from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { cn } from '@/lib/utils'\n\ntype Notice = {\n  id: number\n  icon: LucideIcon\n  title: string\n  body: string\n  accent: string\n}\n\nconst initial: Notice[] = [\n  {\n    id: 1,\n    icon: CheckCircle2,\n    title: 'Backup complete',\n    body: 'Your workspace was backed up 5 minutes ago.',\n    accent: 'text-emerald-600 dark:text-emerald-400',\n  },\n  {\n    id: 2,\n    icon: AlertTriangle,\n    title: 'Seat limit reached',\n    body: 'Invite more members by upgrading your plan.',\n    accent: 'text-amber-600 dark:text-amber-400',\n  },\n  {\n    id: 3,\n    icon: Info,\n    title: 'API keys rotated',\n    body: 'Two keys were rotated automatically for security.',\n    accent: 'text-blue-600 dark:text-blue-400',\n  },\n]\n\nexport function Banner12() {\n  const [notices, setNotices] = useState(initial)\n\n  if (notices.length === 0) {\n    return (\n      <button\n        type=\"button\"\n        onClick={() => setNotices(initial)}\n        className=\"text-muted-foreground hover:text-foreground text-sm underline-offset-4 hover:underline\"\n      >\n        Restore notifications\n      </button>\n    )\n  }\n\n  return (\n    <div className=\"flex w-full flex-col gap-2\">\n      {notices.map((notice) => {\n        const Icon = notice.icon\n        return (\n          <div\n            key={notice.id}\n            className=\"bg-card relative flex items-start gap-3 rounded-lg border px-4 py-3 pr-11 text-sm shadow-sm\"\n          >\n            <Icon className={cn('mt-0.5 size-5 shrink-0', notice.accent)} />\n            <div className=\"flex flex-col gap-0.5\">\n              <p className=\"font-medium\">{notice.title}</p>\n              <p className=\"text-muted-foreground\">{notice.body}</p>\n            </div>\n            <Button\n              variant=\"ghost\"\n              size=\"icon-sm\"\n              aria-label={`Dismiss ${notice.title}`}\n              onClick={() =>\n                setNotices((prev) => prev.filter((n) => n.id !== notice.id))\n              }\n              className=\"text-muted-foreground absolute top-2 right-2\"\n            >\n              <X />\n            </Button>\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-06",
+  "title": "In buttons",
+  "description": "Disabled buttons with a leading spinner.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/loading/loading-06.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport { Spinner } from '@/components/ui/spinner'\n\nexport function Loading06() {\n  return (\n    <div className=\"flex w-full flex-wrap items-center justify-center gap-3 py-6\">\n      <Button disabled>\n        <Spinner />\n        Saving…\n      </Button>\n      <Button variant=\"secondary\" disabled>\n        <Spinner />\n        Please wait\n      </Button>\n      <Button variant=\"outline\" size=\"icon\" disabled aria-label=\"Loading\">\n        <Spinner />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/loading/loading-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

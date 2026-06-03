@@ -1136,6 +1136,228 @@
       "description": "Avatar stack as media for an empty state with invite action."
     },
     {
+      "name": "badge-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "A single default badge."
+    },
+    {
+      "name": "badge-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-02.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "All six variants side-by-side: default, secondary, destructive, outline, ghost, link."
+    },
+    {
+      "name": "badge-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-03.tsx"
+        }
+      ],
+      "title": "With icon",
+      "description": "Leading verified icon before the label."
+    },
+    {
+      "name": "badge-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-04.tsx"
+        }
+      ],
+      "title": "With status dot",
+      "description": "A colored presence dot beside an outline label."
+    },
+    {
+      "name": "badge-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-05.tsx"
+        }
+      ],
+      "title": "Status colors",
+      "description": "Tinted success, warning, error, and info states."
+    },
+    {
+      "name": "badge-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-06.tsx"
+        }
+      ],
+      "title": "Count",
+      "description": "Pill-shaped numeric counts with tabular figures."
+    },
+    {
+      "name": "badge-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-07.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "asChild renders the badge as an anchor with a trailing icon."
+    },
+    {
+      "name": "badge-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-08.tsx"
+        }
+      ],
+      "title": "Removable",
+      "description": "Dismissible tag chips with a trailing remove button."
+    },
+    {
+      "name": "badge-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-09.tsx"
+        }
+      ],
+      "title": "With avatar",
+      "description": "Assignee chip with a leading avatar inside the badge."
+    },
+    {
+      "name": "badge-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-10.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Small, default, and large sizes via className."
+    },
+    {
+      "name": "badge-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-11.tsx"
+        }
+      ],
+      "title": "Trend delta",
+      "description": "Up and down arrows with tinted gain / loss percentages."
+    },
+    {
+      "name": "badge-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-12.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Square icon-only badges across variants."
+    },
+    {
+      "name": "badge-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/badge/badge-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-13.tsx"
+        }
+      ],
+      "title": "Tag list",
+      "description": "A wrapping group of outline badges as tags."
+    },
+    {
       "name": "select-01",
       "type": "registry:block",
       "title": "Basic",
@@ -1328,6 +1550,785 @@
       ],
       "title": "In Form",
       "description": "Select composed with Field, FieldLabel, and description."
+    },
+    {
+      "name": "banner-01",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Icon, message, and a subtle bordered surface."
+    },
+    {
+      "name": "banner-02",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-02.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "Info, success, warning, and error tones stacked."
+    },
+    {
+      "name": "banner-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-03.tsx"
+        }
+      ],
+      "title": "Dismissible",
+      "description": "A close button hides the banner with a restore link."
+    },
+    {
+      "name": "banner-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-04.tsx"
+        }
+      ],
+      "title": "With actions",
+      "description": "Message paired with Later and Update now buttons."
+    },
+    {
+      "name": "banner-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-06.tsx"
+        }
+      ],
+      "title": "Announcement bar",
+      "description": "Full-width gradient promo with a New tag and arrow."
+    },
+    {
+      "name": "banner-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-07.tsx"
+        }
+      ],
+      "title": "Expandable",
+      "description": "Collapsible release notes that reveal highlights."
+    },
+    {
+      "name": "banner-09",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-09.tsx"
+        }
+      ],
+      "title": "Maintenance",
+      "description": "Amber system notice with a pulsing status dot."
+    },
+    {
+      "name": "banner-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-11.tsx"
+        }
+      ],
+      "title": "Email verification",
+      "description": "Blue prompt with a Resend email action that confirms."
+    },
+    {
+      "name": "banner-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-12.tsx"
+        }
+      ],
+      "title": "Stacked",
+      "description": "A list of dismissible notices, each removed on its own."
+    },
+    {
+      "name": "banner-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "progress"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/banner/banner-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-14.tsx"
+        }
+      ],
+      "title": "With progress",
+      "description": "Live import banner with a spinner and a progress bar."
+    },
+    {
+      "name": "accordion-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Single collapsible item open at a time — the default."
+    },
+    {
+      "name": "accordion-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-02.tsx"
+        }
+      ],
+      "title": "Multiple",
+      "description": "type=\"multiple\" keeps several sections open at once."
+    },
+    {
+      "name": "accordion-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-03.tsx"
+        }
+      ],
+      "title": "With icons",
+      "description": "Leading icon beside each trigger label."
+    },
+    {
+      "name": "accordion-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-04.tsx"
+        }
+      ],
+      "title": "FAQ",
+      "description": "A titled question-and-answer list."
+    },
+    {
+      "name": "accordion-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-05.tsx"
+        }
+      ],
+      "title": "Separated cards",
+      "description": "Each item is a bordered card with spacing between them."
+    },
+    {
+      "name": "accordion-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-06.tsx"
+        }
+      ],
+      "title": "Plus / minus icon",
+      "description": "Radix primitive swaps a plus for a minus instead of a chevron."
+    },
+    {
+      "name": "accordion-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-07.tsx"
+        }
+      ],
+      "title": "Left chevron",
+      "description": "Radix primitive places a rotating chevron before the label."
+    },
+    {
+      "name": "accordion-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-09.tsx"
+        }
+      ],
+      "title": "Rich content",
+      "description": "Lists, links, and a button inside the panel body."
+    },
+    {
+      "name": "accordion-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-10.tsx"
+        }
+      ],
+      "title": "Disabled item",
+      "description": "One trigger disabled while the others stay interactive."
+    },
+    {
+      "name": "accordion-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-11.tsx"
+        }
+      ],
+      "title": "Nested",
+      "description": "An accordion rendered inside another panel body."
+    },
+    {
+      "name": "accordion-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-12.tsx"
+        }
+      ],
+      "title": "Ghost",
+      "description": "Borderless minimal rows with an active color on open."
+    },
+    {
+      "name": "accordion-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-13.tsx"
+        }
+      ],
+      "title": "Filled trigger",
+      "description": "Each trigger sits on a muted, rounded background."
+    },
+    {
+      "name": "accordion-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-14.tsx"
+        }
+      ],
+      "title": "Expand all",
+      "description": "Controlled value with expand-all / collapse-all buttons."
+    },
+    {
+      "name": "accordion-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "switch",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-15.tsx"
+        }
+      ],
+      "title": "Settings sections",
+      "description": "Grouped switch rows revealed inside each panel."
+    },
+    {
+      "name": "accordion-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/accordion/accordion-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-16.tsx"
+        }
+      ],
+      "title": "With subtitle",
+      "description": "Two-line trigger pairing a title with helper text."
+    },
+    {
+      "name": "dropdown-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Label, separator, and a list of action items."
+    },
+    {
+      "name": "dropdown-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-02.tsx"
+        }
+      ],
+      "title": "With icons and shortcuts",
+      "description": "Leading icons paired with trailing keyboard shortcuts."
+    },
+    {
+      "name": "dropdown-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-03.tsx"
+        }
+      ],
+      "title": "Grouped",
+      "description": "Multiple labeled groups divided by separators."
+    },
+    {
+      "name": "dropdown-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-04.tsx"
+        }
+      ],
+      "title": "Destructive item",
+      "description": "A red Delete action via variant=\"destructive\"."
+    },
+    {
+      "name": "dropdown-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-05.tsx"
+        }
+      ],
+      "title": "Disabled items",
+      "description": "Non-interactive items dimmed with the disabled prop."
+    },
+    {
+      "name": "dropdown-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-06.tsx"
+        }
+      ],
+      "title": "Checkbox items",
+      "description": "Toggle multiple view options with checkbox items."
+    },
+    {
+      "name": "dropdown-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-07.tsx"
+        }
+      ],
+      "title": "Radio group",
+      "description": "Pick a single value from a DropdownMenuRadioGroup."
+    },
+    {
+      "name": "dropdown-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-08.tsx"
+        }
+      ],
+      "title": "Submenu",
+      "description": "Nested DropdownMenuSub reveals a flyout of options."
+    },
+    {
+      "name": "dropdown-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-09.tsx"
+        }
+      ],
+      "title": "Account menu",
+      "description": "Avatar trigger with a name and email header block."
+    },
+    {
+      "name": "dropdown-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-10.tsx"
+        }
+      ],
+      "title": "Icon button actions",
+      "description": "Ghost ellipsis trigger opens a compact actions menu."
+    },
+    {
+      "name": "dropdown-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-11.tsx"
+        }
+      ],
+      "title": "Table row actions",
+      "description": "Per-row ellipsis menu with edit, copy, and remove."
+    },
+    {
+      "name": "dropdown-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-12.tsx"
+        }
+      ],
+      "title": "Sides and alignment",
+      "description": "Align start or end and open the menu to the side."
+    },
+    {
+      "name": "dropdown-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-13.tsx"
+        }
+      ],
+      "title": "Controlled open",
+      "description": "Drive the open state with useState and onOpenChange."
+    },
+    {
+      "name": "dropdown-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-14.tsx"
+        }
+      ],
+      "title": "Theme switcher",
+      "description": "Radio group toggling light, dark, and system themes."
+    },
+    {
+      "name": "dropdown-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-15.tsx"
+        }
+      ],
+      "title": "Multi-select filter",
+      "description": "Checkbox items with a count badge and a clear action."
+    },
+    {
+      "name": "dropdown-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-16.tsx"
+        }
+      ],
+      "title": "Notifications",
+      "description": "Bell trigger with an unread badge and an activity list."
+    },
+    {
+      "name": "dropdown-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "dialog"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-17.tsx"
+        }
+      ],
+      "title": "With dialog",
+      "description": "A menu item opens a controlled confirmation dialog."
+    },
+    {
+      "name": "dropdown-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-18.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds a radio group to RHF; Zod requires a selection."
+    },
+    {
+      "name": "dropdown-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/dropdown/dropdown-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-19.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the radio group; Zod onSubmit surfaces FieldError."
     },
     {
       "name": "select-12",
@@ -4615,6 +5616,140 @@
       "description": "Last crumb is a Button switcher for sibling pages."
     },
     {
+      "name": "pagination-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Numbers with ellipsis, previous, and next links."
+    },
+    {
+      "name": "pagination-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-02.tsx"
+        }
+      ],
+      "title": "Compact",
+      "description": "Inline numbers from sm up, “Page X of Y” on mobile."
+    },
+    {
+      "name": "pagination-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-03.tsx"
+        }
+      ],
+      "title": "Interactive window",
+      "description": "Stateful current page with a sliding ellipsis range."
+    },
+    {
+      "name": "pagination-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-04.tsx"
+        }
+      ],
+      "title": "Rows per page",
+      "description": "Page-size select with first, prev, next, and last."
+    },
+    {
+      "name": "pagination-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-05.tsx"
+        }
+      ],
+      "title": "Results summary",
+      "description": "Showing 1–10 of 97 alongside the page controls."
+    },
+    {
+      "name": "pagination-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-06.tsx"
+        }
+      ],
+      "title": "Article prev / next",
+      "description": "Two linked cards with titles for adjacent articles."
+    },
+    {
+      "name": "pagination-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-07.tsx"
+        }
+      ],
+      "title": "Dots",
+      "description": "Carousel-style dots; the active page expands to a pill."
+    },
+    {
+      "name": "pagination-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/pagination/pagination-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-08.tsx"
+        }
+      ],
+      "title": "Jump to page",
+      "description": "Numeric input to jump directly to any page."
+    },
+    {
       "name": "collapsible-01",
       "type": "registry:block",
       "registryDependencies": [
@@ -5827,6 +6962,168 @@
       ],
       "title": "Faceted Filter",
       "description": "Faceted Filter — Search."
+    },
+    {
+      "name": "loading-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "A single centered spinner."
+    },
+    {
+      "name": "loading-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-02.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Spinner from sm to xl side-by-side."
+    },
+    {
+      "name": "loading-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-03.tsx"
+        }
+      ],
+      "title": "Search input",
+      "description": "Debounced search with a trailing spinner while loading."
+    },
+    {
+      "name": "loading-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-04.tsx"
+        }
+      ],
+      "title": "With label",
+      "description": "Spinner above a title and helper text."
+    },
+    {
+      "name": "loading-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command",
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-05.tsx"
+        }
+      ],
+      "title": "Command menu",
+      "description": "Command palette with a spinner while results load."
+    },
+    {
+      "name": "loading-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-06.tsx"
+        }
+      ],
+      "title": "In buttons",
+      "description": "Disabled buttons with a leading spinner."
+    },
+    {
+      "name": "loading-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "progress"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-09.tsx"
+        }
+      ],
+      "title": "Determinate progress",
+      "description": "A progress bar that fills with a live percentage."
+    },
+    {
+      "name": "loading-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "command",
+        "popover",
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-07.tsx"
+        }
+      ],
+      "title": "Combobox popover",
+      "description": "Click to open; a spinner runs while options load."
+    },
+    {
+      "name": "loading-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "command",
+        "popover",
+        "spinner"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/loading/loading-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/loading/loading-08.tsx"
+        }
+      ],
+      "title": "Searchable picker",
+      "description": "Lists members on open; typing triggers a search spinner."
     }
   ]
 }
