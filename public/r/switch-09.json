@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-09",
+  "title": "Credit card auto-pay",
+  "description": "A styled card with an automatic payments toggle.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-09.tsx",
+      "content": "import { WifiIcon } from 'lucide-react'\n\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch09() {\n  return (\n    <div className=\"w-full max-w-xs\">\n      <div className=\"bg-primary text-primary-foreground flex aspect-[1.586/1] flex-col justify-between rounded-xl p-5 shadow-md\">\n        <div className=\"flex items-center justify-between\">\n          <div className=\"bg-primary-foreground/20 h-7 w-10 rounded-md\" />\n          <WifiIcon className=\"size-5 rotate-90\" />\n        </div>\n        <div className=\"flex flex-col gap-2\">\n          <span className=\"font-mono text-lg tracking-widest\">\n            •••• •••• •••• 4242\n          </span>\n          <div className=\"flex items-end justify-between\">\n            <span className=\"text-sm font-medium\">Ada Lovelace</span>\n            <span className=\"text-sm font-semibold italic\">VISA</span>\n          </div>\n        </div>\n      </div>\n      <Field orientation=\"horizontal\" className=\"mt-4\">\n        <FieldContent>\n          <FieldLabel htmlFor=\"switch-09\">Automatic payments</FieldLabel>\n          <FieldDescription>\n            Charge this card on the 1st of each month.\n          </FieldDescription>\n        </FieldContent>\n        <Switch id=\"switch-09\" defaultChecked />\n      </Field>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

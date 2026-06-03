@@ -58,7 +58,7 @@ export function Command15() {
           Skills
           {selected.length > 0 && (
             <>
-              <Separator orientation="vertical" className="mx-1 h-4!" />
+              <Separator orientation="vertical" className="mx-1 h-auto!" />
               <Badge
                 variant="secondary"
                 className="rounded-sm px-1 font-normal lg:hidden"

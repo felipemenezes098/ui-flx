@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-19",
+  "title": "Expanding sub-rows",
+  "description": "TanStack Table — expandable parent rows for tree data.",
+  "dependencies": [
+    "@tanstack/react-table"
+  ],
+  "registryDependencies": [
+    "table",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-19.tsx",
+      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\nimport {\n  type ColumnDef,\n  type ExpandedState,\n  flexRender,\n  getCoreRowModel,\n  getExpandedRowModel,\n  useReactTable,\n} from '@tanstack/react-table'\nimport { ChevronRightIcon } from 'lucide-react'\nimport { useState } from 'react'\n\ntype Node = {\n  name: string\n  type: string\n  size: string\n  subRows?: Node[]\n}\n\nconst data: Node[] = [\n  {\n    name: 'src',\n    type: 'Folder',\n    size: '—',\n    subRows: [\n      {\n        name: 'components',\n        type: 'Folder',\n        size: '—',\n        subRows: [\n          { name: 'button.tsx', type: 'Component', size: '4 KB' },\n          { name: 'table.tsx', type: 'Component', size: '6 KB' },\n        ],\n      },\n      { name: 'utils.ts', type: 'Module', size: '2 KB' },\n    ],\n  },\n  {\n    name: 'public',\n    type: 'Folder',\n    size: '—',\n    subRows: [{ name: 'logo.svg', type: 'Asset', size: '12 KB' }],\n  },\n]\n\nconst columns: ColumnDef<Node>[] = [\n  {\n    accessorKey: 'name',\n    header: 'Name',\n    cell: ({ row, getValue }) => (\n      <div\n        className=\"flex items-center gap-1\"\n        style={{ paddingLeft: row.depth * 20 }}\n      >\n        {row.getCanExpand() ? (\n          <Button\n            variant=\"ghost\"\n            size=\"icon\"\n            className=\"size-6\"\n            onClick={row.getToggleExpandedHandler()}\n            aria-label={row.getIsExpanded() ? 'Collapse' : 'Expand'}\n          >\n            <ChevronRightIcon\n              className={row.getIsExpanded() ? 'rotate-90' : ''}\n            />\n          </Button>\n        ) : (\n          <span className=\"size-6\" />\n        )}\n        <span className=\"font-medium\">{getValue<string>()}</span>\n      </div>\n    ),\n  },\n  {\n    accessorKey: 'type',\n    header: 'Type',\n    cell: ({ row }) => (\n      <span className=\"text-muted-foreground\">{row.getValue('type')}</span>\n    ),\n  },\n  {\n    accessorKey: 'size',\n    header: () => <div className=\"text-right\">Size</div>,\n    cell: ({ row }) => (\n      <div className=\"text-muted-foreground text-right tabular-nums\">\n        {row.getValue('size')}\n      </div>\n    ),\n  },\n]\n\nexport function Table19() {\n  const [expanded, setExpanded] = useState<ExpandedState>({})\n\n  const table = useReactTable({\n    data,\n    columns,\n    state: { expanded },\n    onExpandedChange: setExpanded,\n    getSubRows: (row) => row.subRows,\n    getCoreRowModel: getCoreRowModel(),\n    getExpandedRowModel: getExpandedRowModel(),\n  })\n\n  return (\n    <div className=\"w-full max-w-xl\">\n      <div className=\"overflow-hidden rounded-lg border\">\n        <Table>\n          <TableHeader>\n            {table.getHeaderGroups().map((headerGroup) => (\n              <TableRow key={headerGroup.id}>\n                {headerGroup.headers.map((header) => (\n                  <TableHead key={header.id}>\n                    {flexRender(\n                      header.column.columnDef.header,\n                      header.getContext(),\n                    )}\n                  </TableHead>\n                ))}\n              </TableRow>\n            ))}\n          </TableHeader>\n          <TableBody>\n            {table.getRowModel().rows.map((row) => (\n              <TableRow key={row.id}>\n                {row.getVisibleCells().map((cell) => (\n                  <TableCell key={cell.id}>\n                    {flexRender(cell.column.columnDef.cell, cell.getContext())}\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-19.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-02",
+  "title": "With description",
+  "description": "Checkbox with a label and helper description.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-02.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldLabel,\n} from '@/components/ui/field'\n\nexport function Checkbox02() {\n  return (\n    <Field orientation=\"horizontal\" className=\"max-w-sm\">\n      <Checkbox id=\"checkbox-02-newsletter\" defaultChecked />\n      <FieldContent>\n        <FieldLabel htmlFor=\"checkbox-02-newsletter\">\n          Subscribe to the newsletter\n        </FieldLabel>\n        <FieldDescription>\n          Get product updates and tips once a week. Unsubscribe anytime.\n        </FieldDescription>\n      </FieldContent>\n    </Field>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-09",
+  "title": "Vertical",
+  "description": "Key-value details with row headers down the left.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-09.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableRow,\n} from '@/components/ui/table'\n\nconst details = [\n  { label: 'Full name', value: 'Olivia Martin' },\n  { label: 'Email', value: 'olivia@example.com' },\n  { label: 'Role', value: 'Owner' },\n  { label: 'Team', value: 'Platform' },\n  { label: 'Joined', value: 'Jan 12, 2025' },\n]\n\nexport function Table09() {\n  return (\n    <div className=\"w-full max-w-sm\">\n      <div className=\"overflow-hidden rounded-lg border\">\n        <Table>\n          <TableBody>\n            {details.map((detail) => (\n              <TableRow key={detail.label}>\n                <TableHead\n                  scope=\"row\"\n                  className=\"bg-muted/50 text-muted-foreground w-32 pt-2 align-top font-medium\"\n                >\n                  {detail.label}\n                </TableHead>\n                <TableCell className=\"font-medium\">{detail.value}</TableCell>\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

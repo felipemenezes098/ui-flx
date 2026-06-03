@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-06",
+  "title": "Dense",
+  "description": "Compact padding and type for high-density data.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-06.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst logs = [\n  {\n    time: '12:04:22',\n    level: 'INFO',\n    service: 'api',\n    message: 'Request handled',\n  },\n  {\n    time: '12:04:23',\n    level: 'WARN',\n    service: 'auth',\n    message: 'Token near expiry',\n  },\n  { time: '12:04:25', level: 'INFO', service: 'worker', message: 'Job queued' },\n  {\n    time: '12:04:27',\n    level: 'ERROR',\n    service: 'db',\n    message: 'Connection reset',\n  },\n  { time: '12:04:28', level: 'INFO', service: 'api', message: 'Cache warmed' },\n  { time: '12:04:30', level: 'INFO', service: 'worker', message: 'Job done' },\n]\n\nexport function Table06() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <Table className=\"text-xs [&_td]:py-1 [&_th]:h-7\">\n        <TableHeader>\n          <TableRow>\n            <TableHead className=\"w-20\">Time</TableHead>\n            <TableHead className=\"w-16\">Level</TableHead>\n            <TableHead className=\"w-20\">Service</TableHead>\n            <TableHead>Message</TableHead>\n          </TableRow>\n        </TableHeader>\n        <TableBody>\n          {logs.map((log, index) => (\n            <TableRow key={index}>\n              <TableCell className=\"text-muted-foreground font-mono tabular-nums\">\n                {log.time}\n              </TableCell>\n              <TableCell className=\"font-mono font-medium\">\n                {log.level}\n              </TableCell>\n              <TableCell className=\"text-muted-foreground\">\n                {log.service}\n              </TableCell>\n              <TableCell>{log.message}</TableCell>\n            </TableRow>\n          ))}\n        </TableBody>\n      </Table>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

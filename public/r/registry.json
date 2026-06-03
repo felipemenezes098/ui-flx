@@ -1428,6 +1428,862 @@
       "description": "Leading icon in the trigger updates with the selection; dropdown options are text only."
     },
     {
+      "name": "switch-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "A single standalone switch."
+    },
+    {
+      "name": "switch-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-02.tsx"
+        }
+      ],
+      "title": "With label",
+      "description": "Switch paired with an accessible field label."
+    },
+    {
+      "name": "switch-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-03.tsx"
+        }
+      ],
+      "title": "With description",
+      "description": "Label and helper description beside the switch."
+    },
+    {
+      "name": "switch-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-04.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "The sm and default sizes side-by-side."
+    },
+    {
+      "name": "switch-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-05.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Disabled off and disabled on states."
+    },
+    {
+      "name": "switch-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-06.tsx"
+        }
+      ],
+      "title": "Theme toggle",
+      "description": "Sun and moon icons flank a light / dark toggle."
+    },
+    {
+      "name": "switch-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-07.tsx"
+        }
+      ],
+      "title": "Icon in thumb",
+      "description": "Custom larger toggle with sun / moon icons that swap inside the thumb."
+    },
+    {
+      "name": "switch-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-08.tsx"
+        }
+      ],
+      "title": "Settings group",
+      "description": "FieldSet of notification rows, each with a switch."
+    },
+    {
+      "name": "switch-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-09.tsx"
+        }
+      ],
+      "title": "Credit card auto-pay",
+      "description": "A styled card with an automatic payments toggle."
+    },
+    {
+      "name": "switch-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-10.tsx"
+        }
+      ],
+      "title": "Choice cards",
+      "description": "Bordered add-on cards that highlight when toggled on."
+    },
+    {
+      "name": "switch-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-11.tsx"
+        }
+      ],
+      "title": "Invalid / required",
+      "description": "aria-invalid and data-invalid show error styles until enabled."
+    },
+    {
+      "name": "switch-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds the switch to RHF; Zod requires opt-in on submit."
+    },
+    {
+      "name": "switch-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/switch/switch-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the switch; Zod onSubmit validator surfaces FieldError."
+    },
+    {
+      "name": "checkbox-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Single checkbox with a label."
+    },
+    {
+      "name": "checkbox-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-02.tsx"
+        }
+      ],
+      "title": "With description",
+      "description": "Checkbox with a label and helper description."
+    },
+    {
+      "name": "checkbox-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-03.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Disabled unchecked and disabled checked states."
+    },
+    {
+      "name": "checkbox-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-04.tsx"
+        }
+      ],
+      "title": "Group",
+      "description": "FieldSet of notification options with descriptions."
+    },
+    {
+      "name": "checkbox-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-06.tsx"
+        }
+      ],
+      "title": "Select all",
+      "description": "Parent checkbox with an indeterminate mixed state."
+    },
+    {
+      "name": "checkbox-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-07.tsx"
+        }
+      ],
+      "title": "Nested tree",
+      "description": "Multi-level file tree; parents derive checked / indeterminate from children."
+    },
+    {
+      "name": "checkbox-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-08.tsx"
+        }
+      ],
+      "title": "Choice cards",
+      "description": "Bordered add-on cards that highlight when checked."
+    },
+    {
+      "name": "checkbox-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-09.tsx"
+        }
+      ],
+      "title": "Payment methods",
+      "description": "Selectable saved credit cards with brand and last four."
+    },
+    {
+      "name": "checkbox-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-10.tsx"
+        }
+      ],
+      "title": "Table row selection",
+      "description": "Data table with a select-all header, per-row checkboxes, and a count."
+    },
+    {
+      "name": "checkbox-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-11.tsx"
+        }
+      ],
+      "title": "Invalid / required",
+      "description": "aria-invalid on the checkbox and data-invalid on the field show error styles."
+    },
+    {
+      "name": "checkbox-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds a checkbox group to RHF; Zod requires at least one."
+    },
+    {
+      "name": "checkbox-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/checkbox/checkbox-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires a checkbox group; Zod onSubmit validator surfaces FieldError."
+    },
+    {
+      "name": "table-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Caption, header, and a footer total row."
+    },
+    {
+      "name": "table-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-02.tsx"
+        }
+      ],
+      "title": "With images",
+      "description": "Avatar thumbnails beside name and email in each row."
+    },
+    {
+      "name": "table-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-03.tsx"
+        }
+      ],
+      "title": "Without dividers",
+      "description": "Borderless rows for a clean, list-like layout."
+    },
+    {
+      "name": "table-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-04.tsx"
+        }
+      ],
+      "title": "Striped rows",
+      "description": "Zebra striping tints every other row."
+    },
+    {
+      "name": "table-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-05.tsx"
+        }
+      ],
+      "title": "With vertical lines",
+      "description": "Column grid lines via per-cell right borders."
+    },
+    {
+      "name": "table-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-06.tsx"
+        }
+      ],
+      "title": "Dense",
+      "description": "Compact padding and type for high-density data."
+    },
+    {
+      "name": "table-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "checkbox"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-07.tsx"
+        }
+      ],
+      "title": "With checkbox",
+      "description": "Select-all header, per-row checkboxes, and a selection count."
+    },
+    {
+      "name": "table-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "card",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-08.tsx"
+        }
+      ],
+      "title": "Card table",
+      "description": "Table inside a Card with title and status badges."
+    },
+    {
+      "name": "table-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-09.tsx"
+        }
+      ],
+      "title": "Vertical",
+      "description": "Key-value details with row headers down the left."
+    },
+    {
+      "name": "table-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-10.tsx"
+        }
+      ],
+      "title": "Sticky header",
+      "description": "Header pinned while the capped body scrolls."
+    },
+    {
+      "name": "table-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-11.tsx"
+        }
+      ],
+      "title": "Sortable",
+      "description": "TanStack Table — click a header to sort the column."
+    },
+    {
+      "name": "table-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "input",
+        "select"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-12.tsx"
+        }
+      ],
+      "title": "With filters",
+      "description": "TanStack Table — global search plus a status column filter."
+    },
+    {
+      "name": "table-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "select"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-13.tsx"
+        }
+      ],
+      "title": "Pagination",
+      "description": "TanStack Table — prev / next controls with a rows-per-page select."
+    },
+    {
+      "name": "table-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-14.tsx"
+        }
+      ],
+      "title": "Numeric pagination",
+      "description": "TanStack Table — numbered page buttons with prev / next."
+    },
+    {
+      "name": "table-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-15.tsx"
+        }
+      ],
+      "title": "Column visibility",
+      "description": "TanStack Table — toggle columns from a dropdown menu."
+    },
+    {
+      "name": "table-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-16.tsx"
+        }
+      ],
+      "title": "Resizable columns",
+      "description": "TanStack Table — drag the header edge to resize columns."
+    },
+    {
+      "name": "table-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-17.tsx"
+        }
+      ],
+      "title": "Pinnable columns",
+      "description": "TanStack Table — pin columns left or right; they stay while scrolling."
+    },
+    {
+      "name": "table-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-18.tsx"
+        }
+      ],
+      "title": "Row selection",
+      "description": "TanStack Table — row checkboxes with a bulk actions toolbar."
+    },
+    {
+      "name": "table-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-19.tsx"
+        }
+      ],
+      "title": "Expanding sub-rows",
+      "description": "TanStack Table — expandable parent rows for tree data."
+    },
+    {
+      "name": "table-20",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "checkbox",
+        "input",
+        "badge",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/patterns/table/table-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-20.tsx"
+        }
+      ],
+      "title": "Complex data table",
+      "description": "TanStack Table — sort, filter, paginate, select, hide columns, and row actions."
+    },
+    {
       "name": "dialog-01",
       "type": "registry:block",
       "registryDependencies": [

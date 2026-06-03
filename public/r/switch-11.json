@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-11",
+  "title": "Invalid / required",
+  "description": "aria-invalid and data-invalid show error styles until enabled.",
+  "dependencies": [
+    "sonner"
+  ],
+  "registryDependencies": [
+    "switch",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-11.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { toast } from 'sonner'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldContent,\n  FieldError,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch11() {\n  const [enabled, setEnabled] = useState(false)\n  const [invalid, setInvalid] = useState(false)\n\n  function onSubmit(event: React.FormEvent) {\n    event.preventDefault()\n    if (!enabled) {\n      setInvalid(true)\n      return\n    }\n    setInvalid(false)\n    toast.success('Two-factor authentication enabled')\n  }\n\n  return (\n    <form onSubmit={onSubmit} className=\"flex w-full max-w-sm flex-col gap-4\">\n      <Field orientation=\"horizontal\" data-invalid={invalid}>\n        <FieldContent>\n          <FieldLabel htmlFor=\"switch-11\">\n            Enable two-factor authentication\n          </FieldLabel>\n          {invalid && (\n            <FieldError>You must enable 2FA before continuing.</FieldError>\n          )}\n        </FieldContent>\n        <Switch\n          id=\"switch-11\"\n          aria-invalid={invalid}\n          checked={enabled}\n          onCheckedChange={(value) => {\n            setEnabled(value)\n            if (value) setInvalid(false)\n          }}\n        />\n      </Field>\n      <Button type=\"submit\" size=\"sm\" className=\"self-start\">\n        Continue\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

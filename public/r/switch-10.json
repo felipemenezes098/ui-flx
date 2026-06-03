@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-10",
+  "title": "Choice cards",
+  "description": "Bordered add-on cards that highlight when toggled on.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-10.tsx",
+      "content": "import {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldTitle,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nconst addons = [\n  {\n    id: 'storage',\n    title: 'Extra storage',\n    description: '+100 GB of cloud storage.',\n    price: '$4/mo',\n    defaultChecked: true,\n  },\n  {\n    id: 'support',\n    title: 'Priority support',\n    description: '24/7 chat with a 1h response SLA.',\n    price: '$9/mo',\n    defaultChecked: false,\n  },\n]\n\nexport function Switch10() {\n  return (\n    <FieldGroup className=\"w-full max-w-sm gap-3\">\n      {addons.map((addon) => (\n        <FieldLabel key={addon.id} htmlFor={`switch-10-${addon.id}`}>\n          <Field orientation=\"horizontal\">\n            <FieldContent>\n              <FieldTitle>{addon.title}</FieldTitle>\n              <FieldDescription>{addon.description}</FieldDescription>\n            </FieldContent>\n            <span className=\"text-sm font-medium tabular-nums\">\n              {addon.price}\n            </span>\n            <Switch\n              id={`switch-10-${addon.id}`}\n              defaultChecked={addon.defaultChecked}\n            />\n          </Field>\n        </FieldLabel>\n      ))}\n    </FieldGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

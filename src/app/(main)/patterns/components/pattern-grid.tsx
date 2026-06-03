@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 export const patternGridVariants = cva('grid grid-cols-1 gap-4', {
   variants: {
     columns: {
+      1: 'sm:grid-cols-1',
       2: 'sm:grid-cols-2',
       3: 'sm:grid-cols-2 lg:grid-cols-3',
     },
@@ -22,11 +23,17 @@ export const patternGridItemVariants = cva('', {
       full: '',
     },
     columns: {
+      1: '',
       2: '',
       3: '',
     },
   },
   compoundVariants: [
+    {
+      span: 'full',
+      columns: 1,
+      className: 'sm:col-span-1',
+    },
     {
       span: 'full',
       columns: 2,

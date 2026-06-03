@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-04",
+  "title": "Group",
+  "description": "FieldSet of notification options with descriptions.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-04.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from '@/components/ui/field'\n\nconst notifications = [\n  {\n    id: 'comments',\n    label: 'Comments',\n    description: 'Someone comments on your posts.',\n    defaultChecked: true,\n  },\n  {\n    id: 'mentions',\n    label: 'Mentions',\n    description: 'Someone @mentions you in a thread.',\n    defaultChecked: true,\n  },\n  {\n    id: 'follows',\n    label: 'New followers',\n    description: 'Someone starts following your account.',\n    defaultChecked: false,\n  },\n]\n\nexport function Checkbox04() {\n  return (\n    <FieldSet className=\"max-w-sm\">\n      <FieldLegend>Email notifications</FieldLegend>\n      <FieldDescription>\n        Choose what you want to be notified about.\n      </FieldDescription>\n      <FieldGroup data-slot=\"checkbox-group\">\n        {notifications.map((item) => (\n          <Field key={item.id} orientation=\"horizontal\">\n            <Checkbox id={`checkbox-04-${item.id}`} defaultChecked={item.defaultChecked} />\n            <FieldContent>\n              <FieldLabel htmlFor={`checkbox-04-${item.id}`}>\n                {item.label}\n              </FieldLabel>\n              <FieldDescription>{item.description}</FieldDescription>\n            </FieldContent>\n          </Field>\n        ))}\n      </FieldGroup>\n    </FieldSet>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

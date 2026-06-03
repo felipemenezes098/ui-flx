@@ -236,6 +236,76 @@ export function EmptyConcept() {
   )
 }
 
+export function CheckboxConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-2.5">
+        <div className="flex items-center gap-2.5">
+          <div className="bg-primary flex size-4 shrink-0 items-center justify-center rounded-[4px] shadow-sm">
+            <div className="border-b-primary-foreground border-l-primary-foreground size-1.5 -translate-y-px rotate-[-45deg] border-b-2 border-l-2" />
+          </div>
+          <div className="bg-foreground/20 h-1.5 w-24 rounded-full" />
+        </div>
+        <div className="flex items-center gap-2.5">
+          <div className="border-foreground/25 size-4 shrink-0 rounded-[4px] border shadow-sm" />
+          <div className="bg-foreground/12 h-1.5 w-20 rounded-full" />
+        </div>
+        <div className="flex items-center gap-2.5">
+          <div className="bg-primary flex size-4 shrink-0 items-center justify-center rounded-[4px] shadow-sm">
+            <div className="border-b-primary-foreground border-l-primary-foreground size-1.5 -translate-y-px rotate-[-45deg] border-b-2 border-l-2" />
+          </div>
+          <div className="bg-foreground/12 h-1.5 w-28 rounded-full" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function TableConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="bg-card dark:bg-muted w-full overflow-hidden rounded-md border shadow-sm">
+        <div className="bg-foreground/5 flex h-7 items-center gap-3 border-b px-3">
+          <div className="bg-foreground/20 h-1.5 w-12 rounded-full" />
+          <div className="bg-foreground/20 ml-auto h-1.5 w-10 rounded-full" />
+          <div className="bg-foreground/20 h-1.5 w-8 rounded-full" />
+        </div>
+        {[0, 1, 2].map((row) => (
+          <div
+            key={row}
+            className="flex h-7 items-center gap-3 border-b px-3 last:border-b-0"
+          >
+            <div className="bg-foreground/15 h-1.5 w-14 rounded-full" />
+            <div className="bg-foreground/10 ml-auto h-1.5 w-10 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-8 rounded-full" />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export function SwitchConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="flex w-full flex-col gap-4">
+        <div className="flex items-center justify-between">
+          <div className="bg-foreground/20 h-1.5 w-20 rounded-full" />
+          <div className="bg-primary flex h-4 w-7 items-center rounded-full px-0.5 shadow-sm">
+            <div className="bg-background ml-auto size-3 rounded-full" />
+          </div>
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="bg-foreground/12 h-1.5 w-16 rounded-full" />
+          <div className="bg-input flex h-4 w-7 items-center rounded-full px-0.5 shadow-sm">
+            <div className="bg-background size-3 rounded-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

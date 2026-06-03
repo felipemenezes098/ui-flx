@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-02",
+  "title": "With label",
+  "description": "Switch paired with an accessible field label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-02.tsx",
+      "content": "import { Field, FieldLabel } from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch02() {\n  return (\n    <Field orientation=\"horizontal\" className=\"w-full max-w-sm\">\n      <FieldLabel htmlFor=\"switch-02\">Airplane mode</FieldLabel>\n      <Switch id=\"switch-02\" />\n    </Field>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-09",
+  "title": "Payment methods",
+  "description": "Selectable saved credit cards with brand and last four.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-09.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldTitle,\n} from '@/components/ui/field'\nimport { CreditCardIcon } from 'lucide-react'\n\nconst cards = [\n  {\n    id: 'visa',\n    brand: 'Visa',\n    last4: '4242',\n    expires: '08/27',\n    defaultChecked: true,\n  },\n  {\n    id: 'mastercard',\n    brand: 'Mastercard',\n    last4: '8210',\n    expires: '11/26',\n    defaultChecked: false,\n  },\n  {\n    id: 'amex',\n    brand: 'Amex',\n    last4: '0005',\n    expires: '03/25',\n    defaultChecked: false,\n  },\n]\n\nexport function Checkbox09() {\n  return (\n    <FieldGroup className=\"w-full max-w-sm gap-3\">\n      {cards.map((card) => (\n        <FieldLabel key={card.id} htmlFor={`checkbox-09-${card.id}`}>\n          <Field orientation=\"horizontal\">\n            <div className=\"bg-muted flex size-9 shrink-0 items-center justify-center rounded-md border\">\n              <CreditCardIcon className=\"size-4\" />\n            </div>\n            <FieldContent>\n              <FieldTitle>\n                {card.brand} •••• {card.last4}\n              </FieldTitle>\n              <FieldDescription>Expires {card.expires}</FieldDescription>\n            </FieldContent>\n            <Checkbox\n              id={`checkbox-09-${card.id}`}\n              defaultChecked={card.defaultChecked}\n            />\n          </Field>\n        </FieldLabel>\n      ))}\n    </FieldGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

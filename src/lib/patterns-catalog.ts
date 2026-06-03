@@ -4,6 +4,7 @@ import {
   AvatarConcept,
   BreadcrumbConcept,
   ButtonConcept,
+  CheckboxConcept,
   CollapsibleConcept,
   CommandConcept,
   DialogConcept,
@@ -12,11 +13,13 @@ import {
   ItemConcept,
   PopoverConcept,
   SelectConcept,
+  SwitchConcept,
+  TableConcept,
   TabsConcept,
   TooltipConcept,
 } from './pattern-concepts'
 
-export type PatternGridColumns = 2 | 3
+export type PatternGridColumns = 1 | 2 | 3
 
 export interface PatternItem {
   slug: string
@@ -203,6 +206,274 @@ export const patternCategories: PatternCategory[] = [
         name: 'TanStack Form + Zod',
         description:
           'form.Field wires Select; Zod onSubmit validator surfaces FieldError when touched.',
+      },
+    ],
+  },
+  {
+    slug: 'checkbox',
+    name: 'Checkbox',
+    description: 'Toggle one or many options on and off.',
+    preview: CheckboxConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'checkbox-01',
+        name: 'Basic',
+        description: 'Single checkbox with a label.',
+      },
+      {
+        slug: 'checkbox-02',
+        name: 'With description',
+        description: 'Checkbox with a label and helper description.',
+      },
+      {
+        slug: 'checkbox-03',
+        name: 'Disabled',
+        description: 'Disabled unchecked and disabled checked states.',
+      },
+      {
+        slug: 'checkbox-04',
+        name: 'Group',
+        description: 'FieldSet of notification options with descriptions.',
+      },
+      {
+        slug: 'checkbox-06',
+        name: 'Select all',
+        description: 'Parent checkbox with an indeterminate mixed state.',
+      },
+      {
+        slug: 'checkbox-07',
+        name: 'Nested tree',
+        description:
+          'Multi-level file tree; parents derive checked / indeterminate from children.',
+      },
+      {
+        slug: 'checkbox-08',
+        name: 'Choice cards',
+        description: 'Bordered add-on cards that highlight when checked.',
+      },
+      {
+        slug: 'checkbox-09',
+        name: 'Payment methods',
+        description: 'Selectable saved credit cards with brand and last four.',
+      },
+      {
+        slug: 'checkbox-10',
+        name: 'Table row selection',
+        description:
+          'Data table with a select-all header, per-row checkboxes, and a count.',
+      },
+      {
+        slug: 'checkbox-11',
+        name: 'Invalid / required',
+        description:
+          'aria-invalid on the checkbox and data-invalid on the field show error styles.',
+      },
+      {
+        slug: 'checkbox-12',
+        name: 'React Hook Form + Zod',
+        description:
+          'Controller binds a checkbox group to RHF; Zod requires at least one.',
+      },
+      {
+        slug: 'checkbox-13',
+        name: 'TanStack Form + Zod',
+        description:
+          'form.Field wires a checkbox group; Zod onSubmit validator surfaces FieldError.',
+      },
+    ],
+  },
+  {
+    slug: 'switch',
+    name: 'Switch',
+    description: 'Toggle a single setting on or off.',
+    preview: SwitchConcept,
+    hasNew: true,
+    items: [
+      {
+        slug: 'switch-01',
+        name: 'Basic',
+        description: 'A single standalone switch.',
+      },
+      {
+        slug: 'switch-02',
+        name: 'With label',
+        description: 'Switch paired with an accessible field label.',
+      },
+      {
+        slug: 'switch-03',
+        name: 'With description',
+        description: 'Label and helper description beside the switch.',
+      },
+      {
+        slug: 'switch-04',
+        name: 'Sizes',
+        description: 'The sm and default sizes side-by-side.',
+      },
+      {
+        slug: 'switch-05',
+        name: 'Disabled',
+        description: 'Disabled off and disabled on states.',
+      },
+      {
+        slug: 'switch-06',
+        name: 'Theme toggle',
+        description: 'Sun and moon icons flank a light / dark toggle.',
+      },
+      {
+        slug: 'switch-07',
+        name: 'Icon in thumb',
+        description:
+          'Custom larger toggle with sun / moon icons that swap inside the thumb.',
+      },
+      {
+        slug: 'switch-08',
+        name: 'Settings group',
+        description: 'FieldSet of notification rows, each with a switch.',
+      },
+      {
+        slug: 'switch-09',
+        name: 'Credit card auto-pay',
+        description: 'A styled card with an automatic payments toggle.',
+      },
+      {
+        slug: 'switch-10',
+        name: 'Choice cards',
+        description: 'Bordered add-on cards that highlight when toggled on.',
+      },
+      {
+        slug: 'switch-11',
+        name: 'Invalid / required',
+        description:
+          'aria-invalid and data-invalid show error styles until enabled.',
+      },
+      {
+        slug: 'switch-12',
+        name: 'React Hook Form + Zod',
+        description:
+          'Controller binds the switch to RHF; Zod requires opt-in on submit.',
+      },
+      {
+        slug: 'switch-13',
+        name: 'TanStack Form + Zod',
+        description:
+          'form.Field wires the switch; Zod onSubmit validator surfaces FieldError.',
+      },
+    ],
+  },
+  {
+    slug: 'table',
+    name: 'Table',
+    description: 'Display rows and columns of structured data.',
+    preview: TableConcept,
+    hasNew: true,
+    grid: { columns: 1 },
+    items: [
+      {
+        slug: 'table-01',
+        name: 'Basic',
+        description: 'Caption, header, and a footer total row.',
+      },
+      {
+        slug: 'table-02',
+        name: 'With images',
+        description: 'Avatar thumbnails beside name and email in each row.',
+      },
+      {
+        slug: 'table-03',
+        name: 'Without dividers',
+        description: 'Borderless rows for a clean, list-like layout.',
+      },
+      {
+        slug: 'table-04',
+        name: 'Striped rows',
+        description: 'Zebra striping tints every other row.',
+      },
+      {
+        slug: 'table-05',
+        name: 'With vertical lines',
+        description: 'Column grid lines via per-cell right borders.',
+      },
+      {
+        slug: 'table-06',
+        name: 'Dense',
+        description: 'Compact padding and type for high-density data.',
+      },
+      {
+        slug: 'table-07',
+        name: 'With checkbox',
+        description:
+          'Select-all header, per-row checkboxes, and a selection count.',
+      },
+      {
+        slug: 'table-08',
+        name: 'Card table',
+        description: 'Table inside a Card with title and status badges.',
+      },
+      {
+        slug: 'table-09',
+        name: 'Vertical',
+        description: 'Key-value details with row headers down the left.',
+      },
+      {
+        slug: 'table-10',
+        name: 'Sticky header',
+        description: 'Header pinned while the capped body scrolls.',
+      },
+      {
+        slug: 'table-11',
+        name: 'Sortable',
+        description: 'TanStack Table — click a header to sort the column.',
+      },
+      {
+        slug: 'table-12',
+        name: 'With filters',
+        description:
+          'TanStack Table — global search plus a status column filter.',
+      },
+      {
+        slug: 'table-13',
+        name: 'Pagination',
+        description:
+          'TanStack Table — prev / next controls with a rows-per-page select.',
+      },
+      {
+        slug: 'table-14',
+        name: 'Numeric pagination',
+        description: 'TanStack Table — numbered page buttons with prev / next.',
+      },
+      {
+        slug: 'table-15',
+        name: 'Column visibility',
+        description: 'TanStack Table — toggle columns from a dropdown menu.',
+      },
+      {
+        slug: 'table-16',
+        name: 'Resizable columns',
+        description: 'TanStack Table — drag the header edge to resize columns.',
+      },
+      {
+        slug: 'table-17',
+        name: 'Pinnable columns',
+        description:
+          'TanStack Table — pin columns left or right; they stay while scrolling.',
+      },
+      {
+        slug: 'table-18',
+        name: 'Row selection',
+        description:
+          'TanStack Table — row checkboxes with a bulk actions toolbar.',
+      },
+      {
+        slug: 'table-19',
+        name: 'Expanding sub-rows',
+        description: 'TanStack Table — expandable parent rows for tree data.',
+      },
+      {
+        slug: 'table-20',
+        name: 'Complex data table',
+        description:
+          'TanStack Table — sort, filter, paginate, select, hide columns, and row actions.',
       },
     ],
   },
