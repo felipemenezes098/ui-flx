@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-04",
+  "title": "Paragraph",
+  "description": "A heading followed by full-width body lines.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-04.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton04() {\n  return (\n    <div className=\"flex w-full flex-col gap-4\">\n      <Skeleton className=\"h-6 w-1/2\" />\n      <div className=\"flex flex-col gap-2.5\">\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-5/6\" />\n        <Skeleton className=\"h-3.5 w-2/3\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

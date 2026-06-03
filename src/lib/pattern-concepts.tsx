@@ -432,17 +432,21 @@ export function SwitchConcept() {
   )
 }
 
-export function LoadingConcept() {
+export function SkeletonConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">
-      <div className="flex w-full flex-col gap-3">
-        <div className="bg-card dark:bg-muted flex h-9 items-center justify-between rounded-md border px-3 shadow-sm">
-          <div className="bg-foreground/15 h-1.5 w-24 rounded-full" />
-          <div className="border-foreground/15 border-t-primary size-3.5 animate-spin rounded-full border-2" />
+      <div className="bg-card dark:bg-muted w-full rounded-lg border p-4 shadow-sm">
+        <div className="bg-foreground/10 mb-3 h-16 w-full animate-pulse rounded-md" />
+        <div className="flex items-center gap-2.5">
+          <div className="bg-foreground/15 size-8 shrink-0 animate-pulse rounded-full" />
+          <div className="flex flex-1 flex-col gap-1.5">
+            <div className="bg-foreground/15 h-1.5 w-20 animate-pulse rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-28 animate-pulse rounded-full" />
+          </div>
         </div>
-        <div className="bg-primary flex h-9 items-center justify-center gap-2 rounded-md px-4 shadow-sm">
-          <div className="border-primary-foreground/40 border-t-primary-foreground size-3.5 animate-spin rounded-full border-2" />
-          <div className="bg-primary-foreground/40 h-1.5 w-12 rounded-full" />
+        <div className="mt-3 flex flex-col gap-1.5">
+          <div className="bg-foreground/10 h-1.5 w-full animate-pulse rounded-full" />
+          <div className="bg-foreground/10 h-1.5 w-4/5 animate-pulse rounded-full" />
         </div>
       </div>
     </div>

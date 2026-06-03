@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-06",
+  "title": "Table",
+  "description": "A header row above several placeholder data rows.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-06.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton06() {\n  return (\n    <div className=\"w-full overflow-hidden rounded-md border\">\n      <div className=\"bg-muted/50 flex items-center gap-4 border-b px-4 py-3\">\n        <Skeleton className=\"h-3 w-24\" />\n        <Skeleton className=\"ml-auto h-3 w-20\" />\n        <Skeleton className=\"h-3 w-16\" />\n      </div>\n      {Array.from({ length: 5 }).map((_, i) => (\n        <div\n          key={i}\n          className=\"flex items-center gap-4 border-b px-4 py-3.5 last:border-b-0\"\n        >\n          <Skeleton className=\"h-3.5 w-28\" />\n          <Skeleton className=\"ml-auto h-3.5 w-20\" />\n          <Skeleton className=\"h-3.5 w-16\" />\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

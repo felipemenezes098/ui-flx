@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-12",
+  "title": "Chat thread",
+  "description": "Alternating inbound and outbound message bubbles.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-12.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton12() {\n  return (\n    <div className=\"flex w-full flex-col gap-4\">\n      <div className=\"flex items-start gap-2.5\">\n        <Skeleton className=\"size-8 shrink-0 rounded-full\" />\n        <div className=\"flex flex-col gap-1.5\">\n          <Skeleton className=\"h-9 w-40 rounded-2xl rounded-tl-sm\" />\n          <Skeleton className=\"h-9 w-28 rounded-2xl rounded-tl-sm\" />\n        </div>\n      </div>\n      <div className=\"flex items-start justify-end gap-2.5\">\n        <div className=\"flex flex-col items-end gap-1.5\">\n          <Skeleton className=\"bg-primary/15 h-9 w-48 rounded-2xl rounded-tr-sm\" />\n        </div>\n      </div>\n      <div className=\"flex items-start gap-2.5\">\n        <Skeleton className=\"size-8 shrink-0 rounded-full\" />\n        <Skeleton className=\"h-9 w-36 rounded-2xl rounded-tl-sm\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
