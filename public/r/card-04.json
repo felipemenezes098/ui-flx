@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-04",
+  "title": "With action menu",
+  "description": "CardAction hosts a dropdown of rename, share, and delete.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-04.tsx",
+      "content": "import { MoreHorizontalIcon, PencilIcon, Share2Icon, TrashIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\nexport function Card04() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Quarterly report</CardTitle>\n        <CardDescription>Finance · Q2 2026</CardDescription>\n        <CardAction>\n          <DropdownMenu>\n            <DropdownMenuTrigger asChild>\n              <Button variant=\"ghost\" size=\"icon-sm\">\n                <MoreHorizontalIcon />\n                <span className=\"sr-only\">Open menu</span>\n              </Button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"end\">\n              <DropdownMenuGroup>\n                <DropdownMenuItem>\n                  <PencilIcon />\n                  Rename\n                </DropdownMenuItem>\n                <DropdownMenuItem>\n                  <Share2Icon />\n                  Share\n                </DropdownMenuItem>\n              </DropdownMenuGroup>\n              <DropdownMenuSeparator />\n              <DropdownMenuItem variant=\"destructive\">\n                <TrashIcon />\n                Delete\n              </DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </CardAction>\n      </CardHeader>\n      <CardContent className=\"text-muted-foreground\">\n        Revenue grew 18% over the prior quarter, driven by expansion in the\n        enterprise segment.\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

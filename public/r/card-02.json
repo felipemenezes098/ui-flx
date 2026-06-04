@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-02",
+  "title": "With image",
+  "description": "Top media banner above title, body, and a CTA footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-02.tsx",
+      "content": "import { MapPinIcon, StarIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function Card02() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <img\n        src=\"https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=640&q=80\"\n        alt=\"Forested valley at golden hour\"\n        className=\"aspect-video object-cover\"\n      />\n      <CardHeader>\n        <CardTitle>Mountain retreat</CardTitle>\n        <CardDescription className=\"flex items-center gap-1\">\n          <MapPinIcon className=\"size-3.5\" />\n          Aspen, Colorado\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"text-muted-foreground\">\n        A secluded cabin with floor-to-ceiling windows, a wood stove, and trail\n        access from the back porch.\n      </CardContent>\n      <CardFooter className=\"justify-between\">\n        <span className=\"flex items-center gap-1 text-sm font-medium\">\n          <StarIcon className=\"size-4 fill-amber-400 text-amber-400\" />\n          4.9\n        </span>\n        <Button>Book now</Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

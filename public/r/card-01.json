@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-01",
+  "title": "Basic",
+  "description": "Header, action, content, and a bordered footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-01.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function Card01() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Project Phoenix</CardTitle>\n        <CardDescription>\n          A complete rebuild of the analytics dashboard.\n        </CardDescription>\n        <CardAction>\n          <Button variant=\"ghost\" size=\"sm\">\n            View\n          </Button>\n        </CardAction>\n      </CardHeader>\n      <CardContent className=\"text-muted-foreground\">\n        Ship the new reporting suite with live charts, exports, and shareable\n        links by the end of the quarter.\n      </CardContent>\n      <CardFooter className=\"justify-between border-t\">\n        <span className=\"text-muted-foreground text-sm\">Updated 2h ago</span>\n        <Button size=\"sm\">Open</Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

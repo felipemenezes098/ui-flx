@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-09",
+  "title": "Pricing",
+  "description": "Highlighted plan with a Popular badge and feature checklist.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-09.tsx",
+      "content": "import { CheckIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nconst features = [\n  'Unlimited projects',\n  'Advanced analytics',\n  'Priority support',\n  '50 GB storage',\n]\n\nexport function Card09() {\n  return (\n    <Card className=\"ring-primary w-full max-w-xs ring-2\">\n      <CardHeader>\n        <CardTitle>Pro</CardTitle>\n        <CardDescription>For growing teams that ship fast.</CardDescription>\n        <CardAction>\n          <Badge>Popular</Badge>\n        </CardAction>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        <div className=\"flex items-baseline gap-1\">\n          <span className=\"text-3xl font-semibold tabular-nums\">$29</span>\n          <span className=\"text-muted-foreground text-sm\">/ month</span>\n        </div>\n        <ul className=\"flex flex-col gap-2 text-sm\">\n          {features.map((feature) => (\n            <li key={feature} className=\"flex items-center gap-2\">\n              <CheckIcon className=\"text-primary size-4 shrink-0\" />\n              {feature}\n            </li>\n          ))}\n        </ul>\n      </CardContent>\n      <CardFooter>\n        <Button className=\"w-full\">Get started</Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

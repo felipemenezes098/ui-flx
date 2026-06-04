@@ -8,7 +8,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { BellIcon, GitPullRequestIcon, MessageSquareIcon, UserPlusIcon } from 'lucide-react'
+import {
+  BellIcon,
+  GitPullRequestIcon,
+  MessageSquareIcon,
+  UserPlusIcon,
+} from 'lucide-react'
 
 const notifications = [
   {
@@ -45,14 +50,14 @@ export function Dropdown16() {
         >
           <BellIcon />
           {unread > 0 && (
-            <span className="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
+            <span className="bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
               {unread}
             </span>
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-72">
-        <DropdownMenuLabel className="flex items-center justify-between text-foreground">
+      <DropdownMenuContent align="center" className="w-72">
+        <DropdownMenuLabel className="text-foreground flex items-center justify-between">
           Notifications
           <Badge variant="secondary" className="rounded-sm px-1.5">
             {unread} new
@@ -60,13 +65,18 @@ export function Dropdown16() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {notifications.map((item) => (
-          <DropdownMenuItem key={item.title} className="items-start gap-2.5 py-2">
-            <item.icon className="mt-0.5 text-muted-foreground" />
+          <DropdownMenuItem
+            key={item.title}
+            className="items-start gap-2.5 py-2"
+          >
+            <item.icon className="text-muted-foreground mt-0.5" />
             <div className="flex flex-1 flex-col gap-0.5">
               <span className="text-sm leading-snug">{item.title}</span>
-              <span className="text-xs text-muted-foreground">{item.time}</span>
+              <span className="text-muted-foreground text-xs">{item.time}</span>
             </div>
-            {item.unread && <span className="mt-1.5 size-2 rounded-full bg-primary" />}
+            {item.unread && (
+              <span className="bg-primary mt-1.5 size-2 rounded-full" />
+            )}
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-08",
+  "title": "Profile",
+  "description": "Centered avatar, stats row, and follow / message actions.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "avatar",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-08.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n} from '@/components/ui/card'\nimport { Separator } from '@/components/ui/separator'\n\nconst stats = [\n  { label: 'Posts', value: '128' },\n  { label: 'Followers', value: '4.2k' },\n  { label: 'Following', value: '312' },\n]\n\nexport function Card08() {\n  return (\n    <Card className=\"w-full max-w-xs\">\n      <CardHeader className=\"items-center text-center\">\n        <Avatar className=\"size-16\">\n          <AvatarImage\n            src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80\"\n            alt=\"Mia Anderson\"\n          />\n          <AvatarFallback>MA</AvatarFallback>\n        </Avatar>\n        <div className=\"mt-2 flex flex-col gap-0.5\">\n          <span className=\"font-medium\">Mia Anderson</span>\n          <span className=\"text-muted-foreground text-sm\">\n            Product designer\n          </span>\n        </div>\n      </CardHeader>\n      <CardContent>\n        <div className=\"flex items-center justify-around\">\n          {stats.map((stat, index) => (\n            <div key={stat.label} className=\"flex items-center gap-4\">\n              <div className=\"flex flex-col items-center\">\n                <span className=\"font-semibold tabular-nums\">{stat.value}</span>\n                <span className=\"text-muted-foreground text-xs\">\n                  {stat.label}\n                </span>\n              </div>\n              {index < stats.length - 1 && (\n                <Separator orientation=\"vertical\" className=\"h-8\" />\n              )}\n            </div>\n          ))}\n        </div>\n      </CardContent>\n      <CardFooter className=\"gap-2\">\n        <Button className=\"flex-1\">Follow</Button>\n        <Button variant=\"outline\" className=\"flex-1\">\n          Message\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

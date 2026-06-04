@@ -1,3 +1,27 @@
+export function CardConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="bg-card dark:bg-muted w-full overflow-hidden rounded-lg border shadow-sm">
+        <div className="bg-foreground/10 h-16 w-full" />
+        <div className="flex flex-col gap-3 p-4">
+          <div className="flex flex-col gap-1.5">
+            <div className="bg-foreground/25 h-2 w-24 rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-32 rounded-full" />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <div className="bg-foreground/10 h-1.5 w-full rounded-full" />
+            <div className="bg-foreground/10 h-1.5 w-4/5 rounded-full" />
+          </div>
+          <div className="flex justify-end gap-2 pt-1">
+            <div className="h-6 w-12 rounded-md border" />
+            <div className="bg-primary h-6 w-14 rounded-md shadow-sm" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function SelectConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">

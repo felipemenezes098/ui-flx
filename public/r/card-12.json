@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-12",
+  "title": "Selectable",
+  "description": "Clickable plan cards with a ring and check on the active one.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-12.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CheckIcon, RocketIcon, ZapIcon } from 'lucide-react'\n\nimport { Card, CardContent } from '@/components/ui/card'\nimport { cn } from '@/lib/utils'\n\nconst plans = [\n  {\n    id: 'starter',\n    name: 'Starter',\n    description: 'For side projects',\n    icon: ZapIcon,\n  },\n  {\n    id: 'scale',\n    name: 'Scale',\n    description: 'For production apps',\n    icon: RocketIcon,\n  },\n]\n\nexport function Card12() {\n  const [selected, setSelected] = useState('scale')\n\n  return (\n    <div className=\"grid w-full max-w-md gap-3 sm:grid-cols-2\">\n      {plans.map((plan) => {\n        const isSelected = selected === plan.id\n        return (\n          <Card\n            key={plan.id}\n            role=\"button\"\n            tabIndex={0}\n            onClick={() => setSelected(plan.id)}\n            onKeyDown={(event) => {\n              if (event.key === 'Enter' || event.key === ' ') {\n                event.preventDefault()\n                setSelected(plan.id)\n              }\n            }}\n            className={cn(\n              'hover:border-primary/50 cursor-pointer transition-colors outline-none',\n              isSelected && 'border-primary ring-primary ring-1',\n            )}\n          >\n            <CardContent className=\"flex items-start gap-3\">\n              <plan.icon className=\"text-muted-foreground mt-0.5 size-5 shrink-0\" />\n              <div className=\"flex flex-col\">\n                <span className=\"font-medium\">{plan.name}</span>\n                <span className=\"text-muted-foreground text-sm\">\n                  {plan.description}\n                </span>\n              </div>\n              <span\n                className={cn(\n                  'border-input ml-auto flex size-5 shrink-0 items-center justify-center rounded-full border',\n                  isSelected && 'bg-primary border-primary text-primary-foreground',\n                )}\n              >\n                {isSelected && <CheckIcon className=\"size-3\" />}\n              </span>\n            </CardContent>\n          </Card>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

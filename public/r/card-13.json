@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-13",
+  "title": "Image overlay",
+  "description": "Text and a CTA over a gradient-darkened cover image.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-13.tsx",
+      "content": "import { ArrowRightIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport { Card } from '@/components/ui/card'\n\nexport function Card13() {\n  return (\n    <Card className=\"relative w-full max-w-sm border-0 py-0 text-white\">\n      <img\n        src=\"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=640&q=80\"\n        alt=\"Sunlit mountain ridge\"\n        className=\"aspect-[4/5] object-cover\"\n      />\n      <div className=\"absolute inset-0 rounded-xl bg-gradient-to-t from-black/80 via-black/20 to-transparent\" />\n      <div className=\"absolute inset-x-0 bottom-0 flex flex-col gap-2 p-6\">\n        <Badge variant=\"secondary\" className=\"w-fit\">\n          Featured\n        </Badge>\n        <h3 className=\"font-heading text-xl font-semibold\">\n          Into the wild\n        </h3>\n        <p className=\"text-sm text-white/80\">\n          A photo series capturing dawn across remote alpine trails.\n        </p>\n        <Button\n          variant=\"secondary\"\n          size=\"sm\"\n          className=\"mt-2 w-fit\"\n        >\n          Explore\n          <ArrowRightIcon data-icon=\"inline-end\" />\n        </Button>\n      </div>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

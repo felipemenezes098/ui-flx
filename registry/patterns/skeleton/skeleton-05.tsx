@@ -10,7 +10,6 @@ export function Skeleton05() {
             <Skeleton className="h-3.5 w-32" />
             <Skeleton className="h-3 w-48" />
           </div>
-          <Skeleton className="h-3 w-12 shrink-0" />
         </div>
       ))}
     </div>

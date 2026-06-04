@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-11",
+  "title": "Notification settings",
+  "description": "Horizontal field rows each toggled with a switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-11.tsx",
+      "content": "import {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nconst settings = [\n  {\n    id: 'card-11-product',\n    label: 'Product updates',\n    description: 'News about features and improvements.',\n    defaultChecked: true,\n  },\n  {\n    id: 'card-11-security',\n    label: 'Security alerts',\n    description: 'Get notified about suspicious activity.',\n    defaultChecked: true,\n  },\n  {\n    id: 'card-11-marketing',\n    label: 'Marketing emails',\n    description: 'Tips, offers, and occasional surveys.',\n    defaultChecked: false,\n  },\n]\n\nexport function Card11() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Notifications</CardTitle>\n        <CardDescription>Choose what you want to hear about.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <FieldGroup>\n          {settings.map((setting) => (\n            <Field key={setting.id} orientation=\"horizontal\">\n              <FieldContent>\n                <FieldLabel htmlFor={setting.id}>{setting.label}</FieldLabel>\n                <FieldDescription>{setting.description}</FieldDescription>\n              </FieldContent>\n              <Switch id={setting.id} defaultChecked={setting.defaultChecked} />\n            </Field>\n          ))}\n        </FieldGroup>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-14",
+  "title": "Payment form",
+  "description": "Card number group, expiry, CVC, and country select.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "field",
+    "input",
+    "input-group",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-14.tsx",
+      "content": "import { CreditCardIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Field, FieldGroup, FieldLabel } from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from '@/components/ui/input-group'\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nexport function Card14() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Payment details</CardTitle>\n        <CardDescription>\n          Enter your card information to complete checkout.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form>\n          <FieldGroup>\n            <Field>\n              <FieldLabel htmlFor=\"card-14-name\">Name on card</FieldLabel>\n              <Input id=\"card-14-name\" placeholder=\"Felipe Menezes\" />\n            </Field>\n            <Field>\n              <FieldLabel htmlFor=\"card-14-number\">Card number</FieldLabel>\n              <InputGroup>\n                <InputGroupInput\n                  id=\"card-14-number\"\n                  placeholder=\"1234 1234 1234 1234\"\n                  inputMode=\"numeric\"\n                />\n                <InputGroupAddon>\n                  <CreditCardIcon />\n                </InputGroupAddon>\n              </InputGroup>\n            </Field>\n            <div className=\"grid grid-cols-2 gap-4\">\n              <Field>\n                <FieldLabel htmlFor=\"card-14-expiry\">Expires</FieldLabel>\n                <Input id=\"card-14-expiry\" placeholder=\"MM / YY\" />\n              </Field>\n              <Field>\n                <FieldLabel htmlFor=\"card-14-cvc\">CVC</FieldLabel>\n                <Input id=\"card-14-cvc\" placeholder=\"123\" inputMode=\"numeric\" />\n              </Field>\n            </div>\n            <Field>\n              <FieldLabel htmlFor=\"card-14-country\">Country</FieldLabel>\n              <Select defaultValue=\"us\">\n                <SelectTrigger id=\"card-14-country\" className=\"w-full\">\n                  <SelectValue />\n                </SelectTrigger>\n                <SelectContent>\n                  <SelectItem value=\"us\">United States</SelectItem>\n                  <SelectItem value=\"br\">Brazil</SelectItem>\n                  <SelectItem value=\"pt\">Portugal</SelectItem>\n                  <SelectItem value=\"uk\">United Kingdom</SelectItem>\n                </SelectContent>\n              </Select>\n            </Field>\n          </FieldGroup>\n        </form>\n      </CardContent>\n      <CardFooter>\n        <Button type=\"submit\" className=\"w-full\">\n          Pay $29.00\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

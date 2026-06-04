@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/patterns/skeleton/skeleton-05.tsx",
-      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton05() {\n  return (\n    <div className=\"flex w-full flex-col divide-y rounded-md border\">\n      {Array.from({ length: 4 }).map((_, i) => (\n        <div key={i} className=\"flex items-center gap-3 px-4 py-3\">\n          <Skeleton className=\"size-9 shrink-0 rounded-full\" />\n          <div className=\"flex flex-1 flex-col gap-1.5\">\n            <Skeleton className=\"h-3.5 w-32\" />\n            <Skeleton className=\"h-3 w-48\" />\n          </div>\n          <Skeleton className=\"h-3 w-12 shrink-0\" />\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton05() {\n  return (\n    <div className=\"flex w-full flex-col divide-y rounded-md border\">\n      {Array.from({ length: 4 }).map((_, i) => (\n        <div key={i} className=\"flex items-center gap-3 px-4 py-3\">\n          <Skeleton className=\"size-9 shrink-0 rounded-full\" />\n          <div className=\"flex flex-1 flex-col gap-1.5\">\n            <Skeleton className=\"h-3.5 w-32\" />\n            <Skeleton className=\"h-3 w-48\" />\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/skeleton/skeleton-05.tsx"
     }

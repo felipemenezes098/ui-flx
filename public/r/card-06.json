@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-06",
+  "title": "Login form",
+  "description": "Email and password fields with sign-in and OAuth buttons.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-06.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nexport function Card06() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Sign in</CardTitle>\n        <CardDescription>\n          Enter your credentials to access your account.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form>\n          <FieldGroup>\n            <Field>\n              <FieldLabel htmlFor=\"card-06-email\">Email</FieldLabel>\n              <Input\n                id=\"card-06-email\"\n                type=\"email\"\n                placeholder=\"you@example.com\"\n              />\n            </Field>\n            <Field>\n              <div className=\"flex items-center\">\n                <FieldLabel htmlFor=\"card-06-password\">Password</FieldLabel>\n                <Button\n                  variant=\"link\"\n                  className=\"ml-auto h-auto p-0 text-sm font-normal\"\n                >\n                  Forgot?\n                </Button>\n              </div>\n              <Input id=\"card-06-password\" type=\"password\" />\n              <FieldDescription>Must be at least 8 characters.</FieldDescription>\n            </Field>\n          </FieldGroup>\n        </form>\n      </CardContent>\n      <CardFooter className=\"flex-col gap-2\">\n        <Button type=\"submit\" className=\"w-full\">\n          Sign in\n        </Button>\n        <Button variant=\"outline\" className=\"w-full\">\n          Continue with Google\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

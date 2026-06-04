@@ -1358,6 +1358,272 @@
       "description": "A wrapping group of outline badges as tags."
     },
     {
+      "name": "card-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Header, action, content, and a bordered footer."
+    },
+    {
+      "name": "card-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-02.tsx"
+        }
+      ],
+      "title": "With image",
+      "description": "Top media banner above title, body, and a CTA footer."
+    },
+    {
+      "name": "card-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-03.tsx"
+        }
+      ],
+      "title": "Horizontal",
+      "description": "Image on the left beside a category, title, and link."
+    },
+    {
+      "name": "card-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-04.tsx"
+        }
+      ],
+      "title": "With action menu",
+      "description": "CardAction hosts a dropdown of rename, share, and delete."
+    },
+    {
+      "name": "card-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-05.tsx"
+        }
+      ],
+      "title": "Stat",
+      "description": "KPI value with an icon and a tinted trend badge."
+    },
+    {
+      "name": "card-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "field",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-06.tsx"
+        }
+      ],
+      "title": "Login form",
+      "description": "Email and password fields with sign-in and OAuth buttons."
+    },
+    {
+      "name": "card-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "dialog"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-07.tsx"
+        }
+      ],
+      "title": "Opens in dialog",
+      "description": "A footer button launches a modal with subscription detail."
+    },
+    {
+      "name": "card-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "avatar",
+        "separator"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-08.tsx"
+        }
+      ],
+      "title": "Profile",
+      "description": "Centered avatar, stats row, and follow / message actions."
+    },
+    {
+      "name": "card-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-09.tsx"
+        }
+      ],
+      "title": "Pricing",
+      "description": "Highlighted plan with a Popular badge and feature checklist."
+    },
+    {
+      "name": "card-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-10.tsx"
+        }
+      ],
+      "title": "Product",
+      "description": "Square image with a sale badge, price, and add-to-cart."
+    },
+    {
+      "name": "card-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-11.tsx"
+        }
+      ],
+      "title": "Notification settings",
+      "description": "Horizontal field rows each toggled with a switch."
+    },
+    {
+      "name": "card-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-12.tsx"
+        }
+      ],
+      "title": "Selectable",
+      "description": "Clickable plan cards with a ring and check on the active one."
+    },
+    {
+      "name": "card-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-13.tsx"
+        }
+      ],
+      "title": "Image overlay",
+      "description": "Text and a CTA over a gradient-darkened cover image."
+    },
+    {
+      "name": "card-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "button",
+        "field",
+        "input",
+        "input-group",
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/patterns/card/card-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/card/card-14.tsx"
+        }
+      ],
+      "title": "Payment form",
+      "description": "Card number group, expiry, CVC, and country select."
+    },
+    {
       "name": "select-01",
       "type": "registry:block",
       "title": "Basic",
