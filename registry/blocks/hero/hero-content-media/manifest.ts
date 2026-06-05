@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { HeroContentMedia } from './hero-content-media'
 import { HeroContentMediaEditorFields } from './editor/fields'
 import { HeroContentMediaExample, values } from './hero-content-media-example'

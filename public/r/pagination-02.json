@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "pagination-02",
   "title": "Compact",
-  "description": "Inline numbers from sm up, “Page X of Y” on mobile.",
+  "description": "Inline numbers from sm up, \"Page X of Y\" on mobile.",
   "dependencies": [],
   "registryDependencies": [
     "pagination"

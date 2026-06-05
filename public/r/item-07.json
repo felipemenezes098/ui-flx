@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-07",
   "title": "With thumbnail",
-  "description": "Image thumbnail in ItemMedia variant=\"image\".",
+  "description": "Small image thumbnail placed before the title and subtitle.",
   "dependencies": [],
   "registryDependencies": [
     "item"

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-23",
   "title": "Copy field",
-  "description": "ButtonGroupText value with a trailing copy button.",
+  "description": "Read-only text value paired with a trailing icon button that copies it to the clipboard, with an animated check on success.",
   "dependencies": [
     "lucide-react",
     "motion"

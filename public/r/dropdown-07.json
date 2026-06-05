@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-07",
   "title": "Radio group",
-  "description": "Pick a single value from a DropdownMenuRadioGroup.",
+  "description": "Radio items that keep exactly one option selected at a time.",
   "dependencies": [],
   "registryDependencies": [
     "dropdown-menu",

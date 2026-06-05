@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-16",
   "title": "Icon in the trigger",
-  "description": "Leading icon in the trigger updates with the selection; dropdown options are text only.",
+  "description": "Fixed leading icon in the trigger alongside the selected value; dropdown options are text only.",
   "dependencies": [],
   "registryDependencies": [
     "select"

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command-10",
   "title": "Status picker",
-  "description": "Ghost trigger with a colored status dot — issue-tracker style.",
+  "description": "Ghost trigger with a colored status dot, issue-tracker style.",
   "dependencies": [],
   "registryDependencies": [
     "popover",

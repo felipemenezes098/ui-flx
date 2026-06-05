@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-01",
   "title": "Basic",
-  "description": "Single-value dropdown.",
+  "description": "Minimal single-value dropdown with a placeholder and a flat list of options.",
   "dependencies": [],
   "registryDependencies": [
     "select",

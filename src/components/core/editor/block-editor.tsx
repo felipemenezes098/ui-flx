@@ -4,7 +4,7 @@ import * as React from 'react'
 import { PanelImperativeHandle } from 'react-resizable-panels'
 import type { RegistryItem } from 'shadcn/schema'
 
-import { blocks, type BlockItem } from '@/lib/catalog'
+import { blocks, type BlockItem } from '@/lib/blocks/block-catalog'
 import type { FileTree } from '@/lib/registry-utils'
 import {
   createFileTreeForRegistryItemFiles,

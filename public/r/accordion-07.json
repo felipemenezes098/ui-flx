@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-07",
   "title": "Left chevron",
-  "description": "Radix primitive places a rotating chevron before the label.",
+  "description": "Rotating chevron placed before the label instead of after it.",
   "dependencies": [
     "radix-ui"
   ],

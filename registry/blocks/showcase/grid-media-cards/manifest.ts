@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { GridMediaCards } from './grid-media-cards'
 import { ShowcaseGridMediaCardsEditorFields } from './editor/fields'
 import { ShowcaseGridMediaCardsExample, values } from './grid-media-cards-example'

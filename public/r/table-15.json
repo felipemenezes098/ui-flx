@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-15",
   "title": "Column visibility",
-  "description": "TanStack Table — toggle columns from a dropdown menu.",
+  "description": "TanStack Table, toggle individual columns on or off from a dropdown menu.",
   "dependencies": [
     "@tanstack/react-table"
   ],

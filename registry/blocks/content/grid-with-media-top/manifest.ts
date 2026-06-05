@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { GridWithMediaTop } from './grid-with-media-top'
 import { GridWithMediaTopEditorFields } from './editor/fields'
 import { GridWithMediaTopExample, values } from './grid-with-media-top-example'

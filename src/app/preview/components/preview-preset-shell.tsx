@@ -3,8 +3,11 @@
 import * as React from 'react'
 
 import { PresetScope } from '@/components/core/preset/preset-scope'
-import type { PresetId } from '@/lib/presets-config'
-import { FALLBACK_PRESET, readPresetFromStorage } from '@/lib/preset-storage'
+import type { PresetId } from '@/lib/presets/presets-config'
+import {
+  FALLBACK_PRESET,
+  readPresetFromStorage,
+} from '@/lib/presets/preset-storage'
 
 export function PreviewPresetShell({
   children,

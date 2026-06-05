@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import type { RegistryItem } from 'shadcn/schema'
 
-import { getCategoryBySlug, patternCategories } from '@/lib/patterns-catalog'
-import { getPatternByName } from '@/lib/patterns-utils'
+import {
+  getCategoryBySlug,
+  patternCategories,
+} from '@/lib/patterns/patterns-catalog'
 
 import { PatternCard } from '../components/pattern-card'
 import { PatternActions } from '../components/pattern-actions'
@@ -44,12 +47,16 @@ export default async function PatternCategoryPage({
   return (
     <PatternGrid columns={columns}>
       {category.items.map((catalogItem) => {
-        const item = getPatternByName(catalogItem.slug)
-        if (!item) return null
+        const item = {
+          name: catalogItem.slug,
+          title: catalogItem.name,
+          description: catalogItem.description,
+          type: 'registry:block',
+        } as RegistryItem
 
         return (
           <PatternCard
-            key={item.name}
+            key={catalogItem.slug}
             item={item}
             className={patternGridItemVariants({
               span: catalogItem.span ?? 'default',
@@ -57,7 +64,7 @@ export default async function PatternCategoryPage({
             })}
             actions={<PatternActions item={item} categorySlug={slug} />}
           >
-            <PatternRenderer name={item.name} />
+            <PatternRenderer name={catalogItem.slug} />
           </PatternCard>
         )
       })}

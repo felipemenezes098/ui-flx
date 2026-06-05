@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-18",
   "title": "Row selection",
-  "description": "TanStack Table — row checkboxes with a bulk actions toolbar.",
+  "description": "TanStack Table, row checkboxes with a bulk actions toolbar showing count, clear, and delete.",
   "dependencies": [
     "@tanstack/react-table"
   ],

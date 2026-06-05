@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-13",
   "title": "TanStack Form + Zod",
-  "description": "form.Field wires a checkbox group; Zod onSubmit validator surfaces FieldError.",
+  "description": "form.Field wires a checkbox group to TanStack Form; Zod validates on submit and shows an error when none are selected.",
   "dependencies": [
     "@tanstack/react-form",
     "zod",

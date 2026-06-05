@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-06",
   "title": "With description only items",
-  "description": "Select with description only items.",
+  "description": "Options show a bold label and a muted description sub-line; the trigger shows only the label after selection.",
   "dependencies": [],
   "registryDependencies": [
     "select"

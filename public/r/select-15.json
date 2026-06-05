@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-15",
   "title": "Animated content",
-  "description": "Popper position plus Popover-style origin-aware fade, zoom, and slide (duration-200).",
+  "description": "Dropdown opens in popper position anchored below the trigger with a small offset, giving a tooltip-style layout.",
   "dependencies": [],
   "registryDependencies": [
     "select"

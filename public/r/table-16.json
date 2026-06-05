@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-16",
   "title": "Resizable columns",
-  "description": "TanStack Table — drag the header edge to resize columns.",
+  "description": "TanStack Table, drag the header edge to resize column widths.",
   "dependencies": [
     "@tanstack/react-table"
   ],

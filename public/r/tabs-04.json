@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-04",
   "title": "Vertical line",
-  "description": "Vertical orientation with line variant — sidebar nav.",
+  "description": "Vertical orientation with underline indicators, suited for sidebar navigation.",
   "dependencies": [],
   "registryDependencies": [
     "tabs"

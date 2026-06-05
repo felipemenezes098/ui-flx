@@ -1,0 +1,305 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-command",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "command-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Canonical command menu with grouped items, icons, and shortcuts."
+    },
+    {
+      "name": "command-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command",
+        "button",
+        "dialog"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-02.tsx"
+        }
+      ],
+      "title": "Command dialog",
+      "description": "Spotlight-style ⌘K palette toggled by a button or keyboard shortcut."
+    },
+    {
+      "name": "command-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command",
+        "button",
+        "dialog",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-03.tsx"
+        }
+      ],
+      "title": "Global search",
+      "description": "Rich search dialog with recent, pages, and people plus a hint footer."
+    },
+    {
+      "name": "command-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "command"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-04.tsx"
+        }
+      ],
+      "title": "Async loading",
+      "description": "Debounced search with skeleton rows while loading, an empty state, and shouldFilter disabled for server-driven results."
+    },
+    {
+      "name": "command-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-05.tsx"
+        }
+      ],
+      "title": "Combobox",
+      "description": "Popover + Command framework picker with a check mark."
+    },
+    {
+      "name": "command-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-06.tsx"
+        }
+      ],
+      "title": "Combobox with clear",
+      "description": "Selected value shows an inline X that clears without reopening."
+    },
+    {
+      "name": "command-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-07.tsx"
+        }
+      ],
+      "title": "Multiple — chips",
+      "description": "Multi-select showing every choice as a removable badge chip in the trigger."
+    },
+    {
+      "name": "command-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-14.tsx"
+        }
+      ],
+      "title": "Multiple — count summary",
+      "description": "Trigger shows \"first, +N\" with a separate button to clear all."
+    },
+    {
+      "name": "command-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "badge",
+        "separator"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-15.tsx"
+        }
+      ],
+      "title": "Multiple — faceted filter",
+      "description": "Dashed trigger with count badges, checkbox rows, facet counts, and a clear footer."
+    },
+    {
+      "name": "command-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-08.tsx"
+        }
+      ],
+      "title": "Grouped picker",
+      "description": "Options split into labeled groups with separators, demonstrated with timezones organized by region."
+    },
+    {
+      "name": "command-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-09.tsx"
+        }
+      ],
+      "title": "Assignee picker",
+      "description": "Avatars with name and email subtext in the trigger and options."
+    },
+    {
+      "name": "command-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-10.tsx"
+        }
+      ],
+      "title": "Status picker",
+      "description": "Ghost trigger with a colored status dot, issue-tracker style."
+    },
+    {
+      "name": "command-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "command-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-11.tsx"
+        }
+      ],
+      "title": "With label",
+      "description": "Combobox composed with an accessible field Label."
+    },
+    {
+      "name": "command-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "command-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds the combobox to RHF; Zod resolver drives FieldError on submit."
+    },
+    {
+      "name": "command-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "command-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/command/command-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the combobox; Zod onSubmit validator surfaces FieldError when touched."
+    }
+  ]
+}

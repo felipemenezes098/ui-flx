@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-08",
   "title": "Settings group",
-  "description": "FieldSet of notification rows, each with a switch.",
+  "description": "A grouped list of notification settings, each row with a label, helper text, and a switch.",
   "dependencies": [],
   "registryDependencies": [
     "switch",

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-20",
   "title": "Complex data table",
-  "description": "TanStack Table — sort, filter, paginate, select, hide columns, and row actions.",
+  "description": "TanStack Table, combines sorting, column filter, pagination, row selection, column visibility toggle, and per-row action menus.",
   "dependencies": [
     "@tanstack/react-table"
   ],

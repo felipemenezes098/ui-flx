@@ -1,0 +1,425 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-dialog",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "dialog-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-01.tsx"
+        }
+      ],
+      "title": "Confirm action",
+      "description": "Polished yes/no with icon and clear hierarchy."
+    },
+    {
+      "name": "dialog-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-02.tsx"
+        }
+      ],
+      "title": "Edit profile",
+      "description": "FieldGroup form with Save and Cancel footer."
+    },
+    {
+      "name": "dialog-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-03.tsx"
+        }
+      ],
+      "title": "Delete account",
+      "description": "Destructive warning with icon and emphasized copy."
+    },
+    {
+      "name": "dialog-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "separator"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-04.tsx"
+        }
+      ],
+      "title": "Terms, sticky footer",
+      "description": "Long scroll body; Accept and Decline pinned footer."
+    },
+    {
+      "name": "dialog-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-05.tsx"
+        }
+      ],
+      "title": "Share link",
+      "description": "Readonly URL with copy control; minimal footer."
+    },
+    {
+      "name": "dialog-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-06.tsx"
+        }
+      ],
+      "title": "Sticky header",
+      "description": "Header fixed; scrollable changelog-style body."
+    },
+    {
+      "name": "dialog-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input-otp",
+        "field"
+      ],
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "dialog-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-08.tsx"
+        }
+      ],
+      "title": "Verify code (OTP)",
+      "description": "6-digit InputOTP with separator; Verify footer."
+    },
+    {
+      "name": "dialog-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-09.tsx"
+        }
+      ],
+      "title": "Onboarding welcome",
+      "description": "Compact hero image, title, and description; dual CTAs."
+    },
+    {
+      "name": "dialog-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-10.tsx"
+        }
+      ],
+      "title": "Footer-only dismiss",
+      "description": "No corner close button; dismiss only through the footer."
+    },
+    {
+      "name": "dialog-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-11.tsx"
+        }
+      ],
+      "title": "Pick teammates",
+      "description": "Scrollable avatar rows with selection; Invite footer."
+    },
+    {
+      "name": "dialog-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-12.tsx"
+        }
+      ],
+      "title": "Success",
+      "description": "Completion check icon and Continue action."
+    },
+    {
+      "name": "dialog-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-13.tsx"
+        }
+      ],
+      "title": "Type to confirm",
+      "description": "Type delete to enable destructive button."
+    },
+    {
+      "name": "dialog-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "separator",
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-14.tsx"
+        }
+      ],
+      "title": "Settings sections",
+      "description": "Notifications and Security blocks via Separator."
+    },
+    {
+      "name": "dialog-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-15.tsx"
+        }
+      ],
+      "title": "Choose image",
+      "description": "Thumbnail grid with selection ring."
+    },
+    {
+      "name": "dialog-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-16.tsx"
+        }
+      ],
+      "title": "Invite team",
+      "description": "Icon header plus email field."
+    },
+    {
+      "name": "dialog-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "input",
+        "field",
+        "textarea"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-17.tsx"
+        }
+      ],
+      "title": "Long form, sticky footer",
+      "description": "Many fields in scroll; footer-only sticky."
+    },
+    {
+      "name": "dialog-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-18.tsx"
+        }
+      ],
+      "title": "Stacked actions",
+      "description": "Full-width footer buttons for mobile-friendly CTAs."
+    },
+    {
+      "name": "dialog-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "dialog-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-19.tsx"
+        }
+      ],
+      "title": "React Hook Form",
+      "description": "Dialog form with RHF, Zod resolver, and FieldError on invalid fields."
+    },
+    {
+      "name": "dialog-20",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "dialog-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-20.tsx"
+        }
+      ],
+      "title": "TanStack Form",
+      "description": "Dialog form with TanStack Form and Zod onSubmit validation."
+    },
+    {
+      "name": "dialog-21",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "field",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-21.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-21.tsx"
+        }
+      ],
+      "title": "Nested dialog",
+      "description": "Dialog stacked inside another dialog, e.g. avatar picker from profile."
+    },
+    {
+      "name": "dialog-22",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dialog",
+        "button",
+        "dropdown-menu",
+        "field",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dialog-22.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dialog/dialog-22.tsx"
+        }
+      ],
+      "title": "From dropdown",
+      "description": "Dialog triggered by a DropdownMenuItem with onSelect preventDefault."
+    }
+  ]
+}

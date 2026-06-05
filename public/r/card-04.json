@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-04",
   "title": "With action menu",
-  "description": "CardAction hosts a dropdown of rename, share, and delete.",
+  "description": "Three-dot icon button in the header corner opens a dropdown with rename, share, and delete options.",
   "dependencies": [],
   "registryDependencies": [
     "card",

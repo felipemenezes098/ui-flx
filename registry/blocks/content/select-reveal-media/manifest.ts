@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { SelectRevealMedia } from './select-reveal-media'
 import { SelectRevealMediaEditorFields } from './editor/fields'
 import { SelectRevealMediaExample, values } from './select-reveal-media-example'

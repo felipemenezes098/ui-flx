@@ -4,7 +4,7 @@ import { Label } from '@/components/ui/label'
 
 export function EmailPasswordDecision() {
   return (
-    <div className="bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm">
+    <div className="bg-card w-full max-w-sm min-w-xs rounded-xl border p-6 shadow-sm">
       <div className="flex flex-col gap-1">
         <span className="text-base font-semibold">Welcome back</span>
         <span className="text-muted-foreground text-xs">

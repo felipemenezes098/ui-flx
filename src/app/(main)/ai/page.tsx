@@ -4,15 +4,12 @@ import type { ComponentType } from 'react'
 
 import {
   CategoryPreviewCard,
-  CategoryPreviewCardBadge,
   CategoryPreviewCardFooter,
   CategoryPreviewCardPreview,
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
 import { Footer } from '@/components/core/footer'
-import { intentDomains } from '@/lib/intent-catalog'
-
-import { IntentSoonConcept } from './components/intent-soon-concept'
+import { intentDomains } from '@/lib/intents/intent-catalog'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -42,14 +39,7 @@ function IntentPreviewCard({
   const card = (
     <CategoryPreviewCard className={comingSoon ? 'opacity-50' : undefined}>
       <CategoryPreviewCardPreview className="aspect-square">
-        {comingSoon ? (
-          <>
-            <CategoryPreviewCardBadge>Soon</CategoryPreviewCardBadge>
-            <IntentSoonConcept />
-          </>
-        ) : (
-          Concept && <Concept />
-        )}
+        {Concept && <Concept />}
       </CategoryPreviewCardPreview>
       <CategoryPreviewCardFooter>
         <CategoryPreviewCardTitle>{name}</CategoryPreviewCardTitle>
@@ -76,9 +66,7 @@ export default function AiPage() {
           </h1>
           <p className="text-muted-foreground max-w-md text-balance">
             Reusable decisions for everyday interfaces.{' '}
-            <span className="text-foreground font-medium">
-              See the result.
-            </span>
+            <span className="text-foreground font-medium">See the result.</span>
           </p>
         </section>
 

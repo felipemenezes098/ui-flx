@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-09",
   "title": "Credit card auto-pay",
-  "description": "A styled card with an automatic payments toggle.",
+  "description": "A visual credit card mockup above a labeled switch for enabling automatic monthly payments.",
   "dependencies": [],
   "registryDependencies": [
     "switch",

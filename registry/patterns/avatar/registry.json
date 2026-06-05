@@ -1,0 +1,229 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-avatar",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "avatar-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Image avatar with an initials fallback."
+    },
+    {
+      "name": "avatar-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-02.tsx"
+        }
+      ],
+      "title": "Fallback initials",
+      "description": "Missing image falls back to initials."
+    },
+    {
+      "name": "avatar-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-03.tsx"
+        }
+      ],
+      "title": "Icon fallback",
+      "description": "Generic user icon when there is no image or name."
+    },
+    {
+      "name": "avatar-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-04.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Small, default, and large sizes side-by-side."
+    },
+    {
+      "name": "avatar-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-05.tsx"
+        }
+      ],
+      "title": "Colored fallback",
+      "description": "Tinted initials fallbacks using semantic tokens."
+    },
+    {
+      "name": "avatar-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-06.tsx"
+        }
+      ],
+      "title": "Status badge",
+      "description": "Presence dot in the corner showing online, away, or offline."
+    },
+    {
+      "name": "avatar-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-07.tsx"
+        }
+      ],
+      "title": "Badge with icon",
+      "description": "Verified check icon inside the AvatarBadge."
+    },
+    {
+      "name": "avatar-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-08.tsx"
+        }
+      ],
+      "title": "With name",
+      "description": "Avatar beside a name and email, forming a user row."
+    },
+    {
+      "name": "avatar-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-09.tsx"
+        }
+      ],
+      "title": "Group",
+      "description": "Overlapping AvatarGroup stack of members."
+    },
+    {
+      "name": "avatar-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-10.tsx"
+        }
+      ],
+      "title": "Group with count",
+      "description": "Overlapping group with a +N count for the remaining members."
+    },
+    {
+      "name": "avatar-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "tooltip"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-11.tsx"
+        }
+      ],
+      "title": "Group with tooltip",
+      "description": "Hover each avatar in the group to reveal its name."
+    },
+    {
+      "name": "avatar-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-12.tsx"
+        }
+      ],
+      "title": "Loading skeleton",
+      "description": "Skeleton placeholder while the avatar loads."
+    },
+    {
+      "name": "avatar-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "avatar-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/avatar/avatar-13.tsx"
+        }
+      ],
+      "title": "Icon on top",
+      "description": "Icon badge pinned to the top-right corner."
+    }
+  ]
+}

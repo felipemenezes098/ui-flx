@@ -2,13 +2,28 @@
 name: add-block
 description: >-
   Full workflow for adding a new UI block to ui-flx. Covers file structure,
-  manifest.ts, catalog.ts registration, registry.json entry, editor
+  manifest.ts, block-catalog.ts registration, registry.json entry, editor
   fields pattern, image light/dark, and validation commands. Triggers: "add
   block", "new block", "criar bloco", "novo bloco", "add a new section",
   or any request to create a new Flexnative block.
 ---
 
 # Add a new block to ui-flx
+
+## What to read before writing
+
+Read **only** the category files you need — nothing more:
+
+```
+registry/blocks/<category>/catalog.ts         ← to see existing blocks + import pattern
+registry/blocks/<category>/registry.json      ← to see existing entries + confirm path format
+```
+
+Do NOT read `registry.json` (root), `src/lib/blocks/block-catalog.ts`, or other categories.
+
+If adding a **new category**: also read `registry/blocks/registry.json` and `src/lib/blocks/block-catalog.ts`.
+
+---
 
 ## File structure to create
 
@@ -125,7 +140,7 @@ export function MyBlockEditorFields({
 This is the **single source of truth** for all block metadata consumed by the app.
 
 ```ts
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { MyBlock } from './my-block'
 import { MyBlockEditorFields } from './editor/fields'
 import { MyBlockExample, values } from './my-block-example'
@@ -160,32 +175,32 @@ Both are **required** (even if identical today). Put the preview screenshot at:
 
 ---
 
-## 5. Register in `src/blocks/catalog.ts`
+## 5. Register in `registry/blocks/<category>/catalog.ts`
 
-Add **two lines** — the import and the array entry in the correct category's `blocks` array:
+Add **two things** in the category's catalog file — the import and the array entry:
 
 ```ts
-// At the top imports:
-import { manifest as myBlockManifest } from '../../registry/blocks/content/my-block/manifest'
+// Import at the top:
+import { manifest as myBlockManifest } from './my-block/manifest'
 
-// In the categories array, find the matching category and add to its blocks array:
-{
-  slug: 'content',
-  // ...
-  blocks: [
-    // ...existing,
-    myBlockManifest,   // ← add here in display order
-  ],
-},
+// Add to the blocks array in display order:
+blocks: [
+  // ...existing,
+  myBlockManifest,   // ← add here
+],
 ```
+
+`src/lib/blocks/block-catalog.ts` is a thin aggregator — do not edit it directly.
 
 Position within the `blocks` array = display order within the category.
 
 ---
 
-## 6. Add entry to `registry.json`
+## 6. Add entry to `registry/blocks/<category>/registry.json`
 
-Add only the shadcn-distribution fields. **Do NOT write `title`, `description`, or `meta.iframeHeight` manually** — the sync script will fill them from the manifest.
+Each category has its own `registry.json`. Add the entry there — **not** in the root `registry.json`.
+
+`files[].path` is **relative to `registry/blocks/<category>/`** — use only the slug-relative path:
 
 ```json
 {
@@ -195,18 +210,25 @@ Add only the shadcn-distribution fields. **Do NOT write `title`, `description`, 
   "dependencies": ["react-wrap-balancer"],
   "files": [
     {
-      "path": "registry/blocks/content/my-block/my-block.tsx",
+      "path": "my-block/my-block.tsx",
       "type": "registry:component",
       "target": "components/flx/blocks/content/my-block/my-block.tsx"
     },
     {
-      "path": "registry/blocks/content/my-block/my-block-example.tsx",
+      "path": "my-block/my-block-example.tsx",
       "type": "registry:component",
       "target": "components/flx/blocks/content/my-block/my-block-example.tsx"
     }
   ]
 }
 ```
+
+| Field            | Rule                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| `files[].path`   | **Relative to the category directory** — `<slug>/<file>`, no `registry/blocks/<category>/` prefix |
+| `files[].target` | Absolute install path — `components/flx/blocks/<category>/<slug>/<file>`                          |
+
+**Do NOT write `title`, `description`, or `meta.iframeHeight`** — the sync script fills them from the manifest.
 
 Add `meta.containerClassName` manually only when the preview needs a special container (e.g. carousels: `"max-w-full overflow-hidden px-0"`).
 
@@ -238,8 +260,8 @@ If `registry:validate` fails, it will print exactly which field is out of sync o
 - [ ] `<slug>-example.tsx` — exports `values` + named example component
 - [ ] `editor/fields.tsx` — imports defaults from `../<slug>-example`, not from any global file
 - [ ] `manifest.ts` — all fields filled including `image.light` and `image.dark`
-- [ ] `src/blocks/catalog.ts` — manifest import + entry added to the correct category's `blocks` array
-- [ ] `registry.json` — entry with `name`, `type`, `files`, `registryDependencies`, `dependencies`
+- [ ] `registry/blocks/<category>/catalog.ts` — manifest import + entry added to the `blocks` array
+- [ ] `registry/blocks/<category>/registry.json` — entry with `name`, `type`, `files` (relative paths), `registryDependencies`, `dependencies`
 - [ ] `npm run registry:validate` — passes
 - [ ] `npm run registry:sync` — runs without errors
 - [ ] `npm run registry:validate` — passes again (confirm sync was clean)
@@ -265,7 +287,7 @@ Variations appear as separate preview routes: `/preview/<category>/<slug>/varian
 
 ## Key rules
 
-- **Never** import from `@/lib/block-defaults` or `@/lib/block-registry` — both were deleted. The only sources are the block's own files and `@/blocks/catalog`.
-- **Never** import `registry.json` directly in app code — use `@/blocks/catalog` for runtime data.
+- **Never** import from `@/lib/block-defaults` or `@/lib/block-registry` — both were deleted. The only sources are the block's own files and `@/lib/blocks/block-catalog`.
+- **Never** import `registry.json` directly in app code — use `@/lib/blocks/block-catalog` for runtime data.
 - `image.light` and `image.dark` are **both required** in every manifest. `registry:validate` will fail if either is empty.
 - The `defaults` field in the manifest must point to the same `values` object exported by `<slug>-example.tsx`.

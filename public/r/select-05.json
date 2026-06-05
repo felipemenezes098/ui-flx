@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-05",
   "title": "With Object",
-  "description": "with object values.",
+  "description": "Each option shows a bold label and a muted description sub-line; the trigger displays the full two-line item when selected.",
   "dependencies": [],
   "registryDependencies": [
     "select"

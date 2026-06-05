@@ -22,7 +22,7 @@ export function BackupCodesDecision() {
       <div className="mt-3 flex flex-col gap-1">
         <span className="text-base font-semibold">Save backup codes</span>
         <span className="text-muted-foreground text-xs">
-          Use one of these if you lose your device. Each code works once — store
+          Use one of these if you lose your device. Each code works once. Store
           them somewhere safe.
         </span>
       </div>

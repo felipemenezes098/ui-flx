@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-14",
   "title": "Numeric pagination",
-  "description": "TanStack Table — numbered page buttons with prev / next.",
+  "description": "TanStack Table, numbered page buttons with prev / next arrows.",
   "dependencies": [
     "@tanstack/react-table"
   ],

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-05",
   "title": "With trailing icon",
-  "description": "Icon after the label via data-icon=\"inline-end\".",
+  "description": "Button with an icon placed after the text label.",
   "dependencies": [
     "lucide-react"
   ],

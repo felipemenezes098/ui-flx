@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-02",
   "title": "With header",
-  "description": "PopoverHeader, PopoverTitle, and PopoverDescription composition.",
+  "description": "Popover with a bold title and a short description below it.",
   "dependencies": [],
   "registryDependencies": [
     "popover",

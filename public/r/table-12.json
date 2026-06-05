@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-12",
   "title": "With filters",
-  "description": "TanStack Table — global search plus a status column filter.",
+  "description": "TanStack Table, global search input plus a status column filter dropdown.",
   "dependencies": [
     "@tanstack/react-table"
   ],

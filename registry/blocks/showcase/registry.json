@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-showcase",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "showcase-grid-media-cards",
+      "type": "registry:block",
+      "title": "Grid Media Cards",
+      "description": "Grid with media cards to display information.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "grid-media-cards/grid-media-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
+        },
+        {
+          "path": "grid-media-cards/grid-media-cards-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx"
+        }
+      ]
+    }
+  ]
+}

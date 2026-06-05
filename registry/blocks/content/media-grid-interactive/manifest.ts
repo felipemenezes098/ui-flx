@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { MediaGridInteractive } from './media-grid-interactive'
 import { MediaGridInteractiveEditorFields } from './editor/fields'
 import { MediaGridInteractiveExample, values } from './media-grid-interactive-example'

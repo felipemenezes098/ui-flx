@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-14",
   "title": "Hover rotate refresh",
-  "description": "Refresh icon rotates 180° on hover.",
+  "description": "Refresh button whose icon rotates a full 360° on each click.",
   "dependencies": [
     "lucide-react"
   ],

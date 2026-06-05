@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-19",
   "title": "Expanding sub-rows",
-  "description": "TanStack Table — expandable parent rows for tree data.",
+  "description": "TanStack Table, expandable parent rows reveal nested child rows for tree-shaped data.",
   "dependencies": [
     "@tanstack/react-table"
   ],

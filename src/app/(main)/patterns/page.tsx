@@ -9,7 +9,7 @@ import {
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
 import { Footer } from '@/components/core/footer'
-import { patternCategories } from '@/lib/patterns-catalog'
+import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 export const dynamic = 'force-static'
 export const revalidate = false

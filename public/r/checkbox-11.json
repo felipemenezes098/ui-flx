@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-11",
   "title": "Invalid / required",
-  "description": "aria-invalid on the checkbox and data-invalid on the field show error styles.",
+  "description": "Checkbox with an inline error message that appears when the form is submitted without checking it.",
   "dependencies": [
     "sonner"
   ],

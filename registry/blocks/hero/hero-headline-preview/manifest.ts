@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { HeroHeadlinePreview } from './hero-headline-preview'
 import { HeroHeadlinePreviewEditorFields } from './editor/fields'
 import { HeroHeadlinePreviewExample, values } from './hero-headline-preview-example'

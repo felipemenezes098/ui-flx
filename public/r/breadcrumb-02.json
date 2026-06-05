@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-02",
   "title": "With icons",
-  "description": "Leading icon per crumb — file-path style.",
+  "description": "Each crumb prefixed with a small icon, such as a house, folder, or file.",
   "dependencies": [],
   "registryDependencies": [
     "breadcrumb"

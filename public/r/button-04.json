@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-04",
   "title": "With leading icon",
-  "description": "Icon before the label via data-icon=\"inline-start\".",
+  "description": "Button with an icon placed before the text label.",
   "dependencies": [
     "lucide-react"
   ],

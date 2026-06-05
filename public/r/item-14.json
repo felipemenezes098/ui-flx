@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-14",
   "title": "File list",
-  "description": "File icon, name, size meta, and DropdownMenu actions per row.",
+  "description": "File icon, name, size metadata, and a trailing overflow menu with actions per row.",
   "dependencies": [],
   "registryDependencies": [
     "item",

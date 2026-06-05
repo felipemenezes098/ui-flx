@@ -12,8 +12,8 @@ import {
   CategoryPreviewCardSublabel,
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
-import { blockCategories } from '@/lib/catalog'
-import { patternCategories } from '@/lib/patterns-catalog'
+import { blockCategories } from '@/lib/blocks/block-catalog'
+import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 function SectionHeader({
   label,

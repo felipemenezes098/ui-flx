@@ -44,32 +44,46 @@ If you can't articulate a strong `best` (when to reach for it) **and** a strong
 
 ### How many decisions?
 
-**Do NOT default to two.** Two is the *minimum*, not the target. The number of
-decisions = the number of trade-offs worth teaching — derive it from the
-problem, never from habit. Most strong intents have **three or more**: the
-canonical fork is usually a triad (e.g. sign-in → social / email-password /
-magic-link; empty-state → first-run / no-results / error-state).
+**Target three or more. Two is a hard floor, not a goal.** The number of
+decisions equals the number of trade-offs worth teaching: derive it from the
+problem, never from habit. The canonical fork is usually a triad (sign-in goes
+social / email-password / magic-link; reset-password goes email-link / OTP /
+security-questions).
 
 Before settling on a count, **enumerate every legitimate solution and its
 trade-off**, then keep each one that wins in a genuinely different context:
 
-- Stop at two ONLY when a third honest fork does not exist — not because two
-  feels like enough.
-- Three is common; four+ is fine when each adds a real, distinct context.
+- Default to three. Four or more is fine when each adds a real, distinct context.
+- Drop to two ONLY when a third honest fork genuinely does not exist. That is
+  the rare exception, never the starting point.
 - Don't pad with near-duplicates, and don't collapse two real forks into one.
-- One decision = no choice = it's a pattern, not an intent.
+- One decision means no choice. That is a pattern, not an intent.
 
-Litmus: if you wrote two decisions, ask "what's the third way someone solves
-this, and when does it win?" — if you can answer with a strong `best`+`caveat`,
-it belongs.
+Litmus: if you have only two decisions, name the third way someone solves this
+and when it wins. If you can write a strong `best` + `caveat` for it, it belongs.
 
 ### Elaborate decisions are welcome
 
-Decisions are **encouraged to be rich and realistic** — multi-step flows,
+Decisions are **encouraged to be rich and realistic**: multi-step flows,
 stateful toggles, faceted layouts, comparison tables. A convincing, production-
 grade demo is more useful than a toy. Reach for `'use client'` + `useState` when
 the decision's value *is* the interaction. Keep it self-contained (hardcoded
 sample data, no props), but don't dumb it down.
+
+### Writing the copy (`problem`, `best`, `caveat`)
+
+This text is the whole point of an intent. It feeds the AI prompt, so make it
+objective and concrete.
+
+- **No em dashes or en dashes (`—` / `–`) anywhere.** Use a period, comma, or
+  colon. This applies to manifest copy and to any text rendered in a demo.
+- **`problem`** states the interface problem in one sentence. No solution in it.
+- **`best`** says when to reach for this decision and why it wins there. One or
+  two complete sentences, concrete context, no hype.
+- **`caveat`** names the real cost or limit. Every decision has one. If you
+  can't write an honest caveat, the decision isn't pulling its weight.
+- Fewer words that land beat padding. Don't repeat the decision name in its own
+  `best`/`caveat`.
 
 ---
 
@@ -94,26 +108,35 @@ One file per decision. Each exports a **named function** — PascalCase from slu
 
 ```tsx
 // registry/intent/<intent-slug>/<decision-slug>.tsx
-import {} from /* shadcn/ui components */ '@/components/ui/...'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 
 export function MyDecisionNameDecision() {
+  // Realistic, self-contained demo. Hardcoded sample data, no props.
+  // Wrap in the shadcn <Card> (size="sm" for compact auth/form cards).
   return (
-    // Realistic, self-contained demo
-    // Use hardcoded sample data — no props
-    // Use bg-card, max-w-xs, rounded-xl, border, p-5, shadow-sm as wrapper
-    <div className="bg-card w-full max-w-xs rounded-xl border p-5 shadow-sm">
-      {/* … */}
-    </div>
+    <Card size="sm" className="w-full max-w-xs">
+      <CardHeader>
+        <CardTitle>…</CardTitle>
+      </CardHeader>
+      <CardContent>{/* … */}</CardContent>
+    </Card>
   )
 }
 ```
 
 Rules:
 
-- **No `'use client'`** unless the demo needs interactivity (hooks, state, browser events)
-- Import only from `@/components/ui/*` — never from `@/components/flx/*`
-- Sample data hardcoded inline — no props, no context
-- The component must work standalone at any viewport width
+- **Wrap the demo in the shadcn `<Card>`** (and `CardHeader`/`CardContent`/`CardFooter`). Never hand-roll a `bg-card rounded-xl border` div when a real component exists. Same rule for every primitive: reach for the installed component first.
+- **No `'use client'`** unless the demo needs interactivity (hooks, state, browser events).
+- Import only from `@/components/ui/*`, never from `@/components/flx/*`.
+- Sample data hardcoded inline. No props, no context.
+- The component must work standalone at any viewport width.
+- **Avatars need a real image.** Set `AvatarImage src` (Unsplash face crop) and give `AvatarFallback` a solid background; transparent overlapping fallbacks look broken.
 
 ### Always prefer shadcn primitives — install what's missing
 
@@ -155,7 +178,7 @@ export function MyIntentNameConcept() {
 
 ```ts
 // registry/intent/<intent-slug>/manifest.ts
-import type { IntentManifest } from '@/lib/intent-manifest-types'
+import type { IntentManifest } from '@/lib/intents/intent-manifest-types'
 
 import { MyIntentNameConcept } from './concept'
 import { MyDecisionADecision } from './<decision-a-slug>'
@@ -175,7 +198,7 @@ export const manifest: IntentManifest = {
       best: '<When to use this decision — complete sentence.>',
       tags: ['Tag1', 'Tag2'], // 2–4 short tags
       caveat: '<The main trade-off or limitation — complete sentence.>',
-      // patterns: optional — slugs from src/lib/patterns-catalog.ts used to enrich the AI prompt.
+      // patterns: optional — slugs from src/lib/patterns/patterns-catalog.ts used to enrich the AI prompt.
       // Search registry/patterns/ for existing patterns that match this decision.
       // If none found, omit or use [].
       patterns: ['pattern-slug-01'],
@@ -244,7 +267,7 @@ Rule of thumb: **omit `grid` entirely when there's only one alternative.**
 
 ---
 
-## 4. Register in `src/lib/intent-catalog.ts`
+## 4. Register in `src/lib/intents/intent-catalog.ts`
 
 Add **two things** — the import and the entry in the correct domain's `intents` array:
 
@@ -270,7 +293,9 @@ Position within the `intents` array = display order on `/ai`.
 
 ---
 
-## 5. Add entries to `registry.json`
+## 5. Add entries to `registry/intent/registry.json`
+
+Intent entries live in **`registry/intent/registry.json`** — not the root `registry.json`.
 
 One entry **per decision**. The `name` must follow the pattern `<intent-slug>-<decision-slug>`.
 
@@ -286,7 +311,7 @@ One entry **per decision**. The `name` must follow the pattern `<intent-slug>-<d
 }
 ```
 
-Minimal entry: `name`, `type`, `registryDependencies`, `dependencies`. Leave `title`, `description`, and `files` empty or omit — `npm run registry:sync` will fill them correctly from the manifest.
+Minimal entry: `name`, `type`, `registryDependencies`, `dependencies`. Leave `title`, `description`, and `files` empty or omit — `npm run registry:sync` will fill them (with paths relative to `registry/intent/`).
 
 ---
 
@@ -309,9 +334,12 @@ If `registry:validate` prints `MISSING in registry.json: "<name>" (intent decisi
 
 ## Key rules
 
+- **Three or more decisions** by default; two only when no honest third fork exists.
+- **No em/en dashes (`—` / `–`)** in `problem`, `best`, `caveat`, or demo text. Use a period, comma, or colon.
+- **Demos use real shadcn components** (`<Card>`, etc.), not hand-rolled `bg-card` lookalikes.
 - `domain` in the manifest **must match** a slug in `intentDomains` in `intent-catalog.ts`
-- Registry entry `name` must be exactly `<intent-slug>-<decision-slug>` — this is how `intent-view.ts` resolves the code files and how the sync script finds the entry
-- `patterns` is optional — only include slugs that exist in `src/lib/patterns-catalog.ts`; leave `[]` or omit if none apply
+- Registry entry `name` must be exactly `<intent-slug>-<decision-slug>` — this is how `intent-view.ts` resolves the code files and how the sync script finds the entry. Entry lives in `registry/intent/registry.json`.
+- `patterns` is optional — only include slugs that exist in `src/lib/patterns/patterns-catalog.ts`; leave `[]` or omit if none apply
 - Exactly **one** decision gets `recommended: true`
 - `grid.columns` counts only the **non-hero** decisions (the hero renders above the grid). Size it from `decisions.length - 1` and keep `span: 'full'` spans from leaving an orphan card — see "Grid sizing". Omit if only one alternative.
 - `styles` on a decision is optional — only set when the default hero (`lg:h-120` + tabs) doesn't fit
@@ -324,7 +352,8 @@ If `registry:validate` prints `MISSING in registry.json: "<name>" (intent decisi
 This skill touches the same handful of files every time. Minimize round-trips:
 
 1. **Read the wiring once, in parallel.** Before writing anything, batch-read
-   `src/lib/intent-catalog.ts`, one existing `manifest.ts`, one existing demo,
+   `src/lib/intents/intent-catalog.ts`, one existing `manifest.ts`, one existing demo,
+   `registry/intent/registry.json` (to see the entry format + add your entries),
    and (only if unsure about layout) `intent-hero.tsx` /
    `decision-alternatives.tsx`. Don't re-read them per decision. The
    architecture is stable — trust it.
@@ -355,15 +384,17 @@ This skill touches the same handful of files every time. Minimize round-trips:
 
 ## Checklist
 
-- [ ] Intent earns its place — common problem, ≥2 decisions with real, distinct trade-offs (strong `best` + `caveat` each)
+- [ ] Intent earns its place: common problem, **3+ decisions** with real, distinct trade-offs (strong `best` + `caveat` each)
+- [ ] Copy is dash-free: no `—`/`–` in `problem`, `best`, `caveat`, or demo text
+- [ ] Demos wrap in real shadcn `<Card>` (and use installed primitives), not hand-rolled `bg-card` divs
 - [ ] Needed shadcn primitives confirmed installed (or added via `npx shadcn@latest add`)
 - [ ] `registry/intent/<intent-slug>/` folder created
-- [ ] One `<decision-slug>.tsx` per decision — named export `<PascalCase>Decision()`; elaborate/stateful is fine
-- [ ] `concept.tsx` — wireframe for the `/ai` gallery card, referenced as `concept` in the manifest
-- [ ] `manifest.ts` — all required fields; exactly one `recommended: true`; decision count = trade-offs worth teaching (don't stop at 2 by default)
+- [ ] One `<decision-slug>.tsx` per decision: named export `<PascalCase>Decision()`; elaborate/stateful is fine
+- [ ] `concept.tsx`: wireframe for the `/ai` gallery card, referenced as `concept` in the manifest
+- [ ] `manifest.ts`: all required fields; exactly one `recommended: true`; 3+ decisions unless no honest third fork exists
 - [ ] `grid.columns` sized from the non-hero count; any `span: 'full'` leaves no orphan card (see "Grid sizing")
-- [ ] `src/lib/intent-catalog.ts` — manifest imported + `fromManifest()` entry in the correct domain
-- [ ] `registry.json` — one entry per decision with `name`, `type`, `registryDependencies`, `dependencies`
+- [ ] `src/lib/intents/intent-catalog.ts` — manifest imported + `fromManifest()` entry in the correct domain
+- [ ] `registry/intent/registry.json` — one entry per decision with `name`, `type`, `registryDependencies`, `dependencies`
 - [ ] `npm run registry:sync` — fills `title`, `description`, `files` from manifest
 - [ ] `npm run registry:validate` — passes with no MISSING or OUT OF SYNC errors
 - [ ] `npm run registry:build` — regenerates `public/r/*.json`

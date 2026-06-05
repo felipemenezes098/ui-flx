@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-05",
   "title": "Custom delay",
-  "description": "Per-tooltip delayDuration overrides the provider.",
+  "description": "Tooltips that open instantly, after 500ms, or after 1.2s, showing different hover delay behaviors.",
   "dependencies": [],
   "registryDependencies": [
     "tooltip",

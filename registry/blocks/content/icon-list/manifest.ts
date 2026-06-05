@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { IconList } from './icon-list'
 import { IconListEditorFields } from './editor/fields'
 import { IconListExample, values } from './icon-list-example'

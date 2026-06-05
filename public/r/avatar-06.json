@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-06",
   "title": "Status badge",
-  "description": "Presence dot via AvatarBadge — online, away, offline.",
+  "description": "Presence dot in the corner showing online, away, or offline.",
   "dependencies": [],
   "registryDependencies": [
     "avatar"

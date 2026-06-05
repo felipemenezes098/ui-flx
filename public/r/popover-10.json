@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-10",
   "title": "Notifications list",
-  "description": "Item rows with icon media, unread dot, and meta footer.",
+  "description": "Notification rows with an icon, message text, timestamp, and unread indicator dot.",
   "dependencies": [
     "lucide-react"
   ],

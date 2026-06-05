@@ -1,12 +1,17 @@
 import type { RegistryItem } from 'shadcn/schema'
 
+import { siteConfig } from '@/config/site'
 import { installCommand, registryItemUrl } from '@/lib/registry-command'
-import { toRegistryCodeFiles } from '@/lib/registry-source'
+import {
+  formatCodeFilesForPrompt,
+  toRegistryCodeFiles,
+  type RegistryCodeFile,
+} from '@/lib/registry-source'
 import type {
   DecisionView,
   IntentDecision,
   IntentManifest,
-} from '@/lib/intent-manifest-types'
+} from '@/lib/intents/intent-manifest-types'
 import { getRegistryItem } from '@/lib/registry-utils.server'
 
 /**
@@ -35,37 +40,45 @@ function componentList(item: RegistryItem | undefined): string {
   return slugs.map(pretty).join(', ') || 'shadcn/ui primitives'
 }
 
+function buildStackSection(item: RegistryItem | undefined): string {
+  const lines = ['- UI: shadcn/ui', '- Styling: Tailwind CSS']
+
+  const components = item?.registryDependencies?.map(pretty)
+  if (components?.length) {
+    lines.push(`- shadcn components: ${components.join(', ')}`)
+  }
+
+  const deps = item?.dependencies?.filter(Boolean)
+  if (deps?.length) {
+    lines.push(`- npm: ${deps.join(', ')}`)
+  }
+
+  return lines.join('\n')
+}
+
 function buildPrompt(
   manifest: IntentManifest,
   decision: IntentDecision,
   item: RegistryItem | undefined,
   registryName: string,
-  install: string,
+  codeFiles: RegistryCodeFile[],
 ): string {
-  const registryUrl = registryItemUrl(registryName)
-  const baseList = (item?.registryDependencies ?? []).map(pretty).join(', ')
+  const previewUrl = `${siteConfig.url}/ai/${manifest.slug}#${decision.slug}`
+  const source = formatCodeFilesForPrompt(codeFiles)
 
-  return `# Intent: ${manifest.name}
-${manifest.problem}
+  const sections = [
+    `# ${manifest.name}: ${decision.name}`,
+    `## Context\nFlexnative UI intent — a reference solution from the shadcn/ui registry (@${siteConfig.codeName}). The intent frames the problem; the decision is one approach to it.`,
+    `## Problem\n${manifest.problem}`,
+    `## Decision\n- Best for: ${decision.best}\n- Trade-off: ${decision.caveat}`,
+    `## Registry Item\n@${siteConfig.codeName}/${registryName}`,
+    `## Stack\n${buildStackSection(item)}`,
+    `## Registry Source\n${registryItemUrl(registryName)}`,
+    `## Preview\n${previewUrl}`,
+    ...(source ? [`## Reference Implementation\n${source}`] : []),
+  ]
 
-## Decision: ${decision.name}
-- Why this fits: ${decision.best}
-- Watch out: ${decision.caveat}
-
-## How to build it
-A ready-made implementation of this decision lives in our registry. Read it to
-understand the exact structure, then install it (it brings its own dependencies):
-
-  ${install}
-
-Registry item: ${registryUrl}
-
-Then adapt it to my context — replace the sample data and match my spacing,
-colors, and typography. Keep the interaction shown in the preview.
-
-If the registry is not an option, recreate the same concept with ${
-    baseList || 'shadcn/ui primitives'
-  }: keep the layout and behavior, not the literal markup.`
+  return sections.join('\n\n')
 }
 
 export function buildDecisionView(
@@ -75,6 +88,7 @@ export function buildDecisionView(
   const registryName = registryNameFor(manifest, decision)
   const item = getRegistryItem(registryName)
   const install = installCommand(registryName)
+  const codeFiles = toRegistryCodeFiles(item)
 
   return {
     slug: decision.slug,
@@ -84,8 +98,8 @@ export function buildDecisionView(
     styles: decision.styles,
     registryName,
     install,
-    prompt: buildPrompt(manifest, decision, item, registryName, install),
-    codeFiles: toRegistryCodeFiles(item),
+    prompt: buildPrompt(manifest, decision, item, registryName, codeFiles),
+    codeFiles,
   }
 }
 

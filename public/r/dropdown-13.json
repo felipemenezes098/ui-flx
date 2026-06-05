@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-13",
   "title": "Controlled open",
-  "description": "Drive the open state with useState and onOpenChange.",
+  "description": "Menu whose open/closed state is managed externally and reflected in the trigger label.",
   "dependencies": [],
   "registryDependencies": [
     "dropdown-menu",

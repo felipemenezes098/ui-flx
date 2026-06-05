@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command-14",
   "title": "Multiple — count summary",
-  "description": "Trigger shows “first, +N” with a separate button to clear all.",
+  "description": "Trigger shows \"first, +N\" with a separate button to clear all.",
   "dependencies": [],
   "registryDependencies": [
     "popover",

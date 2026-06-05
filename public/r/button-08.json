@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-08",
   "title": "Loading",
-  "description": "Spinner icon + disabled while async work runs.",
+  "description": "Button with a spinning loader icon and label, indicating an in-progress async action.",
   "dependencies": [
     "lucide-react"
   ],

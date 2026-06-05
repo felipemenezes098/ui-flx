@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "two-factor-setup-passkey",
   "title": "Passkey",
-  "description": "Passkey — Two-Factor Setup.",
+  "description": "Passkey for Two-Factor Setup.",
   "dependencies": [
     "lucide-react"
   ],

@@ -19,7 +19,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { registryInstallTarget } from '@/lib/registry-command'
-import { buildPatternPrompt } from '@/lib/patterns-utils'
+import { buildPatternPrompt } from '@/lib/patterns/patterns-utils'
 import { fetchRegistryCodeFiles } from '@/lib/registry-source'
 
 interface PatternActionsProps {
@@ -53,7 +53,7 @@ export function PatternActions({
         label="Prompt"
         size="sm"
         disabled={isLoading}
-        className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs transition-none"
+        className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
       />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
         <DialogTrigger asChild>
@@ -61,7 +61,7 @@ export function PatternActions({
             variant="outline"
             size="sm"
             aria-label="View code"
-            className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs transition-none"
+            className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
           >
             <CodeIcon className="size-3" />
             Code

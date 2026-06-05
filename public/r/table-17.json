@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-17",
   "title": "Pinnable columns",
-  "description": "TanStack Table — pin columns left or right; they stay while scrolling.",
+  "description": "TanStack Table, a column pinned to the right stays visible while scrolling horizontally.",
   "dependencies": [
     "@tanstack/react-table"
   ],

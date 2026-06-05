@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-04",
   "title": "Group",
-  "description": "FieldSet of notification options with descriptions.",
+  "description": "Grouped list of notification checkboxes, each with a label and helper description, inside a labelled fieldset.",
   "dependencies": [],
   "registryDependencies": [
     "checkbox",

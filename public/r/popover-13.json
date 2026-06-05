@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-13",
   "title": "Filters",
-  "description": "Grouped ToggleGroup filters with reset and apply actions.",
+  "description": "Grouped toggle button filters for status and priority, with reset and apply actions.",
   "dependencies": [
     "lucide-react"
   ],

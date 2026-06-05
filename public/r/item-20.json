@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-20",
   "title": "In dropdown menu",
-  "description": "size=\"xs\" user header inside DropdownMenuContent.",
+  "description": "Compact user avatar and email placed at the top of a dropdown menu.",
   "dependencies": [],
   "registryDependencies": [
     "item",

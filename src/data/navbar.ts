@@ -4,7 +4,7 @@ export const dataNavbar = [
     href: '/patterns',
   },
   {
-    name: 'AI',
+    name: 'Intents',
     href: '/ai',
   },
   {

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-27",
   "title": "With popover swatch",
-  "description": "Color swatch Popover trigger inside a ButtonGroup with hex label.",
+  "description": "Color swatch button that opens a grid of color swatches, paired with a hex value label in a merged-border row.",
   "dependencies": [],
   "registryDependencies": [
     "button",

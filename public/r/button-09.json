@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-09",
   "title": "As link",
-  "description": "asChild renders the button as an anchor tag.",
+  "description": "Link-styled button that navigates to an external URL, rendered as an anchor with a trailing external-link icon.",
   "dependencies": [
     "lucide-react"
   ],

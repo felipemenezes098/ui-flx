@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "two-factor-setup-authenticator-app",
   "title": "Authenticator App",
-  "description": "Authenticator App — Two-Factor Setup.",
+  "description": "Authenticator App for Two-Factor Setup.",
   "dependencies": [
     "lucide-react",
     "input-otp"

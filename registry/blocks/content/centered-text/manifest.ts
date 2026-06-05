@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { CenteredText } from './centered-text'
 import { CenteredTextEditorFields } from './editor/fields'
 import { CenteredTextExample, values } from './centered-text-example'

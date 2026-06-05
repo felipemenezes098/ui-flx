@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "skeleton-16",
   "title": "Sidebar nav",
-  "description": "A logo header above grouped icon-and-label nav rows.",
+  "description": "A logo header above a list of icon-and-label nav rows, with a user profile row at the bottom.",
   "dependencies": [],
   "registryDependencies": [
     "skeleton"

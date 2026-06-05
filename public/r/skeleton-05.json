@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "skeleton-05",
   "title": "List",
-  "description": "Repeated avatar-and-text rows with trailing meta.",
+  "description": "Repeated rows, each with a circular avatar and two text lines.",
   "dependencies": [],
   "registryDependencies": [
     "skeleton"

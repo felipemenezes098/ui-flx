@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/core/footer'
-import { getCategoryBySlug } from '@/lib/patterns-catalog'
+import { getCategoryBySlug } from '@/lib/patterns/patterns-catalog'
 
 import { PatternCategoryNav } from '../components/pattern-category-nav'
 

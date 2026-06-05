@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-01",
   "title": "Basic",
-  "description": "Single collapsible item open at a time — the default.",
+  "description": "Only one section open at a time, type=\"single\" collapsible. The default behavior.",
   "dependencies": [],
   "registryDependencies": [
     "accordion"

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge-12",
   "title": "Icon only",
-  "description": "Square icon-only badges across variants.",
+  "description": "Round icon-only badges across variants.",
   "dependencies": [],
   "registryDependencies": [
     "badge"

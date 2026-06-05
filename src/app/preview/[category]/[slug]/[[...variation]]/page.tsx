@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { siteConfig } from '@/config/site'
-import { blocks, getBlockBySlug } from '@/lib/catalog'
+import { blocks, getBlockBySlug } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
 export const dynamic = 'force-static'

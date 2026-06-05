@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-10",
   "title": "Choice cards",
-  "description": "Bordered add-on cards that highlight when toggled on.",
+  "description": "Clickable add-on rows showing a title, description, price, and a switch, each fully tappable via a wrapping label.",
   "dependencies": [],
   "registryDependencies": [
     "switch",

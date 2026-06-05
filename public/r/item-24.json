@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-24",
   "title": "Empty team",
-  "description": "Avatar stack as media for an empty state with invite action.",
+  "description": "Overlapping avatar stack above an empty-state message with an invite button.",
   "dependencies": [],
   "registryDependencies": [
     "item",

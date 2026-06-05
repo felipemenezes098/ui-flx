@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "two-factor-setup-sms-code",
   "title": "SMS Code",
-  "description": "SMS Code — Two-Factor Setup.",
+  "description": "SMS Code for Two-Factor Setup.",
   "dependencies": [
     "lucide-react"
   ],

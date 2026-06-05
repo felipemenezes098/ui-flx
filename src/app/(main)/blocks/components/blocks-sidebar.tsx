@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { useBlocksNavCategorySlug } from '../lib/use-blocks-nav-category'
-import { blockCategories } from '@/lib/catalog'
+import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
+import { blockCategories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
 import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'

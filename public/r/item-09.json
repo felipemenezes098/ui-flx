@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-09",
   "title": "Header and footer",
-  "description": "ItemHeader badge plus ItemFooter metadata row.",
+  "description": "Status badge above the title and a metadata row below the description.",
   "dependencies": [],
   "registryDependencies": [
     "item",

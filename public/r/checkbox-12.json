@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-12",
   "title": "React Hook Form + Zod",
-  "description": "Controller binds a checkbox group to RHF; Zod requires at least one.",
+  "description": "Controller binds a checkbox group to React Hook Form; Zod requires at least one selection.",
   "dependencies": [
     "react-hook-form",
     "zod",

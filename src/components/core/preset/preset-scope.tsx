@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { PresetId } from '@/lib/presets-config'
+import { PresetId } from '@/lib/presets/presets-config'
 
 export type PresetScopeProps = Readonly<{
   preset: PresetId

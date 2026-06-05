@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-11",
   "title": "Invalid / required",
-  "description": "aria-invalid and data-invalid show error styles until enabled.",
+  "description": "A required switch in a form that shows an inline error message when submitted while off.",
   "dependencies": [
     "sonner"
   ],

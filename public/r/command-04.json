@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command-04",
   "title": "Async loading",
-  "description": "Debounced search with a spinner and empty state — shouldFilter off.",
+  "description": "Debounced search with skeleton rows while loading, an empty state, and shouldFilter disabled for server-driven results.",
   "dependencies": [],
   "registryDependencies": [
     "command"

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "banner-11",
   "title": "Email verification",
-  "description": "Blue prompt with a Resend email action that confirms.",
+  "description": "Blue prompt with a Resend email button that switches to a sent confirmation.",
   "dependencies": [],
   "registryDependencies": [
     "button"

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sign-in-social-first",
   "title": "Social First",
-  "description": "Social First — Sign In.",
+  "description": "Social First for Sign In.",
   "dependencies": [],
   "registryDependencies": [
     "button",

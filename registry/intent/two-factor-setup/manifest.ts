@@ -1,4 +1,4 @@
-import type { IntentManifest } from '@/lib/intent-manifest-types'
+import type { IntentManifest } from '@/lib/intents/intent-manifest-types'
 
 import { AuthenticatorAppDecision } from './authenticator-app'
 import { BackupCodesDecision } from './backup-codes'
@@ -18,7 +18,7 @@ export const manifest: IntentManifest = {
     {
       slug: 'authenticator-app',
       name: 'Authenticator App',
-      best: 'The default recommendation for most accounts — TOTP via an authenticator app is free, offline, and far stronger than SMS.',
+      best: 'The default recommendation for most accounts. TOTP via an authenticator app is free, offline, and far stronger than SMS.',
       tags: ['TOTP', 'Standard', 'Offline'],
       caveat:
         'Requires the user to install an app and rescan if they switch phones; pair it with backup codes for recovery.',
@@ -29,17 +29,17 @@ export const manifest: IntentManifest = {
     {
       slug: 'sms-code',
       name: 'SMS Code',
-      best: 'A low-barrier option for mainstream audiences who won’t install an app — every phone can receive a text, so adoption is high.',
+      best: 'A low-barrier option for mainstream audiences who won’t install an app. Every phone can receive a text, so adoption is high.',
       tags: ['SMS', 'Low-friction'],
       caveat:
-        'Weakest factor — vulnerable to SIM-swap and interception, depends on carrier delivery, and costs money to send.',
+        'Weakest factor. Vulnerable to SIM-swap and interception, depends on carrier delivery, and costs money to send.',
       patterns: [],
       demo: SmsCodeDecision,
     },
     {
       slug: 'passkey',
       name: 'Passkey',
-      best: 'The strongest, lowest-friction option on modern devices — biometric or hardware-backed, phishing-resistant, and nothing to type.',
+      best: 'The strongest, lowest-friction option on modern devices. Biometric or hardware-backed, phishing-resistant, and nothing to type.',
       tags: ['WebAuthn', 'Phishing-resistant', 'Biometric'],
       caveat:
         'Needs a device with biometrics or a security key and cross-device sync; still unfamiliar to many users.',
@@ -49,10 +49,10 @@ export const manifest: IntentManifest = {
     {
       slug: 'backup-codes',
       name: 'Backup Codes',
-      best: 'A recovery fallback to offer alongside any primary factor — single-use codes get a locked-out user back in without support.',
+      best: 'A recovery fallback to offer alongside any primary factor. Single-use codes get a locked-out user back in without support.',
       tags: ['Recovery', 'Fallback', 'Single-use'],
       caveat:
-        'Not a primary factor — only as safe as where the user stores them, and useless once all codes are spent.',
+        'Not a primary factor. Only as safe as where the user stores them, and useless once all codes are spent.',
       patterns: [],
       demo: BackupCodesDecision,
     },

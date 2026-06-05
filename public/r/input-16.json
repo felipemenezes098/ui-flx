@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-16",
   "title": "With email domain",
-  "description": "InputGroup suffix addon locks the @company.com domain beside the username field.",
+  "description": "Username field with a fixed @company.com suffix addon, locking the email domain.",
   "dependencies": [],
   "registryDependencies": [
     "input-group"

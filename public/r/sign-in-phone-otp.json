@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sign-in-phone-otp",
+  "title": "Phone & OTP",
+  "description": "Phone & OTP for Sign In.",
+  "dependencies": [
+    "lucide-react",
+    "input-otp"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "input-group",
+    "input-otp",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/intent/sign-in/phone-otp.tsx",
+      "content": "'use client'\n\nimport { ArrowLeft, Smartphone } from 'lucide-react'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from '@/components/ui/input-group'\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSlot,\n} from '@/components/ui/input-otp'\nimport { Label } from '@/components/ui/label'\n\nexport function PhoneOtpDecision() {\n  const [step, setStep] = useState<'phone' | 'code'>('phone')\n  const [phone, setPhone] = useState('(555) 012-3456')\n  const [code, setCode] = useState('')\n\n  return (\n    <Card size=\"sm\" className=\"w-full max-w-xs\">\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <Smartphone className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>\n          {step === 'phone' ? 'Sign in with phone' : 'Enter the code'}\n        </CardTitle>\n        <p className=\"text-muted-foreground text-xs\">\n          {step === 'phone' ? (\n            \"We'll text you a 6-digit code to verify your number.\"\n          ) : (\n            <>\n              Sent to <span className=\"text-foreground\">+1 {phone}</span>\n            </>\n          )}\n        </p>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col gap-4\">\n        {step === 'phone' ? (\n          <>\n            <div className=\"flex flex-col gap-1.5\">\n              <Label htmlFor=\"otp-phone\" className=\"text-xs\">\n                Phone number\n              </Label>\n              <InputGroup>\n                <InputGroupAddon className=\"text-muted-foreground text-sm\">\n                  +1\n                </InputGroupAddon>\n                <InputGroupInput\n                  id=\"otp-phone\"\n                  type=\"tel\"\n                  value={phone}\n                  onChange={(e) => setPhone(e.target.value)}\n                  placeholder=\"(555) 000-0000\"\n                  autoComplete=\"tel\"\n                />\n              </InputGroup>\n            </div>\n            <Button className=\"w-full\" onClick={() => setStep('code')}>\n              Send code\n            </Button>\n          </>\n        ) : (\n          <>\n            <div className=\"flex justify-center\">\n              <InputOTP maxLength={6} value={code} onChange={setCode}>\n                <InputOTPGroup>\n                  {Array.from({ length: 6 }).map((_, i) => (\n                    <InputOTPSlot key={i} index={i} />\n                  ))}\n                </InputOTPGroup>\n              </InputOTP>\n            </div>\n            <Button className=\"w-full\">Verify &amp; sign in</Button>\n            <div className=\"flex items-center justify-between text-[11px]\">\n              <button\n                type=\"button\"\n                onClick={() => setStep('phone')}\n                className=\"text-muted-foreground hover:text-foreground inline-flex items-center gap-1\"\n              >\n                <ArrowLeft className=\"size-3\" />\n                Change number\n              </button>\n              <span className=\"text-muted-foreground/80\">Resend in 0:30</span>\n            </div>\n          </>\n        )}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/sign-in/phone-otp.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -3,7 +3,7 @@ import type { ComponentType } from 'react'
 import type {
   DecisionView,
   IntentGridColumns,
-} from '@/lib/intent-manifest-types'
+} from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 
 import { intentGridItemVariants, IntentGrid } from './intent-grid'

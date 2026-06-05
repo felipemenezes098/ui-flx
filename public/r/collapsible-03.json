@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "collapsible-03",
   "title": "File tree",
-  "description": "Nested folders built purely from Collapsible — folder icons swap on open.",
+  "description": "Nested folders built from collapsible rows, with folder icons that swap on open.",
   "dependencies": [],
   "registryDependencies": [
     "collapsible"

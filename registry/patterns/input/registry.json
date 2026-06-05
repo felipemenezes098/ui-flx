@@ -1,0 +1,343 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-input",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "input-01",
+      "type": "registry:block",
+      "title": "Basic",
+      "description": "Plain text input with a placeholder, no addons.",
+      "registryDependencies": [
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-02",
+      "type": "registry:block",
+      "title": "With Addon",
+      "description": "Input with trailing search icon addon.",
+      "registryDependencies": [
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-03",
+      "type": "registry:block",
+      "title": "Disabled",
+      "description": "Text input rendered in a disabled, non-interactive state.",
+      "registryDependencies": [
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-04",
+      "type": "registry:block",
+      "title": "With Addon in the end",
+      "description": "Password input with a trailing eye-off icon to indicate visibility toggle.",
+      "registryDependencies": [
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-04.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-05.tsx"
+        }
+      ],
+      "title": "With prefix and suffix",
+      "description": "URL input with a fixed \"https://\" prefix and \".com\" suffix text addons."
+    },
+    {
+      "name": "input-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-06.tsx"
+        }
+      ],
+      "title": "With loading spinner",
+      "description": "Spinning loader in the trailing addon while searching."
+    },
+    {
+      "name": "input-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-07.tsx"
+        }
+      ],
+      "title": "With clear button",
+      "description": "Clear button appears in the trailing addon when the field has text."
+    },
+    {
+      "name": "input-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "button",
+        "tooltip"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-08.tsx"
+        }
+      ],
+      "title": "With tooltip",
+      "description": "Help icon in the trailing addon opens a tooltip on hover."
+    },
+    {
+      "name": "input-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "button",
+        "popover"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-09.tsx"
+        }
+      ],
+      "title": "With popover",
+      "description": "Info button in the trailing addon opens a popover with helper content."
+    },
+    {
+      "name": "input-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-10.tsx"
+        }
+      ],
+      "title": "With dropdown menu",
+      "description": "Trailing addon button opens a menu to choose search scope."
+    },
+    {
+      "name": "input-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-11.tsx"
+        }
+      ],
+      "title": "In Form",
+      "description": "Labeled text input with a supporting description line below the field."
+    },
+    {
+      "name": "input-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "input-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds Input to RHF; Zod resolver drives FieldError on submit."
+    },
+    {
+      "name": "input-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "input-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires Input; Zod onSubmit validator surfaces FieldError when touched."
+    },
+    {
+      "name": "input-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "button",
+        "button-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-14.tsx"
+        }
+      ],
+      "title": "With search button",
+      "description": "ButtonGroup pairs a text input with a trailing search action button."
+    },
+    {
+      "name": "input-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "input-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-16.tsx"
+        }
+      ],
+      "title": "With email domain",
+      "description": "Username field with a fixed @company.com suffix addon, locking the email domain."
+    },
+    {
+      "name": "input-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "button",
+        "button-group",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-15.tsx"
+        }
+      ],
+      "title": "With currency select",
+      "description": "Nested ButtonGroup: currency Select, amount input, and submit icon button."
+    },
+    {
+      "name": "input-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input-group",
+        "button",
+        "button-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "input-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/input/input-17.tsx"
+        }
+      ],
+      "title": "With nested input group",
+      "description": "Attach button plus InputGroup message field and send action in a ButtonGroup."
+    }
+  ]
+}

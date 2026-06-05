@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-08",
   "title": "With name",
-  "description": "Avatar beside a name and email — a user row.",
+  "description": "Avatar beside a name and email, forming a user row.",
   "dependencies": [],
   "registryDependencies": [
     "avatar"

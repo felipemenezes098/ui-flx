@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { FocusGrid } from './focus-grid'
 import { FocusGridEditorFields } from './editor/fields'
 import { FocusGridExample, values } from './focus-grid-example'

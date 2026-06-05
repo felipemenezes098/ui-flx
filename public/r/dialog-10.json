@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-10",
   "title": "Footer-only dismiss",
-  "description": "showCloseButton false; dismiss via footer only.",
+  "description": "No corner close button; dismiss only through the footer.",
   "dependencies": [],
   "registryDependencies": [
     "dialog",

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { blocks, getBlockBySlug } from '@/lib/catalog'
+import { blocks, getBlockBySlug } from '@/lib/blocks/block-catalog'
 
 import { PreviewReceiver } from './components/preview-receiver'
 

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-a-plan-upgrade-panel",
   "title": "Upgrade Panel",
-  "description": "Upgrade Panel — Select a Plan.",
+  "description": "Upgrade Panel for Select a Plan.",
   "dependencies": [
     "lucide-react"
   ],

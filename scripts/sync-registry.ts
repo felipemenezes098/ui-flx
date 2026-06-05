@@ -1,10 +1,14 @@
 /**
- * Sync registry.json metadata from catalog sources.
+ * Sync registry metadata from catalog sources.
  *
- * Blocks: `title`, `description`, `meta.iframeHeight` from block manifests (catalog.ts).
- * Patterns: `title`, `description` from patterns-catalog.ts.
+ * Blocks: `title`, `description`, `meta.iframeHeight` from block manifests.
+ * Patterns: `title`, `description` from registry/patterns/<cat>/catalog.ts.
+ * Intents: `title`, `description`, `files` from intent manifests.
  *
- * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified.
+ * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified
+ * for blocks and patterns (only intents auto-fix `files`).
+ *
+ * Supports the `include` feature: registry.json may reference sub-registries.
  *
  * Usage:
  *   npx tsx scripts/sync-registry.ts
@@ -13,17 +17,18 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import { allManifests } from '../src/lib/catalog'
-import { allIntents } from '../src/lib/intent-catalog'
-import { allPatterns } from '../src/lib/patterns-catalog'
+import { allManifests } from '../src/lib/blocks/block-catalog'
+import { allIntents } from '../src/lib/intents/intent-catalog'
+import { allPatterns } from '../src/lib/patterns/patterns-catalog'
 
-const REGISTRY_PATH = path.resolve(process.cwd(), 'registry.json')
+const ROOT = process.cwd()
 const CHECK_ONLY = process.argv.includes('--check')
 
 type RegistryItem = {
   name: string
   title?: string
   description?: string
+  files?: unknown[]
   meta?: Record<string, unknown>
   [key: string]: unknown
 }
@@ -32,26 +37,43 @@ type Registry = {
   $schema: string
   name: string
   homepage: string
+  include?: string[]
   items: RegistryItem[]
 }
 
-type CatalogEntry = {
-  slug: string
-  name: string
-  description?: string
-  categoryLabel: string
-  meta?: { iframeHeight?: number }
+/** Item index: name → { item ref, filePath of the registry file it lives in } */
+const itemIndex = new Map<string, { item: RegistryItem; filePath: string }>()
+/** Track which registry files were loaded and their parsed data */
+const registryFiles = new Map<string, Registry>()
+/** Track which files were mutated */
+const dirtyFiles = new Set<string>()
+
+function loadRegistry(filePath: string) {
+  if (registryFiles.has(filePath)) return
+  const data: Registry = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  registryFiles.set(filePath, data)
+
+  for (const item of data.items ?? []) {
+    if (!itemIndex.has(item.name)) {
+      itemIndex.set(item.name, { item, filePath })
+    }
+  }
+
+  for (const include of data.include ?? []) {
+    const resolved = path.resolve(path.dirname(filePath), include)
+    loadRegistry(resolved)
+  }
 }
 
-const registry: Registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf-8'))
+// Load all registries starting from root
+const ROOT_REGISTRY = path.join(ROOT, 'registry.json')
+loadRegistry(ROOT_REGISTRY)
 
-let changed = false
 const issues: string[] = []
 
-/**
- * Sync intent decision metadata into registry.json.
- * registryDependencies + dependencies stay in registry.json (shadcn fields).
- */
+// ---------------------------------------------------------------------------
+// Intent sync
+// ---------------------------------------------------------------------------
 function syncIntentItems() {
   for (const entry of allIntents) {
     const manifest = entry.manifest
@@ -60,42 +82,53 @@ function syncIntentItems() {
     for (const decision of manifest.decisions) {
       const name = `${manifest.slug}-${decision.slug}`
       const file = `${decision.slug}.tsx`
+      // path is relative to registry/intent/registry.json (its containing directory)
       const expectedFiles = [
         {
-          path: `registry/intent/${manifest.slug}/${file}`,
+          path: `${manifest.slug}/${file}`,
           type: 'registry:component',
           target: `components/flx/intent/${manifest.slug}/${file}`,
         },
       ]
       const expectedTitle = decision.name
-      const expectedDescription = `${decision.name} — ${manifest.name}.`
+      const expectedDescription = `${decision.name} for ${manifest.name}.`
 
-      const existing = registry.items.find((i) => i.name === name)
-
-      if (!existing) {
-        issues.push(`  MISSING in registry.json: "${name}" (intent decision)`)
+      const found = itemIndex.get(name)
+      if (!found) {
+        issues.push(`  MISSING in registry: "${name}" (intent decision)`)
         continue
       }
 
+      const { item, filePath } = found
       const drifted =
-        JSON.stringify(existing.files ?? []) !==
-          JSON.stringify(expectedFiles) ||
-        existing.title !== expectedTitle ||
-        existing.description !== expectedDescription
+        JSON.stringify(item.files ?? []) !== JSON.stringify(expectedFiles) ||
+        item.title !== expectedTitle ||
+        item.description !== expectedDescription
 
       if (drifted) {
         if (CHECK_ONLY) {
           issues.push(`  OUT OF SYNC: "${name}" (intent decision)`)
         } else {
-          existing.title = expectedTitle
-          existing.description = expectedDescription
-          existing.files = expectedFiles
-          changed = true
+          item.title = expectedTitle
+          item.description = expectedDescription
+          item.files = expectedFiles
+          dirtyFiles.add(filePath)
           console.log(`  Updated intent item: ${name}`)
         }
       }
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// Block + pattern sync
+// ---------------------------------------------------------------------------
+type CatalogEntry = {
+  slug: string
+  name: string
+  description?: string
+  categoryLabel: string
+  meta?: { iframeHeight?: number }
 }
 
 const catalogEntries: CatalogEntry[] = [
@@ -115,15 +148,15 @@ const catalogEntries: CatalogEntry[] = [
 ]
 
 function syncEntry(entry: CatalogEntry) {
-  const item = registry.items.find((i) => i.name === entry.slug)
-
-  if (!item) {
+  const found = itemIndex.get(entry.slug)
+  if (!found) {
     issues.push(
-      `  MISSING in registry.json: "${entry.slug}" (category: ${entry.categoryLabel})`,
+      `  MISSING in registry: "${entry.slug}" (category: ${entry.categoryLabel})`,
     )
     return
   }
 
+  const { item, filePath } = found
   const expectedTitle = entry.name
   const expectedDescription = entry.description ?? ''
   const expectedIframeHeight = entry.meta?.iframeHeight
@@ -136,31 +169,19 @@ function syncEntry(entry: CatalogEntry) {
   ) {
     if (CHECK_ONLY) {
       issues.push(`  OUT OF SYNC: "${entry.slug}"`)
-      if (item.title !== expectedTitle) {
-        issues.push(
-          `    title: registry="${item.title}" catalog="${expectedTitle}"`,
-        )
-      }
-      if (item.description !== expectedDescription) {
-        issues.push(
-          `    description: registry="${item.description}" catalog="${expectedDescription}"`,
-        )
-      }
-      if (
-        expectedIframeHeight !== undefined &&
-        item.meta?.iframeHeight !== expectedIframeHeight
-      ) {
-        issues.push(
-          `    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`,
-        )
-      }
+      if (item.title !== expectedTitle)
+        issues.push(`    title: registry="${item.title}" catalog="${expectedTitle}"`)
+      if (item.description !== expectedDescription)
+        issues.push(`    description: registry="${item.description}" catalog="${expectedDescription}"`)
+      if (expectedIframeHeight !== undefined && item.meta?.iframeHeight !== expectedIframeHeight)
+        issues.push(`    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`)
     } else {
       item.title = expectedTitle
       item.description = expectedDescription
       if (expectedIframeHeight !== undefined) {
         item.meta = { ...(item.meta ?? {}), iframeHeight: expectedIframeHeight }
       }
-      changed = true
+      dirtyFiles.add(filePath)
       console.log(`  Updated: ${entry.slug}`)
     }
   }
@@ -172,6 +193,7 @@ for (const entry of catalogEntries) {
 
 syncIntentItems()
 
+// Image validation (blocks only)
 for (const manifest of allManifests) {
   if (!manifest.image?.light || !manifest.image?.dark) {
     issues.push(
@@ -180,13 +202,16 @@ for (const manifest of allManifests) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Write back changed files
+// ---------------------------------------------------------------------------
 if (CHECK_ONLY) {
   if (issues.length > 0) {
     console.error('Registry validation FAILED:')
     issues.forEach((i) => console.error(i))
     process.exit(1)
   } else {
-    console.log('Registry validation PASSED — catalog and registry.json in sync.')
+    console.log('Registry validation PASSED — catalog and registry in sync.')
   }
 } else {
   if (issues.length > 0) {
@@ -194,10 +219,14 @@ if (CHECK_ONLY) {
     issues.forEach((i) => console.warn(i))
   }
 
-  if (changed) {
-    fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n')
-    console.log('registry.json updated.')
+  if (dirtyFiles.size > 0) {
+    for (const filePath of dirtyFiles) {
+      const data = registryFiles.get(filePath)!
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n')
+      console.log(`  Saved: ${path.relative(ROOT, filePath)}`)
+    }
+    console.log('registry files updated.')
   } else {
-    console.log('registry.json already in sync — no changes needed.')
+    console.log('registry already in sync — no changes needed.')
   }
 }

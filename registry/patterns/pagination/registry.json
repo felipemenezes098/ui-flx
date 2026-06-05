@@ -1,0 +1,141 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-pagination",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "pagination-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Numbers with ellipsis, previous, and next links."
+    },
+    {
+      "name": "pagination-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-02.tsx"
+        }
+      ],
+      "title": "Compact",
+      "description": "Inline numbers from sm up, \"Page X of Y\" on mobile."
+    },
+    {
+      "name": "pagination-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-03.tsx"
+        }
+      ],
+      "title": "Interactive window",
+      "description": "Stateful current page with a sliding ellipsis range."
+    },
+    {
+      "name": "pagination-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-04.tsx"
+        }
+      ],
+      "title": "Rows per page",
+      "description": "Page-size select with first, prev, next, and last."
+    },
+    {
+      "name": "pagination-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-05.tsx"
+        }
+      ],
+      "title": "Results summary",
+      "description": "Showing 1–10 of 97 alongside the page controls."
+    },
+    {
+      "name": "pagination-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-06.tsx"
+        }
+      ],
+      "title": "Article prev / next",
+      "description": "Two linked cards with titles for adjacent articles."
+    },
+    {
+      "name": "pagination-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-07.tsx"
+        }
+      ],
+      "title": "Dots",
+      "description": "Carousel-style dots; the active page expands to a pill."
+    },
+    {
+      "name": "pagination-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "pagination-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/pagination/pagination-08.tsx"
+        }
+      ],
+      "title": "Jump to page",
+      "description": "Numeric input to jump directly to any page."
+    }
+  ]
+}

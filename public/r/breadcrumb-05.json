@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-05",
   "title": "With ellipsis",
-  "description": "BreadcrumbEllipsis collapses the middle levels.",
+  "description": "Middle levels replaced by a static ellipsis icon, showing only the first and last crumbs.",
   "dependencies": [],
   "registryDependencies": [
     "breadcrumb"

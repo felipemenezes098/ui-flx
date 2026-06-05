@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-13",
   "title": "Pagination",
-  "description": "TanStack Table — prev / next controls with a rows-per-page select.",
+  "description": "TanStack Table, prev / next controls with a rows-per-page select.",
   "dependencies": [
     "@tanstack/react-table"
   ],

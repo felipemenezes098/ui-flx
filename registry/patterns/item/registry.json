@@ -1,0 +1,383 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-item",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "item-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-02.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Title plus supporting description."
+    },
+    {
+      "name": "item-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-03.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "Default, outline, and muted variants side-by-side."
+    },
+    {
+      "name": "item-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-04.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Default, sm, and xs sizes side-by-side."
+    },
+    {
+      "name": "item-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-05.tsx"
+        }
+      ],
+      "title": "With icon",
+      "description": "Leading icon placed before the title and description."
+    },
+    {
+      "name": "item-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-06.tsx"
+        }
+      ],
+      "title": "With avatar",
+      "description": "User avatar photo placed before the name and subtitle."
+    },
+    {
+      "name": "item-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-07.tsx"
+        }
+      ],
+      "title": "With thumbnail",
+      "description": "Small image thumbnail placed before the title and subtitle."
+    },
+    {
+      "name": "item-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-08.tsx"
+        }
+      ],
+      "title": "With actions",
+      "description": "Avatar, name, role, and a trailing action button."
+    },
+    {
+      "name": "item-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-09.tsx"
+        }
+      ],
+      "title": "Header and footer",
+      "description": "Status badge above the title and a metadata row below the description."
+    },
+    {
+      "name": "item-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-10.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "The entire row is clickable, navigating to a URL with a trailing arrow icon."
+    },
+    {
+      "name": "item-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-11.tsx"
+        }
+      ],
+      "title": "Group",
+      "description": "Multiple rows grouped together with thin dividers between each row."
+    },
+    {
+      "name": "item-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "avatar",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-12.tsx"
+        }
+      ],
+      "title": "User list",
+      "description": "Avatars with name, role, and Follow action per row."
+    },
+    {
+      "name": "item-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-13.tsx"
+        }
+      ],
+      "title": "Notifications",
+      "description": "Leading icon, title with an unread dot indicator, and a trailing timestamp."
+    },
+    {
+      "name": "item-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-14.tsx"
+        }
+      ],
+      "title": "File list",
+      "description": "File icon, name, size metadata, and a trailing overflow menu with actions per row."
+    },
+    {
+      "name": "item-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-15.tsx"
+        }
+      ],
+      "title": "Settings row",
+      "description": "Title and description with a trailing Switch."
+    },
+    {
+      "name": "item-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "switch",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-16.tsx"
+        }
+      ],
+      "title": "Integrations",
+      "description": "Brand icon, status badge in title, connect Switch."
+    },
+    {
+      "name": "item-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-17.tsx"
+        }
+      ],
+      "title": "Stat rows",
+      "description": "Stacked KPI rows with label, value, and trend delta."
+    },
+    {
+      "name": "item-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "badge",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-18.tsx"
+        }
+      ],
+      "title": "Pricing tiers",
+      "description": "Stacked tier rows with Popular badge, price, and CTA button."
+    },
+    {
+      "name": "item-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-19.tsx"
+        }
+      ],
+      "title": "Activity feed",
+      "description": "Icon timeline rows with relative time footer."
+    },
+    {
+      "name": "item-20",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "avatar",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-20.tsx"
+        }
+      ],
+      "title": "In dropdown menu",
+      "description": "Compact user avatar and email placed at the top of a dropdown menu."
+    },
+    {
+      "name": "item-21",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-21.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-21.tsx"
+        }
+      ],
+      "title": "In popover",
+      "description": "File rows with image thumbnails displayed inside a floating popover panel."
+    },
+    {
+      "name": "item-24",
+      "type": "registry:block",
+      "registryDependencies": [
+        "item",
+        "avatar",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "item-24.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/item/item-24.tsx"
+        }
+      ],
+      "title": "Empty team",
+      "description": "Overlapping avatar stack above an empty-state message with an invite button."
+    }
+  ]
+}

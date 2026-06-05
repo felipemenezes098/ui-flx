@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { StickyScrollMedia } from './sticky-scroll-media'
 import { StickyScrollMediaEditorFields } from './editor/fields'
 import { StickyScrollMediaExample, values } from './sticky-scroll-media-example'

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-11",
   "title": "Sortable",
-  "description": "TanStack Table — click a header to sort the column.",
+  "description": "TanStack Table, click a column header to sort ascending or descending.",
   "dependencies": [
     "@tanstack/react-table"
   ],

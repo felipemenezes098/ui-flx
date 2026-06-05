@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { HeroLogosCarousel } from './hero-logos-carousel'
 import { HeroLogosCarouselEditorFields } from './editor/fields'
 import { HeroLogosCarouselExample, values } from './hero-logos-carousel-example'

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-10",
   "title": "As link",
-  "description": "asChild anchor turns the whole row into a link.",
+  "description": "The entire row is clickable, navigating to a URL with a trailing arrow icon.",
   "dependencies": [],
   "registryDependencies": [
     "item"

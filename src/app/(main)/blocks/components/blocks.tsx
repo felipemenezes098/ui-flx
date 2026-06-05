@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/resizable'
 import { Separator } from '@/components/ui/separator'
 import { getValidBlocksCategorySlug } from '../lib/blocks-category'
-import { blocks } from '@/lib/catalog'
+import { blocks } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
 export function Blocks() {

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-bento-grids",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "primary-item-grid",
+      "type": "registry:block",
+      "title": "Primary Item Grid",
+      "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "primary-item-grid/primary-item-grid.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
+        },
+        {
+          "path": "primary-item-grid/primary-item-grid-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 850
+      }
+    }
+  ]
+}

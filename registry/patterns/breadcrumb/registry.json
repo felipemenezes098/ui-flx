@@ -1,0 +1,166 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-breadcrumb",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "breadcrumb-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Links with a current page and chevron separators."
+    },
+    {
+      "name": "breadcrumb-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-02.tsx"
+        }
+      ],
+      "title": "With icons",
+      "description": "Each crumb prefixed with a small icon, such as a house, folder, or file."
+    },
+    {
+      "name": "breadcrumb-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-03.tsx"
+        }
+      ],
+      "title": "Custom separator",
+      "description": "Swap the chevron for a slash via separator children."
+    },
+    {
+      "name": "breadcrumb-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-04.tsx"
+        }
+      ],
+      "title": "Dot separator",
+      "description": "Lighter middle dot divider between crumbs."
+    },
+    {
+      "name": "breadcrumb-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-05.tsx"
+        }
+      ],
+      "title": "With ellipsis",
+      "description": "Middle levels replaced by a static ellipsis icon, showing only the first and last crumbs."
+    },
+    {
+      "name": "breadcrumb-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-06.tsx"
+        }
+      ],
+      "title": "With dropdown",
+      "description": "Ghost icon Button opens a menu of the hidden levels."
+    },
+    {
+      "name": "breadcrumb-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-07.tsx"
+        }
+      ],
+      "title": "Responsive collapse",
+      "description": "Dropdown on small screens, full inline path from sm up."
+    },
+    {
+      "name": "breadcrumb-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-08.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "Breadcrumb links that open in a new tab, with an external-link icon on the outbound crumb."
+    },
+    {
+      "name": "breadcrumb-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "breadcrumb-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/breadcrumb/breadcrumb-09.tsx"
+        }
+      ],
+      "title": "Dropdown at end",
+      "description": "Last crumb is a Button switcher for sibling pages."
+    }
+  ]
+}

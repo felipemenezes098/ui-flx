@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-a-plan-tiered-cards",
   "title": "Tiered Cards",
-  "description": "Tiered Cards — Select a Plan.",
+  "description": "Tiered Cards for Select a Plan.",
   "dependencies": [
     "lucide-react"
   ],

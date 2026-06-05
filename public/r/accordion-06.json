@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-06",
   "title": "Plus / minus icon",
-  "description": "Radix primitive swaps a plus for a minus instead of a chevron.",
+  "description": "Plus icon on each trigger that turns into a minus when open, instead of a chevron.",
   "dependencies": [
     "radix-ui"
   ],

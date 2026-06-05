@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-08",
   "title": "Submenu",
-  "description": "Nested DropdownMenuSub reveals a flyout of options.",
+  "description": "A menu item that reveals a nested flyout panel with more options.",
   "dependencies": [],
   "registryDependencies": [
     "dropdown-menu",

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-21",
   "title": "In popover",
-  "description": "File group with thumbnails inside a Popover.",
+  "description": "File rows with image thumbnails displayed inside a floating popover panel.",
   "dependencies": [],
   "registryDependencies": [
     "item",

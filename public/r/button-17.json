@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-17",
   "title": "Vertical group",
-  "description": "Stacked ButtonGroup via orientation=\"vertical\".",
+  "description": "Stacked column of buttons with merged borders, used for vertical navigation menus.",
   "dependencies": [],
   "registryDependencies": [
     "button",

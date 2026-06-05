@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command-08",
   "title": "Grouped picker",
-  "description": "Options split into labeled groups with separators — timezones by region.",
+  "description": "Options split into labeled groups with separators, demonstrated with timezones organized by region.",
   "dependencies": [],
   "registryDependencies": [
     "popover",

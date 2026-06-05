@@ -16,8 +16,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { siteConfig } from '@/config/site'
-import { useActiveFile } from '@/hooks/use-active-file'
-import type { DecisionView } from '@/lib/intent-manifest-types'
+import { useActiveFile } from '@/app/(main)/ai/hooks/use-active-file'
+import type { DecisionView } from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 
 export function DecisionCodeDialog({

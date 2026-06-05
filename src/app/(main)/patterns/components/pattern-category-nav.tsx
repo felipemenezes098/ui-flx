@@ -22,7 +22,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
-import { patternCategories } from '@/lib/patterns-catalog'
+import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 const SCROLL_STEP = 240
 const SCROLL_THRESHOLD = 1
@@ -62,7 +62,11 @@ export function PatternCategoryNav() {
 
   function scrollToEnd(el: HTMLDivElement) {
     const last = el.firstElementChild?.lastElementChild as HTMLElement | null
-    last?.scrollIntoView({ inline: 'end', block: 'nearest', behavior: 'smooth' })
+    last?.scrollIntoView({
+      inline: 'end',
+      block: 'nearest',
+      behavior: 'smooth',
+    })
   }
 
   function scroll(direction: 'left' | 'right') {
@@ -187,7 +191,7 @@ export function PatternCategoryNav() {
                   href={`/patterns/${category.slug}`}
                   aria-current={isActive ? 'true' : undefined}
                   className={cn(
-                    'scroll-mx-12 shrink-0 rounded-full px-3 py-1 text-sm font-medium',
+                    'shrink-0 scroll-mx-12 rounded-full px-3 py-1 text-sm font-medium',
                     isActive
                       ? 'bg-foreground text-background'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground',

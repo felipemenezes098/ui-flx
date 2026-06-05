@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-22",
   "title": "Pagination",
-  "description": "Prev / page numbers / Next inside a ButtonGroup.",
+  "description": "Prev arrow, numbered page buttons, and Next arrow in a merged-border row.",
   "dependencies": [
     "lucide-react"
   ],

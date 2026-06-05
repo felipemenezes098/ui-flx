@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-a-plan-comparison-table",
   "title": "Comparison Table",
-  "description": "Comparison Table — Select a Plan.",
+  "description": "Comparison Table for Select a Plan.",
   "dependencies": [
     "lucide-react"
   ],

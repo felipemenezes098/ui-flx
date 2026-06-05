@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-04",
   "title": "Destructive item",
-  "description": "A red Delete action via variant=\"destructive\".",
+  "description": "A red destructive Delete action separated from the regular items.",
   "dependencies": [],
   "registryDependencies": [
     "dropdown-menu",

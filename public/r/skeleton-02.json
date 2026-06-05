@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "skeleton-02",
   "title": "Avatar with text",
-  "description": "A circle beside two lines — a loading user row.",
+  "description": "A circle beside two lines, mimicking a loading user row.",
   "dependencies": [],
   "registryDependencies": [
     "skeleton"

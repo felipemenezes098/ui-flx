@@ -13,7 +13,7 @@ export function MagicLinkDecision() {
       <div className="mt-3 flex flex-col gap-1">
         <span className="text-base font-semibold">Sign in with email</span>
         <span className="text-muted-foreground text-xs">
-          We&apos;ll email you a secure link — no password to remember.
+          We&apos;ll email you a secure link, no password to remember.
         </span>
       </div>
 
