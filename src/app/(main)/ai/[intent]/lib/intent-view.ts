@@ -1,9 +1,9 @@
 import type { RegistryItem } from 'shadcn/schema'
 
-import { siteConfig } from '@/config/site'
+import { installCommand, registryItemUrl } from '@/lib/registry-command'
+import { toRegistryCodeFiles } from '@/lib/registry-source'
 import type {
   DecisionView,
-  IntentCodeFile,
   IntentDecision,
   IntentManifest,
 } from '@/lib/intent-manifest-types'
@@ -15,8 +15,6 @@ import { getRegistryItem } from '@/lib/registry-utils.server'
  * from client components: call in a server component and pass the resulting
  * `DecisionView` down as a single prop.
  */
-
-const REGISTRY_BASE_URL = siteConfig.url
 
 function pretty(slug: string): string {
   return slug
@@ -32,28 +30,9 @@ function registryNameFor(
   return `${manifest.slug}-${decision.slug}`
 }
 
-/** Single source of the install command shown across the AI surface. */
-export function installCommand(registryName: string): string {
-  return `npx shadcn@latest add @${siteConfig.codeName}/${registryName}`
-}
-
 function componentList(item: RegistryItem | undefined): string {
   const slugs = item?.registryDependencies ?? []
   return slugs.map(pretty).join(', ') || 'shadcn/ui primitives'
-}
-
-function toCodeFiles(item: RegistryItem | undefined): IntentCodeFile[] {
-  if (!item?.files) return []
-
-  return item.files
-    .filter((f) => f.content)
-    .map((f) => {
-      const path = f.target ?? f.path
-      return {
-        name: path.split('/').pop() ?? path,
-        content: f.content as string,
-      }
-    })
 }
 
 function buildPrompt(
@@ -63,7 +42,7 @@ function buildPrompt(
   registryName: string,
   install: string,
 ): string {
-  const registryUrl = `${REGISTRY_BASE_URL}/r/${registryName}.json`
+  const registryUrl = registryItemUrl(registryName)
   const baseList = (item?.registryDependencies ?? []).map(pretty).join(', ')
 
   return `# Intent: ${manifest.name}
@@ -106,7 +85,7 @@ export function buildDecisionView(
     registryName,
     install,
     prompt: buildPrompt(manifest, decision, item, registryName, install),
-    codeFiles: toCodeFiles(item),
+    codeFiles: toRegistryCodeFiles(item),
   }
 }
 

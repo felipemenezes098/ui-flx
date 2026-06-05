@@ -20,15 +20,15 @@ export function PatternCard({
     <div
       id={item.name}
       className={cn(
-        'border-border bg-card/50 flex flex-col gap-3 rounded-xl border p-2 shadow-xs scroll-mt-24',
+        'border-border bg-card/50 flex scroll-mt-24 flex-col gap-3 rounded-xl border p-2 shadow-xs',
         className,
       )}
     >
       <div className="border-border bg-card dark:bg-background flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border p-8">
         {children}
       </div>
-      <div className="flex items-center justify-between pr-0.5 pl-1.5">
-        <span className="line-clamp-1 truncate text-sm font-medium">
+      <div className="flex items-center justify-between gap-2 pr-0.5 pl-1.5">
+        <span className="line-clamp-1 flex-1 truncate text-sm font-medium">
           {item.title}
         </span>
         {actions}

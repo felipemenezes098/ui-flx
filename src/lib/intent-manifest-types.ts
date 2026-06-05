@@ -1,4 +1,7 @@
+import { RegistryCodeFile } from '@/lib/registry-source'
 import type { ComponentType } from 'react'
+
+export type { RegistryCodeFile } from '@/lib/registry-source'
 
 export type IntentGridColumns = 2 | 3 | 4
 
@@ -48,11 +51,6 @@ export interface IntentManifest {
   decisions: IntentDecision[]
 }
 
-export interface IntentCodeFile {
-  name: string
-  content: string
-}
-
 /**
  * Self-contained, server-built artifacts for a single decision. Built once in a
  * server component (see `intent-view.ts`) and passed down as one prop — never
@@ -71,5 +69,5 @@ export interface DecisionView {
   registryName: string
   install: string
   prompt: string
-  codeFiles: IntentCodeFile[]
+  codeFiles: RegistryCodeFile[]
 }

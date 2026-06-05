@@ -5,7 +5,7 @@ import { getCategoryBySlug, patternCategories } from '@/lib/patterns-catalog'
 import { getPatternByName } from '@/lib/patterns-utils'
 
 import { PatternCard } from '../components/pattern-card'
-import { PatternDetails } from '../components/pattern-details'
+import { PatternActions } from '../components/pattern-actions'
 import {
   PatternGrid,
   patternGridItemVariants,
@@ -55,7 +55,7 @@ export default async function PatternCategoryPage({
               span: catalogItem.span ?? 'default',
               columns,
             })}
-            actions={<PatternDetails item={item} />}
+            actions={<PatternActions item={item} categorySlug={slug} />}
           >
             <PatternRenderer name={item.name} />
           </PatternCard>
