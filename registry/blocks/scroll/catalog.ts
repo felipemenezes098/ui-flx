@@ -8,7 +8,6 @@ export const scrollCategory: BlockCategoryRow = {
   category: 'Scroll',
   description: 'Scroll-based interactive blocks with animations.',
   type: 'scroll',
-  hasNew: true,
   image: stickyScrollMediaManifest.image,
   concept: ScrollConcept,
   blocks: [stickyScrollMediaManifest],

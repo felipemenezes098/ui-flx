@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
+
 import { Footer } from '@/components/core/footer'
 import { siteConfig } from '@/config/site'
 
-import { Preview } from './components/preview'
+import { BlocksPreview } from './components/blocks-preview'
 import { HeroSection } from './components/hero-section'
+import { PatternTeaser } from './components/pattern-teaser'
+import { IntentShowcase } from './components/intent-showcase'
+import { IntentList } from './components/intent-showcase/intent-list'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -32,8 +38,55 @@ export default function HomePage() {
         <section className="flex flex-col items-center gap-8 text-center">
           <HeroSection />
         </section>
+
         <section>
-          <Preview />
+          <PatternTeaser />
+        </section>
+
+        <section className="flex flex-col gap-8">
+          <div className="flex items-end justify-between">
+            <div className="flex flex-col gap-2">
+              <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+                Intents
+              </span>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                From problem to decision
+              </h2>
+              <p className="text-muted-foreground max-w-xl">
+                Describe what you want to build. Get the decision, the
+                reasoning, and the code behind it.
+              </p>
+            </div>
+            <Button asChild variant="link" size="sm" className="bg-background">
+              <Link href="/intents">View all</Link>
+            </Button>
+          </div>
+
+          <IntentShowcase />
+
+          <IntentList />
+        </section>
+
+        <section className="flex flex-col gap-8">
+          <div className="flex items-end justify-between">
+            <div className="flex flex-col gap-2">
+              <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+                Blocks
+              </span>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                Sections, ready to ship
+              </h2>
+              <p className="text-muted-foreground max-w-xl">
+                Full page sections assembled from the primitives. Drop one in,
+                wire your data, and move on.
+              </p>
+            </div>
+            <Button asChild variant="link" size="sm" className="bg-background">
+              <Link href="/blocks">View all</Link>
+            </Button>
+          </div>
+
+          <BlocksPreview />
         </section>
       </div>
       <Footer />

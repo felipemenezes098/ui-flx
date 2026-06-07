@@ -65,8 +65,9 @@ export default function AiPage() {
             Interface Decisions
           </h1>
           <p className="text-muted-foreground max-w-md text-balance">
-            Reusable decisions for everyday interfaces.{' '}
-            <span className="text-foreground font-medium">See the result.</span>
+            From prompt to decision for everyday interfaces. The reasoning and
+            the code.{' '}
+            <span className="text-foreground font-medium">See it work.</span>
           </p>
         </section>
 

@@ -4,9 +4,9 @@ export const siteConfig = {
   codeName: 'flx',
   url: 'https://ui.flexnative.com',
   ogImage: 'https://ui.flexnative.com/og.png',
-  title: 'UI Blocks & Patterns',
+  title: 'From intent to interface',
   description:
-    'Copy-paste sections and components built on shadcn/ui and Tailwind CSS. Designed to be extended and owned.',
+    'The reasoning, prompts, and code behind every pattern. Built on shadcn/ui. Open source, open code.',
   author: 'Felipe Menezes',
   links: {
     twitter: 'https://x.com/fmenezes_',
