@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "manage-subscription-2",
+  "title": "Change Plan",
+  "description": "Change Plan for Manage Subscription.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/manage-subscription/manage-subscription-2.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { ArrowRight, Check } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\ntype Plan = { id: string; name: string; price: number; note: string }\n\nconst PLANS: Plan[] = [\n  { id: 'starter', name: 'Starter', price: 9, note: '3 projects' },\n  { id: 'pro', name: 'Pro', price: 29, note: 'Unlimited projects' },\n  { id: 'scale', name: 'Scale', price: 99, note: 'SSO and audit logs' },\n]\n\nconst CURRENT = 'pro'\n\nexport function ManageSubscription2() {\n  const [selected, setSelected] = useState('scale')\n  const current = PLANS.find((p) => p.id === CURRENT)!\n  const target = PLANS.find((p) => p.id === selected)!\n  const delta = target.price - current.price\n  const changed = selected !== CURRENT\n\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <CardTitle>Change plan</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-3\">\n        {PLANS.map((plan) => {\n          const active = plan.id === selected\n          const isCurrent = plan.id === CURRENT\n          return (\n            <button\n              key={plan.id}\n              type=\"button\"\n              onClick={() => setSelected(plan.id)}\n              className={`flex items-center gap-3 rounded-lg border p-3 text-left transition-colors ${\n                active ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'\n              }`}\n            >\n              <div\n                className={`flex size-5 shrink-0 items-center justify-center rounded-full border ${\n                  active ? 'border-primary bg-primary text-primary-foreground' : ''\n                }`}\n              >\n                {active && <Check className=\"size-3\" />}\n              </div>\n              <div className=\"flex flex-1 flex-col\">\n                <span className=\"text-sm font-medium\">\n                  {plan.name}\n                  {isCurrent && (\n                    <span className=\"text-muted-foreground\"> (current)</span>\n                  )}\n                </span>\n                <span className=\"text-muted-foreground text-xs\">\n                  {plan.note}\n                </span>\n              </div>\n              <span className=\"text-sm font-medium\">${plan.price}/mo</span>\n            </button>\n          )\n        })}\n\n        {changed && (\n          <p className=\"bg-muted/50 rounded-lg border p-3 text-xs\">\n            {delta > 0\n              ? `You will be charged a prorated $${delta} now, then $${target.price}/mo.`\n              : `Your plan changes at the next renewal. New price $${target.price}/mo.`}\n          </p>\n        )}\n      </CardContent>\n      <CardFooter>\n        <Button className=\"w-full\" disabled={!changed}>\n          Confirm change\n          <ArrowRight className=\"size-4\" />\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/manage-subscription/manage-subscription-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,360 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-intent-auth",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "verify-identity-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "verify-identity/verify-identity-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-1.tsx"
+        }
+      ],
+      "title": "Password Re-auth",
+      "description": "Password Re-auth for Verify Identity."
+    },
+    {
+      "name": "verify-identity-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input-otp"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "verify-identity/verify-identity-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-2.tsx"
+        }
+      ],
+      "title": "OTP Challenge",
+      "description": "OTP Challenge for Verify Identity."
+    },
+    {
+      "name": "verify-identity-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "verify-identity/verify-identity-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-3.tsx"
+        }
+      ],
+      "title": "Push Approval",
+      "description": "Push Approval for Verify Identity."
+    },
+    {
+      "name": "verify-identity-4",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "verify-identity/verify-identity-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-4.tsx"
+        }
+      ],
+      "title": "Biometric",
+      "description": "Biometric for Verify Identity."
+    },
+    {
+      "name": "sign-in-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "sign-in/sign-in-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-1.tsx"
+        }
+      ],
+      "title": "Social First",
+      "description": "Social First for Sign In."
+    },
+    {
+      "name": "sign-in-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "sign-in/sign-in-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-2.tsx"
+        }
+      ],
+      "title": "Email & Password",
+      "description": "Email & Password for Sign In."
+    },
+    {
+      "name": "sign-in-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "sign-in/sign-in-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-3.tsx"
+        }
+      ],
+      "title": "Magic Link",
+      "description": "Magic Link for Sign In."
+    },
+    {
+      "name": "sign-in-4",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "sign-in/sign-in-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-4.tsx"
+        }
+      ],
+      "title": "Passkey",
+      "description": "Passkey for Sign In."
+    },
+    {
+      "name": "sign-in-5",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "input-group",
+        "input-otp",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "sign-in/sign-in-5.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-5.tsx"
+        }
+      ],
+      "title": "Phone & OTP",
+      "description": "Phone & OTP for Sign In."
+    },
+    {
+      "name": "sign-in-6",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "sign-in/sign-in-6.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/sign-in/sign-in-6.tsx"
+        }
+      ],
+      "title": "Split Screen",
+      "description": "Split Screen for Sign In."
+    },
+    {
+      "name": "reset-password-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "reset-password/reset-password-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/reset-password-1.tsx"
+        }
+      ],
+      "title": "Email Link",
+      "description": "Email Link for Reset Password."
+    },
+    {
+      "name": "reset-password-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input-otp"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "reset-password/reset-password-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/reset-password-2.tsx"
+        }
+      ],
+      "title": "OTP Code",
+      "description": "OTP Code for Reset Password."
+    },
+    {
+      "name": "reset-password-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "reset-password/reset-password-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/reset-password/reset-password-3.tsx"
+        }
+      ],
+      "title": "Security Questions",
+      "description": "Security Questions for Reset Password."
+    },
+    {
+      "name": "two-factor-setup-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input-otp"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "two-factor-setup/two-factor-setup-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-1.tsx"
+        }
+      ],
+      "title": "Authenticator App",
+      "description": "Authenticator App for Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "two-factor-setup/two-factor-setup-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-2.tsx"
+        }
+      ],
+      "title": "SMS Code",
+      "description": "SMS Code for Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "two-factor-setup/two-factor-setup-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-3.tsx"
+        }
+      ],
+      "title": "Passkey",
+      "description": "Passkey for Two-Factor Setup."
+    },
+    {
+      "name": "two-factor-setup-4",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "two-factor-setup/two-factor-setup-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-4.tsx"
+        }
+      ],
+      "title": "Backup Codes",
+      "description": "Backup Codes for Two-Factor Setup."
+    }
+  ]
+}

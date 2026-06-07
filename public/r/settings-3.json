@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-3",
+  "title": "Inline Edit",
+  "description": "Inline Edit for Settings.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/account/settings/settings-3.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Check, Pencil, X } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\nimport { Separator } from '@/components/ui/separator'\n\ninterface Row {\n  key: string\n  label: string\n  value: string\n}\n\nconst initialRows: Row[] = [\n  { key: 'name', label: 'Full name', value: 'Ada Lovelace' },\n  { key: 'email', label: 'Email', value: 'ada@acme.com' },\n  { key: 'phone', label: 'Phone', value: '+1 555 0142' },\n]\n\nexport function Settings3() {\n  const [rows, setRows] = useState(initialRows)\n  const [editing, setEditing] = useState<string | null>('')\n  const [draft, setDraft] = useState('')\n\n  function startEdit(row: Row) {\n    setEditing(row.key)\n    setDraft(row.value)\n  }\n\n  function save(key: string) {\n    setRows((prev) =>\n      prev.map((r) => (r.key === key ? { ...r, value: draft } : r)),\n    )\n    setEditing(null)\n  }\n\n  return (\n    <Card className=\"w-full max-w-xl min-w-md\">\n      <CardHeader>\n        <CardTitle>Personal info</CardTitle>\n        <p className=\"text-muted-foreground text-sm\">\n          Edit one field at a time, in place.\n        </p>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col\">\n        {rows.map((row, i) => (\n          <div key={row.key}>\n            {i > 0 && <Separator />}\n            <div className=\"flex items-center justify-between gap-4 py-3\">\n              {editing === row.key ? (\n                <>\n                  <div className=\"flex flex-1 flex-col gap-1.5\">\n                    <Label htmlFor={`ie-${row.key}`} className=\"text-xs\">\n                      {row.label}\n                    </Label>\n                    <Input\n                      id={`ie-${row.key}`}\n                      value={draft}\n                      onChange={(e) => setDraft(e.target.value)}\n                      autoFocus\n                    />\n                  </div>\n                  <div className=\"mt-5 flex gap-1\">\n                    <Button\n                      size=\"icon\"\n                      variant=\"ghost\"\n                      onClick={() => setEditing(null)}\n                      aria-label=\"Cancel\"\n                    >\n                      <X className=\"size-4\" />\n                    </Button>\n                    <Button\n                      size=\"icon\"\n                      onClick={() => save(row.key)}\n                      aria-label=\"Save\"\n                    >\n                      <Check className=\"size-4\" />\n                    </Button>\n                  </div>\n                </>\n              ) : (\n                <>\n                  <div className=\"flex min-w-0 flex-col\">\n                    <span className=\"text-muted-foreground text-xs\">\n                      {row.label}\n                    </span>\n                    <span className=\"truncate text-sm font-medium\">\n                      {row.value}\n                    </span>\n                  </div>\n                  <Button\n                    size=\"sm\"\n                    variant=\"ghost\"\n                    onClick={() => startEdit(row)}\n                  >\n                    <Pencil className=\"size-3.5\" />\n                    Edit\n                  </Button>\n                </>\n              )}\n            </div>\n          </div>\n        ))}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/settings/settings-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

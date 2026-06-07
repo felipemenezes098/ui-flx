@@ -4,10 +4,19 @@ import type {
   IntentManifest,
 } from '@/lib/intents/intent-manifest-types'
 
-import { manifest as resetPassword } from 'registry/intent/reset-password/manifest'
-import { manifest as selectAPlan } from 'registry/intent/select-a-plan/manifest'
-import { manifest as signIn } from 'registry/intent/sign-in/manifest'
-import { manifest as twoFactorSetup } from 'registry/intent/two-factor-setup/manifest'
+import { manifest as accountSettings } from 'registry/intents/account/settings/manifest'
+import { manifest as deleteAccount } from 'registry/intents/account/delete-account/manifest'
+import { manifest as notifications } from 'registry/intents/account/notifications/manifest'
+import { manifest as commentThread } from 'registry/intents/collaboration/comment-thread/manifest'
+import { manifest as livePresence } from 'registry/intents/collaboration/live-presence/manifest'
+import { manifest as shareAccess } from 'registry/intents/collaboration/share-access/manifest'
+import { manifest as resetPassword } from 'registry/intents/auth/reset-password/manifest'
+import { manifest as manageSubscription } from 'registry/intents/billing/manage-subscription/manifest'
+import { manifest as payment } from 'registry/intents/billing/payment/manifest'
+import { manifest as selectAPlan } from 'registry/intents/billing/select-a-plan/manifest'
+import { manifest as signIn } from 'registry/intents/auth/sign-in/manifest'
+import { manifest as twoFactorSetup } from 'registry/intents/auth/two-factor-setup/manifest'
+import { manifest as verifyIdentity } from 'registry/intents/auth/verify-identity/manifest'
 
 export type {
   IntentDecision,
@@ -30,15 +39,38 @@ export const intentDomains: IntentDomain[] = [
   {
     slug: 'billing',
     name: 'Billing',
-    intents: [fromManifest(selectAPlan)],
+    intents: [
+      fromManifest(selectAPlan),
+      fromManifest(payment),
+      fromManifest(manageSubscription),
+    ],
   },
   {
     slug: 'auth',
     name: 'Auth',
     intents: [
       fromManifest(signIn),
+      fromManifest(verifyIdentity),
       fromManifest(resetPassword),
       fromManifest(twoFactorSetup),
+    ],
+  },
+  {
+    slug: 'account',
+    name: 'Account',
+    intents: [
+      fromManifest(accountSettings),
+      fromManifest(notifications),
+      fromManifest(deleteAccount),
+    ],
+  },
+  {
+    slug: 'collaboration',
+    name: 'Collaboration',
+    intents: [
+      fromManifest(shareAccess),
+      fromManifest(commentThread),
+      fromManifest(livePresence),
     ],
   },
 ]

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-presence-1",
+  "title": "Avatar Stack",
+  "description": "Avatar Stack for Live Presence.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "card",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/live-presence/live-presence-1.tsx",
+      "content": "'use client'\n\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from '@/components/ui/avatar'\nimport {\n  Card,\n  CardContent,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\ntype Viewer = { id: string; name: string; avatar: string }\n\nconst VIEWERS: Viewer[] = [\n  {\n    id: 'ada',\n    name: 'Ada Lovelace',\n    avatar:\n      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=faces',\n  },\n  {\n    id: 'grace',\n    name: 'Grace Hopper',\n    avatar:\n      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&fit=crop&crop=faces',\n  },\n  {\n    id: 'alan',\n    name: 'Alan Turing',\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=128&h=128&fit=crop&crop=faces',\n  },\n  {\n    id: 'katherine',\n    name: 'Katherine Johnson',\n    avatar:\n      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=128&h=128&fit=crop&crop=faces',\n  },\n]\n\nconst OVERFLOW = 3\n\nexport function LivePresence1() {\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <CardTitle>On this page now</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex items-center gap-3\">\n        <div className=\"flex -space-x-2\">\n          {VIEWERS.map((viewer) => (\n            <Tooltip key={viewer.id}>\n              <TooltipTrigger asChild>\n                <Avatar className=\"ring-background size-9 ring-2\">\n                  <AvatarImage src={viewer.avatar} alt={viewer.name} />\n                  <AvatarFallback className=\"bg-muted text-xs\">\n                    {viewer.name\n                      .split(' ')\n                      .map((n) => n[0])\n                      .join('')}\n                  </AvatarFallback>\n                </Avatar>\n              </TooltipTrigger>\n              <TooltipContent>{viewer.name}</TooltipContent>\n            </Tooltip>\n          ))}\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <div className=\"bg-muted text-muted-foreground ring-background flex size-9 items-center justify-center rounded-full text-xs font-medium ring-2\">\n                +{OVERFLOW}\n              </div>\n            </TooltipTrigger>\n            <TooltipContent>3 more viewing</TooltipContent>\n          </Tooltip>\n        </div>\n        <span className=\"text-muted-foreground text-sm\">\n          {VIEWERS.length + OVERFLOW} people viewing\n        </span>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/live-presence/live-presence-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

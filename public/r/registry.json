@@ -6759,110 +6759,316 @@
       "type": "registry:block"
     },
     {
-      "name": "select-a-plan-tiered-cards",
-      "title": "Tiered Cards",
-      "description": "Tiered Cards for Select a Plan.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "switch"
-      ],
-      "files": [
-        {
-          "path": "registry/intent/select-a-plan/tiered-cards.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/select-a-plan/tiered-cards.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "select-a-plan-comparison-table",
-      "title": "Comparison Table",
-      "description": "Comparison Table for Select a Plan.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/intent/select-a-plan/comparison-table.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/select-a-plan/comparison-table.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "select-a-plan-audience-segments",
-      "title": "Audience Segments",
-      "description": "Audience Segments for Select a Plan.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "card",
-        "toggle-group"
-      ],
-      "files": [
-        {
-          "path": "registry/intent/select-a-plan/audience-segments.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/select-a-plan/audience-segments.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "select-a-plan-usage-slider",
-      "title": "Usage Slider",
-      "description": "Usage Slider for Select a Plan.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "card",
-        "slider"
-      ],
-      "files": [
-        {
-          "path": "registry/intent/select-a-plan/usage-slider.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/select-a-plan/usage-slider.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "select-a-plan-spotlight-recommendation",
-      "title": "Spotlight Recommendation",
-      "description": "Spotlight Recommendation for Select a Plan.",
+      "name": "settings-1",
+      "title": "Tabbed Sections",
+      "description": "Tabbed Sections for Settings.",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "avatar",
-        "badge",
         "button",
-        "card"
+        "card",
+        "input",
+        "label",
+        "select",
+        "switch",
+        "tabs"
       ],
       "files": [
         {
-          "path": "registry/intent/select-a-plan/spotlight-recommendation.tsx",
+          "path": "registry/intents/account/settings/settings-1.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/select-a-plan/spotlight-recommendation.tsx"
+          "target": "components/flx/intent/settings/settings-1.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-social-first",
+      "name": "settings-2",
+      "title": "Sidebar Layout",
+      "description": "Sidebar Layout for Settings.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "separator",
+        "sidebar",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/settings/settings-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "settings-3",
+      "title": "Inline Edit",
+      "description": "Inline Edit for Settings.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/settings/settings-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "settings-4",
+      "title": "Preferences Dialog",
+      "description": "Preferences Dialog for Settings.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dialog",
+        "label",
+        "separator",
+        "switch",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/settings/settings-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-4.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "notifications-1",
+      "title": "Channel Matrix",
+      "description": "Channel Matrix for Notifications.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "switch",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/notifications/notifications-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "notifications-2",
+      "title": "Grouped Toggles",
+      "description": "Grouped Toggles for Notifications.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "label",
+        "separator",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/notifications/notifications-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "notifications-3",
+      "title": "Digest Frequency",
+      "description": "Digest Frequency for Notifications.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/notifications/notifications-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "delete-account-1",
+      "title": "Confirm Dialog",
+      "description": "Confirm Dialog for Delete Account.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "dialog",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/delete-account/delete-account-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "delete-account-2",
+      "title": "Multi-Step",
+      "description": "Multi-Step for Delete Account.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "progress",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/delete-account/delete-account-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "delete-account-3",
+      "title": "Grace Period",
+      "description": "Grace Period for Delete Account.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/account/delete-account/delete-account-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "verify-identity-1",
+      "title": "Password Re-auth",
+      "description": "Password Re-auth for Verify Identity.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/auth/verify-identity/verify-identity-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "verify-identity-2",
+      "title": "OTP Challenge",
+      "description": "OTP Challenge for Verify Identity.",
+      "dependencies": [
+        "lucide-react",
+        "input-otp"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/auth/verify-identity/verify-identity-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "verify-identity-3",
+      "title": "Push Approval",
+      "description": "Push Approval for Verify Identity.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/auth/verify-identity/verify-identity-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "verify-identity-4",
+      "title": "Biometric",
+      "description": "Biometric for Verify Identity.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/auth/verify-identity/verify-identity-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/verify-identity/verify-identity-4.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sign-in-1",
       "title": "Social First",
       "description": "Social First for Sign In.",
       "dependencies": [],
@@ -6873,15 +7079,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/social-first.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-1.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/social-first.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-1.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-email-password",
+      "name": "sign-in-2",
       "title": "Email & Password",
       "description": "Email & Password for Sign In.",
       "dependencies": [],
@@ -6892,15 +7098,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/email-password.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-2.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/email-password.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-2.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-magic-link",
+      "name": "sign-in-3",
       "title": "Magic Link",
       "description": "Magic Link for Sign In.",
       "dependencies": [
@@ -6913,15 +7119,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/magic-link.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-3.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/magic-link.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-3.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-passkey",
+      "name": "sign-in-4",
       "title": "Passkey",
       "description": "Passkey for Sign In.",
       "dependencies": [
@@ -6934,15 +7140,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/passkey.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-4.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/passkey.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-4.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-phone-otp",
+      "name": "sign-in-5",
       "title": "Phone & OTP",
       "description": "Phone & OTP for Sign In.",
       "dependencies": [
@@ -6958,15 +7164,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/phone-otp.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-5.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/phone-otp.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-5.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sign-in-split-screen",
+      "name": "sign-in-6",
       "title": "Split Screen",
       "description": "Split Screen for Sign In.",
       "dependencies": [
@@ -6980,15 +7186,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/sign-in/split-screen.tsx",
+          "path": "registry/intents/auth/sign-in/sign-in-6.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/sign-in/split-screen.tsx"
+          "target": "components/flx/intent/sign-in/sign-in-6.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "reset-password-email-link",
+      "name": "reset-password-1",
       "title": "Email Link",
       "description": "Email Link for Reset Password.",
       "dependencies": [
@@ -7001,15 +7207,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/reset-password/email-link.tsx",
+          "path": "registry/intents/auth/reset-password/reset-password-1.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/reset-password/email-link.tsx"
+          "target": "components/flx/intent/reset-password/reset-password-1.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "reset-password-otp-code",
+      "name": "reset-password-2",
       "title": "OTP Code",
       "description": "OTP Code for Reset Password.",
       "dependencies": [
@@ -7022,15 +7228,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/reset-password/otp-code.tsx",
+          "path": "registry/intents/auth/reset-password/reset-password-2.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/reset-password/otp-code.tsx"
+          "target": "components/flx/intent/reset-password/reset-password-2.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "reset-password-security-questions",
+      "name": "reset-password-3",
       "title": "Security Questions",
       "description": "Security Questions for Reset Password.",
       "dependencies": [
@@ -7043,15 +7249,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/reset-password/security-questions.tsx",
+          "path": "registry/intents/auth/reset-password/reset-password-3.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/reset-password/security-questions.tsx"
+          "target": "components/flx/intent/reset-password/reset-password-3.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "two-factor-setup-authenticator-app",
+      "name": "two-factor-setup-1",
       "title": "Authenticator App",
       "description": "Authenticator App for Two-Factor Setup.",
       "dependencies": [
@@ -7064,15 +7270,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/two-factor-setup/authenticator-app.tsx",
+          "path": "registry/intents/auth/two-factor-setup/two-factor-setup-1.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/two-factor-setup/authenticator-app.tsx"
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-1.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "two-factor-setup-sms-code",
+      "name": "two-factor-setup-2",
       "title": "SMS Code",
       "description": "SMS Code for Two-Factor Setup.",
       "dependencies": [
@@ -7085,15 +7291,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/two-factor-setup/sms-code.tsx",
+          "path": "registry/intents/auth/two-factor-setup/two-factor-setup-2.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/two-factor-setup/sms-code.tsx"
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-2.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "two-factor-setup-passkey",
+      "name": "two-factor-setup-3",
       "title": "Passkey",
       "description": "Passkey for Two-Factor Setup.",
       "dependencies": [
@@ -7104,15 +7310,15 @@
       ],
       "files": [
         {
-          "path": "registry/intent/two-factor-setup/passkey.tsx",
+          "path": "registry/intents/auth/two-factor-setup/two-factor-setup-3.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/two-factor-setup/passkey.tsx"
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-3.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "two-factor-setup-backup-codes",
+      "name": "two-factor-setup-4",
       "title": "Backup Codes",
       "description": "Backup Codes for Two-Factor Setup.",
       "dependencies": [
@@ -7123,9 +7329,437 @@
       ],
       "files": [
         {
-          "path": "registry/intent/two-factor-setup/backup-codes.tsx",
+          "path": "registry/intents/auth/two-factor-setup/two-factor-setup-4.tsx",
           "type": "registry:component",
-          "target": "components/flx/intent/two-factor-setup/backup-codes.tsx"
+          "target": "components/flx/intent/two-factor-setup/two-factor-setup-4.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "select-a-plan-1",
+      "title": "Tiered Cards",
+      "description": "Tiered Cards for Select a Plan.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/select-a-plan/select-a-plan-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/select-a-plan-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "select-a-plan-2",
+      "title": "Comparison Table",
+      "description": "Comparison Table for Select a Plan.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/select-a-plan/select-a-plan-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/select-a-plan-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "select-a-plan-3",
+      "title": "Audience Segments",
+      "description": "Audience Segments for Select a Plan.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/select-a-plan/select-a-plan-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/select-a-plan-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "select-a-plan-4",
+      "title": "Usage Slider",
+      "description": "Usage Slider for Select a Plan.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/select-a-plan/select-a-plan-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/select-a-plan-4.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "select-a-plan-5",
+      "title": "Spotlight Recommendation",
+      "description": "Spotlight Recommendation for Select a Plan.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/select-a-plan/select-a-plan-5.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/select-a-plan/select-a-plan-5.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "payment-1",
+      "title": "Card Form",
+      "description": "Card Form for Payment.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/payment/payment-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/payment/payment-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "payment-2",
+      "title": "Saved Methods",
+      "description": "Saved Methods for Payment.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "empty"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/payment/payment-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/payment/payment-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "payment-3",
+      "title": "Express Wallets",
+      "description": "Express Wallets for Payment.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/payment/payment-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/payment/payment-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "manage-subscription-1",
+      "title": "Plan Overview",
+      "description": "Plan Overview for Manage Subscription.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "progress",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/manage-subscription/manage-subscription-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/manage-subscription/manage-subscription-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "manage-subscription-2",
+      "title": "Change Plan",
+      "description": "Change Plan for Manage Subscription.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/manage-subscription/manage-subscription-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/manage-subscription/manage-subscription-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "manage-subscription-3",
+      "title": "Cancel Flow",
+      "description": "Cancel Flow for Manage Subscription.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "label",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/billing/manage-subscription/manage-subscription-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/manage-subscription/manage-subscription-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "share-access-1",
+      "title": "Link with Scope",
+      "description": "Link with Scope for Share Access.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "select",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/share-access/share-access-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "share-access-2",
+      "title": "People Picker",
+      "description": "People Picker for Share Access.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input",
+        "select",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/share-access/share-access-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "share-access-3",
+      "title": "Request Access",
+      "description": "Request Access for Share Access.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/share-access/share-access-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "comment-thread-1",
+      "title": "Inline Anchored",
+      "description": "Inline Anchored for Comment Thread.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/comment-thread/comment-thread-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "comment-thread-2",
+      "title": "Side Panel",
+      "description": "Side Panel for Comment Thread.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "empty",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/comment-thread/comment-thread-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "comment-thread-3",
+      "title": "Activity Feed",
+      "description": "Activity Feed for Comment Thread.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/comment-thread/comment-thread-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "live-presence-1",
+      "title": "Avatar Stack",
+      "description": "Avatar Stack for Live Presence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "card",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/live-presence/live-presence-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-1.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "live-presence-2",
+      "title": "Cursor Trails",
+      "description": "Cursor Trails for Live Presence.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/live-presence/live-presence-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "live-presence-3",
+      "title": "Activity Status",
+      "description": "Activity Status for Live Presence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/intents/collaboration/live-presence/live-presence-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-3.tsx"
         }
       ],
       "type": "registry:block"

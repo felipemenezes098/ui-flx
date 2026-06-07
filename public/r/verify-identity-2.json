@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "verify-identity-2",
+  "title": "OTP Challenge",
+  "description": "OTP Challenge for Verify Identity.",
+  "dependencies": [
+    "lucide-react",
+    "input-otp"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input-otp"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/verify-identity/verify-identity-2.tsx",
+      "content": "import { Mail } from 'lucide-react'\n\nimport {\n  Card,\n  CardContent,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSlot,\n} from '@/components/ui/input-otp'\nimport { Button } from '@/components/ui/button'\n\nexport function VerifyIdentity2() {\n  return (\n    <Card size=\"sm\" className=\"w-full max-w-xs min-w-xs\">\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <Mail className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>Verify to continue</CardTitle>\n        <p className=\"text-muted-foreground text-xs\">\n          We sent a 6-digit code to{' '}\n          <span className=\"text-foreground\">ada@acme.com</span>.\n        </p>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col gap-4\">\n        <div className=\"flex justify-center\">\n          <InputOTP maxLength={6} defaultValue=\"248\">\n            <InputOTPGroup>\n              {Array.from({ length: 6 }).map((_, i) => (\n                <InputOTPSlot key={i} index={i} />\n              ))}\n            </InputOTPGroup>\n          </InputOTP>\n        </div>\n\n        <Button className=\"w-full\">Verify</Button>\n\n        <div className=\"flex items-center justify-between text-[11px]\">\n          <span className=\"text-muted-foreground/80\">Code expires in 4:58</span>\n          <button\n            type=\"button\"\n            className=\"text-muted-foreground hover:text-foreground\"\n          >\n            Resend\n          </button>\n        </div>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/verify-identity/verify-identity-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

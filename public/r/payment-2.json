@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "payment-2",
+  "title": "Saved Methods",
+  "description": "Saved Methods for Payment.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "button",
+    "card",
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/payment/payment-2.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Check, CreditCard, Plus, Trash2 } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Empty, EmptyDescription, EmptyMedia, EmptyTitle } from '@/components/ui/empty'\n\ntype Method = {\n  id: string\n  brand: string\n  last4: string\n  exp: string\n}\n\nconst INITIAL: Method[] = [\n  { id: 'visa', brand: 'Visa', last4: '4242', exp: '08 / 27' },\n  { id: 'mc', brand: 'Mastercard', last4: '8210', exp: '11 / 26' },\n  { id: 'amex', brand: 'Amex', last4: '0005', exp: '03 / 28' },\n]\n\nexport function Payment2() {\n  const [methods, setMethods] = useState<Method[]>(INITIAL)\n  const [selected, setSelected] = useState('visa')\n\n  const remove = (id: string) => {\n    setMethods((prev) => {\n      const next = prev.filter((m) => m.id !== id)\n      if (id === selected && next.length > 0) setSelected(next[0].id)\n      return next\n    })\n  }\n\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <CardTitle>Payment methods</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-3\">\n        {methods.length === 0 ? (\n          <Empty className=\"py-8\">\n            <EmptyMedia variant=\"icon\">\n              <CreditCard className=\"size-5\" />\n            </EmptyMedia>\n            <EmptyTitle>No payment methods</EmptyTitle>\n            <EmptyDescription>\n              Add a card to start your subscription.\n            </EmptyDescription>\n          </Empty>\n        ) : (\n          methods.map((method) => {\n            const active = method.id === selected\n            return (\n              <div\n                key={method.id}\n                role=\"button\"\n                tabIndex={0}\n                onClick={() => setSelected(method.id)}\n                onKeyDown={(e) => {\n                  if (e.key === 'Enter' || e.key === ' ') {\n                    e.preventDefault()\n                    setSelected(method.id)\n                  }\n                }}\n                className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-left transition-colors ${\n                  active ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'\n                }`}\n              >\n                <CreditCard className=\"text-muted-foreground size-5 shrink-0\" />\n                <div className=\"flex flex-1 flex-col\">\n                  <span className=\"text-sm font-medium\">\n                    {method.brand} ending in {method.last4}\n                  </span>\n                  <span className=\"text-muted-foreground text-xs\">\n                    Expires {method.exp}\n                  </span>\n                </div>\n                {active && <Badge variant=\"secondary\">Default</Badge>}\n                <Button\n                  variant=\"ghost\"\n                  size=\"icon\"\n                  className=\"text-muted-foreground hover:text-destructive size-8 shrink-0\"\n                  aria-label={`Remove ${method.brand} ending in ${method.last4}`}\n                  onClick={(e) => {\n                    e.stopPropagation()\n                    remove(method.id)\n                  }}\n                >\n                  <Trash2 className=\"size-4\" />\n                </Button>\n              </div>\n            )\n          })\n        )}\n      </CardContent>\n      <CardFooter>\n        <Button variant=\"outline\" className=\"w-full\">\n          <Plus className=\"size-4\" />\n          Add payment method\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/payment/payment-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

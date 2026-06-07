@@ -5,7 +5,7 @@
   "include": [
     "registry/blocks/registry.json",
     "registry/patterns/registry.json",
-    "registry/intent/registry.json"
+    "registry/intents/registry.json"
   ],
   "items": []
 }

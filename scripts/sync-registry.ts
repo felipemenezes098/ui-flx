@@ -81,8 +81,8 @@ function syncIntentItems() {
 
     for (const decision of manifest.decisions) {
       const name = `${manifest.slug}-${decision.slug}`
-      const file = `${decision.slug}.tsx`
-      // path is relative to registry/intent/registry.json (its containing directory)
+      const file = `${manifest.slug}-${decision.slug}.tsx`
+      // path is relative to registry/intents/registry.json (its containing directory)
       const expectedFiles = [
         {
           path: `${manifest.slug}/${file}`,

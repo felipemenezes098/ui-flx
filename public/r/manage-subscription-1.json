@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "manage-subscription-1",
+  "title": "Plan Overview",
+  "description": "Plan Overview for Manage Subscription.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "button",
+    "card",
+    "progress",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/manage-subscription/manage-subscription-1.tsx",
+      "content": "'use client'\n\nimport { CalendarClock, Settings2 } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Progress } from '@/components/ui/progress'\nimport { Separator } from '@/components/ui/separator'\n\nexport function ManageSubscription1() {\n  const used = 7400\n  const limit = 10000\n  const pct = Math.round((used / limit) * 100)\n\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <div className=\"flex items-center justify-between\">\n          <CardTitle>Pro plan</CardTitle>\n          <Badge variant=\"secondary\">Active</Badge>\n        </div>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        <div className=\"flex items-baseline gap-1\">\n          <span className=\"text-2xl font-semibold\">$29</span>\n          <span className=\"text-muted-foreground text-sm\">/ month</span>\n        </div>\n\n        <div className=\"text-muted-foreground flex items-center gap-2 text-sm\">\n          <CalendarClock className=\"size-4\" />\n          Renews on July 1, 2026\n        </div>\n\n        <Separator />\n\n        <div className=\"flex flex-col gap-2\">\n          <div className=\"flex items-center justify-between text-sm\">\n            <span className=\"text-muted-foreground\">API requests</span>\n            <span className=\"font-medium\">\n              {used.toLocaleString()} / {limit.toLocaleString()}\n            </span>\n          </div>\n          <Progress value={pct} className=\"h-2\" />\n        </div>\n      </CardContent>\n      <CardFooter className=\"flex gap-3\">\n        <Button className=\"flex-1\">\n          <Settings2 className=\"size-4\" />\n          Change plan\n        </Button>\n        <Button variant=\"outline\" className=\"flex-1\">\n          Cancel\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/manage-subscription/manage-subscription-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

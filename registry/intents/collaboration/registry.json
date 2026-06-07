@@ -1,0 +1,202 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-intent-collaboration",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "share-access-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "select",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "share-access/share-access-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-1.tsx"
+        }
+      ],
+      "title": "Link with Scope",
+      "description": "Link with Scope for Share Access."
+    },
+    {
+      "name": "share-access-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input",
+        "select",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "share-access/share-access-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-2.tsx"
+        }
+      ],
+      "title": "People Picker",
+      "description": "People Picker for Share Access."
+    },
+    {
+      "name": "share-access-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "share-access/share-access-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/share-access/share-access-3.tsx"
+        }
+      ],
+      "title": "Request Access",
+      "description": "Request Access for Share Access."
+    },
+    {
+      "name": "comment-thread-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "comment-thread/comment-thread-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-1.tsx"
+        }
+      ],
+      "title": "Inline Anchored",
+      "description": "Inline Anchored for Comment Thread."
+    },
+    {
+      "name": "comment-thread-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "empty",
+        "toggle-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "comment-thread/comment-thread-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-2.tsx"
+        }
+      ],
+      "title": "Side Panel",
+      "description": "Side Panel for Comment Thread."
+    },
+    {
+      "name": "comment-thread-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "comment-thread/comment-thread-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/comment-thread/comment-thread-3.tsx"
+        }
+      ],
+      "title": "Activity Feed",
+      "description": "Activity Feed for Comment Thread."
+    },
+    {
+      "name": "live-presence-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "card",
+        "tooltip"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "live-presence/live-presence-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-1.tsx"
+        }
+      ],
+      "title": "Avatar Stack",
+      "description": "Avatar Stack for Live Presence."
+    },
+    {
+      "name": "live-presence-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "live-presence/live-presence-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-2.tsx"
+        }
+      ],
+      "title": "Cursor Trails",
+      "description": "Cursor Trails for Live Presence."
+    },
+    {
+      "name": "live-presence-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "card"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "live-presence/live-presence-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/live-presence/live-presence-3.tsx"
+        }
+      ],
+      "title": "Activity Status",
+      "description": "Activity Status for Live Presence."
+    }
+  ]
+}

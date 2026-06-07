@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-presence-3",
+  "title": "Activity Status",
+  "description": "Activity Status for Live Presence.",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/live-presence/live-presence-3.tsx",
+      "content": "'use client'\n\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from '@/components/ui/avatar'\nimport {\n  Card,\n  CardContent,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\ntype Status = 'editing' | 'viewing' | 'idle'\n\ntype Member = {\n  id: string\n  name: string\n  avatar: string\n  status: Status\n  location: string\n}\n\nconst STATUS_DOT: Record<Status, string> = {\n  editing: 'bg-green-500',\n  viewing: 'bg-blue-500',\n  idle: 'bg-muted-foreground/40',\n}\n\nconst STATUS_LABEL: Record<Status, string> = {\n  editing: 'Editing',\n  viewing: 'Viewing',\n  idle: 'Idle',\n}\n\nconst MEMBERS: Member[] = [\n  {\n    id: 'ada',\n    name: 'Ada Lovelace',\n    avatar:\n      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=faces',\n    status: 'editing',\n    location: 'Pricing section',\n  },\n  {\n    id: 'grace',\n    name: 'Grace Hopper',\n    avatar:\n      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&fit=crop&crop=faces',\n    status: 'viewing',\n    location: 'Executive summary',\n  },\n  {\n    id: 'alan',\n    name: 'Alan Turing',\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=128&h=128&fit=crop&crop=faces',\n    status: 'idle',\n    location: 'Away for 5m',\n  },\n]\n\nexport function LivePresence3() {\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <CardTitle>Who is here</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        {MEMBERS.map((member) => (\n          <div key={member.id} className=\"flex items-center gap-3\">\n            <div className=\"relative\">\n              <Avatar className=\"size-9\">\n                <AvatarImage src={member.avatar} alt={member.name} />\n                <AvatarFallback className=\"bg-muted text-xs\">\n                  {member.name\n                    .split(' ')\n                    .map((n) => n[0])\n                    .join('')}\n                </AvatarFallback>\n              </Avatar>\n              <span\n                className={`ring-background absolute -right-0.5 -bottom-0.5 size-3 rounded-full ring-2 ${STATUS_DOT[member.status]}`}\n              />\n            </div>\n            <div className=\"flex flex-1 flex-col\">\n              <span className=\"text-sm font-medium\">{member.name}</span>\n              <span className=\"text-muted-foreground text-xs\">\n                {member.location}\n              </span>\n            </div>\n            <span className=\"text-muted-foreground text-xs\">\n              {STATUS_LABEL[member.status]}\n            </span>\n          </div>\n        ))}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/live-presence/live-presence-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

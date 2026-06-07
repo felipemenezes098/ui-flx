@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-presence-2",
+  "title": "Cursor Trails",
+  "description": "Cursor Trails for Live Presence.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/live-presence/live-presence-2.tsx",
+      "content": "'use client'\n\nimport { MousePointer2 } from 'lucide-react'\n\nimport {\n  Card,\n  CardContent,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\ntype Cursor = {\n  id: string\n  name: string\n  color: string\n  top: string\n  left: string\n}\n\nconst CURSORS: Cursor[] = [\n  { id: 'ada', name: 'Ada', color: '#ec4899', top: '22%', left: '18%' },\n  { id: 'grace', name: 'Grace', color: '#3b82f6', top: '54%', left: '60%' },\n  { id: 'alan', name: 'Alan', color: '#22c55e', top: '70%', left: '30%' },\n]\n\nexport function LivePresence2() {\n  return (\n    <Card className=\"w-full max-w-md min-w-sm\">\n      <CardHeader>\n        <CardTitle>Live canvas</CardTitle>\n      </CardHeader>\n      <CardContent>\n        <div className=\"bg-muted/30 relative h-56 w-full overflow-hidden rounded-lg border [background-image:radial-gradient(var(--border)_1px,transparent_1px)] [background-size:16px_16px]\">\n          {CURSORS.map((cursor) => (\n            <div\n              key={cursor.id}\n              className=\"absolute flex items-start gap-1\"\n              style={{ top: cursor.top, left: cursor.left }}\n            >\n              <MousePointer2\n                className=\"size-5 -rotate-90\"\n                style={{ color: cursor.color, fill: cursor.color }}\n              />\n              <span\n                className=\"rounded px-1.5 py-0.5 text-xs font-medium text-white\"\n                style={{ backgroundColor: cursor.color }}\n              >\n                {cursor.name}\n              </span>\n            </div>\n          ))}\n        </div>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/live-presence/live-presence-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

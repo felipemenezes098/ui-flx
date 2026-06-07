@@ -5,7 +5,7 @@ export const dataNavbar = [
   },
   {
     name: 'Intents',
-    href: '/ai',
+    href: '/intents',
   },
   {
     name: 'Blocks',
