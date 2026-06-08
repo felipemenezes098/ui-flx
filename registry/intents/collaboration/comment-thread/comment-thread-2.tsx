@@ -3,18 +3,9 @@
 import { useState } from 'react'
 import { Check, MessageSquare } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Empty,
   EmptyDescription,
@@ -77,7 +68,7 @@ export function CommentThread2() {
   const list = filter === 'open' ? open : resolved
 
   return (
-    <Card className="w-full max-w-sm min-w-sm">
+    <Card>
       <CardHeader className="gap-3">
         <CardTitle className="flex items-center gap-2">
           <MessageSquare className="size-4" />

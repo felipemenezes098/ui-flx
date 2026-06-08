@@ -22,6 +22,7 @@ export const manifest: IntentManifest = {
         'Typing full card details is the highest-friction option and puts compliance on you, so pair it with a trusted processor and clear security cues.',
       patterns: [],
       recommended: true,
+      styles: { previewSize: 'sm' },
       demo: Payment1,
     },
     {
@@ -32,6 +33,7 @@ export const manifest: IntentManifest = {
       caveat:
         'It only helps once a method exists, so it always needs an add-card path behind it and never stands alone for a first payment.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: Payment2,
     },
     {
@@ -42,6 +44,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Availability depends on device, browser, and region, so a card fallback is mandatory and the buttons must follow each platform brand rules.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: Payment3,
     },
   ],

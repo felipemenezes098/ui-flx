@@ -1,17 +1,8 @@
 import { Bell, CreditCard, User } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -28,7 +19,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export function Settings1() {
   return (
-    <Card className="w-full max-w-2xl">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Settings</CardTitle>
         <p className="text-muted-foreground text-sm">
@@ -38,20 +29,22 @@ export function Settings1() {
 
       <CardContent>
         <Tabs defaultValue="profile" className="w-full">
-          <TabsList className="mb-6">
-            <TabsTrigger value="profile">
-              <User className="size-4" />
-              Profile
-            </TabsTrigger>
-            <TabsTrigger value="notifications">
-              <Bell className="size-4" />
-              Notifications
-            </TabsTrigger>
-            <TabsTrigger value="billing">
-              <CreditCard className="size-4" />
-              Billing
-            </TabsTrigger>
-          </TabsList>
+          <div className="no-scrollbar mb-6 min-w-0 overflow-x-auto overflow-y-hidden">
+            <TabsList>
+              <TabsTrigger value="profile">
+                <User className="size-4" />
+                Profile
+              </TabsTrigger>
+              <TabsTrigger value="notifications">
+                <Bell className="size-4" />
+                Notifications
+              </TabsTrigger>
+              <TabsTrigger value="billing">
+                <CreditCard className="size-4" />
+                Billing
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           <TabsContent value="profile" className="flex flex-col gap-6">
             <div className="flex items-center gap-4">

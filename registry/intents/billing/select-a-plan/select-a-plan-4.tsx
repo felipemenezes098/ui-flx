@@ -4,12 +4,7 @@ import { ArrowRightIcon, UsersIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { cn } from '@/lib/utils'
 
@@ -37,7 +32,7 @@ export function SelectAPlan4() {
   const total = tier.perSeat * seats
 
   return (
-    <Card size="sm" className="w-80 max-w-full">
+    <Card size="sm">
       <CardHeader>
         <div className="flex items-center gap-2">
           <UsersIcon className="text-muted-foreground size-4" />

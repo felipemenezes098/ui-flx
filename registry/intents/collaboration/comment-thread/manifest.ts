@@ -21,6 +21,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Comments tied to a position break or orphan when the underlying content is edited or deleted, so anchoring needs careful handling.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       recommended: true,
       demo: CommentThread1,
     },
@@ -32,6 +33,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Pulling comments out of the content costs the at-a-glance context, so each thread must carry a reference back to what it is about.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: CommentThread2,
     },
     {
@@ -42,6 +44,7 @@ export const manifest: IntentManifest = {
       caveat:
         'One flat stream cannot group a back-and-forth, so deep discussions get scattered between unrelated events and are hard to follow.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: CommentThread3,
     },
   ],

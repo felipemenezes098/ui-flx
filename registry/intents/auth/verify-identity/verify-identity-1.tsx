@@ -1,18 +1,13 @@
 import { ShieldAlert } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 export function VerifyIdentity1() {
   return (
-    <Card size="sm" className="w-full max-w-xs">
+    <Card size="sm">
       <CardHeader>
         <div className="bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full">
           <ShieldAlert className="text-primary size-5" />

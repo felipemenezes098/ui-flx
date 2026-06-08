@@ -54,7 +54,7 @@ export function DecisionCodeDialog({
 
           {activeFile ? (
             <CodeBlock className="dark:bg-background/40">
-              {codeFiles.length > 0 && (
+              {codeFiles.length > 1 && (
                 <div className="mb-1 flex flex-wrap gap-1.5 border-b px-4 py-2.5">
                   {codeFiles.map((file) => (
                     <Badge

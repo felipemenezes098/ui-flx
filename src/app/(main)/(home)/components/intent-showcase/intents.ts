@@ -1,6 +1,9 @@
 import type { ComponentType } from 'react'
 
-import type { IntentManifest } from '@/lib/intents/intent-manifest-types'
+import type {
+  IntentDecisionStyles,
+  IntentManifest,
+} from '@/lib/intents/intent-manifest-types'
 import { manifest as notifications } from 'registry/intents/account/notifications/manifest'
 import { manifest as signIn } from 'registry/intents/auth/sign-in/manifest'
 import { manifest as payment } from 'registry/intents/billing/payment/manifest'
@@ -16,6 +19,7 @@ export interface ShowcaseIntent {
   decision: string
   rationale: string
   tags: string[]
+  styles?: IntentDecisionStyles
   Demo: ComponentType
 }
 
@@ -35,6 +39,7 @@ function pick(
     decision: decision.name,
     rationale: decision.best,
     tags: decision.tags,
+    styles: decision.styles,
     Demo: decision.demo,
   }
 }

@@ -3,21 +3,18 @@
 import { useState } from 'react'
 import { Check, MessageSquare } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Textarea } from '@/components/ui/textarea'
 
-type Reply = { id: string; name: string; avatar: string; time: string; text: string }
+type Reply = {
+  id: string
+  name: string
+  avatar: string
+  time: string
+  text: string
+}
 
 const REPLIES: Reply[] = [
   {
@@ -54,7 +51,7 @@ export function CommentThread1() {
   }
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <MessageSquare className="size-4" />
@@ -113,7 +110,11 @@ export function CommentThread1() {
               className="min-h-16 resize-none"
             />
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" size="sm" onClick={() => setResolved(true)}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setResolved(true)}
+              >
                 <Check className="size-4" />
                 Resolve
               </Button>

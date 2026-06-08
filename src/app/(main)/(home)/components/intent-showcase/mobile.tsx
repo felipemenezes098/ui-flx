@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
 
+import { DecisionPreview } from '@/app/(main)/intents/components/decision-preview'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -13,10 +14,12 @@ import { showcaseIntents, type ShowcaseIntent } from './intents'
 
 export function IntentShowcaseMobile() {
   const [active, setActive] = useState<ShowcaseIntent>(showcaseIntents[0])
+  const previewSize =
+    active.styles?.previewSize ??
+    (active.styles?.span === 'full' ? 'full' : 'md')
 
   return (
     <Card className="dark:bg-background gap-0 py-0 shadow-sm md:hidden">
-      {/* Intent selector */}
       <div className="no-scrollbar flex gap-1.5 overflow-x-auto border-b p-3">
         {showcaseIntents.map((intent) => (
           <button
@@ -35,7 +38,6 @@ export function IntentShowcaseMobile() {
         ))}
       </div>
 
-      {/* Prompt context */}
       <div className="flex flex-col gap-2 border-b px-4 py-3.5">
         <span className="text-muted-foreground text-[11px] font-medium tracking-wide uppercase">
           You want to
@@ -70,8 +72,7 @@ export function IntentShowcaseMobile() {
         </AnimatePresence>
       </div>
 
-      {/* Preview */}
-      <div className="bg-muted/20 dark:bg-background relative flex min-h-72 items-center justify-center [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-6">
+      <div className="bg-muted/20 dark:bg-background relative flex min-h-72 min-w-0 items-center justify-center [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={active.slug}
@@ -79,14 +80,15 @@ export function IntentShowcaseMobile() {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, filter: 'blur(10px)' }}
             transition={{ duration: 0.25 }}
-            className="flex w-full max-w-full min-w-0 items-center justify-center"
+            className="w-full min-w-0"
           >
-            <active.Demo />
+            <DecisionPreview size={previewSize}>
+              <active.Demo />
+            </DecisionPreview>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Footer */}
       <Link
         href={`/intents/${active.slug}`}
         className="text-muted-foreground hover:text-foreground group flex items-center justify-center gap-1 border-t px-4 py-3 text-xs font-medium transition-colors"

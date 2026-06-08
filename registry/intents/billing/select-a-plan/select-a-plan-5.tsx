@@ -2,12 +2,7 @@ import { ArrowRightIcon, CheckIcon, StarIcon } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
 const perks = [
   'Unlimited projects and collaborators',
@@ -26,7 +21,7 @@ export function SelectAPlan5() {
   return (
     <Card
       size="sm"
-      className="border-primary ring-primary/20 relative w-full max-w-sm overflow-visible ring-2"
+      className="border-primary ring-primary/20 relative overflow-visible ring-2"
     >
       <span className="bg-primary text-primary-foreground absolute -top-2.5 left-4 rounded-full px-2 py-0.5 text-[11px] font-medium">
         Recommended for you
@@ -69,7 +64,10 @@ export function SelectAPlan5() {
           <div className="flex flex-col">
             <div className="flex items-center gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <StarIcon key={i} className="fill-primary text-primary size-3" />
+                <StarIcon
+                  key={i}
+                  className="fill-primary text-primary size-3"
+                />
               ))}
             </div>
             <span className="text-muted-foreground text-[11px]">

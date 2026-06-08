@@ -22,7 +22,7 @@ export const manifest: IntentManifest = {
         'The matrix grows wide fast and reads as dense, so it strains on small screens and overwhelms when there is really only one channel to toggle.',
       patterns: [],
       recommended: true,
-      styles: { span: 'full' },
+      styles: { span: 'full', previewSize: 'lg' },
       demo: Notifications1,
     },
     {
@@ -33,6 +33,7 @@ export const manifest: IntentManifest = {
       caveat:
         'One switch per item means no per-channel control, so it cannot express that the same alert should email but not push.',
       patterns: [],
+      styles: { previewSize: 'lg' },
       demo: Notifications2,
     },
     {
@@ -43,6 +44,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Adding a frequency to every row is more decision than a simple toggle, so it is overkill when notifications are low volume or time critical.',
       patterns: [],
+      styles: { previewSize: 'lg' },
       demo: Notifications3,
     },
   ],

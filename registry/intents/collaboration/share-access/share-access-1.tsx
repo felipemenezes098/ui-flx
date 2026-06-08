@@ -11,7 +11,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -37,7 +41,7 @@ export function ShareAccess1() {
   }
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Share link</CardTitle>
       </CardHeader>
@@ -46,11 +50,11 @@ export function ShareAccess1() {
           <div className="text-muted-foreground flex size-9 shrink-0 items-center justify-center rounded-full border">
             {open ? <Globe className="size-4" /> : <Lock className="size-4" />}
           </div>
-          <div className="flex flex-1 flex-col">
-            <span className="text-sm font-medium">
+          <div className="flex min-w-0 flex-1 flex-col">
+            <span className="truncate text-sm font-medium">
               {open ? 'Anyone with the link' : 'Restricted'}
             </span>
-            <span className="text-muted-foreground text-xs">
+            <span className="text-muted-foreground truncate text-xs">
               {open
                 ? 'No sign-in required to open'
                 : 'Only invited people can open'}
@@ -68,10 +72,12 @@ export function ShareAccess1() {
         {open && (
           <>
             <div className="flex gap-2">
-              <div className="relative flex-1">
-                <Link2 className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-                <Input readOnly value={LINK} className="pl-9 text-xs" />
-              </div>
+              <InputGroup className="flex-1">
+                <InputGroupAddon>
+                  <Link2 />
+                </InputGroupAddon>
+                <InputGroupInput readOnly value={LINK} className="text-xs" />
+              </InputGroup>
               <Button
                 variant="secondary"
                 size="icon"
@@ -88,8 +94,8 @@ export function ShareAccess1() {
 
             <Separator />
 
-            <div className="flex gap-3">
-              <div className="flex flex-1 flex-col gap-2">
+            <div className="flex flex-wrap gap-3">
+              <div className="flex min-w-40 flex-1 flex-col gap-2">
                 <Label className="text-xs">Permission</Label>
                 <Select value={role} onValueChange={setRole}>
                   <SelectTrigger className="w-full">
@@ -104,7 +110,7 @@ export function ShareAccess1() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-1 flex-col gap-2">
+              <div className="flex min-w-40 flex-1 flex-col gap-2">
                 <Label className="text-xs">Expires</Label>
                 <Select value={expiry} onValueChange={setExpiry}>
                   <SelectTrigger className="w-full">

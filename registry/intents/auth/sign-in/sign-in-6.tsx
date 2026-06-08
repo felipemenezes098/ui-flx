@@ -44,8 +44,7 @@ const proof = [
 
 export function SignIn6() {
   return (
-    <Card className="grid w-full max-w-3xl gap-0 p-0 md:grid-cols-2">
-      {/* Brand panel */}
+    <Card className="grid w-full gap-0 p-0 md:grid-cols-2">
       <div className="from-primary to-primary/80 text-primary-foreground relative hidden flex-col justify-between overflow-hidden bg-gradient-to-b p-10 md:flex">
         <div className="bg-primary-foreground/10 pointer-events-none absolute -top-24 -right-24 size-64 rounded-full blur-3xl" />
 
@@ -80,7 +79,6 @@ export function SignIn6() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="flex flex-col justify-center gap-5 p-8">
         <div className="flex flex-col gap-1">
           <span className="text-lg font-semibold">Welcome back</span>
@@ -96,7 +94,9 @@ export function SignIn6() {
 
         <div className="flex items-center gap-3">
           <span className="bg-border h-px flex-1" />
-          <span className="text-muted-foreground text-[11px] uppercase">or</span>
+          <span className="text-muted-foreground text-[11px] uppercase">
+            or
+          </span>
           <span className="bg-border h-px flex-1" />
         </div>
 

@@ -21,6 +21,7 @@ export const manifest: IntentManifest = {
       caveat:
         'A single dialog gives no room to explain consequences or capture a reason, so it suits accounts where the loss is small and obvious.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       recommended: true,
       demo: DeleteAccount1,
     },
@@ -32,6 +33,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Several screens add friction that frustrates a user who is certain, so reserve it for accounts with real, irreversible data loss.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: DeleteAccount2,
     },
     {
@@ -42,6 +44,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Holding data after a delete request adds cost and can clash with strict privacy or erasure rules, so the retention window must be disclosed.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: DeleteAccount3,
     },
   ],

@@ -137,7 +137,7 @@ export function IntentSlug1() {
   // Realistic, self-contained demo. Hardcoded sample data, no props.
   // Wrap in the shadcn <Card> (size="sm" for compact auth/form cards).
   return (
-    <Card size="sm" className="w-full max-w-xs">
+    <Card size="sm" className="w-full">
       <CardHeader>
         <CardTitle>…</CardTitle>
       </CardHeader>
@@ -154,6 +154,7 @@ Rules:
 - Import only from `@/components/ui/*`, never from `@/components/flx/*`.
 - Sample data hardcoded inline. No props, no context.
 - The component must work standalone at any viewport width.
+- **Root width lives in the manifest, not the demo.** Put `w-full` on the root `<Card>` (or wrapper). Do **not** add `max-w-*`, `min-w-*`, or viewport breakpoints (`xl:max-w-*`) on the demo root — `DecisionPreview` (`src/app/(main)/intents/components/decision-preview.tsx`) owns max-width on the intent page, alternatives grid, and home showcase. Users who install the block add their own page-level `max-w` when needed.
 - **Avatars need a real image.** Set `AvatarImage src` (Unsplash face crop) and give `AvatarFallback` a solid background; transparent overlapping fallbacks look broken.
 
 ### Always prefer shadcn primitives — install what's missing
@@ -230,10 +231,11 @@ export const manifest: IntentManifest = {
       tags: ['Tag1', 'Tag2'],
       caveat: '<Trade-off.>',
       patterns: [], // empty if no matching pattern found
-      // styles optional — only when default hero layout doesn't fit:
-      // styles: { span: 'full' }           → hero: hide tabs, actions in header; alternatives: col-span full
-      // styles: { className: 'lg:h-160' }  → override default lg:h-120 hero height
-      // styles: { span: 'full', className: 'lg:h-160' } → both
+      // styles optional — see "Grid sizing" and "Preview sizing" below:
+      // styles: { span: 'full' }                        → hero: hide tabs, actions in header; alternatives: col-span full
+      // styles: { previewSize: 'md' }                  → compact card in preview shells
+      // styles: { span: 'full', previewSize: 'full' }   → wide demo (sidebar layout, pricing table)
+      // styles: { className: 'lg:h-160' }              → override default lg:h-120 hero height
       demo: IntentSlug2,
     },
   ],
@@ -256,7 +258,8 @@ no orphan hanging on the last row.
 
 **`styles.span: 'full'` means "this decision is big / needs room."** Use it when
 the demo is wide or tall (pricing tables, comparison grids, dashboards,
-multi-step flows). Effects:
+multi-step flows). Usually pair with `previewSize: 'full'` so the preview shell
+matches — see "Preview sizing". Effects:
 
 - In the **hero**: hides the side tabs, moves actions into the header, full width.
 - In the **alternatives grid**: that decision consumes an **entire row** by itself.
@@ -283,6 +286,41 @@ decision, or promote another to `full` so every row is balanced. Never leave a
 single orphan card dangling under a full-width row.
 
 Rule of thumb: **omit `grid` entirely when there's only one alternative.**
+
+### Preview sizing (`styles.previewSize`)
+
+Preview width is **not** set on the demo component. The display layer wraps every
+decision in `DecisionPreview` (intent hero, alternatives grid, home showcase) and
+reads `styles.previewSize` from the manifest. Keep the choice **in sync with how
+big the demo actually is** — if the manifest says `lg` but the UI is a tiny
+dialog card, the preview looks lost; if it says `sm` but the demo is a sidebar
+layout, content gets crushed on mobile.
+
+**Sizes** (`DecisionPreviewSize` in `intent-manifest-types.ts`):
+
+| `previewSize` | max width | reach for when |
+| ------------- | --------- | -------------- |
+| `sm`          | `max-w-sm` (~24rem) | Single compact surface: preferences dialog, OTP card, small confirm panel |
+| `md`          | `max-w-xl` (~36rem) | Medium forms and lists: inline-edit rows, notification toggles, comment thread |
+| `lg`          | `max-w-3xl` (~48rem) | Default when omitted in **hero** / desktop showcase. Tabbed settings, multi-field forms |
+| `full`        | no cap | Wide layouts: sidebar + content, pricing comparison, data tables, dashboards |
+| `none`        | no cap | Same as `full`; escape hatch when you explicitly want no preview cap |
+
+**Defaults when `previewSize` is omitted** (you usually set it explicitly anyway):
+
+- **Hero** (`intent-hero.tsx`): `lg`, or `full` when `span: 'full'`
+- **Alternatives grid** (`decision-alternatives.tsx`): `md`
+- **Home showcase mobile**: `md`; desktop: same as hero
+
+**How to pick — match the component, not a habit:**
+
+- Demo is a **small, self-contained card** (one column, few fields, dialog-sized) → `sm` or `md`
+- Demo is a **standard form / settings panel** (tabs, grouped fields, readable but not sprawling) → `md` or `lg`
+- Demo is **visually large** (persistent nav + main area, 2+ columns, table, plan cards side by side) → `lg` or `full`; pair with `span: 'full'` when it also needs a full grid row or hero without side tabs
+
+`previewSize` and `span` are independent but often move together: wide demos usually need both `previewSize: 'full'` and `span: 'full'`. A compact dialog might be `previewSize: 'sm'` with no `span`.
+
+**Do not** put `max-w-*` on the demo root to "fix" preview — set `previewSize` in the manifest instead.
 
 ---
 
@@ -366,7 +404,8 @@ If `registry:validate` prints `MISSING in registry.json: "<name>" (intent decisi
 - `patterns` is optional — only include slugs that exist in `src/lib/patterns/patterns-catalog.ts`; leave `[]` or omit if none apply
 - Exactly **one** decision gets `recommended: true`
 - `grid.columns` counts only the **non-hero** decisions (the hero renders above the grid). Size it from `decisions.length - 1` and keep `span: 'full'` spans from leaving an orphan card — see "Grid sizing". Omit if only one alternative.
-- `styles` on a decision is optional — only set when the default hero (`lg:h-120` + tabs) doesn't fit
+- `styles` on a decision is optional — set `span` / `previewSize` / `className` when defaults don't fit; demo root stays `w-full` only (no `max-w-*`)
+- `previewSize` must reflect the demo's real visual footprint (`sm`/`md` for compact, `lg`/`full` for large) — see "Preview sizing"
 - `registryDependencies` and `dependencies` in `registry.json` are **never touched by sync** — maintain them manually
 
 ---
@@ -385,11 +424,10 @@ This skill touches the same handful of files every time. Minimize round-trips:
    missing ones up front (see the shadcn step) so you don't discover gaps mid-write.
 3. **Write all decision files + concept + manifest, then register.** Group the
    edits; don't interleave reads between every Write.
-4. **Sizing — decide up front, avoid rework** (full rules in "Grid sizing" above):
-   - Narrow card demos (`max-w-xs`, e.g. a login card) → default hero, no `styles`.
-   - Wide demos (pricing cards, comparison tables, dashboards) → `styles: { span: 'full' }`
-     on that decision because it's big / needs room. In the hero it hides the side
-     tabs; in the alternatives grid it owns a full row.
+4. **Sizing — decide up front, avoid rework** (full rules in "Grid sizing" + "Preview sizing"):
+   - Compact demos (login card, OTP, preferences dialog) → `styles: { previewSize: 'sm' }` or `'md'`; demo root `w-full` only.
+   - Standard forms / tabbed settings → `previewSize: 'lg'` on the hero decision (or omit; hero defaults to `lg`).
+   - Wide demos (sidebar layout, pricing tables, dashboards) → `styles: { span: 'full', previewSize: 'full' }` — big in preview and full row in alternatives; hero hides side tabs.
    - Set `grid.columns` from the **non-hero** count (`decisions.length - 1`), then
      verify any `full` spans still leave the remaining alternatives tiling into
      clean rows. Omit `grid` when there's only one alternative.
@@ -417,6 +455,7 @@ This skill touches the same handful of files every time. Minimize round-trips:
 - [ ] `concept.tsx`: wireframe for the `/intents` gallery card, referenced as `concept` in the manifest
 - [ ] `manifest.ts`: all required fields; exactly one `recommended: true`; 3+ decisions unless no honest third fork exists
 - [ ] `grid.columns` sized from the non-hero count; any `span: 'full'` leaves no orphan card (see "Grid sizing")
+- [ ] Each decision has `previewSize` aligned with demo size (`sm`/`md` compact, `lg`/`full` large); demo root is `w-full` without `max-w-*` (see "Preview sizing")
 - [ ] `src/lib/intents/intent-catalog.ts` — manifest imported + `fromManifest()` entry in the correct domain
 - [ ] `registry/intents/<domain>/registry.json` — one entry per decision with `name`, `type`, `registryDependencies`, `dependencies`
 - [ ] `npm run registry:sync` — fills `title`, `description`, `files` from manifest

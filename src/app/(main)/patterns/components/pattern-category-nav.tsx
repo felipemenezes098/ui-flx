@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-react'
+import { ChevronLeft, ChevronRight, LayoutGrid, Search } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 
@@ -113,9 +113,13 @@ export function PatternCategoryNav() {
       ?.scrollIntoView({ inline: 'center', block: 'nearest' })
   }, [pathname])
 
+  const activeCategory = categories.find(
+    (category) => pathname === `/patterns/${category.slug}`,
+  )
+
   return (
-    <div className="flex min-w-0 items-center gap-2">
-      <div className="relative min-w-0 flex-1">
+    <div className="flex min-w-0 items-center justify-start gap-2">
+      <div className="relative hidden min-w-0 flex-1 md:block">
         <motion.div
           aria-hidden={!showLeft}
           className="from-background via-background/80 pointer-events-none absolute top-0 bottom-0 left-0 z-10 bg-gradient-to-r to-transparent"
@@ -211,15 +215,19 @@ export function PatternCategoryNav() {
             type="button"
             variant="outline"
             size="sm"
-            className="shrink-0 gap-1.5"
+            className="w-full shrink-0 justify-start gap-1.5 md:w-auto md:justify-center"
           >
-            <LayoutGrid className="size-3.5" />
-            Show all
+            <Search className="size-3.5 shrink-0 md:hidden" />
+            <LayoutGrid className="hidden size-3.5 md:block" />
+            <span className="truncate md:hidden">
+              {activeCategory?.name ?? 'Categories'}
+            </span>
+            <span className="hidden md:inline">Show all</span>
           </Button>
         </PopoverTrigger>
         <PopoverContent
           align="end"
-          className="w-[min(100vw-2rem,22rem)] overscroll-contain p-0"
+          className="w-[min(100vw-5rem,22rem)] overscroll-contain p-0"
         >
           <Command>
             <CommandInput placeholder="Search categories…" />

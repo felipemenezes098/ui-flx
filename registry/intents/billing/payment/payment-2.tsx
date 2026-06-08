@@ -12,7 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Empty, EmptyDescription, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
+import {
+  Empty,
+  EmptyDescription,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty'
 
 type Method = {
   id: string
@@ -40,7 +45,7 @@ export function Payment2() {
   }
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Payment methods</CardTitle>
       </CardHeader>
@@ -75,15 +80,19 @@ export function Payment2() {
                 }`}
               >
                 <CreditCard className="text-muted-foreground size-5 shrink-0" />
-                <div className="flex flex-1 flex-col">
-                  <span className="text-sm font-medium">
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <span className="truncate text-sm font-medium">
                     {method.brand} ending in {method.last4}
                   </span>
-                  <span className="text-muted-foreground text-xs">
+                  <span className="text-muted-foreground truncate text-xs">
                     Expires {method.exp}
                   </span>
                 </div>
-                {active && <Badge variant="secondary">Default</Badge>}
+                {active && (
+                  <Badge variant="secondary" className="shrink-0">
+                    Default
+                  </Badge>
+                )}
                 <Button
                   variant="ghost"
                   size="icon"

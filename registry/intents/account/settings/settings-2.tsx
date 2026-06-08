@@ -1,14 +1,7 @@
 'use client'
 
 import type { CSSProperties } from 'react'
-import {
-  Bell,
-  CreditCard,
-  Lock,
-  Plug,
-  User,
-  Users,
-} from 'lucide-react'
+import { Bell, CreditCard, Lock, Plug, User, Users } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -39,12 +32,12 @@ const nav = [
 
 export function Settings2() {
   return (
-    <Card className="w-full max-w-3xl overflow-hidden p-0">
+    <Card className="p-0">
       <SidebarProvider
-        className="min-h-0 h-[420px]"
+        className="h-[420px] min-h-0"
         style={{ '--sidebar-width': '13rem' } as CSSProperties}
       >
-        <Sidebar collapsible="none" className="border-r">
+        <Sidebar collapsible="none" className="hidden border-r sm:flex">
           <SidebarHeader>
             <div className="flex items-center gap-2 px-2 py-1.5">
               <div className="bg-primary/15 text-primary flex size-7 items-center justify-center rounded-md text-xs font-semibold">

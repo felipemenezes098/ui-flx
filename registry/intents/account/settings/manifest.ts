@@ -23,7 +23,7 @@ export const manifest: IntentManifest = {
         'Tabs hide every group but the active one, so discovery suffers once you pass roughly six tabs or need to search across them.',
       patterns: [],
       recommended: true,
-      styles: { span: 'full' },
+      styles: { span: 'full', previewSize: 'lg' },
       demo: Settings1,
     },
     {
@@ -34,7 +34,7 @@ export const manifest: IntentManifest = {
       caveat:
         'The nav chrome is heavy and demands real width, so it is overkill for a handful of settings and cramped on small screens.',
       patterns: [],
-      styles: { span: 'full' },
+      styles: { span: 'full', previewSize: 'lg' },
       demo: Settings2,
     },
     {
@@ -45,6 +45,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Editing one field at a time is slow for bulk changes, and a row in edit mode shifts layout, so it suits short field lists over dense forms.',
       patterns: [],
+      styles: { previewSize: 'md' },
       demo: Settings3,
     },
     {
@@ -55,6 +56,7 @@ export const manifest: IntentManifest = {
       caveat:
         'A modal interrupts the current task and has limited room, so reserve it for a small set of toggles rather than a full settings surface.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: Settings4,
     },
   ],

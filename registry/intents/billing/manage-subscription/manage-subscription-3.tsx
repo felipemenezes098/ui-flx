@@ -35,7 +35,7 @@ export function ManageSubscription3() {
 
   if (step === 'offer') {
     return (
-      <Card className="w-full max-w-md min-w-sm">
+      <Card>
         <CardHeader>
           <div className="bg-primary/10 text-primary mb-2 flex size-10 items-center justify-center rounded-full">
             <Gift className="size-5" />
@@ -61,7 +61,7 @@ export function ManageSubscription3() {
   }
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle>Why are you cancelling?</CardTitle>
         <CardDescription>

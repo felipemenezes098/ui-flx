@@ -21,6 +21,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Anyone who forwards the link passes the access along, so it is the weakest trust model and wrong for anything sensitive.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       recommended: true,
       demo: ShareAccess1,
     },

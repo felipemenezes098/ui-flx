@@ -4,6 +4,7 @@ import { CheckIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
 import { cn } from '@/lib/utils'
 
@@ -75,10 +76,11 @@ export function SelectAPlan1() {
 
       <div className="grid w-full gap-4 sm:grid-cols-3">
         {plans.map((plan) => (
-          <div
+          <Card
             key={plan.name}
+            size="sm"
             className={cn(
-              'bg-card relative flex flex-col gap-4 rounded-xl border p-5 shadow-sm',
+              'relative overflow-visible p-5',
               plan.featured && 'border-primary ring-primary/20 ring-2',
             )}
           >
@@ -119,7 +121,7 @@ export function SelectAPlan1() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
         ))}
       </div>
     </div>

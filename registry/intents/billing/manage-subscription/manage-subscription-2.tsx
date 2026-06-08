@@ -30,7 +30,7 @@ export function ManageSubscription2() {
   const changed = selected !== CURRENT
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Change plan</CardTitle>
       </CardHeader>
@@ -49,7 +49,9 @@ export function ManageSubscription2() {
             >
               <div
                 className={`flex size-5 shrink-0 items-center justify-center rounded-full border ${
-                  active ? 'border-primary bg-primary text-primary-foreground' : ''
+                  active
+                    ? 'border-primary bg-primary text-primary-foreground'
+                    : ''
                 }`}
               >
                 {active && <Check className="size-3" />}

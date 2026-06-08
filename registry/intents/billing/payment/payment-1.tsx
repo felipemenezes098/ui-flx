@@ -12,6 +12,11 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
 
 export function Payment1() {
@@ -25,28 +30,33 @@ export function Payment1() {
       .trim()
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Payment details</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <Label htmlFor="cf-name">Name on card</Label>
-          <Input id="cf-name" placeholder="Ada Lovelace" autoComplete="cc-name" />
+          <Input
+            id="cf-name"
+            placeholder="Ada Lovelace"
+            autoComplete="cc-name"
+          />
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="cf-number">Card number</Label>
-          <div className="relative">
-            <CreditCard className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-            <Input
+          <InputGroup>
+            <InputGroupAddon>
+              <CreditCard />
+            </InputGroupAddon>
+            <InputGroupInput
               id="cf-number"
-              className="pl-9"
               inputMode="numeric"
               placeholder="4242 4242 4242 4242"
               value={number}
               onChange={(e) => setNumber(formatNumber(e.target.value))}
             />
-          </div>
+          </InputGroup>
         </div>
         <div className="flex gap-3">
           <div className="flex flex-1 flex-col gap-2">

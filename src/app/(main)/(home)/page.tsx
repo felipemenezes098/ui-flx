@@ -44,7 +44,7 @@ export default function HomePage() {
         </section>
 
         <section className="flex flex-col gap-8">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-col items-end justify-between md:flex-row">
             <div className="flex flex-col gap-2">
               <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
                 Intents
@@ -68,7 +68,7 @@ export default function HomePage() {
         </section>
 
         <section className="flex flex-col gap-8">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-col items-end justify-between md:flex-row">
             <div className="flex flex-col gap-2">
               <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
                 Blocks

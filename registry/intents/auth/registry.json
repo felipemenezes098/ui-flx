@@ -218,6 +218,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -239,6 +240,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "input-otp"
       ],
       "dependencies": [
@@ -260,6 +262,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -281,6 +284,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "input-otp"
       ],
       "dependencies": [
@@ -302,6 +306,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -322,7 +327,8 @@
       "name": "two-factor-setup-3",
       "type": "registry:block",
       "registryDependencies": [
-        "button"
+        "button",
+        "card"
       ],
       "dependencies": [
         "lucide-react"
@@ -341,7 +347,8 @@
       "name": "two-factor-setup-4",
       "type": "registry:block",
       "registryDependencies": [
-        "button"
+        "button",
+        "card"
       ],
       "dependencies": [
         "lucide-react"

@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'motion/react'
-import { ArrowRight, CornerDownLeft } from 'lucide-react'
+import { ArrowRight, ArrowUp } from 'lucide-react'
 
+import { DecisionPreview } from '@/app/(main)/intents/components/decision-preview'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -26,6 +27,11 @@ export function IntentShowcaseDesktop() {
   const [typing, setTyping] = useState(false)
   const nextId = useRef(2)
   const threadRef = useRef<HTMLDivElement>(null)
+
+  const lastAssistantId = messages.findLast((m) => m.role === 'assistant')?.id
+  const previewSize =
+    active.styles?.previewSize ??
+    (active.styles?.span === 'full' ? 'full' : 'lg')
 
   useEffect(() => {
     const el = threadRef.current
@@ -58,7 +64,7 @@ export function IntentShowcaseDesktop() {
           <div className="absolute inset-0 flex flex-col">
             <div
               ref={threadRef}
-              className="no-scrollbar flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-5"
+              className="no-scrollbar flex min-h-10 flex-1 flex-col gap-4 overflow-y-auto p-5"
             >
               {messages.map((msg) => (
                 <div
@@ -73,7 +79,10 @@ export function IntentShowcaseDesktop() {
                       {msg.text}
                     </p>
                   ) : (
-                    <AssistantBubble intent={msg.intent} />
+                    <AssistantBubble
+                      intent={msg.intent}
+                      isLast={msg.id === lastAssistantId}
+                    />
                   )}
                 </div>
               ))}
@@ -91,26 +100,38 @@ export function IntentShowcaseDesktop() {
                   </div>
                 </div>
               )}
+
+              {!typing && (
+                <div className="flex flex-col gap-2">
+                  <span className="text-muted-foreground/60 text-[11px]">
+                    Try asking
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {showcaseIntents
+                      .filter((intent) => intent.slug !== active.slug)
+                      .map((intent) => (
+                        <button
+                          key={intent.slug}
+                          type="button"
+                          onClick={() => ask(intent)}
+                          className="text-muted-foreground border-border hover:border-foreground/20 hover:text-foreground hover:bg-muted rounded-full border px-2.5 py-1 text-xs transition-colors"
+                        >
+                          {intent.prompt}
+                        </button>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="shrink-0 border-t p-3">
-              <div className="flex flex-wrap gap-1.5">
-                {showcaseIntents.map((intent) => (
-                  <button
-                    key={intent.slug}
-                    type="button"
-                    onClick={() => ask(intent)}
-                    disabled={typing}
-                    className={cn(
-                      'rounded-full border px-2.5 py-1 text-xs font-medium transition-colors disabled:opacity-50',
-                      intent.slug === active.slug
-                        ? 'border-foreground/20 bg-foreground text-background'
-                        : 'text-muted-foreground hover:text-foreground hover:border-foreground/20 hover:bg-muted',
-                    )}
-                  >
-                    {intent.name}
-                  </button>
-                ))}
+              <div className="border-input bg-muted/30 flex items-center gap-2 rounded-xl border px-3 py-2 opacity-70">
+                <span className="text-muted-foreground/60 flex-1 truncate text-sm">
+                  Pick a suggestion above…
+                </span>
+                <span className="bg-foreground/10 text-muted-foreground flex size-6 shrink-0 items-center justify-center rounded-md">
+                  <ArrowUp className="size-3.5" aria-hidden />
+                </span>
               </div>
             </div>
           </div>
@@ -142,7 +163,7 @@ export function IntentShowcaseDesktop() {
             </Link>
           </div>
 
-          <div className="bg-muted/20 dark:bg-background relative flex min-h-120 flex-1 items-center justify-center [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-6 md:p-10">
+          <div className="bg-muted/20 dark:bg-background relative flex min-h-120 min-w-0 flex-1 items-center justify-center [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-6 md:p-10">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.slug}
@@ -150,9 +171,11 @@ export function IntentShowcaseDesktop() {
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, filter: 'blur(10px)' }}
                 transition={{ duration: 0.25 }}
-                className="flex w-full max-w-full min-w-0 items-center justify-center"
+                className="w-full min-w-0"
               >
-                <active.Demo />
+                <DecisionPreview size={previewSize}>
+                  <active.Demo />
+                </DecisionPreview>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -162,15 +185,18 @@ export function IntentShowcaseDesktop() {
   )
 }
 
-function AssistantBubble({ intent }: Readonly<{ intent: ShowcaseIntent }>) {
+function AssistantBubble({
+  intent,
+  isLast,
+}: Readonly<{ intent: ShowcaseIntent; isLast: boolean }>) {
   return (
-    <div className="bg-muted/60 flex max-w-[92%] flex-col gap-2 rounded-2xl rounded-bl-sm border px-3.5 py-3">
+    <div className="flex max-w-[92%] flex-col gap-2">
       <div className="flex items-center gap-1.5 text-xs">
         <span className="text-muted-foreground">{intent.domain}</span>
         <span className="text-muted-foreground/40">·</span>
         <span className="text-foreground font-semibold">{intent.decision}</span>
       </div>
-      <p className="text-muted-foreground text-[13px] leading-relaxed">
+      <p className="text-foreground/80 text-[13px] leading-relaxed">
         {intent.rationale}
       </p>
       <div className="flex flex-wrap gap-1">
@@ -184,10 +210,15 @@ function AssistantBubble({ intent }: Readonly<{ intent: ShowcaseIntent }>) {
           </Badge>
         ))}
       </div>
-      <p className="text-muted-foreground/60 mt-0.5 inline-flex items-center gap-1 text-[11px]">
-        <CornerDownLeft className="size-3" aria-hidden />
-        Preview updated on the right
-      </p>
+      {isLast && (
+        <div className="text-muted-foreground/60 mt-1 inline-flex items-center gap-1.5 text-[11px]">
+          <span
+            className="size-1.5 rounded-full bg-emerald-500/70"
+            aria-hidden
+          />
+          Preview updated on the right
+        </div>
+      )}
     </div>
   )
 }

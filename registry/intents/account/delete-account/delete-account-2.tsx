@@ -47,7 +47,7 @@ export function DeleteAccount2() {
     (step === 2 && confirm.trim() === 'delete my account')
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <Progress value={((step + 1) / 3) * 100} className="mb-3 h-1.5" />
         <CardTitle>

@@ -5,8 +5,11 @@ export type { RegistryCodeFile } from '@/lib/registry-source'
 
 export type IntentGridColumns = 2 | 3 | 4
 
+export type DecisionPreviewSize = 'none' | 'sm' | 'md' | 'lg' | 'full'
+
 export interface IntentDecisionStyles {
   span?: 'full'
+  previewSize?: DecisionPreviewSize
   className?: string
 }
 

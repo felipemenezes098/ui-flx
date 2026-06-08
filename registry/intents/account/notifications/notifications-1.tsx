@@ -74,7 +74,7 @@ export function Notifications1() {
     )
 
   return (
-    <Card className="w-full max-w-2xl">
+    <Card>
       <CardHeader>
         <CardTitle>Notification channels</CardTitle>
       </CardHeader>

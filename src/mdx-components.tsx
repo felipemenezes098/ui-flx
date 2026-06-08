@@ -383,8 +383,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       Right: BlockPageColsRight,
     }),
     Contact: () => (
-      <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-2 rounded-lg border p-3">
-        <span className="text-sm">Need help? Contact me</span>
+      <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
+        <div className="flex flex-col gap-0.5">
+          <span className="text-sm">Need help? Contact me</span>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="text-muted-foreground text-sm underline underline-offset-4"
+          >
+            {siteConfig.email}
+          </a>
+        </div>
         <div className="flex items-center gap-2">
           <Button asChild variant="outline" size="sm">
             <Link href={siteConfig.links.twitter} target="_blank">

@@ -57,7 +57,7 @@ export function Notifications2() {
   )
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
       </CardHeader>

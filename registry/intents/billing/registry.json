@@ -8,6 +8,7 @@
       "type": "registry:block",
       "registryDependencies": [
         "button",
+        "card",
         "switch"
       ],
       "dependencies": [
@@ -27,7 +28,9 @@
       "name": "select-a-plan-2",
       "type": "registry:block",
       "registryDependencies": [
-        "button"
+        "button",
+        "card",
+        "table"
       ],
       "dependencies": [
         "lucide-react"
@@ -113,6 +116,7 @@
         "button",
         "card",
         "input",
+        "input-group",
         "label"
       ],
       "dependencies": [

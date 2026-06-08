@@ -1,6 +1,13 @@
 import { CopyIcon, DownloadIcon, KeyRoundIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 
 const CODES = [
   '4f2a-9c1d',
@@ -15,27 +22,29 @@ const CODES = [
 
 export function TwoFactorSetup4() {
   return (
-    <div className="bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm">
-      <div className="bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full">
-        <KeyRoundIcon className="text-primary size-5" />
-      </div>
-      <div className="mt-3 flex flex-col gap-1">
-        <span className="text-base font-semibold">Save backup codes</span>
-        <span className="text-muted-foreground text-xs">
+    <Card size="sm">
+      <CardHeader>
+        <div className="bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full">
+          <KeyRoundIcon className="text-primary size-5" />
+        </div>
+        <CardTitle>Save backup codes</CardTitle>
+        <p className="text-muted-foreground text-xs">
           Use one of these if you lose your device. Each code works once. Store
           them somewhere safe.
-        </span>
-      </div>
+        </p>
+      </CardHeader>
 
-      <div className="bg-muted/50 mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 rounded-lg border p-3 font-mono text-xs">
-        {CODES.map((code) => (
-          <span key={code} className="text-foreground/80">
-            {code}
-          </span>
-        ))}
-      </div>
+      <CardContent>
+        <div className="bg-muted/50 grid grid-cols-2 gap-x-4 gap-y-1.5 rounded-lg border p-3 font-mono text-xs">
+          {CODES.map((code) => (
+            <span key={code} className="text-foreground/80">
+              {code}
+            </span>
+          ))}
+        </div>
+      </CardContent>
 
-      <div className="mt-4 flex gap-2">
+      <CardFooter className="gap-2">
         <Button variant="outline" className="flex-1">
           <CopyIcon />
           Copy
@@ -44,7 +53,7 @@ export function TwoFactorSetup4() {
           <DownloadIcon />
           Download
         </Button>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   )
 }

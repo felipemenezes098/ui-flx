@@ -39,7 +39,7 @@ export function Settings3() {
   }
 
   return (
-    <Card className="w-full max-w-xl min-w-md">
+    <Card>
       <CardHeader>
         <CardTitle>Personal info</CardTitle>
         <p className="text-muted-foreground text-sm">

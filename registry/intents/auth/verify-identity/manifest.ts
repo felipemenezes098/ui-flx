@@ -22,6 +22,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Only as strong as the password itself, so it adds little for accounts already protected by one; useless for passwordless users.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       recommended: true,
       demo: VerifyIdentity1,
     },
@@ -33,6 +34,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Adds a round-trip and depends on delivery; SMS in particular is exposed to SIM-swap, so prefer authenticator codes for high-value actions.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: VerifyIdentity2,
     },
     {
@@ -43,6 +45,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Requires an enrolled device and a notification backend, and blind "approve" fatigue can be socially engineered; show what is being approved.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: VerifyIdentity3,
     },
     {
@@ -53,6 +56,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Needs a device with biometrics or a synced passkey; always keep a code-based fallback for unsupported or borrowed devices.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: VerifyIdentity4,
     },
   ],

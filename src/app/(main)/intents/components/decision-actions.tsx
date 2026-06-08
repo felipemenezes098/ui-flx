@@ -33,7 +33,7 @@ export function DecisionActions({
       />
       <CopyButton
         text={prompt}
-        label="Copy prompt"
+        label="Prompt"
         size="sm"
         className={cn('text-xs', !isInline && 'w-full')}
       />

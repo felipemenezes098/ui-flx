@@ -18,7 +18,7 @@ export function DeleteAccount3() {
 
   if (scheduled) {
     return (
-      <Card className="w-full max-w-md min-w-sm">
+      <Card>
         <CardHeader>
           <div className="bg-muted text-muted-foreground mb-2 flex size-10 items-center justify-center rounded-full">
             <CalendarClock className="size-5" />
@@ -44,7 +44,7 @@ export function DeleteAccount3() {
   }
 
   return (
-    <Card className="w-full max-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Close your account</CardTitle>
         <CardDescription>

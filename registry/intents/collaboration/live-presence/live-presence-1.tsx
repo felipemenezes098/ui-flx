@@ -1,16 +1,7 @@
 'use client'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Tooltip,
   TooltipContent,
@@ -50,11 +41,11 @@ const OVERFLOW = 3
 
 export function LivePresence1() {
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>On this page now</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center gap-3">
+      <CardContent className="flex flex-wrap items-center gap-3">
         <div className="flex -space-x-2">
           {VIEWERS.map((viewer) => (
             <Tooltip key={viewer.id}>

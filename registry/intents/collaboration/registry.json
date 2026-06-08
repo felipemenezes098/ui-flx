@@ -9,7 +9,7 @@
       "registryDependencies": [
         "button",
         "card",
-        "input",
+        "input-group",
         "label",
         "select",
         "separator"
@@ -160,25 +160,6 @@
       ],
       "title": "Avatar Stack",
       "description": "Avatar Stack for Live Presence."
-    },
-    {
-      "name": "live-presence-2",
-      "type": "registry:block",
-      "registryDependencies": [
-        "card"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "live-presence/live-presence-2.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/live-presence/live-presence-2.tsx"
-        }
-      ],
-      "title": "Cursor Trails",
-      "description": "Cursor Trails for Live Presence."
     },
     {
       "name": "live-presence-3",

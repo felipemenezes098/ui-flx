@@ -12,6 +12,7 @@
         "card",
         "input",
         "label",
+        "scroll-area",
         "select",
         "switch",
         "tabs"

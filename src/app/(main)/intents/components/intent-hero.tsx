@@ -14,6 +14,7 @@ import type { DecisionView } from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 
 import { DecisionCodeDialog } from './decision-code-dialog'
+import { DecisionPreview } from './decision-preview'
 
 export function IntentHero({
   view,
@@ -23,6 +24,7 @@ export function IntentHero({
   const { activeFile, setActiveName } = useActiveFile(codeFiles)
   const [panel, setPanel] = useState('prompt')
   const isFull = styles?.span === 'full'
+  const previewSize = styles?.previewSize ?? (isFull ? 'full' : 'lg')
 
   return (
     <section className="bg-card dark:bg-background relative overflow-hidden rounded-2xl border shadow-sm">
@@ -31,7 +33,7 @@ export function IntentHero({
           <span className="inline-flex items-center gap-2 text-sm font-semibold">
             {name}
           </span>
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden shrink-0 items-center gap-2 lg:flex">
             <DecisionCodeDialog view={view} />
             <CopyButton
               text={prompt}
@@ -52,15 +54,16 @@ export function IntentHero({
             !isFull && 'border-b lg:col-span-3 lg:border-r lg:border-b-0',
           )}
         >
-          <div className="bg-muted/20 dark:bg-background relative flex shrink-0 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
-            <div
+          <div className="bg-muted/20 dark:bg-background relative flex min-w-0 shrink-0 items-center justify-center overflow-hidden [background-image:radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:16px_16px] p-8 md:p-12">
+            <DecisionPreview
+              size={previewSize}
               className={cn(
-                'relative flex w-full max-w-full min-w-0 items-center justify-center overflow-hidden py-1 lg:min-h-70',
+                'relative overflow-hidden py-1 lg:min-h-70',
                 styles?.className,
               )}
             >
               {children}
-            </div>
+            </DecisionPreview>
           </div>
           <div className="flex shrink-0 flex-col gap-2 border-t px-5 py-[13px] text-sm">
             <p className="text-muted-foreground/55 text-[11px] leading-relaxed">
@@ -141,9 +144,9 @@ export function IntentHero({
             value="code"
             className="mt-0 flex min-h-0 min-w-0 flex-1 basis-0 flex-col overflow-hidden"
           >
-            <div className="flex shrink-0 flex-wrap gap-1.5 border-b px-4 py-2.5">
-              {codeFiles.length > 0 ? (
-                codeFiles.map((file) => (
+            {codeFiles.length > 1 && (
+              <div className="flex shrink-0 flex-wrap gap-1.5 border-b px-4 py-2.5">
+                {codeFiles.map((file) => (
                   <Badge
                     key={file.name}
                     variant="outline"
@@ -161,13 +164,10 @@ export function IntentHero({
                       {file.name}
                     </button>
                   </Badge>
-                ))
-              ) : (
-                <p className="text-muted-foreground text-xs">
-                  No files in registry for this decision.
-                </p>
-              )}
-            </div>
+                ))}
+              </div>
+            )}
+
             <div className="no-scrollbar bg-muted/5 h-0 min-h-0 min-w-0 flex-1 overflow-y-auto pr-3 pl-1">
               {activeFile ? (
                 <CodeBlockCode

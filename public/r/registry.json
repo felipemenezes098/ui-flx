@@ -6771,6 +6771,7 @@
         "card",
         "input",
         "label",
+        "scroll-area",
         "select",
         "switch",
         "tabs"
@@ -7202,6 +7203,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -7224,6 +7226,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "input-otp"
       ],
       "files": [
@@ -7244,6 +7247,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -7266,6 +7270,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "input-otp"
       ],
       "files": [
@@ -7286,6 +7291,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "input",
         "label"
       ],
@@ -7306,7 +7312,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "card"
       ],
       "files": [
         {
@@ -7325,7 +7332,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "card"
       ],
       "files": [
         {
@@ -7345,6 +7353,7 @@
       ],
       "registryDependencies": [
         "button",
+        "card",
         "switch"
       ],
       "files": [
@@ -7364,7 +7373,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "card",
+        "table"
       ],
       "files": [
         {
@@ -7450,6 +7461,7 @@
         "button",
         "card",
         "input",
+        "input-group",
         "label"
       ],
       "files": [
@@ -7579,7 +7591,7 @@
       "registryDependencies": [
         "button",
         "card",
-        "input",
+        "input-group",
         "label",
         "select",
         "separator"
@@ -7723,25 +7735,6 @@
           "path": "registry/intents/collaboration/live-presence/live-presence-1.tsx",
           "type": "registry:component",
           "target": "components/flx/intent/live-presence/live-presence-1.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "live-presence-2",
-      "title": "Cursor Trails",
-      "description": "Cursor Trails for Live Presence.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
-      "files": [
-        {
-          "path": "registry/intents/collaboration/live-presence/live-presence-2.tsx",
-          "type": "registry:component",
-          "target": "components/flx/intent/live-presence/live-presence-2.tsx"
         }
       ],
       "type": "registry:block"

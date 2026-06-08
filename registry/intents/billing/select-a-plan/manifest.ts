@@ -24,7 +24,7 @@ export const manifest: IntentManifest = {
         'Gets cramped past 3 to 4 tiers and is weak for deep feature-by-feature comparison.',
       patterns: [],
       recommended: true,
-      styles: { span: 'full' },
+      styles: { span: 'full', previewSize: 'lg' },
       demo: SelectAPlan1,
     },
     {

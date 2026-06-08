@@ -1,6 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 
 function GoogleIcon() {
   return (
@@ -43,49 +50,50 @@ function GithubIcon() {
 
 export function SignIn1() {
   return (
-    <div className="bg-card w-full max-w-xs rounded-xl border p-6 shadow-sm">
-      <div className="flex flex-col gap-1">
-        <span className="text-base font-semibold">Sign in to Acme</span>
-        <span className="text-muted-foreground text-xs">
+    <Card>
+      <CardHeader>
+        <CardTitle>Sign in to Acme</CardTitle>
+        <CardDescription>
           Use a provider or your email to continue.
-        </span>
-      </div>
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="mt-5 flex flex-col gap-2">
+          <Button variant="outline" className="justify-center gap-2 md:w-full">
+            <GoogleIcon />
+            <span className="truncate">Continue with Google</span>
+          </Button>
+          <Button variant="outline" className="w-full justify-center gap-2">
+            <AppleIcon />
+            <span className="truncate">Continue with Apple</span>
+          </Button>
+          <Button variant="outline" className="w-full justify-center gap-2">
+            <GithubIcon />
+            <span className="truncate">Continue with GitHub</span>
+          </Button>
+        </div>
 
-      <div className="mt-5 flex flex-col gap-2">
-        <Button variant="outline" className="w-full justify-center gap-2">
-          <GoogleIcon />
-          Continue with Google
-        </Button>
-        <Button variant="outline" className="w-full justify-center gap-2">
-          <AppleIcon />
-          Continue with Apple
-        </Button>
-        <Button variant="outline" className="w-full justify-center gap-2">
-          <GithubIcon />
-          Continue with GitHub
-        </Button>
-      </div>
+        <div className="my-5 flex items-center gap-3">
+          <span className="bg-border h-px flex-1" />
+          <span className="text-muted-foreground text-[11px] uppercase">
+            or
+          </span>
+          <span className="bg-border h-px flex-1" />
+        </div>
 
-      <div className="my-5 flex items-center gap-3">
-        <span className="bg-border h-px flex-1" />
-        <span className="text-muted-foreground text-[11px] uppercase">
-          or
-        </span>
-        <span className="bg-border h-px flex-1" />
-      </div>
-
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor="social-email" className="text-xs">
-          Email
-        </Label>
-        <Input
-          id="social-email"
-          type="email"
-          placeholder="you@acme.com"
-          autoComplete="email"
-        />
-      </div>
-      <Button className="mt-3 w-full">Continue</Button>
-    </div>
+        <div className="flex flex-col gap-1.5">
+          <Label htmlFor="social-email" className="text-xs">
+            Email
+          </Label>
+          <Input
+            id="social-email"
+            type="email"
+            placeholder="you@acme.com"
+            autoComplete="email"
+          />
+        </div>
+        <Button className="mt-3 w-full">Continue</Button>
+      </CardContent>
+    </Card>
   )
 }

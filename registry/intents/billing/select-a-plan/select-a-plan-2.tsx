@@ -1,9 +1,20 @@
 import { CheckIcon, MinusIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 
 const tiers = ['Starter', 'Pro', 'Team'] as const
+const prices = ['$0', '$29', '$99'] as const
 
 const rows: { label: string; values: (boolean | string)[] }[] = [
   { label: 'Projects', values: ['3', 'Unlimited', 'Unlimited'] },
@@ -26,64 +37,70 @@ function Cell({ value }: { value: boolean | string }) {
 
 export function SelectAPlan2() {
   return (
-    <div className="bg-card w-full max-w-2xl overflow-hidden rounded-xl border shadow-sm">
-      <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] border-b">
-        <div className="p-4 text-sm font-semibold">Compare plans</div>
-        {tiers.map((tier, i) => (
-          <div
-            key={tier}
-            className={cn(
-              'flex flex-col gap-0.5 p-4 text-center',
-              i === 1 && 'bg-primary/5',
-            )}
-          >
-            <span className="text-sm font-semibold">{tier}</span>
-            <span className="text-muted-foreground text-xs">
-              {['$0', '$29', '$99'][i]}/mo
-            </span>
-          </div>
-        ))}
-      </div>
+    <Card className="gap-0 overflow-hidden p-0">
+      <Table>
+        <TableHeader>
+          <TableRow className="hover:bg-transparent">
+            <TableHead className="w-2/5 px-3 align-bottom text-sm font-semibold whitespace-normal">
+              Compare plans
+            </TableHead>
+            {tiers.map((tier, i) => (
+              <TableHead
+                key={tier}
+                className={cn(
+                  'h-auto py-4 text-center',
+                  i === 1 && 'bg-primary/5',
+                )}
+              >
+                <span className="text-foreground text-sm font-semibold">
+                  {tier}
+                </span>
+                <span className="text-muted-foreground block text-xs font-normal">
+                  {prices[i]}/mo
+                </span>
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
 
-      {rows.map((row) => (
-        <div
-          key={row.label}
-          className="grid grid-cols-[1.4fr_repeat(3,1fr)] border-b last:border-b-0"
-        >
-          <div className="text-muted-foreground p-3 px-4 text-xs">
-            {row.label}
-          </div>
-          {row.values.map((value, i) => (
-            <div
-              key={i}
-              className={cn(
-                'flex items-center justify-center p-3',
-                i === 1 && 'bg-primary/5',
-              )}
-            >
-              <Cell value={value} />
-            </div>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.label} className="hover:bg-transparent">
+              <TableCell className="text-muted-foreground px-3 text-xs whitespace-normal">
+                {row.label}
+              </TableCell>
+              {row.values.map((value, i) => (
+                <TableCell
+                  key={i}
+                  className={cn('text-center', i === 1 && 'bg-primary/5')}
+                >
+                  <Cell value={value} />
+                </TableCell>
+              ))}
+            </TableRow>
           ))}
-        </div>
-      ))}
+        </TableBody>
 
-      <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] border-t">
-        <div className="p-3" />
-        {tiers.map((tier, i) => (
-          <div
-            key={tier}
-            className={cn('p-3', i === 1 && 'bg-primary/5')}
-          >
-            <Button
-              size="sm"
-              variant={i === 1 ? 'default' : 'outline'}
-              className="w-full text-xs"
-            >
-              Choose
-            </Button>
-          </div>
-        ))}
-      </div>
-    </div>
+        <TableFooter className="bg-transparent">
+          <TableRow className="hover:bg-transparent">
+            <TableCell />
+            {tiers.map((tier, i) => (
+              <TableCell
+                key={tier}
+                className={cn('p-3', i === 1 && 'bg-primary/5')}
+              >
+                <Button
+                  size="sm"
+                  variant={i === 1 ? 'default' : 'outline'}
+                  className="w-full text-xs"
+                >
+                  Choose
+                </Button>
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableFooter>
+      </Table>
+    </Card>
   )
 }

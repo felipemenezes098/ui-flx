@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 
 import { intentGridItemVariants, IntentGrid } from './intent-grid'
 import { DecisionActions } from './decision-actions'
+import { DecisionPreview } from './decision-preview'
 
 export interface AlternativeItem {
   view: DecisionView
@@ -34,17 +35,17 @@ export function DecisionAlternatives({
           <div
             key={view.slug}
             className={cn(
-              'border-border bg-card/50 flex h-full flex-col gap-3 rounded-xl border p-2',
+              'border-border bg-card/50 flex h-full min-w-0 flex-col gap-3 rounded-xl border p-2',
               intentGridItemVariants({
                 span: view.styles?.span ?? 'default',
                 columns,
               }),
             )}
           >
-            <div className="border-border bg-card dark:bg-background flex min-h-44 flex-1 items-center justify-center overflow-hidden rounded-lg border p-6">
-              <div>
+            <div className="border-border bg-card dark:bg-background flex min-h-44 min-w-0 flex-1 items-center justify-center overflow-hidden rounded-lg border p-6">
+              <DecisionPreview size={view.styles?.previewSize ?? 'md'}>
                 <Demo />
-              </div>
+              </DecisionPreview>
             </div>
             <div className="flex items-center justify-between gap-3 px-1.5">
               <span className="min-w-0 truncate text-sm font-medium">

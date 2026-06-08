@@ -4,12 +4,7 @@ import { ArrowLeft, Smartphone } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   InputGroup,
   InputGroupAddon,
@@ -28,7 +23,7 @@ export function SignIn5() {
   const [code, setCode] = useState('')
 
   return (
-    <Card size="sm" className="w-full max-w-xs">
+    <Card size="sm">
       <CardHeader>
         <div className="bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full">
           <Smartphone className="text-primary size-5" />

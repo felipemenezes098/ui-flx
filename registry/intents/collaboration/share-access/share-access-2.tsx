@@ -3,18 +3,9 @@
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -88,38 +79,39 @@ export function ShareAccess2() {
   const setRole = (id: string, role: string) =>
     role === 'remove'
       ? setPeople((prev) => prev.filter((p) => p.id !== id))
-      : setPeople((prev) =>
-          prev.map((p) => (p.id === id ? { ...p, role } : p)),
-        )
+      : setPeople((prev) => prev.map((p) => (p.id === id ? { ...p, role } : p)))
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Share with people</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Input
             type="email"
             placeholder="Add by email"
+            className="min-w-[12rem] flex-1"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && invite()}
           />
-          <Select value={inviteRole} onValueChange={setInviteRole}>
-            <SelectTrigger className="w-28 shrink-0">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="viewer">Viewer</SelectItem>
-                <SelectItem value="editor">Editor</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-          <Button size="icon" onClick={invite} aria-label="Invite">
-            <Plus className="size-4" />
-          </Button>
+          <div className="flex gap-2">
+            <Select value={inviteRole} onValueChange={setInviteRole}>
+              <SelectTrigger className="w-28">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="viewer">Viewer</SelectItem>
+                  <SelectItem value="editor">Editor</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <Button size="icon" onClick={invite} aria-label="Invite">
+              <Plus className="size-4" />
+            </Button>
+          </div>
         </div>
 
         <Separator />
@@ -138,9 +130,11 @@ export function ShareAccess2() {
                     .toUpperCase()}
                 </AvatarFallback>
               </Avatar>
-              <div className="flex flex-1 flex-col">
-                <span className="text-sm font-medium">{person.name}</span>
-                <span className="text-muted-foreground text-xs">
+              <div className="flex min-w-0 flex-1 flex-col">
+                <span className="truncate text-sm font-medium">
+                  {person.name}
+                </span>
+                <span className="text-muted-foreground truncate text-xs">
                   {person.email}
                 </span>
               </div>

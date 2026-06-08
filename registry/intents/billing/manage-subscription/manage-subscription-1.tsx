@@ -20,7 +20,7 @@ export function ManageSubscription1() {
   const pct = Math.round((used / limit) * 100)
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Pro plan</CardTitle>
@@ -50,12 +50,12 @@ export function ManageSubscription1() {
           <Progress value={pct} className="h-2" />
         </div>
       </CardContent>
-      <CardFooter className="flex gap-3">
-        <Button className="flex-1">
+      <CardFooter className="flex flex-wrap gap-2">
+        <Button className="min-w-32 flex-1">
           <Settings2 className="size-4" />
           Change plan
         </Button>
-        <Button variant="outline" className="flex-1">
+        <Button variant="outline" className="min-w-32 flex-1">
           Cancel
         </Button>
       </CardFooter>

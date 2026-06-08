@@ -1,11 +1,6 @@
 import { Mail } from 'lucide-react'
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   InputOTP,
   InputOTPGroup,
@@ -15,7 +10,7 @@ import { Button } from '@/components/ui/button'
 
 export function VerifyIdentity2() {
   return (
-    <Card size="sm" className="w-full max-w-xs min-w-xs">
+    <Card size="sm">
       <CardHeader>
         <div className="bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full">
           <Mail className="text-primary size-5" />

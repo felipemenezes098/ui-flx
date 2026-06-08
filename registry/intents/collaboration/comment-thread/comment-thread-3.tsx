@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { GitCommitVertical, MessageSquare, Share2, UserPlus } from 'lucide-react'
-
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+  GitCommitVertical,
+  MessageSquare,
+  Share2,
+  UserPlus,
+} from 'lucide-react'
+
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -101,7 +102,7 @@ export function CommentThread3() {
   }
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <MessageSquare className="size-4" />

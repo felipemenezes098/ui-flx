@@ -24,6 +24,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Leans on third-party providers and raises privacy/consent questions; always keep an email fallback.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       recommended: true,
       demo: SignIn1,
     },
@@ -35,6 +36,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Weakest option on its own. Pair with 2FA, and budget for password resets and credential-stuffing defenses.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: SignIn2,
     },
     {
@@ -45,6 +47,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Adds an inbox round-trip and depends on email deliverability; frustrating for users who log in often.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: SignIn3,
     },
     {
@@ -55,6 +58,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Needs a device with biometrics or a synced passkey; keep a password or email fallback for older devices.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: SignIn4,
     },
     {
@@ -65,6 +69,7 @@ export const manifest: IntentManifest = {
       caveat:
         'SMS costs money, can be delayed, and is exposed to SIM-swap; rate-limit codes and keep expiry short.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: SignIn5,
     },
     {
@@ -75,7 +80,7 @@ export const manifest: IntentManifest = {
       caveat:
         'The brand panel needs real copy and art to earn its space, and collapses to a plain form on mobile.',
       patterns: [],
-      styles: { span: 'full' },
+      styles: { span: 'full', previewSize: 'lg' },
       demo: SignIn6,
     },
   ],

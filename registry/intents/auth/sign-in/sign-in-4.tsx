@@ -13,9 +13,9 @@ import { Label } from '@/components/ui/label'
 
 export function SignIn4() {
   return (
-    <Card size="sm" className="w-full max-w-xs">
+    <Card size="sm">
       <CardHeader className="justify-items-center text-center">
-        <div className="from-primary/15 to-primary/5 ring-primary/10 mb-2 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br ring-1">
+        <div className="from-primary/15 to-primary/5 ring-primary/10 mb-2 flex size-14 items-center justify-center rounded-2xl bg-linear-to-br ring-1">
           <Fingerprint className="text-primary size-7" />
         </div>
         <CardTitle>Sign in with a passkey</CardTitle>

@@ -3,19 +3,10 @@
 import { useState } from 'react'
 import { Check, Inbox, X } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Empty,
   EmptyDescription,
@@ -66,7 +57,7 @@ export function ShareAccess3() {
     setRequests((prev) => prev.filter((r) => r.id !== id))
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Access requests</CardTitle>
@@ -86,7 +77,10 @@ export function ShareAccess3() {
           </Empty>
         ) : (
           requests.map((req) => (
-            <div key={req.id} className="flex flex-col gap-3 rounded-lg border p-3">
+            <div
+              key={req.id}
+              className="flex flex-col gap-3 rounded-lg border p-3"
+            >
               <div className="flex items-center gap-3">
                 <Avatar className="size-8">
                   <AvatarImage src={req.avatar} alt={req.name} />
@@ -97,22 +91,24 @@ export function ShareAccess3() {
                       .join('')}
                   </AvatarFallback>
                 </Avatar>
-                <div className="flex flex-1 flex-col">
-                  <span className="text-sm font-medium">{req.name}</span>
-                  <span className="text-muted-foreground text-xs">
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <span className="truncate text-sm font-medium">
+                    {req.name}
+                  </span>
+                  <span className="text-muted-foreground truncate text-xs">
                     {req.email}
                   </span>
                 </div>
               </div>
               <p className="text-muted-foreground text-xs">{req.note}</p>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Select
                   value={grantRole[req.id] ?? 'viewer'}
                   onValueChange={(v) =>
                     setGrantRole((prev) => ({ ...prev, [req.id]: v }))
                   }
                 >
-                  <SelectTrigger size="sm" className="w-28 shrink-0">
+                  <SelectTrigger size="sm" className="w-28">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -122,7 +118,7 @@ export function ShareAccess3() {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
-                <div className="flex flex-1 justify-end gap-2">
+                <div className="flex min-w-[8rem] flex-1 justify-end gap-2">
                   <Button
                     variant="ghost"
                     size="sm"

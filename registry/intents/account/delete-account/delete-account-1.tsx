@@ -30,7 +30,7 @@ export function DeleteAccount1() {
   const confirmed = value.trim() === CONFIRM_WORD
 
   return (
-    <Card className="border-destructive/40 w-full max-w-sm">
+    <Card className="border-destructive/40">
       <CardHeader>
         <CardTitle className="text-destructive">Delete account</CardTitle>
         <CardDescription>

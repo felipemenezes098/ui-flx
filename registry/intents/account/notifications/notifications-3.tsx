@@ -57,7 +57,7 @@ export function Notifications3() {
     )
 
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Email frequency</CardTitle>
       </CardHeader>
@@ -65,7 +65,7 @@ export function Notifications3() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex items-center justify-between gap-4"
+            className="flex flex-col justify-between gap-4 md:flex-row md:items-center"
           >
             <div className="flex flex-col">
               <span className="text-sm font-medium">{item.label}</span>

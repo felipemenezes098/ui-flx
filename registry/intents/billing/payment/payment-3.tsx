@@ -3,12 +3,7 @@
 import { CreditCard } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
 function ApplePayMark() {
@@ -44,7 +39,7 @@ function GooglePayMark() {
 
 export function Payment3() {
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Checkout</CardTitle>
       </CardHeader>
@@ -53,17 +48,16 @@ export function Payment3() {
           <ApplePayMark />
           Pay
         </Button>
-        <Button
-          variant="outline"
-          className="w-full bg-white text-black hover:bg-white/90"
-        >
+        <Button variant="outline" className="w-full bg-white hover:bg-white/90">
           <GooglePayMark />
           Pay
         </Button>
 
         <div className="flex items-center gap-3 py-1">
           <Separator className="flex-1" />
-          <span className="text-muted-foreground text-xs">or pay with card</span>
+          <span className="text-muted-foreground text-xs">
+            or pay with card
+          </span>
           <Separator className="flex-1" />
         </div>
 

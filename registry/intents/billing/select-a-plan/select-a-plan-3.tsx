@@ -4,12 +4,7 @@ import { ArrowRightIcon, CheckIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 
 type Segment = {
@@ -31,11 +26,7 @@ const segments: Segment[] = [
     blurb: 'Everything one person needs to ship faster.',
     price: '$12',
     cadence: 'per month',
-    features: [
-      'Unlimited personal projects',
-      '20 GB storage',
-      'Email support',
-    ],
+    features: ['Unlimited personal projects', '20 GB storage', 'Email support'],
     cta: 'Start personal',
   },
   {
@@ -69,7 +60,7 @@ export function SelectAPlan3() {
   const segment = segments.find((s) => s.id === active) ?? segments[1]
 
   return (
-    <div className="flex w-80 max-w-full flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-5">
       <ToggleGroup
         type="single"
         value={active}

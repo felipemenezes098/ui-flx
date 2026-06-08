@@ -11,7 +11,7 @@ import {
 
 export function VerifyIdentity3() {
   return (
-    <Card size="sm" className="w-full max-w-xs min-w-xs">
+    <Card size="sm">
       <CardHeader className="justify-items-center text-center">
         <div className="border-primary/20 relative mb-2 flex size-16 items-center justify-center rounded-2xl border">
           <Smartphone className="text-primary size-7" />

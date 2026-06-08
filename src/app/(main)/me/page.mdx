@@ -1,62 +1,25 @@
 export const metadata = {
-  title: 'Introduction',
+  title: 'About',
   description:
-    'Flexnative: UI blocks and patterns for your stack. Yours to customize, extend, and own. Built on shadcn/ui.',
+    'Why I built Flexnative: intents, decisions, prompts, and patterns for interfaces you own. Built on shadcn/ui.',
   openGraph: {
-    title: 'Introduction',
+    title: 'About',
     description:
-      'Flexnative: UI blocks and patterns for your stack. Yours to customize, extend, and own.',
+      'Why I built Flexnative: intents, decisions, prompts, and patterns for interfaces you own.',
     type: 'article',
   },
 }
 
 # About
 
-I created Flexnative to make building interfaces feel simpler, more consistent, and easier to evolve over time.
+I built Flexnative to document how interfaces get decided, not just how they look.
 
-For me, the real value is not just having UI ready to copy. It is having a way to distribute taste, layout decisions, and conventions in a format that is easy to copy, easy to understand, and easy to keep consistent across different projects.
+The real product, for me, is the reasoning: **intents**, **decisions**, **prompts**, **patterns**. Each intent maps to tradeoffs, then to instructions builders and agents can follow, then to code you keep.
 
-I like the shadcn approach because it gives you the code directly. You own it. You can tweak it, extend it, and update it without being locked in a package. Flexnative follows that same idea. **Blocks** are page sections you drop into a site. **Patterns** are smaller compositions for everyday interfaces. Both are built the way I like to work: clear props, simple examples, and code you can actually own.
+I like the [shadcn/ui](https://ui.shadcn.com) approach. You get the source. You own it, extend it, ship it. Flexnative builds on that model and turns interface judgment into something you can reuse across projects.
 
-What makes this even more powerful is how it works with AI. When the structure is clear and the examples are simple, AI can follow the same patterns much more reliably. That makes it easier to generate, adapt, and scale UI without losing consistency.
+When that chain is explicit, consistency holds. Teams move faster. AI stops inventing a new UI language every time.
 
-What I want with Flexnative is simple:
+This is not a component catalog. I want a way to scale taste and decisions without reinventing the stack on every repo.
 
-- make UI faster to build
-- keep things visually consistent
-- make examples easy to understand
-- make the code friendly for developers and for AI
-- keep the source in your hands so you can adapt it however you want
-
-This is not about collecting UI for the sake of it.
-
-It is about creating a practical way to build and scale interfaces without turning every project into a reinvention of the same decisions.
-
-I use Flexnative because it helps me work faster, think more clearly, and keep a better standard across projects. And that is the kind of tool I want to share.
-
-## Registry setup
-
-To make sure the `@flx` registry is available, add this to your `components.json`:
-
-<CodeBlock>
-  <CodeBlockCode
-    language="json"
-    withCopy
-    code={`
-  "registries": {
-    "@flx": {
-      "url": "https://ui.flexnative.com/r/{name}.json"
-    }
-  }`}
-  />
-</CodeBlock>
-
-Then you can use the `@flx` registry in your project. For example, to add the `cta` block, you can run:
-
-<CodeBlock>
-  <CodeBlockCode
-    language="bash"
-    withCopy
-    code="npx shadcn@latest add @flx/cta"
-  />
-</CodeBlock>
+<Contact />

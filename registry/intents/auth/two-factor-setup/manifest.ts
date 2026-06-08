@@ -23,6 +23,7 @@ export const manifest: IntentManifest = {
         'Requires the user to install an app and rescan if they switch phones; pair it with backup codes for recovery.',
       patterns: [],
       recommended: true,
+      styles: { previewSize: 'sm' },
       demo: TwoFactorSetup1,
     },
     {
@@ -33,6 +34,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Weakest factor. Vulnerable to SIM-swap and interception, depends on carrier delivery, and costs money to send.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: TwoFactorSetup2,
     },
     {
@@ -43,6 +45,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Needs a device with biometrics or a security key and cross-device sync; still unfamiliar to many users.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: TwoFactorSetup3,
     },
     {
@@ -53,6 +56,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Not a primary factor. Only as safe as where the user stores them, and useless once all codes are spent.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: TwoFactorSetup4,
     },
   ],

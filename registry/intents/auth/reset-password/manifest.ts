@@ -22,6 +22,7 @@ export const manifest: IntentManifest = {
         'Depends on email deliverability and inbox access; a slow or filtered email blocks recovery entirely.',
       patterns: [],
       recommended: true,
+      styles: { previewSize: 'sm' },
       demo: ResetPassword1,
     },
     {
@@ -32,6 +33,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Short codes need rate-limiting and short expiry to resist brute force; SMS adds cost and SIM-swap risk.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: ResetPassword2,
     },
     {
@@ -42,6 +44,7 @@ export const manifest: IntentManifest = {
       caveat:
         'Weakest option. Answers are often guessable or public; never use it as the only recovery path.',
       patterns: [],
+      styles: { previewSize: 'sm' },
       demo: ResetPassword3,
     },
   ],

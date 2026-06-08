@@ -1,16 +1,7 @@
 'use client'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 type Status = 'editing' | 'viewing' | 'idle'
 
@@ -63,7 +54,7 @@ const MEMBERS: Member[] = [
 
 export function LivePresence3() {
   return (
-    <Card className="w-full max-w-md min-w-sm">
+    <Card>
       <CardHeader>
         <CardTitle>Who is here</CardTitle>
       </CardHeader>
@@ -84,13 +75,15 @@ export function LivePresence3() {
                 className={`ring-background absolute -right-0.5 -bottom-0.5 size-3 rounded-full ring-2 ${STATUS_DOT[member.status]}`}
               />
             </div>
-            <div className="flex flex-1 flex-col">
-              <span className="text-sm font-medium">{member.name}</span>
-              <span className="text-muted-foreground text-xs">
+            <div className="flex min-w-0 flex-1 flex-col">
+              <span className="truncate text-sm font-medium">
+                {member.name}
+              </span>
+              <span className="text-muted-foreground truncate text-xs">
                 {member.location}
               </span>
             </div>
-            <span className="text-muted-foreground text-xs">
+            <span className="text-muted-foreground shrink-0 text-xs">
               {STATUS_LABEL[member.status]}
             </span>
           </div>

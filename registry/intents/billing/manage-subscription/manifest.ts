@@ -22,6 +22,7 @@ export const manifest: IntentManifest = {
         'It surfaces state but does not perform the change itself, so it always hands off to a change or cancel flow to finish the job.',
       patterns: [],
       recommended: true,
+      styles: { previewSize: 'sm' },
       demo: ManageSubscription1,
     },
     {
@@ -33,6 +34,7 @@ export const manifest: IntentManifest = {
         'Proration math and effective dates are easy to get wrong, so the copy must match what billing actually charges or trust erodes fast.',
       patterns: [],
       demo: ManageSubscription2,
+      styles: { previewSize: 'sm' },
     },
     {
       slug: '3',
@@ -43,6 +45,7 @@ export const manifest: IntentManifest = {
         'Push the save too hard and it reads as a dark pattern, so the cancel action must stay obvious and never be buried behind the offer.',
       patterns: [],
       demo: ManageSubscription3,
+      styles: { previewSize: 'sm' },
     },
   ],
 }
