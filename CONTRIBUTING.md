@@ -2,7 +2,9 @@
 
 Thanks for your interest in contributing to **Flexnative**. I'm happy to have you here.
 
-Flexnative is a collection of UI blocks ready for your stack—yours to customize, extend, and own. Before you get started, take a moment to read this guide and check [open issues](https://github.com/felipemenezes098/ui-flx/issues) and [pull requests](https://github.com/felipemenezes098/ui-flx/pulls) to see if someone is already working on something similar.
+Flexnative is an open source collection of UI intents, interface decisions, prompts, and patterns. This repo documents the reasoning, prompts, and code behind reusable interface decisions. Built on [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. Designed to be extended and owned.
+
+Before you get started, take a moment to read this guide and check [open issues](https://github.com/felipemenezes098/ui-flx/issues) and [pull requests](https://github.com/felipemenezes098/ui-flx/pulls) to see if someone is already working on something similar.
 
 If you need any help, open a [Discussion](https://github.com/felipemenezes098/ui-flx/discussions) or reach out to [@fmenezes\_](https://x.com/fmenezes_).
 
