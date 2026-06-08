@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-05",
+  "title": "Disabled",
+  "description": "Disabled off and disabled on states.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-05.tsx",
+      "content": "import { Field, FieldLabel } from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch05() {\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-4\">\n      <Field orientation=\"horizontal\" data-disabled>\n        <FieldLabel htmlFor=\"switch-05-off\">Disabled off</FieldLabel>\n        <Switch id=\"switch-05-off\" disabled />\n      </Field>\n      <Field orientation=\"horizontal\" data-disabled>\n        <FieldLabel htmlFor=\"switch-05-on\">Disabled on</FieldLabel>\n        <Switch id=\"switch-05-on\" disabled defaultChecked />\n      </Field>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

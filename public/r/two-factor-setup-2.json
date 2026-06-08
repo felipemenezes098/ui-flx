@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-setup-2",
+  "title": "SMS Code",
+  "description": "SMS Code for Two-Factor Setup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/two-factor-setup/two-factor-setup-2.tsx",
+      "content": "import { SmartphoneIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\n\nexport function TwoFactorSetup2() {\n  return (\n    <Card size=\"sm\">\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <SmartphoneIcon className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>Verify by SMS</CardTitle>\n        <p className=\"text-muted-foreground text-xs\">\n          We&apos;ll text a code to your phone each time you sign in. Add the\n          number to protect.\n        </p>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col gap-1.5\">\n        <Label htmlFor=\"tf-phone\" className=\"text-xs\">\n          Phone number\n        </Label>\n        <Input\n          id=\"tf-phone\"\n          type=\"tel\"\n          placeholder=\"+1 (555) 000-0000\"\n          autoComplete=\"tel\"\n        />\n      </CardContent>\n\n      <CardFooter className=\"flex-col items-stretch gap-4\">\n        <Button className=\"w-full\">Send code</Button>\n        <p className=\"text-muted-foreground/80 text-center text-[11px]\">\n          Carrier rates may apply. SMS is less secure than an app.\n        </p>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/two-factor-setup/two-factor-setup-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

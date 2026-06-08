@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-08",
+  "title": "Select",
+  "description": "A field label above a trigger with a chevron block.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-08.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton08() {\n  return (\n    <div className=\"flex w-full max-w-xs flex-col gap-2\">\n      <Skeleton className=\"h-3 w-20\" />\n      <div className=\"flex h-9 items-center justify-between rounded-md border px-3\">\n        <Skeleton className=\"h-3 w-28\" />\n        <Skeleton className=\"size-4 rounded-sm\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

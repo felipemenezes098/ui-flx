@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { GridContentCards } from './grid-content-cards'
 import { GridContentCardsEditorFields } from './editor/fields'
 import { GridContentCardsExample, values } from './grid-content-cards-example'

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-04",
+  "title": "Read more",
+  "description": "Truncated paragraph reveals the rest; trigger label swaps to Show less.",
+  "dependencies": [],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/collapsible/collapsible-04.tsx",
+      "content": "import {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible'\nimport { ChevronDownIcon } from 'lucide-react'\n\nexport function Collapsible04() {\n  return (\n    <Collapsible className=\"group w-full max-w-md space-y-2\">\n      <p className=\"text-sm leading-relaxed\">\n        Collapsible shows and hides a section of content behind an accessible\n        trigger. It ships unstyled, so you own the markup, spacing, and\n        animation entirely.\n      </p>\n      <CollapsibleContent className=\"overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\n        <p className=\"text-sm leading-relaxed\">\n          Under the hood it tracks the open state and exposes the content height\n          as a CSS variable, so you can animate from zero to the natural height\n          without measuring anything in JavaScript. Pair it with a chevron and a\n          label swap for a polished read-more control.\n        </p>\n      </CollapsibleContent>\n      <CollapsibleTrigger className=\"text-primary inline-flex items-center gap-1 text-sm font-medium\">\n        <span className=\"group-data-[state=open]:hidden\">Read more</span>\n        <span className=\"hidden group-data-[state=open]:inline\">Show less</span>\n        <ChevronDownIcon className=\"size-4 transition-transform group-data-[state=open]:rotate-180\" />\n      </CollapsibleTrigger>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/collapsible/collapsible-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

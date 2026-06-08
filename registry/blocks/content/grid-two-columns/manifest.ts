@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { GridTwoColumns } from './grid-two-columns'
 import { GridTwoColumnsEditorFields } from './editor/fields'
 import { GridTwoColumnsExample, values } from './grid-two-columns-example'

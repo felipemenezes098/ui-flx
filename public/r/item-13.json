@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-13",
   "title": "Notifications",
-  "description": "Icon media, unread dot in the title, time footer.",
+  "description": "Leading icon, title with an unread dot indicator, and a trailing timestamp.",
   "dependencies": [],
   "registryDependencies": [
     "item"

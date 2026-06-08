@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import type React from 'react'
 
-import { patternCategories } from '@/lib/patterns-catalog'
+import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 export const patternRegistry: Record<string, React.ComponentType> =
   Object.fromEntries(

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks",
+  "homepage": "https://ui.flexnative.com",
+  "include": [
+    "./bento-grids/registry.json",
+    "./carousel/registry.json",
+    "./content/registry.json",
+    "./hero/registry.json",
+    "./logos/registry.json",
+    "./scroll/registry.json",
+    "./shared/registry.json",
+    "./showcase/registry.json",
+    "./testimonials/registry.json"
+  ],
+  "items": []
+}

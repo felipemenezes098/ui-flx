@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { PrimaryItemGrid } from './primary-item-grid'
 import { PrimaryItemGridEditorFields } from './editor/fields'
 import { PrimaryItemGridExample, values } from './primary-item-grid-example'

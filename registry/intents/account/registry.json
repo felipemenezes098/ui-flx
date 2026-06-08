@@ -1,0 +1,233 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-intent-settings",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "settings-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input",
+        "label",
+        "scroll-area",
+        "select",
+        "switch",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "settings/settings-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-1.tsx"
+        }
+      ],
+      "title": "Tabbed Sections",
+      "description": "Tabbed Sections for Settings."
+    },
+    {
+      "name": "settings-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "separator",
+        "sidebar",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "settings/settings-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-2.tsx"
+        }
+      ],
+      "title": "Sidebar Layout",
+      "description": "Sidebar Layout for Settings."
+    },
+    {
+      "name": "settings-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "settings/settings-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-3.tsx"
+        }
+      ],
+      "title": "Inline Edit",
+      "description": "Inline Edit for Settings."
+    },
+    {
+      "name": "settings-4",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dialog",
+        "label",
+        "separator",
+        "switch",
+        "toggle-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "settings/settings-4.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/settings/settings-4.tsx"
+        }
+      ],
+      "title": "Preferences Dialog",
+      "description": "Preferences Dialog for Settings."
+    },
+    {
+      "name": "notifications-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "switch",
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "notifications/notifications-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-1.tsx"
+        }
+      ],
+      "title": "Channel Matrix",
+      "description": "Channel Matrix for Notifications."
+    },
+    {
+      "name": "notifications-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "label",
+        "separator",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "notifications/notifications-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-2.tsx"
+        }
+      ],
+      "title": "Grouped Toggles",
+      "description": "Grouped Toggles for Notifications."
+    },
+    {
+      "name": "notifications-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "notifications/notifications-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/notifications/notifications-3.tsx"
+        }
+      ],
+      "title": "Digest Frequency",
+      "description": "Digest Frequency for Notifications."
+    },
+    {
+      "name": "delete-account-1",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "dialog",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "delete-account/delete-account-1.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-1.tsx"
+        }
+      ],
+      "title": "Confirm Dialog",
+      "description": "Confirm Dialog for Delete Account."
+    },
+    {
+      "name": "delete-account-2",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "progress",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "delete-account/delete-account-2.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-2.tsx"
+        }
+      ],
+      "title": "Multi-Step",
+      "description": "Multi-Step for Delete Account."
+    },
+    {
+      "name": "delete-account-3",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "delete-account/delete-account-3.tsx",
+          "type": "registry:component",
+          "target": "components/flx/intent/delete-account/delete-account-3.tsx"
+        }
+      ],
+      "title": "Grace Period",
+      "description": "Grace Period for Delete Account."
+    }
+  ]
+}

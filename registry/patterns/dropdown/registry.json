@@ -1,0 +1,364 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-dropdown",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "dropdown-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Label, separator, and a list of action items."
+    },
+    {
+      "name": "dropdown-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-02.tsx"
+        }
+      ],
+      "title": "With icons and shortcuts",
+      "description": "Leading icons paired with trailing keyboard shortcuts."
+    },
+    {
+      "name": "dropdown-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-03.tsx"
+        }
+      ],
+      "title": "Grouped",
+      "description": "Multiple labeled groups divided by separators."
+    },
+    {
+      "name": "dropdown-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-04.tsx"
+        }
+      ],
+      "title": "Destructive item",
+      "description": "A red destructive Delete action separated from the regular items."
+    },
+    {
+      "name": "dropdown-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-05.tsx"
+        }
+      ],
+      "title": "Disabled items",
+      "description": "Non-interactive items dimmed with the disabled prop."
+    },
+    {
+      "name": "dropdown-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-06.tsx"
+        }
+      ],
+      "title": "Checkbox items",
+      "description": "Toggle multiple view options with checkbox items."
+    },
+    {
+      "name": "dropdown-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-07.tsx"
+        }
+      ],
+      "title": "Radio group",
+      "description": "Radio items that keep exactly one option selected at a time."
+    },
+    {
+      "name": "dropdown-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-08.tsx"
+        }
+      ],
+      "title": "Submenu",
+      "description": "A menu item that reveals a nested flyout panel with more options."
+    },
+    {
+      "name": "dropdown-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-09.tsx"
+        }
+      ],
+      "title": "Account menu",
+      "description": "Avatar trigger with a name and email header block."
+    },
+    {
+      "name": "dropdown-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-10.tsx"
+        }
+      ],
+      "title": "Icon button actions",
+      "description": "Ghost ellipsis trigger opens a compact actions menu."
+    },
+    {
+      "name": "dropdown-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-11.tsx"
+        }
+      ],
+      "title": "Table row actions",
+      "description": "Per-row ellipsis menu with edit, copy, and remove."
+    },
+    {
+      "name": "dropdown-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-12.tsx"
+        }
+      ],
+      "title": "Sides and alignment",
+      "description": "Align start or end and open the menu to the side."
+    },
+    {
+      "name": "dropdown-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-13.tsx"
+        }
+      ],
+      "title": "Controlled open",
+      "description": "Menu whose open/closed state is managed externally and reflected in the trigger label."
+    },
+    {
+      "name": "dropdown-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-14.tsx"
+        }
+      ],
+      "title": "Theme switcher",
+      "description": "Radio group toggling light, dark, and system themes."
+    },
+    {
+      "name": "dropdown-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-15.tsx"
+        }
+      ],
+      "title": "Multi-select filter",
+      "description": "Checkbox items with a count badge and a clear action."
+    },
+    {
+      "name": "dropdown-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-16.tsx"
+        }
+      ],
+      "title": "Notifications",
+      "description": "Bell trigger with an unread badge and an activity list."
+    },
+    {
+      "name": "dropdown-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "dialog"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "dropdown-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-17.tsx"
+        }
+      ],
+      "title": "With dialog",
+      "description": "A menu item opens a controlled confirmation dialog."
+    },
+    {
+      "name": "dropdown-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "dropdown-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-18.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds a radio group to RHF; Zod requires a selection."
+    },
+    {
+      "name": "dropdown-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "dropdown-menu",
+        "button",
+        "field"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "dropdown-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/dropdown/dropdown-19.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the radio group; Zod onSubmit surfaces FieldError."
+    }
+  ]
+}

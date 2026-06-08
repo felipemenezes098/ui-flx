@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sign-in-3",
+  "title": "Magic Link",
+  "description": "Magic Link for Sign In.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/sign-in/sign-in-3.tsx",
+      "content": "import { MailIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Input } from '@/components/ui/input'\nimport { Label } from '@/components/ui/label'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function SignIn3() {\n  return (\n    <Card>\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <MailIcon className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>Sign in with email</CardTitle>\n        <CardDescription>\n          We&apos;ll email you a secure link, no password to remember.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <div className=\"flex flex-col gap-1.5\">\n          <Label htmlFor=\"ml-email\" className=\"text-xs\">\n            Email\n          </Label>\n          <Input\n            id=\"ml-email\"\n            type=\"email\"\n            placeholder=\"you@acme.com\"\n            autoComplete=\"email\"\n          />\n        </div>\n\n        <Button className=\"mt-4 w-full\">Send magic link</Button>\n\n        <p className=\"text-muted-foreground/80 mt-4 text-center text-[11px]\">\n          The link expires in 10 minutes.\n        </p>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/sign-in/sign-in-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-a-plan-2",
+  "title": "Comparison Table",
+  "description": "Comparison Table for Select a Plan.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/select-a-plan/select-a-plan-2.tsx",
+      "content": "import { CheckIcon, MinusIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport { Card } from '@/components/ui/card'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableFooter,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\nimport { cn } from '@/lib/utils'\n\nconst tiers = ['Starter', 'Pro', 'Team'] as const\nconst prices = ['$0', '$29', '$99'] as const\n\nconst rows: { label: string; values: (boolean | string)[] }[] = [\n  { label: 'Projects', values: ['3', 'Unlimited', 'Unlimited'] },\n  { label: 'Storage', values: ['1 GB', '100 GB', '1 TB'] },\n  { label: 'Advanced analytics', values: [false, true, true] },\n  { label: 'Priority support', values: [false, true, true] },\n  { label: 'SSO & SAML', values: [false, false, true] },\n  { label: 'Audit logs', values: [false, false, true] },\n]\n\nfunction Cell({ value }: { value: boolean | string }) {\n  if (typeof value === 'string')\n    return <span className=\"text-foreground text-xs\">{value}</span>\n  return value ? (\n    <CheckIcon className=\"text-primary mx-auto size-4\" />\n  ) : (\n    <MinusIcon className=\"text-muted-foreground/40 mx-auto size-4\" />\n  )\n}\n\nexport function SelectAPlan2() {\n  return (\n    <Card className=\"gap-0 overflow-hidden p-0\">\n      <Table>\n        <TableHeader>\n          <TableRow className=\"hover:bg-transparent\">\n            <TableHead className=\"w-2/5 px-3 align-bottom text-sm font-semibold whitespace-normal\">\n              Compare plans\n            </TableHead>\n            {tiers.map((tier, i) => (\n              <TableHead\n                key={tier}\n                className={cn(\n                  'h-auto py-4 text-center',\n                  i === 1 && 'bg-primary/5',\n                )}\n              >\n                <span className=\"text-foreground text-sm font-semibold\">\n                  {tier}\n                </span>\n                <span className=\"text-muted-foreground block text-xs font-normal\">\n                  {prices[i]}/mo\n                </span>\n              </TableHead>\n            ))}\n          </TableRow>\n        </TableHeader>\n\n        <TableBody>\n          {rows.map((row) => (\n            <TableRow key={row.label} className=\"hover:bg-transparent\">\n              <TableCell className=\"text-muted-foreground px-3 text-xs whitespace-normal\">\n                {row.label}\n              </TableCell>\n              {row.values.map((value, i) => (\n                <TableCell\n                  key={i}\n                  className={cn('text-center', i === 1 && 'bg-primary/5')}\n                >\n                  <Cell value={value} />\n                </TableCell>\n              ))}\n            </TableRow>\n          ))}\n        </TableBody>\n\n        <TableFooter className=\"bg-transparent\">\n          <TableRow className=\"hover:bg-transparent\">\n            <TableCell />\n            {tiers.map((tier, i) => (\n              <TableCell\n                key={tier}\n                className={cn('p-3', i === 1 && 'bg-primary/5')}\n              >\n                <Button\n                  size=\"sm\"\n                  variant={i === 1 ? 'default' : 'outline'}\n                  className=\"w-full text-xs\"\n                >\n                  Choose\n                </Button>\n              </TableCell>\n            ))}\n          </TableRow>\n        </TableFooter>\n      </Table>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/select-a-plan/select-a-plan-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

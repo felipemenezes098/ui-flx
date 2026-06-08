@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comment-thread-1",
+  "title": "Inline Anchored",
+  "description": "Inline Anchored for Comment Thread.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "card",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/comment-thread/comment-thread-1.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Check, MessageSquare } from 'lucide-react'\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Textarea } from '@/components/ui/textarea'\n\ntype Reply = {\n  id: string\n  name: string\n  avatar: string\n  time: string\n  text: string\n}\n\nconst REPLIES: Reply[] = [\n  {\n    id: 'ada',\n    name: 'Ada Lovelace',\n    avatar:\n      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=faces',\n    time: '2h',\n    text: 'Should this number be Q3 or Q4? The chart above says Q4.',\n  },\n  {\n    id: 'grace',\n    name: 'Grace Hopper',\n    avatar:\n      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&fit=crop&crop=faces',\n    time: '1h',\n    text: 'Good catch, it is Q4. Fixing now.',\n  },\n]\n\nexport function CommentThread1() {\n  const [replies, setReplies] = useState<Reply[]>(REPLIES)\n  const [draft, setDraft] = useState('')\n  const [resolved, setResolved] = useState(false)\n\n  const send = () => {\n    const text = draft.trim()\n    if (!text) return\n    setReplies((prev) => [\n      ...prev,\n      { id: `me-${prev.length}`, name: 'You', avatar: '', time: 'now', text },\n    ])\n    setDraft('')\n  }\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <MessageSquare className=\"size-4\" />\n          Comment\n        </CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        <p className=\"border-primary bg-primary/5 border-l-2 py-1 pl-3 text-sm italic\">\n          &ldquo;revenue grew 38% year over year&rdquo;\n        </p>\n\n        {resolved ? (\n          <div className=\"text-muted-foreground flex items-center gap-2 rounded-lg border border-dashed p-3 text-sm\">\n            <Check className=\"size-4\" />\n            Thread resolved\n            <Button\n              variant=\"link\"\n              size=\"sm\"\n              className=\"ml-auto h-auto p-0\"\n              onClick={() => setResolved(false)}\n            >\n              Reopen\n            </Button>\n          </div>\n        ) : (\n          <>\n            <div className=\"flex flex-col gap-4\">\n              {replies.map((reply) => (\n                <div key={reply.id} className=\"flex gap-3\">\n                  <Avatar className=\"size-7\">\n                    <AvatarImage src={reply.avatar} alt={reply.name} />\n                    <AvatarFallback className=\"bg-muted text-xs\">\n                      {reply.name\n                        .split(' ')\n                        .map((n) => n[0])\n                        .join('')}\n                    </AvatarFallback>\n                  </Avatar>\n                  <div className=\"flex flex-1 flex-col gap-0.5\">\n                    <div className=\"flex items-baseline gap-2\">\n                      <span className=\"text-sm font-medium\">{reply.name}</span>\n                      <span className=\"text-muted-foreground text-xs\">\n                        {reply.time}\n                      </span>\n                    </div>\n                    <p className=\"text-sm\">{reply.text}</p>\n                  </div>\n                </div>\n              ))}\n            </div>\n\n            <Textarea\n              placeholder=\"Reply...\"\n              value={draft}\n              onChange={(e) => setDraft(e.target.value)}\n              className=\"min-h-16 resize-none\"\n            />\n            <div className=\"flex justify-end gap-2\">\n              <Button\n                variant=\"ghost\"\n                size=\"sm\"\n                onClick={() => setResolved(true)}\n              >\n                <Check className=\"size-4\" />\n                Resolve\n              </Button>\n              <Button size=\"sm\" onClick={send} disabled={!draft.trim()}>\n                Reply\n              </Button>\n            </div>\n          </>\n        )}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/comment-thread/comment-thread-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-16",
+  "title": "Sidebar nav",
+  "description": "A logo header above a list of icon-and-label nav rows, with a user profile row at the bottom.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-16.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton16() {\n  return (\n    <div className=\"flex w-full max-w-[15rem] flex-col gap-5 rounded-lg border p-4\">\n      <div className=\"flex items-center gap-2.5\">\n        <Skeleton className=\"size-8 shrink-0 rounded-md\" />\n        <Skeleton className=\"h-4 w-24\" />\n      </div>\n      <div className=\"flex flex-col gap-1.5\">\n        {Array.from({ length: 5 }).map((_, i) => (\n          <div key={i} className=\"flex items-center gap-2.5 px-1 py-1.5\">\n            <Skeleton className=\"size-4 shrink-0 rounded-sm\" />\n            <Skeleton\n              className=\"h-3 w-full\"\n              style={{ maxWidth: `${70 + ((i * 7) % 30)}%` }}\n            />\n          </div>\n        ))}\n      </div>\n      <div className=\"flex items-center gap-2.5 border-t pt-4\">\n        <Skeleton className=\"size-7 shrink-0 rounded-full\" />\n        <Skeleton className=\"h-3 w-20\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-16.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

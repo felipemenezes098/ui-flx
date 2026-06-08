@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { LogoMarquee } from './logo-marquee'
 import { LogoMarqueeEditorFields } from './editor/fields'
 import { LogoMarqueeExample, values } from './logo-marquee-example'

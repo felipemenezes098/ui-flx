@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-01",
+  "title": "Basic",
+  "description": "Icon, message, and a subtle bordered surface.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-01.tsx",
+      "content": "import { Info } from 'lucide-react'\n\nexport function Banner01() {\n  return (\n    <div className=\"flex w-full items-center gap-3 rounded-lg border bg-card px-4 py-3 text-sm shadow-sm\">\n      <span className=\"bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-full\">\n        <Info className=\"size-4\" />\n      </span>\n      <p className=\"text-muted-foreground\">\n        <span className=\"text-foreground font-medium\">Heads up.</span> A new\n        version of the dashboard is now available.\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

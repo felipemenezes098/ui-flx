@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "verify-identity-3",
+  "title": "Push Approval",
+  "description": "Push Approval for Verify Identity.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/verify-identity/verify-identity-3.tsx",
+      "content": "import { Loader2, Smartphone } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function VerifyIdentity3() {\n  return (\n    <Card size=\"sm\">\n      <CardHeader className=\"justify-items-center text-center\">\n        <div className=\"border-primary/20 relative mb-2 flex size-16 items-center justify-center rounded-2xl border\">\n          <Smartphone className=\"text-primary size-7\" />\n          <span className=\"border-background bg-primary absolute -right-1 -bottom-1 flex size-5 items-center justify-center rounded-full border-2\">\n            <Loader2 className=\"text-primary-foreground size-3 animate-spin\" />\n          </span>\n        </div>\n        <CardTitle>Check your phone</CardTitle>\n        <p className=\"text-muted-foreground text-xs text-balance\">\n          We sent an approval request to{' '}\n          <span className=\"text-foreground\">iPhone 15 Pro</span>. Tap{' '}\n          <span className=\"text-foreground\">Approve</span> to continue.\n        </p>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col gap-3\">\n        <div className=\"bg-muted/50 flex items-center justify-center gap-2 rounded-lg border p-3\">\n          <span className=\"bg-primary size-1.5 animate-pulse rounded-full\" />\n          <span className=\"text-muted-foreground text-xs\">\n            Waiting for approval…\n          </span>\n        </div>\n        <Button variant=\"outline\" className=\"w-full\">\n          Resend request\n        </Button>\n      </CardContent>\n\n      <CardFooter className=\"justify-center\">\n        <a\n          href=\"#\"\n          className=\"text-muted-foreground hover:text-foreground text-[11px]\"\n        >\n          Verify another way\n        </a>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/verify-identity/verify-identity-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

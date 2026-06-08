@@ -1,0 +1,299 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-select",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "select-01",
+      "type": "registry:block",
+      "title": "Basic",
+      "description": "Minimal single-value dropdown with a placeholder and a flat list of options.",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-02",
+      "type": "registry:block",
+      "title": "Grouped",
+      "description": "Options organized into labeled groups.",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-03",
+      "type": "registry:block",
+      "title": "Disabled",
+      "description": "Non-interactive select state.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-03.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-04",
+      "type": "registry:block",
+      "title": "With Icons",
+      "description": "Options with leading icons.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "select-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-04.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-05",
+      "type": "registry:block",
+      "title": "With Object",
+      "description": "Each option shows a bold label and a muted description sub-line; the trigger displays the full two-line item when selected.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-05.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-06",
+      "type": "registry:block",
+      "title": "With description only items",
+      "description": "Options show a bold label and a muted description sub-line; the trigger shows only the label after selection.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-06.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-07",
+      "type": "registry:block",
+      "title": "Disabled Items",
+      "description": "Select with individual disabled options.",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-07.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-08.tsx"
+        }
+      ],
+      "title": "With Avatar",
+      "description": "User picker with avatars in trigger and options."
+    },
+    {
+      "name": "select-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-09.tsx"
+        }
+      ],
+      "title": "Custom Border & Background",
+      "description": "Muted background and custom border on the trigger."
+    },
+    {
+      "name": "select-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-10.tsx"
+        }
+      ],
+      "title": "With Label",
+      "description": "Accessible field label linked to the select trigger."
+    },
+    {
+      "name": "select-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-11.tsx"
+        }
+      ],
+      "title": "In Form",
+      "description": "Select composed with Field, FieldLabel, and description."
+    },
+    {
+      "name": "select-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "select-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds Select to RHF; Zod resolver drives FieldError on submit."
+    },
+    {
+      "name": "select-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "select-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires Select; Zod onSubmit validator surfaces FieldError when touched."
+    },
+    {
+      "name": "select-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-14.tsx"
+        }
+      ],
+      "title": "With inline label",
+      "description": "Muted prefix label inside the trigger, left of the selected value."
+    },
+    {
+      "name": "select-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-15.tsx"
+        }
+      ],
+      "title": "Animated content",
+      "description": "Dropdown opens in popper position anchored below the trigger with a small offset, giving a tooltip-style layout."
+    },
+    {
+      "name": "select-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "select"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "select-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/select/select-16.tsx"
+        }
+      ],
+      "title": "Icon in the trigger",
+      "description": "Fixed leading icon in the trigger alongside the selected value; dropdown options are text only."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-13",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires the switch; Zod onSubmit validator surfaces FieldError.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "switch",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-13.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nconst formSchema = z.object({\n  marketing: z.boolean().refine((value) => value === true, {\n    message: 'You must opt in to receive updates.',\n  }),\n})\n\nexport function Switch13() {\n  const form = useForm({\n    defaultValues: {\n      marketing: false,\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      toast.success('Submitted', {\n        description: `marketing: ${value.marketing}`,\n      })\n    },\n  })\n\n  return (\n    <form\n      onSubmit={(event) => {\n        event.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <form.Field name=\"marketing\">\n        {(field) => {\n          const isInvalid =\n            field.state.meta.isTouched && !field.state.meta.isValid\n\n          return (\n            <Field orientation=\"horizontal\" data-invalid={isInvalid}>\n              <FieldContent>\n                <FieldLabel htmlFor=\"switch-13\">Marketing emails</FieldLabel>\n                <FieldDescription>\n                  Receive product news and offers.\n                </FieldDescription>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </FieldContent>\n              <Switch\n                id=\"switch-13\"\n                aria-invalid={isInvalid}\n                checked={field.state.value}\n                onCheckedChange={(value) => {\n                  field.handleChange(value)\n                  field.handleBlur()\n                }}\n              />\n            </Field>\n          )\n        }}\n      </form.Field>\n      <Button type=\"submit\" size=\"sm\" className=\"self-start\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

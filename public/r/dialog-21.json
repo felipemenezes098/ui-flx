@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-21",
   "title": "Nested dialog",
-  "description": "Dialog inside a dialog — e.g. avatar picker from profile.",
+  "description": "Dialog stacked inside another dialog, e.g. avatar picker from profile.",
   "dependencies": [],
   "registryDependencies": [
     "dialog",

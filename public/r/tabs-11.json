@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-11",
   "title": "Account and password",
-  "description": "Forms in each TabsContent inside a Card — canonical shadcn example.",
+  "description": "Two-tab card with a profile edit form on one tab and a password change form on the other.",
   "dependencies": [],
   "registryDependencies": [
     "tabs",

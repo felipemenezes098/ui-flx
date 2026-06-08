@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-08",
+  "title": "Choice cards",
+  "description": "Bordered add-on cards that highlight when checked.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-08.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldTitle,\n} from '@/components/ui/field'\n\nconst addons = [\n  {\n    id: 'storage',\n    title: 'Extra storage',\n    description: '+100 GB of cloud storage.',\n    price: '$4/mo',\n    defaultChecked: true,\n  },\n  {\n    id: 'support',\n    title: 'Priority support',\n    description: '24/7 chat with a 1h response SLA.',\n    price: '$9/mo',\n    defaultChecked: false,\n  },\n  {\n    id: 'analytics',\n    title: 'Advanced analytics',\n    description: 'Funnels, retention, and custom reports.',\n    price: '$12/mo',\n    defaultChecked: false,\n  },\n]\n\nexport function Checkbox08() {\n  return (\n    <FieldGroup className=\"w-full max-w-sm gap-3\">\n      {addons.map((addon) => (\n        <FieldLabel key={addon.id} htmlFor={`checkbox-08-${addon.id}`}>\n          <Field orientation=\"horizontal\">\n            <FieldContent>\n              <FieldTitle>{addon.title}</FieldTitle>\n              <FieldDescription>{addon.description}</FieldDescription>\n            </FieldContent>\n            <span className=\"text-sm font-medium tabular-nums\">\n              {addon.price}\n            </span>\n            <Checkbox\n              id={`checkbox-08-${addon.id}`}\n              defaultChecked={addon.defaultChecked}\n            />\n          </Field>\n        </FieldLabel>\n      ))}\n    </FieldGroup>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

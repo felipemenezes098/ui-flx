@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications-1",
+  "title": "Channel Matrix",
+  "description": "Channel Matrix for Notifications.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "switch",
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/account/notifications/notifications-1.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Switch } from '@/components/ui/switch'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\ntype Channel = 'email' | 'push' | 'sms'\n\ntype Row = {\n  id: string\n  label: string\n  hint: string\n  channels: Record<Channel, boolean>\n}\n\nconst INITIAL: Row[] = [\n  {\n    id: 'security',\n    label: 'Security alerts',\n    hint: 'New sign-ins and password changes',\n    channels: { email: true, push: true, sms: true },\n  },\n  {\n    id: 'mentions',\n    label: 'Mentions and replies',\n    hint: 'When someone tags you',\n    channels: { email: true, push: true, sms: false },\n  },\n  {\n    id: 'billing',\n    label: 'Billing and receipts',\n    hint: 'Invoices and payment issues',\n    channels: { email: true, push: false, sms: false },\n  },\n  {\n    id: 'product',\n    label: 'Product updates',\n    hint: 'New features and announcements',\n    channels: { email: false, push: false, sms: false },\n  },\n]\n\nconst CHANNELS: { key: Channel; label: string }[] = [\n  { key: 'email', label: 'Email' },\n  { key: 'push', label: 'Push' },\n  { key: 'sms', label: 'SMS' },\n]\n\nexport function Notifications1() {\n  const [rows, setRows] = useState<Row[]>(INITIAL)\n\n  const toggle = (id: string, channel: Channel) =>\n    setRows((prev) =>\n      prev.map((row) =>\n        row.id === id\n          ? {\n              ...row,\n              channels: {\n                ...row.channels,\n                [channel]: !row.channels[channel],\n              },\n            }\n          : row,\n      ),\n    )\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Notification channels</CardTitle>\n      </CardHeader>\n      <CardContent>\n        <Table>\n          <TableHeader>\n            <TableRow>\n              <TableHead>Notification</TableHead>\n              {CHANNELS.map((channel) => (\n                <TableHead key={channel.key} className=\"text-center\">\n                  {channel.label}\n                </TableHead>\n              ))}\n            </TableRow>\n          </TableHeader>\n          <TableBody>\n            {rows.map((row) => (\n              <TableRow key={row.id}>\n                <TableCell>\n                  <div className=\"flex flex-col\">\n                    <span className=\"font-medium\">{row.label}</span>\n                    <span className=\"text-muted-foreground text-xs\">\n                      {row.hint}\n                    </span>\n                  </div>\n                </TableCell>\n                {CHANNELS.map((channel) => (\n                  <TableCell key={channel.key} className=\"text-center\">\n                    <Switch\n                      checked={row.channels[channel.key]}\n                      onCheckedChange={() => toggle(row.id, channel.key)}\n                      aria-label={`${row.label} via ${channel.label}`}\n                    />\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/notifications/notifications-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

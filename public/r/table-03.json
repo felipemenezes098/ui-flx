@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-03",
+  "title": "Without dividers",
+  "description": "Borderless rows for a clean, list-like layout.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-03.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst files = [\n  { name: 'report-q3.pdf', size: '2.4 MB', modified: '2 hours ago' },\n  { name: 'design-system.fig', size: '18.1 MB', modified: 'Yesterday' },\n  { name: 'budget.xlsx', size: '640 KB', modified: '3 days ago' },\n  { name: 'roadmap.md', size: '12 KB', modified: 'Last week' },\n]\n\nexport function Table03() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <Table>\n        <TableHeader>\n          <TableRow className=\"border-0 hover:bg-transparent\">\n            <TableHead>Name</TableHead>\n            <TableHead>Size</TableHead>\n            <TableHead className=\"text-right\">Modified</TableHead>\n          </TableRow>\n        </TableHeader>\n        <TableBody className=\"[&_tr]:border-0\">\n          {files.map((file) => (\n            <TableRow key={file.name}>\n              <TableCell className=\"font-medium\">{file.name}</TableCell>\n              <TableCell className=\"text-muted-foreground tabular-nums\">\n                {file.size}\n              </TableCell>\n              <TableCell className=\"text-muted-foreground text-right\">\n                {file.modified}\n              </TableCell>\n            </TableRow>\n          ))}\n        </TableBody>\n      </Table>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

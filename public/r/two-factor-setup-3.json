@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-setup-3",
+  "title": "Passkey",
+  "description": "Passkey for Two-Factor Setup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/two-factor-setup/two-factor-setup-3.tsx",
+      "content": "import { FingerprintIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function TwoFactorSetup3() {\n  return (\n    <Card size=\"sm\">\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <FingerprintIcon className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>Add a passkey</CardTitle>\n        <p className=\"text-muted-foreground text-xs\">\n          Use Face ID, a fingerprint, or a security key. Nothing to type, and\n          nothing phishable.\n        </p>\n      </CardHeader>\n\n      <CardContent>\n        <ul className=\"text-muted-foreground flex flex-col gap-2 text-xs\">\n          <li className=\"flex items-center gap-2\">\n            <span className=\"bg-primary size-1.5 rounded-full\" />\n            Works across your synced devices\n          </li>\n          <li className=\"flex items-center gap-2\">\n            <span className=\"bg-primary size-1.5 rounded-full\" />\n            Resistant to phishing and credential theft\n          </li>\n        </ul>\n      </CardContent>\n\n      <CardFooter className=\"flex-col items-stretch gap-4\">\n        <Button className=\"w-full\">\n          <FingerprintIcon />\n          Create passkey\n        </Button>\n        <p className=\"text-muted-foreground/80 text-center text-[11px]\">\n          Requires a device with biometrics or a hardware key.\n        </p>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/two-factor-setup/two-factor-setup-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

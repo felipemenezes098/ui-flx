@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-08",
   "title": "As link",
-  "description": "asChild renders a custom external <a> with target and rel.",
+  "description": "Breadcrumb links that open in a new tab, with an external-link icon on the outbound crumb.",
   "dependencies": [],
   "registryDependencies": [
     "breadcrumb"

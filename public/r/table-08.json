@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-08",
+  "title": "Card table",
+  "description": "Table inside a Card with title and status badges.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table",
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-08.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst transactions = [\n  {\n    id: 'TX-9921',\n    customer: 'Acme Inc.',\n    status: 'Completed',\n    amount: '$1,200.00',\n  },\n  {\n    id: 'TX-9920',\n    customer: 'Globex',\n    status: 'Processing',\n    amount: '$640.00',\n  },\n  {\n    id: 'TX-9919',\n    customer: 'Soylent',\n    status: 'Completed',\n    amount: '$320.00',\n  },\n  { id: 'TX-9918', customer: 'Initech', status: 'Failed', amount: '$980.00' },\n]\n\nconst statusVariant: Record<\n  string,\n  'default' | 'secondary' | 'outline' | 'destructive'\n> = {\n  Completed: 'secondary',\n  Processing: 'outline',\n  Failed: 'destructive',\n}\n\nexport function Table08() {\n  return (\n    <Card className=\"w-full max-w-xl pb-0\">\n      <CardHeader>\n        <CardTitle>Transactions</CardTitle>\n        <CardDescription>Your most recent payments.</CardDescription>\n      </CardHeader>\n      <CardContent className=\"px-0\">\n        <Table>\n          <TableHeader>\n            <TableRow className=\"[&_th]:px-6\">\n              <TableHead>Reference</TableHead>\n              <TableHead>Customer</TableHead>\n              <TableHead>Status</TableHead>\n              <TableHead className=\"text-right\">Amount</TableHead>\n            </TableRow>\n          </TableHeader>\n          <TableBody>\n            {transactions.map((transaction) => (\n              <TableRow key={transaction.id} className=\"[&_td]:px-6\">\n                <TableCell className=\"font-medium\">{transaction.id}</TableCell>\n                <TableCell>{transaction.customer}</TableCell>\n                <TableCell>\n                  <Badge variant={statusVariant[transaction.status]}>\n                    {transaction.status}\n                  </Badge>\n                </TableCell>\n                <TableCell className=\"text-right tabular-nums\">\n                  {transaction.amount}\n                </TableCell>\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

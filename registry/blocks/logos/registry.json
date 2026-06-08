@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-logos",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "logo-marquee",
+      "type": "registry:block",
+      "title": "Logo Marquee",
+      "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "dependencies": [],
+      "devDependencies": [
+        "embla-carousel-auto-scroll"
+      ],
+      "files": [
+        {
+          "path": "logo-marquee/logo-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee.tsx"
+        },
+        {
+          "path": "logo-marquee/logo-marquee-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
+        }
+      ]
+    }
+  ]
+}

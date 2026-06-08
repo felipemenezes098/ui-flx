@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-11",
+  "title": "Sortable",
+  "description": "TanStack Table, click a column header to sort ascending or descending.",
+  "dependencies": [
+    "@tanstack/react-table"
+  ],
+  "registryDependencies": [
+    "table",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-11.tsx",
+      "content": "'use client'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\nimport {\n  type ColumnDef,\n  type SortingState,\n  flexRender,\n  getCoreRowModel,\n  getSortedRowModel,\n  useReactTable,\n} from '@tanstack/react-table'\nimport { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from 'lucide-react'\nimport { useState } from 'react'\n\ntype Payment = {\n  id: string\n  customer: string\n  email: string\n  amount: number\n}\n\nconst data: Payment[] = [\n  {\n    id: 'm5gr84i9',\n    customer: 'Ken Adams',\n    email: 'ken99@example.com',\n    amount: 316,\n  },\n  {\n    id: '3u1reuv4',\n    customer: 'Abe Lincoln',\n    email: 'abe45@example.com',\n    amount: 242,\n  },\n  {\n    id: 'derv1ws0',\n    customer: 'Monserrat Diaz',\n    email: 'mon@example.com',\n    amount: 837,\n  },\n  {\n    id: '5kma53ae',\n    customer: 'Silas Pena',\n    email: 'silas22@example.com',\n    amount: 874,\n  },\n  {\n    id: 'bhqecj4p',\n    customer: 'Carmella Rau',\n    email: 'carmella@example.com',\n    amount: 721,\n  },\n]\n\nconst columns: ColumnDef<Payment>[] = [\n  {\n    accessorKey: 'customer',\n    header: 'Customer',\n    cell: ({ row }) => (\n      <span className=\"font-medium\">{row.getValue('customer')}</span>\n    ),\n  },\n  {\n    accessorKey: 'email',\n    header: 'Email',\n    cell: ({ row }) => (\n      <span className=\"text-muted-foreground\">{row.getValue('email')}</span>\n    ),\n  },\n  {\n    accessorKey: 'amount',\n    header: ({ column }) => {\n      const sorted = column.getIsSorted()\n      return (\n        <div className=\"text-right\">\n          <Button\n            variant=\"ghost\"\n            size=\"sm\"\n            onClick={() => column.toggleSorting(sorted === 'asc')}\n          >\n            Amount\n            {sorted === 'asc' && <ArrowUpIcon data-icon=\"inline-end\" />}\n            {sorted === 'desc' && <ArrowDownIcon data-icon=\"inline-end\" />}\n            {!sorted && <ArrowUpDownIcon data-icon=\"inline-end\" />}\n          </Button>\n        </div>\n      )\n    },\n    cell: ({ row }) => {\n      const amount = row.getValue<number>('amount')\n      return (\n        <div className=\"text-right font-medium tabular-nums\">\n          {new Intl.NumberFormat('en-US', {\n            style: 'currency',\n            currency: 'USD',\n          }).format(amount)}\n        </div>\n      )\n    },\n  },\n]\n\nexport function Table11() {\n  const [sorting, setSorting] = useState<SortingState>([])\n\n  const table = useReactTable({\n    data,\n    columns,\n    state: { sorting },\n    onSortingChange: setSorting,\n    getCoreRowModel: getCoreRowModel(),\n    getSortedRowModel: getSortedRowModel(),\n  })\n\n  return (\n    <div className=\"w-full max-w-xl\">\n      <div className=\"overflow-hidden rounded-lg border\">\n        <Table>\n          <TableHeader>\n            {table.getHeaderGroups().map((headerGroup) => (\n              <TableRow key={headerGroup.id}>\n                {headerGroup.headers.map((header) => (\n                  <TableHead key={header.id}>\n                    {header.isPlaceholder\n                      ? null\n                      : flexRender(\n                          header.column.columnDef.header,\n                          header.getContext(),\n                        )}\n                  </TableHead>\n                ))}\n              </TableRow>\n            ))}\n          </TableHeader>\n          <TableBody>\n            {table.getRowModel().rows.map((row) => (\n              <TableRow key={row.id}>\n                {row.getVisibleCells().map((cell) => (\n                  <TableCell key={cell.id}>\n                    {flexRender(cell.column.columnDef.cell, cell.getContext())}\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-17",
+  "title": "Pinnable columns",
+  "description": "TanStack Table, a column pinned to the right stays visible while scrolling horizontally.",
+  "dependencies": [
+    "@tanstack/react-table"
+  ],
+  "registryDependencies": [
+    "table",
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-17.tsx",
+      "content": "'use client'\n\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\nimport { cn } from '@/lib/utils'\nimport {\n  type Column,\n  type ColumnDef,\n  flexRender,\n  getCoreRowModel,\n  useReactTable,\n} from '@tanstack/react-table'\nimport { type CSSProperties } from 'react'\n\ntype Row = {\n  id: string\n  name: string\n  q1: string\n  q2: string\n  q3: string\n  q4: string\n  total: string\n}\n\nconst data: Row[] = [\n  {\n    id: 'r1',\n    name: 'North region',\n    q1: '$12k',\n    q2: '$18k',\n    q3: '$15k',\n    q4: '$22k',\n    total: '$67k',\n  },\n  {\n    id: 'r2',\n    name: 'South region',\n    q1: '$9k',\n    q2: '$11k',\n    q3: '$14k',\n    q4: '$19k',\n    total: '$53k',\n  },\n  {\n    id: 'r3',\n    name: 'East region',\n    q1: '$21k',\n    q2: '$24k',\n    q3: '$20k',\n    q4: '$28k',\n    total: '$93k',\n  },\n  {\n    id: 'r4',\n    name: 'West region',\n    q1: '$16k',\n    q2: '$13k',\n    q3: '$17k',\n    q4: '$25k',\n    total: '$71k',\n  },\n]\n\nfunction getPinningStyles(column: Column<Row>): CSSProperties {\n  const pinned = column.getIsPinned()\n  return {\n    left: pinned === 'left' ? column.getStart('left') : undefined,\n    right: pinned === 'right' ? column.getAfter('right') : undefined,\n    position: pinned ? 'sticky' : undefined,\n    zIndex: pinned ? 1 : undefined,\n  }\n}\n\nconst columns: ColumnDef<Row>[] = [\n  {\n    accessorKey: 'name',\n    header: 'Region',\n    cell: ({ row }) => (\n      <span className=\"font-medium\">{row.getValue('name')}</span>\n    ),\n  },\n  { accessorKey: 'q1', header: 'Q1' },\n  { accessorKey: 'q2', header: 'Q2' },\n  { accessorKey: 'q3', header: 'Q3' },\n  { accessorKey: 'q4', header: 'Q4' },\n  {\n    accessorKey: 'total',\n    header: 'Total',\n    cell: ({ row }) => (\n      <span className=\"font-medium tabular-nums\">{row.getValue('total')}</span>\n    ),\n  },\n]\n\nconst pinnedCellClass = 'bg-background shadow-[inset_1px_0_0] shadow-border'\n\nexport function Table17() {\n  const table = useReactTable({\n    data,\n    columns,\n    initialState: { columnPinning: { right: ['total'] } },\n    getCoreRowModel: getCoreRowModel(),\n  })\n\n  return (\n    <div className=\"w-full max-w-xl\">\n      <p className=\"text-muted-foreground mb-2 text-sm\">\n        Scroll horizontally — the Total column stays pinned on the right.\n      </p>\n      <div className=\"overflow-x-auto rounded-lg border\">\n        <Table className=\"w-[720px]\">\n          <TableHeader>\n            {table.getHeaderGroups().map((headerGroup) => (\n              <TableRow key={headerGroup.id} className=\"hover:bg-transparent\">\n                {headerGroup.headers.map((header) => (\n                  <TableHead\n                    key={header.id}\n                    style={getPinningStyles(header.column)}\n                    className={cn(\n                      header.column.getIsPinned() && pinnedCellClass,\n                    )}\n                  >\n                    {header.isPlaceholder\n                      ? null\n                      : flexRender(\n                          header.column.columnDef.header,\n                          header.getContext(),\n                        )}\n                  </TableHead>\n                ))}\n              </TableRow>\n            ))}\n          </TableHeader>\n          <TableBody>\n            {table.getRowModel().rows.map((row) => (\n              <TableRow key={row.id} className=\"hover:bg-transparent\">\n                {row.getVisibleCells().map((cell) => (\n                  <TableCell\n                    key={cell.id}\n                    style={getPinningStyles(cell.column)}\n                    className={cn(cell.column.getIsPinned() && pinnedCellClass)}\n                  >\n                    {flexRender(cell.column.columnDef.cell, cell.getContext())}\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-17.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-10",
   "title": "Group with count",
-  "description": "AvatarGroupCount shows the overflow tally.",
+  "description": "Overlapping group with a +N count for the remaining members.",
   "dependencies": [],
   "registryDependencies": [
     "avatar"

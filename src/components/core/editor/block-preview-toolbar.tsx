@@ -25,7 +25,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
-import { isPresetId, presets } from '@/lib/presets-config'
+import { isPresetId, presets } from '@/lib/presets/presets-config'
 
 import { useBlockLiveEditorOptional } from './block-live-editor'
 

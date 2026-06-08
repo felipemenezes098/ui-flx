@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-08",
+  "title": "Submenu",
+  "description": "A menu item that reveals a nested flyout panel with more options.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-08.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  MailIcon,\n  MessageSquareIcon,\n  PlusIcon,\n  UserPlusIcon,\n} from 'lucide-react'\n\nexport function Dropdown08() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Team\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-48\">\n        <DropdownMenuItem>\n          <PlusIcon />\n          New team\n        </DropdownMenuItem>\n        <DropdownMenuSeparator />\n        <DropdownMenuSub>\n          <DropdownMenuSubTrigger>\n            <UserPlusIcon />\n            Invite member\n          </DropdownMenuSubTrigger>\n          <DropdownMenuSubContent className=\"w-44\">\n            <DropdownMenuItem>\n              <MailIcon />\n              Email\n            </DropdownMenuItem>\n            <DropdownMenuItem>\n              <MessageSquareIcon />\n              Message\n            </DropdownMenuItem>\n            <DropdownMenuSeparator />\n            <DropdownMenuItem>\n              <PlusIcon />\n              More options…\n            </DropdownMenuItem>\n          </DropdownMenuSubContent>\n        </DropdownMenuSub>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns",
+  "homepage": "https://ui.flexnative.com",
+  "include": [
+    "./accordion/registry.json",
+    "./avatar/registry.json",
+    "./badge/registry.json",
+    "./banner/registry.json",
+    "./breadcrumb/registry.json",
+    "./button/registry.json",
+    "./card/registry.json",
+    "./checkbox/registry.json",
+    "./collapsible/registry.json",
+    "./command/registry.json",
+    "./dialog/registry.json",
+    "./dropdown/registry.json",
+    "./empty/registry.json",
+    "./input/registry.json",
+    "./item/registry.json",
+    "./pagination/registry.json",
+    "./popover/registry.json",
+    "./select/registry.json",
+    "./skeleton/registry.json",
+    "./switch/registry.json",
+    "./table/registry.json",
+    "./tabs/registry.json",
+    "./tooltip/registry.json"
+  ],
+  "items": []
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-15",
+  "title": "Pricing card",
+  "description": "A plan name, price, feature rows, and a CTA button.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-15.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton15() {\n  return (\n    <div className=\"flex w-full max-w-xs flex-col gap-5 rounded-xl border p-6\">\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3.5 w-20\" />\n        <div className=\"flex items-end gap-1.5\">\n          <Skeleton className=\"h-9 w-24\" />\n          <Skeleton className=\"mb-1 h-3 w-12\" />\n        </div>\n      </div>\n      <div className=\"flex flex-col gap-3\">\n        {Array.from({ length: 4 }).map((_, i) => (\n          <div key={i} className=\"flex items-center gap-2.5\">\n            <Skeleton className=\"size-4 shrink-0 rounded-full\" />\n            <Skeleton className=\"h-3 w-full\" />\n          </div>\n        ))}\n      </div>\n      <Skeleton className=\"h-9 w-full rounded-md\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-15.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

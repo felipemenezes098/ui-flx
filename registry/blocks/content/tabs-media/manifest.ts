@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { TabsMedia } from './tabs-media'
 import { TabsMediaEditorFields } from './editor/fields'
 import { TabsMediaExample, values } from './tabs-media-example'

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-06",
+  "title": "Checkbox items",
+  "description": "Toggle multiple view options with checkbox items.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-06.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\n\nexport function Dropdown06() {\n  const [panels, setPanels] = useState({\n    statusBar: true,\n    activityBar: false,\n    panel: false,\n  })\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          View\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-48\">\n        <DropdownMenuLabel>Appearance</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuCheckboxItem\n          checked={panels.statusBar}\n          onCheckedChange={(checked) =>\n            setPanels((prev) => ({ ...prev, statusBar: checked === true }))\n          }\n        >\n          Status bar\n        </DropdownMenuCheckboxItem>\n        <DropdownMenuCheckboxItem\n          checked={panels.activityBar}\n          onCheckedChange={(checked) =>\n            setPanels((prev) => ({ ...prev, activityBar: checked === true }))\n          }\n        >\n          Activity bar\n        </DropdownMenuCheckboxItem>\n        <DropdownMenuCheckboxItem\n          checked={panels.panel}\n          onCheckedChange={(checked) =>\n            setPanels((prev) => ({ ...prev, panel: checked === true }))\n          }\n        >\n          Panel\n        </DropdownMenuCheckboxItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

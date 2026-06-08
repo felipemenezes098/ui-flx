@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-03",
+  "title": "With description",
+  "description": "Label and helper description beside the switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-03.tsx",
+      "content": "import {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch03() {\n  return (\n    <Field orientation=\"horizontal\" className=\"w-full max-w-sm\">\n      <FieldContent>\n        <FieldLabel htmlFor=\"switch-03\">Share usage data</FieldLabel>\n        <FieldDescription>\n          Help us improve the product with anonymous analytics.\n        </FieldDescription>\n      </FieldContent>\n      <Switch id=\"switch-03\" defaultChecked />\n    </Field>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

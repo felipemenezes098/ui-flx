@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-03",
+  "title": "No results",
+  "description": "Search empty state with a clear-filters action.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "empty",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/empty/empty-03.tsx",
+      "content": "import { SearchIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from '@/components/ui/empty'\n\nexport function Empty03() {\n  return (\n    <Empty className=\"w-full max-w-md\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <SearchIcon />\n        </EmptyMedia>\n        <EmptyTitle>No results found</EmptyTitle>\n        <EmptyDescription>\n          No matches for “quarterly report”. Try a different term or clear the\n          filters.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button variant=\"outline\" size=\"sm\">\n          Clear filters\n        </Button>\n      </EmptyContent>\n    </Empty>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/empty/empty-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-07",
+  "title": "Form",
+  "description": "Labelled fields above a submit button placeholder.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-07.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton07() {\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-5\">\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3 w-20\" />\n        <Skeleton className=\"h-9 w-full rounded-md\" />\n      </div>\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3 w-24\" />\n        <Skeleton className=\"h-9 w-full rounded-md\" />\n      </div>\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3 w-16\" />\n        <Skeleton className=\"h-20 w-full rounded-md\" />\n      </div>\n      <Skeleton className=\"h-9 w-28 rounded-md\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

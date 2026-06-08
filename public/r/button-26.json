@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-26",
   "title": "With select",
-  "description": "ButtonGroup pairs a sort Select with a direction toggle button.",
+  "description": "Sort dropdown paired with a direction-toggle icon button in a merged-border row.",
   "dependencies": [
     "lucide-react"
   ],

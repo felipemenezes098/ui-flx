@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-06",
   "title": "Dimensions form",
-  "description": "Inline labeled inputs — canonical shadcn dimensions example.",
+  "description": "Form with inline labeled inputs for width, max-width, height, and max-height.",
   "dependencies": [
     "lucide-react"
   ],

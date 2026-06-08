@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-03",
+  "title": "Grouped",
+  "description": "Multiple labeled groups divided by separators.",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-03.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  CopyIcon,\n  GitBranchIcon,\n  PlusIcon,\n  ScissorsIcon,\n  Share2Icon,\n  TrashIcon,\n} from 'lucide-react'\n\nexport function Dropdown03() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Actions\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"start\" className=\"w-48\">\n        <DropdownMenuGroup>\n          <DropdownMenuLabel>Edit</DropdownMenuLabel>\n          <DropdownMenuItem>\n            <CopyIcon />\n            Copy\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <ScissorsIcon />\n            Cut\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n        <DropdownMenuSeparator />\n        <DropdownMenuGroup>\n          <DropdownMenuLabel>Source</DropdownMenuLabel>\n          <DropdownMenuItem>\n            <GitBranchIcon />\n            New branch\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <PlusIcon />\n            New file\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n        <DropdownMenuSeparator />\n        <DropdownMenuGroup>\n          <DropdownMenuLabel>Share</DropdownMenuLabel>\n          <DropdownMenuItem>\n            <Share2Icon />\n            Share link\n          </DropdownMenuItem>\n          <DropdownMenuItem variant=\"destructive\">\n            <TrashIcon />\n            Delete\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { TitleWithMedia } from './title-with-media'
 import { TitleWithMediaEditorFields } from './editor/fields'
 import { TitleWithMediaExample, values } from './title-with-media-example'

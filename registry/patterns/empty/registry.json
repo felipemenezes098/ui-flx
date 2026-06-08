@@ -1,0 +1,108 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-empty",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "empty-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "empty-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Icon, title, and description for an empty list."
+    },
+    {
+      "name": "empty-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "empty-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-02.tsx"
+        }
+      ],
+      "title": "With actions",
+      "description": "First-run state with primary and secondary CTAs."
+    },
+    {
+      "name": "empty-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "empty-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-03.tsx"
+        }
+      ],
+      "title": "No results",
+      "description": "Search empty state with a clear-filters action."
+    },
+    {
+      "name": "empty-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "avatar",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "empty-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-04.tsx"
+        }
+      ],
+      "title": "Avatar group",
+      "description": "Bordered empty team card with an avatar stack and invite."
+    },
+    {
+      "name": "empty-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "empty",
+        "dialog",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "empty-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/empty/empty-05.tsx"
+        }
+      ],
+      "title": "In dialog",
+      "description": "Empty inbox state composed inside a Dialog."
+    }
+  ]
+}

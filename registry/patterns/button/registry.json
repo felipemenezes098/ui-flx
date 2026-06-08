@@ -1,0 +1,496 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-button",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "button-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Default button with text label."
+    },
+    {
+      "name": "button-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-02.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "All six variants side-by-side: default, secondary, outline, ghost, destructive, link."
+    },
+    {
+      "name": "button-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-03.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Extra small, small, default, and large sizes."
+    },
+    {
+      "name": "button-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-04.tsx"
+        }
+      ],
+      "title": "With leading icon",
+      "description": "Button with an icon placed before the text label."
+    },
+    {
+      "name": "button-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-05.tsx"
+        }
+      ],
+      "title": "With trailing icon",
+      "description": "Button with an icon placed after the text label."
+    },
+    {
+      "name": "button-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-06.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Square icon-only buttons in every icon size."
+    },
+    {
+      "name": "button-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-07.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Button in the disabled state, visually dimmed and non-interactive."
+    },
+    {
+      "name": "button-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-08.tsx"
+        }
+      ],
+      "title": "Loading",
+      "description": "Button with a spinning loader icon and label, indicating an in-progress async action."
+    },
+    {
+      "name": "button-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-09.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "Link-styled button that navigates to an external URL, rendered as an anchor with a trailing external-link icon."
+    },
+    {
+      "name": "button-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-10.tsx"
+        }
+      ],
+      "title": "With avatar",
+      "description": "User picker style button with a small avatar image leading the text label."
+    },
+    {
+      "name": "button-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-11.tsx"
+        }
+      ],
+      "title": "Hover slide arrow",
+      "description": "CTA arrow nudges right on hover."
+    },
+    {
+      "name": "button-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-12.tsx"
+        }
+      ],
+      "title": "With badge",
+      "description": "Notification count badge overlapping an icon button."
+    },
+    {
+      "name": "button-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "button-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-13.tsx"
+        }
+      ],
+      "title": "Copy to clipboard",
+      "description": "Icon and label swap to a check on copy."
+    },
+    {
+      "name": "button-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-14.tsx"
+        }
+      ],
+      "title": "Hover rotate refresh",
+      "description": "Refresh button whose icon rotates a full 360° on each click."
+    },
+    {
+      "name": "button-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-15.tsx"
+        }
+      ],
+      "title": "Hamburger toggle",
+      "description": "Three bars morph into an X on press."
+    },
+    {
+      "name": "button-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-16.tsx"
+        }
+      ],
+      "title": "Basic group",
+      "description": "Horizontal row of buttons with merged borders, used for segmented controls like date range pickers."
+    },
+    {
+      "name": "button-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-17.tsx"
+        }
+      ],
+      "title": "Vertical group",
+      "description": "Stacked column of buttons with merged borders, used for vertical navigation menus."
+    },
+    {
+      "name": "button-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-18.tsx"
+        }
+      ],
+      "title": "Icon toolbar",
+      "description": "Compact toolbar of icon-only buttons with merged borders, used for text formatting actions."
+    },
+    {
+      "name": "button-20",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-20.tsx"
+        }
+      ],
+      "title": "With label prefix",
+      "description": "Static text label leading a group of action buttons, useful for labelled sort or filter controls."
+    },
+    {
+      "name": "button-21",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-21.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-21.tsx"
+        }
+      ],
+      "title": "Split button",
+      "description": "Primary action button paired with a chevron that opens a dropdown of secondary actions."
+    },
+    {
+      "name": "button-22",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-22.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-22.tsx"
+        }
+      ],
+      "title": "Pagination",
+      "description": "Prev arrow, numbered page buttons, and Next arrow in a merged-border row."
+    },
+    {
+      "name": "button-23",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "button-23.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-23.tsx"
+        }
+      ],
+      "title": "Copy field",
+      "description": "Read-only text value paired with a trailing icon button that copies it to the clipboard, with an animated check on success."
+    },
+    {
+      "name": "button-24",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-24.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-24.tsx"
+        }
+      ],
+      "title": "Group with disabled",
+      "description": "Merged-border button row where one step is visually disabled and non-interactive."
+    },
+    {
+      "name": "button-25",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-25.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-25.tsx"
+        }
+      ],
+      "title": "Destructive pair",
+      "description": "Cancel + Delete spaced action pair."
+    },
+    {
+      "name": "button-26",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "button-26.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-26.tsx"
+        }
+      ],
+      "title": "With select",
+      "description": "Sort dropdown paired with a direction-toggle icon button in a merged-border row."
+    },
+    {
+      "name": "button-27",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "popover"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "button-27.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/button/button-27.tsx"
+        }
+      ],
+      "title": "With popover swatch",
+      "description": "Color swatch button that opens a grid of color swatches, paired with a hex value label in a merged-border row."
+    }
+  ]
+}

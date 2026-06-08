@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-12",
+  "title": "React Hook Form + Zod",
+  "description": "Controller binds a checkbox group to React Hook Form; Zod requires at least one selection.",
+  "dependencies": [
+    "react-hook-form",
+    "zod",
+    "@hookform/resolvers",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "checkbox",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-12.tsx",
+      "content": "'use client'\n\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { Controller, useForm } from 'react-hook-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldError,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from '@/components/ui/field'\n\nconst items = [\n  { id: 'recents', label: 'Recents' },\n  { id: 'home', label: 'Home' },\n  { id: 'apps', label: 'Applications' },\n  { id: 'desktop', label: 'Desktop' },\n] as const\n\nconst formSchema = z.object({\n  items: z.array(z.string()).min(1, 'Select at least one item.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function Checkbox12() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      items: [],\n    },\n  })\n\n  function onSubmit(data: FormValues) {\n    toast.success('Submitted', { description: data.items.join(', ') })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <Controller\n        name=\"items\"\n        control={form.control}\n        render={({ field, fieldState }) => (\n          <FieldSet data-invalid={fieldState.invalid}>\n            <FieldLegend variant=\"label\">Sidebar</FieldLegend>\n            <div className=\"flex flex-col gap-3\">\n              {items.map((item) => (\n                <Field key={item.id} orientation=\"horizontal\">\n                  <Checkbox\n                    id={`checkbox-12-${item.id}`}\n                    checked={field.value.includes(item.id)}\n                    onCheckedChange={(value) =>\n                      field.onChange(\n                        value === true\n                          ? [...field.value, item.id]\n                          : field.value.filter((id) => id !== item.id),\n                      )\n                    }\n                  />\n                  <FieldLabel htmlFor={`checkbox-12-${item.id}`}>\n                    {item.label}\n                  </FieldLabel>\n                </Field>\n              ))}\n            </div>\n            {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n          </FieldSet>\n        )}\n      />\n      <Button type=\"submit\" size=\"sm\" className=\"self-start\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

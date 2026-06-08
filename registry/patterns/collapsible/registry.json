@@ -1,0 +1,112 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-collapsible",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "collapsible-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Canonical starred-repos toggle with a chevron trigger."
+    },
+    {
+      "name": "collapsible-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-02.tsx"
+        }
+      ],
+      "title": "FAQ list",
+      "description": "Stacked question rows; each answer expands with an animated chevron."
+    },
+    {
+      "name": "collapsible-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-03.tsx"
+        }
+      ],
+      "title": "File tree",
+      "description": "Nested folders built from collapsible rows, with folder icons that swap on open."
+    },
+    {
+      "name": "collapsible-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-04.tsx"
+        }
+      ],
+      "title": "Read more",
+      "description": "Truncated paragraph reveals the rest; trigger label swaps to Show less."
+    },
+    {
+      "name": "collapsible-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-05.tsx"
+        }
+      ],
+      "title": "Sidebar nav group",
+      "description": "Collapsible navigation sections with sub-items and a rotating chevron."
+    },
+    {
+      "name": "collapsible-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "collapsible",
+        "input",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "collapsible-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/collapsible/collapsible-06.tsx"
+        }
+      ],
+      "title": "Advanced options",
+      "description": "Form reveals extra fields behind an Advanced options toggle."
+    }
+  ]
+}

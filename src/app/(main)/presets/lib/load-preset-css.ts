@@ -1,8 +1,8 @@
 import { join } from 'node:path'
 
-import type { PresetId } from '@/lib/presets-config'
+import type { PresetId } from '@/lib/presets/presets-config'
 import { extractCodeFromFilePath } from '@/lib/code'
-import { presets } from '@/lib/presets-config'
+import { presets } from '@/lib/presets/presets-config'
 
 export type PresetCssMap = Record<PresetId, string>
 

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-13",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires a checkbox group to TanStack Form; Zod validates on submit and shows an error when none are selected.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "checkbox",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-13.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldError,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from '@/components/ui/field'\n\nconst items = [\n  { id: 'recents', label: 'Recents' },\n  { id: 'home', label: 'Home' },\n  { id: 'apps', label: 'Applications' },\n  { id: 'desktop', label: 'Desktop' },\n] as const\n\nconst formSchema = z.object({\n  items: z.array(z.string()).min(1, 'Select at least one item.'),\n})\n\nexport function Checkbox13() {\n  const form = useForm({\n    defaultValues: {\n      items: [] as string[],\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      toast.success('Submitted', { description: value.items.join(', ') })\n    },\n  })\n\n  return (\n    <form\n      onSubmit={(event) => {\n        event.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <form.Field name=\"items\">\n        {(field) => {\n          const isInvalid =\n            field.state.meta.isTouched && !field.state.meta.isValid\n\n          return (\n            <FieldSet data-invalid={isInvalid}>\n              <FieldLegend variant=\"label\">Sidebar</FieldLegend>\n              <div className=\"flex flex-col gap-3\">\n                {items.map((item) => (\n                  <Field key={item.id} orientation=\"horizontal\">\n                    <Checkbox\n                      id={`checkbox-13-${item.id}`}\n                      checked={field.state.value.includes(item.id)}\n                      onCheckedChange={(value) => {\n                        field.handleChange(\n                          value === true\n                            ? [...field.state.value, item.id]\n                            : field.state.value.filter((id) => id !== item.id),\n                        )\n                        field.handleBlur()\n                      }}\n                    />\n                    <FieldLabel htmlFor={`checkbox-13-${item.id}`}>\n                      {item.label}\n                    </FieldLabel>\n                  </Field>\n                ))}\n              </div>\n              {isInvalid && <FieldError errors={field.state.meta.errors} />}\n            </FieldSet>\n          )\n        }}\n      </form.Field>\n      <Button type=\"submit\" size=\"sm\" className=\"self-start\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

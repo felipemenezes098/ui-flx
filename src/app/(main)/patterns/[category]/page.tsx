@@ -1,18 +1,19 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import type { RegistryItem } from 'shadcn/schema'
 
-import { getCategoryBySlug, patternCategories } from '@/lib/patterns-catalog'
-import { getPatternByName } from '@/lib/patterns-utils'
+import {
+  getCategoryBySlug,
+  patternCategories,
+} from '@/lib/patterns/patterns-catalog'
 
 import { PatternCard } from '../components/pattern-card'
-import { PatternCategoryNav } from '../components/pattern-category-nav'
-import { PatternDetails } from '../components/pattern-details'
+import { PatternActions } from '../components/pattern-actions'
 import {
   PatternGrid,
   patternGridItemVariants,
 } from '../components/pattern-grid'
 import { PatternRenderer } from '../components/pattern-renderer'
-import { Footer } from '@/components/core/footer'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -44,40 +45,29 @@ export default async function PatternCategoryPage({
   const columns = category.grid?.columns ?? 3
 
   return (
-    <div>
-      <main className="container-page container-page-inner min-w-0">
-        <div className="flex flex-col gap-8 px-3 py-10">
-          <section className="max-w-xl">
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-              {category.name}
-            </h1>
-            <p className="text-muted-foreground mt-2">{category.description}</p>
-          </section>
+    <PatternGrid columns={columns}>
+      {category.items.map((catalogItem) => {
+        const item = {
+          name: catalogItem.slug,
+          title: catalogItem.name,
+          description: catalogItem.description,
+          type: 'registry:block',
+        } as RegistryItem
 
-          <PatternCategoryNav />
-          <PatternGrid columns={columns}>
-            {category.items.map((catalogItem) => {
-              const item = getPatternByName(catalogItem.slug)
-              if (!item) return null
-
-              return (
-                <PatternCard
-                  key={item.name}
-                  item={item}
-                  className={patternGridItemVariants({
-                    span: catalogItem.span ?? 'default',
-                    columns,
-                  })}
-                  actions={<PatternDetails item={item} />}
-                >
-                  <PatternRenderer name={item.name} />
-                </PatternCard>
-              )
+        return (
+          <PatternCard
+            key={catalogItem.slug}
+            item={item}
+            className={patternGridItemVariants({
+              span: catalogItem.span ?? 'default',
+              columns,
             })}
-          </PatternGrid>
-        </div>
-      </main>
-      <Footer />
-    </div>
+            actions={<PatternActions item={item} categorySlug={slug} />}
+          >
+            <PatternRenderer name={catalogItem.slug} />
+          </PatternCard>
+        )
+      })}
+    </PatternGrid>
   )
 }

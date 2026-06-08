@@ -1,0 +1,389 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-table",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "table-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Caption, header, and a footer total row."
+    },
+    {
+      "name": "table-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-02.tsx"
+        }
+      ],
+      "title": "With images",
+      "description": "Avatar thumbnails beside name and email in each row."
+    },
+    {
+      "name": "table-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-03.tsx"
+        }
+      ],
+      "title": "Without dividers",
+      "description": "Borderless rows for a clean, list-like layout."
+    },
+    {
+      "name": "table-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-04.tsx"
+        }
+      ],
+      "title": "Striped rows",
+      "description": "Zebra striping tints every other row."
+    },
+    {
+      "name": "table-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-05.tsx"
+        }
+      ],
+      "title": "With vertical lines",
+      "description": "Column grid lines via per-cell right borders."
+    },
+    {
+      "name": "table-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-06.tsx"
+        }
+      ],
+      "title": "Dense",
+      "description": "Compact padding and type for high-density data."
+    },
+    {
+      "name": "table-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "checkbox"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-07.tsx"
+        }
+      ],
+      "title": "With checkbox",
+      "description": "Select-all header, per-row checkboxes, and a selection count."
+    },
+    {
+      "name": "table-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "card",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-08.tsx"
+        }
+      ],
+      "title": "Card table",
+      "description": "Table inside a Card with title and status badges."
+    },
+    {
+      "name": "table-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-09.tsx"
+        }
+      ],
+      "title": "Vertical",
+      "description": "Key-value details with row headers down the left."
+    },
+    {
+      "name": "table-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "table-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-10.tsx"
+        }
+      ],
+      "title": "Sticky header",
+      "description": "Header pinned while the capped body scrolls."
+    },
+    {
+      "name": "table-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-11.tsx"
+        }
+      ],
+      "title": "Sortable",
+      "description": "TanStack Table, click a column header to sort ascending or descending."
+    },
+    {
+      "name": "table-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "input",
+        "select"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-12.tsx"
+        }
+      ],
+      "title": "With filters",
+      "description": "TanStack Table, global search input plus a status column filter dropdown."
+    },
+    {
+      "name": "table-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "select"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-13.tsx"
+        }
+      ],
+      "title": "Pagination",
+      "description": "TanStack Table, prev / next controls with a rows-per-page select."
+    },
+    {
+      "name": "table-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-14.tsx"
+        }
+      ],
+      "title": "Numeric pagination",
+      "description": "TanStack Table, numbered page buttons with prev / next arrows."
+    },
+    {
+      "name": "table-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-15.tsx"
+        }
+      ],
+      "title": "Column visibility",
+      "description": "TanStack Table, toggle individual columns on or off from a dropdown menu."
+    },
+    {
+      "name": "table-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-16.tsx"
+        }
+      ],
+      "title": "Resizable columns",
+      "description": "TanStack Table, drag the header edge to resize column widths."
+    },
+    {
+      "name": "table-17",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-17.tsx"
+        }
+      ],
+      "title": "Pinnable columns",
+      "description": "TanStack Table, a column pinned to the right stays visible while scrolling horizontally."
+    },
+    {
+      "name": "table-18",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-18.tsx"
+        }
+      ],
+      "title": "Row selection",
+      "description": "TanStack Table, row checkboxes with a bulk actions toolbar showing count, clear, and delete."
+    },
+    {
+      "name": "table-19",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-19.tsx"
+        }
+      ],
+      "title": "Expanding sub-rows",
+      "description": "TanStack Table, expandable parent rows reveal nested child rows for tree-shaped data."
+    },
+    {
+      "name": "table-20",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "checkbox",
+        "input",
+        "badge",
+        "dropdown-menu"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "table-20.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/table/table-20.tsx"
+        }
+      ],
+      "title": "Complex data table",
+      "description": "TanStack Table, combines sorting, column filter, pagination, row selection, column visibility toggle, and per-row action menus."
+    }
+  ]
+}

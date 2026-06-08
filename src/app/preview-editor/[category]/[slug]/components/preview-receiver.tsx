@@ -3,11 +3,14 @@
 import * as React from 'react'
 
 import { PresetScope } from '@/components/core/preset/preset-scope'
-import type { PresetId } from '@/lib/presets-config'
-import { getBlockBySlug } from '@/lib/catalog'
-import { FALLBACK_PRESET, readPresetFromStorage } from '@/lib/preset-storage'
+import type { PresetId } from '@/lib/presets/presets-config'
+import { getBlockBySlug } from '@/lib/blocks/block-catalog'
+import {
+  FALLBACK_PRESET,
+  readPresetFromStorage,
+} from '@/lib/presets/preset-storage'
 import { cn } from '@/lib/utils'
-import { isPresetId } from '@/lib/presets-config'
+import { isPresetId } from '@/lib/presets/presets-config'
 
 interface PreviewReceiverProps {
   slug: string

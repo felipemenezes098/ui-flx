@@ -1,11 +1,9 @@
 'use client'
 
-import { EyeIcon, Palette } from 'lucide-react'
-import Image from 'next/image'
+import { EyeIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
-import { useTheme } from 'next-themes'
 
 import { BlockEditor } from '@/components/core/editor/block-editor'
 import {
@@ -28,12 +26,11 @@ import {
 } from '@/components/ui/resizable'
 import { Separator } from '@/components/ui/separator'
 import { getValidBlocksCategorySlug } from '../lib/blocks-category'
-import { blocks } from '@/lib/catalog'
+import { blocks } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
 export function Blocks() {
   const searchParams = useSearchParams()
-  const { resolvedTheme } = useTheme()
 
   const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
 

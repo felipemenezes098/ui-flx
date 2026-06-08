@@ -1,0 +1,145 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-hero",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "background-media",
+      "type": "registry:block",
+      "title": "Background Media",
+      "description": "A background media with a title, description and CTA.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "motion",
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "background-media/background-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/background-media.tsx"
+        },
+        {
+          "path": "background-media/background-media-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/background-media/background-media-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "hero-logos-carousel",
+      "type": "registry:block",
+      "title": "Hero Logos Carousel",
+      "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
+      "registryDependencies": [
+        "@flx/cta",
+        "@flx/logo-marquee",
+        "carousel"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "hero-logos-carousel/hero-logos-carousel.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx"
+        },
+        {
+          "path": "hero-logos-carousel/hero-logos-carousel-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800,
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      }
+    },
+    {
+      "name": "text-badges",
+      "type": "registry:block",
+      "title": "Text Badges",
+      "description": "A text badges with a title, CTA and badges.",
+      "registryDependencies": [
+        "@flx/cta",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "text-badges/text-badges.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
+        },
+        {
+          "path": "text-badges/text-badges-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500
+      }
+    },
+    {
+      "name": "hero-content-media",
+      "type": "registry:block",
+      "title": "Hero Content Media",
+      "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "hero-content-media/hero-content-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
+        },
+        {
+          "path": "hero-content-media/hero-content-media-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    },
+    {
+      "name": "hero-headline-preview",
+      "type": "registry:block",
+      "title": "Hero Headline Preview",
+      "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "hero-headline-preview/hero-headline-preview.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
+        },
+        {
+          "path": "hero-headline-preview/hero-headline-preview-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 860
+      }
+    }
+  ]
+}

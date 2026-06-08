@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-07",
+  "title": "As link",
+  "description": "asChild renders the badge as an anchor with a trailing icon.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-07.tsx",
+      "content": "import { ArrowUpRightIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nexport function Badge07() {\n  return (\n    <Badge asChild variant=\"secondary\">\n      <a href=\"#\">\n        What&apos;s new\n        <ArrowUpRightIcon data-icon=\"inline-end\" />\n      </a>\n    </Badge>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

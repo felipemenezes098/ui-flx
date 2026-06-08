@@ -1,0 +1,266 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-accordion",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "accordion-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Only one section open at a time, type=\"single\" collapsible. The default behavior."
+    },
+    {
+      "name": "accordion-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-02.tsx"
+        }
+      ],
+      "title": "Multiple",
+      "description": "type=\"multiple\" keeps several sections open at once."
+    },
+    {
+      "name": "accordion-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-03.tsx"
+        }
+      ],
+      "title": "With icons",
+      "description": "Leading icon beside each trigger label."
+    },
+    {
+      "name": "accordion-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-04.tsx"
+        }
+      ],
+      "title": "FAQ",
+      "description": "A titled question-and-answer list."
+    },
+    {
+      "name": "accordion-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-05.tsx"
+        }
+      ],
+      "title": "Separated cards",
+      "description": "Each item is a bordered card with spacing between them."
+    },
+    {
+      "name": "accordion-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "accordion-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-06.tsx"
+        }
+      ],
+      "title": "Plus / minus icon",
+      "description": "Plus icon on each trigger that turns into a minus when open, instead of a chevron."
+    },
+    {
+      "name": "accordion-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "accordion-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-07.tsx"
+        }
+      ],
+      "title": "Left chevron",
+      "description": "Rotating chevron placed before the label instead of after it."
+    },
+    {
+      "name": "accordion-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-09.tsx"
+        }
+      ],
+      "title": "Rich content",
+      "description": "Lists, links, and a button inside the panel body."
+    },
+    {
+      "name": "accordion-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-10.tsx"
+        }
+      ],
+      "title": "Disabled item",
+      "description": "One trigger disabled while the others stay interactive."
+    },
+    {
+      "name": "accordion-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-11.tsx"
+        }
+      ],
+      "title": "Nested",
+      "description": "An accordion rendered inside another panel body."
+    },
+    {
+      "name": "accordion-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-12.tsx"
+        }
+      ],
+      "title": "Ghost",
+      "description": "Borderless minimal rows with an active color on open."
+    },
+    {
+      "name": "accordion-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-13.tsx"
+        }
+      ],
+      "title": "Filled trigger",
+      "description": "Each trigger sits on a muted, rounded background."
+    },
+    {
+      "name": "accordion-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-14.tsx"
+        }
+      ],
+      "title": "Expand all",
+      "description": "Controlled value with expand-all / collapse-all buttons."
+    },
+    {
+      "name": "accordion-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion",
+        "switch",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-15.tsx"
+        }
+      ],
+      "title": "Settings sections",
+      "description": "Grouped switch rows revealed inside each panel."
+    },
+    {
+      "name": "accordion-16",
+      "type": "registry:block",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "accordion-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/accordion/accordion-16.tsx"
+        }
+      ],
+      "title": "With subtitle",
+      "description": "Two-line trigger pairing a title with helper text."
+    }
+  ]
+}

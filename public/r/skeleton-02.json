@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-02",
+  "title": "Avatar with text",
+  "description": "A circle beside two lines, mimicking a loading user row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-02.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton02() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Skeleton className=\"size-10 shrink-0 rounded-full\" />\n      <div className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3.5 w-32\" />\n        <Skeleton className=\"h-3 w-44\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

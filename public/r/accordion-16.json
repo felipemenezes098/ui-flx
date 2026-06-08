@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-16",
+  "title": "With subtitle",
+  "description": "Two-line trigger pairing a title with helper text.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-16.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\n\nconst items = [\n  {\n    value: 'starter',\n    title: 'Starter',\n    subtitle: 'For individuals getting started',\n    body: 'Includes 1 project, community support, and 1 GB of storage.',\n  },\n  {\n    value: 'pro',\n    title: 'Pro',\n    subtitle: 'For growing teams',\n    body: 'Unlimited projects, priority support, and 100 GB of storage.',\n  },\n  {\n    value: 'enterprise',\n    title: 'Enterprise',\n    subtitle: 'Advanced security and control',\n    body: 'SSO, audit logs, a dedicated success manager, and a custom SLA.',\n  },\n]\n\nexport function Accordion16() {\n  return (\n    <Accordion type=\"single\" collapsible className=\"w-full max-w-md\">\n      {items.map((item) => (\n        <AccordionItem key={item.value} value={item.value}>\n          <AccordionTrigger className=\"items-center\">\n            <span className=\"flex flex-col gap-0.5\">\n              <span>{item.title}</span>\n              <span className=\"text-xs font-normal text-muted-foreground\">\n                {item.subtitle}\n              </span>\n            </span>\n          </AccordionTrigger>\n          <AccordionContent className=\"text-muted-foreground\">\n            {item.body}\n          </AccordionContent>\n        </AccordionItem>\n      ))}\n    </Accordion>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-16.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

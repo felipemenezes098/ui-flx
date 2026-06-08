@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-03",
   "title": "With shortcut",
-  "description": "Label paired with a keyboard shortcut kbd.",
+  "description": "Label paired with a keyboard shortcut badge inside the tooltip.",
   "dependencies": [],
   "registryDependencies": [
     "tooltip",

@@ -1,0 +1,237 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-checkbox",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "checkbox-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Single checkbox with a label."
+    },
+    {
+      "name": "checkbox-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-02.tsx"
+        }
+      ],
+      "title": "With description",
+      "description": "Checkbox with a label and helper description."
+    },
+    {
+      "name": "checkbox-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-03.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Disabled unchecked and disabled checked states."
+    },
+    {
+      "name": "checkbox-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-04.tsx"
+        }
+      ],
+      "title": "Group",
+      "description": "Grouped list of notification checkboxes, each with a label and helper description, inside a labelled fieldset."
+    },
+    {
+      "name": "checkbox-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-06.tsx"
+        }
+      ],
+      "title": "Select all",
+      "description": "Parent checkbox with an indeterminate mixed state."
+    },
+    {
+      "name": "checkbox-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "label"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-07.tsx"
+        }
+      ],
+      "title": "Nested tree",
+      "description": "Multi-level file tree; parents derive checked / indeterminate from children."
+    },
+    {
+      "name": "checkbox-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-08.tsx"
+        }
+      ],
+      "title": "Choice cards",
+      "description": "Bordered add-on cards that highlight when checked."
+    },
+    {
+      "name": "checkbox-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-09.tsx"
+        }
+      ],
+      "title": "Payment methods",
+      "description": "Selectable saved credit cards with brand and last four."
+    },
+    {
+      "name": "checkbox-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "table"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "checkbox-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-10.tsx"
+        }
+      ],
+      "title": "Table row selection",
+      "description": "Data table with a select-all header, per-row checkboxes, and a count."
+    },
+    {
+      "name": "checkbox-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "checkbox-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-11.tsx"
+        }
+      ],
+      "title": "Invalid / required",
+      "description": "Checkbox with an inline error message that appears when the form is submitted without checking it."
+    },
+    {
+      "name": "checkbox-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "checkbox-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds a checkbox group to React Hook Form; Zod requires at least one selection."
+    },
+    {
+      "name": "checkbox-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "checkbox",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "checkbox-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/checkbox/checkbox-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires a checkbox group to TanStack Form; Zod validates on submit and shows an error when none are selected."
+    }
+  ]
+}

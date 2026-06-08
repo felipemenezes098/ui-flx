@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-14",
   "title": "Scrollable list",
-  "description": "Member list inside a ScrollArea for long content within a fixed-height popover.",
+  "description": "Scrollable list of team members with avatars and roles inside a fixed-height popover.",
   "dependencies": [
     "lucide-react"
   ],

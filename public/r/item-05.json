@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-05",
   "title": "With icon",
-  "description": "Leading icon via ItemMedia variant=\"icon\".",
+  "description": "Leading icon placed before the title and description.",
   "dependencies": [],
   "registryDependencies": [
     "item"

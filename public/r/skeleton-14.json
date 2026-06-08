@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-14",
+  "title": "Article",
+  "description": "A hero image, title, byline, and stacked body lines.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-14.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton14() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4\">\n      <Skeleton className=\"aspect-[2/1] w-full rounded-lg\" />\n      <Skeleton className=\"h-7 w-4/5\" />\n      <div className=\"flex items-center gap-2.5\">\n        <Skeleton className=\"size-7 shrink-0 rounded-full\" />\n        <Skeleton className=\"h-3 w-24\" />\n        <Skeleton className=\"h-3 w-16\" />\n      </div>\n      <div className=\"flex flex-col gap-2.5\">\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-full\" />\n        <Skeleton className=\"h-3.5 w-2/3\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

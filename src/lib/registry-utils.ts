@@ -1,5 +1,7 @@
 import { registryItemSchema, type RegistryItem } from 'shadcn/schema'
 
+/** Client-safe registry helpers. Server lookup: registry-utils.server.ts */
+
 export type FileTree = {
   name: string
   path?: string

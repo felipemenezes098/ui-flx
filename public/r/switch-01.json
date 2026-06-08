@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-01",
+  "title": "Basic",
+  "description": "A single standalone switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-01.tsx",
+      "content": "import { Switch } from '@/components/ui/switch'\n\nexport function Switch01() {\n  return <Switch defaultChecked />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

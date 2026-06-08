@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-03",
+  "title": "Card",
+  "description": "Media banner above a title, body lines, and a footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-03.tsx",
+      "content": "import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'\nimport { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton03() {\n  return (\n    <Card className=\"w-full max-w-sm gap-0 overflow-hidden py-0\">\n      <Skeleton className=\"h-32 w-full rounded-none\" />\n      <CardHeader className=\"gap-2 pt-4\">\n        <Skeleton className=\"h-4 w-2/3\" />\n        <Skeleton className=\"h-3 w-1/2\" />\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-2\">\n        <Skeleton className=\"h-3 w-full\" />\n        <Skeleton className=\"h-3 w-full\" />\n        <Skeleton className=\"h-3 w-4/5\" />\n      </CardContent>\n      <CardFooter className=\"justify-between pt-4 pb-4\">\n        <Skeleton className=\"h-8 w-24 rounded-md\" />\n        <Skeleton className=\"size-8 rounded-md\" />\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

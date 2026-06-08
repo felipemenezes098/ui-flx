@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-02",
+  "title": "With actions",
+  "description": "First-run state with primary and secondary CTAs.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "empty",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/empty/empty-02.tsx",
+      "content": "import { PlusIcon, RocketIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from '@/components/ui/empty'\n\nexport function Empty02() {\n  return (\n    <Empty className=\"w-full max-w-md\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <RocketIcon />\n        </EmptyMedia>\n        <EmptyTitle>Start your first project</EmptyTitle>\n        <EmptyDescription>\n          Create a project to organize your work and invite your team.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent className=\"flex-row justify-center gap-2\">\n        <Button>\n          <PlusIcon data-icon=\"inline-start\" />\n          New project\n        </Button>\n        <Button variant=\"outline\">Import existing</Button>\n      </EmptyContent>\n    </Empty>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/empty/empty-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

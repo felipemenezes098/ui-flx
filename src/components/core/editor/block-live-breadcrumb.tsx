@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import * as React from 'react'
 
-import { categories } from '@/lib/catalog'
+import { categories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
 export type BlockLivePageNavValue = {

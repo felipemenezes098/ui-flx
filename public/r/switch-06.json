@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-06",
+  "title": "Theme toggle",
+  "description": "Sun and moon icons flank a light / dark toggle.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-06.tsx",
+      "content": "import { MoonIcon, SunIcon } from 'lucide-react'\n\nimport { Switch } from '@/components/ui/switch'\n\nexport function Switch06() {\n  return (\n    <div className=\"flex items-center gap-2.5\">\n      <SunIcon className=\"text-muted-foreground size-4\" />\n      <Switch defaultChecked aria-label=\"Toggle dark mode\" />\n      <MoonIcon className=\"text-muted-foreground size-4\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

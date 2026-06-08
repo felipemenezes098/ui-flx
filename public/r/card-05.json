@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-05",
+  "title": "Stat",
+  "description": "KPI value with an icon and a tinted trend badge.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-05.tsx",
+      "content": "import { DollarSignIcon, TrendingUpIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport {\n  Card,\n  CardAction,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function Card05() {\n  return (\n    <Card className=\"w-full max-w-xs\">\n      <CardHeader>\n        <CardDescription>Total revenue</CardDescription>\n        <CardTitle className=\"text-2xl tabular-nums\">$48,231.89</CardTitle>\n        <CardAction>\n          <div className=\"bg-muted flex size-9 items-center justify-center rounded-lg\">\n            <DollarSignIcon className=\"text-muted-foreground size-4\" />\n          </div>\n        </CardAction>\n      </CardHeader>\n      <CardDescription className=\"flex items-center gap-2 px-6\">\n        <Badge variant=\"secondary\" className=\"text-emerald-600 dark:text-emerald-400\">\n          <TrendingUpIcon className=\"size-3\" />\n          +20.1%\n        </Badge>\n        vs. last month\n      </CardDescription>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-09",
+  "title": "Maintenance",
+  "description": "Amber system notice with a pulsing status dot.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-09.tsx",
+      "content": "import { Wrench } from 'lucide-react'\n\nexport function Banner09() {\n  return (\n    <div className=\"flex w-full flex-col gap-3 rounded-lg border border-amber-500/20 bg-amber-500/10 px-4 py-3.5 sm:flex-row sm:items-center\">\n      <span className=\"flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400\">\n        <Wrench className=\"size-5\" />\n      </span>\n      <div className=\"flex flex-1 flex-col gap-0.5\">\n        <div className=\"flex items-center gap-2\">\n          <span className=\"relative flex size-2\">\n            <span className=\"absolute inline-flex size-full animate-ping rounded-full bg-amber-500 opacity-75\" />\n            <span className=\"relative inline-flex size-2 rounded-full bg-amber-500\" />\n          </span>\n          <p className=\"text-sm font-medium text-amber-800 dark:text-amber-200\">\n            Scheduled maintenance\n          </p>\n        </div>\n        <p className=\"text-sm text-amber-700/80 dark:text-amber-300/80\">\n          Some services may be unavailable on Sunday, 02:00–04:00 UTC.\n        </p>\n      </div>\n      <a\n        href=\"#\"\n        className=\"text-sm font-medium text-amber-700 underline-offset-4 hover:underline dark:text-amber-300\"\n      >\n        Status page\n      </a>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

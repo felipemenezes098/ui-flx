@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-01",
+  "title": "Basic",
+  "description": "Icon, title, and description for an empty list.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/empty/empty-01.tsx",
+      "content": "import { FolderIcon } from 'lucide-react'\n\nimport {\n  Empty,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from '@/components/ui/empty'\n\nexport function Empty01() {\n  return (\n    <Empty className=\"w-full max-w-md\">\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <FolderIcon />\n        </EmptyMedia>\n        <EmptyTitle>No projects yet</EmptyTitle>\n        <EmptyDescription>\n          Projects you create will show up here.\n        </EmptyDescription>\n      </EmptyHeader>\n    </Empty>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/empty/empty-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

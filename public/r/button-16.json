@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-16",
   "title": "Basic group",
-  "description": "Horizontal ButtonGroup with merged borders.",
+  "description": "Horizontal row of buttons with merged borders, used for segmented controls like date range pickers.",
   "dependencies": [],
   "registryDependencies": [
     "button",

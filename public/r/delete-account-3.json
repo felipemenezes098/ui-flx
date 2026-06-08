@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "delete-account-3",
+  "title": "Grace Period",
+  "description": "Grace Period for Delete Account.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/account/delete-account/delete-account-3.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { CalendarClock, RotateCcw } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function DeleteAccount3() {\n  const [scheduled, setScheduled] = useState(false)\n\n  if (scheduled) {\n    return (\n      <Card>\n        <CardHeader>\n          <div className=\"bg-muted text-muted-foreground mb-2 flex size-10 items-center justify-center rounded-full\">\n            <CalendarClock className=\"size-5\" />\n          </div>\n          <CardTitle>Deletion scheduled</CardTitle>\n          <CardDescription>\n            Your account closes on July 6, 2026. Sign in any time before then to\n            cancel and keep everything.\n          </CardDescription>\n        </CardHeader>\n        <CardFooter>\n          <Button\n            variant=\"outline\"\n            className=\"w-full\"\n            onClick={() => setScheduled(false)}\n          >\n            <RotateCcw className=\"size-4\" />\n            Cancel deletion\n          </Button>\n        </CardFooter>\n      </Card>\n    )\n  }\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Close your account</CardTitle>\n        <CardDescription>\n          We hold your data for 30 days before deleting it for good. Change your\n          mind in that window and a single sign-in restores your account.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <div className=\"bg-muted/50 flex items-center gap-3 rounded-lg border p-3 text-sm\">\n          <CalendarClock className=\"text-muted-foreground size-5 shrink-0\" />\n          <span>\n            Scheduled deletion:{' '}\n            <span className=\"font-medium\">July 6, 2026</span>\n          </span>\n        </div>\n      </CardContent>\n      <CardFooter>\n        <Button\n          variant=\"destructive\"\n          className=\"w-full\"\n          onClick={() => setScheduled(true)}\n        >\n          Schedule deletion\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/delete-account/delete-account-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

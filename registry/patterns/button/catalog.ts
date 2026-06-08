@@ -1,0 +1,37 @@
+import { ButtonConcept } from '@/lib/patterns/pattern-concepts'
+import type { PatternCategory } from '@/lib/patterns/pattern-types'
+
+export const buttonCategory: PatternCategory = {
+  slug: 'button',
+  name: 'Button',
+  description: 'Triggers for clicks and actions.',
+  preview: ButtonConcept,
+  items: [
+    { slug: 'button-01', name: 'Basic', description: 'Default button with text label.' },
+    { slug: 'button-02', name: 'Variants', description: 'All six variants side-by-side: default, secondary, outline, ghost, destructive, link.' },
+    { slug: 'button-03', name: 'Sizes', description: 'Extra small, small, default, and large sizes.' },
+    { slug: 'button-04', name: 'With leading icon', description: 'Button with an icon placed before the text label.' },
+    { slug: 'button-05', name: 'With trailing icon', description: 'Button with an icon placed after the text label.' },
+    { slug: 'button-06', name: 'Icon only', description: 'Square icon-only buttons in every icon size.' },
+    { slug: 'button-07', name: 'Disabled', description: 'Button in the disabled state, visually dimmed and non-interactive.' },
+    { slug: 'button-08', name: 'Loading', description: 'Button with a spinning loader icon and label, indicating an in-progress async action.' },
+    { slug: 'button-09', name: 'As link', description: 'Link-styled button that navigates to an external URL, rendered as an anchor with a trailing external-link icon.' },
+    { slug: 'button-10', name: 'With avatar', description: 'User picker style button with a small avatar image leading the text label.' },
+    { slug: 'button-11', name: 'Hover slide arrow', description: 'CTA arrow nudges right on hover.' },
+    { slug: 'button-12', name: 'With badge', description: 'Notification count badge overlapping an icon button.' },
+    { slug: 'button-13', name: 'Copy to clipboard', description: 'Icon and label swap to a check on copy.' },
+    { slug: 'button-14', name: 'Hover rotate refresh', description: 'Refresh button whose icon rotates a full 360° on each click.' },
+    { slug: 'button-15', name: 'Hamburger toggle', description: 'Three bars morph into an X on press.' },
+    { slug: 'button-16', name: 'Basic group', description: 'Horizontal row of buttons with merged borders, used for segmented controls like date range pickers.' },
+    { slug: 'button-17', name: 'Vertical group', description: 'Stacked column of buttons with merged borders, used for vertical navigation menus.' },
+    { slug: 'button-18', name: 'Icon toolbar', description: 'Compact toolbar of icon-only buttons with merged borders, used for text formatting actions.' },
+    { slug: 'button-20', name: 'With label prefix', description: 'Static text label leading a group of action buttons, useful for labelled sort or filter controls.' },
+    { slug: 'button-21', name: 'Split button', description: 'Primary action button paired with a chevron that opens a dropdown of secondary actions.' },
+    { slug: 'button-22', name: 'Pagination', description: 'Prev arrow, numbered page buttons, and Next arrow in a merged-border row.' },
+    { slug: 'button-23', name: 'Copy field', description: 'Read-only text value paired with a trailing icon button that copies it to the clipboard, with an animated check on success.' },
+    { slug: 'button-24', name: 'Group with disabled', description: 'Merged-border button row where one step is visually disabled and non-interactive.' },
+    { slug: 'button-25', name: 'Destructive pair', description: 'Cancel + Delete spaced action pair.' },
+    { slug: 'button-26', name: 'With select', description: 'Sort dropdown paired with a direction-toggle icon button in a merged-border row.' },
+    { slug: 'button-27', name: 'With popover swatch', description: 'Color swatch button that opens a grid of color swatches, paired with a hex value label in a merged-border row.' },
+  ],
+}

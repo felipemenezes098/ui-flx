@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-13",
+  "title": "Gallery grid",
+  "description": "A grid of square image tiles for a loading gallery.",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/skeleton/skeleton-13.tsx",
+      "content": "import { Skeleton } from '@/components/ui/skeleton'\n\nexport function Skeleton13() {\n  return (\n    <div className=\"grid w-full grid-cols-3 gap-2\">\n      {Array.from({ length: 9 }).map((_, i) => (\n        <Skeleton key={i} className=\"aspect-square w-full rounded-md\" />\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/skeleton/skeleton-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

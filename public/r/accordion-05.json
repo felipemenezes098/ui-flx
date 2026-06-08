@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-05",
+  "title": "Separated cards",
+  "description": "Each item is a bordered card with spacing between them.",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-05.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from '@/components/ui/accordion'\n\nconst items = [\n  {\n    value: 'overview',\n    title: 'Project overview',\n    body: 'A summary of goals, scope, and the people involved in this project.',\n  },\n  {\n    value: 'timeline',\n    title: 'Timeline',\n    body: 'Key milestones and delivery dates across the next two quarters.',\n  },\n  {\n    value: 'resources',\n    title: 'Resources',\n    body: 'Links to design files, the repository, and the shared drive.',\n  },\n]\n\nexport function Accordion05() {\n  return (\n    <Accordion\n      type=\"single\"\n      collapsible\n      defaultValue=\"overview\"\n      className=\"w-full max-w-md gap-3\"\n    >\n      {items.map((item) => (\n        <AccordionItem\n          key={item.value}\n          value={item.value}\n          className=\"rounded-lg border px-4 not-last:border-b\"\n        >\n          <AccordionTrigger>{item.title}</AccordionTrigger>\n          <AccordionContent className=\"text-muted-foreground\">\n            {item.body}\n          </AccordionContent>\n        </AccordionItem>\n      ))}\n    </Accordion>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

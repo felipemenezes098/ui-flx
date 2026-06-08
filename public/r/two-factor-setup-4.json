@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-setup-4",
+  "title": "Backup Codes",
+  "description": "Backup Codes for Two-Factor Setup.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/auth/two-factor-setup/two-factor-setup-4.tsx",
+      "content": "import { CopyIcon, DownloadIcon, KeyRoundIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\n\nconst CODES = [\n  '4f2a-9c1d',\n  '7b3e-0a8f',\n  '1d6c-5e2b',\n  '9a4f-3c7d',\n  '2e8b-6f1a',\n  '5c0d-8b3e',\n  '3f7a-1d9c',\n  '8b2e-4a6f',\n]\n\nexport function TwoFactorSetup4() {\n  return (\n    <Card size=\"sm\">\n      <CardHeader>\n        <div className=\"bg-primary/10 mb-1 flex size-10 items-center justify-center rounded-full\">\n          <KeyRoundIcon className=\"text-primary size-5\" />\n        </div>\n        <CardTitle>Save backup codes</CardTitle>\n        <p className=\"text-muted-foreground text-xs\">\n          Use one of these if you lose your device. Each code works once. Store\n          them somewhere safe.\n        </p>\n      </CardHeader>\n\n      <CardContent>\n        <div className=\"bg-muted/50 grid grid-cols-2 gap-x-4 gap-y-1.5 rounded-lg border p-3 font-mono text-xs\">\n          {CODES.map((code) => (\n            <span key={code} className=\"text-foreground/80\">\n              {code}\n            </span>\n          ))}\n        </div>\n      </CardContent>\n\n      <CardFooter className=\"gap-2\">\n        <Button variant=\"outline\" className=\"flex-1\">\n          <CopyIcon />\n          Copy\n        </Button>\n        <Button variant=\"outline\" className=\"flex-1\">\n          <DownloadIcon />\n          Download\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/two-factor-setup/two-factor-setup-4.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

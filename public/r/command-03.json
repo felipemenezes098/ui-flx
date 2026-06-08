@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-03",
+  "title": "Global search",
+  "description": "Rich search dialog with recent, pages, and people plus a hint footer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "command",
+    "button",
+    "dialog",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/command/command-03.tsx",
+      "content": "'use client'\n\nimport { Avatar, AvatarFallback } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n} from '@/components/ui/command'\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog'\nimport {\n  ClockIcon,\n  FileTextIcon,\n  LayoutDashboardIcon,\n  SearchIcon,\n  SettingsIcon,\n  UsersIcon,\n} from 'lucide-react'\n\nconst recent = ['Quarterly roadmap', 'Invoice #1042']\nconst pages = [\n  { icon: LayoutDashboardIcon, label: 'Dashboard' },\n  { icon: FileTextIcon, label: 'Documents' },\n  { icon: UsersIcon, label: 'Team' },\n  { icon: SettingsIcon, label: 'Settings' },\n]\nconst people = [\n  { name: 'Olivia Martin' },\n  { name: 'Jackson Lee' },\n  { name: 'Isabella Nguyen' },\n]\n\nfunction initials(name: string) {\n  return name\n    .split(' ')\n    .map((part) => part[0])\n    .join('')\n}\n\nexport function Command03() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button\n          variant=\"outline\"\n          className=\"text-muted-foreground w-72 justify-start font-normal\"\n        >\n          <SearchIcon className=\"opacity-50\" />\n          Search everything...\n        </Button>\n      </DialogTrigger>\n      <DialogContent showCloseButton={false} className=\"gap-0 p-0\">\n        <DialogHeader className=\"sr-only\">\n          <DialogTitle>Global search</DialogTitle>\n          <DialogDescription>\n            Search pages, people, and actions.\n          </DialogDescription>\n        </DialogHeader>\n        <Command className=\"pb-0\">\n          <CommandInput placeholder=\"Search pages, people, and actions...\" />\n          <CommandList>\n            <CommandEmpty>No results found.</CommandEmpty>\n            <CommandGroup heading=\"Recent\">\n              {recent.map((item) => (\n                <CommandItem key={item}>\n                  <ClockIcon />\n                  <span>{item}</span>\n                </CommandItem>\n              ))}\n            </CommandGroup>\n            <CommandSeparator />\n            <CommandGroup heading=\"Pages\">\n              {pages.map((page) => (\n                <CommandItem key={page.label}>\n                  <page.icon />\n                  <span>{page.label}</span>\n                </CommandItem>\n              ))}\n            </CommandGroup>\n            <CommandSeparator />\n            <CommandGroup heading=\"People\">\n              {people.map((person) => (\n                <CommandItem key={person.name} value={person.name}>\n                  <Avatar className=\"size-6\">\n                    <AvatarFallback className=\"text-[10px]\">\n                      {initials(person.name)}\n                    </AvatarFallback>\n                  </Avatar>\n                  <span>{person.name}</span>\n                </CommandItem>\n              ))}\n            </CommandGroup>\n          </CommandList>\n        </Command>\n        <div className=\"text-muted-foreground flex items-center justify-between border-t px-3 py-2 text-xs\">\n          <span className=\"flex items-center gap-1\">\n            <kbd className=\"bg-muted rounded border px-1 font-mono\">↵</kbd>\n            to select\n          </span>\n          <span className=\"flex items-center gap-1\">\n            <kbd className=\"bg-muted rounded border px-1 font-mono\">esc</kbd>\n            to close\n          </span>\n        </div>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/command/command-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

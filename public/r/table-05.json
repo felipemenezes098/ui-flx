@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-05",
+  "title": "With vertical lines",
+  "description": "Column grid lines via per-cell right borders.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-05.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst usage = [\n  { plan: 'Starter', seats: '1–5', storage: '10 GB', price: '$0' },\n  { plan: 'Pro', seats: '6–20', storage: '100 GB', price: '$29' },\n  { plan: 'Business', seats: '21–50', storage: '1 TB', price: '$99' },\n  {\n    plan: 'Enterprise',\n    seats: 'Unlimited',\n    storage: 'Custom',\n    price: 'Contact',\n  },\n]\n\nexport function Table05() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <div className=\"overflow-hidden rounded-lg border\">\n        <Table className=\"[&_td]:border-r [&_td:last-child]:border-r-0 [&_th]:border-r [&_th:last-child]:border-r-0\">\n          <TableHeader>\n            <TableRow>\n              <TableHead>Plan</TableHead>\n              <TableHead>Seats</TableHead>\n              <TableHead>Storage</TableHead>\n              <TableHead className=\"text-right\">Price</TableHead>\n            </TableRow>\n          </TableHeader>\n          <TableBody>\n            {usage.map((row) => (\n              <TableRow key={row.plan}>\n                <TableCell className=\"font-medium\">{row.plan}</TableCell>\n                <TableCell className=\"text-muted-foreground\">\n                  {row.seats}\n                </TableCell>\n                <TableCell className=\"text-muted-foreground\">\n                  {row.storage}\n                </TableCell>\n                <TableCell className=\"text-right tabular-nums\">\n                  {row.price}\n                </TableCell>\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

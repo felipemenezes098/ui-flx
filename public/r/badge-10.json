@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-10",
+  "title": "Sizes",
+  "description": "Small, default, and large sizes via className.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-10.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge10() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Badge className=\"h-4 px-1.5 text-[10px]\">Small</Badge>\n      <Badge>Default</Badge>\n      <Badge className=\"h-6 px-2.5 text-sm\">Large</Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

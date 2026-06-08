@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-04",
+  "title": "Sizes",
+  "description": "The sm and default sizes side-by-side.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-04.tsx",
+      "content": "import { Switch } from '@/components/ui/switch'\n\nexport function Switch04() {\n  return (\n    <div className=\"flex items-center gap-6\">\n      <div className=\"flex flex-col items-center gap-2\">\n        <Switch size=\"sm\" defaultChecked />\n        <span className=\"text-muted-foreground text-xs\">sm</span>\n      </div>\n      <div className=\"flex flex-col items-center gap-2\">\n        <Switch size=\"default\" defaultChecked />\n        <span className=\"text-muted-foreground text-xs\">default</span>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

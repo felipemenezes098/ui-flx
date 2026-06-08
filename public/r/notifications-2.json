@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications-2",
+  "title": "Grouped Toggles",
+  "description": "Grouped Toggles for Notifications.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "label",
+    "separator",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/account/notifications/notifications-2.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Bell, CreditCard, ShieldCheck, Users } from 'lucide-react'\n\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Label } from '@/components/ui/label'\nimport { Separator } from '@/components/ui/separator'\nimport { Switch } from '@/components/ui/switch'\n\ntype Toggle = { id: string; label: string; enabled: boolean }\n\ntype Group = {\n  id: string\n  title: string\n  icon: typeof Bell\n  toggles: Toggle[]\n}\n\nconst GROUPS: Group[] = [\n  {\n    id: 'security',\n    title: 'Security',\n    icon: ShieldCheck,\n    toggles: [\n      { id: 'sec-signin', label: 'New sign-in alerts', enabled: true },\n      { id: 'sec-password', label: 'Password changes', enabled: true },\n    ],\n  },\n  {\n    id: 'social',\n    title: 'Social',\n    icon: Users,\n    toggles: [\n      { id: 'soc-mentions', label: 'Mentions and replies', enabled: true },\n      { id: 'soc-follows', label: 'New followers', enabled: false },\n    ],\n  },\n  {\n    id: 'billing',\n    title: 'Billing',\n    icon: CreditCard,\n    toggles: [\n      { id: 'bil-invoices', label: 'Invoices and receipts', enabled: true },\n      { id: 'bil-failures', label: 'Failed payments', enabled: true },\n    ],\n  },\n]\n\nexport function Notifications2() {\n  const [state, setState] = useState<Record<string, boolean>>(() =>\n    Object.fromEntries(\n      GROUPS.flatMap((group) =>\n        group.toggles.map((toggle) => [toggle.id, toggle.enabled]),\n      ),\n    ),\n  )\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Notifications</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-6\">\n        {GROUPS.map((group) => {\n          const Icon = group.icon\n          return (\n            <div key={group.id} className=\"flex flex-col gap-3\">\n              <div className=\"text-muted-foreground flex items-center gap-2 text-xs font-medium tracking-wide uppercase\">\n                <Icon className=\"size-4\" />\n                {group.title}\n              </div>\n              {group.toggles.map((toggle, index) => (\n                <div key={toggle.id} className=\"flex flex-col gap-3\">\n                  {index > 0 && <Separator />}\n                  <div className=\"flex items-center justify-between\">\n                    <Label htmlFor={toggle.id} className=\"font-normal\">\n                      {toggle.label}\n                    </Label>\n                    <Switch\n                      id={toggle.id}\n                      checked={state[toggle.id]}\n                      onCheckedChange={(v) =>\n                        setState((prev) => ({ ...prev, [toggle.id]: v }))\n                      }\n                    />\n                  </div>\n                </div>\n              ))}\n            </div>\n          )\n        })}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/notifications/notifications-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

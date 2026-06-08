@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { SingleTestimonial } from './single-testimonial'
 import { SingleTestimonialEditorFields } from './editor/fields'
 import { SingleTestimonialExample, values } from './single-testimonial-example'

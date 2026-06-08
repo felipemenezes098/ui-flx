@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-03",
+  "title": "Disabled",
+  "description": "Disabled unchecked and disabled checked states.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-03.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport { Label } from '@/components/ui/label'\n\nexport function Checkbox03() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <div className=\"flex items-center gap-3\">\n        <Checkbox id=\"checkbox-03-a\" disabled />\n        <Label htmlFor=\"checkbox-03-a\" className=\"opacity-50\">\n          Disabled unchecked\n        </Label>\n      </div>\n      <div className=\"flex items-center gap-3\">\n        <Checkbox id=\"checkbox-03-b\" disabled defaultChecked />\n        <Label htmlFor=\"checkbox-03-b\" className=\"opacity-50\">\n          Disabled checked\n        </Label>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

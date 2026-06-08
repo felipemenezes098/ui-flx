@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-04",
+  "title": "Avatar group",
+  "description": "Bordered empty team card with an avatar stack and invite.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "empty",
+    "avatar",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/empty/empty-04.tsx",
+      "content": "import { UserPlusIcon } from 'lucide-react'\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyTitle,\n} from '@/components/ui/empty'\n\nexport function Empty04() {\n  return (\n    <Empty className=\"bg-muted/30 w-full max-w-md rounded-xl border border-dashed\">\n      <EmptyHeader>\n        <div className=\"*:data-[slot=avatar]:ring-background mb-2 flex -space-x-2 *:data-[slot=avatar]:grayscale *:data-[slot=avatar]:ring-2\">\n          <Avatar>\n            <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n            <AvatarFallback>CN</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/maxleiter.png\"\n              alt=\"@maxleiter\"\n            />\n            <AvatarFallback>LR</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/evilrabbit.png\"\n              alt=\"@evilrabbit\"\n            />\n            <AvatarFallback>ER</AvatarFallback>\n          </Avatar>\n        </div>\n        <EmptyTitle>No team members</EmptyTitle>\n        <EmptyDescription>\n          Invite people to collaborate on this workspace.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button size=\"sm\">\n          <UserPlusIcon data-icon=\"inline-start\" />\n          Invite people\n        </Button>\n      </EmptyContent>\n    </Empty>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/empty/empty-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

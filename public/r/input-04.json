@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-04",
   "title": "With Addon in the end",
-  "description": "Input with trailing icon addon.",
+  "description": "Password input with a trailing eye-off icon to indicate visibility toggle.",
   "dependencies": [],
   "registryDependencies": [
     "input"

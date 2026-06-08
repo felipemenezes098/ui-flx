@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-02",
+  "title": "Variants",
+  "description": "All six variants side-by-side: default, secondary, destructive, outline, ghost, link.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-02.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nexport function Badge02() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-2\">\n      <Badge>Default</Badge>\n      <Badge variant=\"secondary\">Secondary</Badge>\n      <Badge variant=\"destructive\">Destructive</Badge>\n      <Badge variant=\"outline\">Outline</Badge>\n      <Badge variant=\"ghost\">Ghost</Badge>\n      <Badge variant=\"link\">Link</Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

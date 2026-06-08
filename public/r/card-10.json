@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-10",
+  "title": "Product",
+  "description": "Square image with a sale badge, price, and add-to-cart.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/card/card-10.tsx",
+      "content": "import { ShoppingCartIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardTitle,\n} from '@/components/ui/card'\n\nexport function Card10() {\n  return (\n    <Card className=\"w-full max-w-xs gap-0 pt-0\">\n      <div className=\"relative\">\n        <img\n          src=\"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=480&q=80\"\n          alt=\"Red running sneaker\"\n          className=\"aspect-square object-cover\"\n        />\n        <Badge variant=\"destructive\" className=\"absolute top-3 left-3\">\n          -20%\n        </Badge>\n      </div>\n      <CardContent className=\"flex flex-col gap-1 pt-4\">\n        <CardTitle>Aero Runner</CardTitle>\n        <p className=\"text-muted-foreground text-sm\">Lightweight road shoe</p>\n        <div className=\"mt-1 flex items-baseline gap-2\">\n          <span className=\"text-lg font-semibold tabular-nums\">$96</span>\n          <span className=\"text-muted-foreground text-sm line-through tabular-nums\">\n            $120\n          </span>\n        </div>\n      </CardContent>\n      <CardFooter className=\"pt-4\">\n        <Button className=\"w-full\">\n          <ShoppingCartIcon data-icon=\"inline-start\" />\n          Add to cart\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/card/card-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "share-access-1",
+  "title": "Link with Scope",
+  "description": "Link with Scope for Share Access.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input-group",
+    "label",
+    "select",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/share-access/share-access-1.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Check, Copy, Globe, Link2, Lock } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from '@/components/ui/input-group'\nimport { Label } from '@/components/ui/label'\nimport { Separator } from '@/components/ui/separator'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst LINK = 'https://app.acme.com/d/q7x2-prd-roadmap'\n\nexport function ShareAccess1() {\n  const [open, setOpen] = useState(true)\n  const [role, setRole] = useState('viewer')\n  const [expiry, setExpiry] = useState('never')\n  const [copied, setCopied] = useState(false)\n\n  const copy = () => {\n    setCopied(true)\n    setTimeout(() => setCopied(false), 1500)\n  }\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Share link</CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        <div className=\"flex items-center gap-3 rounded-lg border p-3\">\n          <div className=\"text-muted-foreground flex size-9 shrink-0 items-center justify-center rounded-full border\">\n            {open ? <Globe className=\"size-4\" /> : <Lock className=\"size-4\" />}\n          </div>\n          <div className=\"flex min-w-0 flex-1 flex-col\">\n            <span className=\"truncate text-sm font-medium\">\n              {open ? 'Anyone with the link' : 'Restricted'}\n            </span>\n            <span className=\"text-muted-foreground truncate text-xs\">\n              {open\n                ? 'No sign-in required to open'\n                : 'Only invited people can open'}\n            </span>\n          </div>\n          <Button\n            variant=\"outline\"\n            size=\"sm\"\n            onClick={() => setOpen((v) => !v)}\n          >\n            {open ? 'Restrict' : 'Enable link'}\n          </Button>\n        </div>\n\n        {open && (\n          <>\n            <div className=\"flex gap-2\">\n              <InputGroup className=\"flex-1\">\n                <InputGroupAddon>\n                  <Link2 />\n                </InputGroupAddon>\n                <InputGroupInput readOnly value={LINK} className=\"text-xs\" />\n              </InputGroup>\n              <Button\n                variant=\"secondary\"\n                size=\"icon\"\n                onClick={copy}\n                aria-label=\"Copy link\"\n              >\n                {copied ? (\n                  <Check className=\"size-4\" />\n                ) : (\n                  <Copy className=\"size-4\" />\n                )}\n              </Button>\n            </div>\n\n            <Separator />\n\n            <div className=\"flex flex-wrap gap-3\">\n              <div className=\"flex min-w-40 flex-1 flex-col gap-2\">\n                <Label className=\"text-xs\">Permission</Label>\n                <Select value={role} onValueChange={setRole}>\n                  <SelectTrigger className=\"w-full\">\n                    <SelectValue />\n                  </SelectTrigger>\n                  <SelectContent>\n                    <SelectGroup>\n                      <SelectItem value=\"viewer\">Can view</SelectItem>\n                      <SelectItem value=\"commenter\">Can comment</SelectItem>\n                      <SelectItem value=\"editor\">Can edit</SelectItem>\n                    </SelectGroup>\n                  </SelectContent>\n                </Select>\n              </div>\n              <div className=\"flex min-w-40 flex-1 flex-col gap-2\">\n                <Label className=\"text-xs\">Expires</Label>\n                <Select value={expiry} onValueChange={setExpiry}>\n                  <SelectTrigger className=\"w-full\">\n                    <SelectValue />\n                  </SelectTrigger>\n                  <SelectContent>\n                    <SelectGroup>\n                      <SelectItem value=\"never\">Never</SelectItem>\n                      <SelectItem value=\"7d\">In 7 days</SelectItem>\n                      <SelectItem value=\"30d\">In 30 days</SelectItem>\n                    </SelectGroup>\n                  </SelectContent>\n                </Select>\n              </div>\n            </div>\n          </>\n        )}\n      </CardContent>\n      <CardFooter>\n        <Button className=\"w-full\" onClick={copy}>\n          {copied ? 'Link copied' : 'Copy link'}\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/share-access/share-access-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

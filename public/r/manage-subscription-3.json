@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "manage-subscription-3",
+  "title": "Cancel Flow",
+  "description": "Cancel Flow for Manage Subscription.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "label",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/manage-subscription/manage-subscription-3.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Gift } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Label } from '@/components/ui/label'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst REASONS = [\n  { value: 'cost', label: 'Too expensive' },\n  { value: 'unused', label: 'Not using it enough' },\n  { value: 'missing', label: 'Missing a feature' },\n  { value: 'switching', label: 'Switching tools' },\n]\n\nexport function ManageSubscription3() {\n  const [step, setStep] = useState<'offer' | 'reason'>('offer')\n  const [reason, setReason] = useState('')\n\n  if (step === 'offer') {\n    return (\n      <Card>\n        <CardHeader>\n          <div className=\"bg-primary/10 text-primary mb-2 flex size-10 items-center justify-center rounded-full\">\n            <Gift className=\"size-5\" />\n          </div>\n          <CardTitle>Stay for 50% off</CardTitle>\n          <CardDescription>\n            Before you go, keep Pro at half price for the next three months. No\n            commitment, cancel any time.\n          </CardDescription>\n        </CardHeader>\n        <CardFooter className=\"flex flex-col gap-3\">\n          <Button className=\"w-full\">Apply discount and stay</Button>\n          <Button\n            variant=\"ghost\"\n            className=\"w-full\"\n            onClick={() => setStep('reason')}\n          >\n            Continue to cancel\n          </Button>\n        </CardFooter>\n      </Card>\n    )\n  }\n\n  return (\n    <Card className=\"w-full max-w-md\">\n      <CardHeader>\n        <CardTitle>Why are you cancelling?</CardTitle>\n        <CardDescription>\n          Your plan stays active until July 1, 2026.\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-2\">\n        <Label className=\"text-xs\">Reason</Label>\n        <Select value={reason} onValueChange={setReason}>\n          <SelectTrigger>\n            <SelectValue placeholder=\"Select a reason\" />\n          </SelectTrigger>\n          <SelectContent>\n            <SelectGroup>\n              {REASONS.map((item) => (\n                <SelectItem key={item.value} value={item.value}>\n                  {item.label}\n                </SelectItem>\n              ))}\n            </SelectGroup>\n          </SelectContent>\n        </Select>\n      </CardContent>\n      <CardFooter className=\"flex gap-3\">\n        <Button\n          variant=\"ghost\"\n          className=\"flex-1\"\n          onClick={() => setStep('offer')}\n        >\n          Back\n        </Button>\n        <Button variant=\"destructive\" className=\"flex-1\" disabled={!reason}>\n          Cancel subscription\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/manage-subscription/manage-subscription-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-a-plan-5",
+  "title": "Spotlight Recommendation",
+  "description": "Spotlight Recommendation for Select a Plan.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "badge",
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/select-a-plan/select-a-plan-5.tsx",
+      "content": "import { ArrowRightIcon, CheckIcon, StarIcon } from 'lucide-react'\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'\n\nconst perks = [\n  'Unlimited projects and collaborators',\n  '100 GB storage with version history',\n  'Advanced analytics and exports',\n  'Priority support, replies in under 4h',\n]\n\nconst faces = [\n  'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop&crop=faces',\n  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces',\n  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces',\n]\n\nexport function SelectAPlan5() {\n  return (\n    <Card\n      size=\"sm\"\n      className=\"border-primary ring-primary/20 relative overflow-visible ring-2\"\n    >\n      <span className=\"bg-primary text-primary-foreground absolute -top-2.5 left-4 rounded-full px-2 py-0.5 text-[11px] font-medium\">\n        Recommended for you\n      </span>\n\n      <CardHeader>\n        <div className=\"flex items-baseline justify-between\">\n          <span className=\"text-base font-semibold\">Pro</span>\n          <div className=\"flex items-baseline gap-1\">\n            <span className=\"text-2xl font-bold tracking-tight\">$23</span>\n            <span className=\"text-muted-foreground text-xs\">/mo</span>\n          </div>\n        </div>\n        <span className=\"text-muted-foreground text-xs leading-snug\">\n          Based on your trial usage, Pro covers everything you reached for.\n        </span>\n      </CardHeader>\n\n      <CardContent className=\"flex flex-col gap-4\">\n        <ul className=\"flex flex-col gap-2\">\n          {perks.map((perk) => (\n            <li key={perk} className=\"flex items-start gap-2 text-xs\">\n              <CheckIcon className=\"text-primary mt-0.5 size-3.5 shrink-0\" />\n              <span className=\"text-muted-foreground leading-snug\">{perk}</span>\n            </li>\n          ))}\n        </ul>\n\n        <div className=\"bg-muted/50 flex items-center gap-3 rounded-lg border p-3\">\n          <div className=\"flex -space-x-2\">\n            {faces.map((src, i) => (\n              <Avatar key={i} className=\"ring-card size-6 ring-2\">\n                <AvatarImage src={src} alt=\"\" />\n                <AvatarFallback className=\"bg-primary/20 text-[10px]\">\n                  U\n                </AvatarFallback>\n              </Avatar>\n            ))}\n          </div>\n          <div className=\"flex flex-col\">\n            <div className=\"flex items-center gap-0.5\">\n              {Array.from({ length: 5 }).map((_, i) => (\n                <StarIcon\n                  key={i}\n                  className=\"fill-primary text-primary size-3\"\n                />\n              ))}\n            </div>\n            <span className=\"text-muted-foreground text-[11px]\">\n              Loved by 12,000+ teams\n            </span>\n          </div>\n        </div>\n      </CardContent>\n\n      <CardFooter className=\"flex-col gap-2\">\n        <Button size=\"sm\" className=\"w-full\">\n          Upgrade to Pro\n          <ArrowRightIcon className=\"size-3.5\" />\n        </Button>\n        <Button size=\"sm\" variant=\"ghost\" className=\"w-full text-xs\">\n          See all plans\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/select-a-plan/select-a-plan-5.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-a-plan-3",
+  "title": "Audience Segments",
+  "description": "Audience Segments for Select a Plan.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/billing/select-a-plan/select-a-plan-3.tsx",
+      "content": "'use client'\n\nimport { ArrowRightIcon, CheckIcon } from 'lucide-react'\nimport { useState } from 'react'\n\nimport { Button } from '@/components/ui/button'\nimport { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'\n\ntype Segment = {\n  id: string\n  label: string\n  plan: string\n  blurb: string\n  price: string\n  cadence: string\n  features: string[]\n  cta: string\n}\n\nconst segments: Segment[] = [\n  {\n    id: 'individual',\n    label: 'Individual',\n    plan: 'Personal',\n    blurb: 'Everything one person needs to ship faster.',\n    price: '$12',\n    cadence: 'per month',\n    features: ['Unlimited personal projects', '20 GB storage', 'Email support'],\n    cta: 'Start personal',\n  },\n  {\n    id: 'teams',\n    label: 'Teams',\n    plan: 'Team',\n    blurb: 'Shared workspaces with roles and collaboration.',\n    price: '$29',\n    cadence: 'per seat / month',\n    features: [\n      'Unlimited shared projects',\n      'Roles & permissions',\n      'Priority support',\n    ],\n    cta: 'Start a team',\n  },\n  {\n    id: 'enterprise',\n    label: 'Enterprise',\n    plan: 'Enterprise',\n    blurb: 'Security, control and support that scales.',\n    price: 'Custom',\n    cadence: 'volume pricing',\n    features: ['SSO & SAML', 'Audit logs & SLA', 'Dedicated manager'],\n    cta: 'Talk to sales',\n  },\n]\n\nexport function SelectAPlan3() {\n  const [active, setActive] = useState('teams')\n  const segment = segments.find((s) => s.id === active) ?? segments[1]\n\n  return (\n    <div className=\"flex flex-col items-center gap-5\">\n      <ToggleGroup\n        type=\"single\"\n        value={active}\n        onValueChange={(value) => value && setActive(value)}\n        variant=\"outline\"\n        spacing={0}\n        className=\"w-full\"\n      >\n        {segments.map((s) => (\n          <ToggleGroupItem key={s.id} value={s.id} className=\"flex-1 text-xs\">\n            {s.label}\n          </ToggleGroupItem>\n        ))}\n      </ToggleGroup>\n\n      <Card size=\"sm\" className=\"w-full\">\n        <CardHeader>\n          <div className=\"flex items-baseline justify-between\">\n            <span className=\"text-sm font-semibold\">{segment.plan}</span>\n            <div className=\"flex items-baseline gap-1\">\n              <span className=\"text-2xl font-bold tracking-tight\">\n                {segment.price}\n              </span>\n            </div>\n          </div>\n          <div className=\"flex items-center justify-between\">\n            <span className=\"text-muted-foreground text-xs leading-snug\">\n              {segment.blurb}\n            </span>\n          </div>\n          <span className=\"text-muted-foreground/80 text-[11px]\">\n            {segment.cadence}\n          </span>\n        </CardHeader>\n        <CardContent>\n          <ul className=\"flex flex-col gap-2\">\n            {segment.features.map((feature) => (\n              <li\n                key={feature}\n                className=\"text-muted-foreground flex items-center gap-2 text-xs\"\n              >\n                <CheckIcon className=\"text-primary size-3.5 shrink-0\" />\n                {feature}\n              </li>\n            ))}\n          </ul>\n        </CardContent>\n        <CardFooter>\n          <Button size=\"sm\" className=\"w-full\">\n            {segment.cta}\n            <ArrowRightIcon className=\"size-3.5\" />\n          </Button>\n        </CardFooter>\n      </Card>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/select-a-plan/select-a-plan-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

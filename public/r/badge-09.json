@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-09",
+  "title": "With avatar",
+  "description": "Assignee chip with a leading avatar inside the badge.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-09.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Badge } from '@/components/ui/badge'\n\nexport function Badge09() {\n  return (\n    <Badge variant=\"secondary\" className=\"h-6 gap-1.5 pl-0.5\">\n      <Avatar className=\"size-5\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop\"\n          alt=\"Sofia Rodrigues\"\n        />\n        <AvatarFallback>SR</AvatarFallback>\n      </Avatar>\n      Sofia Rodrigues\n    </Badge>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

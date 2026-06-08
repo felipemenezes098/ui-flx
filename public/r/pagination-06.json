@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-06",
+  "title": "Article prev / next",
+  "description": "Two linked cards with titles for adjacent articles.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-06.tsx",
+      "content": "'use client'\n\nimport { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'\n\nexport function Pagination06() {\n  return (\n    <nav\n      aria-label=\"Article pagination\"\n      onClick={(e) => e.preventDefault()}\n      className=\"grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2\"\n    >\n      <a\n        href=\"#\"\n        className=\"group hover:border-foreground/20 hover:bg-accent/50 flex flex-col gap-1 rounded-lg border p-4 transition-colors\"\n      >\n        <span className=\"text-muted-foreground flex items-center gap-1.5 text-xs font-medium\">\n          <ArrowLeftIcon className=\"size-3.5 transition-transform group-hover:-translate-x-0.5\" />\n          Previous\n        </span>\n        <span className=\"line-clamp-1 text-sm font-semibold\">\n          Installing the component registry\n        </span>\n      </a>\n\n      <a\n        href=\"#\"\n        className=\"group hover:border-foreground/20 hover:bg-accent/50 flex flex-col items-end gap-1 rounded-lg border p-4 text-right transition-colors\"\n      >\n        <span className=\"text-muted-foreground flex items-center gap-1.5 text-xs font-medium\">\n          Next\n          <ArrowRightIcon className=\"size-3.5 transition-transform group-hover:translate-x-0.5\" />\n        </span>\n        <span className=\"line-clamp-1 text-sm font-semibold\">\n          Theming with CSS variables\n        </span>\n      </a>\n    </nav>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-06.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

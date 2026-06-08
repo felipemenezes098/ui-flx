@@ -1,0 +1,244 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-tabs",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tabs-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Three tabs with the default filled variant."
+    },
+    {
+      "name": "tabs-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-02.tsx"
+        }
+      ],
+      "title": "Line variant",
+      "description": "Underline indicator instead of filled background."
+    },
+    {
+      "name": "tabs-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-04.tsx"
+        }
+      ],
+      "title": "Vertical line",
+      "description": "Vertical orientation with underline indicators, suited for sidebar navigation."
+    },
+    {
+      "name": "tabs-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-05.tsx"
+        }
+      ],
+      "title": "Disabled tab",
+      "description": "One trigger disabled while others stay interactive."
+    },
+    {
+      "name": "tabs-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tabs-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-06.tsx"
+        }
+      ],
+      "title": "With icons",
+      "description": "Tabs with a small icon placed before each label in the trigger."
+    },
+    {
+      "name": "tabs-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-07.tsx"
+        }
+      ],
+      "title": "With count badges",
+      "description": "Trigger labels paired with secondary count badges."
+    },
+    {
+      "name": "tabs-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tabs-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-08.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Compact icon-only triggers for view switching."
+    },
+    {
+      "name": "tabs-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tabs-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-10.tsx"
+        }
+      ],
+      "title": "Icon with title",
+      "description": "Icon stacked above the title in each trigger, with a visual panel below."
+    },
+    {
+      "name": "tabs-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs",
+        "card",
+        "button",
+        "input",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-11.tsx"
+        }
+      ],
+      "title": "Account and password",
+      "description": "Two-tab card with a profile edit form on one tab and a password change form on the other."
+    },
+    {
+      "name": "tabs-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs",
+        "card",
+        "separator"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-12.tsx"
+        }
+      ],
+      "title": "In card",
+      "description": "Tabs inside a card with stats, member list, and billing summary panels."
+    },
+    {
+      "name": "tabs-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tabs-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-13.tsx"
+        }
+      ],
+      "title": "Preview and code",
+      "description": "Docs-style switch between live preview and code snippet."
+    },
+    {
+      "name": "tabs-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-14.tsx"
+        }
+      ],
+      "title": "Pricing toggle",
+      "description": "Monthly versus yearly billing toggle swaps the price."
+    },
+    {
+      "name": "tabs-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "tabs-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/tabs/tabs-15.tsx"
+        }
+      ],
+      "title": "Pill track",
+      "description": "Rounded pill triggers in a bordered track with cross-fading mood boards."
+    }
+  ]
+}

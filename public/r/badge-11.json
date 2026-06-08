@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-11",
+  "title": "Trend delta",
+  "description": "Up and down arrows with tinted gain / loss percentages.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-11.tsx",
+      "content": "import { ArrowDownIcon, ArrowUpIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nexport function Badge11() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      <Badge className=\"border-transparent bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\">\n        <ArrowUpIcon data-icon=\"inline-start\" />\n        12.5%\n      </Badge>\n      <Badge className=\"border-transparent bg-red-500/10 text-red-600 dark:text-red-400\">\n        <ArrowDownIcon data-icon=\"inline-start\" />\n        3.2%\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

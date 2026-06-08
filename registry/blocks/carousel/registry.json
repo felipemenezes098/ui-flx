@@ -1,0 +1,98 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-carousel",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "carousel-focus",
+      "type": "registry:block",
+      "title": "Carousel Focus",
+      "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "devDependencies": [
+        "embla-carousel-auto-scroll"
+      ],
+      "files": [
+        {
+          "path": "carousel-focus/carousel-focus.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+        },
+        {
+          "path": "carousel-focus/carousel-focus-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500,
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      }
+    },
+    {
+      "name": "carousel-cards",
+      "type": "registry:block",
+      "title": "Carousel Cards",
+      "description": "A carousel of cards with a title and description.",
+      "registryDependencies": [
+        "carousel",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "carousel-cards/carousel-cards.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx"
+        },
+        {
+          "path": "carousel-cards/carousel-cards-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 700,
+        "containerClassName": "max-w-full overflow-hidden px-0",
+        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+      }
+    },
+    {
+      "name": "carousel-media",
+      "type": "registry:block",
+      "title": "Carousel Media",
+      "description": "A carousel of media with a title and description.",
+      "registryDependencies": [
+        "carousel",
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "carousel-media/carousel-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
+        },
+        {
+          "path": "carousel-media/carousel-media-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 700,
+        "containerClassName": "max-w-full overflow-hidden px-0",
+        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+      }
+    }
+  ]
+}

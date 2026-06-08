@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-11",
+  "title": "Email verification",
+  "description": "Blue prompt with a Resend email button that switches to a sent confirmation.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/banner/banner-11.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Check, MailWarning } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Banner11() {\n  const [sent, setSent] = useState(false)\n\n  return (\n    <div className=\"flex w-full flex-col gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 px-4 py-3.5 sm:flex-row sm:items-center\">\n      <span className=\"flex size-9 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400\">\n        <MailWarning className=\"size-5\" />\n      </span>\n      <div className=\"flex flex-1 flex-col gap-0.5\">\n        <p className=\"text-sm font-medium text-blue-800 dark:text-blue-200\">\n          Verify your email address\n        </p>\n        <p className=\"text-sm text-blue-700/80 dark:text-blue-300/80\">\n          We sent a link to alex@company.com. Confirm it to secure your account.\n        </p>\n      </div>\n      <Button\n        size=\"sm\"\n        variant=\"outline\"\n        disabled={sent}\n        onClick={() => setSent(true)}\n        className=\"shrink-0 border-blue-500/30 bg-transparent text-blue-700 hover:bg-blue-500/10 dark:text-blue-300\"\n      >\n        {sent ? (\n          <>\n            <Check />\n            Email sent\n          </>\n        ) : (\n          'Resend email'\n        )}\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/banner/banner-11.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

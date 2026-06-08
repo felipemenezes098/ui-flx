@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-scroll",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "sticky-scroll-media",
+      "type": "registry:block",
+      "title": "Sticky Scroll Media",
+      "description": "Sticky media that changes as you scroll through text content.",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "sticky-scroll-media/sticky-scroll-media.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+        },
+        {
+          "path": "sticky-scroll-media/sticky-scroll-media-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      }
+    }
+  ]
+}

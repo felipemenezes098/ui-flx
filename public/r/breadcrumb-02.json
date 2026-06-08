@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-02",
-  "title": "With icon",
-  "description": "Leading home icon on the first crumb.",
+  "title": "With icons",
+  "description": "Each crumb prefixed with a small icon, such as a house, folder, or file.",
   "dependencies": [],
   "registryDependencies": [
     "breadcrumb"

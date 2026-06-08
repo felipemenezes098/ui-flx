@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-10",
+  "title": "Sticky header",
+  "description": "Header pinned while the capped body scrolls.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-10.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst rows = Array.from({ length: 16 }, (_, index) => ({\n  id: `EMP-${(index + 1).toString().padStart(3, '0')}`,\n  name: [\n    'Olivia Martin',\n    'Jackson Lee',\n    'Isabella Nguyen',\n    'William Kim',\n    'Sofia Davis',\n    'Liam Johnson',\n    'Emma Brown',\n    'Noah Williams',\n  ][index % 8],\n  department: ['Design', 'Engineering', 'Sales', 'Support'][index % 4],\n  salary: `$${(80 + index * 3).toString()},000`,\n}))\n\nexport function Table10() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <div className=\"overflow-hidden rounded-lg border **:data-[slot=table-container]:max-h-72\">\n        <Table>\n          <TableHeader className=\"bg-background sticky top-0 z-10 [&_tr]:border-b [&_tr:hover]:bg-transparent\">\n            <TableRow>\n              <TableHead className=\"w-24\">ID</TableHead>\n              <TableHead>Name</TableHead>\n              <TableHead>Department</TableHead>\n              <TableHead className=\"text-right\">Salary</TableHead>\n            </TableRow>\n          </TableHeader>\n          <TableBody>\n            {rows.map((row) => (\n              <TableRow key={row.id}>\n                <TableCell className=\"font-medium\">{row.id}</TableCell>\n                <TableCell>{row.name}</TableCell>\n                <TableCell className=\"text-muted-foreground\">\n                  {row.department}\n                </TableCell>\n                <TableCell className=\"text-right tabular-nums\">\n                  {row.salary}\n                </TableCell>\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

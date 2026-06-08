@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { CarouselMedia } from './carousel-media'
 import { CarouselMediaEditorFields } from './editor/fields'
 import { CarouselMediaExample, values } from './carousel-media-example'

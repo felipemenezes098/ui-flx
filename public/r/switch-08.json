@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-08",
+  "title": "Settings group",
+  "description": "A grouped list of notification settings, each row with a label, helper text, and a switch.",
+  "dependencies": [],
+  "registryDependencies": [
+    "switch",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-08.tsx",
+      "content": "import {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nconst settings = [\n  {\n    id: 'marketing',\n    label: 'Marketing emails',\n    description: 'Product updates, tips, and announcements.',\n    defaultChecked: true,\n  },\n  {\n    id: 'security',\n    label: 'Security alerts',\n    description: 'Sign-in notifications and password changes.',\n    defaultChecked: true,\n  },\n  {\n    id: 'digest',\n    label: 'Weekly digest',\n    description: 'A summary of your team activity every Monday.',\n    defaultChecked: false,\n  },\n]\n\nexport function Switch08() {\n  return (\n    <FieldSet className=\"max-w-sm\">\n      <FieldLegend>Notifications</FieldLegend>\n      <FieldDescription>Choose how we reach you.</FieldDescription>\n      <FieldGroup className=\"gap-4\">\n        {settings.map((item) => (\n          <Field key={item.id} orientation=\"horizontal\">\n            <FieldContent>\n              <FieldLabel htmlFor={`switch-08-${item.id}`}>\n                {item.label}\n              </FieldLabel>\n              <FieldDescription>{item.description}</FieldDescription>\n            </FieldContent>\n            <Switch\n              id={`switch-08-${item.id}`}\n              defaultChecked={item.defaultChecked}\n            />\n          </Field>\n        ))}\n      </FieldGroup>\n    </FieldSet>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

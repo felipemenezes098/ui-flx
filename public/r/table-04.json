@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-04",
+  "title": "Striped rows",
+  "description": "Zebra striping tints every other row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-04.tsx",
+      "content": "import {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst orders = [\n  {\n    id: '#3210',\n    customer: 'Liam Johnson',\n    date: 'Jun 23, 2026',\n    total: '$250.00',\n  },\n  {\n    id: '#3209',\n    customer: 'Olivia Smith',\n    date: 'Jun 22, 2026',\n    total: '$150.00',\n  },\n  {\n    id: '#3208',\n    customer: 'Noah Williams',\n    date: 'Jun 21, 2026',\n    total: '$350.00',\n  },\n  {\n    id: '#3207',\n    customer: 'Emma Brown',\n    date: 'Jun 20, 2026',\n    total: '$450.00',\n  },\n  {\n    id: '#3206',\n    customer: 'James Davis',\n    date: 'Jun 19, 2026',\n    total: '$120.00',\n  },\n]\n\nexport function Table04() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <Table>\n        <TableHeader>\n          <TableRow>\n            <TableHead className=\"w-20\">Order</TableHead>\n            <TableHead>Customer</TableHead>\n            <TableHead>Date</TableHead>\n            <TableHead className=\"text-right\">Total</TableHead>\n          </TableRow>\n        </TableHeader>\n        <TableBody className=\"[&_tr:nth-child(even)]:bg-muted/50 [&_tr]:border-0\">\n          {orders.map((order) => (\n            <TableRow key={order.id}>\n              <TableCell className=\"font-medium\">{order.id}</TableCell>\n              <TableCell>{order.customer}</TableCell>\n              <TableCell className=\"text-muted-foreground\">\n                {order.date}\n              </TableCell>\n              <TableCell className=\"text-right tabular-nums\">\n                {order.total}\n              </TableCell>\n            </TableRow>\n          ))}\n        </TableBody>\n      </Table>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

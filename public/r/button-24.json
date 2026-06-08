@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-24",
   "title": "Group with disabled",
-  "description": "ButtonGroup with one disabled step.",
+  "description": "Merged-border button row where one step is visually disabled and non-interactive.",
   "dependencies": [],
   "registryDependencies": [
     "button",

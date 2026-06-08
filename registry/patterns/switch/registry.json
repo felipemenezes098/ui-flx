@@ -1,0 +1,251 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-switch",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "switch-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "A single standalone switch."
+    },
+    {
+      "name": "switch-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-02.tsx"
+        }
+      ],
+      "title": "With label",
+      "description": "Switch paired with an accessible field label."
+    },
+    {
+      "name": "switch-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-03.tsx"
+        }
+      ],
+      "title": "With description",
+      "description": "Label and helper description beside the switch."
+    },
+    {
+      "name": "switch-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-04.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "The sm and default sizes side-by-side."
+    },
+    {
+      "name": "switch-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-05.tsx"
+        }
+      ],
+      "title": "Disabled",
+      "description": "Disabled off and disabled on states."
+    },
+    {
+      "name": "switch-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-06.tsx"
+        }
+      ],
+      "title": "Theme toggle",
+      "description": "Sun and moon icons flank a light / dark toggle."
+    },
+    {
+      "name": "switch-07",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "switch-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-07.tsx"
+        }
+      ],
+      "title": "Icon in thumb",
+      "description": "Custom larger toggle with sun / moon icons that swap inside the thumb."
+    },
+    {
+      "name": "switch-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-08.tsx"
+        }
+      ],
+      "title": "Settings group",
+      "description": "A grouped list of notification settings, each row with a label, helper text, and a switch."
+    },
+    {
+      "name": "switch-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-09.tsx"
+        }
+      ],
+      "title": "Credit card auto-pay",
+      "description": "A visual credit card mockup above a labeled switch for enabling automatic monthly payments."
+    },
+    {
+      "name": "switch-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "switch-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-10.tsx"
+        }
+      ],
+      "title": "Choice cards",
+      "description": "Clickable add-on rows showing a title, description, price, and a switch, each fully tappable via a wrapping label."
+    },
+    {
+      "name": "switch-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "switch-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-11.tsx"
+        }
+      ],
+      "title": "Invalid / required",
+      "description": "A required switch in a form that shows an inline error message when submitted while off."
+    },
+    {
+      "name": "switch-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "zod",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "switch-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-12.tsx"
+        }
+      ],
+      "title": "React Hook Form + Zod",
+      "description": "Controller binds the switch to RHF; Zod requires opt-in on submit."
+    },
+    {
+      "name": "switch-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "switch",
+        "field",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "switch-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/switch/switch-13.tsx"
+        }
+      ],
+      "title": "TanStack Form + Zod",
+      "description": "form.Field wires the switch; Zod onSubmit validator surfaces FieldError."
+    }
+  ]
+}

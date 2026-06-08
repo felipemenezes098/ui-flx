@@ -1,0 +1,293 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-popover",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "popover-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "popover-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Default popover with a button trigger and simple text."
+    },
+    {
+      "name": "popover-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "popover-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-02.tsx"
+        }
+      ],
+      "title": "With header",
+      "description": "Popover with a bold title and a short description below it."
+    },
+    {
+      "name": "popover-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "popover-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-03.tsx"
+        }
+      ],
+      "title": "Sides",
+      "description": "Place the popover on top, right, bottom, or left of the trigger."
+    },
+    {
+      "name": "popover-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "popover-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-04.tsx"
+        }
+      ],
+      "title": "Alignment",
+      "description": "Align the content to the start, center, or end of the trigger."
+    },
+    {
+      "name": "popover-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "popover-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-05.tsx"
+        }
+      ],
+      "title": "Custom width",
+      "description": "Override the default width via className on PopoverContent."
+    },
+    {
+      "name": "popover-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "field",
+        "input"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-06.tsx"
+        }
+      ],
+      "title": "Dimensions form",
+      "description": "Form with inline labeled inputs for width, max-width, height, and max-height."
+    },
+    {
+      "name": "popover-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "field",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-07.tsx"
+        }
+      ],
+      "title": "Notification settings",
+      "description": "Switches with labels and descriptions inside the popover."
+    },
+    {
+      "name": "popover-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-08.tsx"
+        }
+      ],
+      "title": "Color picker",
+      "description": "Swatch grid with a check icon on the active color."
+    },
+    {
+      "name": "popover-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "input-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-09.tsx"
+        }
+      ],
+      "title": "Share link",
+      "description": "Readonly URL input with a trailing copy button."
+    },
+    {
+      "name": "popover-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "badge",
+        "item",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-10.tsx"
+        }
+      ],
+      "title": "Notifications list",
+      "description": "Notification rows with an icon, message text, timestamp, and unread indicator dot."
+    },
+    {
+      "name": "popover-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "avatar"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-11.tsx"
+        }
+      ],
+      "title": "Profile card",
+      "description": "Banner image, avatar, bio, and follow / message actions."
+    },
+    {
+      "name": "popover-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-12.tsx"
+        }
+      ],
+      "title": "Cover picker",
+      "description": "Thumbnail grid with a selection ring for choosing a cover image."
+    },
+    {
+      "name": "popover-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "badge",
+        "field",
+        "separator",
+        "toggle-group"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-13.tsx"
+        }
+      ],
+      "title": "Filters",
+      "description": "Grouped toggle button filters for status and priority, with reset and apply actions."
+    },
+    {
+      "name": "popover-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "popover",
+        "button",
+        "avatar",
+        "scroll-area",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "popover-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/popover/popover-14.tsx"
+        }
+      ],
+      "title": "Scrollable list",
+      "description": "Scrollable list of team members with avatars and roles inside a fixed-height popover."
+    }
+  ]
+}

@@ -2,13 +2,13 @@
 
 import * as React from 'react'
 
-import type { PresetId } from '@/lib/presets-config'
-import { getBlockBySlug } from '@/lib/catalog'
+import type { PresetId } from '@/lib/presets/presets-config'
+import { getBlockBySlug } from '@/lib/blocks/block-catalog'
 import {
   FALLBACK_PRESET,
   readPresetFromStorage,
   writePresetToStorage,
-} from '@/lib/preset-storage'
+} from '@/lib/presets/preset-storage'
 
 import { BlockPreviewToolbar } from './block-preview-toolbar'
 

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-shared",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "cta",
+      "type": "registry:block",
+      "title": "CTA (Call to Action)",
+      "description": "Shared CTA component with link and button variant",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "cta/cta.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/cta/cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade-edges",
+      "type": "registry:block",
+      "title": "Scroll Fade Edges",
+      "description": "A component that fades the edges of a scrollable area.",
+      "registryDependencies": [],
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "scroll-fade-edges.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/scroll-fade-edges.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dynamic-icon",
+      "type": "registry:block",
+      "title": "Dynamic Icon",
+      "description": "A dynamic icon component with a name and size.",
+      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "dynamic-icon/dynamic-icon.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-13",
+  "title": "Tag list",
+  "description": "A wrapping group of outline badges as tags.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-13.tsx",
+      "content": "import { Badge } from '@/components/ui/badge'\n\nconst tags = [\n  'react',\n  'typescript',\n  'tailwind',\n  'next.js',\n  'shadcn/ui',\n  'motion',\n  'radix',\n]\n\nexport function Badge13() {\n  return (\n    <div className=\"flex max-w-xs flex-wrap gap-1.5\">\n      {tags.map((tag) => (\n        <Badge key={tag} variant=\"outline\" className=\"font-normal\">\n          {tag}\n        </Badge>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

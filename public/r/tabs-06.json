@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-06",
   "title": "With icons",
-  "description": "Leading icons in each trigger via data-icon.",
+  "description": "Tabs with a small icon placed before each label in the trigger.",
   "dependencies": [
     "lucide-react"
   ],

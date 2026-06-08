@@ -4,16 +4,12 @@ export const dataNavbar = [
     href: '/patterns',
   },
   {
+    name: 'Intents',
+    href: '/intents',
+  },
+  {
     name: 'Blocks',
     href: '/blocks',
-  },
-  {
-    name: 'Presets',
-    href: '/presets',
-  },
-  {
-    name: 'AI',
-    href: '/ai',
   },
   {
     name: 'Me',

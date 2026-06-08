@@ -1,0 +1,170 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-banner",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "banner-01",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "Icon, message, and a subtle bordered surface."
+    },
+    {
+      "name": "banner-02",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-02.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "Info, success, warning, and error tones stacked."
+    },
+    {
+      "name": "banner-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-03.tsx"
+        }
+      ],
+      "title": "Dismissible",
+      "description": "A close button hides the banner with a restore link."
+    },
+    {
+      "name": "banner-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-04.tsx"
+        }
+      ],
+      "title": "With actions",
+      "description": "Message paired with Later and Update now buttons."
+    },
+    {
+      "name": "banner-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-06.tsx"
+        }
+      ],
+      "title": "Announcement bar",
+      "description": "Full-width gradient promo with a New tag and arrow."
+    },
+    {
+      "name": "banner-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-07.tsx"
+        }
+      ],
+      "title": "Expandable",
+      "description": "Collapsible release notes that reveal highlights."
+    },
+    {
+      "name": "banner-09",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-09.tsx"
+        }
+      ],
+      "title": "Maintenance",
+      "description": "Amber system notice with a pulsing status dot."
+    },
+    {
+      "name": "banner-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-11.tsx"
+        }
+      ],
+      "title": "Email verification",
+      "description": "Blue prompt with a Resend email button that switches to a sent confirmation."
+    },
+    {
+      "name": "banner-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-12.tsx"
+        }
+      ],
+      "title": "Stacked",
+      "description": "A list of dismissible notices, each removed on its own."
+    },
+    {
+      "name": "banner-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "progress"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "banner-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/banner/banner-14.tsx"
+        }
+      ],
+      "title": "With progress",
+      "description": "Live import banner with a spinner and a progress bar."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-19",
+  "title": "TanStack Form + Zod",
+  "description": "form.Field wires the radio group; Zod onSubmit surfaces FieldError.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "dropdown-menu",
+    "button",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/dropdown/dropdown-19.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { ChevronDownIcon } from 'lucide-react'\n\nconst visibilities = [\n  { value: 'public', label: 'Public' },\n  { value: 'private', label: 'Private' },\n  { value: 'team', label: 'Team only' },\n] as const\n\nconst formSchema = z.object({\n  visibility: z.string().min(1, 'Choose a visibility.'),\n})\n\nexport function Dropdown19() {\n  const form = useForm({\n    defaultValues: {\n      visibility: '',\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      const label = visibilities.find(\n        (item) => item.value === value.visibility,\n      )?.label\n      toast.success('Submitted', {\n        description: label ?? value.visibility,\n      })\n    },\n  })\n\n  return (\n    <form\n      onSubmit={(e) => {\n        e.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <FieldGroup>\n        <form.Field name=\"visibility\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n            const selected = visibilities.find(\n              (item) => item.value === field.state.value,\n            )\n\n            return (\n              <Field data-invalid={isInvalid}>\n                <FieldLabel htmlFor={field.name}>Visibility</FieldLabel>\n                <DropdownMenu>\n                  <DropdownMenuTrigger asChild>\n                    <Button\n                      id={field.name}\n                      type=\"button\"\n                      variant=\"outline\"\n                      className=\"w-full justify-between font-normal\"\n                      aria-invalid={isInvalid}\n                    >\n                      <span\n                        className={selected ? '' : 'text-muted-foreground'}\n                      >\n                        {selected?.label ?? 'Select visibility'}\n                      </span>\n                      <ChevronDownIcon className=\"text-muted-foreground\" />\n                    </Button>\n                  </DropdownMenuTrigger>\n                  <DropdownMenuContent\n                    align=\"start\"\n                    className=\"w-(--radix-dropdown-menu-trigger-width)\"\n                  >\n                    <DropdownMenuRadioGroup\n                      value={field.state.value}\n                      onValueChange={(value) => {\n                        field.handleChange(value)\n                        field.handleBlur()\n                      }}\n                    >\n                      {visibilities.map((item) => (\n                        <DropdownMenuRadioItem\n                          key={item.value}\n                          value={item.value}\n                        >\n                          {item.label}\n                        </DropdownMenuRadioItem>\n                      ))}\n                    </DropdownMenuRadioGroup>\n                  </DropdownMenuContent>\n                </DropdownMenu>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </Field>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/dropdown/dropdown-19.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

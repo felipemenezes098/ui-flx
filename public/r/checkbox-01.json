@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-01",
+  "title": "Basic",
+  "description": "Single checkbox with a label.",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/checkbox/checkbox-01.tsx",
+      "content": "import { Checkbox } from '@/components/ui/checkbox'\nimport { Label } from '@/components/ui/label'\n\nexport function Checkbox01() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Checkbox id=\"checkbox-01-terms\" defaultChecked />\n      <Label htmlFor=\"checkbox-01-terms\">Accept terms and conditions</Label>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/checkbox/checkbox-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

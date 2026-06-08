@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { TextBadges } from './text-badges'
 import { TextBadgesEditorFields } from './editor/fields'
 import { TextBadgesExample, values } from './text-badges-example'

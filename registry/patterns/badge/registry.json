@@ -1,0 +1,229 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-patterns-badge",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "badge-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-01.tsx"
+        }
+      ],
+      "title": "Basic",
+      "description": "A single default badge."
+    },
+    {
+      "name": "badge-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-02.tsx"
+        }
+      ],
+      "title": "Variants",
+      "description": "All six variants side-by-side: default, secondary, destructive, outline, ghost, link."
+    },
+    {
+      "name": "badge-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-03.tsx"
+        }
+      ],
+      "title": "With icon",
+      "description": "Leading verified icon before the label."
+    },
+    {
+      "name": "badge-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-04.tsx"
+        }
+      ],
+      "title": "With status dot",
+      "description": "A colored presence dot beside an outline label."
+    },
+    {
+      "name": "badge-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-05.tsx"
+        }
+      ],
+      "title": "Status colors",
+      "description": "Tinted success, warning, error, and info states."
+    },
+    {
+      "name": "badge-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-06.tsx"
+        }
+      ],
+      "title": "Count",
+      "description": "Pill-shaped numeric counts with tabular figures."
+    },
+    {
+      "name": "badge-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-07.tsx"
+        }
+      ],
+      "title": "As link",
+      "description": "asChild renders the badge as an anchor with a trailing icon."
+    },
+    {
+      "name": "badge-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-08.tsx"
+        }
+      ],
+      "title": "Removable",
+      "description": "Dismissible tag chips with a trailing remove button."
+    },
+    {
+      "name": "badge-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge",
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-09.tsx"
+        }
+      ],
+      "title": "With avatar",
+      "description": "Assignee chip with a leading avatar inside the badge."
+    },
+    {
+      "name": "badge-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-10.tsx"
+        }
+      ],
+      "title": "Sizes",
+      "description": "Small, default, and large sizes via className."
+    },
+    {
+      "name": "badge-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-11.tsx"
+        }
+      ],
+      "title": "Trend delta",
+      "description": "Up and down arrows with tinted gain / loss percentages."
+    },
+    {
+      "name": "badge-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-12.tsx"
+        }
+      ],
+      "title": "Icon only",
+      "description": "Round icon-only badges across variants."
+    },
+    {
+      "name": "badge-13",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "badge-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/patterns/badge/badge-13.tsx"
+        }
+      ],
+      "title": "Tag list",
+      "description": "A wrapping group of outline badges as tags."
+    }
+  ]
+}

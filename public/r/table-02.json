@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-02",
+  "title": "With images",
+  "description": "Avatar thumbnails beside name and email in each row.",
+  "dependencies": [],
+  "registryDependencies": [
+    "table",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/table/table-02.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table'\n\nconst members = [\n  {\n    name: 'Olivia Martin',\n    email: 'olivia@example.com',\n    role: 'Owner',\n    image: 'https://github.com/shadcn.png',\n    initials: 'OM',\n  },\n  {\n    name: 'Jackson Lee',\n    email: 'jackson@example.com',\n    role: 'Member',\n    image: '',\n    initials: 'JL',\n  },\n  {\n    name: 'Isabella Nguyen',\n    email: 'isabella@example.com',\n    role: 'Admin',\n    image: 'https://github.com/vercel.png',\n    initials: 'IN',\n  },\n]\n\nexport function Table02() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <Table>\n        <TableHeader>\n          <TableRow>\n            <TableHead>Member</TableHead>\n            <TableHead className=\"text-right\">Role</TableHead>\n          </TableRow>\n        </TableHeader>\n        <TableBody>\n          {members.map((member) => (\n            <TableRow key={member.email}>\n              <TableCell>\n                <div className=\"flex items-center gap-3\">\n                  <Avatar className=\"size-8\">\n                    <AvatarImage src={member.image} alt={member.name} />\n                    <AvatarFallback>{member.initials}</AvatarFallback>\n                  </Avatar>\n                  <div className=\"flex flex-col\">\n                    <span className=\"font-medium\">{member.name}</span>\n                    <span className=\"text-muted-foreground text-xs\">\n                      {member.email}\n                    </span>\n                  </div>\n                </div>\n              </TableCell>\n              <TableCell className=\"text-muted-foreground text-right\">\n                {member.role}\n              </TableCell>\n            </TableRow>\n          ))}\n        </TableBody>\n      </Table>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/table/table-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

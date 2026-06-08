@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comment-thread-3",
+  "title": "Activity Feed",
+  "description": "Activity Feed for Comment Thread.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "card",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/intents/collaboration/comment-thread/comment-thread-3.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport {\n  GitCommitVertical,\n  MessageSquare,\n  Share2,\n  UserPlus,\n} from 'lucide-react'\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport { Input } from '@/components/ui/input'\n\ntype CommentEntry = {\n  kind: 'comment'\n  id: string\n  name: string\n  avatar: string\n  time: string\n  text: string\n}\n\ntype EventEntry = {\n  kind: 'event'\n  id: string\n  icon: typeof Share2\n  time: string\n  text: string\n}\n\ntype Entry = CommentEntry | EventEntry\n\nconst INITIAL: Entry[] = [\n  {\n    kind: 'event',\n    id: 'e1',\n    icon: UserPlus,\n    time: '3h',\n    text: 'Grace Hopper was added as an editor',\n  },\n  {\n    kind: 'comment',\n    id: 'c1',\n    name: 'Ada Lovelace',\n    avatar:\n      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=faces',\n    time: '2h',\n    text: 'First draft is ready for review.',\n  },\n  {\n    kind: 'event',\n    id: 'e2',\n    icon: GitCommitVertical,\n    time: '2h',\n    text: 'Alan Turing edited the pricing section',\n  },\n  {\n    kind: 'comment',\n    id: 'c2',\n    name: 'Grace Hopper',\n    avatar:\n      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&fit=crop&crop=faces',\n    time: '1h',\n    text: 'Looks great. Shipping it.',\n  },\n  {\n    kind: 'event',\n    id: 'e3',\n    icon: Share2,\n    time: '40m',\n    text: 'Document shared with the design team',\n  },\n]\n\nexport function CommentThread3() {\n  const [entries, setEntries] = useState<Entry[]>(INITIAL)\n  const [draft, setDraft] = useState('')\n\n  const send = () => {\n    const text = draft.trim()\n    if (!text) return\n    setEntries((prev) => [\n      ...prev,\n      {\n        kind: 'comment',\n        id: `me-${prev.length}`,\n        name: 'You',\n        avatar: '',\n        time: 'now',\n        text,\n      },\n    ])\n    setDraft('')\n  }\n\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <MessageSquare className=\"size-4\" />\n          Activity\n        </CardTitle>\n      </CardHeader>\n      <CardContent className=\"flex flex-col gap-4\">\n        {entries.map((entry) =>\n          entry.kind === 'comment' ? (\n            <div key={entry.id} className=\"flex gap-3\">\n              <Avatar className=\"size-7\">\n                <AvatarImage src={entry.avatar} alt={entry.name} />\n                <AvatarFallback className=\"bg-muted text-xs\">\n                  {entry.name\n                    .split(' ')\n                    .map((n) => n[0])\n                    .join('')}\n                </AvatarFallback>\n              </Avatar>\n              <div className=\"flex flex-1 flex-col gap-0.5\">\n                <div className=\"flex items-baseline justify-between gap-2\">\n                  <span className=\"text-sm font-medium\">{entry.name}</span>\n                  <span className=\"text-muted-foreground text-xs\">\n                    {entry.time}\n                  </span>\n                </div>\n                <p className=\"text-sm\">{entry.text}</p>\n              </div>\n            </div>\n          ) : (\n            <div\n              key={entry.id}\n              className=\"text-muted-foreground flex items-center gap-3 text-xs\"\n            >\n              <div className=\"bg-muted flex size-7 shrink-0 items-center justify-center rounded-full\">\n                <entry.icon className=\"size-3.5\" />\n              </div>\n              <span className=\"flex-1\">{entry.text}</span>\n              <span>{entry.time}</span>\n            </div>\n          ),\n        )}\n      </CardContent>\n      <CardFooter>\n        <div className=\"flex w-full gap-2\">\n          <Input\n            placeholder=\"Write a comment...\"\n            value={draft}\n            onChange={(e) => setDraft(e.target.value)}\n            onKeyDown={(e) => e.key === 'Enter' && send()}\n          />\n          <Button onClick={send} disabled={!draft.trim()}>\n            Send\n          </Button>\n        </div>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/intent/comment-thread/comment-thread-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

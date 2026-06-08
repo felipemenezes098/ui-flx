@@ -1,0 +1,65 @@
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+
+export function SignIn2() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome back</CardTitle>
+        <CardDescription>Sign in with your email and password.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="ep-email" className="text-xs">
+              Email
+            </Label>
+            <Input
+              id="ep-email"
+              type="email"
+              placeholder="you@acme.com"
+              autoComplete="email"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center justify-between">
+              <Label htmlFor="ep-password" className="text-xs">
+                Password
+              </Label>
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground text-[11px]"
+              >
+                Forgot?
+              </a>
+            </div>
+            <Input
+              id="ep-password"
+              type="password"
+              placeholder="••••••••"
+              autoComplete="current-password"
+            />
+          </div>
+
+          <Button className="w-full">Sign in</Button>
+        </div>
+      </CardContent>
+
+      <p className="text-muted-foreground mt-5 text-center text-xs">
+        No account?{' '}
+        <a href="#" className="text-foreground font-medium hover:underline">
+          Sign up
+        </a>
+      </p>
+    </Card>
+  )
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-07",
+  "title": "Left chevron",
+  "description": "Rotating chevron placed before the label instead of after it.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/patterns/accordion/accordion-07.tsx",
+      "content": "import { Accordion as AccordionPrimitive } from 'radix-ui'\nimport { ChevronRightIcon } from 'lucide-react'\n\nconst items = [\n  {\n    value: 'getting-started',\n    title: 'Getting started',\n    body: 'Install the CLI, authenticate, and scaffold your first project in under a minute.',\n  },\n  {\n    value: 'configuration',\n    title: 'Configuration',\n    body: 'Tune build targets, environment variables, and output paths from a single config file.',\n  },\n  {\n    value: 'deployment',\n    title: 'Deployment',\n    body: 'Ship to preview and production with atomic, instantly reversible deploys.',\n  },\n]\n\nexport function Accordion07() {\n  return (\n    <AccordionPrimitive.Root\n      type=\"single\"\n      collapsible\n      defaultValue=\"getting-started\"\n      className=\"flex w-full max-w-md flex-col\"\n    >\n      {items.map((item) => (\n        <AccordionPrimitive.Item\n          key={item.value}\n          value={item.value}\n          className=\"not-last:border-b\"\n        >\n          <AccordionPrimitive.Header className=\"flex\">\n            <AccordionPrimitive.Trigger className=\"group/trigger flex flex-1 items-center gap-2 py-4 text-left text-sm font-medium outline-none focus-visible:underline\">\n              <ChevronRightIcon className=\"size-4 shrink-0 text-muted-foreground transition-transform group-aria-expanded/trigger:rotate-90\" />\n              {item.title}\n            </AccordionPrimitive.Trigger>\n          </AccordionPrimitive.Header>\n          <AccordionPrimitive.Content className=\"overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up\">\n            <p className=\"h-(--radix-accordion-content-height) pb-4 pl-6 text-muted-foreground\">\n              {item.body}\n            </p>\n          </AccordionPrimitive.Content>\n        </AccordionPrimitive.Item>\n      ))}\n    </AccordionPrimitive.Root>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/accordion/accordion-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

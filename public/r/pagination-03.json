@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-03",
+  "title": "Interactive window",
+  "description": "Stateful current page with a sliding ellipsis range.",
+  "dependencies": [],
+  "registryDependencies": [
+    "pagination"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/pagination/pagination-03.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\n\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from '@/components/ui/pagination'\n\nconst TOTAL_PAGES = 12\n\n// Build a windowed range with leading/trailing ellipsis (`'…'`).\nfunction getPageRange(current: number, total: number, siblings = 1) {\n  const range: (number | '…')[] = []\n  const left = Math.max(2, current - siblings)\n  const right = Math.min(total - 1, current + siblings)\n\n  range.push(1)\n  if (left > 2) range.push('…')\n  for (let i = left; i <= right; i++) range.push(i)\n  if (right < total - 1) range.push('…')\n  if (total > 1) range.push(total)\n\n  return range\n}\n\nexport function Pagination03() {\n  const [page, setPage] = useState(1)\n  const pages = getPageRange(page, TOTAL_PAGES)\n\n  return (\n    <Pagination>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious\n            href=\"#\"\n            aria-disabled={page === 1}\n            className={page === 1 ? 'pointer-events-none opacity-50' : ''}\n            onClick={(e) => {\n              e.preventDefault()\n              setPage((p) => Math.max(1, p - 1))\n            }}\n          />\n        </PaginationItem>\n\n        {pages.map((p, i) =>\n          p === '…' ? (\n            <PaginationItem key={`ellipsis-${i}`}>\n              <PaginationEllipsis />\n            </PaginationItem>\n          ) : (\n            <PaginationItem key={p}>\n              <PaginationLink\n                href=\"#\"\n                isActive={p === page}\n                onClick={(e) => {\n                  e.preventDefault()\n                  setPage(p)\n                }}\n              >\n                {p}\n              </PaginationLink>\n            </PaginationItem>\n          ),\n        )}\n\n        <PaginationItem>\n          <PaginationNext\n            href=\"#\"\n            aria-disabled={page === TOTAL_PAGES}\n            className={\n              page === TOTAL_PAGES ? 'pointer-events-none opacity-50' : ''\n            }\n            onClick={(e) => {\n              e.preventDefault()\n              setPage((p) => Math.min(TOTAL_PAGES, p + 1))\n            }}\n          />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/pagination/pagination-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,4 +1,4 @@
-import type { BlockManifest } from '@/lib/block-manifest-types'
+import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { BackgroundMedia } from './background-media'
 import { BackgroundMediaEditorFields } from './editor/fields'
 import { BackgroundMediaExample, values } from './background-media-example'

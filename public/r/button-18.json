@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-18",
   "title": "Icon toolbar",
-  "description": "Icon-only formatting toolbar in a ButtonGroup.",
+  "description": "Compact toolbar of icon-only buttons with merged borders, used for text formatting actions.",
   "dependencies": [
     "lucide-react"
   ],

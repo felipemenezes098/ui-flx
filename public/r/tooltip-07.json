@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-07",
   "title": "Light via dark class",
-  "description": "Apply the `dark` class to TooltipContent to flip local CSS variables and render a light tooltip in light mode.",
+  "description": "A light-colored tooltip that appears in light mode, inverted from the default dark style.",
   "dependencies": [],
   "registryDependencies": [
     "tooltip",

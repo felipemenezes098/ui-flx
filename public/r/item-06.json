@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "item-06",
   "title": "With avatar",
-  "description": "User avatar in ItemMedia variant=\"image\".",
+  "description": "User avatar photo placed before the name and subtitle.",
   "dependencies": [],
   "registryDependencies": [
     "item",

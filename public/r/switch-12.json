@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-12",
+  "title": "React Hook Form + Zod",
+  "description": "Controller binds the switch to RHF; Zod requires opt-in on submit.",
+  "dependencies": [
+    "react-hook-form",
+    "zod",
+    "@hookform/resolvers",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "switch",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/switch/switch-12.tsx",
+      "content": "'use client'\n\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { Controller, useForm } from 'react-hook-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Switch } from '@/components/ui/switch'\n\nconst formSchema = z.object({\n  marketing: z.boolean().refine((value) => value === true, {\n    message: 'You must opt in to receive updates.',\n  }),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function Switch12() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      marketing: false,\n    },\n  })\n\n  function onSubmit(data: FormValues) {\n    toast.success('Submitted', { description: `marketing: ${data.marketing}` })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-4\"\n    >\n      <Controller\n        name=\"marketing\"\n        control={form.control}\n        render={({ field, fieldState }) => (\n          <Field orientation=\"horizontal\" data-invalid={fieldState.invalid}>\n            <FieldContent>\n              <FieldLabel htmlFor=\"switch-12\">Marketing emails</FieldLabel>\n              <FieldDescription>\n                Receive product news and offers.\n              </FieldDescription>\n              {fieldState.invalid && (\n                <FieldError errors={[fieldState.error]} />\n              )}\n            </FieldContent>\n            <Switch\n              id=\"switch-12\"\n              aria-invalid={fieldState.invalid}\n              checked={field.value}\n              onCheckedChange={field.onChange}\n            />\n          </Field>\n        )}\n      />\n      <Button type=\"submit\" size=\"sm\" className=\"self-start\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/switch/switch-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

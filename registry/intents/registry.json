@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-intent",
+  "homepage": "https://ui.flexnative.com",
+  "include": [
+    "./account/registry.json",
+    "./auth/registry.json",
+    "./billing/registry.json",
+    "./collaboration/registry.json"
+  ],
+  "items": []
+}

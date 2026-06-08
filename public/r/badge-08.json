@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-08",
+  "title": "Removable",
+  "description": "Dismissible tag chips with a trailing remove button.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/badge/badge-08.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { XIcon } from 'lucide-react'\n\nimport { Badge } from '@/components/ui/badge'\n\nconst initialTags = ['Design', 'Engineering', 'Marketing', 'Sales']\n\nexport function Badge08() {\n  const [tags, setTags] = useState(initialTags)\n\n  return (\n    <div className=\"flex flex-wrap items-center gap-2\">\n      {tags.map((tag) => (\n        <Badge key={tag} variant=\"secondary\">\n          {tag}\n          <button\n            type=\"button\"\n            onClick={() => setTags((prev) => prev.filter((t) => t !== tag))}\n            aria-label={`Remove ${tag}`}\n            className=\"data-[icon=inline-end]:-mr-0.5 rounded-full opacity-60 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none\"\n            data-icon=\"inline-end\"\n          >\n            <XIcon className=\"size-3\" />\n          </button>\n        </Badge>\n      ))}\n      {tags.length === 0 && (\n        <button\n          type=\"button\"\n          onClick={() => setTags(initialTags)}\n          className=\"text-muted-foreground text-xs underline-offset-4 hover:underline\"\n        >\n          Reset\n        </button>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/patterns/badge/badge-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

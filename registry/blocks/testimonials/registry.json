@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-testimonials",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "single-testimonial",
+      "type": "registry:block",
+      "title": "Single Testimonial",
+      "description": "A single testimonial with quote, avatar, author name and role.",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "single-testimonial/single-testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
+        },
+        {
+          "path": "single-testimonial/single-testimonial-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
+        }
+      ]
+    }
+  ]
+}
