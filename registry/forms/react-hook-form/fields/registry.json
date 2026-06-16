@@ -1,0 +1,202 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-react-hook-form-fields",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "rhf-fields-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-02.tsx"
+        }
+      ],
+      "title": "Text Input",
+      "description": "Native text and email inputs bound with register and Zod validation."
+    },
+    {
+      "name": "rhf-fields-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-03.tsx"
+        }
+      ],
+      "title": "Textarea",
+      "description": "Multi-line textarea with a description and length-constrained Zod rule."
+    },
+    {
+      "name": "rhf-fields-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "slider",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-04.tsx"
+        }
+      ],
+      "title": "Slider",
+      "description": "Numeric slider bound via Controller, validated against a Zod range."
+    },
+    {
+      "name": "rhf-fields-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-05.tsx"
+        }
+      ],
+      "title": "Checkbox Group",
+      "description": "Multiple checkboxes collected into a string array with a min-selection rule."
+    },
+    {
+      "name": "rhf-fields-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "toggle-group",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-06.tsx"
+        }
+      ],
+      "title": "Toggle Group",
+      "description": "Single-select toggle group bound via Controller with Zod validation."
+    },
+    {
+      "name": "rhf-fields-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "select",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-07.tsx"
+        }
+      ],
+      "title": "Select",
+      "description": "Grouped select with labelled option groups bound via Controller."
+    },
+    {
+      "name": "rhf-fields-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "command",
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-08.tsx"
+        }
+      ],
+      "title": "Command",
+      "description": "Searchable combobox using Command inside a Popover, bound via Controller."
+    },
+    {
+      "name": "rhf-fields-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-fields-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-09.tsx"
+        }
+      ],
+      "title": "Dropdown",
+      "description": "Single choice via a dropdown menu radio group bound through Controller."
+    }
+  ]
+}

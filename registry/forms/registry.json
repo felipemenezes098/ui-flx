@@ -1,0 +1,10 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms",
+  "homepage": "https://ui.flexnative.com",
+  "include": [
+    "./react-hook-form/registry.json",
+    "./tanstack-form/registry.json"
+  ],
+  "items": []
+}

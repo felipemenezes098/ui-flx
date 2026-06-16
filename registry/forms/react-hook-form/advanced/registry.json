@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-react-hook-form-advanced",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "rhf-advanced-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-advanced-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-advanced-01.tsx"
+        }
+      ],
+      "title": "Dynamic Field Array",
+      "description": "Repeatable member rows with add/remove via useFieldArray and per-item validation."
+    }
+  ]
+}

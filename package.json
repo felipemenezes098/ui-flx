@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 3001",
+    "dev": "next dev --turbopack --port 3002",
     "build": "next build --turbopack",
     "start": "next start",
     "registry:build": "npx shadcn@latest build",

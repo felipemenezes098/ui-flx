@@ -60,8 +60,8 @@ export default function AiPage() {
   return (
     <main className="container-page container-page-inner min-w-0">
       <div className="flex flex-col gap-16 px-3 py-14 md:py-20">
-        <section className="flex flex-col items-center gap-4 text-center">
-          <h1 className="text-5xl font-semibold tracking-tight md:text-6xl">
+        <section className="flex flex-col items-center gap-3 text-center">
+          <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Interface Decisions
           </h1>
           <p className="text-muted-foreground max-w-md text-balance">

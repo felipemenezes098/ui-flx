@@ -1,0 +1,107 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-tanstack-form-rules",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tsf-rules-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-rules-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-01.tsx"
+        }
+      ],
+      "title": "Password Confirmation",
+      "description": "Pick a strong password and confirm it matches."
+    },
+    {
+      "name": "tsf-rules-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-rules-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-02.tsx"
+        }
+      ],
+      "title": "Email Address",
+      "description": "Validate an email address with instant feedback."
+    },
+    {
+      "name": "tsf-rules-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-rules-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-03.tsx"
+        }
+      ],
+      "title": "Number Range",
+      "description": "Keep a numeric input within a sensible range."
+    },
+    {
+      "name": "tsf-rules-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-rules-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-04.tsx"
+        }
+      ],
+      "title": "Character Limit",
+      "description": "Cap text length with a live character counter."
+    }
+  ]
+}

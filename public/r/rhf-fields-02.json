@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rhf-fields-02",
+  "title": "Text Input",
+  "description": "Native text and email inputs bound with register and Zod validation.",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "field",
+    "input",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/react-hook-form/fields/rhf-fields-02.tsx",
+      "content": "'use client'\n\nimport { useForm } from 'react-hook-form'\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nconst formSchema = z.object({\n  name: z.string().min(2, 'Name must be at least 2 characters.'),\n  email: z.string().email('Enter a valid email address.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function RhfFields02() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { name: '', email: '' },\n  })\n\n  const { errors } = form.formState\n\n  function onSubmit(data: FormValues) {\n    toast.success('Profile saved', { description: data.email })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-6\"\n    >\n      <FieldGroup>\n        <Field data-invalid={!!errors.name}>\n          <FieldLabel htmlFor=\"rhf-fields-02-name\">Name</FieldLabel>\n          <Input\n            id=\"rhf-fields-02-name\"\n            placeholder=\"Ada Lovelace\"\n            aria-invalid={!!errors.name}\n            {...form.register('name')}\n          />\n          {errors.name && <FieldError errors={[errors.name]} />}\n        </Field>\n\n        <Field data-invalid={!!errors.email}>\n          <FieldLabel htmlFor=\"rhf-fields-02-email\">Email</FieldLabel>\n          <Input\n            id=\"rhf-fields-02-email\"\n            type=\"email\"\n            placeholder=\"ada@example.com\"\n            aria-invalid={!!errors.email}\n            {...form.register('email')}\n          />\n          {errors.email && <FieldError errors={[errors.email]} />}\n        </Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Save\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/react-hook-form/rhf-fields-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

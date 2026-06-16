@@ -8,6 +8,7 @@ interface PatternCardProps {
   children: ReactNode
   actions?: ReactNode
   className?: string
+  previewClassName?: string
 }
 
 export function PatternCard({
@@ -15,6 +16,7 @@ export function PatternCard({
   children,
   actions,
   className,
+  previewClassName = 'p-8',
 }: Readonly<PatternCardProps>) {
   return (
     <div
@@ -24,7 +26,12 @@ export function PatternCard({
         className,
       )}
     >
-      <div className="border-border bg-card dark:bg-background flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border p-8">
+      <div
+        className={cn(
+          'border-border bg-card dark:bg-background flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border',
+          previewClassName,
+        )}
+      >
         {children}
       </div>
       <div className="flex items-center justify-between gap-2 pr-0.5 pl-1.5">

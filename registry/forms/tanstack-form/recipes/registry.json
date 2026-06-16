@@ -1,0 +1,61 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-tanstack-form-recipes",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tsf-recipes-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-01.tsx"
+        }
+      ],
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit."
+    },
+    {
+      "name": "tsf-recipes-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-02.tsx"
+        }
+      ],
+      "title": "Create Account",
+      "description": "Sign up with a confirmed password and accepted terms."
+    }
+  ]
+}

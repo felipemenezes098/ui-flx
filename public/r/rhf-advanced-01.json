@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rhf-advanced-01",
+  "title": "Dynamic Field Array",
+  "description": "Repeatable member rows with add/remove via useFieldArray and per-item validation.",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "field",
+    "input",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/react-hook-form/advanced/rhf-advanced-01.tsx",
+      "content": "'use client'\n\nimport { useFieldArray, useForm } from 'react-hook-form'\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { PlusIcon, Trash2Icon } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nconst formSchema = z.object({\n  members: z\n    .array(\n      z.object({\n        name: z.string().min(1, 'Name is required.'),\n        email: z.email('Enter a valid email.'),\n      }),\n    )\n    .min(1, 'Add at least one member.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function RhfAdvanced01() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { members: [{ name: '', email: '' }] },\n  })\n\n  const { fields, append, remove } = useFieldArray({\n    control: form.control,\n    name: 'members',\n  })\n\n  const { errors } = form.formState\n\n  function onSubmit(data: FormValues) {\n    toast.success('Team invited', {\n      description: `${data.members.length} member(s)`,\n    })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-md flex-col gap-4\"\n    >\n      <FieldGroup>\n        {fields.map((field, index) => {\n          const memberErrors = errors.members?.[index]\n          return (\n            <div key={field.id} className=\"flex items-end gap-2\">\n              <Field data-invalid={!!memberErrors?.name}>\n                <FieldLabel htmlFor={`rhf-advanced-01-name-${index}`}>\n                  Name\n                </FieldLabel>\n                <Input\n                  id={`rhf-advanced-01-name-${index}`}\n                  placeholder=\"Ada Lovelace\"\n                  aria-invalid={!!memberErrors?.name}\n                  {...form.register(`members.${index}.name`)}\n                />\n                {memberErrors?.name && (\n                  <FieldError errors={[memberErrors.name]} />\n                )}\n              </Field>\n              <Field data-invalid={!!memberErrors?.email}>\n                <FieldLabel htmlFor={`rhf-advanced-01-email-${index}`}>\n                  Email\n                </FieldLabel>\n                <Input\n                  id={`rhf-advanced-01-email-${index}`}\n                  type=\"email\"\n                  placeholder=\"ada@example.com\"\n                  aria-invalid={!!memberErrors?.email}\n                  {...form.register(`members.${index}.email`)}\n                />\n                {memberErrors?.email && (\n                  <FieldError errors={[memberErrors.email]} />\n                )}\n              </Field>\n              <Button\n                type=\"button\"\n                variant=\"outline\"\n                size=\"icon\"\n                aria-label=\"Remove member\"\n                disabled={fields.length === 1}\n                onClick={() => remove(index)}\n              >\n                <Trash2Icon className=\"size-4\" />\n              </Button>\n            </div>\n          )\n        })}\n      </FieldGroup>\n      <div className=\"flex items-center justify-between\">\n        <Button\n          type=\"button\"\n          variant=\"outline\"\n          size=\"sm\"\n          onClick={() => append({ name: '', email: '' })}\n        >\n          <PlusIcon className=\"size-4\" />\n          Add member\n        </Button>\n        <Button type=\"submit\" size=\"sm\">\n          Send invites\n        </Button>\n      </div>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/react-hook-form/rhf-advanced-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

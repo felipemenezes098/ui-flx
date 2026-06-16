@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tsf-fields-05",
+  "title": "Checkbox Group",
+  "description": "Multiple checkboxes collected into a string array with a min-selection rule.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "field",
+    "checkbox",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/tanstack-form/fields/tsf-fields-05.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport { Checkbox } from '@/components/ui/checkbox'\nimport {\n  Field,\n  FieldContent,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from '@/components/ui/field'\n\nconst ITEMS = [\n  { id: 'product', label: 'Product updates' },\n  { id: 'security', label: 'Security alerts' },\n  { id: 'marketing', label: 'Marketing emails' },\n] as const\n\nconst formSchema = z.object({\n  topics: z.array(z.string()).min(1, 'Select at least one topic.'),\n})\n\nexport function TsfFields05() {\n  const form = useForm({\n    defaultValues: { topics: [] as string[] },\n    validators: { onSubmit: formSchema },\n    onSubmit: async ({ value }) => {\n      toast.success('Subscriptions saved', {\n        description: value.topics.join(', '),\n      })\n    },\n  })\n\n  return (\n    <form\n      onSubmit={(e) => {\n        e.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-6\"\n    >\n      <FieldGroup>\n        <form.Field name=\"topics\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n            return (\n              <FieldSet data-invalid={isInvalid}>\n                <FieldLegend>Email subscriptions</FieldLegend>\n                <FieldGroup className=\"gap-2\">\n                  {ITEMS.map((item) => (\n                    <Field key={item.id} orientation=\"horizontal\">\n                      <Checkbox\n                        id={`${field.name}-${item.id}`}\n                        checked={field.state.value.includes(item.id)}\n                        onCheckedChange={(checked) =>\n                          field.handleChange(\n                            checked === true\n                              ? [...field.state.value, item.id]\n                              : field.state.value.filter((v) => v !== item.id),\n                          )\n                        }\n                      />\n                      <FieldContent>\n                        <FieldLabel htmlFor={`${field.name}-${item.id}`}>\n                          {item.label}\n                        </FieldLabel>\n                      </FieldContent>\n                    </Field>\n                  ))}\n                </FieldGroup>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </FieldSet>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Save\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/tanstack-form/tsf-fields-05.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

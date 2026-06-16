@@ -6759,6 +6759,751 @@
       "type": "registry:block"
     },
     {
+      "name": "rhf-fields-02",
+      "title": "Text Input",
+      "description": "Native text and email inputs bound with register and Zod validation.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-03",
+      "title": "Textarea",
+      "description": "Multi-line textarea with a description and length-constrained Zod rule.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-04",
+      "title": "Slider",
+      "description": "Numeric slider bound via Controller, validated against a Zod range.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "slider",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-05",
+      "title": "Checkbox Group",
+      "description": "Multiple checkboxes collected into a string array with a min-selection rule.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "checkbox",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-05.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-06",
+      "title": "Toggle Group",
+      "description": "Single-select toggle group bound via Controller with Zod validation.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "toggle-group",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-06.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-07",
+      "title": "Select",
+      "description": "Grouped select with labelled option groups bound via Controller.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-07.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-08",
+      "title": "Command",
+      "description": "Searchable combobox using Command inside a Popover, bound via Controller.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "command",
+        "popover",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-08.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-fields-09",
+      "title": "Dropdown",
+      "description": "Single choice via a dropdown menu radio group bound through Controller.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "dropdown-menu",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/fields/rhf-fields-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-fields-09.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-rules-01",
+      "title": "Password Confirmation",
+      "description": "Pick a strong password and confirm it matches.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/rules/rhf-rules-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-rules-02",
+      "title": "Email Address",
+      "description": "Validate an email address with instant feedback.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/rules/rhf-rules-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-rules-03",
+      "title": "Number Range",
+      "description": "Keep a numeric input within a sensible range.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/rules/rhf-rules-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-rules-04",
+      "title": "Character Limit",
+      "description": "Cap text length with a live character counter.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/rules/rhf-rules-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-recipes-01",
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/recipes/rhf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-recipes-02",
+      "title": "Create Account",
+      "description": "Sign up with a confirmed password and accepted terms.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "checkbox",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/recipes/rhf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-advanced-01",
+      "title": "Dynamic Field Array",
+      "description": "Repeatable member rows with add/remove via useFieldArray and per-item validation.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/advanced/rhf-advanced-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-advanced-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-02",
+      "title": "Text Input",
+      "description": "Native text and email inputs wired with form.Field and Zod validation.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-03",
+      "title": "Textarea",
+      "description": "Multi-line textarea with a description and length-constrained Zod rule.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-04",
+      "title": "Slider",
+      "description": "Numeric slider wired with form.Field, validated against a Zod range.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "slider",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-05",
+      "title": "Checkbox Group",
+      "description": "Multiple checkboxes collected into a string array with a min-selection rule.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "checkbox",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-05.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-06",
+      "title": "Toggle Group",
+      "description": "Single-select toggle group wired with form.Field and Zod validation.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "toggle-group",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-06.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-07",
+      "title": "Select",
+      "description": "Grouped select with labelled option groups wired with form.Field.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "field",
+        "select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-07.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-08",
+      "title": "Command",
+      "description": "Searchable combobox using Command inside a Popover, wired with form.Field.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "command",
+        "popover",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-08.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-fields-09",
+      "title": "Dropdown",
+      "description": "Single choice via a dropdown menu radio group wired with form.Field.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "dropdown-menu",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/fields/tsf-fields-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-09.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-rules-01",
+      "title": "Password Confirmation",
+      "description": "Pick a strong password and confirm it matches.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/rules/tsf-rules-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-rules-02",
+      "title": "Email Address",
+      "description": "Validate an email address with instant feedback.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/rules/tsf-rules-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-rules-03",
+      "title": "Number Range",
+      "description": "Keep a numeric input within a sensible range.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/rules/tsf-rules-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-rules-04",
+      "title": "Character Limit",
+      "description": "Cap text length with a live character counter.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/rules/tsf-rules-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-rules-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-recipes-01",
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/recipes/tsf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-recipes-02",
+      "title": "Create Account",
+      "description": "Sign up with a confirmed password and accepted terms.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "checkbox",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/recipes/tsf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-advanced-01",
+      "title": "Dynamic Field Array",
+      "description": "Repeatable member rows with add/remove via array mode and per-item validation.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/advanced/tsf-advanced-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "settings-1",
       "title": "Tabbed Sections",
       "description": "Tabbed Sections for Settings.",

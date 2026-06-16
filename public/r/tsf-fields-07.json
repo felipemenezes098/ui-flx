@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tsf-fields-07",
+  "title": "Select",
+  "description": "Grouped select with labelled option groups wired with form.Field.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "field",
+    "select",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/tanstack-form/fields/tsf-fields-07.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst formSchema = z.object({\n  framework: z.string().min(1, 'Select a framework.'),\n})\n\nexport function TsfFields07() {\n  const form = useForm({\n    defaultValues: { framework: '' },\n    validators: { onSubmit: formSchema },\n    onSubmit: async ({ value }) => {\n      toast.success('Framework selected', { description: value.framework })\n    },\n  })\n\n  return (\n    <form\n      onSubmit={(e) => {\n        e.preventDefault()\n        form.handleSubmit()\n      }}\n      className=\"flex w-full max-w-sm flex-col gap-6\"\n    >\n      <FieldGroup>\n        <form.Field name=\"framework\">\n          {(field) => {\n            const isInvalid =\n              field.state.meta.isTouched && !field.state.meta.isValid\n            return (\n              <Field data-invalid={isInvalid}>\n                <FieldLabel htmlFor={field.name}>Framework</FieldLabel>\n                <Select\n                  value={field.state.value}\n                  onValueChange={field.handleChange}\n                >\n                  <SelectTrigger\n                    id={field.name}\n                    className=\"w-full\"\n                    aria-invalid={isInvalid}\n                  >\n                    <SelectValue placeholder=\"Select a framework\" />\n                  </SelectTrigger>\n                  <SelectContent>\n                    <SelectGroup>\n                      <SelectLabel>Frontend</SelectLabel>\n                      <SelectItem value=\"react\">React</SelectItem>\n                      <SelectItem value=\"vue\">Vue</SelectItem>\n                      <SelectItem value=\"svelte\">Svelte</SelectItem>\n                    </SelectGroup>\n                    <SelectGroup>\n                      <SelectLabel>Backend</SelectLabel>\n                      <SelectItem value=\"express\">Express</SelectItem>\n                      <SelectItem value=\"fastify\">Fastify</SelectItem>\n                      <SelectItem value=\"nest\">NestJS</SelectItem>\n                    </SelectGroup>\n                  </SelectContent>\n                </Select>\n                {isInvalid && <FieldError errors={field.state.meta.errors} />}\n              </Field>\n            )\n          }}\n        </form.Field>\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Save\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/tanstack-form/tsf-fields-07.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

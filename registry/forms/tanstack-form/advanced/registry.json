@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-tanstack-form-advanced",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tsf-advanced-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-advanced-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-01.tsx"
+        }
+      ],
+      "title": "Dynamic Field Array",
+      "description": "Repeatable member rows with add/remove via array mode and per-item validation."
+    }
+  ]
+}

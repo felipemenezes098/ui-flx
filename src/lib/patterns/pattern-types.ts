@@ -22,3 +22,15 @@ export interface PatternCategory {
     columns?: PatternGridColumns
   }
 }
+
+/**
+ * A forms library (e.g. React Hook Form, TanStack Form) groups several
+ * pattern categories. The library is the top-level tab; its categories are
+ * rendered as ordered sections (simple → advanced) within a single page.
+ */
+export interface FormLibrary {
+  slug: string
+  name: string
+  description: string
+  categories: PatternCategory[]
+}

@@ -29,9 +29,9 @@ export default function PatternsPage() {
   return (
     <main className="container-page min-w-0">
       <div className="container-page-inner">
-        <div className="flex flex-col gap-10 px-3">
-          <section className="flex flex-col items-center gap-4 text-center">
-            <h1 className="text-5xl font-semibold tracking-tight md:text-6xl">
+        <div className="flex flex-col gap-10 px-3 py-10">
+          <section className="flex flex-col items-center gap-3 text-center">
+            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
               UI Patterns
             </h1>
             <p className="text-muted-foreground max-w-md text-balance">

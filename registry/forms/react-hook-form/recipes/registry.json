@@ -1,0 +1,63 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-react-hook-form-recipes",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "rhf-recipes-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-01.tsx"
+        }
+      ],
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit."
+    },
+    {
+      "name": "rhf-recipes-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-02.tsx"
+        }
+      ],
+      "title": "Create Account",
+      "description": "Sign up with a confirmed password and accepted terms."
+    }
+  ]
+}

@@ -7,13 +7,15 @@ import {
   patternCategories,
 } from '@/lib/patterns/patterns-catalog'
 
-import { PatternCard } from '../components/pattern-card'
-import { PatternActions } from '../components/pattern-actions'
+import { PatternActions } from '@/components/core/patterns/pattern-actions'
+import { PatternCard } from '@/components/core/patterns/pattern-card'
 import {
   PatternGrid,
   patternGridItemVariants,
-} from '../components/pattern-grid'
-import { PatternRenderer } from '../components/pattern-renderer'
+} from '@/components/core/patterns/pattern-grid'
+import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
+
+import { patternRegistry } from '../components/pattern-registry'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -64,7 +66,10 @@ export default async function PatternCategoryPage({
             })}
             actions={<PatternActions item={item} categorySlug={slug} />}
           >
-            <PatternRenderer name={catalogItem.slug} />
+            <PatternRenderer
+              name={catalogItem.slug}
+              registry={patternRegistry}
+            />
           </PatternCard>
         )
       })}
