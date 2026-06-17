@@ -1,0 +1,194 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-tanstack-form-fields",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tsf-fields-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-02.tsx"
+        }
+      ],
+      "title": "Text Input",
+      "description": "Native text and email inputs wired with form.Field and Zod validation."
+    },
+    {
+      "name": "tsf-fields-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-03.tsx"
+        }
+      ],
+      "title": "Textarea",
+      "description": "Multi-line textarea with a description and length-constrained Zod rule."
+    },
+    {
+      "name": "tsf-fields-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "slider",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-04.tsx"
+        }
+      ],
+      "title": "Slider",
+      "description": "Numeric slider wired with form.Field, validated against a Zod range."
+    },
+    {
+      "name": "tsf-fields-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-05.tsx"
+        }
+      ],
+      "title": "Checkbox Group",
+      "description": "Multiple checkboxes collected into a string array with a min-selection rule."
+    },
+    {
+      "name": "tsf-fields-06",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "toggle-group",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-06.tsx"
+        }
+      ],
+      "title": "Toggle Group",
+      "description": "Single-select toggle group wired with form.Field and Zod validation."
+    },
+    {
+      "name": "tsf-fields-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "select",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-07.tsx"
+        }
+      ],
+      "title": "Select",
+      "description": "Grouped select with labelled option groups wired with form.Field."
+    },
+    {
+      "name": "tsf-fields-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "command",
+        "popover",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-08.tsx"
+        }
+      ],
+      "title": "Command",
+      "description": "Searchable combobox using Command inside a Popover, wired with form.Field."
+    },
+    {
+      "name": "tsf-fields-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "field",
+        "dropdown-menu",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-fields-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-fields-09.tsx"
+        }
+      ],
+      "title": "Dropdown",
+      "description": "Single choice via a dropdown menu radio group wired with form.Field."
+    }
+  ]
+}

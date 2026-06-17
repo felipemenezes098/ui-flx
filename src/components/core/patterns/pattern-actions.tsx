@@ -10,6 +10,7 @@ import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { CodeBlockCommand } from '@/components/core/code/code-block-command'
 import { CopyButton } from '@/components/core/code/copy-button'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -18,9 +19,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
 import { registryInstallTarget } from '@/lib/registry-command'
 import { buildPatternPrompt } from '@/lib/patterns/patterns-utils'
 import { fetchRegistryCodeFiles } from '@/lib/registry-source'
+import { cn } from '@/lib/utils'
 
 interface PatternActionsProps {
   item: RegistryItem
@@ -44,7 +47,7 @@ export function PatternActions({
     [item, categorySlug, codeFiles],
   )
 
-  const primaryCode = codeFiles[0]?.content ?? ''
+  const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
     <div className="flex items-center gap-2">
@@ -79,9 +82,36 @@ export function PatternActions({
             {isLoading && (
               <div className="bg-muted h-48 animate-pulse rounded-xl" />
             )}
-            {!isLoading && primaryCode && (
+            {!isLoading && activeFile && (
               <CodeBlock className="dark:bg-background/40">
-                <CodeBlockCode code={primaryCode} language="tsx" withCopy />
+                {codeFiles.length > 1 && (
+                  <div className="mb-1 flex flex-wrap gap-1.5 border-b px-4 py-2.5">
+                    {codeFiles.map((file) => (
+                      <Badge
+                        key={file.name}
+                        variant="outline"
+                        asChild
+                        className={cn(
+                          'cursor-pointer font-mono text-[11px] font-normal transition-colors',
+                          activeFile?.name === file.name &&
+                            'border-foreground/20 bg-muted/30 text-foreground',
+                        )}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setActiveName(file.name)}
+                        >
+                          {file.name}
+                        </button>
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+                <CodeBlockCode
+                  code={activeFile.content}
+                  language="tsx"
+                  withCopy
+                />
               </CodeBlock>
             )}
           </div>

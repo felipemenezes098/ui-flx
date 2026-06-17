@@ -3,6 +3,7 @@
  *
  * Blocks: `title`, `description`, `meta.iframeHeight` from block manifests.
  * Patterns: `title`, `description` from registry/patterns/<cat>/catalog.ts.
+ * Forms: `title`, `description` from registry/forms/<lib>/<cat>/catalog.ts.
  * Intents: `title`, `description`, `files` from intent manifests.
  *
  * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified
@@ -19,6 +20,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { allManifests } from '../src/lib/blocks/block-catalog'
 import { allIntents } from '../src/lib/intents/intent-catalog'
+import { allFormPatterns } from '../src/lib/forms/catalog'
 import { allPatterns } from '../src/lib/patterns/patterns-catalog'
 
 const ROOT = process.cwd()
@@ -140,6 +142,12 @@ const catalogEntries: CatalogEntry[] = [
     meta: manifest.meta,
   })),
   ...allPatterns.map((pattern) => ({
+    slug: pattern.slug,
+    name: pattern.name,
+    description: pattern.description,
+    categoryLabel: pattern.categorySlug,
+  })),
+  ...allFormPatterns.map((pattern) => ({
     slug: pattern.slug,
     name: pattern.name,
     description: pattern.description,

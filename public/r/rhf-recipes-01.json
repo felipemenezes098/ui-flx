@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rhf-recipes-01",
+  "title": "Contact Form",
+  "description": "Name, email, topic and message validated on submit.",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "field",
+    "input",
+    "select",
+    "textarea",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/react-hook-form/recipes/rhf-recipes-01.tsx",
+      "content": "'use client'\n\nimport { Controller, useForm } from 'react-hook-form'\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { MessageSquare } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\nimport { Textarea } from '@/components/ui/textarea'\n\nconst formSchema = z.object({\n  name: z.string().min(2, 'Enter your name.'),\n  email: z.email('Enter a valid email.'),\n  topic: z.string().min(1, 'Pick a topic.'),\n  message: z.string().min(10, 'Message must be at least 10 characters.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function RhfRecipes01() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { name: '', email: '', topic: '', message: '' },\n  })\n\n  const { errors } = form.formState\n\n  function onSubmit(data: FormValues) {\n    toast.success('Message sent', { description: data.email })\n  }\n\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <MessageSquare className=\"text-muted-foreground size-4\" />\n          Contact us\n        </CardTitle>\n        <CardDescription>\n          Drop us a line and we&apos;ll get back to you shortly.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form onSubmit={form.handleSubmit(onSubmit)}>\n          <FieldGroup>\n            <Field data-invalid={!!errors.name}>\n              <FieldLabel htmlFor=\"rhf-recipes-01-name\">Name</FieldLabel>\n              <Input\n                id=\"rhf-recipes-01-name\"\n                placeholder=\"Ada Lovelace\"\n                aria-invalid={!!errors.name}\n                {...form.register('name')}\n              />\n              {errors.name && <FieldError errors={[errors.name]} />}\n            </Field>\n            <Field data-invalid={!!errors.email}>\n              <FieldLabel htmlFor=\"rhf-recipes-01-email\">Email</FieldLabel>\n              <Input\n                id=\"rhf-recipes-01-email\"\n                type=\"email\"\n                placeholder=\"ada@example.com\"\n                aria-invalid={!!errors.email}\n                {...form.register('email')}\n              />\n              {errors.email && <FieldError errors={[errors.email]} />}\n            </Field>\n            <Controller\n              control={form.control}\n              name=\"topic\"\n              render={({ field }) => (\n                <Field data-invalid={!!errors.topic}>\n                  <FieldLabel htmlFor=\"rhf-recipes-01-topic\">Topic</FieldLabel>\n                  <Select value={field.value} onValueChange={field.onChange}>\n                    <SelectTrigger\n                      id=\"rhf-recipes-01-topic\"\n                      className=\"w-full\"\n                      aria-invalid={!!errors.topic}\n                    >\n                      <SelectValue placeholder=\"Select a topic\" />\n                    </SelectTrigger>\n                    <SelectContent>\n                      <SelectGroup>\n                        <SelectLabel>How can we help?</SelectLabel>\n                        <SelectItem value=\"sales\">Sales</SelectItem>\n                        <SelectItem value=\"support\">Support</SelectItem>\n                        <SelectItem value=\"feedback\">Feedback</SelectItem>\n                      </SelectGroup>\n                    </SelectContent>\n                  </Select>\n                  {errors.topic && <FieldError errors={[errors.topic]} />}\n                </Field>\n              )}\n            />\n            <Field data-invalid={!!errors.message}>\n              <FieldLabel htmlFor=\"rhf-recipes-01-message\">Message</FieldLabel>\n              <Textarea\n                id=\"rhf-recipes-01-message\"\n                rows={4}\n                placeholder=\"How can we help?\"\n                aria-invalid={!!errors.message}\n                {...form.register('message')}\n              />\n              {errors.message && <FieldError errors={[errors.message]} />}\n            </Field>\n            <Button type=\"submit\" size=\"sm\">\n              Send message\n            </Button>\n          </FieldGroup>\n        </form>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/react-hook-form/rhf-recipes-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

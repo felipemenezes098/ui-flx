@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tsf-rules-03",
+  "title": "Number Range",
+  "description": "Keep a numeric input within a sensible range.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "field",
+    "input",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/tanstack-form/rules/tsf-rules-03.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { Hash } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\n\nconst MIN = 1\nconst MAX = 99\n\nconst formSchema = z.object({\n  quantity: z.coerce\n    .number({ message: 'Enter a number.' })\n    .int('Whole numbers only.')\n    .min(MIN, `Minimum is ${MIN}.`)\n    .max(MAX, `Maximum is ${MAX}.`),\n})\n\nexport function TsfRules03() {\n  const form = useForm({\n    defaultValues: { quantity: 1 },\n    validators: { onSubmit: formSchema },\n    onSubmit: async ({ value }) => {\n      toast.success('Quantity confirmed', {\n        description: `${value.quantity} item(s)`,\n      })\n    },\n  })\n\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <Hash className=\"text-muted-foreground size-4\" />\n          Number range\n        </CardTitle>\n        <CardDescription>\n          Tell us how many you&apos;d like to order.\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form\n          onSubmit={(e) => {\n            e.preventDefault()\n            form.handleSubmit()\n          }}\n        >\n          <FieldGroup>\n            <form.Field name=\"quantity\">\n              {(field) => {\n                const isInvalid =\n                  field.state.meta.isTouched && !field.state.meta.isValid\n                return (\n                  <Field data-invalid={isInvalid}>\n                    <FieldLabel htmlFor={field.name}>Quantity</FieldLabel>\n                    <Input\n                      id={field.name}\n                      name={field.name}\n                      type=\"number\"\n                      inputMode=\"numeric\"\n                      min={MIN}\n                      max={MAX}\n                      aria-invalid={isInvalid}\n                      value={field.state.value}\n                      onBlur={field.handleBlur}\n                      onChange={(e) => field.handleChange(e.target.value)}\n                    />\n                    {isInvalid ? (\n                      <FieldError errors={field.state.meta.errors} />\n                    ) : (\n                      <FieldDescription>\n                        Pick a whole number between {MIN} and {MAX}.\n                      </FieldDescription>\n                    )}\n                  </Field>\n                )\n              }}\n            </form.Field>\n            <Button type=\"submit\" size=\"sm\">\n              Add to cart\n            </Button>\n          </FieldGroup>\n        </form>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/tanstack-form/tsf-rules-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

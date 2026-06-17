@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rhf-fields-08",
+  "title": "Command",
+  "description": "Searchable combobox using Command inside a Popover, bound via Controller.",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "field",
+    "command",
+    "popover",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/react-hook-form/fields/rhf-fields-08.tsx",
+      "content": "'use client'\n\nimport { useState } from 'react'\nimport { Controller, useForm } from 'react-hook-form'\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { CheckIcon, ChevronsUpDownIcon } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/components/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/components/ui/command'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nconst LANGUAGES = [\n  { value: 'typescript', label: 'TypeScript' },\n  { value: 'rust', label: 'Rust' },\n  { value: 'go', label: 'Go' },\n  { value: 'python', label: 'Python' },\n  { value: 'elixir', label: 'Elixir' },\n] as const\n\nconst formSchema = z.object({\n  language: z.string().min(1, 'Select a language.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function RhfFields08() {\n  const [open, setOpen] = useState(false)\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { language: '' },\n  })\n\n  const { errors } = form.formState\n\n  function onSubmit(data: FormValues) {\n    toast.success('Language selected', { description: data.language })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-6\"\n    >\n      <FieldGroup>\n        <Controller\n          control={form.control}\n          name=\"language\"\n          render={({ field }) => {\n            const selected = LANGUAGES.find((l) => l.value === field.value)\n            return (\n              <Field data-invalid={!!errors.language}>\n                <FieldLabel htmlFor=\"rhf-fields-08-language\">\n                  Language\n                </FieldLabel>\n                <Popover open={open} onOpenChange={setOpen}>\n                  <PopoverTrigger asChild>\n                    <Button\n                      id=\"rhf-fields-08-language\"\n                      type=\"button\"\n                      variant=\"outline\"\n                      role=\"combobox\"\n                      aria-expanded={open}\n                      aria-invalid={!!errors.language}\n                      className=\"w-full justify-between font-normal\"\n                    >\n                      {selected ? selected.label : 'Select a language'}\n                      <ChevronsUpDownIcon className=\"text-muted-foreground\" />\n                    </Button>\n                  </PopoverTrigger>\n                  <PopoverContent className=\"w-(--radix-popover-trigger-width) p-0\">\n                    <Command>\n                      <CommandInput placeholder=\"Search language...\" />\n                      <CommandList>\n                        <CommandEmpty>No language found.</CommandEmpty>\n                        <CommandGroup>\n                          {LANGUAGES.map((language) => (\n                            <CommandItem\n                              key={language.value}\n                              value={language.value}\n                              onSelect={(value) => {\n                                field.onChange(value)\n                                setOpen(false)\n                              }}\n                            >\n                              {language.label}\n                              <CheckIcon\n                                className={cn(\n                                  'ml-auto',\n                                  field.value === language.value\n                                    ? 'opacity-100'\n                                    : 'opacity-0',\n                                )}\n                              />\n                            </CommandItem>\n                          ))}\n                        </CommandGroup>\n                      </CommandList>\n                    </Command>\n                  </PopoverContent>\n                </Popover>\n                {errors.language && <FieldError errors={[errors.language]} />}\n              </Field>\n            )\n          }}\n        />\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Save\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/react-hook-form/rhf-fields-08.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

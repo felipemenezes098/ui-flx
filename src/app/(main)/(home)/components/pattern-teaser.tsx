@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import type { ComponentType } from 'react'
+import { useState } from 'react'
 
 import {
   CategoryPreviewCard,
@@ -10,14 +12,37 @@ import {
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
 import { Button } from '@/components/ui/button'
+import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
-import { useState } from 'react'
+
+type TeaserItem = {
+  slug: string
+  name: string
+  href: string
+  preview: ComponentType
+  hasNew?: boolean
+}
+
+const formsTeaserItem: TeaserItem = {
+  slug: 'forms',
+  name: 'Forms',
+  href: '/forms/react-hook-form',
+  preview: FormsConcept,
+  hasNew: true,
+}
 
 export function PatternTeaser() {
   const [isShown, setIsShown] = useState(false)
-  const sorted = [...patternCategories].sort((a, b) =>
-    a.name.localeCompare(b.name),
-  )
+  const sorted: TeaserItem[] = [
+    ...patternCategories.map((cat) => ({
+      slug: cat.slug,
+      name: cat.name,
+      href: `/patterns/${cat.slug}`,
+      preview: cat.preview,
+      hasNew: cat.hasNew,
+    })),
+    formsTeaserItem,
+  ].sort((a, b) => a.name.localeCompare(b.name))
   const visibleItems = isShown ? sorted : sorted.slice(0, 8)
 
   return (
@@ -28,7 +53,7 @@ export function PatternTeaser() {
             Patterns
           </h2>
           <span className="text-muted-foreground text-sm">
-            {patternCategories.length} components
+            {sorted.length} components
           </span>
         </div>
         <Button asChild variant="link" size="sm" className="bg-background">
@@ -38,22 +63,18 @@ export function PatternTeaser() {
 
       <div className="relative">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-4">
-          {visibleItems.map((cat) => {
-            const Concept = cat.preview
+          {visibleItems.map((item) => {
+            const Concept = item.preview
             return (
-              <Link
-                key={cat.slug}
-                href={`/patterns/${cat.slug}`}
-                className="group"
-              >
+              <Link key={item.slug} href={item.href} className="group">
                 <CategoryPreviewCard>
                   <CategoryPreviewCardPreview className="aspect-square">
-                    {cat.hasNew && <CategoryPreviewCardBadge />}
+                    {item.hasNew && <CategoryPreviewCardBadge />}
                     <Concept />
                   </CategoryPreviewCardPreview>
                   <CategoryPreviewCardFooter>
                     <CategoryPreviewCardTitle>
-                      {cat.name}
+                      {item.name}
                     </CategoryPreviewCardTitle>
                   </CategoryPreviewCardFooter>
                 </CategoryPreviewCard>

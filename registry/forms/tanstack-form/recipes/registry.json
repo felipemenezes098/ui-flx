@@ -1,0 +1,111 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-tanstack-form-recipes",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "tsf-recipes-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-01.tsx"
+        }
+      ],
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit."
+    },
+    {
+      "name": "tsf-recipes-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-02.tsx"
+        }
+      ],
+      "title": "Create Account",
+      "description": "Sign up with name, email, a strong password and terms."
+    },
+    {
+      "name": "tsf-recipes-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-03.tsx"
+        }
+      ],
+      "title": "Sign In",
+      "description": "Email and password validated on submit."
+    },
+    {
+      "name": "tsf-recipes-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-recipes-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-04.tsx"
+        }
+      ],
+      "title": "Newsletter",
+      "description": "Subscribe with an email and a delivery frequency."
+    }
+  ]
+}

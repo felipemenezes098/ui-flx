@@ -1,0 +1,115 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-react-hook-form-recipes",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "rhf-recipes-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-01.tsx"
+        }
+      ],
+      "title": "Contact Form",
+      "description": "Name, email, topic and message validated on submit."
+    },
+    {
+      "name": "rhf-recipes-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-02.tsx"
+        }
+      ],
+      "title": "Create Account",
+      "description": "Sign up with name, email, a strong password and terms."
+    },
+    {
+      "name": "rhf-recipes-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-03.tsx"
+        }
+      ],
+      "title": "Sign In",
+      "description": "Email and password validated on submit."
+    },
+    {
+      "name": "rhf-recipes-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-recipes-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-04.tsx"
+        }
+      ],
+      "title": "Newsletter",
+      "description": "Subscribe with an email and a delivery frequency."
+    }
+  ]
+}

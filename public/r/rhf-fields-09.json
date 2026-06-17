@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rhf-fields-09",
+  "title": "Dropdown",
+  "description": "Single choice via a dropdown menu radio group bound through Controller.",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "field",
+    "dropdown-menu",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/react-hook-form/fields/rhf-fields-09.tsx",
+      "content": "'use client'\n\nimport { Controller, useForm } from 'react-hook-form'\nimport { zodResolver } from '@hookform/resolvers/zod'\nimport { ChevronDownIcon } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\n\nconst VISIBILITY = [\n  { value: 'public', label: 'Public' },\n  { value: 'private', label: 'Private' },\n  { value: 'internal', label: 'Internal' },\n] as const\n\nconst formSchema = z.object({\n  visibility: z.string().min(1, 'Select a visibility.'),\n})\n\ntype FormValues = z.infer<typeof formSchema>\n\nexport function RhfFields09() {\n  const form = useForm<FormValues>({\n    resolver: zodResolver(formSchema),\n    defaultValues: { visibility: '' },\n  })\n\n  const { errors } = form.formState\n\n  function onSubmit(data: FormValues) {\n    toast.success('Visibility updated', { description: data.visibility })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex w-full max-w-sm flex-col gap-6\"\n    >\n      <FieldGroup>\n        <Controller\n          control={form.control}\n          name=\"visibility\"\n          render={({ field }) => {\n            const selected = VISIBILITY.find((v) => v.value === field.value)\n            return (\n              <Field data-invalid={!!errors.visibility}>\n                <FieldLabel htmlFor=\"rhf-fields-09-visibility\">\n                  Visibility\n                </FieldLabel>\n                <DropdownMenu>\n                  <DropdownMenuTrigger asChild>\n                    <Button\n                      id=\"rhf-fields-09-visibility\"\n                      type=\"button\"\n                      variant=\"outline\"\n                      aria-invalid={!!errors.visibility}\n                      className=\"w-full justify-between font-normal\"\n                    >\n                      {selected ? selected.label : 'Select visibility'}\n                      <ChevronDownIcon className=\"text-muted-foreground\" />\n                    </Button>\n                  </DropdownMenuTrigger>\n                  <DropdownMenuContent\n                    align=\"start\"\n                    className=\"w-(--radix-dropdown-menu-trigger-width)\"\n                  >\n                    <DropdownMenuLabel>Repository visibility</DropdownMenuLabel>\n                    <DropdownMenuSeparator />\n                    <DropdownMenuRadioGroup\n                      value={field.value}\n                      onValueChange={field.onChange}\n                    >\n                      {VISIBILITY.map((item) => (\n                        <DropdownMenuRadioItem\n                          key={item.value}\n                          value={item.value}\n                        >\n                          {item.label}\n                        </DropdownMenuRadioItem>\n                      ))}\n                    </DropdownMenuRadioGroup>\n                  </DropdownMenuContent>\n                </DropdownMenu>\n                {errors.visibility && (\n                  <FieldError errors={[errors.visibility]} />\n                )}\n              </Field>\n            )\n          }}\n        />\n      </FieldGroup>\n      <Button type=\"submit\" size=\"sm\">\n        Save\n      </Button>\n    </form>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/react-hook-form/rhf-fields-09.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -8,6 +8,10 @@ export const dataNavbar = [
     href: '/intents',
   },
   {
+    name: 'Forms',
+    href: '/forms/react-hook-form',
+  },
+  {
     name: 'Blocks',
     href: '/blocks',
   },

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-forms-react-hook-form-rules",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "rhf-rules-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-rules-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-01.tsx"
+        }
+      ],
+      "title": "Password Confirmation",
+      "description": "Pick a strong password and confirm it matches."
+    },
+    {
+      "name": "rhf-rules-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-rules-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-02.tsx"
+        }
+      ],
+      "title": "Email Address",
+      "description": "Validate an email address with instant feedback."
+    },
+    {
+      "name": "rhf-rules-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-rules-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-03.tsx"
+        }
+      ],
+      "title": "Number Range",
+      "description": "Keep a numeric input within a sensible range."
+    },
+    {
+      "name": "rhf-rules-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "field",
+        "textarea",
+        "button"
+      ],
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "rhf-rules-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-rules-04.tsx"
+        }
+      ],
+      "title": "Character Limit",
+      "description": "Cap text length with a live character counter."
+    }
+  ]
+}

@@ -477,6 +477,30 @@ export function SkeletonConcept() {
   )
 }
 
+export function FormsConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-8">
+      <div className="bg-card dark:bg-muted flex w-full flex-col gap-3 rounded-lg border p-4 shadow-sm">
+        <div className="flex flex-col gap-1.5">
+          <div className="bg-foreground/20 h-1.5 w-12 rounded-full" />
+          <div className="bg-card dark:bg-muted flex h-8 items-center rounded-md border px-3 shadow-sm">
+            <div className="bg-foreground/10 h-1.5 w-20 rounded-full" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <div className="bg-foreground/20 h-1.5 w-16 rounded-full" />
+          <div className="bg-card dark:bg-muted flex h-8 items-center rounded-md border px-3 shadow-sm">
+            <div className="bg-foreground/10 h-1.5 w-24 rounded-full" />
+          </div>
+        </div>
+        <div className="flex justify-end pt-1">
+          <div className="bg-primary h-7 w-16 rounded-md shadow-sm" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function TabsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">
