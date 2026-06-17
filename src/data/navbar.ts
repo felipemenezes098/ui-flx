@@ -9,7 +9,7 @@ export const dataNavbar = [
   },
   {
     name: 'Forms',
-    href: '/forms',
+    href: '/forms/react-hook-form',
   },
   {
     name: 'Blocks',

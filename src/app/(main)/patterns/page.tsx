@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import type { ComponentType } from 'react'
 
 import {
   CategoryPreviewCard,
@@ -9,7 +10,35 @@ import {
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
 import { Footer } from '@/components/core/footer'
+import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
+
+type PatternListingItem = {
+  slug: string
+  name: string
+  href: string
+  preview: ComponentType
+  hasNew?: boolean
+}
+
+const formsListingItem: PatternListingItem = {
+  slug: 'forms',
+  name: 'Forms',
+  href: '/forms/react-hook-form',
+  preview: FormsConcept,
+  hasNew: true,
+}
+
+const sortedPatternItems: PatternListingItem[] = [
+  ...patternCategories.map((cat) => ({
+    slug: cat.slug,
+    name: cat.name,
+    href: `/patterns/${cat.slug}`,
+    preview: cat.preview,
+    hasNew: cat.hasNew,
+  })),
+  formsListingItem,
+].toSorted((a, b) => a.name.localeCompare(b.name))
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -44,27 +73,24 @@ export default function PatternsPage() {
           </section>
           <section>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {patternCategories
-                .toSorted((a, b) => a.name.localeCompare(b.name))
-                .map((category) => (
-                  <Link
-                    key={category.slug}
-                    href={`/patterns/${category.slug}`}
-                    className="group"
-                  >
+              {sortedPatternItems.map((item) => {
+                const Concept = item.preview
+                return (
+                  <Link key={item.slug} href={item.href} className="group">
                     <CategoryPreviewCard>
                       <CategoryPreviewCardPreview className="aspect-square">
-                        {category.hasNew && <CategoryPreviewCardBadge />}
-                        <category.preview />
+                        {item.hasNew && <CategoryPreviewCardBadge />}
+                        <Concept />
                       </CategoryPreviewCardPreview>
                       <CategoryPreviewCardFooter>
                         <CategoryPreviewCardTitle>
-                          {category.name}
+                          {item.name}
                         </CategoryPreviewCardTitle>
                       </CategoryPreviewCardFooter>
                     </CategoryPreviewCard>
                   </Link>
-                ))}
+                )
+              })}
             </div>
           </section>
         </div>
