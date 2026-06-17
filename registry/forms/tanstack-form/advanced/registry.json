@@ -7,8 +7,12 @@
       "name": "tsf-advanced-01",
       "type": "registry:block",
       "registryDependencies": [
+        "card",
+        "badge",
+        "empty",
         "field",
         "input",
+        "select",
         "button"
       ],
       "dependencies": [
@@ -25,7 +29,39 @@
         }
       ],
       "title": "Dynamic Field Array",
-      "description": "Repeatable member rows with add/remove via array mode and per-item validation."
+      "description": "Start from an empty state, then add and remove teammate rows with per-item validation."
+    },
+    {
+      "name": "tsf-advanced-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "dialog",
+        "empty",
+        "field",
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "tsf-advanced-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-02.tsx"
+        },
+        {
+          "path": "tsf-advanced-02-line-item-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-02-line-item-dialog.tsx"
+        }
+      ],
+      "title": "Form in a Dialog",
+      "description": "Build an invoice while a dialog validates each line item against its own schema."
     }
   ]
 }

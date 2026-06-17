@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm } from '@tanstack/react-form'
-import { UserPlus } from 'lucide-react'
+import { LogIn } from 'lucide-react'
 import { toast } from 'sonner'
 import * as z from 'zod'
 
@@ -13,11 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
 import {
   Field,
-  FieldContent,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
@@ -25,22 +22,16 @@ import {
 import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
-  name: z.string().min(2, 'Enter your full name.'),
   email: z.email('Enter a valid email.'),
-  password: z
-    .string()
-    .min(8, 'Use at least 8 characters.')
-    .regex(/[A-Z]/, 'Include an uppercase letter.')
-    .regex(/[0-9]/, 'Include a number.'),
-  terms: z.boolean().refine((v) => v, 'Accept the terms to continue.'),
+  password: z.string().min(1, 'Enter your password.'),
 })
 
-export function TsfRecipes02() {
+export function TsfRecipes03() {
   const form = useForm({
-    defaultValues: { name: '', email: '', password: '', terms: false },
+    defaultValues: { email: '', password: '' },
     validators: { onSubmit: formSchema },
     onSubmit: async ({ value }) => {
-      toast.success('Account created', { description: value.email })
+      toast.success('Welcome back', { description: value.email })
     },
   })
 
@@ -48,10 +39,10 @@ export function TsfRecipes02() {
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <UserPlus className="text-muted-foreground size-4" />
-          Create your account
+          <LogIn className="text-muted-foreground size-4" />
+          Sign in
         </CardTitle>
-        <CardDescription>Get started in less than a minute.</CardDescription>
+        <CardDescription>Use your email and password to continue.</CardDescription>
       </CardHeader>
       <CardContent>
         <form
@@ -61,29 +52,6 @@ export function TsfRecipes02() {
           }}
         >
           <FieldGroup>
-            <form.Field name="name">
-              {(field) => {
-                const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid
-                return (
-                  <Field data-invalid={isInvalid}>
-                    <FieldLabel htmlFor={field.name}>Full name</FieldLabel>
-                    <Input
-                      id={field.name}
-                      name={field.name}
-                      placeholder="Ada Lovelace"
-                      aria-invalid={isInvalid}
-                      value={field.state.value}
-                      onBlur={field.handleBlur}
-                      onChange={(e) => field.handleChange(e.target.value)}
-                    />
-                    {isInvalid && (
-                      <FieldError errors={field.state.meta.errors} />
-                    )}
-                  </Field>
-                )
-              }}
-            </form.Field>
             <form.Field name="email">
               {(field) => {
                 const isInvalid =
@@ -125,45 +93,15 @@ export function TsfRecipes02() {
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
                     />
-                    {isInvalid ? (
+                    {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
-                    ) : (
-                      <FieldDescription>
-                        8+ characters, one uppercase and one number.
-                      </FieldDescription>
                     )}
                   </Field>
                 )
               }}
             </form.Field>
-            <form.Field name="terms">
-              {(field) => {
-                const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid
-                return (
-                  <Field orientation="horizontal" data-invalid={isInvalid}>
-                    <Checkbox
-                      id={field.name}
-                      checked={field.state.value}
-                      onCheckedChange={(checked) =>
-                        field.handleChange(checked === true)
-                      }
-                      aria-invalid={isInvalid}
-                    />
-                    <FieldContent>
-                      <FieldLabel htmlFor={field.name}>
-                        I agree to the Terms and Privacy Policy.
-                      </FieldLabel>
-                      {isInvalid && (
-                        <FieldError errors={field.state.meta.errors} />
-                      )}
-                    </FieldContent>
-                  </Field>
-                )
-              }}
-            </form.Field>
             <Button type="submit" size="sm">
-              Create account
+              Sign in
             </Button>
           </FieldGroup>
         </form>

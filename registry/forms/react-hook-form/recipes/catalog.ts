@@ -15,7 +15,18 @@ export const rhfRecipesCategory: PatternCategory = {
     {
       slug: 'rhf-recipes-02',
       name: 'Create Account',
-      description: 'Sign up with a confirmed password and accepted terms.',
+      description: 'Sign up with name, email, a strong password and terms.',
+    },
+    {
+      slug: 'rhf-recipes-03',
+      name: 'Sign In',
+      description: 'Email and password validated on submit.',
+      isNew: true,
+    },
+    {
+      slug: 'rhf-recipes-04',
+      name: 'Newsletter',
+      description: 'Subscribe with an email and a delivery frequency.',
       isNew: true,
     },
   ],

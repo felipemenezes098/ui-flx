@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tsf-recipes-04",
+  "title": "Newsletter",
+  "description": "Subscribe with an email and a delivery frequency.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod",
+    "sonner",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "field",
+    "input",
+    "select",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/tanstack-form/recipes/tsf-recipes-04.tsx",
+      "content": "'use client'\n\nimport { useForm } from '@tanstack/react-form'\nimport { Mail } from 'lucide-react'\nimport { toast } from 'sonner'\nimport * as z from 'zod'\n\nimport { Button } from '@/components/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card'\nimport {\n  Field,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from '@/components/ui/field'\nimport { Input } from '@/components/ui/input'\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select'\n\nconst formSchema = z.object({\n  email: z.email('Enter a valid email.'),\n  frequency: z.string().min(1, 'Pick how often to hear from us.'),\n})\n\nexport function TsfRecipes04() {\n  const form = useForm({\n    defaultValues: { email: '', frequency: 'weekly' },\n    validators: { onSubmit: formSchema },\n    onSubmit: async ({ value }) => {\n      toast.success('Subscribed', { description: value.email })\n    },\n  })\n\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle className=\"flex items-center gap-2\">\n          <Mail className=\"text-muted-foreground size-4\" />\n          Newsletter\n        </CardTitle>\n        <CardDescription>Get product news in your inbox.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form\n          onSubmit={(e) => {\n            e.preventDefault()\n            form.handleSubmit()\n          }}\n        >\n          <FieldGroup>\n            <form.Field name=\"email\">\n              {(field) => {\n                const isInvalid =\n                  field.state.meta.isTouched && !field.state.meta.isValid\n                return (\n                  <Field data-invalid={isInvalid}>\n                    <FieldLabel htmlFor={field.name}>Email</FieldLabel>\n                    <Input\n                      id={field.name}\n                      name={field.name}\n                      type=\"email\"\n                      placeholder=\"ada@example.com\"\n                      aria-invalid={isInvalid}\n                      value={field.state.value}\n                      onBlur={field.handleBlur}\n                      onChange={(e) => field.handleChange(e.target.value)}\n                    />\n                    {isInvalid && (\n                      <FieldError errors={field.state.meta.errors} />\n                    )}\n                  </Field>\n                )\n              }}\n            </form.Field>\n            <form.Field name=\"frequency\">\n              {(field) => {\n                const isInvalid =\n                  field.state.meta.isTouched && !field.state.meta.isValid\n                return (\n                  <Field data-invalid={isInvalid}>\n                    <FieldLabel htmlFor={field.name}>Frequency</FieldLabel>\n                    <Select\n                      value={field.state.value}\n                      onValueChange={field.handleChange}\n                    >\n                      <SelectTrigger\n                        id={field.name}\n                        className=\"w-full\"\n                        aria-invalid={isInvalid}\n                      >\n                        <SelectValue placeholder=\"How often?\" />\n                      </SelectTrigger>\n                      <SelectContent>\n                        <SelectGroup>\n                          <SelectLabel>Delivery cadence</SelectLabel>\n                          <SelectItem value=\"daily\">Daily</SelectItem>\n                          <SelectItem value=\"weekly\">Weekly</SelectItem>\n                          <SelectItem value=\"monthly\">Monthly</SelectItem>\n                        </SelectGroup>\n                      </SelectContent>\n                    </Select>\n                    {isInvalid && (\n                      <FieldError errors={field.state.meta.errors} />\n                    )}\n                  </Field>\n                )\n              }}\n            </form.Field>\n            <Button type=\"submit\" size=\"sm\">\n              Subscribe\n            </Button>\n          </FieldGroup>\n        </form>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/forms/tanstack-form/tsf-recipes-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -12,7 +12,14 @@ export const rhfAdvancedCategory: PatternCategory = {
       slug: 'rhf-advanced-01',
       name: 'Dynamic Field Array',
       description:
-        'Repeatable member rows with add/remove via useFieldArray and per-item validation.',
+        'Start from an empty state, then add and remove teammate rows with per-item validation.',
+    },
+    {
+      slug: 'rhf-advanced-02',
+      name: 'Form in a Dialog',
+      description:
+        'Build an invoice while a dialog validates each line item against its own schema.',
+      isNew: true,
     },
   ],
 }

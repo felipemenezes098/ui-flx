@@ -7088,7 +7088,7 @@
     {
       "name": "rhf-recipes-02",
       "title": "Create Account",
-      "description": "Sign up with a confirmed password and accepted terms.",
+      "description": "Sign up with name, email, a strong password and terms.",
       "dependencies": [
         "react-hook-form",
         "@hookform/resolvers",
@@ -7100,7 +7100,6 @@
         "card",
         "field",
         "input",
-        "select",
         "checkbox",
         "button"
       ],
@@ -7114,9 +7113,9 @@
       "type": "registry:block"
     },
     {
-      "name": "rhf-advanced-01",
-      "title": "Dynamic Field Array",
-      "description": "Repeatable member rows with add/remove via useFieldArray and per-item validation.",
+      "name": "rhf-recipes-03",
+      "title": "Sign In",
+      "description": "Email and password validated on submit.",
       "dependencies": [
         "react-hook-form",
         "@hookform/resolvers",
@@ -7125,8 +7124,65 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "card",
         "field",
         "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/recipes/rhf-recipes-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-recipes-04",
+      "title": "Newsletter",
+      "description": "Subscribe with an email and a delivery frequency.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/recipes/rhf-recipes-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-recipes-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-advanced-01",
+      "title": "Dynamic Field Array",
+      "description": "Start from an empty state, then add and remove teammate rows with per-item validation.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "empty",
+        "field",
+        "input",
+        "select",
         "button"
       ],
       "files": [
@@ -7134,6 +7190,39 @@
           "path": "registry/forms/react-hook-form/advanced/rhf-advanced-01.tsx",
           "type": "registry:component",
           "target": "components/flx/forms/react-hook-form/rhf-advanced-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "rhf-advanced-02",
+      "title": "Form in a Dialog",
+      "description": "Build an invoice while a dialog validates each line item against its own schema.",
+      "dependencies": [
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "dialog",
+        "empty",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/react-hook-form/advanced/rhf-advanced-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-advanced-02.tsx"
+        },
+        {
+          "path": "registry/forms/react-hook-form/advanced/rhf-advanced-02-line-item-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/react-hook-form/rhf-advanced-02-line-item-dialog.tsx"
         }
       ],
       "type": "registry:block"
@@ -7455,7 +7544,7 @@
     {
       "name": "tsf-recipes-02",
       "title": "Create Account",
-      "description": "Sign up with a confirmed password and accepted terms.",
+      "description": "Sign up with name, email, a strong password and terms.",
       "dependencies": [
         "@tanstack/react-form",
         "zod",
@@ -7466,7 +7555,6 @@
         "card",
         "field",
         "input",
-        "select",
         "checkbox",
         "button"
       ],
@@ -7480,9 +7568,9 @@
       "type": "registry:block"
     },
     {
-      "name": "tsf-advanced-01",
-      "title": "Dynamic Field Array",
-      "description": "Repeatable member rows with add/remove via array mode and per-item validation.",
+      "name": "tsf-recipes-03",
+      "title": "Sign In",
+      "description": "Email and password validated on submit.",
       "dependencies": [
         "@tanstack/react-form",
         "zod",
@@ -7490,8 +7578,63 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "card",
         "field",
         "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/recipes/tsf-recipes-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-recipes-04",
+      "title": "Newsletter",
+      "description": "Subscribe with an email and a delivery frequency.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/recipes/tsf-recipes-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-recipes-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-advanced-01",
+      "title": "Dynamic Field Array",
+      "description": "Start from an empty state, then add and remove teammate rows with per-item validation.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "empty",
+        "field",
+        "input",
+        "select",
         "button"
       ],
       "files": [
@@ -7499,6 +7642,38 @@
           "path": "registry/forms/tanstack-form/advanced/tsf-advanced-01.tsx",
           "type": "registry:component",
           "target": "components/flx/forms/tanstack-form/tsf-advanced-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tsf-advanced-02",
+      "title": "Form in a Dialog",
+      "description": "Build an invoice while a dialog validates each line item against its own schema.",
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod",
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "dialog",
+        "empty",
+        "field",
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/tanstack-form/advanced/tsf-advanced-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-02.tsx"
+        },
+        {
+          "path": "registry/forms/tanstack-form/advanced/tsf-advanced-02-line-item-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/flx/forms/tanstack-form/tsf-advanced-02-line-item-dialog.tsx"
         }
       ],
       "type": "registry:block"
