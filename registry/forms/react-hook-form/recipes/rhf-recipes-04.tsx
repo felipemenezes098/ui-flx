@@ -44,8 +44,6 @@ export function RhfRecipes04() {
     defaultValues: { email: '', frequency: 'weekly' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Subscribed', { description: data.email })
   }
@@ -62,22 +60,30 @@ export function RhfRecipes04() {
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.email}>
-              <FieldLabel htmlFor="rhf-recipes-04-email">Email</FieldLabel>
-              <Input
-                id="rhf-recipes-04-email"
-                type="email"
-                placeholder="ada@example.com"
-                aria-invalid={!!errors.email}
-                {...form.register('email')}
-              />
-              {errors.email && <FieldError errors={[errors.email]} />}
-            </Field>
+            <Controller
+              control={form.control}
+              name="email"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-recipes-04-email">Email</FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-recipes-04-email"
+                    type="email"
+                    placeholder="ada@example.com"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
             <Controller
               control={form.control}
               name="frequency"
-              render={({ field }) => (
-                <Field data-invalid={!!errors.frequency}>
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="rhf-recipes-04-frequency">
                     Frequency
                   </FieldLabel>
@@ -85,7 +91,7 @@ export function RhfRecipes04() {
                     <SelectTrigger
                       id="rhf-recipes-04-frequency"
                       className="w-full"
-                      aria-invalid={!!errors.frequency}
+                      aria-invalid={fieldState.invalid}
                     >
                       <SelectValue placeholder="How often?" />
                     </SelectTrigger>
@@ -98,8 +104,8 @@ export function RhfRecipes04() {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
-                  {errors.frequency && (
-                    <FieldError errors={[errors.frequency]} />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
                   )}
                 </Field>
               )}

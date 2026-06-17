@@ -26,8 +26,6 @@ export function RhfFields06() {
     defaultValues: { view: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('View updated', { description: data.view })
   }
@@ -41,8 +39,8 @@ export function RhfFields06() {
         <Controller
           control={form.control}
           name="view"
-          render={({ field }) => (
-            <Field data-invalid={!!errors.view}>
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
               <FieldLabel htmlFor="rhf-fields-06-view">Default view</FieldLabel>
               <ToggleGroup
                 id="rhf-fields-06-view"
@@ -62,7 +60,7 @@ export function RhfFields06() {
                   Board
                 </ToggleGroupItem>
               </ToggleGroup>
-              {errors.view && <FieldError errors={[errors.view]} />}
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />

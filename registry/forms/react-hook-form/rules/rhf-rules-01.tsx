@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Lock } from 'lucide-react'
 import { toast } from 'sonner'
@@ -45,8 +45,6 @@ export function RhfRules01() {
     defaultValues: { password: '', confirm: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit() {
     toast.success('Password updated')
   }
@@ -65,36 +63,52 @@ export function RhfRules01() {
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.password}>
-              <FieldLabel htmlFor="rhf-rules-01-password">Password</FieldLabel>
-              <Input
-                id="rhf-rules-01-password"
-                type="password"
-                placeholder="••••••••"
-                aria-invalid={!!errors.password}
-                {...form.register('password')}
-              />
-              {errors.password ? (
-                <FieldError errors={[errors.password]} />
-              ) : (
-                <FieldDescription>
-                  8+ characters, one uppercase and one number.
-                </FieldDescription>
+            <Controller
+              control={form.control}
+              name="password"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-rules-01-password">
+                    Password
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-rules-01-password"
+                    type="password"
+                    placeholder="••••••••"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid ? (
+                    <FieldError errors={[fieldState.error]} />
+                  ) : (
+                    <FieldDescription>
+                      8+ characters, one uppercase and one number.
+                    </FieldDescription>
+                  )}
+                </Field>
               )}
-            </Field>
-            <Field data-invalid={!!errors.confirm}>
-              <FieldLabel htmlFor="rhf-rules-01-confirm">
-                Confirm password
-              </FieldLabel>
-              <Input
-                id="rhf-rules-01-confirm"
-                type="password"
-                placeholder="••••••••"
-                aria-invalid={!!errors.confirm}
-                {...form.register('confirm')}
-              />
-              {errors.confirm && <FieldError errors={[errors.confirm]} />}
-            </Field>
+            />
+            <Controller
+              control={form.control}
+              name="confirm"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-rules-01-confirm">
+                    Confirm password
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-rules-01-confirm"
+                    type="password"
+                    placeholder="••••••••"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
             <Button type="submit" size="sm">
               Update password
             </Button>

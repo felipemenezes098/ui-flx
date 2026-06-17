@@ -1,6 +1,6 @@
 'use client'
 
-import { useFieldArray, useForm } from 'react-hook-form'
+import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ReceiptTextIcon, Trash2Icon } from 'lucide-react'
 import { toast } from 'sonner'
@@ -22,11 +22,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty'
-import {
-  Field,
-  FieldError,
-  FieldLabel,
-} from '@/components/ui/field'
+import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 
 import {
@@ -61,8 +57,6 @@ export function RhfAdvanced02() {
     name: 'items',
   })
 
-  const { errors } = form.formState
-
   const total = fields.reduce((sum, item) => sum + lineTotal(item), 0)
 
   function onSubmit(data: FormValues) {
@@ -84,16 +78,24 @@ export function RhfAdvanced02() {
         className="flex flex-col gap-3"
       >
         <CardContent className="flex flex-col gap-6">
-          <Field data-invalid={!!errors.client}>
-            <FieldLabel htmlFor="rhf-advanced-02-client">Client</FieldLabel>
-            <Input
-              id="rhf-advanced-02-client"
-              placeholder="Acme Inc."
-              aria-invalid={!!errors.client}
-              {...form.register('client')}
-            />
-            {errors.client && <FieldError errors={[errors.client]} />}
-          </Field>
+          <Controller
+            control={form.control}
+            name="client"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="rhf-advanced-02-client">Client</FieldLabel>
+                <Input
+                  {...field}
+                  id="rhf-advanced-02-client"
+                  placeholder="Acme Inc."
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
@@ -150,7 +152,17 @@ export function RhfAdvanced02() {
             )}
 
             <LineItemDialog onAdd={(item) => append(item)} />
-            {errors.items?.root && <FieldError errors={[errors.items.root]} />}
+            <Controller
+              control={form.control}
+              name="items"
+              render={({ fieldState }) =>
+                fieldState.error?.root ? (
+                  <FieldError errors={[fieldState.error.root]} />
+                ) : (
+                  <></>
+                )
+              }
+            />
           </div>
         </CardContent>
         <CardFooter className="justify-end">

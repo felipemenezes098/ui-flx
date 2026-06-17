@@ -31,8 +31,6 @@ export function RhfFields04() {
     defaultValues: { budget: 0 },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Budget set', { description: `$${data.budget} / month` })
   }
@@ -46,8 +44,8 @@ export function RhfFields04() {
         <Controller
           control={form.control}
           name="budget"
-          render={({ field }) => (
-            <Field data-invalid={!!errors.budget}>
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
               <FieldContent>
                 <FieldLabel htmlFor="rhf-fields-04-budget">
                   Monthly budget
@@ -61,9 +59,9 @@ export function RhfFields04() {
                 step={5}
                 value={[field.value]}
                 onValueChange={(v) => field.onChange(v[0])}
-                aria-invalid={!!errors.budget}
+                aria-invalid={fieldState.invalid}
               />
-              {errors.budget && <FieldError errors={[errors.budget]} />}
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />

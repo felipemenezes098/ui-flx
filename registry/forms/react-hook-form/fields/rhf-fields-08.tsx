@@ -50,8 +50,6 @@ export function RhfFields08() {
     defaultValues: { language: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Language selected', { description: data.language })
   }
@@ -65,10 +63,10 @@ export function RhfFields08() {
         <Controller
           control={form.control}
           name="language"
-          render={({ field }) => {
+          render={({ field, fieldState }) => {
             const selected = LANGUAGES.find((l) => l.value === field.value)
             return (
-              <Field data-invalid={!!errors.language}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor="rhf-fields-08-language">
                   Language
                 </FieldLabel>
@@ -80,7 +78,7 @@ export function RhfFields08() {
                       variant="outline"
                       role="combobox"
                       aria-expanded={open}
-                      aria-invalid={!!errors.language}
+                      aria-invalid={fieldState.invalid}
                       className="w-full justify-between font-normal"
                     >
                       {selected ? selected.label : 'Select a language'}
@@ -118,7 +116,9 @@ export function RhfFields08() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                {errors.language && <FieldError errors={[errors.language]} />}
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
               </Field>
             )
           }}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
 import * as z from 'zod'
@@ -30,8 +30,6 @@ export function RhfFields03() {
     defaultValues: { bio: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Bio updated', { description: data.bio })
   }
@@ -42,20 +40,26 @@ export function RhfFields03() {
       className="flex w-full max-w-sm flex-col gap-6"
     >
       <FieldGroup>
-        <Field data-invalid={!!errors.bio}>
-          <FieldLabel htmlFor="rhf-fields-03-bio">Bio</FieldLabel>
-          <Textarea
-            id="rhf-fields-03-bio"
-            rows={4}
-            placeholder="A short description about yourself."
-            aria-invalid={!!errors.bio}
-            {...form.register('bio')}
-          />
-          <FieldDescription>
-            Shown on your public profile. Max 160 characters.
-          </FieldDescription>
-          {errors.bio && <FieldError errors={[errors.bio]} />}
-        </Field>
+        <Controller
+          control={form.control}
+          name="bio"
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor="rhf-fields-03-bio">Bio</FieldLabel>
+              <Textarea
+                {...field}
+                id="rhf-fields-03-bio"
+                rows={4}
+                placeholder="A short description about yourself."
+                aria-invalid={fieldState.invalid}
+              />
+              <FieldDescription>
+                Shown on your public profile. Max 160 characters.
+              </FieldDescription>
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
       </FieldGroup>
       <Button type="submit" size="sm">
         Save

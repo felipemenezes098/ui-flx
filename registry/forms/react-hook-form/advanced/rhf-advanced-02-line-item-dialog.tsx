@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { PlusIcon } from 'lucide-react'
 import * as z from 'zod'
@@ -52,8 +52,6 @@ export function LineItemDialog({
     defaultValues: emptyItem,
   })
 
-  const { errors } = form.formState
-
   function handleAdd(data: LineItem) {
     onAdd(data)
     form.reset(emptyItem)
@@ -88,51 +86,73 @@ export function LineItemDialog({
           }}
         >
           <FieldGroup>
-            <Field data-invalid={!!errors.description}>
-              <FieldLabel htmlFor="rhf-advanced-02-item-description">
-                Description
-              </FieldLabel>
-              <Input
-                id="rhf-advanced-02-item-description"
-                placeholder="Design retainer"
-                aria-invalid={!!errors.description}
-                {...form.register('description')}
-              />
-              {errors.description && (
-                <FieldError errors={[errors.description]} />
+            <Controller
+              control={form.control}
+              name="description"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-advanced-02-item-description">
+                    Description
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-advanced-02-item-description"
+                    placeholder="Design retainer"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
               )}
-            </Field>
+            />
             <div className="flex gap-3">
-              <Field data-invalid={!!errors.quantity}>
-                <FieldLabel htmlFor="rhf-advanced-02-item-quantity">
-                  Quantity
-                </FieldLabel>
-                <Input
-                  id="rhf-advanced-02-item-quantity"
-                  type="number"
-                  min="1"
-                  step="1"
-                  placeholder="1"
-                  aria-invalid={!!errors.quantity}
-                  {...form.register('quantity')}
-                />
-                {errors.quantity && <FieldError errors={[errors.quantity]} />}
-              </Field>
-              <Field data-invalid={!!errors.unitPrice}>
-                <FieldLabel htmlFor="rhf-advanced-02-item-price">
-                  Unit price (USD)
-                </FieldLabel>
-                <Input
-                  id="rhf-advanced-02-item-price"
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  placeholder="0.00"
-                  aria-invalid={!!errors.unitPrice}
-                  {...form.register('unitPrice')}
-                />
-                {errors.unitPrice && <FieldError errors={[errors.unitPrice]} />}
-              </Field>
+              <Controller
+                control={form.control}
+                name="quantity"
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="rhf-advanced-02-item-quantity">
+                      Quantity
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="rhf-advanced-02-item-quantity"
+                      type="number"
+                      min="1"
+                      step="1"
+                      placeholder="1"
+                      aria-invalid={fieldState.invalid}
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                control={form.control}
+                name="unitPrice"
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="rhf-advanced-02-item-price">
+                      Unit price (USD)
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="rhf-advanced-02-item-price"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                      aria-invalid={fieldState.invalid}
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
             </div>
           </FieldGroup>
           <DialogFooter className="mt-6">

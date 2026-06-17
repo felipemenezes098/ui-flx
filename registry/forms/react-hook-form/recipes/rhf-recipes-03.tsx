@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LogIn } from 'lucide-react'
 import { toast } from 'sonner'
@@ -35,8 +35,6 @@ export function RhfRecipes03() {
     defaultValues: { email: '', password: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Welcome back', { description: data.email })
   }
@@ -48,33 +46,53 @@ export function RhfRecipes03() {
           <LogIn className="text-muted-foreground size-4" />
           Sign in
         </CardTitle>
-        <CardDescription>Use your email and password to continue.</CardDescription>
+        <CardDescription>
+          Use your email and password to continue.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.email}>
-              <FieldLabel htmlFor="rhf-recipes-03-email">Email</FieldLabel>
-              <Input
-                id="rhf-recipes-03-email"
-                type="email"
-                placeholder="ada@example.com"
-                aria-invalid={!!errors.email}
-                {...form.register('email')}
-              />
-              {errors.email && <FieldError errors={[errors.email]} />}
-            </Field>
-            <Field data-invalid={!!errors.password}>
-              <FieldLabel htmlFor="rhf-recipes-03-password">Password</FieldLabel>
-              <Input
-                id="rhf-recipes-03-password"
-                type="password"
-                placeholder="••••••••"
-                aria-invalid={!!errors.password}
-                {...form.register('password')}
-              />
-              {errors.password && <FieldError errors={[errors.password]} />}
-            </Field>
+            <Controller
+              control={form.control}
+              name="email"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-recipes-03-email">Email</FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-recipes-03-email"
+                    type="email"
+                    placeholder="ada@example.com"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              control={form.control}
+              name="password"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-recipes-03-password">
+                    Password
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-recipes-03-password"
+                    type="password"
+                    placeholder="••••••••"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
             <Button type="submit" size="sm">
               Sign in
             </Button>

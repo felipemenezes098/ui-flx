@@ -41,8 +41,6 @@ export function RhfFields09() {
     defaultValues: { visibility: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Visibility updated', { description: data.visibility })
   }
@@ -56,10 +54,10 @@ export function RhfFields09() {
         <Controller
           control={form.control}
           name="visibility"
-          render={({ field }) => {
+          render={({ field, fieldState }) => {
             const selected = VISIBILITY.find((v) => v.value === field.value)
             return (
-              <Field data-invalid={!!errors.visibility}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor="rhf-fields-09-visibility">
                   Visibility
                 </FieldLabel>
@@ -69,7 +67,7 @@ export function RhfFields09() {
                       id="rhf-fields-09-visibility"
                       type="button"
                       variant="outline"
-                      aria-invalid={!!errors.visibility}
+                      aria-invalid={fieldState.invalid}
                       className="w-full justify-between font-normal"
                     >
                       {selected ? selected.label : 'Select visibility'}
@@ -97,8 +95,8 @@ export function RhfFields09() {
                     </DropdownMenuRadioGroup>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                {errors.visibility && (
-                  <FieldError errors={[errors.visibility]} />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
                 )}
               </Field>
             )

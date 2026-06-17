@@ -34,8 +34,6 @@ export function RhfFields07() {
     defaultValues: { framework: '' },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Framework selected', { description: data.framework })
   }
@@ -49,8 +47,8 @@ export function RhfFields07() {
         <Controller
           control={form.control}
           name="framework"
-          render={({ field }) => (
-            <Field data-invalid={!!errors.framework}>
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
               <FieldLabel htmlFor="rhf-fields-07-framework">
                 Framework
               </FieldLabel>
@@ -58,7 +56,7 @@ export function RhfFields07() {
                 <SelectTrigger
                   id="rhf-fields-07-framework"
                   className="w-full"
-                  aria-invalid={!!errors.framework}
+                  aria-invalid={fieldState.invalid}
                 >
                   <SelectValue placeholder="Select a framework" />
                 </SelectTrigger>
@@ -77,7 +75,7 @@ export function RhfFields07() {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              {errors.framework && <FieldError errors={[errors.framework]} />}
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />

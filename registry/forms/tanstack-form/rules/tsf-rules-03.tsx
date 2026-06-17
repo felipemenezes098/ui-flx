@@ -26,7 +26,7 @@ const MIN = 1
 const MAX = 99
 
 const formSchema = z.object({
-  quantity: z.coerce
+  quantity: z
     .number({ message: 'Enter a number.' })
     .int('Whole numbers only.')
     .min(MIN, `Minimum is ${MIN}.`)
@@ -80,7 +80,9 @@ export function TsfRules03() {
                       aria-invalid={isInvalid}
                       value={field.state.value}
                       onBlur={field.handleBlur}
-                      onChange={(e) => field.handleChange(e.target.value)}
+                      onChange={(e) =>
+                        field.handleChange(e.target.valueAsNumber)
+                      }
                     />
                     {isInvalid ? (
                       <FieldError errors={field.state.meta.errors} />

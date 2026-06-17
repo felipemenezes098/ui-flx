@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Hash } from 'lucide-react'
 import { toast } from 'sonner'
@@ -34,15 +34,14 @@ const formSchema = z.object({
     .max(MAX, `Maximum is ${MAX}.`),
 })
 
-type FormValues = z.infer<typeof formSchema>
+type FormInput = z.input<typeof formSchema>
+type FormValues = z.output<typeof formSchema>
 
 export function RhfRules03() {
-  const form = useForm<FormValues>({
+  const form = useForm<FormInput, unknown, FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { quantity: 1 },
   })
-
-  const { errors } = form.formState
 
   function onSubmit(data: FormValues) {
     toast.success('Quantity confirmed', {
@@ -64,25 +63,34 @@ export function RhfRules03() {
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.quantity}>
-              <FieldLabel htmlFor="rhf-rules-03-quantity">Quantity</FieldLabel>
-              <Input
-                id="rhf-rules-03-quantity"
-                type="number"
-                inputMode="numeric"
-                min={MIN}
-                max={MAX}
-                aria-invalid={!!errors.quantity}
-                {...form.register('quantity')}
-              />
-              {errors.quantity ? (
-                <FieldError errors={[errors.quantity]} />
-              ) : (
-                <FieldDescription>
-                  Pick a whole number between {MIN} and {MAX}.
-                </FieldDescription>
+            <Controller
+              control={form.control}
+              name="quantity"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-rules-03-quantity">
+                    Quantity
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    value={field.value as number}
+                    id="rhf-rules-03-quantity"
+                    type="number"
+                    inputMode="numeric"
+                    min={MIN}
+                    max={MAX}
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid ? (
+                    <FieldError errors={[fieldState.error]} />
+                  ) : (
+                    <FieldDescription>
+                      Pick a whole number between {MIN} and {MAX}.
+                    </FieldDescription>
+                  )}
+                </Field>
               )}
-            </Field>
+            />
             <Button type="submit" size="sm">
               Add to cart
             </Button>

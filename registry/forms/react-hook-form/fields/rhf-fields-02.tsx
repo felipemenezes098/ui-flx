@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
 import * as z from 'zod'
@@ -16,7 +16,7 @@ import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
-  email: z.string().email('Enter a valid email address.'),
+  email: z.email('Enter a valid email address.'),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -26,8 +26,6 @@ export function RhfFields02() {
     resolver: zodResolver(formSchema),
     defaultValues: { name: '', email: '' },
   })
-
-  const { errors } = form.formState
 
   function onSubmit(data: FormValues) {
     toast.success('Profile saved', { description: data.email })
@@ -39,28 +37,40 @@ export function RhfFields02() {
       className="flex w-full max-w-sm flex-col gap-6"
     >
       <FieldGroup>
-        <Field data-invalid={!!errors.name}>
-          <FieldLabel htmlFor="rhf-fields-02-name">Name</FieldLabel>
-          <Input
-            id="rhf-fields-02-name"
-            placeholder="Ada Lovelace"
-            aria-invalid={!!errors.name}
-            {...form.register('name')}
-          />
-          {errors.name && <FieldError errors={[errors.name]} />}
-        </Field>
+        <Controller
+          control={form.control}
+          name="name"
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor="rhf-fields-02-name">Name</FieldLabel>
+              <Input
+                {...field}
+                id="rhf-fields-02-name"
+                placeholder="Ada Lovelace"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
 
-        <Field data-invalid={!!errors.email}>
-          <FieldLabel htmlFor="rhf-fields-02-email">Email</FieldLabel>
-          <Input
-            id="rhf-fields-02-email"
-            type="email"
-            placeholder="ada@example.com"
-            aria-invalid={!!errors.email}
-            {...form.register('email')}
-          />
-          {errors.email && <FieldError errors={[errors.email]} />}
-        </Field>
+        <Controller
+          control={form.control}
+          name="email"
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor="rhf-fields-02-email">Email</FieldLabel>
+              <Input
+                {...field}
+                id="rhf-fields-02-email"
+                type="email"
+                placeholder="ada@example.com"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
       </FieldGroup>
       <Button type="submit" size="sm">
         Save

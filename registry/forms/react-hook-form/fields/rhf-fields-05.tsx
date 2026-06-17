@@ -35,8 +35,6 @@ export function RhfFields05() {
     defaultValues: { topics: [] },
   })
 
-  const { errors } = form.formState
-
   function onSubmit(data: FormValues) {
     toast.success('Subscriptions saved', {
       description: data.topics.join(', '),
@@ -52,8 +50,8 @@ export function RhfFields05() {
         <Controller
           control={form.control}
           name="topics"
-          render={({ field }) => (
-            <FieldSet data-invalid={!!errors.topics}>
+          render={({ field, fieldState }) => (
+            <FieldSet data-invalid={fieldState.invalid}>
               <FieldLegend>Email subscriptions</FieldLegend>
               <FieldGroup className="gap-2">
                 {ITEMS.map((item) => (
@@ -77,7 +75,7 @@ export function RhfFields05() {
                   </Field>
                 ))}
               </FieldGroup>
-              {errors.topics && <FieldError errors={[errors.topics]} />}
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </FieldSet>
           )}
         />

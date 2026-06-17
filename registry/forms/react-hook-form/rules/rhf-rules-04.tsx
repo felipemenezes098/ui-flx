@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { PenLine } from 'lucide-react'
 import { toast } from 'sonner'
@@ -41,10 +41,6 @@ export function RhfRules04() {
     defaultValues: { bio: '' },
   })
 
-  const { errors } = form.formState
-  const count = form.watch('bio').length
-  const overLimit = count > MAX
-
   function onSubmit(data: FormValues) {
     toast.success('Bio saved', { description: `${data.bio.length} characters` })
   }
@@ -61,27 +57,39 @@ export function RhfRules04() {
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.bio}>
-              <div className="flex items-center justify-between">
-                <FieldLabel htmlFor="rhf-rules-04-bio">Bio</FieldLabel>
-                <span
-                  className={cn(
-                    'text-muted-foreground text-xs tabular-nums',
-                    overLimit && 'text-destructive',
-                  )}
-                >
-                  {count}/{MAX}
-                </span>
-              </div>
-              <Textarea
-                id="rhf-rules-04-bio"
-                rows={3}
-                placeholder="Tell us a little about yourself…"
-                aria-invalid={!!errors.bio}
-                {...form.register('bio')}
-              />
-              {errors.bio && <FieldError errors={[errors.bio]} />}
-            </Field>
+            <Controller
+              control={form.control}
+              name="bio"
+              render={({ field, fieldState }) => {
+                const count = field.value.length
+                const overLimit = count > MAX
+                return (
+                  <Field data-invalid={fieldState.invalid}>
+                    <div className="flex items-center justify-between">
+                      <FieldLabel htmlFor="rhf-rules-04-bio">Bio</FieldLabel>
+                      <span
+                        className={cn(
+                          'text-muted-foreground text-xs tabular-nums',
+                          overLimit && 'text-destructive',
+                        )}
+                      >
+                        {count}/{MAX}
+                      </span>
+                    </div>
+                    <Textarea
+                      {...field}
+                      id="rhf-rules-04-bio"
+                      rows={3}
+                      placeholder="Tell us a little about yourself…"
+                      aria-invalid={fieldState.invalid}
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )
+              }}
+            />
             <Button type="submit" size="sm">
               Save bio
             </Button>

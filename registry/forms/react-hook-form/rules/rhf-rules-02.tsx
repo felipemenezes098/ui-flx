@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckCircle2, Mail } from 'lucide-react'
 import { toast } from 'sonner'
@@ -36,9 +36,6 @@ export function RhfRules02() {
     defaultValues: { email: '' },
   })
 
-  const { errors, dirtyFields, isValid } = form.formState
-  const isEmailValid = isValid && dirtyFields.email
-
   function onSubmit(data: FormValues) {
     toast.success('Email confirmed', { description: data.email })
   }
@@ -57,28 +54,34 @@ export function RhfRules02() {
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-            <Field data-invalid={!!errors.email}>
-              <FieldLabel htmlFor="rhf-rules-02-email">Email</FieldLabel>
-              <Input
-                id="rhf-rules-02-email"
-                type="email"
-                placeholder="you@example.com"
-                aria-invalid={!!errors.email}
-                {...form.register('email')}
-              />
-              {errors.email ? (
-                <FieldError errors={[errors.email]} />
-              ) : isEmailValid ? (
-                <FieldDescription className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-500">
-                  <CheckCircle2 className="size-3.5" />
-                  Looks good.
-                </FieldDescription>
-              ) : (
-                <FieldDescription>
-                  We&apos;ll never share your email.
-                </FieldDescription>
+            <Controller
+              control={form.control}
+              name="email"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="rhf-rules-02-email">Email</FieldLabel>
+                  <Input
+                    {...field}
+                    id="rhf-rules-02-email"
+                    type="email"
+                    placeholder="you@example.com"
+                    aria-invalid={fieldState.invalid}
+                  />
+                  {fieldState.invalid ? (
+                    <FieldError errors={[fieldState.error]} />
+                  ) : fieldState.isDirty ? (
+                    <FieldDescription className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-500">
+                      <CheckCircle2 className="size-3.5" />
+                      Looks good.
+                    </FieldDescription>
+                  ) : (
+                    <FieldDescription>
+                      We&apos;ll never share your email.
+                    </FieldDescription>
+                  )}
+                </Field>
               )}
-            </Field>
+            />
             <Button type="submit" size="sm">
               Continue
             </Button>
