@@ -10,6 +10,7 @@ import { dataNavbar } from '@/data/navbar'
 import { cn } from '@/lib/utils'
 
 import { Logo } from '../logo'
+import { GlobalSearch } from './global-search'
 import { ThemeSwitcher } from './theme'
 
 export function NavbarDesktop() {
@@ -60,6 +61,7 @@ export function NavbarDesktop() {
             </div>
           </nav>
           <div className="flex items-center gap-3">
+            <GlobalSearch />
             <div className="flex items-center gap-1">
               <Button
                 variant="ghost"
