@@ -1,5 +1,6 @@
 // server component – used in MDX
 
+import { CopyButton } from '@/components/core/copy-button'
 import { Separator } from '@/components/ui/separator'
 import { extractCodeFromFilePath } from '@/lib/code'
 
@@ -7,7 +8,6 @@ import { CodeBlock } from './code-block'
 import { CodeBlockCode } from './code-block-code'
 import { CodeBlockGroup } from './code-block-group'
 import { CodeCollapsible, CodeCollapsibleButton } from './code-collapsible'
-import { CodeBlockCopy } from './code-copy'
 
 export function CodeBlockFromFile({
   filePath,
@@ -42,10 +42,14 @@ export function CodeBlockFromFile({
             <CodeCollapsibleButton />
             {collapsible && (
               <div className="flex items-center">
-                <Separator orientation="vertical" className="!h-4" />
+                <Separator orientation="vertical" className="h-4!" />
               </div>
             )}
-            <CodeBlockCopy fileContent={code} />
+            <CopyButton
+              text={code}
+              variant="ghost"
+              className="bg-card text-muted-foreground hover:bg-muted/80 h-7 shrink-0 px-2 shadow-none"
+            />
           </div>
         </CodeBlockGroup>
       )}

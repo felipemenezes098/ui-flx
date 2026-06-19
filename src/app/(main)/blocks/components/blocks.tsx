@@ -5,18 +5,18 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import { BlockEditor } from '@/components/core/editor/block-editor'
+import { BlockEditor } from '@/components/core/editor/block-view/block-editor'
 import {
   BlockEditorCodeContainer,
   BlockEditorCodeView,
   BlockEditorFileTree,
-} from '@/components/core/editor/block-editor-code'
-import { BlockEditorPreview } from '@/components/core/editor/block-editor-preview'
+} from '@/components/core/editor/block-view/block-editor-code'
+import { BlockEditorPreview } from '@/components/core/editor/block-view/block-editor-preview'
 import {
   BlockEditorCli,
   BlockEditorTabs,
   BlockEditorTools,
-} from '@/components/core/editor/block-editor-toolbar'
+} from '@/components/core/editor/block-view/block-editor-toolbar'
 import { BlocksNavigation } from './blocks-navigation'
 import { Button } from '@/components/ui/button'
 import {

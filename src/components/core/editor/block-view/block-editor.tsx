@@ -92,7 +92,7 @@ export function BlockEditor({
       description: '',
       image: { light: '', dark: '' },
       slug: slug,
-    } as BlockItem
+    }
   }, [category, slug, item])
 
   React.useEffect(() => {

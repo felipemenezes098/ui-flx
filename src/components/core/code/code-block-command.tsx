@@ -6,10 +6,11 @@ import * as React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useConfig } from '@/hooks/use-config'
 
+import { CopyButton } from '@/components/core/copy-button'
+
 import { CodeBlock } from './code-block'
 import { CodeBlockCode } from './code-block-code'
 import { CodeBlockGroup } from './code-block-group'
-import { CodeBlockCopy } from './code-copy'
 
 export function CodeBlockCommand({
   command,
@@ -132,7 +133,11 @@ export function CodeBlockCommand({
               })}
             </TabsList>
           </div>
-          <CodeBlockCopy fileContent={code ?? ''} />
+          <CopyButton
+            text={code ?? ''}
+            variant="ghost"
+            className="bg-card text-muted-foreground hover:bg-muted/80 h-7 shrink-0 px-2 shadow-none"
+          />
         </CodeBlockGroup>
         <div>
           {Object.entries(tabs).map(([key, value]) => {

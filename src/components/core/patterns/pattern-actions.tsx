@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { CodeBlockCommand } from '@/components/core/code/code-block-command'
-import { CopyButton } from '@/components/core/code/copy-button'
+import { CopyButton } from '@/components/core/copy-button'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
