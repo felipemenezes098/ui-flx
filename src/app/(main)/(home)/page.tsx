@@ -44,7 +44,7 @@ export default function HomePage() {
         </section>
 
         <section className="flex flex-col gap-8">
-          <div className="flex flex-col items-end justify-between md:flex-row">
+          <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="flex flex-col gap-2">
               <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
                 Intents
@@ -57,9 +57,16 @@ export default function HomePage() {
                 reasoning, and the code behind it.
               </p>
             </div>
-            <Button asChild variant="link" size="sm" className="bg-background">
-              <Link href="/intents">View all</Link>
-            </Button>
+            <div className="flex justify-end">
+              <Button
+                asChild
+                variant="link"
+                size="sm"
+                className="bg-background"
+              >
+                <Link href="/intents">View all</Link>
+              </Button>
+            </div>
           </div>
 
           <IntentShowcase />
@@ -68,7 +75,7 @@ export default function HomePage() {
         </section>
 
         <section className="flex flex-col gap-8">
-          <div className="flex flex-col items-end justify-between md:flex-row">
+          <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="flex flex-col gap-2">
               <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
                 Blocks
@@ -81,9 +88,16 @@ export default function HomePage() {
                 wire your data, and move on.
               </p>
             </div>
-            <Button asChild variant="link" size="sm" className="bg-background">
-              <Link href="/blocks">View all</Link>
-            </Button>
+            <div className="flex justify-end">
+              <Button
+                asChild
+                variant="link"
+                size="sm"
+                className="bg-background"
+              >
+                <Link href="/blocks">View all</Link>
+              </Button>
+            </div>
           </div>
 
           <BlocksPreview />

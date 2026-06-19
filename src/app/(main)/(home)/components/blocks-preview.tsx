@@ -12,26 +12,27 @@ import {
   CategoryPreviewCardTitle,
 } from '@/components/core/category-preview-card'
 import { blockCategories } from '@/lib/blocks/block-catalog'
+import { cn } from '@/lib/utils'
 
 function CategoryCard({
   name,
   href,
   concept: Concept,
   hasNew,
-  aspectClass,
+  className,
   sublabel,
 }: Readonly<{
   name: string
   href: string
   concept: ComponentType
   hasNew?: boolean
-  aspectClass: string
+  className: string
   sublabel?: string
 }>) {
   return (
     <Link href={href} className="group">
       <CategoryPreviewCard>
-        <CategoryPreviewCardPreview className={aspectClass}>
+        <CategoryPreviewCardPreview className={cn('min-h-45', className)}>
           {hasNew && <CategoryPreviewCardBadge />}
           <Concept />
         </CategoryPreviewCardPreview>
@@ -50,7 +51,7 @@ function CategoryCard({
 
 export function BlocksPreview() {
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4">
       {blockCategories.map((cat) => (
         <CategoryCard
           key={cat.slug}
@@ -58,7 +59,7 @@ export function BlocksPreview() {
           href={`/blocks?category=${cat.slug}`}
           concept={cat.concept}
           hasNew={cat.hasNew}
-          aspectClass="aspect-video"
+          className="aspect-video"
           sublabel={`${cat.blocks.length} ${cat.blocks.length === 1 ? 'block' : 'blocks'}`}
         />
       ))}
