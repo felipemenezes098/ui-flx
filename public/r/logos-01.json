@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos-01",
+  "title": "Logos 01",
+  "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
+  "dependencies": [],
+  "devDependencies": [
+    "embla-carousel-auto-scroll"
+  ],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/logos/logos-01/logos-01.tsx",
+      "content": "'use client'\n\nimport AutoScroll from 'embla-carousel-auto-scroll'\nimport { useEffect, useState } from 'react'\n\nimport {\n  Carousel,\n  type CarouselApi,\n  CarouselContent,\n  CarouselItem,\n} from '@/components/ui/carousel'\nimport { cn } from '@/lib/utils'\n\nexport interface Logos01Item {\n  title: string\n  url: string\n}\n\nexport interface Logos01Props {\n  items: Logos01Item[]\n  className?: string\n}\n\nexport function Logos01({ items, className }: Readonly<Logos01Props>) {\n  const [api, setApi] = useState<CarouselApi>()\n\n  useEffect(() => {\n    if (!api) return\n    api.plugins()?.autoScroll?.play()\n  }, [api])\n\n  const normalizedItems =\n    items.length < 8 ? [...items, ...items, ...items] : items\n\n  const containerWidthClassName = cn('w-full max-w-6xl mx-auto px-4', className)\n\n  if (!normalizedItems.length) return null\n\n  return (\n    <div className=\"relative w-full\">\n      <Carousel\n        setApi={setApi}\n        opts={{\n          align: 'start',\n          loop: true,\n        }}\n        plugins={[\n          AutoScroll({\n            speed: 0.5,\n            startDelay: 1,\n            stopOnMouseEnter: true,\n            stopOnInteraction: false,\n          }),\n        ]}\n        className=\"w-full\"\n        aria-label=\"Carrossel de logos\"\n      >\n        <CarouselContent\n          className={cn('flex items-center', containerWidthClassName)}\n        >\n          {normalizedItems.map((item, index) => (\n            <CarouselItem\n              key={`${item.title}-${index}`}\n              className=\"basis-auto pl-15\"\n            >\n              <div className=\"flex h-12 items-center\">\n                <img\n                  src={item.url}\n                  alt={item.title}\n                  width={120}\n                  height={32}\n                  loading=\"lazy\"\n                  decoding=\"async\"\n                  className=\"h-8 w-auto object-contain opacity-60 grayscale transition-[opacity,filter] duration-300 ease-out hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert\"\n                />\n              </div>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n      </Carousel>\n\n      <div className=\"from-background pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r to-transparent\" />\n      <div className=\"from-background pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l to-transparent\" />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/logos/logos-01/logos-01.tsx"
+    },
+    {
+      "path": "registry/blocks/logos/logos-01/logos-01-example.tsx",
+      "content": "import { Logos01, type Logos01Props } from './logos-01'\n\nexport const values = {\n  items: [\n    {\n      title: 'Supabase',\n      url: 'https://cdn.brandfetch.io/idsSceG8fK/w/800/h/156/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B',\n    },\n    {\n      title: 'Google',\n      url: 'https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',\n    },\n    {\n      title: 'Shopify',\n      url: 'https://cdn.brandfetch.io/idAgPm7IvG/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',\n    },\n    {\n      title: 'Mongo',\n      url: 'https://cdn.brandfetch.io/ideyyfT0Lp/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',\n    },\n    {\n      title: 'LottieFiles',\n      url: 'https://cdn.brandfetch.io/idEExqEvR9/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',\n    },\n  ],\n} satisfies Logos01Props\n\nexport function Logos01Example() {\n  return <Logos01 items={values.items} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

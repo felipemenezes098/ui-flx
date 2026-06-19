@@ -1,14 +1,14 @@
 import { BentoGridConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as primaryItemGridManifest } from './primary-item-grid/manifest'
+import { manifest as bentoGrids01Manifest } from './bento-grids-01/manifest'
 
 export const bentoGridsCategory: BlockCategoryRow = {
   slug: 'bento-grids',
   category: 'Bento grids',
   description: 'Bento-style grids with a prominent primary tile and supporting cards.',
   type: 'bento-grids',
-  image: primaryItemGridManifest.image,
+  image: bentoGrids01Manifest.image,
   concept: BentoGridConcept,
-  blocks: [primaryItemGridManifest],
+  blocks: [bentoGrids01Manifest],
 }

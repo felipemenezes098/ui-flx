@@ -1,42 +1,42 @@
 import { ContentConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as badgeListManifest } from './badge-list/manifest'
-import { manifest as centeredTextManifest } from './centered-text/manifest'
-import { manifest as focusGridManifest } from './focus-grid/manifest'
-import { manifest as gridCardsManifest } from './grid-cards/manifest'
-import { manifest as gridContentCardsManifest } from './grid-content-cards/manifest'
-import { manifest as gridContentColumnsManifest } from './grid-content-columns/manifest'
-import { manifest as gridMediaCardsManifest } from './grid-media-cards/manifest'
-import { manifest as gridTwoColumnsManifest } from './grid-two-columns/manifest'
-import { manifest as gridWithMediaTopManifest } from './grid-with-media-top/manifest'
-import { manifest as iconListManifest } from './icon-list/manifest'
-import { manifest as mediaGridInteractiveManifest } from './media-grid-interactive/manifest'
-import { manifest as selectRevealMediaManifest } from './select-reveal-media/manifest'
-import { manifest as tabsMediaManifest } from './tabs-media/manifest'
-import { manifest as titleWithMediaManifest } from './title-with-media/manifest'
+import { manifest as content01Manifest } from './content-01/manifest'
+import { manifest as content02Manifest } from './content-02/manifest'
+import { manifest as content03Manifest } from './content-03/manifest'
+import { manifest as content04Manifest } from './content-04/manifest'
+import { manifest as content05Manifest } from './content-05/manifest'
+import { manifest as content06Manifest } from './content-06/manifest'
+import { manifest as content07Manifest } from './content-07/manifest'
+import { manifest as content08Manifest } from './content-08/manifest'
+import { manifest as content09Manifest } from './content-09/manifest'
+import { manifest as content10Manifest } from './content-10/manifest'
+import { manifest as content11Manifest } from './content-11/manifest'
+import { manifest as content12Manifest } from './content-12/manifest'
+import { manifest as content13Manifest } from './content-13/manifest'
+import { manifest as content14Manifest } from './content-14/manifest'
 
 export const contentCategory: BlockCategoryRow = {
   slug: 'content',
   category: 'Content',
   description: 'Content components to display information in an organized way.',
   type: 'content',
-  image: tabsMediaManifest.image,
+  image: content03Manifest.image,
   concept: ContentConcept,
   blocks: [
-    selectRevealMediaManifest,
-    gridMediaCardsManifest,
-    tabsMediaManifest,
-    gridContentCardsManifest,
-    focusGridManifest,
-    gridTwoColumnsManifest,
-    gridContentColumnsManifest,
-    centeredTextManifest,
-    gridCardsManifest,
-    mediaGridInteractiveManifest,
-    gridWithMediaTopManifest,
-    iconListManifest,
-    badgeListManifest,
-    titleWithMediaManifest,
+    content01Manifest,
+    content02Manifest,
+    content03Manifest,
+    content04Manifest,
+    content05Manifest,
+    content06Manifest,
+    content07Manifest,
+    content08Manifest,
+    content09Manifest,
+    content10Manifest,
+    content11Manifest,
+    content12Manifest,
+    content13Manifest,
+    content14Manifest,
   ],
 }

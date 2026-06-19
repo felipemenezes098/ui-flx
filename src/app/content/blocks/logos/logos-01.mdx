@@ -1,0 +1,86 @@
+export const metadata = {
+  title: 'Logos 01',
+  description:
+    'Minimalist logo carousel with auto-scroll and edge gradient fade.',
+  openGraph: {
+    title: 'Logos 01',
+    description:
+      'Minimalist logo carousel with auto-scroll and edge gradient fade.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="logos" slug="logos-01">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Logos 01</PageTitle>
+  <PageDescription>
+    Logo carousel with auto-scroll, edge gradient fade, and minimalist style. Pass an array of items with `title` and `url`.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/logos-01" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/logos/logos-01/logos-01-example.tsx"
+  title="logos-01-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand
+  command="embla-carousel-auto-scroll"
+  isPackage
+  isDevDependency
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/logos/logos-01/logos-01.tsx"
+  collapsible
+  title="logos-01.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/logos/logos-01/logos-01-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

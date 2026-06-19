@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "logo-marquee",
+      "name": "logos-01",
       "type": "registry:block",
-      "title": "Logo Marquee",
+      "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
       "registryDependencies": [
         "carousel"
@@ -17,14 +17,14 @@
       ],
       "files": [
         {
-          "path": "logo-marquee/logo-marquee.tsx",
+          "path": "logos-01/logos-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee.tsx"
+          "target": "components/flx/blocks/logos/logos-01/logos-01.tsx"
         },
         {
-          "path": "logo-marquee/logo-marquee-example.tsx",
+          "path": "logos-01/logos-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
+          "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
         }
       ]
     }

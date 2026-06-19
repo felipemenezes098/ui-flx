@@ -1,14 +1,14 @@
 import { TestimonialsConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as singleTestimonialManifest } from './single-testimonial/manifest'
+import { manifest as testimonials01Manifest } from './testimonials-01/manifest'
 
 export const testimonialsCategory: BlockCategoryRow = {
   slug: 'testimonials',
   category: 'Testimonials',
   description: 'Minimal testimonial blocks for concise social proof.',
   type: 'testimonials',
-  image: singleTestimonialManifest.image,
+  image: testimonials01Manifest.image,
   concept: TestimonialsConcept,
-  blocks: [singleTestimonialManifest],
+  blocks: [testimonials01Manifest],
 }

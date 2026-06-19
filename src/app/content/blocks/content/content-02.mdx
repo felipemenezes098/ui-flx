@@ -1,0 +1,114 @@
+export const metadata = {
+  title: 'Content 02',
+  description: 'A grid of media cards with a title and items.',
+  openGraph: {
+    title: 'Content 02',
+    description: 'A grid of media cards with a title and items.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="content" slug="content-02">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Content 02</PageTitle>
+  <PageDescription>
+    A grid of media cards with a title and items (image, icon, title, description). Supports overlay and white text on images.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/content-02" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/content-02/content-02-example.tsx"
+  title="content-02-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add dynamic-icon Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/dynamic-icon.tsx"
+  title="dynamic-icon.tsx"
+  collapsible
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/content-02/content-02.tsx"
+  collapsible
+  title="content-02.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/content/content-02/content-02-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Content 02. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/content-02/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/content/content-02.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/content/content-02/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/content/content-02.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

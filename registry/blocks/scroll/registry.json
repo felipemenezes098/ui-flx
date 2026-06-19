@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "sticky-scroll-media",
+      "name": "scroll-01",
       "type": "registry:block",
-      "title": "Sticky Scroll Media",
+      "title": "Scroll 01",
       "description": "Sticky media that changes as you scroll through text content.",
       "registryDependencies": [],
       "dependencies": [
@@ -14,14 +14,14 @@
       ],
       "files": [
         {
-          "path": "sticky-scroll-media/sticky-scroll-media.tsx",
+          "path": "scroll-01/scroll-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+          "target": "components/flx/blocks/scroll/scroll-01/scroll-01.tsx"
         },
         {
-          "path": "sticky-scroll-media/sticky-scroll-media-example.tsx",
+          "path": "scroll-01/scroll-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+          "target": "components/flx/blocks/scroll/scroll-01/scroll-01-example.tsx"
         }
       ],
       "meta": {

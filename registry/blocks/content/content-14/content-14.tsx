@@ -1,0 +1,36 @@
+'use client'
+
+import Balancer from 'react-wrap-balancer'
+
+export interface Content14Props {
+  title?: string
+  media: {
+    src: string
+    alt: string
+  }
+}
+
+export function Content14({ title, media }: Content14Props) {
+  return (
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        {title && (
+          <h2 className="text-center text-2xl font-bold">
+            <Balancer balance={0.5}>{title}</Balancer>
+          </h2>
+        )}
+      </div>
+      {media && (
+        <div className="relative min-h-96 w-full overflow-hidden rounded-lg">
+          <img
+            src={media.src}
+            alt={title ?? 'Content 14 Image'}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+        </div>
+      )}
+    </div>
+  )
+}

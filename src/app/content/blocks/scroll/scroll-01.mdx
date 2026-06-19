@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Scroll 01',
+  description:
+    'Media element that stays fixed while content scrolls, changing based on scroll position.',
+  openGraph: {
+    title: 'Scroll 01',
+    description:
+      'Media element that stays fixed while content scrolls, changing based on scroll position.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="scroll" slug="scroll-01">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Scroll 01</PageTitle>
+  <PageDescription>
+    A responsive scroll-based component featuring sticky media that changes as you scroll through content. On mobile, items stack vertically. On desktop, media stays sticky while text content scrolls past it.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/scroll-01" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/scroll/scroll-01/scroll-01-example.tsx"
+  title="scroll-01-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install motion</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/scroll/scroll-01/scroll-01.tsx"
+  collapsible
+  title="scroll-01.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/scroll/scroll-01/scroll-01-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

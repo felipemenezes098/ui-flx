@@ -1,14 +1,14 @@
 import { ScrollConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as stickyScrollMediaManifest } from './sticky-scroll-media/manifest'
+import { manifest as scroll01Manifest } from './scroll-01/manifest'
 
 export const scrollCategory: BlockCategoryRow = {
   slug: 'scroll',
   category: 'Scroll',
   description: 'Scroll-based interactive blocks with animations.',
   type: 'scroll',
-  image: stickyScrollMediaManifest.image,
+  image: scroll01Manifest.image,
   concept: ScrollConcept,
-  blocks: [stickyScrollMediaManifest],
+  blocks: [scroll01Manifest],
 }
