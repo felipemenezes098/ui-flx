@@ -1,6 +1,6 @@
 'use client'
 
-import { CopyButton } from '@/components/core/code/copy-button'
+import { CopyButton } from '@/components/core/copy-button'
 import type { DecisionView } from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 

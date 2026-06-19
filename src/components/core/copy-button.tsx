@@ -9,6 +9,7 @@ import { useCopy } from '@/hooks/use-copy'
 
 interface CopyButtonProps extends ComponentProps<typeof Button> {
   text: string
+  /** Visible label next to the icon. Omit for an icon-only button. */
   label?: string
 }
 
@@ -18,10 +19,9 @@ const copyTransition = {
   bounce: 0,
 } as const
 
-/** Button that copies `text`; label stays, icon animates on success. */
 export function CopyButton({
   text,
-  label = 'Copy',
+  label,
   variant = 'outline',
   size = 'sm',
   ...props
@@ -33,6 +33,7 @@ export function CopyButton({
       type="button"
       variant={variant}
       size={size}
+      aria-label={label || (copied ? 'Copied' : 'Copy')}
       onClick={() => copy(text)}
       {...props}
     >
@@ -54,7 +55,7 @@ export function CopyButton({
           </motion.div>
         </AnimatePresence>
       </span>
-      {label}
+      {label || null}
     </Button>
   )
 }

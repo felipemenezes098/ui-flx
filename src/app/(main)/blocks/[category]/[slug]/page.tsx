@@ -1,4 +1,4 @@
-import { BlockLivePageNavProvider } from '@/components/core/editor/block-live-breadcrumb'
+import { BlockLivePageNavProvider } from '@/components/core/editor/live/block-live-breadcrumb'
 import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'

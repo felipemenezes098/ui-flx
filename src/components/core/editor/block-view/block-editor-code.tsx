@@ -1,9 +1,9 @@
 'use client'
 
-import { Check, ChevronRight, Clipboard, File, Folder } from 'lucide-react'
+import { ChevronRight, File, Folder } from 'lucide-react'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
+import { CopyButton } from '@/components/core/copy-button'
 import {
   Collapsible,
   CollapsibleContent,
@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/sidebar'
 import type { FileTree } from '@/lib/registry-utils'
 
-import { CodeBlockCode } from '../code/code-block-code'
+import { CodeBlockCode } from '../../code/code-block-code'
 import { useBlockEditor } from './block-editor'
 
 export function BlockEditorFileTree() {
@@ -116,7 +116,6 @@ function TreeItem({ item, index }: { item: FileTree; index: number }) {
 
 export function BlockEditorCodeView() {
   const { view, item, activeFile } = useBlockEditor()
-  const [isCopied, setIsCopied] = React.useState(false)
 
   if (view !== 'code') {
     return null
@@ -125,14 +124,6 @@ export function BlockEditorCodeView() {
   const currentFile = item.files?.find(
     (f) => (f.target ?? f.path) === activeFile,
   )
-
-  const copyCode = () => {
-    if (currentFile?.content) {
-      navigator.clipboard.writeText(currentFile.content)
-      setIsCopied(true)
-      setTimeout(() => setIsCopied(false), 2000)
-    }
-  }
 
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
@@ -143,19 +134,12 @@ export function BlockEditorCodeView() {
             {currentFile.target ?? currentFile.path}
           </span>
           <div className="ml-auto flex items-center gap-2">
-            <Button
+            <CopyButton
+              text={currentFile.content ?? ''}
               size="icon"
               variant="ghost"
               className="hover:bg-muted-foreground/10 size-7 transition-colors"
-              onClick={copyCode}
-              title="Copy code"
-            >
-              {isCopied ? (
-                <Check className="size-4 text-green-500" />
-              ) : (
-                <Clipboard className="size-4" />
-              )}
-            </Button>
+            />
           </div>
         </div>
       )}

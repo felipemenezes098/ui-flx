@@ -8,31 +8,31 @@ import { CodeBlockCode } from './components/core/code/code-block-code'
 import { CodeBlockCommand } from './components/core/code/code-block-command'
 import { CodeBlockFromFile } from './components/core/code/code-block-from-file'
 import { CodeTabs } from './components/core/code/code-tabs'
-import { BlockEditor } from './components/core/editor/block-editor'
+import { BlockEditor } from './components/core/editor/block-view/block-editor'
 import {
   BlockEditorCodeContainer,
   BlockEditorCodeView,
   BlockEditorFileTree,
-} from './components/core/editor/block-editor-code'
-import { BlockEditorDisplayContentMobile } from './components/core/editor/block-editor-display'
-import { BlockEditorPreview } from './components/core/editor/block-editor-preview'
+} from './components/core/editor/block-view/block-editor-code'
+import { BlockEditorDisplayContentMobile } from './components/core/editor/block-view/block-editor-display'
+import { BlockEditorPreview } from './components/core/editor/block-view/block-editor-preview'
 import {
   BlockEditorCli,
   BlockEditorTabs,
   BlockEditorTools,
-} from './components/core/editor/block-editor-toolbar'
+} from './components/core/editor/block-view/block-editor-toolbar'
+import { BlockPreview } from './components/core/editor/block-view/block-preview'
 import {
   BlockPageColsRoot,
   BlockPageColsLeft,
   BlockPageColsRight,
-} from './components/core/editor/block-page-cols'
+} from './components/core/editor/live/block-page-cols'
 import {
   BlockLiveEditorRoot,
   BlockLiveEditorFields,
   BlockLiveEditorPreview,
-} from './components/core/editor/block-live-editor'
-import { BlockLiveEditorFieldsPanel } from './components/core/editor/block-live-editor-fields-panel'
-import { BlockPreview } from './components/core/editor/block-preview'
+} from './components/core/editor/live/block-live-editor'
+import { BlockLiveEditorFieldsPanel } from './components/core/editor/live/block-live-editor-fields-panel'
 import {
   ResizableHandle,
   ResizablePanel,

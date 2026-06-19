@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 import { useState } from 'react'
 
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
-import { CopyButton } from '@/components/core/code/copy-button'
+import { CopyButton } from '@/components/core/copy-button'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'

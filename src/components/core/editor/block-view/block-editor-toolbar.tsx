@@ -11,22 +11,6 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 
 import { useBlockEditor } from './block-editor'
 
-export function BlockEditorTitle() {
-  const { config } = useBlockEditor()
-  return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center gap-2">
-        <h2 className="text-2xl font-semibold tracking-tight">{config.name}</h2>
-      </div>
-      {config.description && (
-        <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
-          {config.description}
-        </p>
-      )}
-    </div>
-  )
-}
-
 export function BlockEditorCli() {
   const { item } = useBlockEditor()
   return <RegistryCli registryName={item.name} />
@@ -120,23 +104,5 @@ export function BlockEditorTabs() {
         </TabsTrigger>
       </TabsList>
     </Tabs>
-  )
-}
-
-export function BlockEditorToolbar() {
-  return (
-    <div className="flex w-full flex-col gap-4">
-      <BlockEditorTitle />
-      <div className="flex w-full items-center gap-2">
-        <BlockEditorCli />
-        <div className="ml-auto flex items-center gap-2">
-          <BlockEditorTools />
-          <div className="flex items-center">
-            <Separator orientation="vertical" className="mx-1 !h-4" />
-          </div>
-          <BlockEditorTabs />
-        </div>
-      </div>
-    </div>
   )
 }

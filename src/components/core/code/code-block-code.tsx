@@ -11,9 +11,8 @@ import { useTheme } from 'next-themes'
 import React, { useEffect, useState } from 'react'
 import { BundledTheme, codeToHtml } from 'shiki'
 
+import { CopyButton } from '@/components/core/copy-button'
 import { cn } from '@/lib/utils'
-
-import { CodeBlockCopy } from './code-copy'
 
 export type CodeBlockCodeProps = {
   code: string
@@ -115,7 +114,11 @@ function CodeBlockCode({
       <div className="relative">
         <div className="pointer-events-none sticky top-2 z-10 flex h-0 w-full justify-end pr-2">
           <div className="pointer-events-auto">
-            <CodeBlockCopy fileContent={code} />
+            <CopyButton
+              text={code}
+              variant="ghost"
+              className="bg-card text-muted-foreground hover:bg-muted/80 h-7 shrink-0 px-2 shadow-none"
+            />
           </div>
         </div>
         {content}
