@@ -16,9 +16,9 @@
       ],
       "files": [
         {
-          "path": "cta/cta.tsx",
+          "path": "cta.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/shared/cta/cta.tsx"
+          "target": "components/flx/blocks/shared/cta.tsx"
         }
       ]
     },
@@ -50,9 +50,9 @@
       ],
       "files": [
         {
-          "path": "dynamic-icon/dynamic-icon.tsx",
+          "path": "dynamic-icon.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+          "target": "components/flx/blocks/shared/dynamic-icon.tsx"
         }
       ]
     }

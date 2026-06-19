@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "primary-item-grid",
+      "name": "bento-grids-01",
       "type": "registry:block",
-      "title": "Primary Item Grid",
+      "title": "Bento grids 01",
       "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
       "registryDependencies": [
         "@flx/cta"
@@ -16,14 +16,14 @@
       ],
       "files": [
         {
-          "path": "primary-item-grid/primary-item-grid.tsx",
+          "path": "bento-grids-01/bento-grids-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
+          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01.tsx"
         },
         {
-          "path": "primary-item-grid/primary-item-grid-example.tsx",
+          "path": "bento-grids-01/bento-grids-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
+          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01-example.tsx"
         }
       ],
       "meta": {

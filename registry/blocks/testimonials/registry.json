@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "single-testimonial",
+      "name": "testimonials-01",
       "type": "registry:block",
-      "title": "Single Testimonial",
+      "title": "Testimonials 01",
       "description": "A single testimonial with quote, avatar, author name and role.",
       "registryDependencies": [
         "avatar"
@@ -14,14 +14,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "single-testimonial/single-testimonial.tsx",
+          "path": "testimonials-01/testimonials-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
+          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01.tsx"
         },
         {
-          "path": "single-testimonial/single-testimonial-example.tsx",
+          "path": "testimonials-01/testimonials-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
+          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
         }
       ]
     }

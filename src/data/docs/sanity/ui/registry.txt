@@ -9,8 +9,8 @@ export const blockRegistry: BlockTypeMap = {
   // Add all blocks here
 
   // Example:
-  // 'contentBadgeList': Content.BadgeList, 
-  // 'contentCarouselMedia': Content.CarouselMedia, ...
+  // 'content13': Content.Content13,
+  // 'carousel02': Carousel.Carousel02, ...
 };
 
 export type BlockType = keyof typeof blockRegistry;

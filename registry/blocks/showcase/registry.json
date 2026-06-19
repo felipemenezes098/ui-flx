@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "showcase-grid-media-cards",
+      "name": "showcase-01",
       "type": "registry:block",
-      "title": "Grid Media Cards",
+      "title": "Showcase 01",
       "description": "Grid with media cards to display information.",
       "registryDependencies": [
         "@flx/cta"
@@ -16,14 +16,14 @@
       ],
       "files": [
         {
-          "path": "grid-media-cards/grid-media-cards.tsx",
+          "path": "showcase-01/showcase-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
+          "target": "components/flx/blocks/showcase/showcase-01/showcase-01.tsx"
         },
         {
-          "path": "grid-media-cards/grid-media-cards-example.tsx",
+          "path": "showcase-01/showcase-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx"
+          "target": "components/flx/blocks/showcase/showcase-01/showcase-01-example.tsx"
         }
       ]
     }

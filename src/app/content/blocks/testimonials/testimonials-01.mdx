@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Testimonials 01',
+  description: 'Minimal single testimonial block with avatar, name, and role.',
+  openGraph: {
+    title: 'Testimonials 01',
+    description: 'Minimal single testimonial block with avatar, name, and role.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="testimonials" slug="testimonials-01">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Testimonials 01</PageTitle>
+  <PageDescription>
+    A minimal testimonial block with one quote, avatar, author name, and role.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/testimonials-01" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
+  title="testimonials-01-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Avatar component</Step>
+
+The block uses shadcn/ui Avatar for the author image and fallback initials.
+
+<CodeBlockCommand command="shadcn@latest add avatar" />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/testimonials/testimonials-01/testimonials-01.tsx"
+  collapsible
+  title="testimonials-01.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/testimonials/testimonials-01/testimonials-01-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

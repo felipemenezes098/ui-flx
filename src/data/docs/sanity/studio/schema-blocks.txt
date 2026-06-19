@@ -13,7 +13,7 @@ export const blocks = defineType({
         {
           name: 'content',
           title: 'Content',
-          of: ['contentGridTwoColumns'],
+          of: ['content06'],
         },
         // Add more groups (hero, showcase, etc.) and their blocks here.
       ],
@@ -27,7 +27,7 @@ export const blocks = defineType({
     },
   },
   of: [
-    {type: 'contentGridTwoColumns', title: 'Content • Grid Two Columns'},
+    {type: 'content06', title: 'Content • Content 06'},
     // List all blocks you defined here (one entry per type).
   ],
 })

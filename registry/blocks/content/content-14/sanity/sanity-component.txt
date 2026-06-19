@@ -1,0 +1,42 @@
+import Balancer from "react-wrap-balancer";
+import { createImageUrlBuilder } from "@sanity/image-url";
+
+import { Blocks } from "@/sanity.types";
+import { client } from "@/sanity/client";
+type Content14Block = Extract<
+  Blocks[number],
+  { _type: "content14" }
+>;
+
+interface Content14Props {
+  block: Content14Block;
+}
+
+const builder = createImageUrlBuilder(client);
+
+export function Content14({ block }: Readonly<Content14Props>) {
+  const imageUrl = block.media?.asset ? builder.image(block.media).url() : null;
+
+  return (
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        {block.title && (
+          <h2 className="text-center text-2xl font-bold">
+            <Balancer balance={0.5}>{block.title}</Balancer>
+          </h2>
+        )}
+      </div>
+      {imageUrl && (
+        <div className="relative min-h-96 w-full overflow-hidden rounded-lg">
+          <img
+            src={imageUrl}
+            alt={block.title ?? "Content 14 Image"}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+        </div>
+      )}
+    </div>
+  );
+}

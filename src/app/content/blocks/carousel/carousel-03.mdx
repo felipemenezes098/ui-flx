@@ -1,0 +1,80 @@
+export const metadata = {
+  title: 'Carousel 03',
+  description: 'A carousel of cards with a title and description.',
+  openGraph: {
+    title: 'Carousel 03',
+    description: 'A carousel of cards with a title and description.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="carousel" slug="carousel-03">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Carousel 03</PageTitle>
+  <PageDescription>
+    A card-based carousel with title, description, and responsive media slides.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/carousel-03" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-03/carousel-03-example.tsx"
+  title="carousel-03-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add the required UI components</Step>
+
+<CodeBlockCommand command="button carousel" />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/carousel/carousel-03/carousel-03.tsx"
+  collapsible
+  title="carousel-03.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/carousel/carousel-03/carousel-03-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

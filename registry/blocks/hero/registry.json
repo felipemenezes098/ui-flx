@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "background-media",
+      "name": "hero-01",
       "type": "registry:block",
-      "title": "Background Media",
+      "title": "Hero 01",
       "description": "A background media with a title, description and CTA.",
       "registryDependencies": [
         "@flx/cta"
@@ -17,14 +17,14 @@
       ],
       "files": [
         {
-          "path": "background-media/background-media.tsx",
+          "path": "hero-01/hero-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/background-media.tsx"
+          "target": "components/flx/blocks/hero/hero-01/hero-01.tsx"
         },
         {
-          "path": "background-media/background-media-example.tsx",
+          "path": "hero-01/hero-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/background-media-example.tsx"
+          "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
         }
       ],
       "meta": {
@@ -32,13 +32,13 @@
       }
     },
     {
-      "name": "hero-logos-carousel",
+      "name": "hero-02",
       "type": "registry:block",
-      "title": "Hero Logos Carousel",
+      "title": "Hero 02",
       "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
       "registryDependencies": [
         "@flx/cta",
-        "@flx/logo-marquee",
+        "@flx/logos-01",
         "carousel"
       ],
       "dependencies": [
@@ -46,14 +46,14 @@
       ],
       "files": [
         {
-          "path": "hero-logos-carousel/hero-logos-carousel.tsx",
+          "path": "hero-02/hero-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx"
+          "target": "components/flx/blocks/hero/hero-02/hero-02.tsx"
         },
         {
-          "path": "hero-logos-carousel/hero-logos-carousel-example.tsx",
+          "path": "hero-02/hero-02-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx"
+          "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
         }
       ],
       "meta": {
@@ -62,35 +62,9 @@
       }
     },
     {
-      "name": "text-badges",
+      "name": "hero-03",
       "type": "registry:block",
-      "title": "Text Badges",
-      "description": "A text badges with a title, CTA and badges.",
-      "registryDependencies": [
-        "@flx/cta",
-        "badge"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "text-badges/text-badges.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
-        },
-        {
-          "path": "text-badges/text-badges-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 500
-      }
-    },
-    {
-      "name": "hero-content-media",
-      "type": "registry:block",
-      "title": "Hero Content Media",
+      "title": "Hero 03",
       "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
       "registryDependencies": [
         "@flx/cta"
@@ -100,14 +74,14 @@
       ],
       "files": [
         {
-          "path": "hero-content-media/hero-content-media.tsx",
+          "path": "hero-03/hero-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
+          "target": "components/flx/blocks/hero/hero-03/hero-03.tsx"
         },
         {
-          "path": "hero-content-media/hero-content-media-example.tsx",
+          "path": "hero-03/hero-03-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx"
+          "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
         }
       ],
       "meta": {
@@ -115,9 +89,9 @@
       }
     },
     {
-      "name": "hero-headline-preview",
+      "name": "hero-04",
       "type": "registry:block",
-      "title": "Hero Headline Preview",
+      "title": "Hero 04",
       "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
       "registryDependencies": [
         "@flx/cta"
@@ -127,18 +101,44 @@
       ],
       "files": [
         {
-          "path": "hero-headline-preview/hero-headline-preview.tsx",
+          "path": "hero-04/hero-04.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
+          "target": "components/flx/blocks/hero/hero-04/hero-04.tsx"
         },
         {
-          "path": "hero-headline-preview/hero-headline-preview-example.tsx",
+          "path": "hero-04/hero-04-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
+          "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
         }
       ],
       "meta": {
         "iframeHeight": 860
+      }
+    },
+    {
+      "name": "hero-05",
+      "type": "registry:block",
+      "title": "Hero 05",
+      "description": "A text badges with a title, CTA and badges.",
+      "registryDependencies": [
+        "@flx/cta",
+        "badge"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "hero-05/hero-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05.tsx"
+        },
+        {
+          "path": "hero-05/hero-05-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500
       }
     }
   ]

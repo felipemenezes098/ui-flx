@@ -4,8 +4,8 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "primary-item-grid",
-      "title": "Primary Item Grid",
+      "name": "bento-grids-01",
+      "title": "Bento grids 01",
       "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
       "dependencies": [
         "react-wrap-balancer"
@@ -15,14 +15,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx",
+          "path": "registry/blocks/bento-grids/bento-grids-01/bento-grids-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid.tsx"
+          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01.tsx"
         },
         {
-          "path": "registry/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx",
+          "path": "registry/blocks/bento-grids/bento-grids-01/bento-grids-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/primary-item-grid/primary-item-grid-example.tsx"
+          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01-example.tsx"
         }
       ],
       "meta": {
@@ -31,8 +31,8 @@
       "type": "registry:block"
     },
     {
-      "name": "carousel-focus",
-      "title": "Carousel Focus",
+      "name": "carousel-01",
+      "title": "Carousel 01",
       "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
       "dependencies": [
         "motion",
@@ -46,14 +46,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/carousel/carousel-focus/carousel-focus.tsx",
+          "path": "registry/blocks/carousel/carousel-01/carousel-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+          "target": "components/flx/blocks/carousel/carousel-01/carousel-01.tsx"
         },
         {
-          "path": "registry/blocks/carousel/carousel-focus/carousel-focus-example.tsx",
+          "path": "registry/blocks/carousel/carousel-01/carousel-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-01/carousel-01-example.tsx"
         }
       ],
       "meta": {
@@ -63,8 +63,8 @@
       "type": "registry:block"
     },
     {
-      "name": "carousel-cards",
-      "title": "Carousel Cards",
+      "name": "carousel-03",
+      "title": "Carousel 03",
       "description": "A carousel of cards with a title and description.",
       "dependencies": [],
       "registryDependencies": [
@@ -73,14 +73,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/carousel/carousel-cards/carousel-cards.tsx",
+          "path": "registry/blocks/carousel/carousel-03/carousel-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx"
+          "target": "components/flx/blocks/carousel/carousel-03/carousel-03.tsx"
         },
         {
-          "path": "registry/blocks/carousel/carousel-cards/carousel-cards-example.tsx",
+          "path": "registry/blocks/carousel/carousel-03/carousel-03-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-03/carousel-03-example.tsx"
         }
       ],
       "meta": {
@@ -91,8 +91,8 @@
       "type": "registry:block"
     },
     {
-      "name": "carousel-media",
-      "title": "Carousel Media",
+      "name": "carousel-02",
+      "title": "Carousel 02",
       "description": "A carousel of media with a title and description.",
       "dependencies": [
         "react-wrap-balancer",
@@ -104,14 +104,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/carousel/carousel-media/carousel-media.tsx",
+          "path": "registry/blocks/carousel/carousel-02/carousel-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
+          "target": "components/flx/blocks/carousel/carousel-02/carousel-02.tsx"
         },
         {
-          "path": "registry/blocks/carousel/carousel-media/carousel-media-example.tsx",
+          "path": "registry/blocks/carousel/carousel-02/carousel-02-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-02/carousel-02-example.tsx"
         }
       ],
       "meta": {
@@ -122,8 +122,8 @@
       "type": "registry:block"
     },
     {
-      "name": "grid-two-columns",
-      "title": "Grid Two Columns",
+      "name": "content-06",
+      "title": "Content 06",
       "description": "It shows two columns of information.",
       "dependencies": [
         "react-wrap-balancer"
@@ -133,14 +133,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/grid-two-columns/grid-two-columns.tsx",
+          "path": "registry/blocks/content/content-06/content-06.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns.tsx"
+          "target": "components/flx/blocks/content/content-06/content-06.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-two-columns/grid-two-columns-example.tsx",
+          "path": "registry/blocks/content/content-06/content-06-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-two-columns/grid-two-columns-example.tsx"
+          "target": "components/flx/blocks/content/content-06/content-06-example.tsx"
         }
       ],
       "meta": {
@@ -149,8 +149,8 @@
       "type": "registry:block"
     },
     {
-      "name": "centered-text",
-      "title": "Centered Text",
+      "name": "content-08",
+      "title": "Content 08",
       "description": "A centered text block with a title, description, and CTA.",
       "dependencies": [
         "react-wrap-balancer"
@@ -160,14 +160,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/centered-text/centered-text.tsx",
+          "path": "registry/blocks/content/content-08/content-08.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/centered-text/centered-text.tsx"
+          "target": "components/flx/blocks/content/content-08/content-08.tsx"
         },
         {
-          "path": "registry/blocks/content/centered-text/centered-text-example.tsx",
+          "path": "registry/blocks/content/content-08/content-08-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/centered-text/centered-text-example.tsx"
+          "target": "components/flx/blocks/content/content-08/content-08-example.tsx"
         }
       ],
       "meta": {
@@ -176,8 +176,8 @@
       "type": "registry:block"
     },
     {
-      "name": "grid-cards",
-      "title": "Grid Cards",
+      "name": "content-09",
+      "title": "Content 09",
       "description": "A grid of cards with a title and items.",
       "dependencies": [
         "react-wrap-balancer"
@@ -185,14 +185,14 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/grid-cards/grid-cards.tsx",
+          "path": "registry/blocks/content/content-09/content-09.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-cards/grid-cards.tsx"
+          "target": "components/flx/blocks/content/content-09/content-09.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-cards/grid-cards-example.tsx",
+          "path": "registry/blocks/content/content-09/content-09-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-cards/grid-cards-example.tsx"
+          "target": "components/flx/blocks/content/content-09/content-09-example.tsx"
         }
       ],
       "meta": {
@@ -201,8 +201,8 @@
       "type": "registry:block"
     },
     {
-      "name": "grid-media-cards",
-      "title": "Grid Media Cards",
+      "name": "content-02",
+      "title": "Content 02",
       "description": "A grid of media cards with a title and items.",
       "dependencies": [],
       "registryDependencies": [
@@ -210,14 +210,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/grid-media-cards/grid-media-cards.tsx",
+          "path": "registry/blocks/content/content-02/content-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards.tsx"
+          "target": "components/flx/blocks/content/content-02/content-02.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-media-cards/grid-media-cards-example.tsx",
+          "path": "registry/blocks/content/content-02/content-02-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-media-cards/grid-media-cards-example.tsx"
+          "target": "components/flx/blocks/content/content-02/content-02-example.tsx"
         }
       ],
       "meta": {
@@ -226,21 +226,21 @@
       "type": "registry:block"
     },
     {
-      "name": "grid-with-media-top",
-      "title": "Grid With Media Top",
+      "name": "content-11",
+      "title": "Content 11",
       "description": "Media on top with information below.",
       "dependencies": [],
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top.tsx",
+          "path": "registry/blocks/content/content-11/content-11.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top.tsx"
+          "target": "components/flx/blocks/content/content-11/content-11.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx",
+          "path": "registry/blocks/content/content-11/content-11-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-with-media-top/grid-with-media-top-example.tsx"
+          "target": "components/flx/blocks/content/content-11/content-11-example.tsx"
         }
       ],
       "meta": {
@@ -249,8 +249,8 @@
       "type": "registry:block"
     },
     {
-      "name": "icon-list",
-      "title": "Icon List",
+      "name": "content-12",
+      "title": "Content 12",
       "description": "List of icons with a title and items.",
       "dependencies": [],
       "registryDependencies": [
@@ -258,14 +258,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/icon-list/icon-list.tsx",
+          "path": "registry/blocks/content/content-12/content-12.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/icon-list/icon-list.tsx"
+          "target": "components/flx/blocks/content/content-12/content-12.tsx"
         },
         {
-          "path": "registry/blocks/content/icon-list/icon-list-example.tsx",
+          "path": "registry/blocks/content/content-12/content-12-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/icon-list/icon-list-example.tsx"
+          "target": "components/flx/blocks/content/content-12/content-12-example.tsx"
         }
       ],
       "meta": {
@@ -274,8 +274,8 @@
       "type": "registry:block"
     },
     {
-      "name": "badge-list",
-      "title": "Badge List",
+      "name": "content-13",
+      "title": "Content 13",
       "description": "List of badges with a title and items.",
       "dependencies": [],
       "registryDependencies": [
@@ -283,21 +283,21 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/badge-list/badge-list.tsx",
+          "path": "registry/blocks/content/content-13/content-13.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/badge-list/badge-list.tsx"
+          "target": "components/flx/blocks/content/content-13/content-13.tsx"
         },
         {
-          "path": "registry/blocks/content/badge-list/badge-list-example.tsx",
+          "path": "registry/blocks/content/content-13/content-13-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/badge-list/badge-list-example.tsx"
+          "target": "components/flx/blocks/content/content-13/content-13-example.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "grid-content-columns",
-      "title": "Grid Content Columns",
+      "name": "content-07",
+      "title": "Content 07",
       "description": "A grid of content columns with a media above the content.",
       "dependencies": [
         "react-wrap-balancer"
@@ -307,21 +307,21 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/grid-content-columns/grid-content-columns.tsx",
+          "path": "registry/blocks/content/content-07/content-07.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns.tsx"
+          "target": "components/flx/blocks/content/content-07/content-07.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-content-columns/grid-content-columns-example.tsx",
+          "path": "registry/blocks/content/content-07/content-07-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-columns/grid-content-columns-example.tsx"
+          "target": "components/flx/blocks/content/content-07/content-07-example.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "title-with-media",
-      "title": "Title With Media",
+      "name": "content-14",
+      "title": "Content 14",
       "description": "A title with a media above the title.",
       "dependencies": [
         "react-wrap-balancer"
@@ -329,14 +329,14 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/title-with-media/title-with-media.tsx",
+          "path": "registry/blocks/content/content-14/content-14.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/title-with-media/title-with-media.tsx"
+          "target": "components/flx/blocks/content/content-14/content-14.tsx"
         },
         {
-          "path": "registry/blocks/content/title-with-media/title-with-media-example.tsx",
+          "path": "registry/blocks/content/content-14/content-14-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/title-with-media/title-with-media-example.tsx"
+          "target": "components/flx/blocks/content/content-14/content-14-example.tsx"
         }
       ],
       "meta": {
@@ -345,8 +345,8 @@
       "type": "registry:block"
     },
     {
-      "name": "focus-grid",
-      "title": "Focus Grid",
+      "name": "content-05",
+      "title": "Content 05",
       "description": "A focus grid with items that can be focused and dimmed.",
       "dependencies": [
         "motion"
@@ -354,14 +354,14 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/focus-grid/focus-grid.tsx",
+          "path": "registry/blocks/content/content-05/content-05.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/focus-grid/focus-grid.tsx"
+          "target": "components/flx/blocks/content/content-05/content-05.tsx"
         },
         {
-          "path": "registry/blocks/content/focus-grid/focus-grid-example.tsx",
+          "path": "registry/blocks/content/content-05/content-05-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/focus-grid/focus-grid-example.tsx"
+          "target": "components/flx/blocks/content/content-05/content-05-example.tsx"
         }
       ],
       "meta": {
@@ -370,8 +370,8 @@
       "type": "registry:block"
     },
     {
-      "name": "select-reveal-media",
-      "title": "Select Reveal Media",
+      "name": "content-01",
+      "title": "Content 01",
       "description": "List of items: select one to reveal its description and media.",
       "dependencies": [
         "motion"
@@ -381,14 +381,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/select-reveal-media/select-reveal-media.tsx",
+          "path": "registry/blocks/content/content-01/content-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media.tsx"
+          "target": "components/flx/blocks/content/content-01/content-01.tsx"
         },
         {
-          "path": "registry/blocks/content/select-reveal-media/select-reveal-media-example.tsx",
+          "path": "registry/blocks/content/content-01/content-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/select-reveal-media/select-reveal-media-example.tsx"
+          "target": "components/flx/blocks/content/content-01/content-01-example.tsx"
         }
       ],
       "meta": {
@@ -397,8 +397,8 @@
       "type": "registry:block"
     },
     {
-      "name": "tabs-media",
-      "title": "Tabs Media",
+      "name": "content-03",
+      "title": "Content 03",
       "description": "Tabbed navigation that reveals a media for each tab.",
       "dependencies": [
         "react-wrap-balancer"
@@ -409,14 +409,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/content/tabs-media/tabs-media.tsx",
+          "path": "registry/blocks/content/content-03/content-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/tabs-media/tabs-media.tsx"
+          "target": "components/flx/blocks/content/content-03/content-03.tsx"
         },
         {
-          "path": "registry/blocks/content/tabs-media/tabs-media-example.tsx",
+          "path": "registry/blocks/content/content-03/content-03-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/tabs-media/tabs-media-example.tsx"
+          "target": "components/flx/blocks/content/content-03/content-03-example.tsx"
         }
       ],
       "meta": {
@@ -425,8 +425,8 @@
       "type": "registry:block"
     },
     {
-      "name": "media-grid-interactive",
-      "title": "Media Grid Interactive",
+      "name": "content-10",
+      "title": "Content 10",
       "description": "A grid of items with a title and description, clickable to view details.",
       "dependencies": [
         "motion",
@@ -435,14 +435,14 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive.tsx",
+          "path": "registry/blocks/content/content-10/content-10.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive.tsx"
+          "target": "components/flx/blocks/content/content-10/content-10.tsx"
         },
         {
-          "path": "registry/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx",
+          "path": "registry/blocks/content/content-10/content-10-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/media-grid-interactive/media-grid-interactive-example.tsx"
+          "target": "components/flx/blocks/content/content-10/content-10-example.tsx"
         }
       ],
       "meta": {
@@ -451,8 +451,8 @@
       "type": "registry:block"
     },
     {
-      "name": "grid-content-cards",
-      "title": "Grid Content Cards",
+      "name": "content-04",
+      "title": "Content 04",
       "description": "Two-column grid of cards: title, description, and image at the bottom.",
       "dependencies": [
         "card"
@@ -460,21 +460,21 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/content/grid-content-cards/grid-content-cards.tsx",
+          "path": "registry/blocks/content/content-04/content-04.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards.tsx"
+          "target": "components/flx/blocks/content/content-04/content-04.tsx"
         },
         {
-          "path": "registry/blocks/content/grid-content-cards/grid-content-cards-example.tsx",
+          "path": "registry/blocks/content/content-04/content-04-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/grid-content-cards/grid-content-cards-example.tsx"
+          "target": "components/flx/blocks/content/content-04/content-04-example.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "background-media",
-      "title": "Background Media",
+      "name": "hero-01",
+      "title": "Hero 01",
       "description": "A background media with a title, description and CTA.",
       "dependencies": [
         "motion",
@@ -485,14 +485,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/hero/background-media/background-media.tsx",
+          "path": "registry/blocks/hero/hero-01/hero-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/background-media.tsx"
+          "target": "components/flx/blocks/hero/hero-01/hero-01.tsx"
         },
         {
-          "path": "registry/blocks/hero/background-media/background-media-example.tsx",
+          "path": "registry/blocks/hero/hero-01/hero-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/background-media/background-media-example.tsx"
+          "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
         }
       ],
       "meta": {
@@ -501,27 +501,27 @@
       "type": "registry:block"
     },
     {
-      "name": "hero-logos-carousel",
-      "title": "Hero Logos Carousel",
+      "name": "hero-02",
+      "title": "Hero 02",
       "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
       "dependencies": [
         "react-wrap-balancer"
       ],
       "registryDependencies": [
         "@flx/cta",
-        "@flx/logo-marquee",
+        "@flx/logos-01",
         "carousel"
       ],
       "files": [
         {
-          "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx",
+          "path": "registry/blocks/hero/hero-02/hero-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel.tsx"
+          "target": "components/flx/blocks/hero/hero-02/hero-02.tsx"
         },
         {
-          "path": "registry/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx",
+          "path": "registry/blocks/hero/hero-02/hero-02-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-logos-carousel/hero-logos-carousel-example.tsx"
+          "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
         }
       ],
       "meta": {
@@ -531,34 +531,8 @@
       "type": "registry:block"
     },
     {
-      "name": "text-badges",
-      "title": "Text Badges",
-      "description": "A text badges with a title, CTA and badges.",
-      "dependencies": [],
-      "registryDependencies": [
-        "@flx/cta",
-        "badge"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/text-badges/text-badges.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/text-badges.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/text-badges/text-badges-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/text-badges/text-badges-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 500
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-content-media",
-      "title": "Hero Content Media",
+      "name": "hero-03",
+      "title": "Hero 03",
       "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
       "dependencies": [
         "react-wrap-balancer"
@@ -568,14 +542,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/hero/hero-content-media/hero-content-media.tsx",
+          "path": "registry/blocks/hero/hero-03/hero-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media.tsx"
+          "target": "components/flx/blocks/hero/hero-03/hero-03.tsx"
         },
         {
-          "path": "registry/blocks/hero/hero-content-media/hero-content-media-example.tsx",
+          "path": "registry/blocks/hero/hero-03/hero-03-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-content-media/hero-content-media-example.tsx"
+          "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
         }
       ],
       "meta": {
@@ -584,8 +558,8 @@
       "type": "registry:block"
     },
     {
-      "name": "hero-headline-preview",
-      "title": "Hero Headline Preview",
+      "name": "hero-04",
+      "title": "Hero 04",
       "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
       "dependencies": [
         "react-wrap-balancer"
@@ -595,14 +569,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview.tsx",
+          "path": "registry/blocks/hero/hero-04/hero-04.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview.tsx"
+          "target": "components/flx/blocks/hero/hero-04/hero-04.tsx"
         },
         {
-          "path": "registry/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx",
+          "path": "registry/blocks/hero/hero-04/hero-04-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-headline-preview/hero-headline-preview-example.tsx"
+          "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
         }
       ],
       "meta": {
@@ -611,8 +585,34 @@
       "type": "registry:block"
     },
     {
-      "name": "logo-marquee",
-      "title": "Logo Marquee",
+      "name": "hero-05",
+      "title": "Hero 05",
+      "description": "A text badges with a title, CTA and badges.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@flx/cta",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-05/hero-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-05/hero-05-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 500
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "logos-01",
+      "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
       "dependencies": [],
       "devDependencies": [
@@ -623,21 +623,21 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/logos/logo-marquee/logo-marquee.tsx",
+          "path": "registry/blocks/logos/logos-01/logos-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee.tsx"
+          "target": "components/flx/blocks/logos/logos-01/logos-01.tsx"
         },
         {
-          "path": "registry/blocks/logos/logo-marquee/logo-marquee-example.tsx",
+          "path": "registry/blocks/logos/logos-01/logos-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/logos/logo-marquee/logo-marquee-example.tsx"
+          "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "sticky-scroll-media",
-      "title": "Sticky Scroll Media",
+      "name": "scroll-01",
+      "title": "Scroll 01",
       "description": "Sticky media that changes as you scroll through text content.",
       "dependencies": [
         "motion"
@@ -645,14 +645,14 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx",
+          "path": "registry/blocks/scroll/scroll-01/scroll-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media.tsx"
+          "target": "components/flx/blocks/scroll/scroll-01/scroll-01.tsx"
         },
         {
-          "path": "registry/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx",
+          "path": "registry/blocks/scroll/scroll-01/scroll-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/scroll/sticky-scroll-media/sticky-scroll-media-example.tsx"
+          "target": "components/flx/blocks/scroll/scroll-01/scroll-01-example.tsx"
         }
       ],
       "meta": {
@@ -672,9 +672,9 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/shared/cta/cta.tsx",
+          "path": "registry/blocks/shared/cta.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/shared/cta/cta.tsx"
+          "target": "components/flx/blocks/shared/cta.tsx"
         }
       ],
       "type": "registry:block"
@@ -706,16 +706,16 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/shared/dynamic-icon/dynamic-icon.tsx",
+          "path": "registry/blocks/shared/dynamic-icon.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/shared/dynamic-icon/dynamic-icon.tsx"
+          "target": "components/flx/blocks/shared/dynamic-icon.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "showcase-grid-media-cards",
-      "title": "Grid Media Cards",
+      "name": "showcase-01",
+      "title": "Showcase 01",
       "description": "Grid with media cards to display information.",
       "dependencies": [
         "react-wrap-balancer"
@@ -725,21 +725,21 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards.tsx",
+          "path": "registry/blocks/showcase/showcase-01/showcase-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards.tsx"
+          "target": "components/flx/blocks/showcase/showcase-01/showcase-01.tsx"
         },
         {
-          "path": "registry/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx",
+          "path": "registry/blocks/showcase/showcase-01/showcase-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/showcase/grid-media-cards/grid-media-cards-example.tsx"
+          "target": "components/flx/blocks/showcase/showcase-01/showcase-01-example.tsx"
         }
       ],
       "type": "registry:block"
     },
     {
-      "name": "single-testimonial",
-      "title": "Single Testimonial",
+      "name": "testimonials-01",
+      "title": "Testimonials 01",
       "description": "A single testimonial with quote, avatar, author name and role.",
       "dependencies": [],
       "registryDependencies": [
@@ -747,14 +747,14 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/testimonials/single-testimonial/single-testimonial.tsx",
+          "path": "registry/blocks/testimonials/testimonials-01/testimonials-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial.tsx"
+          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01.tsx"
         },
         {
-          "path": "registry/blocks/testimonials/single-testimonial/single-testimonial-example.tsx",
+          "path": "registry/blocks/testimonials/testimonials-01/testimonials-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/single-testimonial/single-testimonial-example.tsx"
+          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
         }
       ],
       "type": "registry:block"

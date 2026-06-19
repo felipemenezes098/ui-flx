@@ -4,9 +4,9 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
-      "name": "carousel-focus",
+      "name": "carousel-01",
       "type": "registry:block",
-      "title": "Carousel Focus",
+      "title": "Carousel 01",
       "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
       "registryDependencies": [
         "carousel"
@@ -20,14 +20,14 @@
       ],
       "files": [
         {
-          "path": "carousel-focus/carousel-focus.tsx",
+          "path": "carousel-01/carousel-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus.tsx"
+          "target": "components/flx/blocks/carousel/carousel-01/carousel-01.tsx"
         },
         {
-          "path": "carousel-focus/carousel-focus-example.tsx",
+          "path": "carousel-01/carousel-01-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-focus/carousel-focus-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-01/carousel-01-example.tsx"
         }
       ],
       "meta": {
@@ -36,9 +36,9 @@
       }
     },
     {
-      "name": "carousel-cards",
+      "name": "carousel-03",
       "type": "registry:block",
-      "title": "Carousel Cards",
+      "title": "Carousel 03",
       "description": "A carousel of cards with a title and description.",
       "registryDependencies": [
         "carousel",
@@ -47,14 +47,14 @@
       "dependencies": [],
       "files": [
         {
-          "path": "carousel-cards/carousel-cards.tsx",
+          "path": "carousel-03/carousel-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards.tsx"
+          "target": "components/flx/blocks/carousel/carousel-03/carousel-03.tsx"
         },
         {
-          "path": "carousel-cards/carousel-cards-example.tsx",
+          "path": "carousel-03/carousel-03-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-cards/carousel-cards-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-03/carousel-03-example.tsx"
         }
       ],
       "meta": {
@@ -64,9 +64,9 @@
       }
     },
     {
-      "name": "carousel-media",
+      "name": "carousel-02",
       "type": "registry:block",
-      "title": "Carousel Media",
+      "title": "Carousel 02",
       "description": "A carousel of media with a title and description.",
       "registryDependencies": [
         "carousel",
@@ -78,14 +78,14 @@
       ],
       "files": [
         {
-          "path": "carousel-media/carousel-media.tsx",
+          "path": "carousel-02/carousel-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/carousel-media.tsx"
+          "target": "components/flx/blocks/carousel/carousel-02/carousel-02.tsx"
         },
         {
-          "path": "carousel-media/carousel-media-example.tsx",
+          "path": "carousel-02/carousel-02-example.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-media/carousel-media-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-02/carousel-02-example.tsx"
         }
       ],
       "meta": {

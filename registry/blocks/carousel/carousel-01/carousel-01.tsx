@@ -1,0 +1,207 @@
+'use client'
+
+import { cva } from 'class-variance-authority'
+import AutoScroll from 'embla-carousel-auto-scroll'
+import { motion } from 'motion/react'
+import { useEffect, useRef, useState } from 'react'
+
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel'
+import { cn } from '@/lib/utils'
+
+export type Carousel01Aspect = 'landscape' | 'portrait' | 'wide'
+
+export interface Carousel01Media {
+  src: string
+  aspect: Carousel01Aspect
+}
+
+export interface Carousel01Item {
+  title: string
+  media: Carousel01Media
+}
+
+export type Carousel01TitlePlacement = 'inside' | 'outside'
+
+export interface Carousel01Props {
+  titlePlacement: Carousel01TitlePlacement
+  items: Carousel01Item[]
+}
+
+const aspectVariants = cva('relative w-full overflow-hidden rounded-lg', {
+  variants: {
+    aspect: {
+      landscape: 'aspect-[17/9]',
+      portrait: 'aspect-[3/2]',
+      wide: 'aspect-[21/8]',
+    },
+  },
+  defaultVariants: {
+    aspect: 'landscape',
+  },
+})
+
+export function Carousel01({
+  titlePlacement,
+  items,
+}: Readonly<Carousel01Props>) {
+  const [api, setApi] = useState<CarouselApi>()
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const hoverCountRef = useRef(0)
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    if (!api) return
+    const autoScroll = api.plugins()?.autoScroll
+    if (autoScroll) {
+      autoScroll.play()
+    }
+  }, [api])
+
+  const handleItemMouseEnter = (index: number) => {
+    setHoveredIndex(index)
+    hoverCountRef.current += 1
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current)
+      resumeTimeoutRef.current = null
+    }
+    api?.plugins()?.autoScroll?.stop()
+  }
+
+  const handleItemMouseLeave = () => {
+    setHoveredIndex(null)
+    hoverCountRef.current -= 1
+    if (hoverCountRef.current <= 0) {
+      hoverCountRef.current = 0
+      resumeTimeoutRef.current = setTimeout(() => {
+        api?.plugins()?.autoScroll?.play()
+        resumeTimeoutRef.current = null
+      }, 50)
+    }
+  }
+
+  const titleMotionProps = {
+    initial: { y: 6, opacity: 0 },
+    transition: { duration: 0.2, ease: 'easeOut' as const },
+  }
+
+  if (!items?.length) return null
+
+  return (
+    <Carousel
+      setApi={setApi}
+      opts={{
+        align: 'center',
+        loop: true,
+        watchDrag: false,
+      }}
+      plugins={[
+        AutoScroll({
+          speed: 1,
+          startDelay: 0,
+          stopOnMouseEnter: false,
+          stopOnInteraction: false,
+        }),
+      ]}
+      className="w-full"
+      aria-label="Carousel de medians"
+    >
+      <CarouselContent className="-ml-4">
+        {items.map((item, index) => {
+          const isHovered = hoveredIndex === index
+          const isDimmed = hoveredIndex !== null && hoveredIndex !== index
+          if (titlePlacement === 'outside') {
+            return (
+              <CarouselItem
+                key={`${item.title}-${index}`}
+                className="basis-full pl-4 md:basis-[36%]"
+              >
+                <button
+                  type="button"
+                  aria-label={item.title}
+                  className={cn(
+                    'flex w-full cursor-default flex-col gap-1 border-0 bg-transparent p-0 text-left transition-opacity duration-300',
+                    isDimmed && 'opacity-50',
+                  )}
+                  onMouseEnter={() => handleItemMouseEnter(index)}
+                  onMouseLeave={handleItemMouseLeave}
+                  onFocus={() => handleItemMouseEnter(index)}
+                  onBlur={handleItemMouseLeave}
+                >
+                  <motion.span
+                    className="text-foreground min-h-[20px] text-sm font-medium"
+                    {...titleMotionProps}
+                    animate={
+                      isHovered ? { y: 0, opacity: 1 } : { y: 6, opacity: 0 }
+                    }
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  >
+                    {item.title}
+                  </motion.span>
+                  <span
+                    className={cn(
+                      'relative w-full',
+                      aspectVariants({ aspect: item.media.aspect }),
+                    )}
+                  >
+                    <img
+                      src={item.media.src}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="pointer-events-none absolute inset-0 size-full object-cover"
+                    />
+                  </span>
+                </button>
+              </CarouselItem>
+            )
+          }
+
+          return (
+            <CarouselItem
+              key={`${item.title}-${index}`}
+              className="basis-full pl-4 md:basis-[36%]"
+            >
+              <button
+                type="button"
+                aria-label={item.title}
+                className={cn(
+                  aspectVariants({ aspect: item.media.aspect }),
+                  'block w-full cursor-default border-0 bg-transparent p-0 text-left transition-opacity duration-300',
+                  isDimmed && 'opacity-50',
+                )}
+                onMouseEnter={() => handleItemMouseEnter(index)}
+                onMouseLeave={handleItemMouseLeave}
+                onFocus={() => handleItemMouseEnter(index)}
+                onBlur={handleItemMouseLeave}
+              >
+                <img
+                  src={item.media.src}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="pointer-events-none absolute inset-0 size-full object-cover"
+                />
+                <motion.span
+                  className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/50 to-transparent px-3 py-2.5 text-sm font-medium text-white"
+                  {...titleMotionProps}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  initial={{ y: 8, opacity: 0 }}
+                  animate={
+                    isHovered ? { y: 0, opacity: 1 } : { y: 8, opacity: 0 }
+                  }
+                >
+                  {item.title}
+                </motion.span>
+              </button>
+            </CarouselItem>
+          )
+        })}
+      </CarouselContent>
+    </Carousel>
+  )
+}

@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
-// Shared object. Used by blocks that have CTA (e.g. grid-two-columns).
+// Shared object. Used by blocks that have CTA (e.g. content-06).
 export const cta = defineType({
   name: 'cta',
   title: 'CTA',

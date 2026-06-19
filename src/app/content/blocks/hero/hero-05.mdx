@@ -1,0 +1,118 @@
+export const metadata = {
+  title: 'Hero 05',
+  description: 'A text badges with a title, CTA and badges.',
+  openGraph: {
+    title: 'Hero 05',
+    description: 'A text badges with a title and CTA.',
+    type: 'article',
+  },
+}
+
+<BlockLiveEditor category="hero" slug="hero-05">
+<BlockPageCols>
+
+<BlockPageCols.Left>
+
+<PageHeader>
+  <PageTitle>Hero 05</PageTitle>
+  <PageDescription>
+    A text badges with a title, CTA and badges.
+  </PageDescription>
+</PageHeader>
+
+<BlockLiveEditor.FieldsPanel />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="sanity">Sanity</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-05" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-05/hero-05-example.tsx"
+  title="hero-05-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta.tsx"
+  title="cta.tsx"
+  collapsible
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-05/hero-05.tsx"
+  collapsible
+  title="hero-05.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-05/hero-05-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="sanity">
+
+<Steps>
+
+<Step>Schema (Studio)</Step>
+
+Define the block in the Studio so editors can add and edit Hero 05. Add the schema and export it according to your project structure.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-05/sanity/sanity-schema.txt"
+  language="ts"
+  title="sanity/schema-types/blocks/hero/hero-05.ts"
+/>
+
+<Step>Sanity component (UI)</Step>
+
+Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-05/sanity/sanity-component.txt"
+  language="tsx"
+  title="web/components/flx/sanity/hero/hero-05.tsx"
+  showLineNumbers
+/>
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+<Contact />
+
+</BlockPageCols.Left>
+
+<BlockPageCols.Right>
+  <BlockLiveEditor.Preview />
+</BlockPageCols.Right>
+
+</BlockPageCols>
+</BlockLiveEditor>

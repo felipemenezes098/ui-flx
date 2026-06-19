@@ -1,16 +1,16 @@
 import { CarouselConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as carouselCardsManifest } from './carousel-cards/manifest'
-import { manifest as carouselFocusManifest } from './carousel-focus/manifest'
-import { manifest as carouselMediaManifest } from './carousel-media/manifest'
+import { manifest as carousel01Manifest } from './carousel-01/manifest'
+import { manifest as carousel02Manifest } from './carousel-02/manifest'
+import { manifest as carousel03Manifest } from './carousel-03/manifest'
 
 export const carouselCategory: BlockCategoryRow = {
   slug: 'carousel',
   category: 'Carousel',
   description: 'A carousel that pauses on item hover and reveals title.',
   type: 'carousel',
-  image: carouselFocusManifest.image,
+  image: carousel01Manifest.image,
   concept: CarouselConcept,
-  blocks: [carouselFocusManifest, carouselMediaManifest, carouselCardsManifest],
+  blocks: [carousel01Manifest, carousel02Manifest, carousel03Manifest],
 }
