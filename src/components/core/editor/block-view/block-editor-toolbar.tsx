@@ -13,7 +13,7 @@ import { useBlockEditor } from './block-editor'
 
 export function BlockEditorCli() {
   const { item } = useBlockEditor()
-  return <RegistryCli registryName={item.name} />
+  return <RegistryCli registryName={item.name} labelClassName="text-sm" />
 }
 
 export function BlockEditorTools() {

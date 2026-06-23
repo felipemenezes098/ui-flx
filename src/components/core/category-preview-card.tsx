@@ -9,7 +9,7 @@ function CategoryPreviewCard({
   return (
     <div
       className={cn(
-        'bg-card/50 border-border flex flex-col gap-3 rounded-xl border p-3 shadow-xs',
+        'bg-card/50 border-border flex min-w-0 flex-col gap-3 overflow-hidden rounded-xl border p-3 shadow-xs',
         className,
       )}
       {...props}
@@ -24,7 +24,7 @@ function CategoryPreviewCardPreview({
   return (
     <div
       className={cn(
-        'border-border bg-muted/40 dark:bg-background relative overflow-hidden rounded-lg border transition-transform duration-200 ease-out group-hover:-translate-y-0.5',
+        'border-border bg-muted/40 dark:bg-background relative w-full min-w-0 overflow-hidden rounded-lg border transition-transform duration-200 ease-out group-hover:-translate-y-0.5',
         className,
       )}
       {...props}

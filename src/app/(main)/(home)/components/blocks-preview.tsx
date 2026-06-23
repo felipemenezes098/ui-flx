@@ -30,9 +30,9 @@ function CategoryCard({
   sublabel?: string
 }>) {
   return (
-    <Link href={href} className="group">
-      <CategoryPreviewCard>
-        <CategoryPreviewCardPreview className={cn('min-h-45', className)}>
+    <Link href={href} className="group block w-full min-w-0">
+      <CategoryPreviewCard className="w-full">
+        <CategoryPreviewCardPreview className={cn(className)}>
           {hasNew && <CategoryPreviewCardBadge />}
           <Concept />
         </CategoryPreviewCardPreview>

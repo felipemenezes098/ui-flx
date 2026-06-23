@@ -53,7 +53,7 @@ export function RegistryCli({
   labelClassName,
 }: Readonly<{
   registryName: string
-  size?: 'sm' | 'xs'
+  size?: 'sm' | 'xs' | 'default'
   className?: string
   labelClassName?: string
 }>) {
