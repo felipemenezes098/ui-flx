@@ -10,7 +10,7 @@ export const manifest: BlockManifest = {
   category: 'showcase',
   image: {
     light: '/images/blocks/showcase/showcase-01.png',
-    dark: '/images/blocks/showcase/showcase-01.png',
+    dark: '/images/blocks/showcase/showcase-01-dark.png',
   },
   component: Showcase01,
   editorFields: Showcase01EditorFields,

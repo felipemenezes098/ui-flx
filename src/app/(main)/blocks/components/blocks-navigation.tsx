@@ -6,12 +6,21 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
-import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
 
+import {
+  ALL_BLOCKS_CATEGORY_SLUG,
+  isAllBlocksCategory,
+} from '../lib/blocks-category'
+import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
 export function BlocksNavigation() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const navCategorySlug = useBlocksNavCategorySlug()
+  const allParams = new URLSearchParams(searchParams.toString())
+  allParams.set('category', ALL_BLOCKS_CATEGORY_SLUG)
+  const allHref = `${pathname}?${allParams.toString()}`
+  const isAllActive =
+    navCategorySlug !== null && isAllBlocksCategory(navCategorySlug)
 
   return (
     <ScrollFadeEdges
@@ -21,6 +30,17 @@ export function BlocksNavigation() {
       fadeWidth={50}
     >
       <div className="inline-flex h-auto w-max flex-nowrap gap-2 p-0">
+        <Link
+          href={allHref}
+          className={cn(
+            'flex min-w-30 shrink-0 items-center justify-center rounded-xl border px-3 py-2 text-xs font-medium transition-colors',
+            'border-border',
+            isAllActive ? 'border-primary' : 'hover:border-primary/40',
+          )}
+          aria-current={isAllActive ? 'true' : undefined}
+        >
+          All Blocks
+        </Link>
         {blockCategories.map((block) => {
           const isActive =
             navCategorySlug !== null && navCategorySlug === block.slug

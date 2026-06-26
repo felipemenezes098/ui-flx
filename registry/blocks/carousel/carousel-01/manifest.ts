@@ -12,7 +12,7 @@ export const manifest: BlockManifest = {
   category: 'carousel',
   image: {
     light: '/images/blocks/carousel/carousel-01.png',
-    dark: '/images/blocks/carousel/carousel-01.png',
+    dark: '/images/blocks/carousel/carousel-01-dark.png',
   },
   meta: {
     iframeHeight: 500,

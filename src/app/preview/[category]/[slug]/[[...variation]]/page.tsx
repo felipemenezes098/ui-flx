@@ -86,6 +86,7 @@ export default async function BlockPreviewPage({
   return (
     <div className="flex min-h-screen w-full items-center justify-center">
       <div
+        data-block-preview
         className={cn(
           'mx-auto h-full w-full max-w-7xl p-5',
           manifest?.meta?.containerClassName,

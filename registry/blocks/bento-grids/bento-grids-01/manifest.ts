@@ -11,7 +11,7 @@ export const manifest: BlockManifest = {
   category: 'bento-grids',
   image: {
     light: '/images/blocks/bento-grids/bento-grids-01.png',
-    dark: '/images/blocks/bento-grids/bento-grids-01.png',
+    dark: '/images/blocks/bento-grids/bento-grids-01-dark.png',
   },
   meta: {
     iframeHeight: 850,

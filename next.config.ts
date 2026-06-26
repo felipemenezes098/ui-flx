@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ['remark-gfm'], // <- aqui como string
+    remarkPlugins: ['remark-gfm'],
   },
 })
 

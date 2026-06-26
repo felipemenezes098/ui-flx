@@ -10,6 +10,7 @@ export interface BlockMeta {
   containerClassName?: string
   componentClassName?: string
   iframeHeight?: number
+  captureViewportOnly?: boolean
 }
 
 export interface BlockManifest<TProps = Record<string, unknown>> {

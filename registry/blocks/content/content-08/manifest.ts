@@ -10,7 +10,7 @@ export const manifest: BlockManifest = {
   category: 'content',
   image: {
     light: '/images/blocks/content/content-08.png',
-    dark: '/images/blocks/content/content-08.png',
+    dark: '/images/blocks/content/content-08-dark.png',
   },
   component: Content08,
   editorFields: Content08EditorFields,

@@ -170,8 +170,27 @@ export const manifest: BlockManifest = {
 
 ### `image.light` / `image.dark`
 
-Both are **required** (even if identical today). Put the preview screenshot at:
-`public/images/blocks/<category>/<camelCaseSlug>.png`
+Both are **required**. Preview screenshots:
+
+```bash
+npm run playwright:install   # once per machine (keep script — new machine / Playwright update)
+npm run dev
+npm run blocks:capture-screenshots
+npx tsx scripts/capture-block-screenshots.ts --slug=hero-01
+npx tsx scripts/capture-block-screenshots.ts --missing-only
+```
+
+- Light: `public/images/blocks/<category>/<slug>.png`
+- Dark: `public/images/blocks/<category>/<slug>-dark.png`
+
+Scroll/interactive blocks that should not capture full scroll height: set `meta.captureViewportOnly: true` (uses `iframeHeight`).
+
+```ts
+image: {
+  light: '/images/blocks/content/my-block.png',
+  dark: '/images/blocks/content/my-block-dark.png',
+},
+```
 
 ---
 

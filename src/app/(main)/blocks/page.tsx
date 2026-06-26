@@ -54,15 +54,11 @@ export default function BlocksPage() {
 
 function BlocksFallback() {
   return (
-    <section className="grid grid-cols-1 gap-6">
-      <div className="bg-background sticky top-[55px] z-40 w-full">
-        <div className="flex gap-2 py-3">
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-        </div>
-      </div>
-      <div className="border-border bg-muted h-64 animate-pulse rounded-xl border" />
+    <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
     </section>
   )
 }

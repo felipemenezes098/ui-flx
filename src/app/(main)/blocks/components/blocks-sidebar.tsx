@@ -2,7 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { LayoutGrid } from 'lucide-react'
 
+import {
+  ALL_BLOCKS_CATEGORY_SLUG,
+  isAllBlocksCategory,
+} from '../lib/blocks-category'
 import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
@@ -13,12 +18,17 @@ export function BlocksSidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const navCategorySlug = useBlocksNavCategorySlug()
+  const allParams = new URLSearchParams(searchParams.toString())
+  allParams.set('category', ALL_BLOCKS_CATEGORY_SLUG)
+  const allHref = `${pathname}?${allParams.toString()}`
+  const isAllActive =
+    navCategorySlug !== null && isAllBlocksCategory(navCategorySlug)
 
   return (
     <aside
       aria-label="Block categories"
       className={cn(
-        'sticky top-20 z-30 hidden h-[calc(100svh-80px)] w-54 shrink-0 self-start lg:flex lg:flex-col',
+        'sticky top-20 z-30 hidden h-[calc(100svh-120px)] w-54 shrink-0 self-start lg:flex lg:flex-col',
       )}
     >
       <ScrollFadeEdges
@@ -30,7 +40,21 @@ export function BlocksSidebar() {
         topThreshold={4}
         bottomThreshold={4}
       >
-        <nav className="flex flex-col gap-0.5 pb-2">
+        <nav className="flex flex-col gap-1 pb-2">
+          <Link
+            href={allHref}
+            aria-current={isAllActive ? 'page' : undefined}
+            className={cn(
+              'text-foreground flex items-center gap-3 rounded-lg border border-transparent px-2 py-2 text-sm font-medium',
+              'hover:bg-card hover:border-border',
+              isAllActive && 'bg-card border-border',
+            )}
+          >
+            <div className="bg-muted/40 dark:bg-background flex h-9 w-12 shrink-0 items-center justify-center rounded-md border">
+              <LayoutGrid className="text-muted-foreground size-4" />
+            </div>
+            <span className="truncate">All Blocks</span>
+          </Link>
           {blockCategories.map((block) => {
             const isActive =
               navCategorySlug !== null && navCategorySlug === block.slug
@@ -44,9 +68,9 @@ export function BlocksSidebar() {
                 href={href}
                 aria-current={isActive ? 'page' : undefined}
                 className={cn(
-                  'text-foreground flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium',
-                  'hover:bg-muted/70',
-                  isActive && 'bg-muted',
+                  'text-foreground flex items-center gap-3 rounded-lg border border-transparent px-2 py-2 text-sm font-medium',
+                  'hover:bg-card hover:border-border',
+                  isActive && 'bg-card border-border',
                 )}
               >
                 <div className="relative h-9 w-12 shrink-0">

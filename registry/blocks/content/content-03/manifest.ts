@@ -10,7 +10,7 @@ export const manifest: BlockManifest = {
   category: 'content',
   image: {
     light: '/images/blocks/content/content-03.png',
-    dark: '/images/blocks/content/content-03.png',
+    dark: '/images/blocks/content/content-03-dark.png',
   },
   meta: {
     iframeHeight: 800,
