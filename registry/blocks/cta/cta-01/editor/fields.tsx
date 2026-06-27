@@ -13,20 +13,20 @@ import {
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
-import { values as defaults } from '../content-08-example'
+import { values as defaults } from '../cta-01-example'
 
-import type { Content08Props } from '../content-08'
+import type { Cta01Props } from '../cta-01'
 
-interface Content08EditorFieldsProps {
-  props?: Content08Props
-  onUpdate?: (props: Content08Props) => void
+interface Cta01EditorFieldsProps {
+  props?: Cta01Props
+  onUpdate?: (props: Cta01Props) => void
 }
 
-export function Content08EditorFields({
+export function Cta01EditorFields({
   props: externalProps,
   onUpdate,
-}: Content08EditorFieldsProps = {}) {
-  const [internalProps, setInternalProps] = React.useState<Content08Props>({
+}: Cta01EditorFieldsProps = {}) {
+  const [internalProps, setInternalProps] = React.useState<Cta01Props>({
     title: defaults.title,
     description: defaults.description,
     cta: defaults.cta,
@@ -46,7 +46,7 @@ export function Content08EditorFields({
 
   const updateCta = (field: string, value: any) => {
     const currentCta = props.cta ?? defaults.cta
-    const newProps: Content08Props = {
+    const newProps: Cta01Props = {
       ...props,
       cta: { ...currentCta, [field]: value },
     }

@@ -11,6 +11,7 @@ import type {
 import { bentoGridsCategory } from 'registry/blocks/bento-grids/catalog'
 import { carouselCategory } from 'registry/blocks/carousel/catalog'
 import { contentCategory } from 'registry/blocks/content/catalog'
+import { ctaCategory } from 'registry/blocks/cta/catalog'
 import { heroCategory } from 'registry/blocks/hero/catalog'
 import { logosCategory } from 'registry/blocks/logos/catalog'
 import { scrollCategory } from 'registry/blocks/scroll/catalog'
@@ -20,6 +21,7 @@ import { testimonialsCategory } from 'registry/blocks/testimonials/catalog'
 export const categories: BlockCategoryRow[] = [
   heroCategory,
   contentCategory,
+  ctaCategory,
   carouselCategory,
   showcaseCategory,
   bentoGridsCategory,

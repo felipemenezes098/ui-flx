@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
-export const content08Block = defineType({
-  name: 'content08',
-  title: 'Content 08',
+export const cta01Block = defineType({
+  name: 'cta01',
+  title: 'Call to Action 01',
   type: 'object',
   groups: [
     {
@@ -39,7 +39,7 @@ export const content08Block = defineType({
       const {title, subtitle} = selection
 
       return {
-        title: title ? `Content 08 - ${title}` : 'Content 08',
+        title: title ? `Call to Action 01 - ${title}` : 'Call to Action 01',
         subtitle: subtitle ?? '',
       }
     },

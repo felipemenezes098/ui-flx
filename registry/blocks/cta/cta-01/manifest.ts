@@ -1,19 +1,19 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
-import { Content08 } from './content-08'
-import { Content08EditorFields } from './editor/fields'
-import { Content08Example, values } from './content-08-example'
+import { Cta01 } from './cta-01'
+import { Cta01EditorFields } from './editor/fields'
+import { Cta01Example, values } from './cta-01-example'
 
 export const manifest: BlockManifest = {
-  slug: 'content-08',
-  name: 'Content 08',
+  slug: 'cta-01',
+  name: 'Call to Action 01',
   description: 'A centered text block with a title, description, and CTA.',
-  category: 'content',
+  category: 'cta',
   image: {
-    light: '/images/blocks/content/content-08.png',
-    dark: '/images/blocks/content/content-08-dark.png',
+    light: '/images/blocks/cta/cta-01.png',
+    dark: '/images/blocks/cta/cta-01-dark.png',
   },
-  component: Content08,
-  editorFields: Content08EditorFields,
-  example: Content08Example,
+  component: Cta01,
+  editorFields: Cta01EditorFields,
+  example: Cta01Example,
   defaults: values,
 }

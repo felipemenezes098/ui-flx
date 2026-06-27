@@ -85,9 +85,8 @@ export default function AiPage() {
                         {domain.name}
                       </h2>
                       <span className="text-muted-foreground text-sm">
-                        {available > 0
-                          ? `${available} ${available === 1 ? 'intent' : 'intents'}`
-                          : 'Coming soon'}
+                        {available > 0 &&
+                          `${available} ${available === 1 ? 'intent' : 'intents'}`}
                       </span>
                     </div>
                   </div>

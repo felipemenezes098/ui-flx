@@ -1,12 +1,15 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { flushSync } from 'react-dom'
+import { usePathname, useRouter } from 'next/navigation'
 import {
+  AppWindow,
   ArrowDown,
   ArrowUp,
   Blocks,
   CornerDownLeft,
   LayoutGrid,
+  PencilRuler,
   Search,
   Sparkles,
 } from 'lucide-react'
@@ -28,37 +31,62 @@ import {
 import { Kbd } from '@/components/ui/kbd'
 import { cn } from '@/lib/utils'
 import { blockCategories } from '@/lib/blocks/block-catalog'
+import { conceptCategories } from '@/lib/concepts/concepts-catalog'
 import { intentDomains } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
-
-import { reactHookFormLibrary } from 'registry/forms/react-hook-form/catalog'
-
-const reactHookFormCount = reactHookFormLibrary.categories.reduce(
-  (total, category) => total + category.items.length,
-  0,
-)
+import { sketchCategories } from '@/lib/sketches/sketches-catalog'
 
 const patterns = [
   ...patternCategories.map((category) => ({
     key: `pattern-${category.slug}`,
     name: category.name,
     href: `/patterns/${category.slug}`,
-    count: category.items.length,
   })),
   {
     key: 'pattern-forms',
     name: 'Forms',
     href: '/forms/react-hook-form',
-    count: reactHookFormCount,
   },
 ].toSorted((a, b) => a.name.localeCompare(b.name))
-const domains = intentDomains.toSorted((a, b) => a.name.localeCompare(b.name))
+
+const concepts = conceptCategories
+  .map((category) => ({
+    key: `concept-${category.slug}`,
+    name: category.name,
+    href: `/concepts#${category.slug}`,
+  }))
+  .toSorted((a, b) => a.name.localeCompare(b.name))
+
+const sketches = sketchCategories
+  .map((category) => ({
+    key: `sketch-${category.slug}`,
+    name: category.name,
+    href: `/sketches#${category.slug}`,
+  }))
+  .toSorted((a, b) => a.name.localeCompare(b.name))
+
+const intents = intentDomains
+  .map((domain) => {
+    const first = domain.intents.find(
+      (intent) => intent.manifest && !intent.comingSoon,
+    )
+    if (!first) return null
+    return {
+      key: `intent-${domain.slug}`,
+      name: domain.name,
+      href: `/intents/${first.slug}`,
+    }
+  })
+  .filter((item): item is NonNullable<typeof item> => item !== null)
+  .toSorted((a, b) => a.name.localeCompare(b.name))
+
 const blocks = blockCategories.toSorted((a, b) =>
   a.category.localeCompare(b.category),
 )
 
 export function GlobalSearch() {
   const router = useRouter()
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
   const toggle = useCallback(() => setOpen((prev) => !prev), [])
@@ -68,10 +96,16 @@ export function GlobalSearch() {
 
   const navigate = useCallback(
     (href: string) => {
+      flushSync(() => setOpen(false))
+
+      const [path, hash] = href.split('#')
+      if (hash && path === pathname) {
+        globalThis.location.hash = hash
+        return
+      }
       router.push(href)
-      setOpen(false)
     },
-    [router],
+    [router, pathname],
   )
 
   return (
@@ -94,13 +128,13 @@ export function GlobalSearch() {
       <CommandDialog
         open={open}
         modal={false}
-        className="top-1/5 shadow-lg"
+        className="top-1/5 shadow-lg data-closed:!animate-none"
         onOpenChange={setOpen}
         title="Global search"
-        description="Search patterns, intents and blocks"
+        description="Search patterns, concepts, blocks, intents and sketches"
       >
         <Command>
-          <CommandInput placeholder="Search patterns, intents, blocks…" />
+          <CommandInput placeholder="Search patterns, concepts, blocks…" />
           <CommandList className="2xl:max-h-80">
             <CommandEmpty>No results found.</CommandEmpty>
 
@@ -114,40 +148,25 @@ export function GlobalSearch() {
                 >
                   <LayoutGrid className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{item.name}</span>
-                  {item.count !== undefined && (
-                    <CommandShortcut>{item.count}</CommandShortcut>
-                  )}
                 </CommandItem>
               ))}
             </CommandGroup>
 
             <CommandSeparator />
 
-            {domains.map((domain) => {
-              const domainIntents = domain.intents
-                .filter((intent) => intent.manifest)
-                .toSorted((a, b) => a.name.localeCompare(b.name))
-              if (domainIntents.length === 0) return null
-
-              return (
-                <CommandGroup
-                  key={`intent-${domain.slug}`}
-                  heading={`Intents · ${domain.name}`}
+            <CommandGroup heading="Concepts">
+              {concepts.map((item) => (
+                <CommandItem
+                  key={item.key}
+                  className="h-9"
+                  value={`concept ${item.name}`}
+                  onSelect={() => navigate(item.href)}
                 >
-                  {domainIntents.map((intent) => (
-                    <CommandItem
-                      key={intent.slug}
-                      className="h-9"
-                      value={`intent ${domain.name} ${intent.name}`}
-                      onSelect={() => navigate(`/intents/${intent.slug}`)}
-                    >
-                      <Sparkles className="size-4 shrink-0 opacity-60" />
-                      <span className="truncate">{intent.name}</span>
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              )
-            })}
+                  <AppWindow className="size-4 shrink-0 opacity-60" />
+                  <span className="truncate">{item.name}</span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
 
             <CommandSeparator />
 
@@ -161,6 +180,38 @@ export function GlobalSearch() {
                 >
                   <Blocks className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{block.category}</span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            <CommandGroup heading="Intents">
+              {intents.map((item) => (
+                <CommandItem
+                  key={item.key}
+                  className="h-9"
+                  value={`intent ${item.name}`}
+                  onSelect={() => navigate(item.href)}
+                >
+                  <Sparkles className="size-4 shrink-0 opacity-60" />
+                  <span className="truncate">{item.name}</span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            <CommandGroup heading="Sketches">
+              {sketches.map((item) => (
+                <CommandItem
+                  key={item.key}
+                  className="h-9"
+                  value={`sketch ${item.name}`}
+                  onSelect={() => navigate(item.href)}
+                >
+                  <PencilRuler className="size-4 shrink-0 opacity-60" />
+                  <span className="truncate">{item.name}</span>
                 </CommandItem>
               ))}
             </CommandGroup>

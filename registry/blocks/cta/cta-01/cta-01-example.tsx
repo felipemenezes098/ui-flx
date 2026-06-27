@@ -1,4 +1,4 @@
-import { Content08, type Content08Props } from './content-08'
+import { Cta01, type Cta01Props } from './cta-01'
 
 export const values = {
   title: 'Simple & Elegant',
@@ -9,11 +9,11 @@ export const values = {
     link: '',
     variant: 'default',
   },
-} satisfies Content08Props
+} satisfies Cta01Props
 
-export function Content08Example() {
+export function Cta01Example() {
   return (
-    <Content08
+    <Cta01
       title={values.title}
       description={values.description}
       cta={values.cta}

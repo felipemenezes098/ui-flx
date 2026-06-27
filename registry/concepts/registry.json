@@ -1,0 +1,7 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-concepts",
+  "homepage": "https://ui.flexnative.com",
+  "include": ["./dashboard/registry.json", "./chat/registry.json"],
+  "items": []
+}

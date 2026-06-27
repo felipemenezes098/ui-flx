@@ -21,13 +21,11 @@ export const tsfRecipesCategory: PatternCategory = {
       slug: 'tsf-recipes-03',
       name: 'Sign In',
       description: 'Email and password validated on submit.',
-      isNew: true,
     },
     {
       slug: 'tsf-recipes-04',
       name: 'Newsletter',
       description: 'Subscribe with an email and a delivery frequency.',
-      isNew: true,
     },
   ],
 }

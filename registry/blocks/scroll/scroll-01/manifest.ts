@@ -16,7 +16,6 @@ export const manifest: BlockManifest = {
     iframeHeight: 600,
     captureViewportOnly: true,
   },
-  hasNew: true,
   component: Scroll01,
   editorFields: Scroll01EditorFields,
   example: Scroll01Example,

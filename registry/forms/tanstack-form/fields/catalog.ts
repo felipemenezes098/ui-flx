@@ -31,35 +31,30 @@ export const tsfFieldsCategory: PatternCategory = {
       name: 'Text Input',
       description:
         'Native text and email inputs wired with form.Field and Zod validation.',
-      isNew: true,
     },
     {
       slug: 'tsf-fields-03',
       name: 'Textarea',
       description:
         'Multi-line textarea with a description and length-constrained Zod rule.',
-      isNew: true,
     },
     {
       slug: 'tsf-fields-04',
       name: 'Slider',
       description:
         'Numeric slider wired with form.Field, validated against a Zod range.',
-      isNew: true,
     },
     {
       slug: 'tsf-fields-05',
       name: 'Checkbox Group',
       description:
         'Multiple checkboxes collected into a string array with a min-selection rule.',
-      isNew: true,
     },
     {
       slug: 'tsf-fields-06',
       name: 'Toggle Group',
       description:
         'Single-select toggle group wired with form.Field and Zod validation.',
-      isNew: true,
     },
   ],
 }

@@ -14,6 +14,21 @@ export function HeroConcept() {
   )
 }
 
+export function CtaConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-6">
+      <div className="bg-card dark:bg-muted flex w-full flex-col items-center gap-3 rounded-xl border p-5 shadow-sm">
+        <div className="bg-foreground/20 h-2.5 w-36 rounded-full" />
+        <div className="flex w-full flex-col items-center gap-1.5">
+          <div className="bg-foreground/10 h-1.5 w-44 rounded-full" />
+          <div className="bg-foreground/10 h-1.5 w-32 rounded-full" />
+        </div>
+        <div className="bg-primary mt-1 h-7 w-24 rounded-full shadow-sm" />
+      </div>
+    </div>
+  )
+}
+
 export function ContentConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">

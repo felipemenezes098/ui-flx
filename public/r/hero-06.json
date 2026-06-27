@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-06",
+  "title": "Hero 06",
+  "description": "A large, minimal product hero with dual CTA, highlight row, framed image preview, and a logo strip.",
+  "dependencies": [
+    "react-wrap-balancer",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@flx/cta"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/hero/hero-06/hero-06.tsx",
+      "content": "import { Check } from 'lucide-react'\nimport Balancer from 'react-wrap-balancer'\n\nimport type { CtaProps } from '../../shared/cta'\nimport { Cta } from '../../shared/cta'\n\nexport interface Hero06Preview {\n  src: string\n  alt: string\n}\n\nexport interface Hero06Props {\n  title: string\n  highlight?: string\n  description: string\n  primaryCTA: CtaProps\n  secondaryCTA?: CtaProps\n  highlights?: string[]\n  preview: Hero06Preview\n  logos?: string[]\n  logosLabel?: string\n}\n\nexport function Hero06({\n  title,\n  highlight,\n  description,\n  primaryCTA,\n  secondaryCTA,\n  highlights,\n  preview,\n  logos,\n  logosLabel,\n}: Readonly<Hero06Props>) {\n  return (\n    <section className=\"bg-background relative w-full overflow-hidden\">\n      <div className=\"relative mx-auto flex max-w-5xl flex-col items-center px-6 pt-16 pb-0 text-center sm:pt-24\">\n        <h1 className=\"text-foreground max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl\">\n          <Balancer>\n            {title}\n            {highlight && (\n              <>\n                {' '}\n                <span className=\"text-muted-foreground\">{highlight}</span>\n              </>\n            )}\n          </Balancer>\n        </h1>\n\n        <p className=\"text-muted-foreground mt-6 max-w-xl text-base sm:text-lg\">\n          <Balancer>{description}</Balancer>\n        </p>\n\n        <div className=\"mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row\">\n          {primaryCTA && <Cta cta={primaryCTA} className=\"w-full px-6 sm:w-fit\" />}\n          {secondaryCTA && (\n            <Cta cta={secondaryCTA} className=\"w-full px-6 sm:w-fit\" />\n          )}\n        </div>\n\n        {highlights && highlights.length > 0 && (\n          <ul className=\"text-muted-foreground mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm\">\n            {highlights.map((item) => (\n              <li key={item} className=\"inline-flex items-center gap-1.5\">\n                <Check className=\"text-foreground/60 size-4\" />\n                {item}\n              </li>\n            ))}\n          </ul>\n        )}\n\n        <div className=\"relative mt-16 w-full\">\n          <div className=\"border-border bg-card overflow-hidden rounded-2xl border shadow-sm\">\n            <img\n              src={preview.src}\n              alt={preview.alt}\n              className=\"aspect-[16/10] w-full object-cover\"\n            />\n          </div>\n          <div className=\"from-background pointer-events-none absolute inset-x-0 -bottom-px h-24 bg-gradient-to-t to-transparent\" />\n        </div>\n\n        {logos && logos.length > 0 && (\n          <div className=\"border-border/60 mt-4 w-full border-t pt-10 pb-16\">\n            {logosLabel && (\n              <p className=\"text-muted-foreground text-xs tracking-wide uppercase\">\n                {logosLabel}\n              </p>\n            )}\n            <div className=\"mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4\">\n              {logos.map((logo) => (\n                <span\n                  key={logo}\n                  className=\"text-muted-foreground/70 text-lg font-semibold tracking-tight\"\n                >\n                  {logo}\n                </span>\n              ))}\n            </div>\n          </div>\n        )}\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-06/hero-06.tsx"
+    },
+    {
+      "path": "registry/blocks/hero/hero-06/hero-06-example.tsx",
+      "content": "import { Hero06, type Hero06Props } from './hero-06'\n\nexport const values = {\n  title: 'The platform for teams who',\n  highlight: 'ship without the busywork.',\n  description:\n    'Plan, build, and launch from a single workspace. Less context switching, more momentum — with the polish your customers expect.',\n  primaryCTA: {\n    ctaEnabled: true,\n    text: 'Start for free',\n    link: '',\n    variant: 'default',\n  },\n  secondaryCTA: {\n    ctaEnabled: true,\n    text: 'Book a demo',\n    link: '',\n    variant: 'outline',\n  },\n  highlights: ['No credit card', 'Free 14-day trial', 'Cancel anytime'],\n  preview: {\n    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',\n    alt: 'Product dashboard overview',\n  },\n  logosLabel: 'Trusted by teams building the future',\n  logos: ['Acme', 'Globex', 'Initech', 'Umbrella', 'Hooli'],\n} satisfies Hero06Props\n\nexport function Hero06Example() {\n  return <Hero06 {...values} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-06/hero-06-example.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 820
+  },
+  "type": "registry:block"
+}

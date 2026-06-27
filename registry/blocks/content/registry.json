@@ -31,33 +31,6 @@
       }
     },
     {
-      "name": "content-08",
-      "type": "registry:block",
-      "title": "Content 08",
-      "description": "A centered text block with a title, description, and CTA.",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "files": [
-        {
-          "path": "content-08/content-08.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-08/content-08.tsx"
-        },
-        {
-          "path": "content-08/content-08-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-08/content-08-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      }
-    },
-    {
       "name": "content-09",
       "type": "registry:block",
       "title": "Content 09",
@@ -131,53 +104,6 @@
       }
     },
     {
-      "name": "content-12",
-      "type": "registry:block",
-      "title": "Content 12",
-      "description": "List of icons with a title and items.",
-      "registryDependencies": [
-        "@flx/dynamic-icon"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "content-12/content-12.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-12/content-12.tsx"
-        },
-        {
-          "path": "content-12/content-12-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-12/content-12-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      }
-    },
-    {
-      "name": "content-13",
-      "type": "registry:block",
-      "title": "Content 13",
-      "description": "List of badges with a title and items.",
-      "registryDependencies": [
-        "badge"
-      ],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "content-13/content-13.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-13/content-13.tsx"
-        },
-        {
-          "path": "content-13/content-13-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-13/content-13-example.tsx"
-        }
-      ]
-    },
-    {
       "name": "content-07",
       "type": "registry:block",
       "title": "Content 07",
@@ -200,31 +126,6 @@
           "target": "components/flx/blocks/content/content-07/content-07-example.tsx"
         }
       ]
-    },
-    {
-      "name": "content-14",
-      "type": "registry:block",
-      "title": "Content 14",
-      "description": "A title with a media above the title.",
-      "registryDependencies": [],
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "files": [
-        {
-          "path": "content-14/content-14.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-14/content-14.tsx"
-        },
-        {
-          "path": "content-14/content-14-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-14/content-14-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      }
     },
     {
       "name": "content-05",

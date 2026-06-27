@@ -3,17 +3,13 @@ import Balancer from 'react-wrap-balancer'
 import type { CtaProps } from '../../shared/cta'
 import { Cta } from '../../shared/cta'
 
-export interface Content08Props {
+export interface Cta01Props {
   title: string
   description: string
   cta?: CtaProps
 }
 
-export function Content08({
-  title,
-  description,
-  cta,
-}: Readonly<Content08Props>) {
+export function Cta01({ title, description, cta }: Readonly<Cta01Props>) {
   return (
     <div className="bg-muted/50 flex min-h-120 items-center justify-center rounded-xl p-5">
       <div className="flex flex-col items-center space-y-4 self-center">

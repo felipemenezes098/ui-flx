@@ -149,33 +149,6 @@
       "type": "registry:block"
     },
     {
-      "name": "content-08",
-      "title": "Content 08",
-      "description": "A centered text block with a title, description, and CTA.",
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/content/content-08/content-08.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-08/content-08.tsx"
-        },
-        {
-          "path": "registry/blocks/content/content-08/content-08-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-08/content-08-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      },
-      "type": "registry:block"
-    },
-    {
       "name": "content-09",
       "title": "Content 09",
       "description": "A grid of cards with a title and items.",
@@ -249,53 +222,6 @@
       "type": "registry:block"
     },
     {
-      "name": "content-12",
-      "title": "Content 12",
-      "description": "List of icons with a title and items.",
-      "dependencies": [],
-      "registryDependencies": [
-        "@flx/dynamic-icon"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/content/content-12/content-12.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-12/content-12.tsx"
-        },
-        {
-          "path": "registry/blocks/content/content-12/content-12-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-12/content-12-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "content-13",
-      "title": "Content 13",
-      "description": "List of badges with a title and items.",
-      "dependencies": [],
-      "registryDependencies": [
-        "badge"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/content/content-13/content-13.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-13/content-13.tsx"
-        },
-        {
-          "path": "registry/blocks/content/content-13/content-13-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-13/content-13-example.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
       "name": "content-07",
       "title": "Content 07",
       "description": "A grid of content columns with a media above the content.",
@@ -317,31 +243,6 @@
           "target": "components/flx/blocks/content/content-07/content-07-example.tsx"
         }
       ],
-      "type": "registry:block"
-    },
-    {
-      "name": "content-14",
-      "title": "Content 14",
-      "description": "A title with a media above the title.",
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/blocks/content/content-14/content-14.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-14/content-14.tsx"
-        },
-        {
-          "path": "registry/blocks/content/content-14/content-14-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-14/content-14-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      },
       "type": "registry:block"
     },
     {
@@ -470,6 +371,61 @@
           "target": "components/flx/blocks/content/content-04/content-04-example.tsx"
         }
       ],
+      "type": "registry:block"
+    },
+    {
+      "name": "cta-01",
+      "title": "Call to Action 01",
+      "description": "A centered text block with a title, description, and CTA.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/cta/cta-01/cta-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/cta/cta-01/cta-01.tsx"
+        },
+        {
+          "path": "registry/blocks/cta/cta-01/cta-01-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/cta/cta-01/cta-01-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 600
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-06",
+      "title": "Hero 06",
+      "description": "A large, minimal product hero with dual CTA, highlight row, framed image preview, and a logo strip.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-06/hero-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-06/hero-06-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 820
+      },
       "type": "registry:block"
     },
     {
@@ -8673,6 +8629,124 @@
           "path": "registry/intents/collaboration/live-presence/live-presence-3.tsx",
           "type": "registry:component",
           "target": "components/flx/intent/live-presence/live-presence-3.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "dashboard-01",
+      "title": "Analytics overview",
+      "description": "Sidebar, KPI cards, a bar chart, and a recent activity list.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/concepts/dashboard/dashboard-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/concepts/dashboard/dashboard-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "dashboard-02",
+      "title": "Project workspace",
+      "description": "Sidebar, task stats, an active-tasks list with progress, and a team panel.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "item",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/concepts/dashboard/dashboard-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/concepts/dashboard/dashboard-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "chat-01",
+      "title": "Conversation",
+      "description": "Conversation list, message thread, and a message composer.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "item",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/concepts/chat/chat-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/concepts/chat/chat-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sketch-dashboard-01",
+      "title": "Analytics overview",
+      "description": "Wireframe: sidebar, stat cards, chart, and a list.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/sketches/dashboard/sketch-dashboard-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/sketches/dashboard/sketch-dashboard-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sketch-dashboard-02",
+      "title": "Project workspace",
+      "description": "Wireframe: sidebar, stat cards, task list with progress, and a team panel.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/sketches/dashboard/sketch-dashboard-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/sketches/dashboard/sketch-dashboard-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sketch-chat-01",
+      "title": "Conversation",
+      "description": "Wireframe: conversation list, thread, and composer.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/sketches/chat/sketch-chat-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/sketches/chat/sketch-chat-01.tsx"
         }
       ],
       "type": "registry:block"

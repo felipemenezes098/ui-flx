@@ -8,7 +8,7 @@ export function NewsBanner() {
   return (
     <div className="flex justify-center">
       <Link
-        href="/forms/react-hook-form"
+        href="/concepts"
         className="group bg-background hover:bg-muted/50 relative flex items-center gap-2.5 overflow-hidden rounded-full border px-4 py-1.5 text-sm transition-colors"
       >
         <motion.div
@@ -28,7 +28,9 @@ export function NewsBanner() {
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
         </span>
 
-        <span className="text-foreground font-medium">Forms now available</span>
+        <span className="text-foreground font-medium">
+          Concepts now available
+        </span>
 
         <ArrowRight className="text-muted-foreground h-3 w-3 transition-transform group-hover:translate-x-0.5" />
       </Link>

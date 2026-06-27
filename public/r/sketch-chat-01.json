@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sketch-chat-01",
+  "title": "Conversation",
+  "description": "Wireframe: conversation list, thread, and composer.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/sketches/chat/sketch-chat-01.tsx",
+      "content": "const thread = [\n  { from: 'them', w: '70%' },\n  { from: 'me', w: '55%' },\n  { from: 'them', w: '60%' },\n  { from: 'me', w: '40%' },\n]\n\nexport function SketchChat01() {\n  return (\n    <div className=\"bg-card flex h-[28rem] w-full overflow-hidden rounded-xl border shadow-sm\">\n      <aside className=\"hidden w-64 shrink-0 flex-col border-r sm:flex\">\n        <div className=\"flex items-center justify-between gap-2 border-b px-4 py-3\">\n          <div className=\"bg-foreground/15 h-2 w-20 rounded-full\" />\n          <div className=\"bg-foreground/10 size-5 rounded-md\" />\n        </div>\n        <div className=\"px-3 py-2\">\n          <div className=\"bg-muted h-8 w-full rounded-md\" />\n        </div>\n        <div className=\"flex flex-col gap-1 px-2\">\n          {[0, 1, 2, 3].map((i) => (\n            <div key={i} className=\"flex items-center gap-3 rounded-md px-2 py-2.5\">\n              <div className=\"bg-foreground/10 size-9 shrink-0 rounded-full\" />\n              <div className=\"flex min-w-0 flex-1 flex-col gap-1.5\">\n                <div className=\"bg-foreground/15 h-2 w-20 rounded-full\" />\n                <div className=\"bg-foreground/10 h-2 w-28 rounded-full\" />\n              </div>\n            </div>\n          ))}\n        </div>\n      </aside>\n\n      <section className=\"flex min-w-0 flex-1 flex-col\">\n        <header className=\"flex items-center gap-3 border-b px-4 py-3\">\n          <div className=\"bg-foreground/10 size-8 shrink-0 rounded-full\" />\n          <div className=\"flex min-w-0 flex-1 flex-col gap-1.5\">\n            <div className=\"bg-foreground/15 h-2 w-24 rounded-full\" />\n            <div className=\"bg-foreground/10 h-2 w-14 rounded-full\" />\n          </div>\n          <div className=\"bg-foreground/10 size-5 rounded-md\" />\n          <div className=\"bg-foreground/10 size-5 rounded-md\" />\n        </header>\n\n        <div className=\"flex flex-1 flex-col justify-end gap-2.5 p-4\">\n          {thread.map((m, i) => (\n            <div\n              key={i}\n              className={m.from === 'me' ? 'flex justify-end' : 'flex justify-start'}\n            >\n              <div\n                className={\n                  m.from === 'me'\n                    ? 'bg-foreground/15 h-10 rounded-2xl rounded-br-sm'\n                    : 'bg-muted h-10 rounded-2xl rounded-bl-sm'\n                }\n                style={{ width: m.w }}\n              />\n            </div>\n          ))}\n        </div>\n\n        <div className=\"flex items-center gap-2 border-t p-3\">\n          <div className=\"bg-muted h-9 flex-1 rounded-full\" />\n          <div className=\"bg-foreground/15 size-9 shrink-0 rounded-full\" />\n        </div>\n      </section>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/sketches/chat/sketch-chat-01.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

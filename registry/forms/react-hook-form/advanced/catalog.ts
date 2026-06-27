@@ -19,7 +19,6 @@ export const rhfAdvancedCategory: PatternCategory = {
       name: 'Form in a Dialog',
       description:
         'Build an invoice while a dialog validates each line item against its own schema.',
-      isNew: true,
     },
   ],
 }

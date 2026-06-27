@@ -89,7 +89,7 @@ export function Blocks() {
       </div>
       {showAll && (
         <div role="tabpanel" aria-hidden={false}>
-          <div className="columns-1 gap-4 sm:columns-2">
+          <div className="columns-1 gap-4 sm:columns-3">
             {blocks.flatMap((category) =>
               category.blocks.map((subBlock) => (
                 <BlockPreviewLink
@@ -116,7 +116,7 @@ export function Blocks() {
               role="tabpanel"
               aria-hidden={!isActive}
             >
-              <div className="columns-1 gap-4 sm:columns-2">
+              <div className="columns-1 gap-4 sm:columns-3">
                 {block.blocks.map((subBlock) => (
                   <BlockPreviewLink
                     key={subBlock.slug}

@@ -31,35 +31,30 @@ export const rhfFieldsCategory: PatternCategory = {
       name: 'Text Input',
       description:
         'Native text and email inputs bound with register and Zod validation.',
-      isNew: true,
     },
     {
       slug: 'rhf-fields-03',
       name: 'Textarea',
       description:
         'Multi-line textarea with a description and length-constrained Zod rule.',
-      isNew: true,
     },
     {
       slug: 'rhf-fields-04',
       name: 'Slider',
       description:
         'Numeric slider bound via Controller, validated against a Zod range.',
-      isNew: true,
     },
     {
       slug: 'rhf-fields-05',
       name: 'Checkbox Group',
       description:
         'Multiple checkboxes collected into a string array with a min-selection rule.',
-      isNew: true,
     },
     {
       slug: 'rhf-fields-06',
       name: 'Toggle Group',
       description:
         'Single-select toggle group bound via Controller with Zod validation.',
-      isNew: true,
     },
   ],
 }

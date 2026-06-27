@@ -4,6 +4,34 @@
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
+      "name": "hero-06",
+      "type": "registry:block",
+      "title": "Hero 06",
+      "description": "A large, minimal product hero with dual CTA, highlight row, framed image preview, and a logo strip.",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "hero-06/hero-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06.tsx"
+        },
+        {
+          "path": "hero-06/hero-06-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 820
+      }
+    },
+    {
       "name": "hero-01",
       "type": "registry:block",
       "title": "Hero 01",

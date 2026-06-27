@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-concepts-chat",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "chat-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "item",
+        "scroll-area"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "chat-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/concepts/chat/chat-01.tsx"
+        }
+      ],
+      "title": "Conversation",
+      "description": "Conversation list, message thread, and a message composer."
+    }
+  ]
+}

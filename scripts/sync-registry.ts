@@ -22,6 +22,8 @@ import { allManifests } from '../src/lib/blocks/block-catalog'
 import { allIntents } from '../src/lib/intents/intent-catalog'
 import { allFormPatterns } from '../src/lib/forms/catalog'
 import { allPatterns } from '../src/lib/patterns/patterns-catalog'
+import { allConcepts } from '../src/lib/concepts/concepts-catalog'
+import { allSketches } from '../src/lib/sketches/sketches-catalog'
 
 const ROOT = process.cwd()
 const CHECK_ONLY = process.argv.includes('--check')
@@ -152,6 +154,18 @@ const catalogEntries: CatalogEntry[] = [
     name: pattern.name,
     description: pattern.description,
     categoryLabel: pattern.categorySlug,
+  })),
+  ...allConcepts.map((concept) => ({
+    slug: concept.slug,
+    name: concept.name,
+    description: concept.description,
+    categoryLabel: concept.categorySlug,
+  })),
+  ...allSketches.map((sketch) => ({
+    slug: sketch.slug,
+    name: sketch.name,
+    description: sketch.description,
+    categoryLabel: sketch.categorySlug,
   })),
 ]
 

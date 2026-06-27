@@ -6,6 +6,7 @@
     "./bento-grids/registry.json",
     "./carousel/registry.json",
     "./content/registry.json",
+    "./cta/registry.json",
     "./hero/registry.json",
     "./logos/registry.json",
     "./scroll/registry.json",

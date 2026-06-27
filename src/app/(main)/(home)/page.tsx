@@ -4,6 +4,7 @@ import { Footer } from '@/components/core/footer'
 import { siteConfig } from '@/config/site'
 
 import { BlocksPreview } from './components/blocks-preview'
+import { ConceptSpotlight } from './components/concept-spotlight'
 import { HeroSection } from './components/hero-section'
 import { PatternTeaser } from './components/pattern-teaser'
 import { IntentShowcase } from './components/intent-showcase'
@@ -43,6 +44,10 @@ export default function HomePage() {
           <PatternTeaser />
         </section>
 
+        <section>
+          <ConceptSpotlight />
+        </section>
+
         <section className="flex flex-col gap-8">
           <div className="flex flex-col justify-between md:flex-row md:items-end">
             <div className="flex flex-col gap-2">
@@ -52,7 +57,7 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
                 From problem to decision
               </h2>
-              <p className="text-muted-foreground max-w-xl">
+              <p className="text-muted-foreground max-w-2xl">
                 Describe what you want to build. Get the decision, the
                 reasoning, and the code behind it.
               </p>
@@ -83,9 +88,8 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
                 Sections, ready to ship
               </h2>
-              <p className="text-muted-foreground max-w-xl">
-                Full page sections assembled from the primitives. Drop one in,
-                wire your data, and move on.
+              <p className="text-muted-foreground max-w-2xl">
+                Full page sections, with live editing. Ready to ship.
               </p>
             </div>
             <div className="flex justify-end">
