@@ -7,7 +7,7 @@
     "registry/patterns/registry.json",
     "registry/forms/registry.json",
     "registry/intents/registry.json",
-    "registry/concepts/registry.json",
+    "registry/compositions/registry.json",
     "registry/sketches/registry.json"
   ],
   "items": []

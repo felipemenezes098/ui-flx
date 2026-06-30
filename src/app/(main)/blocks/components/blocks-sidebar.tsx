@@ -12,8 +12,6 @@ import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
-import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
-
 export function BlocksSidebar() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -31,15 +29,7 @@ export function BlocksSidebar() {
         'sticky top-20 z-30 hidden h-[calc(100svh-120px)] w-54 shrink-0 self-start lg:flex lg:flex-col',
       )}
     >
-      <ScrollFadeEdges
-        className="min-h-0 flex-1"
-        scrollClassName="no-scrollbar py-1 pr-2 pl-0.5"
-        direction="vertical"
-        gradientFrom="from-background"
-        fadeHeight={44}
-        topThreshold={4}
-        bottomThreshold={4}
-      >
+      <div className="scroll-fade scroll-fade-11 no-scrollbar min-h-0 flex-1 overflow-y-auto py-1 pr-2 pl-0.5">
         <nav className="flex flex-col gap-1 pb-2">
           <Link
             href={allHref}
@@ -95,7 +85,7 @@ export function BlocksSidebar() {
             )
           })}
         </nav>
-      </ScrollFadeEdges>
+      </div>
     </aside>
   )
 }

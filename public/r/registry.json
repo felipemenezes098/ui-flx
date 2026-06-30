@@ -305,8 +305,7 @@
         "react-wrap-balancer"
       ],
       "registryDependencies": [
-        "tabs",
-        "@flx/scroll-fade-edges"
+        "tabs"
       ],
       "files": [
         {
@@ -631,23 +630,6 @@
           "path": "registry/blocks/shared/cta.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/shared/cta.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "scroll-fade-edges",
-      "title": "Scroll Fade Edges",
-      "description": "A component that fades the edges of a scrollable area.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/blocks/shared/scroll-fade-edges.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/shared/scroll-fade-edges.tsx"
         }
       ],
       "type": "registry:block"

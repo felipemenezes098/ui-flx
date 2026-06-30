@@ -8,7 +8,7 @@ export function NewsBanner() {
   return (
     <div className="flex justify-center">
       <Link
-        href="/concepts"
+        href="/compositions"
         className="group bg-background hover:bg-muted/50 relative flex items-center gap-2.5 overflow-hidden rounded-full border px-4 py-1.5 text-sm transition-colors"
       >
         <motion.div
@@ -29,7 +29,7 @@ export function NewsBanner() {
         </span>
 
         <span className="text-foreground font-medium">
-          Concepts now available
+          Compositions now available
         </span>
 
         <ArrowRight className="text-muted-foreground h-3 w-3 transition-transform group-hover:translate-x-0.5" />

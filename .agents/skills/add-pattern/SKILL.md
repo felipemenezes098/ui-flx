@@ -171,16 +171,16 @@ Each category has its own `registry.json`. Add the entry there — **not** in th
 | `files[0].path`        | **Just `<slug>.tsx`** — relative to the category directory              |
 | `files[0].target`      | `components/flx/patterns/<category>/<slug>.tsx` — absolute install path |
 
-**Do NOT add `title` or `description`** — `npm run registry:sync` writes them from the catalog.
+**Do NOT add `title` or `description`** — `pnpm run registry:sync` writes them from the catalog.
 
 ---
 
 ## 4. Run sync, validate, and build
 
 ```bash
-npm run registry:sync
-npm run registry:validate
-npm run registry:build
+pnpm run registry:sync
+pnpm run registry:validate
+pnpm run registry:build
 ```
 
 | Command             | Purpose                                                                                      |
@@ -245,9 +245,9 @@ import { myNewCategory } from 'registry/patterns/my-new/catalog'
 - [ ] `registry/patterns/<category>/<slug>.tsx` — named export `PascalCase` component
 - [ ] `registry/patterns/<category>/catalog.ts` — `slug`, `name`, `description` added to `items`
 - [ ] `registry/patterns/<category>/registry.json` — entry with `path: "<slug>.tsx"` (relative, no directory prefix)
-- [ ] `npm run registry:sync`
-- [ ] `npm run registry:validate` — passes
-- [ ] `npm run registry:build` — `public/r/<slug>.json` exists
+- [ ] `pnpm run registry:sync`
+- [ ] `pnpm run registry:validate` — passes
+- [ ] `pnpm run registry:build` — `public/r/<slug>.json` exists
 
 ---
 
@@ -266,4 +266,4 @@ import { myNewCategory } from 'registry/patterns/my-new/catalog'
 
 - Gallery: `/patterns/<category>` (e.g. `/patterns/select`)
 - Install snippet: Code dialog uses `public/r/<slug>.json` after `registry:build`
-- CLI: `npx shadcn@latest add @flx/<slug>`
+- CLI: `pnpm dlx shadcn@latest add @flx/<slug>`

@@ -12,8 +12,8 @@
  * Supports the `include` feature: registry.json may reference sub-registries.
  *
  * Usage:
- *   npx tsx scripts/sync-registry.ts
- *   npx tsx scripts/sync-registry.ts --check  (exits 1 if out of sync)
+ *   pnpm dlx tsx scripts/sync-registry.ts
+ *   pnpm dlx tsx scripts/sync-registry.ts --check  (exits 1 if out of sync)
  */
 
 import fs from 'node:fs'
@@ -22,7 +22,7 @@ import { allManifests } from '../src/lib/blocks/block-catalog'
 import { allIntents } from '../src/lib/intents/intent-catalog'
 import { allFormPatterns } from '../src/lib/forms/catalog'
 import { allPatterns } from '../src/lib/patterns/patterns-catalog'
-import { allConcepts } from '../src/lib/concepts/concepts-catalog'
+import { allCompositions } from '../src/lib/compositions/compositions-catalog'
 import { allSketches } from '../src/lib/sketches/sketches-catalog'
 
 const ROOT = process.cwd()
@@ -155,11 +155,11 @@ const catalogEntries: CatalogEntry[] = [
     description: pattern.description,
     categoryLabel: pattern.categorySlug,
   })),
-  ...allConcepts.map((concept) => ({
-    slug: concept.slug,
-    name: concept.name,
-    description: concept.description,
-    categoryLabel: concept.categorySlug,
+  ...allCompositions.map((composition) => ({
+    slug: composition.slug,
+    name: composition.name,
+    description: composition.description,
+    categoryLabel: composition.categorySlug,
   })),
   ...allSketches.map((sketch) => ({
     slug: sketch.slug,

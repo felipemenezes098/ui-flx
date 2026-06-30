@@ -36,8 +36,6 @@ import type {
   IntentEntry,
 } from '@/lib/intents/intent-manifest-types'
 
-import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
-
 const domains = intentDomains.toSorted((a, b) => a.name.localeCompare(b.name))
 
 function getAvailableIntents(domain: IntentDomain): IntentEntry[] {
@@ -125,14 +123,7 @@ export function IntentSidebar() {
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent className="overflow-hidden py-0">
-          <ScrollFadeEdges
-            className="min-h-0 flex-1"
-            scrollClassName="no-scrollbar flex flex-col gap-4 pb-2"
-            gradientFrom="from-background"
-            fadeHeight={36}
-            topThreshold={4}
-            bottomThreshold={4}
-          >
+          <div className="scroll-fade scroll-fade-9 no-scrollbar flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pb-2">
             {domains.map((domain) => {
               const domainIntents = getAvailableIntents(domain)
               if (domainIntents.length === 0) return null
@@ -166,7 +157,7 @@ export function IntentSidebar() {
                 </SidebarGroup>
               )
             })}
-          </ScrollFadeEdges>
+          </div>
         </SidebarContent>
       </Sidebar>
     </>

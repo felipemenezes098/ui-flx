@@ -168,7 +168,7 @@ export function IntentHero({
               </div>
             )}
 
-            <div className="no-scrollbar bg-muted/5 h-0 min-h-0 min-w-0 flex-1 overflow-y-auto pr-3 pl-1">
+            <div className="scroll-fade scroll-fade-9 no-scrollbar bg-muted/5 h-0 min-h-0 min-w-0 flex-1 overflow-y-auto pr-3 pl-1">
               {activeFile ? (
                 <CodeBlockCode
                   code={activeFile.content}

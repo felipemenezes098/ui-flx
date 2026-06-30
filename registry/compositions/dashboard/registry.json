@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "flx-concepts-dashboard",
+  "name": "flx-compositions-dashboard",
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
@@ -21,7 +21,7 @@
         {
           "path": "dashboard-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/dashboard/dashboard-01.tsx"
+          "target": "components/flx/compositions/dashboard/dashboard-01.tsx"
         }
       ],
       "title": "Analytics overview",
@@ -45,7 +45,7 @@
         {
           "path": "dashboard-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/dashboard/dashboard-02.tsx"
+          "target": "components/flx/compositions/dashboard/dashboard-02.tsx"
         }
       ],
       "title": "Project workspace",

@@ -2,24 +2,24 @@
 
 import Link from 'next/link'
 
-import { getConceptBySlug } from '@/lib/concepts/concepts-catalog'
+import { getCompositionBySlug } from '@/lib/compositions/compositions-catalog'
 
-import { conceptRegistry } from '@/app/(main)/concepts/components/concept-registry'
+import { compositionRegistry } from '@/app/(main)/compositions/components/composition-registry'
 import { Button } from '@/components/ui/button'
 
 const CATEGORY = 'dashboard'
-const CONCEPT = 'dashboard-01'
+const COMPOSITION = 'dashboard-01'
 
-export function ConceptSpotlight() {
-  const Concept = conceptRegistry[CONCEPT]
-  const meta = getConceptBySlug(CATEGORY, CONCEPT)
+export function CompositionSpotlight() {
+  const Composition = compositionRegistry[COMPOSITION]
+  const meta = getCompositionBySlug(CATEGORY, COMPOSITION)
 
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div className="flex max-w-2xl flex-col gap-2">
           <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-            Concepts
+            Compositions
           </span>
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             Where patterns come together
@@ -30,16 +30,16 @@ export function ConceptSpotlight() {
           </p>
         </div>
         <Button asChild variant="link" size="sm" className="bg-background">
-          <Link href="/concepts">Browse concepts</Link>
+          <Link href="/compositions">Browse compositions</Link>
         </Button>
       </div>
 
-      {Concept && (
+      {Composition && (
         <div
-          aria-label={meta?.name ?? CONCEPT}
+          aria-label={meta?.name ?? COMPOSITION}
           className="relative block max-h-[650px] overflow-hidden"
         >
-          <Concept />
+          <Composition />
           <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-1.5">
             <Button
@@ -48,7 +48,7 @@ export function ConceptSpotlight() {
               size="sm"
               className="bg-background pointer-events-auto"
             >
-              <Link href="/concepts">View all</Link>
+              <Link href="/compositions">View all</Link>
             </Button>
           </div>
         </div>

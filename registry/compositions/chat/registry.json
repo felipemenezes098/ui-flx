@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "flx-concepts-chat",
+  "name": "flx-compositions-chat",
   "homepage": "https://ui.flexnative.com",
   "items": [
     {
@@ -22,7 +22,7 @@
         {
           "path": "chat-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/chat/chat-01.tsx"
+          "target": "components/flx/compositions/chat/chat-01.tsx"
         }
       ],
       "title": "Conversation",

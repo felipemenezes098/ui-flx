@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { ScrollFadeEdges } from 'registry/blocks/shared/scroll-fade-edges'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
@@ -23,12 +22,7 @@ export function BlocksNavigation() {
     navCategorySlug !== null && isAllBlocksCategory(navCategorySlug)
 
   return (
-    <ScrollFadeEdges
-      direction="horizontal"
-      className="w-full"
-      scrollClassName="py-3 no-scrollbar"
-      fadeWidth={50}
-    >
+    <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar flex min-h-0 min-w-0 w-full flex-1 overflow-x-auto overflow-y-hidden py-3">
       <div className="inline-flex h-auto w-max flex-nowrap gap-2 p-0">
         <Link
           href={allHref}
@@ -84,6 +78,6 @@ export function BlocksNavigation() {
           )
         })}
       </div>
-    </ScrollFadeEdges>
+    </div>
   )
 }

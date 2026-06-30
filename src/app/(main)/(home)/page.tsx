@@ -4,7 +4,7 @@ import { Footer } from '@/components/core/footer'
 import { siteConfig } from '@/config/site'
 
 import { BlocksPreview } from './components/blocks-preview'
-import { ConceptSpotlight } from './components/concept-spotlight'
+import { CompositionSpotlight } from './components/composition-spotlight'
 import { HeroSection } from './components/hero-section'
 import { PatternTeaser } from './components/pattern-teaser'
 import { IntentShowcase } from './components/intent-showcase'
@@ -45,7 +45,7 @@ export default function HomePage() {
         </section>
 
         <section>
-          <ConceptSpotlight />
+          <CompositionSpotlight />
         </section>
 
         <section className="flex flex-col gap-8">

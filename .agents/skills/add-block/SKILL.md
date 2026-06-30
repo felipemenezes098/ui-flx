@@ -173,11 +173,11 @@ export const manifest: BlockManifest = {
 Both are **required**. Preview screenshots:
 
 ```bash
-npm run playwright:install   # once per machine (keep script — new machine / Playwright update)
-npm run dev
-npm run blocks:capture-screenshots
-npx tsx scripts/capture-block-screenshots.ts --slug=hero-01
-npx tsx scripts/capture-block-screenshots.ts --missing-only
+pnpm run playwright:install   # once per machine (keep script — new machine / Playwright update)
+pnpm run dev
+pnpm run blocks:capture-screenshots
+pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=hero-01
+pnpm dlx tsx scripts/capture-block-screenshots.ts --missing-only
 ```
 
 - Light: `public/images/blocks/<category>/<slug>.png`
@@ -257,16 +257,16 @@ Add `meta.containerClassName` manually only when the preview needs a special con
 
 ```bash
 # 1. Validate manifests are consistent and image.light/dark are set
-npm run registry:validate
+pnpm run registry:validate
 
 # 2. Sync title/description/iframeHeight from manifest → registry.json
-npm run registry:sync
+pnpm run registry:sync
 
 # 3. Validate again to confirm everything is clean
-npm run registry:validate
+pnpm run registry:validate
 
 # 4. Regenerate public/r/*.json for the file tree in the block editor
-npm run registry:build
+pnpm run registry:build
 ```
 
 If `registry:validate` fails, it will print exactly which field is out of sync or missing.
@@ -281,10 +281,10 @@ If `registry:validate` fails, it will print exactly which field is out of sync o
 - [ ] `manifest.ts` — all fields filled including `image.light` and `image.dark`
 - [ ] `registry/blocks/<category>/catalog.ts` — manifest import + entry added to the `blocks` array
 - [ ] `registry/blocks/<category>/registry.json` — entry with `name`, `type`, `files` (relative paths), `registryDependencies`, `dependencies`
-- [ ] `npm run registry:validate` — passes
-- [ ] `npm run registry:sync` — runs without errors
-- [ ] `npm run registry:validate` — passes again (confirm sync was clean)
-- [ ] `npm run registry:build` — regenerates `public/r/*.json`
+- [ ] `pnpm run registry:validate` — passes
+- [ ] `pnpm run registry:sync` — runs without errors
+- [ ] `pnpm run registry:validate` — passes again (confirm sync was clean)
+- [ ] `pnpm run registry:build` — regenerates `public/r/*.json`
 
 ---
 

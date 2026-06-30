@@ -1,6 +1,6 @@
-import type { ConceptCategory } from '@/lib/concepts/concept-types'
+import type { CompositionCategory } from '@/lib/compositions/composition-types'
 
-export const chatCategory: ConceptCategory = {
+export const chatCategory: CompositionCategory = {
   slug: 'chat',
   name: 'Chat',
   description: 'Messaging and conversation interfaces.',

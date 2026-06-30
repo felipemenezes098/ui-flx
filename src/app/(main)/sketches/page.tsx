@@ -9,7 +9,7 @@ export const revalidate = false
 
 const title = 'Sketches'
 const description =
-  'Low-fidelity wireframes of full screens — dashboards, chat, and more. Block out layout before the detail.'
+  'Low-fidelity wireframes of UI layouts. Layout first, detail later. Copy and paste.'
 
 export const metadata: Metadata = {
   title,
@@ -28,8 +28,7 @@ export default function SketchesPage() {
               Sketches
             </h1>
             <p className="text-muted-foreground max-w-md text-balance">
-              Low-fidelity wireframes of full screens — block out the layout
-              before the detail.{' '}
+              Low-fidelity wireframes of UI layouts. Layout first, detail later.{' '}
               <span className="text-foreground font-medium">
                 Copy and paste.
               </span>

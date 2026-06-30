@@ -9,9 +9,9 @@ import {
   Blocks,
   CornerDownLeft,
   LayoutGrid,
-  PencilRuler,
   Search,
   Sparkles,
+  SquareDashed,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -31,7 +31,7 @@ import {
 import { Kbd } from '@/components/ui/kbd'
 import { cn } from '@/lib/utils'
 import { blockCategories } from '@/lib/blocks/block-catalog'
-import { conceptCategories } from '@/lib/concepts/concepts-catalog'
+import { compositionCategories } from '@/lib/compositions/compositions-catalog'
 import { intentDomains } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 import { sketchCategories } from '@/lib/sketches/sketches-catalog'
@@ -49,11 +49,11 @@ const patterns = [
   },
 ].toSorted((a, b) => a.name.localeCompare(b.name))
 
-const concepts = conceptCategories
+const compositions = compositionCategories
   .map((category) => ({
-    key: `concept-${category.slug}`,
+    key: `composition-${category.slug}`,
     name: category.name,
-    href: `/concepts#${category.slug}`,
+    href: `/compositions#${category.slug}`,
   }))
   .toSorted((a, b) => a.name.localeCompare(b.name))
 
@@ -131,10 +131,10 @@ export function GlobalSearch() {
         className="top-1/5 shadow-lg data-closed:!animate-none"
         onOpenChange={setOpen}
         title="Global search"
-        description="Search patterns, concepts, blocks, intents and sketches"
+        description="Search patterns, compositions, blocks, intents and sketches"
       >
         <Command>
-          <CommandInput placeholder="Search patterns, concepts, blocks…" />
+          <CommandInput placeholder="Search patterns, compositions, blocks…" />
           <CommandList className="2xl:max-h-80">
             <CommandEmpty>No results found.</CommandEmpty>
 
@@ -154,12 +154,12 @@ export function GlobalSearch() {
 
             <CommandSeparator />
 
-            <CommandGroup heading="Concepts">
-              {concepts.map((item) => (
+            <CommandGroup heading="Compositions">
+              {compositions.map((item) => (
                 <CommandItem
                   key={item.key}
                   className="h-9"
-                  value={`concept ${item.name}`}
+                  value={`composition ${item.name}`}
                   onSelect={() => navigate(item.href)}
                 >
                   <AppWindow className="size-4 shrink-0 opacity-60" />
@@ -210,7 +210,7 @@ export function GlobalSearch() {
                   value={`sketch ${item.name}`}
                   onSelect={() => navigate(item.href)}
                 >
-                  <PencilRuler className="size-4 shrink-0 opacity-60" />
+                  <SquareDashed className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{item.name}</span>
                 </CommandItem>
               ))}

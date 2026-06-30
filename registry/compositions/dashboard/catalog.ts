@@ -1,6 +1,6 @@
-import type { ConceptCategory } from '@/lib/concepts/concept-types'
+import type { CompositionCategory } from '@/lib/compositions/composition-types'
 
-export const dashboardCategory: ConceptCategory = {
+export const dashboardCategory: CompositionCategory = {
   slug: 'dashboard',
   name: 'Dashboard',
   description: 'Full analytics and admin dashboard layouts.',

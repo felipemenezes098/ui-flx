@@ -5,7 +5,7 @@ export function registryInstallTarget(registryName: string): string {
 }
 
 export function installCommand(registryName: string): string {
-  return `npx ${registryInstallTarget(registryName)}`
+  return `pnpm dlx ${registryInstallTarget(registryName)}`
 }
 
 export function registryItemUrl(registryName: string): string {

@@ -30,18 +30,18 @@ function buildStackSection(item: RegistryItem): string {
   return lines.join('\n')
 }
 
-export function buildConceptPrompt(
+export function buildCompositionPrompt(
   item: RegistryItem,
   categorySlug: string,
   codeFiles: RegistryCodeFile[] = [],
 ): string {
   const description = item.description?.trim()
-  const previewUrl = `${siteConfig.url}/concepts#${item.name}`
+  const previewUrl = `${siteConfig.url}/compositions#${item.name}`
   const source = formatCodeFilesForPrompt(codeFiles)
 
   const sections = [
     `# ${item.title}`,
-    `## Context\nFlexnative UI concept — a full, composed screen reference implementation from the shadcn/ui registry (@${siteConfig.codeName}).`,
+    `## Context\nFlexnative UI composition — a full, composed screen reference implementation from the shadcn/ui registry (@${siteConfig.codeName}).`,
     ...(description ? [`## Description\n${description}`] : []),
     `## Registry Item\n@${siteConfig.codeName}/${item.name}`,
     `## Stack\n${buildStackSection(item)}`,

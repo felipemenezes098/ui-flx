@@ -5,13 +5,13 @@
  * Dark  → manifest.image.dark ({slug}-dark.png)
  *
  * Setup (once per machine, or after Playwright updates):
- *   npm run playwright:install
+ *   pnpm playwright:install
  *
  * Usage:
- *   npm run dev   (port 3002)
- *   npm run blocks:capture-screenshots
- *   npx tsx scripts/capture-block-screenshots.ts --slug=hero-01
- *   npx tsx scripts/capture-block-screenshots.ts --missing-only
+ *   pnpm dev   (port 3002)
+ *   pnpm blocks:capture-screenshots
+ *   pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=hero-01
+ *   pnpm dlx tsx scripts/capture-block-screenshots.ts --missing-only
  */
 
 import fs from 'node:fs'

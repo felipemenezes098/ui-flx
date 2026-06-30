@@ -24,10 +24,10 @@ export function NavbarDesktop() {
     >
       <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
-          <nav className="flex items-center gap-1 text-sm">
+          <nav className="flex min-w-0 flex-1 items-center gap-1 overflow-hidden text-sm">
             <Button
               variant="ghost"
-              className="hover:bg-muted h-7 rounded-lg px-2"
+              className="hover:bg-muted h-7 shrink-0 rounded-lg px-2"
               asChild
             >
               <Link href="/">
@@ -44,23 +44,25 @@ export function NavbarDesktop() {
                 </div>
               </Link>
             </Button>
-            <div className="hidden gap-1 md:flex">
-              {dataNavbar.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    'hover:bg-muted dark:hover:bg-muted/50 rounded-lg px-2 py-1 text-sm font-medium',
-                    firstPath === item.href.split('/')[1] &&
-                      'bg-muted dark:bg-muted/50',
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto overflow-y-hidden md:flex">
+              <div className="inline-flex w-max flex-nowrap gap-1">
+                {dataNavbar.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      'hover:bg-muted dark:hover:bg-muted/50 shrink-0 rounded-lg px-2 py-1 text-sm font-medium',
+                      firstPath === item.href.split('/')[1] &&
+                        'bg-muted dark:bg-muted/50',
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <GlobalSearch />
             <div className="flex items-center gap-1">
               <Button

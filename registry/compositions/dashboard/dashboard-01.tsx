@@ -1,3 +1,5 @@
+'use client'
+
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -8,11 +10,18 @@ import {
   Settings,
   Users,
 } from 'lucide-react'
+import { Bar, BarChart, XAxis } from 'recharts'
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from '@/components/ui/chart'
 import { Input } from '@/components/ui/input'
 import {
   Item,
@@ -39,18 +48,55 @@ const stats = [
   { label: 'Avg. session', value: '4m 12s', delta: '+2.3%', up: true },
 ]
 
-const bars = [42, 64, 48, 78, 56, 88, 67, 95, 72, 60, 84, 70]
+const chartData = [
+  { month: 'Jan', revenue: 42 },
+  { month: 'Feb', revenue: 64 },
+  { month: 'Mar', revenue: 48 },
+  { month: 'Apr', revenue: 78 },
+  { month: 'May', revenue: 56 },
+  { month: 'Jun', revenue: 88 },
+  { month: 'Jul', revenue: 67 },
+  { month: 'Aug', revenue: 95 },
+  { month: 'Sep', revenue: 72 },
+  { month: 'Oct', revenue: 60 },
+  { month: 'Nov', revenue: 84 },
+  { month: 'Dec', revenue: 70 },
+]
+
+const chartConfig = {
+  revenue: { label: 'Revenue', color: 'var(--color-primary)' },
+} satisfies ChartConfig
 
 const rows = [
-  { name: 'Olivia Martin', email: 'olivia@email.com', amount: '+$1,999', initials: 'OM' },
-  { name: 'Jackson Lee', email: 'jackson@email.com', amount: '+$39', initials: 'JL' },
-  { name: 'Isabella Nguyen', email: 'bella@email.com', amount: '+$299', initials: 'IN' },
-  { name: 'William Kim', email: 'will@email.com', amount: '+$99', initials: 'WK' },
+  {
+    name: 'Olivia Martin',
+    email: 'olivia@email.com',
+    amount: '+$1,999',
+    initials: 'OM',
+  },
+  {
+    name: 'Jackson Lee',
+    email: 'jackson@email.com',
+    amount: '+$39',
+    initials: 'JL',
+  },
+  {
+    name: 'Isabella Nguyen',
+    email: 'bella@email.com',
+    amount: '+$299',
+    initials: 'IN',
+  },
+  {
+    name: 'William Kim',
+    email: 'will@email.com',
+    amount: '+$99',
+    initials: 'WK',
+  },
 ]
 
 export function Dashboard01() {
   return (
-    <Card className="w-full gap-0 py-0">
+    <Card className="dark:bg-muted/20 w-full gap-0 py-0">
       <div className="flex items-center gap-3 border-b px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="bg-primary size-6 rounded-md" />
@@ -129,18 +175,26 @@ export function Dashboard01() {
                 <span className="text-sm font-medium">Revenue</span>
                 <span className="text-muted-foreground text-xs">Monthly</span>
               </div>
-              <div className="flex h-28 items-end gap-1.5 sm:h-36 sm:gap-2">
-                {bars.map((h, i) => (
-                  <div
-                    key={i}
-                    className={cn(
-                      'flex-1 rounded-t-sm',
-                      i % 4 === 3 ? 'bg-primary' : 'bg-muted',
-                    )}
-                    style={{ height: `${h}%` }}
+              <ChartContainer
+                config={chartConfig}
+                className="h-28 w-full sm:h-36"
+              >
+                <BarChart data={chartData} barCategoryGap="20%">
+                  <XAxis
+                    dataKey="month"
+                    tickLine={false}
+                    axisLine={false}
+                    tickMargin={6}
+                    tick={{ fontSize: 10 }}
                   />
-                ))}
-              </div>
+                  <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+                  <Bar
+                    dataKey="revenue"
+                    fill="var(--color-revenue)"
+                    radius={[4, 4, 0, 0]}
+                  />
+                </BarChart>
+              </ChartContainer>
             </CardContent>
           </Card>
 

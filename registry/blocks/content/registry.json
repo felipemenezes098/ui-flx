@@ -185,8 +185,7 @@
       "title": "Content 03",
       "description": "Tabbed navigation that reveals a media for each tab.",
       "registryDependencies": [
-        "tabs",
-        "@flx/scroll-fade-edges"
+        "tabs"
       ],
       "dependencies": [
         "react-wrap-balancer"

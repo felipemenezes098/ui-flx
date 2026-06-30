@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import { ScrollFadeEdges } from "@/components/flx/sanity/scroll-fade-edges";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { Blocks } from "@/sanity.types";
@@ -50,12 +49,7 @@ export function Content03({ block }: Readonly<Content03Props>) {
         onValueChange={(value) => setActiveIndex(Number(value))}
         className="items-center gap-8"
       >
-        <ScrollFadeEdges
-          direction="horizontal"
-          className="w-full"
-          scrollClassName="flex no-scrollbar p-1"
-          fadeWidth={50}
-        >
+        <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar flex w-full overflow-x-auto overflow-y-hidden p-1">
           <TabsList className="mx-auto h-auto gap-3 bg-transparent p-0 shadow-none">
             {items.map((tab, index) => (
               <TabsTrigger
@@ -67,7 +61,7 @@ export function Content03({ block }: Readonly<Content03Props>) {
               </TabsTrigger>
             ))}
           </TabsList>
-        </ScrollFadeEdges>
+        </div>
 
         <div className="relative aspect-square max-h-120 min-h-100 w-full overflow-hidden rounded-2xl 2xl:max-h-150">
           {items.map((item, index) => (

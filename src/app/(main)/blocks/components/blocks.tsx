@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import {
   BlockPreviewCard,
@@ -54,31 +54,6 @@ export function Blocks() {
 
   const visitedRef = useRef<Set<string>>(new Set())
   visitedRef.current.add(activeTab)
-
-  useEffect(() => {
-    const hash =
-      globalThis.window === undefined
-        ? ''
-        : globalThis.window.location.hash.slice(1)
-    if (hash) {
-      const scrollToBlock = () => {
-        const el = document.getElementById(hash)
-        if (el) {
-          const offset = 50
-          const y =
-            el.getBoundingClientRect().top +
-            (globalThis.window?.scrollY ?? 0) -
-            offset
-          globalThis.window?.scrollTo({
-            top: Math.max(0, y),
-            behavior: 'smooth',
-          })
-        }
-      }
-      const t = setTimeout(scrollToBlock, 150)
-      return () => clearTimeout(t)
-    }
-  }, [activeTab])
 
   const showAll = isAllBlocksCategory(activeTab)
 

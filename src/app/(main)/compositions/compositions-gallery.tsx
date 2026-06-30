@@ -12,23 +12,26 @@ import {
   patternGridItemVariants,
 } from '@/components/core/patterns/pattern-grid'
 import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
-import { conceptCategories } from '@/lib/concepts/concepts-catalog'
-import { buildConceptPrompt } from '@/lib/concepts/concepts-utils'
-import type { ConceptGridColumns, ConceptItem } from '@/lib/concepts/concept-types'
+import { compositionCategories } from '@/lib/compositions/compositions-catalog'
+import { buildCompositionPrompt } from '@/lib/compositions/compositions-utils'
+import type {
+  CompositionGridColumns,
+  CompositionItem,
+} from '@/lib/compositions/composition-types'
 
-import { conceptRegistry } from './components/concept-registry'
+import { compositionRegistry } from './components/composition-registry'
 
 const filters = [
   { slug: 'all', name: 'All' },
-  ...conceptCategories.map((c) => ({ slug: c.slug, name: c.name })),
+  ...compositionCategories.map((c) => ({ slug: c.slug, name: c.name })),
 ]
 
-export function ConceptsGallery() {
+export function CompositionsGallery() {
   const [active, setActive] = useState('all')
   const pathname = usePathname()
 
   useEffect(() => {
-    const slugs = new Set(conceptCategories.map((c) => c.slug))
+    const slugs = new Set(compositionCategories.map((c) => c.slug))
     const apply = () => {
       const hash = globalThis.location.hash.replace(/^#/, '')
       setActive(hash && slugs.has(hash) ? hash : 'all')
@@ -47,13 +50,13 @@ export function ConceptsGallery() {
 
   const categories =
     active === 'all'
-      ? conceptCategories
-      : conceptCategories.filter((category) => category.slug === active)
+      ? compositionCategories
+      : compositionCategories.filter((category) => category.slug === active)
 
   function renderCard(
-    catalogItem: ConceptItem,
+    catalogItem: CompositionItem,
     categorySlug: string,
-    columns: ConceptGridColumns,
+    columns: CompositionGridColumns,
   ) {
     const item = {
       name: catalogItem.slug,
@@ -75,11 +78,11 @@ export function ConceptsGallery() {
           <PatternActions
             item={item}
             categorySlug={categorySlug}
-            buildPrompt={buildConceptPrompt}
+            buildPrompt={buildCompositionPrompt}
           />
         }
       >
-        <PatternRenderer name={catalogItem.slug} registry={conceptRegistry} />
+        <PatternRenderer name={catalogItem.slug} registry={compositionRegistry} />
       </PatternCard>
     )
   }
