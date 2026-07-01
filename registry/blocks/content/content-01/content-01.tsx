@@ -117,7 +117,7 @@ export function Content01({
             className={cn(
               'h-auto w-full justify-start rounded-sm text-left font-normal whitespace-normal',
               vs.button,
-              'hover:bg-muted/50 transition-none hover:opacity-100',
+              'hover:bg-muted/50 hover:opacity-100',
               isSelected && 'text-foreground bg-muted/50',
               !isSelected && 'text-muted-foreground hover:text-foreground',
             )}

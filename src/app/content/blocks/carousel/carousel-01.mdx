@@ -10,20 +10,7 @@ export const metadata = {
   },
 }
 
-<BlockLiveEditor category="carousel" slug="carousel-01">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Carousel 01</PageTitle>
-  <PageDescription>
-    Auto-scrolling carousel that pauses on item hover, dims other items, and
-    reveals an animated title “inside” or “outside” the image.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="carousel" slug="carousel-01" />
 
 ## Implementation
 
@@ -46,7 +33,7 @@ The block supports a **titlePlacement** prop that controls where the animated ti
 
 When `titlePlacement` is `inside`, the title appears overlaid at the bottom of each image with a gradient background.
 
-<BlockPreview
+<BlockPreviewFrame
   category="carousel"
   slug="carousel-01"
   variation="title-inside"
@@ -117,13 +104,3 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 </TabsContent>
 </CodeTabs>
 
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

@@ -1,45 +1,13 @@
-import { CheckIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
 
 import { cn } from '@/lib/utils'
 
-import { CodeBlock } from './components/core/code/code-block'
-import { CodeBlockCode } from './components/core/code/code-block-code'
 import { CodeBlockCommand } from './components/core/code/code-block-command'
 import { CodeBlockFromFile } from './components/core/code/code-block-from-file'
 import { CodeTabs } from './components/core/code/code-tabs'
-import { BlockEditor } from './components/core/editor/block-view/block-editor'
-import {
-  BlockEditorCodeContainer,
-  BlockEditorCodeView,
-  BlockEditorFileTree,
-} from './components/core/editor/block-view/block-editor-code'
-import { BlockEditorDisplayContentMobile } from './components/core/editor/block-view/block-editor-display'
-import { BlockEditorPreview } from './components/core/editor/block-view/block-editor-preview'
-import {
-  BlockEditorCli,
-  BlockEditorTabs,
-  BlockEditorTools,
-} from './components/core/editor/block-view/block-editor-toolbar'
-import { BlockPreview } from './components/core/editor/block-view/block-preview'
-import {
-  BlockPageColsRoot,
-  BlockPageColsLeft,
-  BlockPageColsRight,
-} from './components/core/editor/live/block-page-cols'
-import {
-  BlockLiveEditorRoot,
-  BlockLiveEditorFields,
-  BlockLiveEditorPreview,
-} from './components/core/editor/live/block-live-editor'
-import { BlockLiveEditorFieldsPanel } from './components/core/editor/live/block-live-editor-fields-panel'
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from './components/ui/resizable'
+import { BlockPreviewFrame } from './components/core/editor/live/block-preview-frame'
+import { BlockView } from './components/core/editor/live/block-view'
 import { ScrollArea, ScrollBar } from './components/ui/scroll-area'
-import { Separator } from './components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
 import { siteConfig } from './config/site'
 import Link from 'next/link'
@@ -141,29 +109,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       >
         {children}
       </h3>
-    ),
-    Features: ({ ...props }) => (
-      <div className="flex flex-wrap gap-2" {...props} />
-    ),
-    Feature: ({ ...props }) => (
-      <div
-        className="mt-2 flex items-center gap-1 rounded-md border px-3 py-1 text-sm"
-        {...props}
-      >
-        <CheckIcon className="size-3" />
-        {props.children}
-      </div>
-    ),
-    Badges: ({ ...props }) => (
-      <div className="flex flex-wrap gap-2" {...props} />
-    ),
-    Badge: ({ ...props }) => (
-      <div
-        className="mt-2 flex items-center gap-1 rounded-md border px-3 py-1 text-sm"
-        {...props}
-      >
-        {props.children}
-      </div>
     ),
     a: ({ children, ...props }: React.ComponentProps<'a'>) => (
       <a
@@ -305,83 +250,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </div>
     ),
-    BlockPreview: ({
-      category,
-      slug,
-      variation,
-      iframeHeight,
-    }: {
-      category: string
-      slug: string
-      variation?: string
-      iframeHeight?: number
-    }) => (
-      <div className="mt-4">
-        <BlockPreview
-          category={category}
-          slug={slug}
-          variation={variation}
-          iframeHeight={iframeHeight}
-        />
-      </div>
-    ),
-    BlockEditorDisplay: ({ category, slug }) => (
-      <BlockEditor category={category} slug={slug}>
-        <div className="hidden flex-col gap-4 md:flex">
-          <div className="flex w-full flex-wrap justify-between gap-4 pr-4 pl-1 xl:flex-row xl:items-center">
-            <div className="flex items-center gap-4">
-              <BlockEditorTabs />
-              <div className="flex items-center">
-                <Separator orientation="vertical" className="!h-5" />
-              </div>
-              <BlockEditorTools />
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <BlockEditorCli />
-            </div>
-          </div>
-          <BlockEditorPreview />
-          <BlockEditorCodeContainer>
-            <ResizablePanelGroup orientation="horizontal">
-              <ResizablePanel defaultSize="30%" minSize="20%" maxSize="50%">
-                <BlockEditorFileTree />
-              </ResizablePanel>
-              <ResizableHandle withHandle />
-              <ResizablePanel defaultSize="70%" minSize="20%">
-                <BlockEditorCodeView />
-              </ResizablePanel>
-            </ResizablePanelGroup>
-          </BlockEditorCodeContainer>
-        </div>
-        <BlockEditorDisplayContentMobile />
-      </BlockEditor>
-    ),
     CodeBlockCommand,
     CodeTabs: ({ children, ...props }) => (
       <CodeTabs {...props} className="mt-6">
         {children}
       </CodeTabs>
     ),
-    CodeBlock: ({ children, ...props }) => (
-      <div className="my-4">
-        <CodeBlock {...props}>{children}</CodeBlock>
-      </div>
-    ),
-    CodeBlockCode,
     CodeBlockFromFile: ({ filePath, ...props }) => (
       <div className="my-6">
         <CodeBlockFromFile filePath={filePath} {...props} />
       </div>
     ),
-    BlockLiveEditor: Object.assign(BlockLiveEditorRoot, {
-      Fields: BlockLiveEditorFields,
-      FieldsPanel: () => <BlockLiveEditorFieldsPanel className="mt-6" />,
-      Preview: BlockLiveEditorPreview,
-    }),
-    BlockPageCols: Object.assign(BlockPageColsRoot, {
-      Left: BlockPageColsLeft,
-      Right: BlockPageColsRight,
-    }),
+    BlockPreviewFrame,
+    BlockView,
     Contact: () => (
       <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
         <div className="flex flex-col gap-0.5">
