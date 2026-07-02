@@ -19,7 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
+import { useActiveFile } from '@/hooks/use-active-file'
 import { registryInstallTarget } from '@/lib/registry-command'
 import { buildPatternPrompt } from '@/lib/patterns/patterns-utils'
 import {

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import { Fullscreen, RotateCcw } from 'lucide-react'
+import { Fullscreen, Loader, Palette, RotateCcw } from 'lucide-react'
 import Link from 'next/link'
 
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
@@ -10,8 +10,13 @@ import { CopyButton } from '@/components/core/copy-button'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@/components/ui/resizable'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
+import { useActiveFile } from '@/hooks/use-active-file'
 import type { RegistryCodeFile } from '@/lib/registry-source'
 import { cn } from '@/lib/utils'
 
@@ -43,11 +48,15 @@ export function BlockViewTabs({
 }: Readonly<BlockViewTabsProps>) {
   const [panel, setPanel] = React.useState('preview')
   const [reloadKey, setReloadKey] = React.useState(0)
+  const [loading, setLoading] = React.useState(true)
   const { activeFile, activeName, setActiveName } = useActiveFile(codeFiles)
 
   const src = variation
     ? `/preview/${category}/${slug}/${variation}`
     : `/preview/${category}/${slug}`
+  const editSrc = variation
+    ? `/preview-editor/${category}/${slug}/${variation}`
+    : `/preview-editor/${category}/${slug}`
   const hasCode = codeFiles.length > 0
 
   return (
@@ -82,7 +91,10 @@ export function BlockViewTabs({
             size="sm"
             title="Refresh preview"
             aria-label="Refresh preview"
-            onClick={() => setReloadKey((k) => k + 1)}
+            onClick={() => {
+              setLoading(true)
+              setReloadKey((k) => k + 1)
+            }}
           >
             <RotateCcw className="size-3.5 shrink-0" />
           </Button>
@@ -97,6 +109,17 @@ export function BlockViewTabs({
               <Fullscreen className="size-3.5 shrink-0" />
             </Link>
           </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            title="Edit block"
+            aria-label="Edit block"
+            asChild
+          >
+            <Link href={editSrc}>
+              <Palette className="size-3.5 shrink-0" />
+            </Link>
+          </Button>
         </div>
       </div>
 
@@ -109,13 +132,34 @@ export function BlockViewTabs({
           )}
           style={iframeHeight ? { height: iframeHeight } : undefined}
         >
-          <iframe
-            key={reloadKey}
-            src={src}
-            title="Block preview"
-            loading="lazy"
-            className="h-full w-full"
-          />
+          {loading && (
+            <div className="bg-muted/50 dark:bg-muted/20 absolute inset-0 z-10 flex items-center justify-center">
+              <Loader className="text-muted-foreground size-4 animate-spin" />
+            </div>
+          )}
+          <ResizablePanelGroup orientation="horizontal">
+            <ResizablePanel defaultSize="100%" minSize="30%">
+              <iframe
+                key={reloadKey}
+                src={src}
+                title="Block preview"
+                loading="lazy"
+                className={cn(
+                  'h-full w-full transition-opacity duration-200',
+                  loading && 'opacity-0',
+                )}
+                onLoad={() => setLoading(false)}
+              />
+            </ResizablePanel>
+            <ResizableHandle
+              withHandle
+              className="[&>div]:bg-muted-foreground/30 hover:[&>div]:bg-muted-foreground/60 bg-transparent [&>div]:h-6 [&>div]:w-1 [&>div]:rounded-full [&>div]:shadow-none [&>div]:transition-colors"
+            />
+            <ResizablePanel
+              defaultSize="0%"
+              className="bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-size-[16px_16px]"
+            />
+          </ResizablePanelGroup>
         </div>
       </TabsContent>
 

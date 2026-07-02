@@ -8632,9 +8632,9 @@
       ],
       "files": [
         {
-          "path": "registry/concepts/dashboard/dashboard-01.tsx",
+          "path": "registry/compositions/dashboard/dashboard-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/dashboard/dashboard-01.tsx"
+          "target": "components/flx/compositions/dashboard/dashboard-01.tsx"
         }
       ],
       "type": "registry:block"
@@ -8656,9 +8656,9 @@
       ],
       "files": [
         {
-          "path": "registry/concepts/dashboard/dashboard-02.tsx",
+          "path": "registry/compositions/dashboard/dashboard-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/dashboard/dashboard-02.tsx"
+          "target": "components/flx/compositions/dashboard/dashboard-02.tsx"
         }
       ],
       "type": "registry:block"
@@ -8681,9 +8681,9 @@
       ],
       "files": [
         {
-          "path": "registry/concepts/chat/chat-01.tsx",
+          "path": "registry/compositions/chat/chat-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/concepts/chat/chat-01.tsx"
+          "target": "components/flx/compositions/chat/chat-01.tsx"
         }
       ],
       "type": "registry:block"

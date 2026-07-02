@@ -16,7 +16,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { siteConfig } from '@/config/site'
-import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
+import { useActiveFile } from '@/hooks/use-active-file'
 import type { DecisionView } from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 

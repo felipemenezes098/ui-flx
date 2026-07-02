@@ -2,11 +2,11 @@
 
 import * as React from 'react'
 
-import { Check, Fullscreen, RotateCcw, Terminal } from 'lucide-react'
+import { Fullscreen, Loader, Palette, RotateCcw } from 'lucide-react'
 import Link from 'next/link'
 
+import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { Button } from '@/components/ui/button'
-import { useCopy } from '@/hooks/use-copy'
 import { cn } from '@/lib/utils'
 
 interface BlockPreviewFrameProps {
@@ -25,32 +25,24 @@ export function BlockPreviewFrame({
   className,
 }: Readonly<BlockPreviewFrameProps>) {
   const [reloadKey, setReloadKey] = React.useState(0)
-  const { copied, copy } = useCopy()
+  const [loading, setLoading] = React.useState(true)
 
   const src = variation
     ? `/preview/${category}/${slug}/${variation}`
     : `/preview/${category}/${slug}`
 
-  const installCommand = `shadcn@latest add @flx/${slug}`
+  const editSrc = variation
+    ? `/preview-editor/${category}/${slug}/${variation}`
+    : `/preview-editor/${category}/${slug}`
 
   return (
     <div className={cn('flex w-full flex-col gap-2', className)}>
       <div className="flex items-center justify-end gap-0.5">
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          title="Copy install command"
-          aria-label="Copy install command"
-          className="rounded-lg"
-          onClick={() => copy(installCommand)}
-        >
-          {copied ? (
-            <Check className="size-3.5 shrink-0" />
-          ) : (
-            <Terminal className="size-3.5 shrink-0" />
-          )}
-        </Button>
+        <RegistryCli
+          registryName={slug}
+          className="w-fit max-w-none"
+          labelClassName="hidden"
+        />
         <Button
           type="button"
           variant="outline"
@@ -58,7 +50,10 @@ export function BlockPreviewFrame({
           title="Refresh preview"
           aria-label="Refresh preview"
           className="rounded-lg"
-          onClick={() => setReloadKey((k) => k + 1)}
+          onClick={() => {
+            setLoading(true)
+            setReloadKey((k) => k + 1)
+          }}
         >
           <RotateCcw className="size-3.5 shrink-0" />
         </Button>
@@ -74,6 +69,18 @@ export function BlockPreviewFrame({
             <Fullscreen className="size-3.5 shrink-0" />
           </Link>
         </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          title="Edit block"
+          aria-label="Edit block"
+          className="rounded-lg"
+          asChild
+        >
+          <Link href={editSrc}>
+            <Palette className="size-3.5 shrink-0" />
+          </Link>
+        </Button>
       </div>
 
       <div
@@ -83,12 +90,21 @@ export function BlockPreviewFrame({
         )}
         style={iframeHeight ? { height: iframeHeight } : undefined}
       >
+        {loading && (
+          <div className="bg-muted/50 dark:bg-muted/20 absolute inset-0 flex items-center justify-center">
+            <Loader className="text-muted-foreground size-4 animate-spin" />
+          </div>
+        )}
         <iframe
           key={reloadKey}
           src={src}
           title="Block preview"
           loading="lazy"
-          className="h-full w-full"
+          className={cn(
+            'h-full w-full transition-opacity duration-200',
+            loading && 'opacity-0',
+          )}
+          onLoad={() => setLoading(false)}
         />
       </div>
     </div>

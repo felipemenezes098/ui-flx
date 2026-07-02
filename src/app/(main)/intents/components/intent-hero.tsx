@@ -9,7 +9,7 @@ import { CopyButton } from '@/components/core/copy-button'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
+import { useActiveFile } from '@/hooks/use-active-file'
 import type { DecisionView } from '@/lib/intents/intent-manifest-types'
 import { cn } from '@/lib/utils'
 
