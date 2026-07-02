@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { getCompositionBySlug } from '@/lib/compositions/compositions-catalog'
 
-import { compositionRegistry } from '@/app/(main)/compositions/components/composition-registry'
+import { compositionRegistry } from '@/lib/compositions/composition-registry'
 import { Button } from '@/components/ui/button'
 
 const CATEGORY = 'dashboard'

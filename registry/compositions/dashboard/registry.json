@@ -11,11 +11,13 @@
         "badge",
         "button",
         "card",
+        "chart",
         "input",
         "item"
       ],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "recharts"
       ],
       "files": [
         {
@@ -25,7 +27,10 @@
         }
       ],
       "title": "Analytics overview",
-      "description": "Sidebar, KPI cards, a bar chart, and a recent activity list."
+      "description": "Sidebar, KPI cards, a bar chart, and a recent activity list.",
+      "meta": {
+        "iframeHeight": 800
+      }
     }
   ]
 }

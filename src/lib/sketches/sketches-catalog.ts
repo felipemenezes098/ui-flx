@@ -4,15 +4,11 @@ export type {
   SketchCategory,
 } from '@/lib/sketches/sketch-types'
 
-import { chatCategory } from 'registry/sketches/chat/catalog'
 import { dashboardCategory } from 'registry/sketches/dashboard/catalog'
 
 import type { SketchCategory, SketchItem } from '@/lib/sketches/sketch-types'
 
-export const sketchCategories: SketchCategory[] = [
-  dashboardCategory,
-  chatCategory,
-]
+export const sketchCategories: SketchCategory[] = [dashboardCategory]
 
 export const allSketches = sketchCategories.flatMap((category) =>
   category.items.map((item) => ({

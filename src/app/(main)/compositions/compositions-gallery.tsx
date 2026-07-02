@@ -4,14 +4,9 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import { AnimatedBackground } from '@/components/core/animated-background'
-import { patternGridItemVariants } from '@/components/core/patterns/pattern-grid'
 import { compositionCategories } from '@/lib/compositions/compositions-catalog'
-import type {
-  CompositionGridColumns,
-  CompositionItem,
-} from '@/lib/compositions/composition-types'
+import type { CompositionItem } from '@/lib/compositions/composition-types'
 import type { RegistryCodeFile } from '@/lib/registry-source'
-import { cn } from '@/lib/utils'
 
 import { CompositionViewTabs } from './components/composition-view-tabs'
 
@@ -64,30 +59,21 @@ export function CompositionsGallery({
       ? compositionCategories
       : compositionCategories.filter((category) => category.slug === active)
 
-  function renderItem(
-    catalogItem: CompositionItem,
-    columns: CompositionGridColumns,
-  ) {
+  function renderItem(catalogItem: CompositionItem) {
     const data = previewData[catalogItem.slug]
 
     return (
       <div
         key={catalogItem.slug}
         id={catalogItem.slug}
-        className={cn(
-          'flex scroll-mt-24 flex-col gap-2',
-          patternGridItemVariants({
-            span: catalogItem.span ?? 'default',
-            columns,
-          }),
-        )}
+        className="flex scroll-mt-24 flex-col gap-2"
       >
         <CompositionViewTabs
           src={`/preview/compositions/${catalogItem.slug}`}
           registryName={catalogItem.slug}
           codeFiles={data?.codeFiles ?? []}
           prompt={data?.prompt ?? ''}
-          iframeHeight={PREVIEW_HEIGHT}
+          iframeHeight={catalogItem.meta?.iframeHeight ?? PREVIEW_HEIGHT}
         />
       </div>
     )
@@ -116,25 +102,19 @@ export function CompositionsGallery({
       </div>
 
       <div className="flex w-full flex-col gap-16">
-        {categories.map((category) => {
-          const columns = category.grid?.columns ?? 2
-
-          return (
-            <section key={category.slug} className="flex flex-col gap-6">
-              <div className="flex flex-col gap-1">
-                <h2 className="text-lg font-semibold tracking-tight">
-                  {category.name}
-                </h2>
-                <p className="text-muted-foreground text-sm">
-                  {category.description}
-                </p>
-              </div>
-              {category.items.map((catalogItem) =>
-                renderItem(catalogItem, columns),
-              )}
-            </section>
-          )
-        })}
+        {categories.map((category) => (
+          <section key={category.slug} className="flex flex-col gap-6">
+            <div className="flex flex-col gap-1">
+              <h2 className="text-lg font-semibold tracking-tight">
+                {category.name}
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                {category.description}
+              </p>
+            </div>
+            {category.items.map((catalogItem) => renderItem(catalogItem))}
+          </section>
+        ))}
       </div>
     </div>
   )

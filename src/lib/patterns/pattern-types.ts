@@ -6,7 +6,6 @@ export interface PatternItem {
   slug: string
   name: string
   description?: string
-  prompt?: string
   span?: 'full'
   isNew?: boolean
 }

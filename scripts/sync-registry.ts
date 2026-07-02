@@ -132,7 +132,7 @@ type CatalogEntry = {
   name: string
   description?: string
   categoryLabel: string
-  meta?: { iframeHeight?: number }
+  meta?: { iframeHeight?: number; containerClassName?: string }
 }
 
 const catalogEntries: CatalogEntry[] = [
@@ -160,6 +160,7 @@ const catalogEntries: CatalogEntry[] = [
     name: composition.name,
     description: composition.description,
     categoryLabel: composition.categorySlug,
+    meta: composition.meta,
   })),
   ...allSketches.map((sketch) => ({
     slug: sketch.slug,
@@ -182,12 +183,15 @@ function syncEntry(entry: CatalogEntry) {
   const expectedTitle = entry.name
   const expectedDescription = entry.description ?? ''
   const expectedIframeHeight = entry.meta?.iframeHeight
+  const expectedContainerClassName = entry.meta?.containerClassName
 
   if (
     item.title !== expectedTitle ||
     item.description !== expectedDescription ||
     (expectedIframeHeight !== undefined &&
-      item.meta?.iframeHeight !== expectedIframeHeight)
+      item.meta?.iframeHeight !== expectedIframeHeight) ||
+    (expectedContainerClassName !== undefined &&
+      item.meta?.containerClassName !== expectedContainerClassName)
   ) {
     if (CHECK_ONLY) {
       issues.push(`  OUT OF SYNC: "${entry.slug}"`)
@@ -197,11 +201,19 @@ function syncEntry(entry: CatalogEntry) {
         issues.push(`    description: registry="${item.description}" catalog="${expectedDescription}"`)
       if (expectedIframeHeight !== undefined && item.meta?.iframeHeight !== expectedIframeHeight)
         issues.push(`    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`)
+      if (expectedContainerClassName !== undefined && item.meta?.containerClassName !== expectedContainerClassName)
+        issues.push(`    meta.containerClassName: registry=${item.meta?.containerClassName} catalog=${expectedContainerClassName}`)
     } else {
       item.title = expectedTitle
       item.description = expectedDescription
       if (expectedIframeHeight !== undefined) {
         item.meta = { ...(item.meta ?? {}), iframeHeight: expectedIframeHeight }
+      }
+      if (expectedContainerClassName !== undefined) {
+        item.meta = {
+          ...(item.meta ?? {}),
+          containerClassName: expectedContainerClassName,
+        }
       }
       dirtyFiles.add(filePath)
       console.log(`  Updated: ${entry.slug}`)

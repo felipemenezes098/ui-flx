@@ -1,16 +1,25 @@
 'use client'
 
-import { compositionRegistry } from '@/app/(main)/compositions/components/composition-registry'
-import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
+import { compositionRegistry } from '@/lib/compositions/composition-registry'
+import { cn } from '@/lib/utils'
 
 /**
  * Full-bleed composition render for the preview iframe. Compositions are whole
  * screens, so no centering/padding — the component owns the viewport.
  */
-export function CompositionPreview({ slug }: Readonly<{ slug: string }>) {
+export function CompositionPreview({
+  slug,
+  containerClassName,
+}: Readonly<{ slug: string; containerClassName?: string }>) {
+  const Composition = compositionRegistry[slug]
+  if (!Composition) return null
+
   return (
-    <div data-composition-preview className="min-h-screen w-full">
-      <PatternRenderer name={slug} registry={compositionRegistry} />
+    <div
+      data-composition-preview
+      className={cn('min-h-screen w-full', containerClassName)}
+    >
+      <Composition />
     </div>
   )
 }

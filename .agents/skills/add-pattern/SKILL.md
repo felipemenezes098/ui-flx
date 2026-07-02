@@ -119,7 +119,7 @@ export function Select08() {
 }
 ```
 
-Preview loads via `pattern-registry.tsx` → `import(\`registry/patterns/${category}/${slug}\`)`. Catalog entry must exist before the preview works.
+Preview loads via `src/lib/patterns/pattern-registry.ts` → `import(\`registry/patterns/${category}/${slug}\`)`. Catalog entry must exist before the preview works.
 
 ---
 

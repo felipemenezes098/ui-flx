@@ -17,21 +17,6 @@
       ],
       "title": "Analytics overview",
       "description": "Wireframe: sidebar, stat cards, chart, and a list."
-    },
-    {
-      "name": "sketch-dashboard-02",
-      "type": "registry:block",
-      "registryDependencies": [],
-      "dependencies": [],
-      "files": [
-        {
-          "path": "sketch-dashboard-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/sketches/dashboard/sketch-dashboard-02.tsx"
-        }
-      ],
-      "title": "Project workspace",
-      "description": "Wireframe: sidebar, stat cards, task list with progress, and a team panel."
     }
   ]
 }

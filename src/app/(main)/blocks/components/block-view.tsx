@@ -1,3 +1,4 @@
+import { buildBlockPrompt } from '@/lib/blocks/blocks-utils'
 import { toRegistryCodeFiles } from '@/lib/registry-source'
 import { getRegistryItem } from '@/lib/registry-utils.server'
 
@@ -23,6 +24,7 @@ export function BlockView({
 }: Readonly<BlockViewProps>) {
   const item = getRegistryItem(slug)
   const codeFiles = toRegistryCodeFiles(item)
+  const prompt = item ? buildBlockPrompt(item, category, codeFiles) : ''
   const meta = item?.meta as { iframeHeight?: number } | undefined
   const iframeHeight =
     typeof meta?.iframeHeight === 'number' ? meta.iframeHeight : undefined
@@ -40,6 +42,7 @@ export function BlockView({
       editSrc={editSrc}
       registryName={slug}
       codeFiles={codeFiles}
+      prompt={prompt}
       iframeHeight={iframeHeight}
       className={className}
     />

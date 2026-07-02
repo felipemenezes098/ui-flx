@@ -1,11 +1,14 @@
-export type CompositionGridColumns = 1 | 2 | 3
+export interface CompositionMeta {
+  containerClassName?: string
+  iframeHeight?: number
+}
 
 export interface CompositionItem {
   slug: string
   name: string
   description?: string
-  span?: 'full'
   isNew?: boolean
+  meta?: CompositionMeta
 }
 
 export interface CompositionCategory {
@@ -14,7 +17,4 @@ export interface CompositionCategory {
   description: string
   items: CompositionItem[]
   hasNew?: boolean
-  grid?: {
-    columns?: CompositionGridColumns
-  }
 }

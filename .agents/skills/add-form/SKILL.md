@@ -233,7 +233,7 @@ export function TsfFields02() {
   `field.state.value.map((_, i) => <form.Field name={`items[${i}].x`}>…)` with
   `field.pushValue({...})` / `field.removeValue(i)`.
 
-Preview loads via `forms-registry.tsx` →
+Preview loads via `src/lib/forms/forms-registry.ts` →
 `import(\`registry/forms/${library}/${category}/${slug}\`)`. The catalog entry must exist
 before the preview works.
 

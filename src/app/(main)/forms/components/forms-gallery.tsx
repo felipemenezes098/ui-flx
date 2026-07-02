@@ -17,7 +17,7 @@ import type {
 } from '@/lib/patterns/pattern-types'
 
 import { useFormsFilter } from '../forms-filter-context'
-import { formsRegistry } from './forms-registry'
+import { formsRegistry } from '@/lib/forms/forms-registry'
 
 export function FormsGallery({ librarySlug }: { librarySlug: string }) {
   const { active } = useFormsFilter()

@@ -28,8 +28,10 @@ They follow the **pattern model**, not the block model:
   (`hidden md:flex`), collapse grids (`grid-cols-2 lg:grid-cols-4`), etc.
 
 Metadata lives in **`registry/compositions/<category>/catalog.ts`** — the single
-source of truth for `name` and `description`. `registry:sync` copies them into
-the category's `registry.json` as `title` and `description`.
+source of truth for `name`, `description`, and `meta`. `registry:sync` copies
+them into the category's `registry.json`: `name`/`description` become
+`title`/`description`, and `meta` (`iframeHeight`, `containerClassName`) is
+mirrored verbatim.
 
 `src/lib/compositions/compositions-catalog.ts` is a thin aggregator — **do not edit it
 directly** unless adding a new category.
@@ -124,6 +126,12 @@ Preview loads via the page's `compositionRegistry` →
 `import(\`registry/compositions/${category}/${slug}\`)`. The catalog entry must
 exist before the preview works.
 
+The gallery renders each composition in a **Preview / Code / Prompt** viewer
+(`CompositionViewTabs`). The **Prompt** tab is generated automatically by
+`buildCompositionPrompt` (`compositions-utils.ts`) from the registry item + code
+files — no manual step. The **Code** tab needs `registry:build` to have run so
+`public/r/<slug>.json` exists.
+
 ---
 
 ## 2. Register in `registry/compositions/<category>/catalog.ts`
@@ -133,30 +141,57 @@ Add an item to the `items` array (order = display order in the gallery).
 ```ts
 {
   slug: 'dashboard-02',
-  name: 'Short Human Title',        // → registry.json `title` after sync
-  description: 'One-line summary.',  // → registry.json `description` after sync
-  span: 'full',                      // optional — full-width card (dashboards)
-  isNew: true,                       // optional — badge
+  name: 'Short Human Title',         // → registry.json `title` after sync
+  description: 'One-line summary.',   // → registry.json `description` after sync
+  isNew: true,                        // optional — badge
+  meta: {                             // optional — see "Preview meta" below
+    iframeHeight: 800,
+  },
 }
 ```
 
 **Always set `name` and `description` here.** Never maintain them in
 `registry.json` by hand.
 
+### Preview meta (optional)
+
+`CompositionMeta` controls how the composition renders in its preview iframe:
+
+| Field                | Effect                                                                       |
+| -------------------- | --------------------------------------------------------------------------- |
+| `iframeHeight`       | Preview iframe height in px on the `/compositions` gallery. Falls back to `480` if unset. Set it (~700–900 for dashboards) when the default crops the screen. |
+| `containerClassName` | Extra classes on the full-bleed wrapper `<div data-composition-preview>` around the composition in the preview route. Use for framing the whole screen; compositions have no props, so there is no `componentClassName`. |
+
+Both flow through `registry:sync` into `registry.json` — **never hand-edit them
+there.** `iframeHeight` is consumed at `compositions-gallery.tsx`
+(`catalogItem.meta?.iframeHeight ?? PREVIEW_HEIGHT`) →
+`CompositionViewTabs` → `PreviewTabs.Preview height`.
+
 ---
 
 ## 3. Add entry to `registry/compositions/<category>/registry.json`
 
 `files[].path` is **relative to the category directory** — just the filename.
-List the shadcn primitives the composition imports in `registryDependencies`, and
-`lucide-react` in `dependencies` if used.
+
+**Declare every direct dependency the `.tsx` imports** — walk the import list:
+
+- Each `@/components/ui/<x>` import → its shadcn name in `registryDependencies`
+  (`chart`, `avatar`, `card`, …). `@/lib/utils` (`cn`) is base shadcn — do **not**
+  list it.
+- Each **npm package** import → `dependencies`. Not only `lucide-react`: e.g. a
+  `recharts` import (via `@/components/ui/chart` needing `<BarChart>`) means
+  `recharts` belongs in `dependencies` too.
+
+A missing entry is silent — the block installs but the consumer is left without
+the primitive/package. It also shows up in the generated **Prompt** tab's Stack
+section, so an incomplete list produces a misleading prompt.
 
 ```json
 {
   "name": "dashboard-02",
   "type": "registry:block",
-  "registryDependencies": ["avatar", "badge", "button", "card", "item"],
-  "dependencies": ["lucide-react"],
+  "registryDependencies": ["avatar", "badge", "button", "card", "chart", "item"],
+  "dependencies": ["lucide-react", "recharts"],
   "files": [
     {
       "path": "dashboard-02.tsx",
@@ -171,13 +206,13 @@ List the shadcn primitives the composition imports in `registryDependencies`, an
 | ---------------------- | ------------------------------------------------------------ |
 | `name`                 | Same as catalog `slug`                                        |
 | `type`                 | Always `"registry:block"`                                     |
-| `registryDependencies` | shadcn primitives imported (`card`, `avatar`, `button`, …)    |
-| `dependencies`         | npm packages (usually `["lucide-react"]`)                     |
+| `registryDependencies` | **every** `@/components/ui/*` imported (`card`, `chart`, `avatar`, …) |
+| `dependencies`         | **every** npm package imported (`lucide-react`, `recharts`, …) |
 | `files[0].path`        | **Just `<slug>.tsx`** — relative to the category directory    |
 | `files[0].target`      | `components/flx/compositions/<category>/<slug>.tsx`               |
 
-**Do NOT add `title` or `description`** — `registry:sync` writes them from the
-catalog.
+**Do NOT add `title`, `description`, or `meta`** — `registry:sync` writes them
+from the catalog.
 
 ---
 
@@ -203,7 +238,6 @@ export const kanbanCategory: CompositionCategory = {
   name: 'Kanban',
   description: 'Board layouts with draggable columns.',
   hasNew: true,
-  grid: { columns: 1 },
   items: [],
 }
 ```
@@ -240,7 +274,7 @@ new category automatically from `compositionCategories`.
 ## Checklist
 
 - [ ] `registry/compositions/<category>/<slug>.tsx` — named PascalCase export, no props, no comments, responsive, shadcn primitives
-- [ ] `registry/compositions/<category>/catalog.ts` — `slug`, `name`, `description` in `items`
+- [ ] `registry/compositions/<category>/catalog.ts` — `slug`, `name`, `description` in `items` (+ optional `meta.iframeHeight` / `meta.containerClassName`)
 - [ ] `registry/compositions/<category>/registry.json` — entry with relative `path`, `registryDependencies`, `dependencies`
 - [ ] `pnpm run registry:sync`
 - [ ] `pnpm run registry:validate` — passes

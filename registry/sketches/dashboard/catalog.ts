@@ -12,12 +12,5 @@ export const dashboardCategory: SketchCategory = {
       description: 'Wireframe: sidebar, stat cards, chart, and a list.',
       span: 'full',
     },
-    {
-      slug: 'sketch-dashboard-02',
-      name: 'Project workspace',
-      description:
-        'Wireframe: sidebar, stat cards, task list with progress, and a team panel.',
-      span: 'full',
-    },
   ],
 }

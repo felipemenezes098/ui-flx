@@ -5,6 +5,7 @@ import {
   FullscreenButton,
 } from '@/components/core/preview/preview-actions'
 import { PreviewTabs } from '@/components/core/preview/preview-tabs'
+import { PromptPanel } from '@/components/core/preview/prompt-panel'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import type { RegistryCodeFile } from '@/lib/registry-source'
 
@@ -13,6 +14,7 @@ interface BlockViewTabsProps {
   editSrc: string
   registryName: string
   codeFiles: RegistryCodeFile[]
+  prompt: string
   iframeHeight?: number
   className?: string
 }
@@ -27,6 +29,7 @@ export function BlockViewTabs({
   editSrc,
   registryName,
   codeFiles,
+  prompt,
   iframeHeight,
   className,
 }: Readonly<BlockViewTabsProps>) {
@@ -37,6 +40,9 @@ export function BlockViewTabs({
           <PreviewTabs.Trigger value="preview">Preview</PreviewTabs.Trigger>
           <PreviewTabs.Trigger value="code" disabled={!codeFiles.length}>
             Code
+          </PreviewTabs.Trigger>
+          <PreviewTabs.Trigger value="prompt" disabled={!prompt}>
+            Prompt
           </PreviewTabs.Trigger>
         </PreviewTabs.TabsList>
         <PreviewTabs.Actions>
@@ -52,6 +58,9 @@ export function BlockViewTabs({
       </PreviewTabs.Bar>
       <PreviewTabs.Preview src={src} height={iframeHeight} title="Block preview" />
       <PreviewTabs.Code files={codeFiles} />
+      <PreviewTabs.Panel value="prompt">
+        <PromptPanel prompt={prompt} />
+      </PreviewTabs.Panel>
     </PreviewTabs>
   )
 }

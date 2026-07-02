@@ -56,7 +56,7 @@ export function PreviewEditor({
   if (!manifest) return null
 
   return (
-    <div className="flex min-h-screen w-full flex-col md:h-screen md:min-h-0">
+    <div className="flex min-h-screen w-full flex-col lg:h-screen lg:min-h-0">
       <header className="flex shrink-0 items-center gap-3 border-b px-4 py-3">
         <Button variant="ghost" size="sm" asChild>
           <Link href={`/blocks/${category}/${slug}`}>
@@ -70,8 +70,8 @@ export function PreviewEditor({
         )}
       </header>
 
-      <div className="flex flex-1 flex-col-reverse md:min-h-0 md:flex-row">
-        <aside className="w-full overflow-y-auto border-t p-4 md:w-[340px] md:border-t-0 md:border-r">
+      <div className="flex flex-1 flex-col-reverse lg:min-h-0 lg:flex-row">
+        <aside className="scroll-fade no-scrollbar w-full overflow-y-auto border-t p-4 lg:w-[340px] lg:border-t-0 lg:border-r">
           {EditorFields ? (
             <EditorFields props={props} onUpdate={handleUpdate} />
           ) : (
@@ -81,7 +81,7 @@ export function PreviewEditor({
           )}
         </aside>
 
-        <main className="bg-muted/50 dark:bg-muted/20 h-[60vh] w-full overflow-hidden md:h-auto md:flex-1">
+        <main className="bg-muted/50 dark:bg-muted/20 h-[60vh] w-full overflow-hidden lg:h-auto lg:flex-1">
           <iframe
             ref={iframeRef}
             src={frameSrc}

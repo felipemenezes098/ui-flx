@@ -1,5 +1,4 @@
 export type {
-  CompositionGridColumns,
   CompositionItem,
   CompositionCategory,
 } from '@/lib/compositions/composition-types'

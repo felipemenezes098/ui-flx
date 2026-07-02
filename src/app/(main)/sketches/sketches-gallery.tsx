@@ -16,7 +16,7 @@ import { sketchCategories } from '@/lib/sketches/sketches-catalog'
 import { buildSketchPrompt } from '@/lib/sketches/sketches-utils'
 import type { SketchGridColumns, SketchItem } from '@/lib/sketches/sketch-types'
 
-import { sketchRegistry } from './components/sketch-registry'
+import { sketchRegistry } from '@/lib/sketches/sketch-registry'
 
 const filters = [
   { slug: 'all', name: 'All' },

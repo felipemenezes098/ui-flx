@@ -15,7 +15,7 @@ import {
 } from '@/components/core/patterns/pattern-grid'
 import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
 
-import { patternRegistry } from '../components/pattern-registry'
+import { patternRegistry } from '@/lib/patterns/pattern-registry'
 
 export const dynamic = 'force-static'
 export const revalidate = false

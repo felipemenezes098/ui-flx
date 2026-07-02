@@ -588,6 +588,9 @@
           "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
         }
       ],
+      "meta": {
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      },
       "type": "registry:block"
     },
     {
@@ -8620,13 +8623,15 @@
       "title": "Analytics overview",
       "description": "Sidebar, KPI cards, a bar chart, and a recent activity list.",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "recharts"
       ],
       "registryDependencies": [
         "avatar",
         "badge",
         "button",
         "card",
+        "chart",
         "input",
         "item"
       ],
@@ -8637,55 +8642,9 @@
           "target": "components/flx/compositions/dashboard/dashboard-01.tsx"
         }
       ],
-      "type": "registry:block"
-    },
-    {
-      "name": "dashboard-02",
-      "title": "Project workspace",
-      "description": "Sidebar, task stats, an active-tasks list with progress, and a team panel.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "item",
-        "progress"
-      ],
-      "files": [
-        {
-          "path": "registry/compositions/dashboard/dashboard-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/compositions/dashboard/dashboard-02.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "chat-01",
-      "title": "Conversation",
-      "description": "Conversation list, message thread, and a message composer.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "input",
-        "item",
-        "scroll-area"
-      ],
-      "files": [
-        {
-          "path": "registry/compositions/chat/chat-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/compositions/chat/chat-01.tsx"
-        }
-      ],
+      "meta": {
+        "iframeHeight": 800
+      },
       "type": "registry:block"
     },
     {
@@ -8699,36 +8658,6 @@
           "path": "registry/sketches/dashboard/sketch-dashboard-01.tsx",
           "type": "registry:component",
           "target": "components/flx/sketches/dashboard/sketch-dashboard-01.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "sketch-dashboard-02",
-      "title": "Project workspace",
-      "description": "Wireframe: sidebar, stat cards, task list with progress, and a team panel.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/sketches/dashboard/sketch-dashboard-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/sketches/dashboard/sketch-dashboard-02.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
-      "name": "sketch-chat-01",
-      "title": "Conversation",
-      "description": "Wireframe: conversation list, thread, and composer.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/sketches/chat/sketch-chat-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/sketches/chat/sketch-chat-01.tsx"
         }
       ],
       "type": "registry:block"
