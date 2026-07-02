@@ -1,35 +1,33 @@
 'use client'
 
-import {
-  EditButton,
-  FullscreenButton,
-} from '@/components/core/preview/preview-actions'
+import { FullscreenButton } from '@/components/core/preview/preview-actions'
 import { PreviewTabs } from '@/components/core/preview/preview-tabs'
+import { PromptPanel } from '@/components/core/preview/prompt-panel'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import type { RegistryCodeFile } from '@/lib/registry-source'
 
-interface BlockViewTabsProps {
+interface CompositionViewTabsProps {
   src: string
-  editSrc: string
   registryName: string
   codeFiles: RegistryCodeFile[]
+  prompt: string
   iframeHeight?: number
   className?: string
 }
 
 /**
- * Block-domain assembly of the generic PreviewTabs: CLI install + refresh +
- * fullscreen + edit. Lives client-side so the compound (PreviewTabs.*) resolves
- * within the client boundary; BlockView (RSC) feeds it resolved data.
+ * Composition assembly of the generic PreviewTabs. Same viewer as blocks, minus
+ * the Edit action (compositions have no editor). The AI prompt is not surfaced
+ * yet — see the compositions-viewer-prompt note for the planned addition.
  */
-export function BlockViewTabs({
+export function CompositionViewTabs({
   src,
-  editSrc,
   registryName,
   codeFiles,
+  prompt,
   iframeHeight,
   className,
-}: Readonly<BlockViewTabsProps>) {
+}: Readonly<CompositionViewTabsProps>) {
   return (
     <PreviewTabs className={className}>
       <PreviewTabs.Bar>
@@ -37,6 +35,9 @@ export function BlockViewTabs({
           <PreviewTabs.Trigger value="preview">Preview</PreviewTabs.Trigger>
           <PreviewTabs.Trigger value="code" disabled={!codeFiles.length}>
             Code
+          </PreviewTabs.Trigger>
+          <PreviewTabs.Trigger value="prompt" disabled={!prompt}>
+            Prompt
           </PreviewTabs.Trigger>
         </PreviewTabs.TabsList>
         <PreviewTabs.Actions>
@@ -47,11 +48,17 @@ export function BlockViewTabs({
           />
           <PreviewTabs.RefreshButton />
           <FullscreenButton href={src} />
-          <EditButton href={editSrc} />
         </PreviewTabs.Actions>
       </PreviewTabs.Bar>
-      <PreviewTabs.Preview src={src} height={iframeHeight} title="Block preview" />
+      <PreviewTabs.Preview
+        src={src}
+        height={iframeHeight}
+        title="Composition preview"
+      />
       <PreviewTabs.Code files={codeFiles} />
+      <PreviewTabs.Panel value="prompt">
+        <PromptPanel prompt={prompt} />
+      </PreviewTabs.Panel>
     </PreviewTabs>
   )
 }

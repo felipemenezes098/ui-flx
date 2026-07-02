@@ -2,31 +2,38 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import type { RegistryItem } from 'shadcn/schema'
 
 import { AnimatedBackground } from '@/components/core/animated-background'
-import { PatternActions } from '@/components/core/patterns/pattern-actions'
-import { PatternCard } from '@/components/core/patterns/pattern-card'
-import {
-  PatternGrid,
-  patternGridItemVariants,
-} from '@/components/core/patterns/pattern-grid'
-import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
+import { patternGridItemVariants } from '@/components/core/patterns/pattern-grid'
 import { compositionCategories } from '@/lib/compositions/compositions-catalog'
-import { buildCompositionPrompt } from '@/lib/compositions/compositions-utils'
 import type {
   CompositionGridColumns,
   CompositionItem,
 } from '@/lib/compositions/composition-types'
+import type { RegistryCodeFile } from '@/lib/registry-source'
+import { cn } from '@/lib/utils'
 
-import { compositionRegistry } from './components/composition-registry'
+import { CompositionViewTabs } from './components/composition-view-tabs'
 
 const filters = [
   { slug: 'all', name: 'All' },
   ...compositionCategories.map((c) => ({ slug: c.slug, name: c.name })),
 ]
 
-export function CompositionsGallery() {
+const PREVIEW_HEIGHT = 480
+
+export interface CompositionPreviewData {
+  codeFiles: RegistryCodeFile[]
+  prompt: string
+}
+
+interface CompositionsGalleryProps {
+  previewData: Record<string, CompositionPreviewData>
+}
+
+export function CompositionsGallery({
+  previewData,
+}: Readonly<CompositionsGalleryProps>) {
   const [active, setActive] = useState('all')
   const pathname = usePathname()
 
@@ -45,7 +52,11 @@ export function CompositionsGallery() {
     if (!id) return
     setActive(id)
     const base = globalThis.location.pathname + globalThis.location.search
-    globalThis.history.replaceState(null, '', id === 'all' ? base : `${base}#${id}`)
+    globalThis.history.replaceState(
+      null,
+      '',
+      id === 'all' ? base : `${base}#${id}`,
+    )
   }
 
   const categories =
@@ -53,37 +64,32 @@ export function CompositionsGallery() {
       ? compositionCategories
       : compositionCategories.filter((category) => category.slug === active)
 
-  function renderCard(
+  function renderItem(
     catalogItem: CompositionItem,
-    categorySlug: string,
     columns: CompositionGridColumns,
   ) {
-    const item = {
-      name: catalogItem.slug,
-      title: catalogItem.name,
-      description: catalogItem.description,
-      type: 'registry:block',
-    } as RegistryItem
+    const data = previewData[catalogItem.slug]
 
     return (
-      <PatternCard
+      <div
         key={catalogItem.slug}
-        item={item}
-        previewClassName="p-4 sm:p-6 lg:p-8"
-        className={patternGridItemVariants({
-          span: catalogItem.span ?? 'default',
-          columns,
-        })}
-        actions={
-          <PatternActions
-            item={item}
-            categorySlug={categorySlug}
-            buildPrompt={buildCompositionPrompt}
-          />
-        }
+        id={catalogItem.slug}
+        className={cn(
+          'flex scroll-mt-24 flex-col gap-2',
+          patternGridItemVariants({
+            span: catalogItem.span ?? 'default',
+            columns,
+          }),
+        )}
       >
-        <PatternRenderer name={catalogItem.slug} registry={compositionRegistry} />
-      </PatternCard>
+        <CompositionViewTabs
+          src={`/preview/compositions/${catalogItem.slug}`}
+          registryName={catalogItem.slug}
+          codeFiles={data?.codeFiles ?? []}
+          prompt={data?.prompt ?? ''}
+          iframeHeight={PREVIEW_HEIGHT}
+        />
+      </div>
     )
   }
 
@@ -123,11 +129,9 @@ export function CompositionsGallery() {
                   {category.description}
                 </p>
               </div>
-              <PatternGrid columns={columns}>
-                {category.items.map((catalogItem) =>
-                  renderCard(catalogItem, category.slug, columns),
-                )}
-              </PatternGrid>
+              {category.items.map((catalogItem) =>
+                renderItem(catalogItem, columns),
+              )}
             </section>
           )
         })}

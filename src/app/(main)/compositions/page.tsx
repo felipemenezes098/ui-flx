@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 
 import { Footer } from '@/components/core/footer'
+import { allCompositions } from '@/lib/compositions/compositions-catalog'
+import { buildCompositionPrompt } from '@/lib/compositions/compositions-utils'
+import { toRegistryCodeFiles } from '@/lib/registry-source'
+import { getRegistryItem } from '@/lib/registry-utils.server'
 
 import { CompositionsGallery } from './compositions-gallery'
+import type { CompositionPreviewData } from './compositions-gallery'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -17,6 +22,17 @@ export const metadata: Metadata = {
   openGraph: { title, description },
   twitter: { card: 'summary_large_image', title, description },
 }
+
+const previewData: Record<string, CompositionPreviewData> = Object.fromEntries(
+  allCompositions.map((composition) => {
+    const item = getRegistryItem(composition.slug)
+    const codeFiles = toRegistryCodeFiles(item)
+    const prompt = item
+      ? buildCompositionPrompt(item, composition.categorySlug, codeFiles)
+      : ''
+    return [composition.slug, { codeFiles, prompt }]
+  }),
+)
 
 export default function CompositionsPage() {
   return (
@@ -36,7 +52,7 @@ export default function CompositionsPage() {
             </p>
           </section>
 
-          <CompositionsGallery />
+          <CompositionsGallery previewData={previewData} />
         </div>
       </div>
       <Footer />
