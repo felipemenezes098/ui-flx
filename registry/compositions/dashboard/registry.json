@@ -26,30 +26,6 @@
       ],
       "title": "Analytics overview",
       "description": "Sidebar, KPI cards, a bar chart, and a recent activity list."
-    },
-    {
-      "name": "dashboard-02",
-      "type": "registry:block",
-      "registryDependencies": [
-        "avatar",
-        "badge",
-        "button",
-        "card",
-        "item",
-        "progress"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "dashboard-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/compositions/dashboard/dashboard-02.tsx"
-        }
-      ],
-      "title": "Project workspace",
-      "description": "Sidebar, task stats, an active-tasks list with progress, and a team panel."
     }
   ]
 }

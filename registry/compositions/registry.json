@@ -2,6 +2,6 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "flx-compositions",
   "homepage": "https://ui.flexnative.com",
-  "include": ["./dashboard/registry.json", "./chat/registry.json"],
+  "include": ["./dashboard/registry.json"],
   "items": []
 }

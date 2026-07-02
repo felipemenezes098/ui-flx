@@ -96,7 +96,7 @@ const rows = [
 
 export function Dashboard01() {
   return (
-    <Card className="dark:bg-muted/20 w-full gap-0 py-0">
+    <div className="bg-card w-full shadow-xs">
       <div className="flex items-center gap-3 border-b px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="bg-primary size-6 rounded-md" />
@@ -225,6 +225,6 @@ export function Dashboard01() {
           </Card>
         </main>
       </div>
-    </Card>
+    </div>
   )
 }

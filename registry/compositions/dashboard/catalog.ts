@@ -13,12 +13,5 @@ export const dashboardCategory: CompositionCategory = {
         'Sidebar, KPI cards, a bar chart, and a recent activity list.',
       span: 'full',
     },
-    {
-      slug: 'dashboard-02',
-      name: 'Project workspace',
-      description:
-        'Sidebar, task stats, an active-tasks list with progress, and a team panel.',
-      span: 'full',
-    },
   ],
 }
