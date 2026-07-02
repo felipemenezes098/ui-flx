@@ -31,7 +31,7 @@ export function PreviewEditor({
       {}) as Record<string, unknown>
   })
 
-  const frameSrc = `/preview-editor/frame/${category}/${slug}`
+  const frameSrc = `/block-editor/frame/${category}/${slug}`
 
   const postProps = React.useCallback((next: Record<string, unknown>) => {
     iframeRef.current?.contentWindow?.postMessage(

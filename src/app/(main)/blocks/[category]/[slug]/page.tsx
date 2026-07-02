@@ -1,8 +1,8 @@
-import { BlockBreadcrumb } from '@/components/core/editor/live/block-breadcrumb'
 import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'
 
+import { BlockBreadcrumb } from '../../components/block-breadcrumb'
 import { BlockMore } from '../../components/block-more'
 
 type Props = {

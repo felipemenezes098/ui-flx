@@ -10,6 +10,11 @@ interface BlockViewProps {
   className?: string
 }
 
+/**
+ * Final block viewer used in docs/MDX. Server component: resolves the registry
+ * item (with its dependency code merged), builds the preview/edit URLs, then
+ * hands everything to the client BlockViewTabs.
+ */
 export function BlockView({
   category,
   slug,
@@ -22,13 +27,19 @@ export function BlockView({
   const iframeHeight =
     typeof meta?.iframeHeight === 'number' ? meta.iframeHeight : undefined
 
+  const src = variation
+    ? `/preview/blocks/${category}/${slug}/${variation}`
+    : `/preview/blocks/${category}/${slug}`
+  const editSrc = variation
+    ? `/block-editor/${category}/${slug}/${variation}`
+    : `/block-editor/${category}/${slug}`
+
   return (
     <BlockViewTabs
-      category={category}
-      slug={slug}
-      variation={variation}
-      codeFiles={codeFiles}
+      src={src}
+      editSrc={editSrc}
       registryName={slug}
+      codeFiles={codeFiles}
       iframeHeight={iframeHeight}
       className={className}
     />

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { PreviewEditor } from '@/app/preview-editor/components/preview-editor'
+import { PreviewEditor } from '@/app/block-editor/components/preview-editor'
 import { blocks, getBlockBySlug } from '@/lib/blocks/block-catalog'
 
 export const dynamic = 'force-static'

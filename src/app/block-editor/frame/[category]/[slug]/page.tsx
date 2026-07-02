@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { PreviewEditorFrame } from '@/app/preview-editor/components/preview-editor-frame'
+import { PreviewEditorFrame } from '@/app/block-editor/components/preview-editor-frame'
 import { blocks } from '@/lib/blocks/block-catalog'
 
 export const dynamic = 'force-static'
