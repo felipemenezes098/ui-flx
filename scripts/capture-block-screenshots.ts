@@ -61,7 +61,7 @@ async function captureBlock(
   const page = await context.newPage()
 
   try {
-    await page.goto(`${BASE_URL}/preview/${category}/${slug}`, {
+    await page.goto(`${BASE_URL}/preview/blocks/${category}/${slug}`, {
       waitUntil: 'load',
       timeout: 120_000,
     })

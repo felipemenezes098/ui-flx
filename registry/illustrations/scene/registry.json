@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-illustrations-scene",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "scene-01",
+      "type": "registry:block",
+      "registryDependencies": ["card", "badge", "button", "avatar"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "scene-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/scene/scene-01.tsx"
+        }
+      ],
+      "title": "Dashboard preview",
+      "description": "A layered app dashboard with a floating notification."
+    }
+  ]
+}

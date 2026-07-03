@@ -24,6 +24,7 @@ import { allFormPatterns } from '../src/lib/forms/catalog'
 import { allPatterns } from '../src/lib/patterns/patterns-catalog'
 import { allCompositions } from '../src/lib/compositions/compositions-catalog'
 import { allSketches } from '../src/lib/sketches/sketches-catalog'
+import { allIllustrations } from '../src/lib/illustrations/illustrations-catalog'
 
 const ROOT = process.cwd()
 const CHECK_ONLY = process.argv.includes('--check')
@@ -167,6 +168,12 @@ const catalogEntries: CatalogEntry[] = [
     name: sketch.name,
     description: sketch.description,
     categoryLabel: sketch.categorySlug,
+  })),
+  ...allIllustrations.map((illustration) => ({
+    slug: illustration.slug,
+    name: illustration.name,
+    description: illustration.description,
+    categoryLabel: illustration.categorySlug,
   })),
 ]
 

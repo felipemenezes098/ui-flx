@@ -1,0 +1,67 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-illustrations-spot",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "spot-01",
+      "type": "registry:block",
+      "registryDependencies": ["card", "badge"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "spot-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-01.tsx"
+        }
+      ],
+      "title": "Metrics",
+      "description": "A stat card with trend and sparkline, layered over a second."
+    },
+    {
+      "name": "spot-02",
+      "type": "registry:block",
+      "registryDependencies": ["card", "avatar"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "spot-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-02.tsx"
+        }
+      ],
+      "title": "Notifications",
+      "description": "A fanned stack of notification cards."
+    },
+    {
+      "name": "spot-03",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "spot-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-03.tsx"
+        }
+      ],
+      "title": "Media card",
+      "description": "An image card with a soft gradient fade and caption."
+    },
+    {
+      "name": "spot-04",
+      "type": "registry:block",
+      "registryDependencies": ["card", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "spot-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-04.tsx"
+        }
+      ],
+      "title": "Analytics",
+      "description": "A card with a gradient area chart."
+    }
+  ]
+}

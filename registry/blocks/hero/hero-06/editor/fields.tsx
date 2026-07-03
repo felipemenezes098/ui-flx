@@ -149,36 +149,28 @@ export function Hero06EditorFields({
         />
       </div>
 
+      <div className="space-y-2">
+        <Label htmlFor="animation" className="text-sm font-medium">
+          Animation
+        </Label>
+        <Select
+          value={props.animation ?? 'none'}
+          onValueChange={(value) =>
+            updateField('animation', value as Hero06Props['animation'])
+          }
+        >
+          <SelectTrigger id="animation" className="w-full">
+            <SelectValue placeholder="Animation" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="none">None</SelectItem>
+            <SelectItem value="subtle">Subtle</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       {renderCtaFields('primaryCTA', 'Primary CTA')}
       {renderCtaFields('secondaryCTA', 'Secondary CTA')}
-
-      <div className="space-y-2">
-        <Label htmlFor="preview-src" className="text-sm font-medium">
-          Preview image URL
-        </Label>
-        <Input
-          id="preview-src"
-          type="url"
-          value={props.preview?.src ?? ''}
-          onChange={(e) =>
-            updateField('preview', {
-              src: e.target.value,
-              alt: props.preview?.alt ?? '',
-            })
-          }
-          placeholder="https://images.unsplash.com/..."
-        />
-        <Input
-          value={props.preview?.alt ?? ''}
-          onChange={(e) =>
-            updateField('preview', {
-              src: props.preview?.src ?? '',
-              alt: e.target.value,
-            })
-          }
-          placeholder="Image alt text"
-        />
-      </div>
 
       <div className="space-y-2">
         <Label htmlFor="logos-label" className="text-sm font-medium">

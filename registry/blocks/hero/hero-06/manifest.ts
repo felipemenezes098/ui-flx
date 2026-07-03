@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   slug: 'hero-06',
   name: 'Hero 06',
   description:
-    'A large, minimal product hero with dual CTA, highlight row, framed image preview, and a logo strip.',
+    'A split product hero with dual CTA, a compact logo row, and the Spot 01 illustration.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-06.png',
@@ -16,7 +16,6 @@ export const manifest: BlockManifest = {
   meta: {
     iframeHeight: 820,
   },
-  hasNew: true,
   component: Hero06,
   editorFields: Hero06EditorFields,
   example: Hero06Example,

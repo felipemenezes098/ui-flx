@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spot-02",
+  "title": "Notifications",
+  "description": "A fanned stack of notification cards.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/illustrations/spot/spot-02.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'\nimport { Card } from '@/components/ui/card'\n\nexport function Spot02() {\n  return (\n    <div className=\"relative flex h-40 w-full items-center justify-center\">\n      <div className=\"relative h-28 w-56\">\n        <Card className=\"absolute top-0 left-1/2 h-16 w-44 -translate-x-1/2 scale-90 gap-0 p-0 opacity-40 shadow-sm\" />\n        <Card className=\"absolute top-3 left-1/2 h-16 w-50 -translate-x-1/2 scale-95 gap-0 p-0 opacity-70 shadow-sm\" />\n\n        <Card className=\"absolute top-8 left-1/2 w-56 -translate-x-1/2 flex-row items-center gap-3 p-3 shadow-sm\">\n          <Avatar className=\"size-9\">\n            <AvatarImage\n              src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80\"\n              alt=\"\"\n            />\n            <AvatarFallback>SC</AvatarFallback>\n          </Avatar>\n          <div className=\"flex flex-col\">\n            <span className=\"text-sm leading-tight font-medium\">Sarah Chen</span>\n            <span className=\"text-muted-foreground text-xs leading-tight\">\n              mentioned you in Design review\n            </span>\n          </div>\n        </Card>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/illustrations/spot/spot-02.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

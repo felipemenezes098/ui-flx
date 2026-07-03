@@ -8,7 +8,8 @@
     "registry/forms/registry.json",
     "registry/intents/registry.json",
     "registry/compositions/registry.json",
-    "registry/sketches/registry.json"
+    "registry/sketches/registry.json",
+    "registry/illustrations/registry.json"
   ],
   "items": []
 }

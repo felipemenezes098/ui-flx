@@ -19,12 +19,12 @@ export function NavbarDesktop() {
 
   return (
     <header
-      className="bg-background sticky top-0 z-50 hidden w-full overflow-hidden md:block"
+      className="bg-background sticky top-0 z-50 hidden w-full md:block"
       aria-label="Main navigation"
     >
       <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
-          <nav className="flex min-w-0 flex-1 items-center gap-1 overflow-hidden text-sm">
+          <nav className="flex min-w-0 flex-1 items-center gap-1 text-sm">
             <Button
               variant="ghost"
               className="hover:bg-muted h-7 shrink-0 rounded-lg px-2"
@@ -44,8 +44,8 @@ export function NavbarDesktop() {
                 </div>
               </Link>
             </Button>
-            <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto overflow-y-hidden md:flex">
-              <div className="inline-flex w-max flex-nowrap gap-1">
+            <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto py-1 md:flex">
+              <div className="inline-flex w-max flex-nowrap gap-1 first:ml-0.5 last:mr-0.5">
                 {dataNavbar.map((item) => (
                   <Link
                     key={item.name}

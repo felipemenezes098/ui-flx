@@ -8,6 +8,7 @@ import {
   ArrowUp,
   Blocks,
   CornerDownLeft,
+  Image,
   LayoutGrid,
   Search,
   Sparkles,
@@ -214,6 +215,19 @@ export function GlobalSearch() {
                   <span className="truncate">{item.name}</span>
                 </CommandItem>
               ))}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            <CommandGroup heading="Illustrations">
+              <CommandItem
+                className="h-9"
+                value="illustrations"
+                onSelect={() => navigate('/illustrations')}
+              >
+                <Image className="size-4 shrink-0 opacity-60" />
+                <span className="truncate">Illustrations</span>
+              </CommandItem>
             </CommandGroup>
           </CommandList>
           <div className="text-muted-foreground flex items-center gap-4 border-t px-3 py-2 text-xs">

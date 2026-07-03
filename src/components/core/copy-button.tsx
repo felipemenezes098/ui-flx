@@ -2,15 +2,17 @@
 
 import { Check, CopyIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { useCopy } from '@/hooks/use-copy'
+import { cn } from '@/lib/utils'
 
 interface CopyButtonProps extends ComponentProps<typeof Button> {
   text: string
-  /** Visible label next to the icon. Omit for an icon-only button. */
   label?: string
+  icon?: ReactNode
+  iconClassName?: string
 }
 
 const copyTransition = {
@@ -22,8 +24,11 @@ const copyTransition = {
 export function CopyButton({
   text,
   label,
+  icon,
+  iconClassName = 'size-3.5',
   variant = 'outline',
   size = 'sm',
+  onClick,
   ...props
 }: Readonly<CopyButtonProps>) {
   const { copied, copy } = useCopy()
@@ -34,13 +39,21 @@ export function CopyButton({
       variant={variant}
       size={size}
       aria-label={label || (copied ? 'Copied' : 'Copy')}
-      onClick={() => copy(text)}
       {...props}
+      onClick={(event) => {
+        onClick?.(event)
+        copy(text)
+      }}
     >
-      <span className="relative grid size-3.5 shrink-0 place-items-center">
+      <span
+        className={cn(
+          'relative grid shrink-0 place-items-center',
+          iconClassName,
+        )}
+      >
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
-            key={copied ? 'check' : 'copy'}
+            key={copied ? 'check' : 'idle'}
             initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
@@ -48,9 +61,9 @@ export function CopyButton({
             className="flex items-center justify-center"
           >
             {copied ? (
-              <Check className="size-3.5" aria-hidden />
+              <Check className={iconClassName} aria-hidden />
             ) : (
-              <CopyIcon className="size-3.5" aria-hidden />
+              (icon ?? <CopyIcon className={iconClassName} aria-hidden />)
             )}
           </motion.div>
         </AnimatePresence>

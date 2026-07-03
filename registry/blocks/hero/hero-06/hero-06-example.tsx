@@ -1,10 +1,11 @@
 import { Hero06, type Hero06Props } from './hero-06'
 
 export const values = {
-  title: 'The platform for teams who',
-  highlight: 'ship without the busywork.',
+  title: 'Ship your best work,',
+  highlight: 'without the busywork.',
   description:
-    'Plan, build, and launch from a single workspace. Less context switching, more momentum — with the polish your customers expect.',
+    'One workspace to plan, build, and launch. No context switching, no clutter.',
+  animation: 'subtle',
   primaryCTA: {
     ctaEnabled: true,
     text: 'Start for free',
@@ -17,13 +18,8 @@ export const values = {
     link: '',
     variant: 'outline',
   },
-  highlights: ['No credit card', 'Free 14-day trial', 'Cancel anytime'],
-  preview: {
-    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-    alt: 'Product dashboard overview',
-  },
-  logosLabel: 'Trusted by teams building the future',
-  logos: ['Acme', 'Globex', 'Initech', 'Umbrella', 'Hooli'],
+  logosLabel: 'Trusted by fast-moving teams',
+  logos: ['Acme', 'Globex', 'Initech', 'Umbrella'],
 } satisfies Hero06Props
 
 export function Hero06Example() {

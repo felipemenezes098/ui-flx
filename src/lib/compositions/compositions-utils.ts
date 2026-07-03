@@ -32,7 +32,7 @@ function buildStackSection(item: RegistryItem): string {
 
 export function buildCompositionPrompt(
   item: RegistryItem,
-  categorySlug: string,
+  _categorySlug: string,
   codeFiles: RegistryCodeFile[] = [],
 ): string {
   const description = item.description?.trim()

@@ -18,7 +18,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -46,6 +45,16 @@ export const metadata = {
   collapsible
 />
 
+<Step>Add the illustration (optional)</Step>
+
+Hero 06 uses **Spot 01** as a product preview on the right. It is only an example. Swap it for a screenshot, mockup, or any component you prefer.
+
+<CodeBlockFromFile
+  filePath="registry/illustrations/spot/spot-01.tsx"
+  title="spot-01.tsx"
+  collapsible
+/>
+
 <Step>Install react-wrap-balancer</Step>
 
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
@@ -65,34 +74,4 @@ export const metadata = {
 </Steps>
 
 </TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Hero 06. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/hero/hero-06/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/hero/hero-06.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/hero/hero-06/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/hero/hero-06.tsx"
-  showLineNumbers
-/>
-
-</Steps>
-
-</TabsContent>
 </CodeTabs>
-

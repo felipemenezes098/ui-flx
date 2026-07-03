@@ -400,15 +400,50 @@
       "type": "registry:block"
     },
     {
-      "name": "hero-06",
-      "title": "Hero 06",
-      "description": "A large, minimal product hero with dual CTA, highlight row, framed image preview, and a logo strip.",
+      "name": "hero-01",
+      "title": "Hero 01",
+      "description": "A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.",
       "dependencies": [
         "react-wrap-balancer",
+        "motion",
         "lucide-react"
       ],
       "registryDependencies": [
-        "@flx/cta"
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-01/hero-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-01/hero-01.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-01/hero-01-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-01/integration-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-01/integration-cloud.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 720
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-06",
+      "title": "Hero 06",
+      "description": "A split product hero with dual CTA, a compact logo row, and the Spot 01 illustration.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@flx/cta",
+        "@flx/spot-01"
       ],
       "files": [
         {
@@ -424,144 +459,6 @@
       ],
       "meta": {
         "iframeHeight": 820
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-01",
-      "title": "Hero 01",
-      "description": "A background media with a title, description and CTA.",
-      "dependencies": [
-        "motion",
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/hero-01/hero-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-01/hero-01.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/hero-01/hero-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-02",
-      "title": "Hero 02",
-      "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [
-        "@flx/cta",
-        "@flx/logos-01",
-        "carousel"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/hero-02/hero-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-02/hero-02.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/hero-02/hero-02-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 800,
-        "containerClassName": "max-w-full overflow-hidden px-0"
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-03",
-      "title": "Hero 03",
-      "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/hero-03/hero-03.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-03/hero-03.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/hero-03/hero-03-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-04",
-      "title": "Hero 04",
-      "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
-      "dependencies": [
-        "react-wrap-balancer"
-      ],
-      "registryDependencies": [
-        "@flx/cta"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/hero-04/hero-04.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-04/hero-04.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/hero-04/hero-04-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 860
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "hero-05",
-      "title": "Hero 05",
-      "description": "A text badges with a title, CTA and badges.",
-      "dependencies": [],
-      "registryDependencies": [
-        "@flx/cta",
-        "badge"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/hero/hero-05/hero-05.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-05/hero-05.tsx"
-        },
-        {
-          "path": "registry/blocks/hero/hero-05/hero-05-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 500
       },
       "type": "registry:block"
     },
@@ -8658,6 +8555,99 @@
           "path": "registry/sketches/dashboard/sketch-dashboard-01.tsx",
           "type": "registry:component",
           "target": "components/flx/sketches/dashboard/sketch-dashboard-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "spot-01",
+      "title": "Metrics",
+      "description": "A stat card with trend and sparkline, layered over a second.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/illustrations/spot/spot-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-01.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "spot-02",
+      "title": "Notifications",
+      "description": "A fanned stack of notification cards.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/illustrations/spot/spot-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-02.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "spot-03",
+      "title": "Media card",
+      "description": "An image card with a soft gradient fade and caption.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/illustrations/spot/spot-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-03.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "spot-04",
+      "title": "Analytics",
+      "description": "A card with a gradient area chart.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/illustrations/spot/spot-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/spot/spot-04.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "scene-01",
+      "title": "Dashboard preview",
+      "description": "A layered app dashboard with a floating notification.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "button",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/illustrations/scene/scene-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/illustrations/scene/scene-01.tsx"
         }
       ],
       "type": "registry:block"

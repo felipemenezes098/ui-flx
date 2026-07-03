@@ -1,9 +1,11 @@
 export const metadata = {
   title: 'Hero 01',
-  description: 'A background media with a title, description and CTA.',
+  description:
+    'A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.',
   openGraph: {
     title: 'Hero 01',
-    description: 'A background media with a title, description and CTA.',
+    description:
+      'A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.',
     type: 'article',
   },
 }
@@ -16,7 +18,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -36,17 +37,23 @@ export const metadata = {
 
 <Steps>
 
-<Step>Add CTA Component</Step>
-
-<CodeBlockFromFile
-  filePath="registry/blocks/shared/cta.tsx"
-  title="cta.tsx"
-  collapsible
-/>
-
-<Step>Install react-wrap-balancer</Step>
+<Step>Install dependencies</Step>
 
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<CodeBlockCommand command="lucide-react" isPackage />
+
+<Step>Add the integration cloud (optional)</Step>
+
+Hero 01 ships a small inline illustration — brand chips with depth-of-field blur. Swap names, layout, or remove it entirely.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-01/integration-cloud.tsx"
+  title="integration-cloud.tsx"
+  collapsible
+/>
 
 <Step>Copy the component</Step>
 
@@ -63,34 +70,4 @@ export const metadata = {
 </Steps>
 
 </TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Hero 01. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/hero/hero-01/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/hero/hero-01.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/hero/hero-01/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/hero/hero-01.tsx"
-  showLineNumbers
-/>
-
-</Steps>
-
-</TabsContent>
 </CodeTabs>
-
