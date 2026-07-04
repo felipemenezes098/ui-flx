@@ -1,3 +1,4 @@
+import { getBlockBySlug } from '@/lib/blocks/block-catalog'
 import { buildBlockPrompt } from '@/lib/blocks/blocks-utils'
 import { toRegistryCodeFiles } from '@/lib/registry-source'
 import { getRegistryItem } from '@/lib/registry-utils.server'
@@ -25,9 +26,10 @@ export function BlockView({
   const item = getRegistryItem(slug)
   const codeFiles = toRegistryCodeFiles(item)
   const prompt = item ? buildBlockPrompt(item, category, codeFiles) : ''
-  const meta = item?.meta as { iframeHeight?: number } | undefined
-  const iframeHeight =
-    typeof meta?.iframeHeight === 'number' ? meta.iframeHeight : undefined
+  // iframeHeight comes from the TS catalog (source of truth) so height edits
+  // reflect without registry:sync + registry:build. Code files still come from
+  // the built public/r JSON via getRegistryItem above.
+  const iframeHeight = getBlockBySlug(slug)?.meta?.iframeHeight
 
   const src = variation
     ? `/preview/blocks/${category}/${slug}/${variation}`

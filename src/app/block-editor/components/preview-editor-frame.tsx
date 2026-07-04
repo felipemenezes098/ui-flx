@@ -9,7 +9,9 @@ interface PreviewEditorFrameProps {
   slug: string
 }
 
-export function PreviewEditorFrame({ slug }: Readonly<PreviewEditorFrameProps>) {
+export function PreviewEditorFrame({
+  slug,
+}: Readonly<PreviewEditorFrameProps>) {
   const manifest = getBlockBySlug(slug)
   const [props, setProps] = React.useState<Record<string, unknown>>(
     () => (manifest?.defaults as Record<string, unknown>) ?? {},
@@ -30,19 +32,21 @@ export function PreviewEditorFrame({ slug }: Readonly<PreviewEditorFrameProps>) 
   const Comp = manifest.component
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center">
-      <div
-        data-block-preview
-        className={cn(
-          'mx-auto h-full w-full max-w-7xl p-5',
-          manifest.meta?.containerClassName,
-        )}
-      >
-        <Comp
-          {...props}
-          className={manifest.meta?.componentClassName}
-          imageProps={{ unoptimized: true }}
-        />
+    <div className="no-scrollbar h-screen w-full overflow-y-auto">
+      <div className="flex min-h-full w-full items-center justify-center">
+        <div
+          data-block-preview
+          className={cn(
+            'mx-auto h-full w-full max-w-7xl p-5',
+            manifest.meta?.containerClassName,
+          )}
+        >
+          <Comp
+            {...props}
+            className={manifest.meta?.componentClassName}
+            imageProps={{ unoptimized: true }}
+          />
+        </div>
       </div>
     </div>
   )

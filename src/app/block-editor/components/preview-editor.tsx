@@ -26,9 +26,10 @@ export function PreviewEditor({
     const variationProps = variation
       ? manifest?.variationDefaults?.[variation]
       : undefined
-    return (variationProps ??
-      manifest?.defaults ??
-      {}) as Record<string, unknown>
+    return (variationProps ?? manifest?.defaults ?? {}) as Record<
+      string,
+      unknown
+    >
   })
 
   const frameSrc = `/block-editor/frame/${category}/${slug}`

@@ -1,0 +1,73 @@
+export const metadata = {
+  title: 'Hero 02',
+  description:
+    'A left-aligned serif hero with a media panel: a photo backdrop with an elaborate dashboard mockup floating on top.',
+  openGraph: {
+    title: 'Hero 02',
+    description:
+      'A left-aligned serif hero with a media panel: a photo backdrop with an elaborate dashboard mockup floating on top.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-02" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-02" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-02/hero-02-example.tsx"
+  title="hero-02-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<CodeBlockCommand command="lucide-react" isPackage />
+
+<Step>Add the dashboard illustration (optional)</Step>
+
+Hero 02 ships an inline illustration: an elaborate dashboard mockup built from shadcn primitives that floats over the background image. Swap the content, restyle it, or replace it with a real screenshot.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-02/dashboard-demo.tsx"
+  title="dashboard-demo.tsx"
+  collapsible
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-02/hero-02.tsx"
+  collapsible
+  title="hero-02.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-02/hero-02-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

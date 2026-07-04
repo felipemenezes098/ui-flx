@@ -7,12 +7,11 @@
       "name": "hero-01",
       "type": "registry:block",
       "registryDependencies": [
-        "button"
+        "@flx/cta"
       ],
       "dependencies": [
         "react-wrap-balancer",
-        "motion",
-        "lucide-react"
+        "motion"
       ],
       "files": [
         {
@@ -35,6 +34,44 @@
       "description": "A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.",
       "meta": {
         "iframeHeight": 720
+      }
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta",
+        "card",
+        "badge",
+        "avatar",
+        "separator"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "hero-02/hero-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-02/hero-02.tsx"
+        },
+        {
+          "path": "hero-02/hero-02-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
+        },
+        {
+          "path": "hero-02/dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-02/dashboard-demo.tsx"
+        }
+      ],
+      "title": "Hero 02",
+      "description": "A left-aligned serif hero with a media panel: a photo backdrop with an elaborate dashboard mockup floating on top.",
+      "meta": {
+        "iframeHeight": 1300
       }
     },
     {
