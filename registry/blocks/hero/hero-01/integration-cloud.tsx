@@ -1,15 +1,16 @@
-const ROWS = [
-  ['Notion', 'GitHub', 'Stripe', 'Figma'],
-  ['Supabase', 'Resend', 'Raycast'],
-] as const
+export interface IntegrationCloudProps {
+  rows: readonly (readonly string[])[]
+}
 
-export function IntegrationCloud() {
+export function IntegrationCloud({ rows }: Readonly<IntegrationCloudProps>) {
+  if (rows.length === 0) return null
+
   return (
     <div
       aria-hidden
       className="flex w-full flex-col items-center gap-3 mask-x-from-90% mask-x-to-100% pt-4 pb-1"
     >
-      {ROWS.map((row) => (
+      {rows.map((row) => (
         <div
           key={row.join()}
           className="flex items-center justify-center gap-3 sm:gap-4"

@@ -20,6 +20,7 @@ export interface Hero01Props {
   description: string
   animation?: 'none' | 'subtle'
   primaryCTA: CtaProps
+  integrationRows: string[][]
   variant?: 'standard' | 'compact'
 }
 
@@ -77,6 +78,7 @@ export function Hero01({
   description,
   animation = 'none',
   primaryCTA,
+  integrationRows,
   variant = 'standard',
 }: Readonly<Hero01Props>) {
   const reduce = useReducedMotion()
@@ -143,7 +145,9 @@ export function Hero01({
     </Button>
   )
 
-  const illustrationElement = <IntegrationCloud />
+  const illustrationElement = integrationRows.length > 0 && (
+    <IntegrationCloud rows={integrationRows} />
+  )
 
   return (
     <section className="bg-background relative isolate w-full overflow-hidden">

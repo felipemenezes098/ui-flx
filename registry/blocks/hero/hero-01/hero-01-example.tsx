@@ -13,6 +13,10 @@ export const values = {
     variant: 'default',
     size: 'default',
   },
+  integrationRows: [
+    ['Notion', 'GitHub', 'Stripe', 'Figma'],
+    ['Supabase', 'Resend', 'Raycast'],
+  ],
 } satisfies Hero01Props
 
 export function Hero01Example() {

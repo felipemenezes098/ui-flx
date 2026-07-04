@@ -1,7 +1,9 @@
 'use client'
 
+import { Plus, X } from 'lucide-react'
 import * as React from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -54,6 +56,49 @@ export function Hero01EditorFields({
   const updateCta = (field: keyof CtaProps, value: unknown) => {
     const current = props.primaryCTA ?? { ctaEnabled: true, text: '', link: '' }
     commit({ ...props, primaryCTA: { ...current, [field]: value } })
+  }
+
+  const updateIntegrationRows = (rows: string[][]) => {
+    updateField('integrationRows', rows)
+  }
+
+  const addRow = () => {
+    updateIntegrationRows([...props.integrationRows, ['Integration']])
+  }
+
+  const removeRow = (rowIndex: number) => {
+    updateIntegrationRows(props.integrationRows.filter((_, i) => i !== rowIndex))
+  }
+
+  const addIntegration = (rowIndex: number) => {
+    updateIntegrationRows(
+      props.integrationRows.map((row, i) =>
+        i === rowIndex ? [...row, 'Integration'] : row,
+      ),
+    )
+  }
+
+  const removeIntegration = (rowIndex: number, nameIndex: number) => {
+    updateIntegrationRows(
+      props.integrationRows.map((row, i) =>
+        i === rowIndex ? row.filter((_, j) => j !== nameIndex) : row,
+      ),
+    )
+  }
+
+  const updateIntegration = (
+    rowIndex: number,
+    nameIndex: number,
+    value: string,
+  ) => {
+    updateIntegrationRows(
+      props.integrationRows.map((row, i) => {
+        if (i !== rowIndex) return row
+        const next = [...row]
+        next[nameIndex] = value
+        return next
+      }),
+    )
   }
 
   const cta = props.primaryCTA
@@ -135,6 +180,66 @@ export function Hero01EditorFields({
             <SelectItem value="subtle">Subtle</SelectItem>
           </SelectContent>
         </Select>
+      </div>
+
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">Integration cloud</Label>
+          <Button onClick={addRow} size="sm" variant="outline">
+            <Plus className="mr-2 size-4" />
+            Add row
+          </Button>
+        </div>
+
+        {props.integrationRows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="border-border space-y-3 rounded-lg border p-4"
+          >
+            <div className="flex items-center justify-between">
+              <Label className="text-sm font-medium">Row {rowIndex + 1}</Label>
+              <Button
+                onClick={() => removeRow(rowIndex)}
+                size="sm"
+                variant="ghost"
+              >
+                <X className="size-4" />
+              </Button>
+            </div>
+
+            <div className="space-y-2">
+              {row.map((name, nameIndex) => (
+                <div key={nameIndex} className="flex items-center gap-2">
+                  <Input
+                    value={name}
+                    onChange={(e) =>
+                      updateIntegration(rowIndex, nameIndex, e.target.value)
+                    }
+                    placeholder="Integration name"
+                  />
+                  <Button
+                    onClick={() => removeIntegration(rowIndex, nameIndex)}
+                    size="sm"
+                    variant="ghost"
+                    aria-label={`Remove ${name}`}
+                  >
+                    <X className="size-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+
+            <Button
+              onClick={() => addIntegration(rowIndex)}
+              size="sm"
+              variant="outline"
+              className="w-full"
+            >
+              <Plus className="mr-2 size-4" />
+              Add integration
+            </Button>
+          </div>
+        ))}
       </div>
 
       <div className="space-y-3 rounded-md border p-3">
