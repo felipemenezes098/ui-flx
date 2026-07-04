@@ -1,7 +1,9 @@
 'use client'
 
+import { Plus, X } from 'lucide-react'
 import * as React from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -58,6 +60,25 @@ export function Hero06EditorFields({
   ) => {
     const current = props[key] ?? { ctaEnabled: true, text: '', link: '' }
     commit({ ...props, [key]: { ...current, [field]: value } })
+  }
+
+  const logos = props.logos ?? []
+
+  const addLogo = () => {
+    updateField('logos', [...logos, `Logo ${logos.length + 1}`])
+  }
+
+  const removeLogo = (index: number) => {
+    updateField(
+      'logos',
+      logos.filter((_, i) => i !== index),
+    )
+  }
+
+  const updateLogo = (index: number, value: string) => {
+    const next = [...logos]
+    next[index] = value
+    updateField('logos', next)
   }
 
   const renderCtaFields = (
@@ -182,6 +203,34 @@ export function Hero06EditorFields({
           onChange={(e) => updateField('logosLabel', e.target.value)}
           placeholder="Trusted by teams building the future"
         />
+      </div>
+
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">Logos</Label>
+          <Button onClick={addLogo} size="sm" variant="outline">
+            <Plus className="mr-2 size-4" />
+            Add logo
+          </Button>
+        </div>
+
+        {logos.map((logo, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <Input
+              value={logo}
+              onChange={(e) => updateLogo(index, e.target.value)}
+              placeholder="Company name"
+            />
+            <Button
+              onClick={() => removeLogo(index)}
+              size="sm"
+              variant="ghost"
+              aria-label={`Remove ${logo}`}
+            >
+              <X className="size-4" />
+            </Button>
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ export interface Hero06Props {
   animation?: 'none' | 'subtle'
   primaryCTA: CtaProps
   secondaryCTA?: CtaProps
-  logos?: string[]
+  logos: string[]
   logosLabel?: string
 }
 
@@ -59,7 +59,7 @@ export function Hero06({
   animation = 'none',
   primaryCTA,
   secondaryCTA,
-  logos,
+  logos = [],
   logosLabel,
 }: Readonly<Hero06Props>) {
   const reduce = useReducedMotion()
@@ -83,30 +83,32 @@ export function Hero06({
     </p>
   )
 
-  const ctasElement = (primaryCTA || secondaryCTA) && (
+  const ctasElement = (primaryCTA?.ctaEnabled || secondaryCTA?.ctaEnabled) && (
     <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
       {primaryCTA && <Cta cta={primaryCTA} className="w-full sm:w-fit" />}
       {secondaryCTA && <Cta cta={secondaryCTA} className="w-full sm:w-fit" />}
     </div>
   )
 
-  const logosElement = logos && logos.length > 0 && (
+  const logosElement = (
     <div className="flex flex-col gap-3">
-      {logosLabel && (
+      {logosLabel && logos.length > 0 && (
         <p className="text-muted-foreground/80 text-xs tracking-wide uppercase">
           {logosLabel}
         </p>
       )}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-        {logos.map((logo) => (
-          <span
-            key={logo}
-            className="text-muted-foreground/60 text-sm font-semibold tracking-tight"
-          >
-            {logo}
-          </span>
-        ))}
-      </div>
+      {logos.length > 0 && (
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          {logos.map((logo, index) => (
+            <span
+              key={index}
+              className="text-muted-foreground/60 text-sm font-semibold tracking-tight"
+            >
+              {logo}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   )
 
@@ -139,9 +141,9 @@ export function Hero06({
             {descriptionElement}
           </Reveal>
 
-          {ctasElement && <Reveal active={animate}>{ctasElement}</Reveal>}
+          <Reveal active={animate}>{ctasElement}</Reveal>
 
-          {logosElement && <Reveal active={animate}>{logosElement}</Reveal>}
+          <Reveal active={animate}>{logosElement}</Reveal>
         </div>
 
         <Reveal active={animate} className="w-full">

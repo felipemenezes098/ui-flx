@@ -63,7 +63,10 @@ export function Hero01EditorFields({
   }
 
   const addRow = () => {
-    updateIntegrationRows([...props.integrationRows, ['Integration']])
+    updateIntegrationRows([
+      ...props.integrationRows,
+      [`Integration ${props.integrationRows.length + 1}`],
+    ])
   }
 
   const removeRow = (rowIndex: number) => {
@@ -71,9 +74,12 @@ export function Hero01EditorFields({
   }
 
   const addIntegration = (rowIndex: number) => {
+    const row = props.integrationRows[rowIndex] ?? []
     updateIntegrationRows(
-      props.integrationRows.map((row, i) =>
-        i === rowIndex ? [...row, 'Integration'] : row,
+      props.integrationRows.map((current, i) =>
+        i === rowIndex
+          ? [...current, `Integration ${row.length + 1}`]
+          : current,
       ),
     )
   }
@@ -139,6 +145,19 @@ export function Hero01EditorFields({
           onChange={(e) => updateField('description', e.target.value)}
           rows={3}
           placeholder="Enter description"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="wash-image" className="text-sm font-medium">
+          Background image
+        </Label>
+        <Input
+          id="wash-image"
+          type="url"
+          value={props.washImage}
+          onChange={(e) => updateField('washImage', e.target.value)}
+          placeholder="https://images.unsplash.com/..."
         />
       </div>
 

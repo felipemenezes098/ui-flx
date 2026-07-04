@@ -11,13 +11,11 @@ import { cn } from '@/lib/utils'
 import type { CtaProps } from '../../shared/cta'
 import { IntegrationCloud } from './integration-cloud'
 
-const WASH_IMAGE =
-  'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-
 export interface Hero01Props {
   title: string
   titleLine2?: string
   description: string
+  washImage: string
   animation?: 'none' | 'subtle'
   primaryCTA: CtaProps
   integrationRows: string[][]
@@ -76,6 +74,7 @@ export function Hero01({
   title,
   titleLine2,
   description,
+  washImage,
   animation = 'none',
   primaryCTA,
   integrationRows,
@@ -85,13 +84,13 @@ export function Hero01({
   const animate = animation === 'subtle' && !reduce
   const vs = variantStyles[variant]
 
-  const backgroundElement = (
+  const backgroundElement = washImage && (
     <div
       aria-hidden
       className="pointer-events-none absolute inset-x-0 top-0 z-0 mx-auto h-full w-full mask-t-from-60% mask-t-to-90% mask-b-from-75% mask-b-to-85% mask-radial-[70%_70%] mask-radial-from-60% mask-radial-to-90% mask-radial-at-top opacity-50 md:mask-radial-[70%_90%] dark:opacity-10"
     >
       <img
-        src={WASH_IMAGE}
+        src={washImage}
         alt=""
         className="absolute inset-0 size-full object-cover object-top"
       />
@@ -145,7 +144,7 @@ export function Hero01({
     </Button>
   )
 
-  const illustrationElement = integrationRows.length > 0 && (
+  const illustrationElement = (
     <IntegrationCloud rows={integrationRows} />
   )
 
@@ -169,7 +168,7 @@ export function Hero01({
           {descriptionElement}
         </Reveal>
 
-        {ctaElement && <Reveal active={animate}>{ctaElement}</Reveal>}
+        <Reveal active={animate}>{ctaElement}</Reveal>
 
         <Reveal active={animate} className="w-full">
           {illustrationElement}
