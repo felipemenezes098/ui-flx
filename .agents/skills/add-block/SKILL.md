@@ -375,6 +375,7 @@ If `registry:validate` fails, it will print exactly which field is out of sync o
 
 - [ ] `<slug>.tsx` — component with `Readonly<Props>`; code ordering follows hero-03 (props → `variantStyles` map → motion consts → named element constants → clean `return`); no `if/else` / nested ternaries for layout
 - [ ] Design constitution held — split/staggered enter, subtle exit, `prefers-reduced-motion`, only `transform`/`opacity`/`filter`, no `transition: all`, `<Balancer>` on headings, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii
+- [ ] Fades use Tailwind `mask-*` utilities ([mask-image docs](https://tailwindcss.com/docs/mask-image)) — mask on wrapper (image + overlay), not inline `maskImage` / gradient hacks
 - [ ] shadcn primitives preferred over hand-rolled markup (`Card`/`Badge`/`Button`/…); all used ones listed in `registryDependencies`
 - [ ] Inline illustration considered — built to the add-illustration bar if used, and the decision reported
 - [ ] `<slug>-example.tsx` — exports `values` + named example component
@@ -438,9 +439,10 @@ needs to feel real, and only when it fits. Restraint over cramming everything in
 - **Illustration-style components** — layered `Card`/`Badge`/`Avatar` crops, small
   SVG charts/sparklines, a big `tabular-nums` metric — a believable product fragment
   instead of a stock photo.
-- **Gradient fade** — `bg-gradient-to-t from-black/60 via-black/10 to-transparent`
-  over an image to seat a caption; or a `from-background` fade to melt an
-  illustration into the block edge instead of a hard cutoff.
+- **Gradient fade (caption / tint)** — `bg-gradient-to-t from-black/60 via-black/10 to-transparent`
+  over an image to seat a caption. For **melting media into the block edge** (soft
+  oval wash, edge dissolve), use Tailwind `mask-*` instead — see
+  [Fades with Tailwind `mask-*`](#fades-with-tailwind-mask-utilities) below.
 - **Discreet background vectors** — a faint grid, dot pattern, soft radial glow, or
   a large low-opacity blob behind content (`opacity-[0.04]`–`opacity-10`, theme
   tokens, `pointer-events-none`, `-z-10`). **Only when it earns it** — most blocks
@@ -493,9 +495,85 @@ content better, no visual space, etc.). Never silently drop the option.
 
 ---
 
+## Fades with Tailwind `mask-*` utilities
+
+Fade is one of the highest-leverage ways to give a block life — a background wash,
+a photo that melts into the page, an illustration that dissolves at the edges. **Whenever
+you need a fade on an image or component, consult the Tailwind docs first:**
+
+**https://tailwindcss.com/docs/mask-image**
+
+This project runs **Tailwind CSS v4.1+**, which ships composable `mask-*` utilities.
+Use them — do **not** reach for inline `style={{ maskImage }}`, arbitrary
+`[mask-image:…]` classes, or `bg-gradient-to-*` overlays as the primary fade mechanism.
+
+### When to use
+
+- Soft background image washes (hero blobs, ambient color)
+- Melting media / illustrations into the block background
+- Edge dissolve on a crop — radial oval, linear top/bottom fade, or both combined
+
+### Rules
+
+1. **Read the docs before coding.** Utilities compose (`mask-radial-from-*`,
+   `mask-radial-to-*`, `mask-radial-at-*`, `mask-t-from-*`, `mask-b-from-*`, …).
+   Stacked classes merge into a single mask via `mask-composite: intersect` (Tailwind default).
+2. **Apply the mask on a wrapper** that holds **both** the image and any overlay
+   (e.g. `bg-background/30`). The fade must affect image + tint together.
+3. **Prefer `mask-radial-*` for oval/spotlight shapes** and `mask-*-from/to` for
+   directional edge fades. Combine them when one alone isn't enough.
+4. **Give radial masks room to breathe.** Use a wide/tall wrapper
+   (`inset-x-0 w-full aspect-square lg:aspect-[9/4]`) and let the mask define the
+   visible oval — don't clip with a small fixed `height`; that produces hard straight
+   edges instead of curves.
+5. **Avoid `-z-10` behind `bg-background`** on the same stacking context — the wash
+   disappears behind the section fill. Use `isolate` on the section + `z-0` on the
+   mask wrapper, `z-10` on content.
+6. **Hand-roll CSS only when no utility fits** — the docs cover radial, linear,
+   conic, combined, and responsive (`md:mask-radial-*`) variants.
+
+### Composing masks — pattern
+
+Linear + radial is the common hero wash. Tailwind intersects them automatically:
+
+```tsx
+const backgroundElement = (
+  <div
+    aria-hidden
+    className={cn(
+      'pointer-events-none absolute inset-x-0 top-0 z-0 mx-auto w-full',
+      'mask-t-from-60% mask-t-to-90%',
+      'mask-b-from-75% mask-b-to-85%',
+      'mask-radial-[70%_70%] mask-radial-from-60% mask-radial-to-90% mask-radial-at-top',
+      'md:mask-radial-[70%_90%]',
+      'opacity-50 dark:opacity-10',
+    )}
+  >
+    <img src={WASH_IMAGE} alt="" className="absolute inset-0 size-full object-cover object-top" />
+    <div className="bg-background/30 dark:bg-background/45 absolute inset-0" />
+  </div>
+)
+```
+
+| Utility family | Role |
+| --- | --- |
+| `mask-radial-[W_H]` | Ellipse size — wider = horizontal oval |
+| `mask-radial-at-top` / `mask-radial-at-[50%_32%]` | Radial center — avoid `at-top` alone if top edge looks flat |
+| `mask-radial-from-*` / `mask-radial-to-*` | Radial fade stops |
+| `mask-t-from-*` / `mask-b-from-*` | Linear fade on one edge — composes with radial |
+| `mask-circle` | Force circle instead of default ellipse |
+
+### Reference implementation
+
+`registry/blocks/hero/hero-01/hero-01.tsx` — composed radial + linear mask on a
+full-width background wash. Start there when building similar fades.
+
+---
+
 ## Key rules
 
 - **Constitution first.** [make-interfaces-feel-better](../make-interfaces-feel-better/SKILL.md) + [animations](../animations/SKILL.md) govern all UI here — when a choice conflicts with them, the constitution wins.
+- **Fades = Tailwind `mask-*`.** Any time an image or component needs to dissolve into the background, read [Tailwind mask-image](https://tailwindcss.com/docs/mask-image) and use composable `mask-radial-*` / `mask-*-from/to` utilities on a wrapper — see [Fades with Tailwind `mask-*`](#fades-with-tailwind-mask-utilities). Reference: `hero-01.tsx`.
 - **Prefer shadcn primitives.** Use `Card`/`Badge`/`Button`/`Avatar`/… from `@/components/ui/*` instead of hand-rolling a `div` that reinvents them; drop to raw elements only when no primitive fits. Always list them in `registryDependencies`.
 - **Code ordering = hero-03.** Props interface → `variantStyles` map → motion consts → named `…Element` constants → clean composed `return`. No `if/else` or nested ternaries for layout; branch with a lookup map, gate with `cond && <El />`. Structure, not content, is what makes a block easy to read and adjust.
 - **Consider an inline illustration** for hero/feature/empty-state blocks — built *inside the block* to the add-illustration bar, never as its own illustration-registry entry. Don't wire it to props/editor fields (hard-code the content to simulate a real screen); the one requirement is that its file is included as a `files[].target` in the block's `registry.json`. Report the decision at the end.
