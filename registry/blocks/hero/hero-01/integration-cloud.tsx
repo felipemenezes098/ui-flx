@@ -5,7 +5,10 @@ const ROWS = [
 
 export function IntegrationCloud() {
   return (
-    <div aria-hidden className="flex flex-col items-center gap-3 pt-4">
+    <div
+      aria-hidden
+      className="flex w-full flex-col items-center gap-3 mask-x-from-90% mask-x-to-100% pt-4 pb-1"
+    >
       {ROWS.map((row) => (
         <div
           key={row.join()}

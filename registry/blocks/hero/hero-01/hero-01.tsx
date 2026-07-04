@@ -12,7 +12,7 @@ import type { CtaProps } from '../../shared/cta'
 import { IntegrationCloud } from './integration-cloud'
 
 const WASH_IMAGE =
-  'https://images.unsplash.com/photo-1635776062043-223faf322554?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  'https://images.unsplash.com/photo-1723513262297-1a159c73ef11?q=80&w=1121&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 
 export interface Hero01Props {
   title: string
@@ -86,7 +86,7 @@ export function Hero01({
   const backgroundElement = (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 top-0 z-0 mx-auto aspect-square w-full mask-t-from-88% mask-radial-[75%_100%] mask-radial-from-45% mask-radial-to-75% mask-radial-at-top opacity-30 lg:aspect-[9/4] dark:opacity-5"
+      className="pointer-events-none absolute inset-x-0 top-0 z-0 mx-auto h-full w-full translate-y-[-15%] mask-t-from-75% mask-t-to-85% mask-b-from-75% mask-b-to-85% mask-radial-[70%_70%] mask-radial-from-45% mask-radial-to-75% mask-radial-at-center opacity-20 dark:opacity-5"
     >
       <img
         src={WASH_IMAGE}
@@ -122,7 +122,7 @@ export function Hero01({
 
   const ctaElement = primaryCTA?.ctaEnabled && (
     <Button
-      className="h-10 rounded-full px-6"
+      className="rounded-full"
       variant={primaryCTA.variant ?? 'default'}
       size={primaryCTA.size ?? 'default'}
       asChild={Boolean(primaryCTA.link)}
