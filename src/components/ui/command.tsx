@@ -58,6 +58,7 @@ function CommandDialog({
           className
         )}
         showCloseButton={showCloseButton}
+        onCloseAutoFocus={(e) => e.preventDefault()}
       >
         {children}
       </DialogContent>

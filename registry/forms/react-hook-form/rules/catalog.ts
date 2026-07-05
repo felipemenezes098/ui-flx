@@ -17,19 +17,16 @@ export const rhfRulesCategory: PatternCategory = {
       slug: 'rhf-rules-02',
       name: 'Email Address',
       description: 'Validate an email address with instant feedback.',
-      isNew: true,
     },
     {
       slug: 'rhf-rules-03',
       name: 'Number Range',
       description: 'Keep a numeric input within a sensible range.',
-      isNew: true,
     },
     {
       slug: 'rhf-rules-04',
       name: 'Character Limit',
       description: 'Cap text length with a live character counter.',
-      isNew: true,
     },
   ],
 }

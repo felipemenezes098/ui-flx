@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -32,7 +33,7 @@ function createEmptyItem(index: number): Content01Item {
     description: 'Item description.',
     media: {
       src: 'https://images.unsplash.com/photo-1549308050-395642b27438?q=80&w=1074&auto=format&fit=crop',
-      alt: 'New item media',
+      alt: 'alt image',
     },
   }
 }
@@ -119,9 +120,11 @@ export function Content01EditorFields({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="standard">Standard</SelectItem>
-              <SelectItem value="compact">Compact</SelectItem>
-              <SelectItem value="prominent">Prominent</SelectItem>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+                <SelectItem value="prominent">Prominent</SelectItem>
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>
@@ -148,9 +151,10 @@ export function Content01EditorFields({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="none">None</SelectItem>
-              <SelectItem value="subtle">Subtle</SelectItem>
-              <SelectItem value="emphasis">Emphasis</SelectItem>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>

@@ -1,36 +1,34 @@
-import {
-  Hero04,
-  type Hero04Props,
-} from './hero-04'
+import { Hero04, type Hero04Props } from './hero-04'
 
 export const values = {
-  title: 'New UI blocks, ready for your next launch',
+  title: 'A gallery for the work',
+  titleLine2: 'you are proud of.',
   description:
-    'Explore a cleaner, sharper presentation for your next section. A focused headline, a direct CTA, and a strong visual below to anchor the page.',
-  variant: 'standard',
-  animation: 'emphasis',
-  media: {
-    src: 'https://images.unsplash.com/photo-1750449316808-31a9a800a84b?q=80&w=1219&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Preview of a UI block with content and media',
-  },
-  cta: {
+    'Collect, arrange, and publish your art in a space that feels like a studio, not a spreadsheet.',
+  washImage:
+    'https://images.unsplash.com/photo-1685013640715-8701bbaa2207?q=80&w=2198&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  primaryImage:
+    'https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=1131&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  secondaryImage:
+    'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  primaryAlt: 'Featured artwork',
+  secondaryAlt: 'Abstract artwork',
+  animation: 'subtle',
+  primaryCTA: {
     ctaEnabled: true,
-    text: 'Explore Blocks',
+    text: 'Start your gallery',
     link: '',
     variant: 'default',
-    size: 'lg',
+    size: 'default',
+  },
+  secondaryCTA: {
+    ctaEnabled: true,
+    text: 'See examples',
+    link: '',
+    variant: 'link',
   },
 } satisfies Hero04Props
 
 export function Hero04Example() {
-  return (
-    <Hero04
-      title={values.title}
-      description={values.description}
-      variant={values.variant}
-      animation={values.animation}
-      media={values.media}
-      cta={values.cta}
-    />
-  )
+  return <Hero04 {...values} />
 }

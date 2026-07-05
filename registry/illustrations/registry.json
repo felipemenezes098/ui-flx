@@ -1,0 +1,7 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-illustrations",
+  "homepage": "https://ui.flexnative.com",
+  "include": ["./spot/registry.json", "./scene/registry.json"],
+  "items": []
+}

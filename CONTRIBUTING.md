@@ -10,7 +10,7 @@ If you need any help, open a [Discussion](https://github.com/felipemenezes098/ui
 
 ## About this repository
 
-- We use [npm](https://docs.npmjs.com).
+- We use [pnpm](https://pnpm.io).
 - **Framework**: [Next.js](https://nextjs.org/) with [React](https://react.dev/).
 - **UI foundation**: [shadcn/ui](https://ui.shadcn.com) and [Radix UI](https://www.radix-ui.com/).
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/).
@@ -44,13 +44,13 @@ git checkout -b my-new-branch
 ### Install dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Run the development server
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Commit convention

@@ -9,7 +9,7 @@ export const blockRegistry: BlockTypeMap = {
   // Add all blocks here
 
   // Example:
-  // 'content13': Content.Content13,
+  // 'content01': Content.Content01,
   // 'carousel02': Carousel.Carousel02, ...
 };
 

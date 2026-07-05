@@ -10,10 +10,13 @@ export const manifest: BlockManifest = {
   category: 'content',
   image: {
     light: '/images/blocks/content/content-01.png',
-    dark: '/images/blocks/content/content-01.png',
+    dark: '/images/blocks/content/content-01-dark.png',
   },
   component: Content01,
   editorFields: Content01EditorFields,
   example: Content01Example,
   defaults: values,
+  meta: {
+    iframeHeight: 700,
+  },
 }

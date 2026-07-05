@@ -1,9 +1,19 @@
 'use client'
 
+import { Plus, X } from 'lucide-react'
 import * as React from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../content-09-example'
 
@@ -18,14 +28,15 @@ export function Content09EditorFields({
   props: externalProps,
   onUpdate,
 }: Content09EditorFieldsProps = {}) {
-  const [internalProps, setInternalProps] = React.useState<Content09Props>({
-    title: defaults.title,
-    items: [...defaults.items],
-  })
+  const [internalProps, setInternalProps] =
+    React.useState<Content09Props>(defaults)
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
+  const updateField = <K extends keyof Content09Props>(
+    field: K,
+    value: Content09Props[K],
+  ) => {
     const newProps = { ...props, [field]: value }
 
     if (onUpdate) {
@@ -35,7 +46,7 @@ export function Content09EditorFields({
     }
   }
 
-  const updateItem = (index: number, field: string, value: any) => {
+  const updateItem = (index: number, field: string, value: string) => {
     const newItems = [...props.items]
     newItems[index] = { ...newItems[index], [field]: value }
     const newProps = { ...props, items: newItems }
@@ -81,7 +92,55 @@ export function Content09EditorFields({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-09-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content09Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-09-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-09-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content09Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-09-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="title" className="text-sm font-medium">
           Title
@@ -95,80 +154,72 @@ export function Content09EditorFields({
         />
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
+        <Label htmlFor="description" className="text-sm font-medium">
+          Description
+        </Label>
+        <Textarea
+          id="description"
+          value={props.description ?? ''}
+          onChange={(e) => updateField('description', e.target.value)}
+          placeholder="Enter section description"
+          rows={3}
+        />
+      </div>
+
+      <div className="space-y-4">
         <div className="flex items-center justify-between">
           <Label className="text-sm font-medium">Items</Label>
-          <button
-            type="button"
-            onClick={addItem}
-            className="text-primary hover:text-primary/80 text-xs font-medium"
-          >
-            + Add Item
-          </button>
+          <Button onClick={addItem} size="sm" variant="outline">
+            <Plus className="mr-2 size-4" />
+            Add Item
+          </Button>
         </div>
 
         {props.items.map((item, index) => (
-          <div key={index} className="space-y-3 rounded-md border p-3">
+          <div
+            key={`${item.title}-${index}`}
+            className="border-border space-y-4 rounded-lg border p-4"
+          >
             <div className="flex items-center justify-between">
-              <Label className="text-xs font-medium">Item {index + 1}</Label>
-              {props.items.length > 1 && (
-                <button
-                  type="button"
-                  onClick={() => removeItem(index)}
-                  className="text-destructive hover:text-destructive/80 text-xs"
-                >
-                  Remove
-                </button>
-              )}
+              <Label className="text-sm font-medium">Item {index + 1}</Label>
+              <Button
+                onClick={() => removeItem(index)}
+                size="sm"
+                variant="ghost"
+              >
+                <X className="size-4" />
+              </Button>
             </div>
+
             <div className="space-y-2">
-              <div className="space-y-2">
-                <Label
-                  htmlFor={`item-${index}-title`}
-                  className="text-muted-foreground text-xs"
-                >
-                  Title
-                </Label>
-                <Input
-                  id={`item-${index}-title`}
-                  type="text"
-                  value={item.title}
-                  onChange={(e) => updateItem(index, 'title', e.target.value)}
-                  placeholder="Item title"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label
-                  htmlFor={`item-${index}-description`}
-                  className="text-muted-foreground text-xs"
-                >
-                  Description
-                </Label>
-                <Textarea
-                  id={`item-${index}-description`}
-                  value={item.description}
-                  onChange={(e) =>
-                    updateItem(index, 'description', e.target.value)
-                  }
-                  placeholder="Item description"
-                  rows={2}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label
-                  htmlFor={`item-${index}-icon`}
-                  className="text-muted-foreground text-xs"
-                >
-                  Icon Name
-                </Label>
-                <Input
-                  id={`item-${index}-icon`}
-                  type="text"
-                  value={item.icon}
-                  onChange={(e) => updateItem(index, 'icon', e.target.value)}
-                  placeholder="Palette, Code, Users, etc."
-                />
-              </div>
+              <Label className="text-sm font-medium">Title</Label>
+              <Input
+                value={item.title}
+                onChange={(e) => updateItem(index, 'title', e.target.value)}
+                placeholder="Item title"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Description</Label>
+              <Textarea
+                value={item.description}
+                onChange={(e) =>
+                  updateItem(index, 'description', e.target.value)
+                }
+                placeholder="Item description"
+                rows={2}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Icon Name</Label>
+              <Input
+                value={item.icon}
+                onChange={(e) => updateItem(index, 'icon', e.target.value)}
+                placeholder="Palette, Code, Users, etc."
+              />
             </div>
           </div>
         ))}

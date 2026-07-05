@@ -1,125 +1,167 @@
 'use client'
 
+import * as React from 'react'
+import { motion, useReducedMotion, type Variants } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 
-import type { Logos01Item } from '../../logos/logos-01/logos-01'
-import { Logos01 } from '../../logos/logos-01/logos-01'
-import type { CtaProps } from '../../shared/cta'
-import { Cta } from '../../shared/cta'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 
-export interface Hero02CarouselItem {
-  title: string
-  image: string
-}
+import { Cta, type CtaProps } from '../../shared/cta'
+import { DashboardDemo } from './dashboard-demo'
 
 export interface Hero02Props {
   title: string
+  titleLine2?: string
   description: string
-  logosInfo: string
-  primaryCTA?: CtaProps
-  secondaryCTA?: CtaProps
-  logos: Logos01Item[]
-  carouselItems: Hero02CarouselItem[]
+  washImage: string
+  animation?: 'none' | 'subtle'
+  primaryCTA: CtaProps
+  variant?: 'standard' | 'compact'
+}
+
+const variantStyles = {
+  standard: {
+    section: 'py-20 sm:py-28',
+    title: 'text-3xl sm:text-4xl md:text-5xl',
+    description: 'max-w-md text-sm sm:text-base',
+    header: 'gap-5',
+    content: 'gap-14 sm:gap-20',
+  },
+  compact: {
+    section: 'py-14 sm:py-20',
+    title: 'text-2xl sm:text-3xl md:text-4xl',
+    description: 'max-w-sm text-sm',
+    header: 'gap-4',
+    content: 'gap-10 sm:gap-14',
+  },
+} as const
+
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+}
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const mediaItem: Variants = {
+  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+function Reveal({
+  active,
+  variants,
+  className,
+  children,
+}: Readonly<{
+  active: boolean
+  variants?: Variants
   className?: string
+  children: React.ReactNode
+}>) {
+  if (!active) return <div className={className}>{children}</div>
+
+  return (
+    <motion.div variants={variants ?? item} className={className}>
+      {children}
+    </motion.div>
+  )
 }
 
 export function Hero02({
   title,
+  titleLine2,
   description,
-  logosInfo,
+  washImage,
+  animation = 'none',
   primaryCTA,
-  secondaryCTA,
-  logos,
-  carouselItems,
-  className,
+  variant = 'standard',
 }: Readonly<Hero02Props>) {
-  const containerWidthClassName = cn('w-full max-w-6xl mx-auto px-4', className)
+  const reduce = useReducedMotion()
+  const animate = animation === 'subtle' && !reduce
+  const vs = variantStyles[variant]
+
+  const titleElement = title && (
+    <h1
+      className={cn(
+        'text-foreground font-serif font-normal tracking-tight text-balance',
+        vs.title,
+      )}
+    >
+      <Balancer>{title}</Balancer>
+      {titleLine2 && (
+        <>
+          <br />
+          <Balancer>{titleLine2}</Balancer>
+        </>
+      )}
+    </h1>
+  )
+
+  const descriptionElement = description && (
+    <p className={cn('text-muted-foreground', vs.description)}>
+      <Balancer>{description}</Balancer>
+    </p>
+  )
+
+  const ctaElement = <Cta cta={primaryCTA} />
+
+  const mediaElement = (
+    <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
+      {washImage && (
+        <img
+          src={washImage}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 size-full object-cover"
+        />
+      )}
+      <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
+      <div className="relative flex items-center justify-center px-6 py-12 sm:px-12 sm:py-16">
+        <DashboardDemo />
+      </div>
+    </div>
+  )
 
   return (
-    <section className="space-y-15">
-      <div
+    <section className="bg-background relative isolate w-full overflow-hidden">
+      <motion.div
         className={cn(
-          'flex min-h-70 max-w-2xl flex-col justify-center gap-4',
-          containerWidthClassName,
+          'relative z-10 mx-auto flex max-w-6xl flex-col px-6',
+          vs.section,
+          vs.content,
         )}
+        variants={animate ? container : undefined}
+        initial={animate ? 'hidden' : false}
+        whileInView={animate ? 'visible' : undefined}
+        viewport={{ once: true, margin: '-80px' }}
       >
-        {title ? (
-          <h1 className="text-2xl font-medium tracking-tight md:text-4xl">
-            <Balancer balance={0.5}>{title}</Balancer>
-          </h1>
-        ) : null}
-        {description ? (
-          <p className="text-muted-foreground max-w-2xl text-base whitespace-pre-line">
-            <Balancer balance={0.5}>{description}</Balancer>
-          </p>
-        ) : null}
-        <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-          {primaryCTA ? (
-            <Cta cta={primaryCTA} className="w-full sm:w-fit" />
-          ) : null}
-          {secondaryCTA ? (
-            <Cta cta={secondaryCTA} className="w-full sm:w-fit" />
-          ) : null}
-        </div>
-      </div>
+        <Reveal
+          active={animate}
+          className={cn('flex max-w-2xl flex-col items-start', vs.header)}
+        >
+          {titleElement}
+          {descriptionElement}
+          {ctaElement}
+        </Reveal>
 
-      {logos?.length || carouselItems?.length ? (
-        <div className="flex flex-col gap-10">
-          <div className={containerWidthClassName}>
-            <div className="flex flex-col gap-4 overflow-hidden sm:flex-row sm:items-center sm:justify-center">
-              <p className="text-muted-foreground text-center text-sm sm:max-w-45 sm:text-left">
-                {logosInfo}
-              </p>
-              <div className="w-full min-w-0 flex-1 sm:w-auto">
-                <Logos01 items={logos} />
-              </div>
-            </div>
-          </div>
-          <div className="relative w-full">
-            <Carousel
-              opts={{
-                align: 'center',
-                loop: false,
-                startIndex: Math.floor(carouselItems.length / 2),
-              }}
-              className="w-full"
-              aria-label="Image carousel"
-            >
-              <CarouselContent
-                className={cn(
-                  'h-auto select-none first:!pl-0',
-                  containerWidthClassName,
-                )}
-              >
-                {carouselItems.map((item, index) => (
-                  <CarouselItem
-                    key={`${item.title}-${index}`}
-                    className="basis-full pl-4 md:basis-1/2 lg:basis-2/3"
-                  >
-                    <div className="bg-muted rounded-lg p-4">
-                      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 size-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
-        </div>
-      ) : null}
+        <Reveal active={animate} variants={mediaItem} className="w-full">
+          {mediaElement}
+        </Reveal>
+      </motion.div>
     </section>
   )
 }

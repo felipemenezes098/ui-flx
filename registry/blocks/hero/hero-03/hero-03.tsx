@@ -1,65 +1,60 @@
 'use client'
 
-import { motion, type Variants } from 'motion/react'
+import * as React from 'react'
+import { motion, useReducedMotion, type Variants } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 
-import type { CtaProps } from '../../shared/cta'
-import { Cta } from '../../shared/cta'
 import { cn } from '@/lib/utils'
+
+import { Cta, type CtaProps } from '../../shared/cta'
 
 export interface Hero03Props {
   title: string
   description: string
-  variant?: 'standard' | 'compact' | 'prominent'
-  animation?: 'none' | 'subtle' | 'emphasis'
-  media: {
-    src: string
-    alt?: string
-  }
-  primaryCTA?: CtaProps
+  portraitImage: string
+  portraitAlt?: string
+  animation?: 'none' | 'subtle'
+  primaryCTA: CtaProps
   secondaryCTA?: CtaProps
+  variant?: 'standard' | 'compact'
 }
 
 const variantStyles = {
   standard: {
-    container: 'gap-10 md:min-h-112',
-    title: 'text-3xl font-bold md:text-4xl',
-    description: 'text-base',
-    spacing: 'space-y-6',
+    section: 'py-20 sm:py-28',
+    title: 'text-3xl sm:text-4xl md:text-5xl',
+    description: 'mx-auto max-w-lg text-sm sm:text-base leading-relaxed',
+    header: 'gap-5',
+    content: 'gap-14 sm:gap-20',
+    portrait: 'max-w-3xl',
   },
   compact: {
-    container: 'gap-6 md:min-h-88',
-    title: 'text-2xl font-bold md:text-3xl',
-    description: 'text-sm',
-    spacing: 'space-y-4',
-  },
-  prominent: {
-    container: 'gap-12 md:min-h-144',
-    title: 'text-4xl font-bold md:text-5xl',
-    description: 'text-lg',
-    spacing: 'space-y-8',
+    section: 'py-14 sm:py-20',
+    title: 'text-2xl sm:text-3xl md:text-4xl',
+    description: 'mx-auto max-w-md text-sm leading-relaxed',
+    header: 'gap-4',
+    content: 'gap-10 sm:gap-14',
+    portrait: 'max-w-2xl',
   },
 } as const
 
-const emphasisMedia: Variants = {
-  hidden: { opacity: 0, scale: 0.95, filter: 'blur(8px)' },
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+}
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
-    scale: 1,
+    y: 0,
     filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
-const emphasisContent: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-}
-
-const emphasisItem: Variants = {
-  hidden: { opacity: 0, y: 12, filter: 'blur(8px)' },
+const mediaItem: Variants = {
+  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
     y: 0,
@@ -68,155 +63,123 @@ const emphasisItem: Variants = {
   },
 }
 
-const subtleEnter = {
-  initial: { opacity: 0, y: 10, filter: 'blur(8px)' },
-  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-} as const
+function Reveal({
+  active,
+  variants,
+  className,
+  children,
+}: Readonly<{
+  active: boolean
+  variants?: Variants
+  className?: string
+  children: React.ReactNode
+}>) {
+  if (!active) return <div className={className}>{children}</div>
+
+  return (
+    <motion.div variants={variants ?? item} className={className}>
+      {children}
+    </motion.div>
+  )
+}
 
 export function Hero03({
   title,
   description,
-  variant = 'standard',
+  portraitImage,
+  portraitAlt = '',
   animation = 'none',
-  media,
   primaryCTA,
   secondaryCTA,
+  variant = 'standard',
 }: Readonly<Hero03Props>) {
+  const reduce = useReducedMotion()
+  const animate = animation === 'subtle' && !reduce
   const vs = variantStyles[variant]
 
   const titleElement = title && (
-    <h1 className={cn('max-w-full tracking-tight md:max-w-lg', vs.title)}>
-      <Balancer balance={0.5}>{title}</Balancer>
+    <h1
+      className={cn(
+        'text-foreground font-serif font-normal tracking-tight text-balance',
+        vs.title,
+      )}
+    >
+      <Balancer>{title}</Balancer>
     </h1>
   )
 
   const descriptionElement = description && (
-    <p
-      className={cn(
-        'text-muted-foreground max-w-full whitespace-pre-line md:max-w-md',
-        vs.description,
-      )}
-    >
-      <Balancer balance={0.5}>{description}</Balancer>
+    <p className={cn('text-muted-foreground', vs.description)}>
+      <Balancer>{description}</Balancer>
     </p>
   )
 
-  const ctasElement = (
-    <div className="flex flex-col gap-3 sm:flex-row">
-      {primaryCTA && <Cta cta={primaryCTA} className="w-full sm:w-fit" />}
-      {secondaryCTA && <Cta cta={secondaryCTA} className="w-full sm:w-fit" />}
+  const ctasElement = (primaryCTA?.ctaEnabled || secondaryCTA?.ctaEnabled) && (
+    <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+      {primaryCTA?.ctaEnabled && <Cta cta={primaryCTA} />}
+      {secondaryCTA?.ctaEnabled && (
+        <Cta
+          cta={{ ...secondaryCTA, variant: secondaryCTA.variant ?? 'link' }}
+        />
+      )}
     </div>
   )
 
-  const mediaElement = media && (
-    <div
-      className={cn(
-        'relative order-2 flex md:h-full md:items-end md:justify-end',
-      )}
-    >
-      <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg md:min-h-120">
+  const mediaElement = portraitImage && (
+    <div className={cn('relative mx-auto w-full', vs.portrait)}>
+      <div
+        className={cn(
+          'relative z-10 mx-auto w-full overflow-hidden',
+          'mask-x-from-75% mask-x-to-100%',
+          'mask-t-from-55% mask-t-to-100%',
+          'mask-b-from-55% mask-b-to-100%',
+          'mask-radial-[80%_70%] mask-radial-from-70% mask-radial-to-100% mask-radial-at-center',
+          'dark:opacity-85 dark:mix-blend-darken',
+        )}
+      >
+        <div
+          aria-hidden
+          className="bg-background/25 dark:bg-background/40 pointer-events-none absolute inset-0 mix-blend-overlay"
+        />
         <img
-          src={media.src}
-          alt={media.alt ?? title ?? 'Hero media'}
-          loading="lazy"
+          src={portraitImage}
+          alt={portraitAlt}
           decoding="async"
-          className="absolute inset-0 size-full rounded-lg object-cover object-bottom transition-all duration-200 group-hover/image:scale-[1.02]"
+          className="relative aspect-[5/4] w-full object-cover object-[center_15%] dark:mix-blend-lighten dark:brightness-[0.92] dark:contrast-[1.05] dark:saturate-[0.9]"
         />
       </div>
     </div>
   )
 
   return (
-    <div
-      className={cn(
-        'grid w-full grid-cols-1 overflow-hidden md:grid-cols-2',
-        vs.container,
-      )}
-    >
-      {animation === 'emphasis' && (
-        <>
-          <motion.div
-            className={cn(
-              'order-1 flex w-full min-w-0 flex-col justify-end overflow-hidden pb-2',
-              vs.spacing,
-            )}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={emphasisContent}
-          >
-            <motion.div variants={emphasisItem} className="space-y-4">
-              {titleElement}
-              {descriptionElement}
-            </motion.div>
+    <section className="bg-background relative isolate w-full overflow-hidden">
+      <motion.div
+        className={cn(
+          'relative z-10 mx-auto flex max-w-6xl flex-col px-6',
+          vs.section,
+          vs.content,
+        )}
+        variants={animate ? container : undefined}
+        initial={animate ? 'hidden' : false}
+        whileInView={animate ? 'visible' : undefined}
+        viewport={{ once: true, margin: '-80px' }}
+      >
+        <Reveal
+          active={animate}
+          className={cn(
+            'mx-auto flex w-full max-w-2xl flex-col items-center text-center',
+            vs.header,
+          )}
+        >
+          {titleElement}
+          {descriptionElement}
+          {ctasElement}
+        </Reveal>
 
-            {(primaryCTA || secondaryCTA) && (
-              <motion.div variants={emphasisItem}>{ctasElement}</motion.div>
-            )}
-          </motion.div>
-
-          <motion.div
-            className="order-2 overflow-hidden"
-            variants={emphasisMedia}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            {mediaElement}
-          </motion.div>
-        </>
-      )}
-
-      {animation === 'subtle' && (
-        <>
-          <motion.div
-            className={cn(
-              'order-1 flex w-full min-w-0 flex-col justify-end overflow-hidden pb-2',
-              vs.spacing,
-            )}
-            initial={subtleEnter.initial}
-            whileInView={subtleEnter.animate}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={subtleEnter.transition}
-          >
-            <div className="space-y-4">
-              {titleElement}
-              {descriptionElement}
-            </div>
-            {ctasElement}
-          </motion.div>
-
-          <motion.div
-            className="order-2 overflow-hidden"
-            initial={subtleEnter.initial}
-            whileInView={subtleEnter.animate}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={subtleEnter.transition}
-          >
-            {mediaElement}
-          </motion.div>
-        </>
-      )}
-
-      {animation === 'none' && (
-        <>
-          <div
-            className={cn(
-              'order-1 flex w-full min-w-0 flex-col justify-end overflow-x-hidden pb-2',
-              vs.spacing,
-            )}
-          >
-            <div className="space-y-4">
-              {titleElement}
-              {descriptionElement}
-            </div>
-            {ctasElement}
-          </div>
-
+        <Reveal active={animate} variants={mediaItem} className="w-full">
           {mediaElement}
-        </>
-      )}
-    </div>
+        </Reveal>
+      </motion.div>
+    </section>
   )
 }

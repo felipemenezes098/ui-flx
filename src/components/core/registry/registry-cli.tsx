@@ -19,7 +19,7 @@ import { useCopy } from '@/hooks/use-copy'
 import { Logo } from '../logo'
 import { cn } from '@/lib/utils'
 
-type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun'
+type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun'
 
 const copyTransition = {
   type: 'spring',
@@ -29,12 +29,12 @@ const copyTransition = {
 
 const PACKAGE_MANAGERS: { name: PackageManager; command: string }[] = [
   {
-    name: 'npm',
-    command: `npx shadcn@latest add @${siteConfig.codeName}`,
-  },
-  {
     name: 'pnpm',
     command: `pnpm dlx shadcn@latest add @${siteConfig.codeName}`,
+  },
+  {
+    name: 'npm',
+    command: `npx shadcn@latest add @${siteConfig.codeName}`,
   },
   {
     name: 'yarn',

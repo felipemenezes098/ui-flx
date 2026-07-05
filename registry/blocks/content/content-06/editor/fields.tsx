@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -31,7 +32,10 @@ export function Content06EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
+  const updateField = <K extends keyof Content06Props>(
+    field: K,
+    value: Content06Props[K],
+  ) => {
     const newProps = { ...props, [field]: value }
 
     if (onUpdate) {
@@ -75,6 +79,54 @@ export function Content06EditorFields({
 
   return (
     <div className="space-y-4">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-06-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content06Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-06-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-06-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content06Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-06-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="title" className="text-sm font-medium">
           Title
@@ -213,12 +265,14 @@ export function Content06EditorFields({
                   <SelectValue placeholder="Select variant" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
-                  <SelectItem value="destructive">Destructive</SelectItem>
-                  <SelectItem value="outline">Outline</SelectItem>
-                  <SelectItem value="secondary">Secondary</SelectItem>
-                  <SelectItem value="ghost">Ghost</SelectItem>
-                  <SelectItem value="link">Link</SelectItem>
+                  <SelectGroup>
+                    <SelectItem value="default">Default</SelectItem>
+                    <SelectItem value="destructive">Destructive</SelectItem>
+                    <SelectItem value="outline">Outline</SelectItem>
+                    <SelectItem value="secondary">Secondary</SelectItem>
+                    <SelectItem value="ghost">Ghost</SelectItem>
+                    <SelectItem value="link">Link</SelectItem>
+                  </SelectGroup>
                 </SelectContent>
               </Select>
             </div>

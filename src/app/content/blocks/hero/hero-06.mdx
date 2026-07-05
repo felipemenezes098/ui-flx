@@ -1,0 +1,77 @@
+export const metadata = {
+  title: 'Hero 06',
+  description:
+    'An elaborate product hero with announcement, dual CTA, social proof, and a framed app preview.',
+  openGraph: {
+    title: 'Hero 06',
+    description:
+      'An elaborate product hero with announcement, dual CTA, social proof, and a framed app preview.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-06" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-06" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-06/hero-06-example.tsx"
+  title="hero-06-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta.tsx"
+  title="cta.tsx"
+  collapsible
+/>
+
+<Step>Add the illustration (optional)</Step>
+
+Hero 06 uses **Spot 01** as a product preview on the right. It is only an example. Swap it for a screenshot, mockup, or any component you prefer.
+
+<CodeBlockFromFile
+  filePath="registry/illustrations/spot/spot-01.tsx"
+  title="spot-01.tsx"
+  collapsible
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-06/hero-06.tsx"
+  collapsible
+  title="hero-06.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-06/hero-06-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

@@ -10,6 +10,7 @@ export interface BlockMeta {
   containerClassName?: string
   componentClassName?: string
   iframeHeight?: number
+  captureViewportOnly?: boolean
 }
 
 export interface BlockManifest<TProps = Record<string, unknown>> {
@@ -25,6 +26,7 @@ export interface BlockManifest<TProps = Record<string, unknown>> {
   example?: React.ComponentType<any>
   defaults: TProps
   variations?: Record<string, React.ComponentType<any>>
+  variationDefaults?: Record<string, TProps>
 }
 
 export interface BlockItem {

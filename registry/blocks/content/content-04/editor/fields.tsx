@@ -6,6 +6,14 @@ import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../content-04-example'
 
@@ -25,6 +33,19 @@ export function Content04EditorFields({
 
   const props = externalProps ?? internalProps
 
+  const updateField = <K extends keyof Content04Props>(
+    field: K,
+    value: Content04Props[K],
+  ) => {
+    const newProps = { ...props, [field]: value }
+
+    if (onUpdate) {
+      onUpdate(newProps)
+    } else {
+      setInternalProps(newProps)
+    }
+  }
+
   const addItem = () => {
     const newProps = {
       ...props,
@@ -34,8 +55,8 @@ export function Content04EditorFields({
           title: 'New card',
           description: 'Short description for this card.',
           media: {
-            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            alt: 'Card image',
+            src: 'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            alt: 'alt image',
           },
         },
       ],
@@ -99,6 +120,80 @@ export function Content04EditorFields({
 
   return (
     <div className="space-y-6">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-04-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content04Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-04-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-04-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content04Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-04-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="title" className="text-sm font-medium">
+          Title
+        </Label>
+        <Input
+          id="title"
+          type="text"
+          value={props.title}
+          onChange={(e) => updateField('title', e.target.value)}
+          placeholder="Enter title"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="description" className="text-sm font-medium">
+          Description
+        </Label>
+        <Textarea
+          id="description"
+          value={props.description ?? ''}
+          onChange={(e) => updateField('description', e.target.value)}
+          placeholder="Enter section description"
+          rows={3}
+        />
+      </div>
+
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <Label className="text-sm font-medium">Cards</Label>

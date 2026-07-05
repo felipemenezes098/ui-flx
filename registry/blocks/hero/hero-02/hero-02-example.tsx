@@ -1,76 +1,22 @@
-import {
-  Hero02,
-  type Hero02Props,
-} from './hero-02'
+import { Hero02, type Hero02Props } from './hero-02'
 
 export const values = {
-  title: 'Ambitious ideas deserve world-class design',
+  title: 'Every metric that matters,',
+  titleLine2: 'in one clear view.',
   description:
-    'We partner with startups to craft products that stand out, win trust, and scale with speed.',
-  logosInfo: 'Our design crew worked with industry leaders',
+    'Track revenue, users, and activity in real time, with no setup and no spreadsheets.',
+  washImage:
+    'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  animation: 'subtle',
   primaryCTA: {
     ctaEnabled: true,
-    text: 'Get Started',
+    text: 'Start free',
     link: '',
     variant: 'default',
+    size: 'default',
   },
-  secondaryCTA: {
-    ctaEnabled: true,
-    text: 'View Work',
-    link: '',
-    variant: 'secondary',
-  },
-  logos: [
-    {
-      title: 'Supabase',
-      url: 'https://cdn.brandfetch.io/idsSceG8fK/w/800/h/156/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B',
-    },
-    {
-      title: 'Google',
-      url: 'https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
-    },
-    {
-      title: 'Shopify',
-      url: 'https://cdn.brandfetch.io/idAgPm7IvG/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
-    },
-    {
-      title: 'Mongo',
-      url: 'https://cdn.brandfetch.io/ideyyfT0Lp/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
-    },
-    {
-      title: 'LottieFiles',
-      url: 'https://cdn.brandfetch.io/idEExqEvR9/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
-    },
-  ],
-  carouselItems: [
-    {
-      title: 'Image 1',
-      image:
-        'https://images.unsplash.com/photo-1729575846511-f499d2e17d79?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    },
-    {
-      title: 'Image 2',
-      image:
-        'https://images.unsplash.com/photo-1679193559674-860ef78899bc?q=80&w=1198&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    },
-    {
-      title: 'Image 3',
-      image:
-        'https://images.unsplash.com/photo-1771732266970-f63e35c8f47a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    },
-  ],
 } satisfies Hero02Props
 
 export function Hero02Example() {
-  return (
-    <Hero02
-      title={values.title}
-      description={values.description}
-      logosInfo={values.logosInfo}
-      primaryCTA={values.primaryCTA}
-      secondaryCTA={values.secondaryCTA}
-      logos={values.logos}
-      carouselItems={values.carouselItems}
-    />
-  )
+  return <Hero02 {...values} />
 }

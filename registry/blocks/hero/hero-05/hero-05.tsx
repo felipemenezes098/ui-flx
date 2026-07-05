@@ -1,172 +1,206 @@
 'use client'
 
-import { motion, type Variants } from 'motion/react'
+import * as React from 'react'
+import { motion, useReducedMotion, type Variants } from 'motion/react'
+import Balancer from 'react-wrap-balancer'
 
-import type { CtaProps } from '../../shared/cta'
-import { Cta } from '../../shared/cta'
-import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
-export interface Feature {
-  icon: string
-  title: string
-}
+import { Cta, type CtaProps } from '../../shared/cta'
 
 export interface Hero05Props {
+  tagline: string
   title: string
-  variant?: 'standard' | 'compact' | 'prominent'
-  animation?: 'none' | 'subtle' | 'emphasis'
-  primaryCTA: CtaProps
+  description: string
+  landscapeImage: string
+  landscapeAlt?: string
+  animation?: 'none' | 'subtle'
+  primaryCTA?: CtaProps
   secondaryCTA?: CtaProps
-  features: Feature[]
+  variant?: 'standard' | 'compact'
 }
 
 const variantStyles = {
   standard: {
-    root: 'min-h-60 space-y-6',
-    title: 'max-w-2xl text-balance text-3xl font-bold sm:text-4xl',
-    badgeList: 'm-0 mt-3 flex list-none flex-wrap justify-center gap-3',
+    copy: 'pt-20 pb-10 sm:pt-28 sm:pb-12 lg:pt-32',
+    tagline: 'text-sm sm:text-base',
+    title: 'text-3xl sm:text-4xl md:text-5xl',
+    description: 'text-sm sm:text-base',
+    header: 'gap-6 sm:gap-8',
+    grid: 'gap-10',
   },
   compact: {
-    root: 'min-h-48 space-y-4',
-    title: 'max-w-xl text-balance text-2xl font-bold sm:text-3xl',
-    badgeList: 'm-0 mt-2 flex list-none flex-wrap justify-center gap-2',
-  },
-  prominent: {
-    root: 'min-h-72 space-y-8',
-    title: 'max-w-3xl text-balance text-4xl font-bold sm:text-5xl',
-    badgeList: 'm-0 mt-5 flex list-none flex-wrap justify-center gap-4',
+    copy: 'pt-14 pb-8 sm:pt-20 sm:pb-10 lg:pt-24',
+    tagline: 'text-sm',
+    title: 'text-2xl sm:text-3xl md:text-4xl',
+    description: 'text-sm',
+    header: 'gap-4 sm:gap-5',
+    grid: 'gap-8',
   },
 } as const
 
-const emphasisContent: Variants = {
+const container: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 }
 
-const emphasisItem: Variants = {
-  hidden: { opacity: 0, y: 12, filter: 'blur(8px)' },
+const item: Variants = {
+  hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
-const emphasisBadgeList: Variants = {
-  hidden: {},
+const mediaItem: Variants = {
+  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
   visible: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
-const subtleEnter = {
-  initial: { opacity: 0, y: 10, filter: 'blur(8px)' },
-  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-} as const
+function Reveal({
+  active,
+  variants,
+  className,
+  children,
+}: Readonly<{
+  active: boolean
+  variants?: Variants
+  className?: string
+  children: React.ReactNode
+}>) {
+  if (!active) return <div className={className}>{children}</div>
+
+  return (
+    <motion.div variants={variants ?? item} className={className}>
+      {children}
+    </motion.div>
+  )
+}
 
 export function Hero05({
+  tagline,
   title,
-  variant = 'standard',
+  description,
+  landscapeImage,
+  landscapeAlt = '',
   animation = 'none',
   primaryCTA,
   secondaryCTA,
-  features,
+  variant = 'standard',
 }: Readonly<Hero05Props>) {
+  const reduce = useReducedMotion()
+  const animate = animation === 'subtle' && !reduce
   const vs = variantStyles[variant]
 
-  const titleNode = title && <h1 className={vs.title}>{title}</h1>
-
-  const ctasNode =
-    primaryCTA || secondaryCTA ? (
-      <div className="flex flex-col gap-3 sm:flex-row">
-        {primaryCTA && <Cta cta={primaryCTA} className="w-full sm:w-fit" />}
-        {secondaryCTA && <Cta cta={secondaryCTA} className="w-full sm:w-fit" />}
-      </div>
-    ) : null
-
-  const badgesNode = features && features.length > 0 && (
-    <ul className={vs.badgeList}>
-      {features.map((feature, index) => (
-        <Badge key={`${feature.title}-${index}`} variant="secondary">
-          {feature.title}
-        </Badge>
-      ))}
-    </ul>
-  )
-
-  const badgesNodeEmphasis = features && features.length > 0 && (
-    <motion.ul className={vs.badgeList} variants={emphasisBadgeList}>
-      {features.map((feature, index) => (
-        <motion.li
-          key={`${feature.title}-${index}`}
-          variants={emphasisItem}
-          className="list-none"
-        >
-          <Badge variant="secondary">{feature.title}</Badge>
-        </motion.li>
-      ))}
-    </motion.ul>
-  )
-
-  const rootClass = cn(
-    'flex flex-col items-center justify-center text-center',
-    vs.root,
-  )
-
-  const viewport = {
-    once: true,
-    amount: 0.12 as const,
-    margin: '48px' as const,
-  }
-
-  return (
-    <div className="w-full">
-      {animation === 'emphasis' && (
-        <motion.div
-          key={animation}
-          className={rootClass}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={emphasisContent}
-        >
-          {titleNode && (
-            <motion.div variants={emphasisItem}>{titleNode}</motion.div>
-          )}
-          {ctasNode && (
-            <motion.div variants={emphasisItem}>{ctasNode}</motion.div>
-          )}
-          {badgesNodeEmphasis}
-        </motion.div>
+  const taglineElement = tagline && (
+    <p
+      className={cn(
+        'text-muted-foreground max-w-xs leading-relaxed tracking-tight',
+        vs.tagline,
       )}
+    >
+      <Balancer>{tagline}</Balancer>
+    </p>
+  )
 
-      {animation === 'subtle' && (
-        <motion.div
-          key={animation}
-          className={rootClass}
-          initial={subtleEnter.initial}
-          whileInView={subtleEnter.animate}
-          viewport={viewport}
-          transition={subtleEnter.transition}
-        >
-          {titleNode}
-          {ctasNode}
-          {badgesNode}
-        </motion.div>
+  const titleElement = title && (
+    <h1
+      className={cn(
+        'text-foreground font-semibold tracking-tight text-balance',
+        vs.title,
       )}
+    >
+      <Balancer>{title}</Balancer>
+    </h1>
+  )
 
-      {animation === 'none' && (
-        <div key={animation} className={rootClass}>
-          {titleNode}
-          {ctasNode}
-          {badgesNode}
-        </div>
+  const descriptionElement = description && (
+    <p
+      className={cn(
+        'text-muted-foreground max-w-xl leading-relaxed',
+        vs.description,
+      )}
+    >
+      <Balancer>{description}</Balancer>
+    </p>
+  )
+
+  const ctasElement = (primaryCTA?.ctaEnabled || secondaryCTA?.ctaEnabled) && (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+      {primaryCTA?.ctaEnabled && <Cta cta={primaryCTA} />}
+      {secondaryCTA?.ctaEnabled && (
+        <Cta
+          cta={{ ...secondaryCTA, variant: secondaryCTA.variant ?? 'link' }}
+        />
       )}
     </div>
+  )
+
+  const mediaElement = landscapeImage && (
+    <div className="relative w-full overflow-hidden">
+      <div
+        className={cn(
+          'relative overflow-hidden rounded-b-sm',
+          'mask-t-from-80% mask-t-to-95%',
+        )}
+      >
+        <div
+          aria-hidden
+          className="bg-background/15 dark:bg-background/30 pointer-events-none absolute inset-0 z-10 mix-blend-overlay"
+        />
+        <img
+          src={landscapeImage}
+          alt={landscapeAlt}
+          decoding="async"
+          className="aspect-[2/1] w-full object-cover object-center outline outline-black/10 sm:aspect-[9/4] dark:outline-white/10 dark:brightness-[0.97] dark:saturate-[0.92]"
+        />
+      </div>
+    </div>
+  )
+
+  return (
+    <section className="bg-background relative isolate w-full overflow-hidden">
+      <motion.div
+        className={cn(
+          'relative z-10 mx-auto grid max-w-7xl grid-cols-1 px-6 lg:grid-cols-12',
+          vs.copy,
+          vs.grid,
+        )}
+        variants={animate ? container : undefined}
+        initial={animate ? 'hidden' : false}
+        whileInView={animate ? 'visible' : undefined}
+        viewport={{ once: true, margin: '-80px' }}
+      >
+        <Reveal
+          active={animate}
+          className="flex lg:col-span-4 lg:col-start-1 lg:items-end lg:self-stretch"
+        >
+          {taglineElement}
+        </Reveal>
+
+        <Reveal
+          active={animate}
+          className={cn(
+            'flex flex-col items-start lg:col-span-6 lg:col-start-7',
+            vs.header,
+          )}
+        >
+          {titleElement}
+          {descriptionElement}
+          {ctasElement}
+        </Reveal>
+      </motion.div>
+
+      <Reveal active={animate} variants={mediaItem} className="w-full">
+        {mediaElement}
+      </Reveal>
+    </section>
   )
 }

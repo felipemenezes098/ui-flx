@@ -10,20 +10,7 @@ export const metadata = {
   },
 }
 
-<BlockLiveEditor category="carousel" slug="carousel-01">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Carousel 01</PageTitle>
-  <PageDescription>
-    Auto-scrolling carousel that pauses on item hover, dims other items, and
-    reveals an animated title “inside” or “outside” the image.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="carousel" slug="carousel-01" />
 
 ## Implementation
 
@@ -31,7 +18,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -46,7 +32,7 @@ The block supports a **titlePlacement** prop that controls where the animated ti
 
 When `titlePlacement` is `inside`, the title appears overlaid at the bottom of each image with a gradient background.
 
-<BlockPreview
+<BlockPreviewFrame
   category="carousel"
   slug="carousel-01"
   variation="title-inside"
@@ -86,44 +72,5 @@ When `titlePlacement` is `inside`, the title appears overlaid at the bottom of e
 </Steps>
 
 </TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Carousel 01. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/carousel/carousel-01/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/carousel/carousel-01.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/carousel/carousel-01/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/carousel/carousel-01.tsx"
-  showLineNumbers
-/>
-
-</Steps>
-
-</TabsContent>
 </CodeTabs>
 
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

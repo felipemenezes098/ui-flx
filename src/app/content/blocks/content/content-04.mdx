@@ -1,28 +1,16 @@
 export const metadata = {
   title: 'Content 04',
   description:
-    'A two-column grid of cards with title, description, and bottom-aligned image.',
+    'Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.',
   openGraph: {
     title: 'Content 04',
     description:
-      'A two-column grid of cards with title, description, and bottom-aligned image.',
+      'Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.',
     type: 'article',
   },
 }
 
-<BlockLiveEditor category="content" slug="content-04">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Content 04</PageTitle>
-  <PageDescription>
-    Responsive two-column grid: each item is a Card with title, description, and an image inset on the sides and flush to the bottom.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="content" slug="content-04" />
 
 ## Implementation
 
@@ -49,9 +37,11 @@ export const metadata = {
 
 <Steps>
 
-<Step>Install shadcn Card</Step>
+<Step>Install dependencies</Step>
 
 <CodeBlockCommand command="shadcn@latest add card" />
+<CodeBlockCommand command="motion" isPackage />
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
 
 <Step>Copy the component</Step>
 
@@ -70,13 +60,3 @@ export const metadata = {
 </TabsContent>
 </CodeTabs>
 
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

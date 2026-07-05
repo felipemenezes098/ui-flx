@@ -5,12 +5,14 @@ import type { ComponentType } from 'react'
 import { useState } from 'react'
 
 import {
-  CategoryPreviewCard,
-  CategoryPreviewCardBadge,
-  CategoryPreviewCardFooter,
-  CategoryPreviewCardPreview,
-  CategoryPreviewCardTitle,
-} from '@/components/core/category-preview-card'
+  ConceptGalleryCard,
+  ConceptGalleryCardBadge,
+  ConceptGalleryCardFooter,
+  ConceptGalleryCardMedia,
+  ConceptGalleryCardTitle,
+} from '@/components/core/gallery/concept-gallery-card'
+import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
+import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
 import { Button } from '@/components/ui/button'
 import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
@@ -61,29 +63,29 @@ export function PatternTeaser() {
         </Button>
       </div>
 
-      <div className="relative">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4">
+      <GalleryFade>
+        <GalleryGridUniform>
           {visibleItems.map((item) => {
             const Concept = item.preview
             return (
-              <Link key={item.slug} href={item.href} className="group">
-                <CategoryPreviewCard>
-                  <CategoryPreviewCardPreview className="aspect-square">
-                    {item.hasNew && <CategoryPreviewCardBadge />}
+              <GalleryGridLink key={item.slug} href={item.href}>
+                <ConceptGalleryCard>
+                  <ConceptGalleryCardMedia className="aspect-square">
+                    {item.hasNew && <ConceptGalleryCardBadge />}
                     <Concept />
-                  </CategoryPreviewCardPreview>
-                  <CategoryPreviewCardFooter>
-                    <CategoryPreviewCardTitle>
+                  </ConceptGalleryCardMedia>
+                  <ConceptGalleryCardFooter>
+                    <ConceptGalleryCardTitle>
                       {item.name}
-                    </CategoryPreviewCardTitle>
-                  </CategoryPreviewCardFooter>
-                </CategoryPreviewCard>
-              </Link>
+                    </ConceptGalleryCardTitle>
+                  </ConceptGalleryCardFooter>
+                </ConceptGalleryCard>
+              </GalleryGridLink>
             )
           })}
-        </div>
+        </GalleryGridUniform>
         {!isShown && (
-          <div className="from-background absolute inset-x-0 -bottom-10 flex h-40 items-end justify-center bg-gradient-to-t from-30% to-transparent pb-10">
+          <GalleryFadeFooter>
             <Button
               onClick={() => setIsShown(true)}
               variant="outline"
@@ -92,9 +94,9 @@ export function PatternTeaser() {
             >
               Show all patterns
             </Button>
-          </div>
+          </GalleryFadeFooter>
         )}
-      </div>
+      </GalleryFade>
     </div>
   )
 }

@@ -64,7 +64,7 @@ export function IntentShowcaseDesktop() {
           <div className="absolute inset-0 flex flex-col">
             <div
               ref={threadRef}
-              className="no-scrollbar flex min-h-10 flex-1 flex-col gap-4 overflow-y-auto p-5"
+              className="scroll-fade scroll-fade-9 no-scrollbar flex min-h-10 flex-1 flex-col gap-4 overflow-y-auto p-5"
             >
               {messages.map((msg) => (
                 <div

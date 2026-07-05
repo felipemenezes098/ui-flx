@@ -26,7 +26,10 @@
           "type": "registry:component",
           "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "containerClassName": "max-w-full overflow-hidden px-0"
+      }
     }
   ]
 }

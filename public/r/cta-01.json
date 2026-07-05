@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-01",
+  "title": "Call to Action 01",
+  "description": "A centered text block with a title, description, and CTA.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "@flx/cta"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/cta/cta-01/cta-01.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport type { CtaProps } from '../../shared/cta'\nimport { Cta } from '../../shared/cta'\n\nexport interface Cta01Props {\n  title: string\n  description: string\n  cta?: CtaProps\n}\n\nexport function Cta01({ title, description, cta }: Readonly<Cta01Props>) {\n  return (\n    <div className=\"bg-muted/50 flex min-h-120 items-center justify-center rounded-xl p-5\">\n      <div className=\"flex flex-col items-center space-y-4 self-center\">\n        <div className=\"space-y-2\">\n          {title && (\n            <h2 className=\"text-center text-2xl font-bold md:max-w-200\">\n              <Balancer balance={0.5}>{title}</Balancer>\n            </h2>\n          )}\n          {description && (\n            <p className=\"text-muted-foreground text-center whitespace-pre-line md:max-w-200\">\n              <Balancer balance={0.5}>{description}</Balancer>\n            </p>\n          )}\n        </div>\n        {cta && <Cta cta={cta} />}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/cta/cta-01/cta-01.tsx"
+    },
+    {
+      "path": "registry/blocks/cta/cta-01/cta-01-example.tsx",
+      "content": "import { Cta01, type Cta01Props } from './cta-01'\n\nexport const values = {\n  title: 'Simple & Elegant',\n  description: 'Display content in a minimal and visually appealing way.',\n  cta: {\n    ctaEnabled: true,\n    text: 'Click here',\n    link: '',\n    variant: 'default',\n  },\n} satisfies Cta01Props\n\nexport function Cta01Example() {\n  return (\n    <Cta01\n      title={values.title}\n      description={values.description}\n      cta={values.cta}\n    />\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/cta/cta-01/cta-01-example.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 600
+  },
+  "type": "registry:block"
+}

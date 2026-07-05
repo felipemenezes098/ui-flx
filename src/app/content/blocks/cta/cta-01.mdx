@@ -1,0 +1,66 @@
+export const metadata = {
+  title: 'Call to Action 01',
+  description: 'Centered text block with title, description, and CTA.',
+  openGraph: {
+    title: 'Call to Action 01',
+    description: 'Centered text block with title, description, and CTA.',
+    type: 'article',
+  },
+}
+
+<BlockView category="cta" slug="cta-01" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/cta-01" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/cta/cta-01/cta-01-example.tsx"
+  title="cta-01-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add CTA Component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/cta.tsx"
+  title="cta.tsx"
+  collapsible
+/>
+
+<Step>Install react-wrap-balancer</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/cta/cta-01/cta-01.tsx"
+  collapsible
+  title="cta-01.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/cta/cta-01/cta-01-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+

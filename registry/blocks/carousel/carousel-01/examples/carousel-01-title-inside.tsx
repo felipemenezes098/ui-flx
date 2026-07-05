@@ -1,7 +1,6 @@
 import { Carousel01, type Carousel01Props } from '../carousel-01'
 
-export function Carousel01TitleInside() {
-  const values = {
+export const values = {
     titlePlacement: 'inside' as const,
     items: [
       {
@@ -33,12 +32,8 @@ export function Carousel01TitleInside() {
         },
       },
     ],
-  } satisfies Carousel01Props
+} satisfies Carousel01Props
 
-  return (
-    <Carousel01
-      titlePlacement={values.titlePlacement}
-      items={values.items}
-    />
-  )
+export function Carousel01TitleInside() {
+  return <Carousel01 {...values} />
 }

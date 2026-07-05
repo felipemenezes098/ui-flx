@@ -6,14 +6,12 @@
     {
       "name": "hero-01",
       "type": "registry:block",
-      "title": "Hero 01",
-      "description": "A background media with a title, description and CTA.",
       "registryDependencies": [
         "@flx/cta"
       ],
       "dependencies": [
-        "motion",
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "motion"
       ],
       "files": [
         {
@@ -25,24 +23,33 @@
           "path": "hero-01/hero-01-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
+        },
+        {
+          "path": "hero-01/integration-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-01/integration-cloud.tsx"
         }
       ],
+      "title": "Hero 01",
+      "description": "A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.",
       "meta": {
-        "iframeHeight": 600
+        "iframeHeight": 720
       }
     },
     {
       "name": "hero-02",
       "type": "registry:block",
-      "title": "Hero 02",
-      "description": "Hero with title, description, two CTAs, logo marquee, and image carousel below.",
       "registryDependencies": [
         "@flx/cta",
-        "@flx/logos-01",
-        "carousel"
+        "card",
+        "badge",
+        "avatar",
+        "separator"
       ],
       "dependencies": [
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
       ],
       "files": [
         {
@@ -54,23 +61,28 @@
           "path": "hero-02/hero-02-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
+        },
+        {
+          "path": "hero-02/dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-02/dashboard-demo.tsx"
         }
       ],
+      "title": "Hero 02",
+      "description": "A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.",
       "meta": {
-        "iframeHeight": 800,
-        "containerClassName": "max-w-full overflow-hidden px-0"
+        "iframeHeight": 1300
       }
     },
     {
       "name": "hero-03",
       "type": "registry:block",
-      "title": "Hero 03",
-      "description": "Hero with content on the left (title, description, two CTAs) and media on the right, bottom-aligned.",
       "registryDependencies": [
         "@flx/cta"
       ],
       "dependencies": [
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "motion"
       ],
       "files": [
         {
@@ -84,20 +96,21 @@
           "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
         }
       ],
+      "title": "Hero 03",
+      "description": "A centered hero with dual CTAs and an image that fades into the page below the copy.",
       "meta": {
-        "iframeHeight": 600
+        "iframeHeight": 1200
       }
     },
     {
       "name": "hero-04",
       "type": "registry:block",
-      "title": "Hero 04",
-      "description": "Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.",
       "registryDependencies": [
         "@flx/cta"
       ],
       "dependencies": [
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "motion"
       ],
       "files": [
         {
@@ -109,22 +122,29 @@
           "path": "hero-04/hero-04-example.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
+        },
+        {
+          "path": "hero-04/art-collage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-04/art-collage.tsx"
         }
       ],
+      "title": "Hero 04",
+      "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.",
       "meta": {
-        "iframeHeight": 860
+        "iframeHeight": 820
       }
     },
     {
       "name": "hero-05",
       "type": "registry:block",
-      "title": "Hero 05",
-      "description": "A text badges with a title, CTA and badges.",
       "registryDependencies": [
-        "@flx/cta",
-        "badge"
+        "@flx/cta"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
       "files": [
         {
           "path": "hero-05/hero-05.tsx",
@@ -137,8 +157,67 @@
           "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
         }
       ],
+      "title": "Hero 05",
+      "description": "An editorial hero with a left tagline, right-aligned headline and copy, and a full-width image below.",
       "meta": {
-        "iframeHeight": 500
+        "iframeHeight": 1100
+      }
+    },
+    {
+      "name": "hero-06",
+      "type": "registry:block",
+      "title": "Hero 06",
+      "description": "A split product hero with dual CTA, a compact logo row, and the Spot 01 illustration.",
+      "registryDependencies": [
+        "@flx/cta",
+        "@flx/spot-01"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-06/hero-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06.tsx"
+        },
+        {
+          "path": "hero-06/hero-06-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-06/hero-06-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 820
+      }
+    },
+    {
+      "name": "hero-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-07/hero-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-07/hero-07.tsx"
+        },
+        {
+          "path": "hero-07/hero-07-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-07/hero-07-example.tsx"
+        }
+      ],
+      "title": "Hero 07",
+      "description": "An editorial hero with a full-width image above, a top-aligned tagline, and right-aligned headline and copy below.",
+      "meta": {
+        "iframeHeight": 1100
       }
     }
   ]

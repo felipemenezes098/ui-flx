@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spot-03",
+  "title": "Media card",
+  "description": "An image card with a soft gradient fade and caption.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/illustrations/spot/spot-03.tsx",
+      "content": "'use client'\n\nimport { motion, useReducedMotion } from 'motion/react'\n\nexport function Spot03() {\n  const reduce = useReducedMotion()\n\n  return (\n    <div className=\"relative h-40 w-52 overflow-hidden rounded-2xl border shadow-sm\">\n      <motion.img\n        src=\"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=520&q=80\"\n        alt=\"\"\n        className=\"h-full w-full object-cover outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10\"\n        style={{ willChange: 'transform, opacity' }}\n        initial={reduce ? false : { opacity: 0, scale: 1.08 }}\n        animate={{ opacity: 1, scale: 1 }}\n        transition={{ duration: 0.8, ease: 'easeOut' }}\n      />\n\n      <div className=\"absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent\" />\n\n      <div className=\"absolute inset-x-0 bottom-0 flex flex-col gap-0.5 p-3\">\n        <p className=\"text-sm font-semibold text-white\">Mountain escape</p>\n        <p className=\"text-xs text-white/70\">12 photos · 3 days ago</p>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/illustrations/spot/spot-03.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

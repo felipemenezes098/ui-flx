@@ -4,16 +4,16 @@ export const dataNavbar = [
     href: '/patterns',
   },
   {
-    name: 'Intents',
-    href: '/intents',
-  },
-  {
-    name: 'Forms',
-    href: '/forms/react-hook-form',
-  },
-  {
     name: 'Blocks',
     href: '/blocks',
+  },
+  {
+    name: 'Illustrations',
+    href: '/illustrations',
+  },
+  {
+    name: 'Intents',
+    href: '/intents',
   },
   {
     name: 'Me',

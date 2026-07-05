@@ -1,7 +1,9 @@
-import { BlockLivePageNavProvider } from '@/components/core/editor/live/block-live-breadcrumb'
 import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'
+
+import { BlockBreadcrumb } from '../../components/block-breadcrumb'
+import { BlockMore } from '../../components/block-more'
 
 type Props = {
   params: Promise<{ category: string; slug: string }>
@@ -23,17 +25,22 @@ export default async function BlockPage({ params }: Readonly<Props>) {
   const mod = await import(`@/app/content/blocks/${category}/${slug}.mdx`)
   const Content = mod.default
   const blockMeta = mod.metadata as { title?: string } | undefined
-
-  const components = useMDXComponents({})
-  const blockTitle =
+  const title =
     typeof blockMeta?.title === 'string' ? blockMeta.title : undefined
 
+  const components = useMDXComponents({})
+
   return (
-    <BlockLivePageNavProvider value={{ category, slug, blockTitle }}>
-      <div className="container-page flex flex-col gap-10 px-6">
-        <Content components={components} />
-        <Footer />
-      </div>
-    </BlockLivePageNavProvider>
+    <div className="container-page flex flex-col px-6 pt-4">
+      <BlockBreadcrumb
+        category={category}
+        slug={slug}
+        title={title}
+        className="mb-6"
+      />
+      <Content components={components} />
+      <BlockMore category={category} slug={slug} />
+      <Footer />
+    </div>
   )
 }

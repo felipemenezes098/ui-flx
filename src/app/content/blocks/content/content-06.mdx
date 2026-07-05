@@ -1,26 +1,16 @@
 export const metadata = {
   title: 'Content 06',
-  description: 'Grid with two columns.',
+  description:
+    'Two-column split with serif headline, supporting copy, optional CTA, and a media panel.',
   openGraph: {
     title: 'Content 06',
-    description: 'Grid component with two columns layout.',
+    description:
+      'Two-column split with serif headline, supporting copy, optional CTA, and a media panel.',
     type: 'article',
   },
 }
 
-<BlockLiveEditor category="content" slug="content-06">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Content 06</PageTitle>
-  <PageDescription>
-    Two columns layout with a title, description, and image.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="content" slug="content-06" />
 
 ## Implementation
 
@@ -28,7 +18,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -56,8 +45,9 @@ export const metadata = {
   collapsible
 />
 
-<Step>Install react-wrap-balancer</Step>
+<Step>Install dependencies</Step>
 
+<CodeBlockCommand command="motion" isPackage />
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
 
 <Step>Copy the component</Step>
@@ -75,44 +65,5 @@ export const metadata = {
 </Steps>
 
 </TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Content 06. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/content/content-06/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/content/content-06.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/content/content-06/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/content/content-06.tsx"
-  showLineNumbers
-/>
-
-</Steps>
-
-</TabsContent>
 </CodeTabs>
 
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

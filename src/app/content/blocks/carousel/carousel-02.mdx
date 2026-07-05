@@ -8,19 +8,7 @@ export const metadata = {
   },
 }
 
-<BlockLiveEditor category="carousel" slug="carousel-02">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Carousel 02</PageTitle>
-  <PageDescription>
-    A carousel of media with a title and items.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="carousel" slug="carousel-02" />
 
 ## Implementation
 
@@ -28,7 +16,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -67,44 +54,5 @@ export const metadata = {
 </Steps>
 
 </TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Carousel 02. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/carousel/carousel-02/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/carousel/carousel-02.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/carousel/carousel-02/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/carousel/carousel-02.tsx"
-  showLineNumbers
-/>
-
-</Steps>
-
-</TabsContent>
 </CodeTabs>
 
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

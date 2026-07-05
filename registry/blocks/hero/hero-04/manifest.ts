@@ -7,14 +7,14 @@ export const manifest: BlockManifest = {
   slug: 'hero-04',
   name: 'Hero 04',
   description:
-    'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+    'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-04.png',
-    dark: '/images/blocks/hero/hero-04.png',
+    dark: '/images/blocks/hero/hero-04-dark.png',
   },
   meta: {
-    iframeHeight: 860,
+    iframeHeight: 820,
   },
   component: Hero04,
   editorFields: Hero04EditorFields,

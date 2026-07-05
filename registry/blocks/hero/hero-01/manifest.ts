@@ -6,14 +6,15 @@ import { Hero01Example, values } from './hero-01-example'
 export const manifest: BlockManifest = {
   slug: 'hero-01',
   name: 'Hero 01',
-  description: 'A background media with a title, description and CTA.',
+  description:
+    'A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-01.png',
-    dark: '/images/blocks/hero/hero-01.png',
+    dark: '/images/blocks/hero/hero-01-dark.png',
   },
   meta: {
-    iframeHeight: 600,
+    iframeHeight: 720,
   },
   component: Hero01,
   editorFields: Hero01EditorFields,

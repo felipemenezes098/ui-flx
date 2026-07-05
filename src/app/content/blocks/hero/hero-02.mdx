@@ -1,28 +1,16 @@
 export const metadata = {
   title: 'Hero 02',
   description:
-    'Hero with title, description, two CTAs, logos info text, logo marquee, and image carousel below.',
+    'A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.',
   openGraph: {
     title: 'Hero 02',
     description:
-      'Hero with title, description, two CTAs, logos info text, logo marquee, and image carousel below.',
+      'A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.',
     type: 'article',
   },
 }
 
-<BlockLiveEditor category="hero" slug="hero-02">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Hero 02</PageTitle>
-  <PageDescription>
-    Hero with title, description, two CTAs, a logos info line, logo marquee (auto-scroll), and a manual image carousel below.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="hero" slug="hero-02" />
 
 ## Implementation
 
@@ -49,35 +37,23 @@ export const metadata = {
 
 <Steps>
 
-<Step>Add CTA component</Step>
-
-The block uses the shared CTA for primary and secondary buttons. Copy it if you do not have it yet.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/shared/cta.tsx"
-  title="cta.tsx"
-  collapsible
-/>
-
-<Step>Add Logos 01 component</Step>
-
-The block uses the Logos 01 for the logos strip. Copy the component and install `embla-carousel-auto-scroll` if needed.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/logos/logos-01/logos-01.tsx"
-  collapsible
-  title="logos-01.tsx"
-/>
-
-<CodeBlockCommand
-  command="embla-carousel-auto-scroll"
-  isPackage
-  isDevDependency
-/>
-
-<Step>Install react-wrap-balancer</Step>
+<Step>Install dependencies</Step>
 
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<CodeBlockCommand command="lucide-react" isPackage />
+
+<Step>Add the dashboard illustration (optional)</Step>
+
+Hero 02 ships an inline illustration: an elaborate dashboard mockup built from shadcn primitives that floats over the background image. Swap the content, restyle it, or replace it with a real screenshot.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-02/dashboard-demo.tsx"
+  title="dashboard-demo.tsx"
+  collapsible
+/>
 
 <Step>Copy the component</Step>
 
@@ -95,14 +71,3 @@ The block uses the Logos 01 for the logos strip. Copy the component and install 
 
 </TabsContent>
 </CodeTabs>
-
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

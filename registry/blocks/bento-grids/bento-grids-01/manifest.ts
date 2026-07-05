@@ -11,10 +11,10 @@ export const manifest: BlockManifest = {
   category: 'bento-grids',
   image: {
     light: '/images/blocks/bento-grids/bento-grids-01.png',
-    dark: '/images/blocks/bento-grids/bento-grids-01.png',
+    dark: '/images/blocks/bento-grids/bento-grids-01-dark.png',
   },
   meta: {
-    iframeHeight: 850,
+    iframeHeight: 1000,
   },
   component: BentoGrids01,
   editorFields: BentoGrids01EditorFields,

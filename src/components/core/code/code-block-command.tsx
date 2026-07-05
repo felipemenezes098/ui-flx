@@ -38,31 +38,31 @@ export function CodeBlockCommand({
   const tabs = React.useMemo(() => {
     const devFlag = isDevDependency
       ? {
-          npm: '-D',
           pnpm: '-D',
+          npm: '-D',
           yarn: '-D',
           bun: '-d',
         }
       : {
-          npm: '',
           pnpm: '',
+          npm: '',
           yarn: '',
           bun: '',
         }
 
     if (command) {
       return {
-        npm:
-          __npm__ ??
-          (isPackage
-            ? `npm install ${command} ${devFlag.npm}`.trim()
-            : `npx ${command}`),
-
         pnpm:
           __pnpm__ ??
           (isPackage
             ? `pnpm add ${command} ${devFlag.pnpm}`.trim()
             : `pnpm dlx ${command}`),
+
+        npm:
+          __npm__ ??
+          (isPackage
+            ? `npm install ${command} ${devFlag.npm}`.trim()
+            : `npx ${command}`),
 
         yarn:
           __yarn__ ??
@@ -79,8 +79,8 @@ export function CodeBlockCommand({
     }
 
     return {
-      npm: __npm__,
       pnpm: __pnpm__,
+      npm: __npm__,
       yarn: __yarn__,
       bun: __bun__,
     }

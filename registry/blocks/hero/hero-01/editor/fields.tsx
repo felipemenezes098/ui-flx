@@ -1,12 +1,15 @@
 'use client'
 
+import { Plus, X } from 'lucide-react'
 import * as React from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -15,12 +18,22 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../hero-01-example'
 
+import type { ButtonVariant, CtaProps } from '../../../shared/cta'
 import type { Hero01Props } from '../hero-01'
 
 interface Hero01EditorFieldsProps {
   props?: Hero01Props
   onUpdate?: (props: Hero01Props) => void
 }
+
+const VARIANTS: ButtonVariant[] = [
+  'default',
+  'secondary',
+  'outline',
+  'ghost',
+  'link',
+  'destructive',
+]
 
 export function Hero01EditorFields({
   props: externalProps,
@@ -31,55 +44,71 @@ export function Hero01EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
-    const newProps = { ...props, [field]: value }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const commit = (next: Hero01Props) => {
+    if (onUpdate) onUpdate(next)
+    else setInternalProps(next)
   }
 
-  const updateMedia = (field: 'src' | 'alt' | 'overlay', value: any) => {
-    const newProps = {
-      ...props,
-      media: { ...props.media, [field]: value },
-    }
+  const updateField = <K extends keyof Hero01Props>(
+    field: K,
+    value: Hero01Props[K],
+  ) => commit({ ...props, [field]: value })
 
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const updateCta = (field: keyof CtaProps, value: unknown) => {
+    const current = props.primaryCTA ?? { ctaEnabled: true, text: '', link: '' }
+    commit({ ...props, primaryCTA: { ...current, [field]: value } })
   }
 
-  const updateCta = (field: string, value: any) => {
-    const currentCta = props.cta ?? defaults.cta
-    const newProps: Hero01Props = {
-      ...props,
-      cta: { ...currentCta, [field]: value },
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const updateIntegrationRows = (rows: string[][]) => {
+    updateField('integrationRows', rows)
   }
 
-  const setCtaEnabled = (checked: boolean) => {
-    const currentCta = props.cta ?? defaults.cta
-    const newProps: Hero01Props = {
-      ...props,
-      cta: { ...currentCta, ctaEnabled: checked },
-    }
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const addRow = () => {
+    updateIntegrationRows([
+      ...props.integrationRows,
+      [`Integration ${props.integrationRows.length + 1}`],
+    ])
   }
+
+  const removeRow = (rowIndex: number) => {
+    updateIntegrationRows(props.integrationRows.filter((_, i) => i !== rowIndex))
+  }
+
+  const addIntegration = (rowIndex: number) => {
+    const row = props.integrationRows[rowIndex] ?? []
+    updateIntegrationRows(
+      props.integrationRows.map((current, i) =>
+        i === rowIndex
+          ? [...current, `Integration ${row.length + 1}`]
+          : current,
+      ),
+    )
+  }
+
+  const removeIntegration = (rowIndex: number, nameIndex: number) => {
+    updateIntegrationRows(
+      props.integrationRows.map((row, i) =>
+        i === rowIndex ? row.filter((_, j) => j !== nameIndex) : row,
+      ),
+    )
+  }
+
+  const updateIntegration = (
+    rowIndex: number,
+    nameIndex: number,
+    value: string,
+  ) => {
+    updateIntegrationRows(
+      props.integrationRows.map((row, i) => {
+        if (i !== rowIndex) return row
+        const next = [...row]
+        next[nameIndex] = value
+        return next
+      }),
+    )
+  }
+
+  const cta = props.primaryCTA
 
   return (
     <div className="space-y-4">
@@ -91,7 +120,19 @@ export function Hero01EditorFields({
           id="title"
           value={props.title}
           onChange={(e) => updateField('title', e.target.value)}
-          placeholder="Enter title"
+          placeholder="Build what matters."
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="title-line-2" className="text-sm font-medium">
+          Title line 2
+        </Label>
+        <Input
+          id="title-line-2"
+          value={props.titleLine2 ?? ''}
+          onChange={(e) => updateField('titleLine2', e.target.value)}
+          placeholder="Connect what works."
         />
       </div>
 
@@ -103,80 +144,48 @@ export function Hero01EditorFields({
           id="description"
           value={props.description}
           onChange={(e) => updateField('description', e.target.value)}
-          placeholder="Enter description"
           rows={3}
+          placeholder="Enter description"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="mediaUrl" className="text-sm font-medium">
-          Image URL
+        <Label htmlFor="wash-image" className="text-sm font-medium">
+          Background image
         </Label>
         <Input
-          id="mediaUrl"
-          value={props.media.src}
-          onChange={(e) => updateMedia('src', e.target.value)}
-          placeholder="https://example.com/media.jpg"
+          id="wash-image"
+          type="url"
+          value={props.washImage}
+          onChange={(e) => updateField('washImage', e.target.value)}
+          placeholder="https://images.unsplash.com/..."
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="mediaAlt" className="text-sm font-medium">
-          Image Alt Text
-        </Label>
-        <Input
-          id="mediaAlt"
-          value={props.media.alt}
-          onChange={(e) => updateMedia('alt', e.target.value)}
-          placeholder="Image description"
-        />
-      </div>
-
-      <div className="flex items-center justify-between space-x-2">
-        <Label htmlFor="overlay" className="text-sm font-medium">
-          Image Overlay
-        </Label>
-        <Switch
-          id="overlay"
-          checked={props.media.overlay ?? false}
-          onCheckedChange={(checked) => updateMedia('overlay', checked)}
-        />
-      </div>
-
-      <div className="flex items-center justify-between space-x-2">
-        <Label htmlFor="invert" className="text-sm font-medium">
-          Invert
-        </Label>
-        <Switch
-          id="invert"
-          checked={props.invert}
-          onCheckedChange={(checked) => updateField('invert', checked)}
-        />
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="blockVariant" className="text-sm font-medium">
+        <Label htmlFor="variant" className="text-sm font-medium">
           Variant
         </Label>
         <Select
-          value={props.variant ?? 'primary'}
+          value={props.variant ?? 'standard'}
           onValueChange={(value) =>
             updateField('variant', value as Hero01Props['variant'])
           }
         >
-          <SelectTrigger id="blockVariant" className="w-full">
-            <SelectValue />
+          <SelectTrigger id="variant" className="w-full">
+            <SelectValue placeholder="Variant" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="primary">Primary</SelectItem>
-            <SelectItem value="supporting">Supporting</SelectItem>
-            <SelectItem value="immersive">Immersive</SelectItem>
+            <SelectGroup>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="blockAnimation" className="text-sm font-medium">
+        <Label htmlFor="animation" className="text-sm font-medium">
           Animation
         </Label>
         <Select
@@ -185,77 +194,121 @@ export function Hero01EditorFields({
             updateField('animation', value as Hero01Props['animation'])
           }
         >
-          <SelectTrigger id="blockAnimation" className="w-full">
-            <SelectValue />
+          <SelectTrigger id="animation" className="w-full">
+            <SelectValue placeholder="Animation" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="none">None</SelectItem>
-            <SelectItem value="subtle">Subtle</SelectItem>
-            <SelectItem value="emphasis">Emphasis</SelectItem>
+            <SelectGroup>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
-      <div className="flex items-center justify-between rounded-md border p-3">
-        <Label htmlFor="showCta" className="text-sm font-medium">
-          Show CTA
-        </Label>
-        <Switch
-          id="showCta"
-          checked={props.cta?.ctaEnabled ?? false}
-          onCheckedChange={setCtaEnabled}
-        />
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">Integration cloud</Label>
+          <Button onClick={addRow} size="sm" variant="outline">
+            <Plus className="mr-2 size-4" />
+            Add row
+          </Button>
+        </div>
+
+        {props.integrationRows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="border-border space-y-3 rounded-lg border p-4"
+          >
+            <div className="flex items-center justify-between">
+              <Label className="text-sm font-medium">Row {rowIndex + 1}</Label>
+              <Button
+                onClick={() => removeRow(rowIndex)}
+                size="sm"
+                variant="ghost"
+              >
+                <X className="size-4" />
+              </Button>
+            </div>
+
+            <div className="space-y-2">
+              {row.map((name, nameIndex) => (
+                <div key={nameIndex} className="flex items-center gap-2">
+                  <Input
+                    value={name}
+                    onChange={(e) =>
+                      updateIntegration(rowIndex, nameIndex, e.target.value)
+                    }
+                    placeholder="Integration name"
+                  />
+                  <Button
+                    onClick={() => removeIntegration(rowIndex, nameIndex)}
+                    size="sm"
+                    variant="ghost"
+                    aria-label={`Remove ${name}`}
+                  >
+                    <X className="size-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+
+            <Button
+              onClick={() => addIntegration(rowIndex)}
+              size="sm"
+              variant="outline"
+              className="w-full"
+            >
+              <Plus className="mr-2 size-4" />
+              Add integration
+            </Button>
+          </div>
+        ))}
       </div>
 
-      {(props.cta?.ctaEnabled ?? false) && props.cta && (
-        <>
+      <div className="space-y-3 rounded-md border p-3">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">Primary CTA</Label>
+          <Switch
+            checked={cta?.ctaEnabled ?? false}
+            onCheckedChange={(checked) => updateCta('ctaEnabled', checked)}
+          />
+        </div>
+        {cta?.ctaEnabled && (
           <div className="space-y-2">
-            <Label htmlFor="ctaText" className="text-sm font-medium">
-              CTA Text
-            </Label>
             <Input
-              id="ctaText"
-              value={props.cta?.text ?? ''}
+              value={cta?.text ?? ''}
               onChange={(e) => updateCta('text', e.target.value)}
               placeholder="Button text"
             />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="ctaLink" className="text-sm font-medium">
-              CTA Link
-            </Label>
             <Input
-              id="ctaLink"
-              value={props.cta?.link ?? ''}
+              type="url"
+              value={cta?.link ?? ''}
               onChange={(e) => updateCta('link', e.target.value)}
-              placeholder="/"
+              placeholder="Link URL"
             />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="ctaVariant" className="text-sm font-medium">
-              CTA Variant
-            </Label>
             <Select
-              value={props.cta?.variant ?? 'default'}
-              onValueChange={(value) => updateCta('variant', value)}
+              value={cta?.variant ?? 'default'}
+              onValueChange={(value) =>
+                updateCta('variant', value as ButtonVariant)
+              }
             >
-              <SelectTrigger>
-                <SelectValue />
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Variant" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="default">Default</SelectItem>
-                <SelectItem value="destructive">Destructive</SelectItem>
-                <SelectItem value="outline">Outline</SelectItem>
-                <SelectItem value="secondary">Secondary</SelectItem>
-                <SelectItem value="ghost">Ghost</SelectItem>
-                <SelectItem value="link">Link</SelectItem>
+                <SelectGroup>
+                  {VARIANTS.map((v) => (
+                    <SelectItem key={v} value={v}>
+                      {v}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
               </SelectContent>
             </Select>
           </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   )
 }

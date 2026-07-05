@@ -1,27 +1,37 @@
 'use client'
 
-import { Plus, X } from 'lucide-react'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
+import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../hero-05-example'
 
+import type { ButtonVariant, CtaProps } from '../../../shared/cta'
 import type { Hero05Props } from '../hero-05'
 
 interface Hero05EditorFieldsProps {
   props?: Hero05Props
   onUpdate?: (props: Hero05Props) => void
 }
+
+const VARIANTS: ButtonVariant[] = [
+  'default',
+  'secondary',
+  'outline',
+  'ghost',
+  'link',
+  'destructive',
+]
 
 export function Hero05EditorFields({
   props: externalProps,
@@ -32,102 +42,91 @@ export function Hero05EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
-    const newProps = { ...props, [field]: value }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const commit = (next: Hero05Props) => {
+    if (onUpdate) onUpdate(next)
+    else setInternalProps(next)
   }
 
-  const updatePrimaryCta = (field: string, value: any) => {
-    const newProps = {
-      ...props,
-      primaryCTA: { ...props.primaryCTA, [field]: value },
-    }
+  const updateField = <K extends keyof Hero05Props>(
+    field: K,
+    value: Hero05Props[K],
+  ) => commit({ ...props, [field]: value })
 
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const updateCta = (
+    key: 'primaryCTA' | 'secondaryCTA',
+    field: keyof CtaProps,
+    value: unknown,
+  ) => {
+    const current = props[key] ?? { ctaEnabled: false, text: '', link: '' }
+    commit({ ...props, [key]: { ...current, [field]: value } })
   }
 
-  const updateSecondaryCta = (field: string, value: any) => {
-    const currentSecondary = props.secondaryCTA ?? defaults.secondaryCTA
-    const newProps = {
-      ...props,
-      secondaryCTA: { ...currentSecondary, [field]: value },
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
-  }
-
-  const setSecondaryCtaEnabled = (checked: boolean) => {
-    const currentSecondary = props.secondaryCTA ?? defaults.secondaryCTA
-    const newProps = {
-      ...props,
-      secondaryCTA: { ...currentSecondary, ctaEnabled: checked },
-    }
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
-  }
-
-  const addFeature = () => {
-    const newProps = {
-      ...props,
-      features: [
-        ...props.features,
-        {
-          icon: 'Check',
-          title: 'New Feature',
-        },
-      ],
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
-  }
-
-  const removeFeature = (index: number) => {
-    const newProps = {
-      ...props,
-      features: props.features.filter((_, i) => i !== index),
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
-  }
-
-  const updateFeature = (index: number, field: string, value: any) => {
-    const newFeatures = [...props.features]
-    newFeatures[index] = { ...newFeatures[index], [field]: value }
-    const newProps = { ...props, features: newFeatures }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const renderCtaFields = (
+    key: 'primaryCTA' | 'secondaryCTA',
+    title: string,
+  ) => {
+    const cta = props[key]
+    return (
+      <div className="space-y-3 rounded-md border p-3">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">{title}</Label>
+          <Switch
+            checked={cta?.ctaEnabled ?? false}
+            onCheckedChange={(checked) => updateCta(key, 'ctaEnabled', checked)}
+          />
+        </div>
+        {cta?.ctaEnabled && (
+          <div className="space-y-2">
+            <Input
+              value={cta?.text ?? ''}
+              onChange={(e) => updateCta(key, 'text', e.target.value)}
+              placeholder="Button text"
+            />
+            <Input
+              type="url"
+              value={cta?.link ?? ''}
+              onChange={(e) => updateCta(key, 'link', e.target.value)}
+              placeholder="Link URL"
+            />
+            <Select
+              value={cta?.variant ?? 'default'}
+              onValueChange={(value) =>
+                updateCta(key, 'variant', value as ButtonVariant)
+              }
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Variant" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {VARIANTS.map((v) => (
+                    <SelectItem key={v} value={v}>
+                      {v}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+      </div>
+    )
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="tagline" className="text-sm font-medium">
+          Tagline
+        </Label>
+        <Input
+          id="tagline"
+          value={props.tagline}
+          onChange={(e) => updateField('tagline', e.target.value)}
+          placeholder="Designing ideas into presence"
+        />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="title" className="text-sm font-medium">
           Title
@@ -136,12 +135,50 @@ export function Hero05EditorFields({
           id="title"
           value={props.title}
           onChange={(e) => updateField('title', e.target.value)}
-          placeholder="Enter title"
+          placeholder="Form & Found is a creative studio"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="hero-05-variant" className="text-sm font-medium">
+        <Label htmlFor="description" className="text-sm font-medium">
+          Description
+        </Label>
+        <Textarea
+          id="description"
+          value={props.description}
+          onChange={(e) => updateField('description', e.target.value)}
+          rows={4}
+          placeholder="Enter description"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="landscape-image" className="text-sm font-medium">
+          Landscape image
+        </Label>
+        <Input
+          id="landscape-image"
+          type="url"
+          value={props.landscapeImage}
+          onChange={(e) => updateField('landscapeImage', e.target.value)}
+          placeholder="https://images.unsplash.com/..."
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="landscape-alt" className="text-sm font-medium">
+          Landscape alt text
+        </Label>
+        <Input
+          id="landscape-alt"
+          value={props.landscapeAlt ?? ''}
+          onChange={(e) => updateField('landscapeAlt', e.target.value)}
+          placeholder="Describe the landscape image"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="variant" className="text-sm font-medium">
           Variant
         </Label>
         <Select
@@ -150,19 +187,20 @@ export function Hero05EditorFields({
             updateField('variant', value as Hero05Props['variant'])
           }
         >
-          <SelectTrigger id="hero-05-variant" className="w-full">
-            <SelectValue />
+          <SelectTrigger id="variant" className="w-full">
+            <SelectValue placeholder="Variant" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="standard">Standard</SelectItem>
-            <SelectItem value="compact">Compact</SelectItem>
-            <SelectItem value="prominent">Prominent</SelectItem>
+            <SelectGroup>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="hero-05-animation" className="text-sm font-medium">
+        <Label htmlFor="animation" className="text-sm font-medium">
           Animation
         </Label>
         <Select
@@ -171,160 +209,20 @@ export function Hero05EditorFields({
             updateField('animation', value as Hero05Props['animation'])
           }
         >
-          <SelectTrigger id="hero-05-animation" className="w-full">
-            <SelectValue />
+          <SelectTrigger id="animation" className="w-full">
+            <SelectValue placeholder="Animation" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="none">None</SelectItem>
-            <SelectItem value="subtle">Subtle</SelectItem>
-            <SelectItem value="emphasis">Emphasis</SelectItem>
+            <SelectGroup>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
-      <div className="space-y-4">
-        <div className="flex items-center justify-between rounded-md border p-3">
-          <Label className="text-sm font-medium">Enable Primary CTA</Label>
-          <Switch
-            checked={props.primaryCTA?.ctaEnabled ?? true}
-            onCheckedChange={(checked) =>
-              updatePrimaryCta('ctaEnabled', checked)
-            }
-          />
-        </div>
-        {(props.primaryCTA?.ctaEnabled ?? true) && (
-          <>
-            <div className="space-y-2">
-              <Label className="text-sm font-medium">Primary CTA</Label>
-              <Input
-                value={props.primaryCTA?.text ?? ''}
-                onChange={(e) => updatePrimaryCta('text', e.target.value)}
-                placeholder="Button text"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-sm font-medium">Primary CTA Link</Label>
-              <Input
-                value={props.primaryCTA?.link ?? ''}
-                onChange={(e) => updatePrimaryCta('link', e.target.value)}
-                placeholder="/"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-sm font-medium">Primary CTA Variant</Label>
-              <Select
-                value={props.primaryCTA?.variant || 'default'}
-                onValueChange={(value) => updatePrimaryCta('variant', value)}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
-                  <SelectItem value="destructive">Destructive</SelectItem>
-                  <SelectItem value="outline">Outline</SelectItem>
-                  <SelectItem value="secondary">Secondary</SelectItem>
-                  <SelectItem value="ghost">Ghost</SelectItem>
-                  <SelectItem value="link">Link</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </>
-        )}
-      </div>
-
-      <div className="flex items-center justify-between rounded-md border p-3">
-        <Label className="text-sm font-medium">Enable Secondary CTA</Label>
-        <Switch
-          checked={props.secondaryCTA?.ctaEnabled ?? false}
-          onCheckedChange={setSecondaryCtaEnabled}
-        />
-      </div>
-      {(props.secondaryCTA?.ctaEnabled ?? false) && props.secondaryCTA && (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label className="text-sm font-medium">Secondary CTA</Label>
-            <Input
-              value={props.secondaryCTA?.text ?? ''}
-              onChange={(e) => updateSecondaryCta('text', e.target.value)}
-              placeholder="Button text"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="text-sm font-medium">Secondary CTA Link</Label>
-            <Input
-              value={props.secondaryCTA?.link ?? ''}
-              onChange={(e) => updateSecondaryCta('link', e.target.value)}
-              placeholder="/"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="text-sm font-medium">Secondary CTA Variant</Label>
-            <Select
-              value={props.secondaryCTA?.variant || 'secondary'}
-              onValueChange={(value) => updateSecondaryCta('variant', value)}
-            >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="default">Default</SelectItem>
-                <SelectItem value="destructive">Destructive</SelectItem>
-                <SelectItem value="outline">Outline</SelectItem>
-                <SelectItem value="secondary">Secondary</SelectItem>
-                <SelectItem value="ghost">Ghost</SelectItem>
-                <SelectItem value="link">Link</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      )}
-
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <Label className="text-sm font-medium">Features</Label>
-          <Button onClick={addFeature} size="sm" variant="outline">
-            <Plus className="mr-2 size-4" />
-            Add Feature
-          </Button>
-        </div>
-
-        {props.features.map((feature, index) => (
-          <div
-            key={index}
-            className="border-border space-y-4 rounded-lg border p-4"
-          >
-            <div className="flex items-center justify-between">
-              <Label className="text-sm font-medium">Feature {index + 1}</Label>
-              <Button
-                onClick={() => removeFeature(index)}
-                size="sm"
-                variant="ghost"
-              >
-                <X className="size-4" />
-              </Button>
-            </div>
-
-            <div className="space-y-2">
-              <Label className="text-sm font-medium">Icon Name</Label>
-              <Input
-                value={feature.icon}
-                onChange={(e) => updateFeature(index, 'icon', e.target.value)}
-                placeholder="Check"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label className="text-sm font-medium">Title</Label>
-              <Input
-                value={feature.title}
-                onChange={(e) => updateFeature(index, 'title', e.target.value)}
-                placeholder="Feature title"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
+      {renderCtaFields('primaryCTA', 'Primary CTA')}
+      {renderCtaFields('secondaryCTA', 'Secondary CTA')}
     </div>
   )
 }

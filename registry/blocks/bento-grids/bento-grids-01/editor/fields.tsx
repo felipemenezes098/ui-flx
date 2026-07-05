@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -159,11 +160,13 @@ export function BentoGrids01EditorFields({
                   <SelectValue placeholder="Variant" />
                 </SelectTrigger>
                 <SelectContent>
-                  {ctaVariants.map((v) => (
-                    <SelectItem key={v} value={v}>
-                      {v}
-                    </SelectItem>
-                  ))}
+                  <SelectGroup>
+                    {ctaVariants.map((v) => (
+                      <SelectItem key={v} value={v}>
+                        {v}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
                 </SelectContent>
               </Select>
             </div>

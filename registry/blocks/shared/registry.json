@@ -23,23 +23,6 @@
       ]
     },
     {
-      "name": "scroll-fade-edges",
-      "type": "registry:block",
-      "title": "Scroll Fade Edges",
-      "description": "A component that fades the edges of a scrollable area.",
-      "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "scroll-fade-edges.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/shared/scroll-fade-edges.tsx"
-        }
-      ]
-    },
-    {
       "name": "dynamic-icon",
       "type": "registry:block",
       "title": "Dynamic Icon",

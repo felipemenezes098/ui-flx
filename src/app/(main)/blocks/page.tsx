@@ -33,10 +33,10 @@ export default function BlocksPage() {
         <BlocksSidebar />
       </Suspense>
       <div className="min-w-0 flex-1">
-        <div className="space-y-4 py-6">
+        <div className="space-y-4 pt-1 pb-6">
           <section>
             <div className="flex flex-col justify-center">
-              <h1 className="mb-1 text-3xl font-bold">Blocks</h1>
+              <h1 className="font-semi mb-1 text-2xl">Blocks</h1>
               <p className="text-muted-foreground mb-4 text-balance">
                 All Blocks are ready to copy and paste into your websites.
               </p>
@@ -54,15 +54,11 @@ export default function BlocksPage() {
 
 function BlocksFallback() {
   return (
-    <section className="grid grid-cols-1 gap-6">
-      <div className="bg-background sticky top-[55px] z-40 w-full">
-        <div className="flex gap-2 py-3">
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-          <div className="border-border bg-muted h-20 w-28 animate-pulse rounded-xl border" />
-        </div>
-      </div>
-      <div className="border-border bg-muted h-64 animate-pulse rounded-xl border" />
+    <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
+      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
     </section>
   )
 }

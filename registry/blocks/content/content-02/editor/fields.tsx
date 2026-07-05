@@ -4,7 +4,14 @@ import * as React from 'react'
 
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../content-02-example'
 
@@ -24,7 +31,10 @@ export function Content02EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
+  const updateField = <K extends keyof Content02Props>(
+    field: K,
+    value: Content02Props[K],
+  ) => {
     const newProps = { ...props, [field]: value }
 
     if (onUpdate) {
@@ -48,8 +58,8 @@ export function Content02EditorFields({
 
   const updateItemMedia = (
     index: number,
-    field: 'src' | 'alt' | 'overlay',
-    value: any,
+    field: 'src' | 'alt',
+    value: string,
   ) => {
     const newItems = [...props.items]
     newItems[index] = {
@@ -74,11 +84,9 @@ export function Content02EditorFields({
           title: 'New Item',
           description: 'Item description',
           icon: 'Circle',
-          invert: false,
           media: {
-            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            alt: 'New item image',
-            overlay: true,
+            src: 'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            alt: 'alt image',
           },
         },
       ],
@@ -106,6 +114,54 @@ export function Content02EditorFields({
 
   return (
     <div className="space-y-4">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-02-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content02Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-02-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-02-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content02Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-02-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="title" className="text-sm font-medium">
           Title
@@ -116,6 +172,19 @@ export function Content02EditorFields({
           value={props.title}
           onChange={(e) => updateField('title', e.target.value)}
           placeholder="Enter title"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="description" className="text-sm font-medium">
+          Description
+        </Label>
+        <Textarea
+          id="description"
+          value={props.description ?? ''}
+          onChange={(e) => updateField('description', e.target.value)}
+          placeholder="Enter section description"
+          rows={3}
         />
       </div>
 
@@ -193,21 +262,6 @@ export function Content02EditorFields({
                   placeholder="Palette, Code, Users, etc."
                 />
               </div>
-              <div className="flex items-center justify-between">
-                <Label
-                  htmlFor={`item-${index}-invert`}
-                  className="text-muted-foreground text-xs"
-                >
-                  Invert
-                </Label>
-                <Switch
-                  id={`item-${index}-invert`}
-                  checked={item.invert || false}
-                  onCheckedChange={(checked) =>
-                    updateItem(index, 'invert', checked)
-                  }
-                />
-              </div>
               <div className="space-y-3 rounded-md border p-2">
                 <Label className="text-muted-foreground text-xs">Media</Label>
                 <div className="space-y-2">
@@ -243,21 +297,6 @@ export function Content02EditorFields({
                         updateItemMedia(index, 'alt', e.target.value)
                       }
                       placeholder="Image description"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <Label
-                      htmlFor={`item-${index}-overlay`}
-                      className="text-muted-foreground text-xs"
-                    >
-                      Overlay
-                    </Label>
-                    <Switch
-                      id={`item-${index}-overlay`}
-                      checked={item.media.overlay || false}
-                      onCheckedChange={(checked) =>
-                        updateItemMedia(index, 'overlay', checked)
-                      }
                     />
                   </div>
                 </div>

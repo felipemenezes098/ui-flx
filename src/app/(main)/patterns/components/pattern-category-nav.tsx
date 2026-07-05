@@ -21,18 +21,48 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { cn } from '@/lib/utils'
+import { allFormPatterns } from '@/lib/forms/catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
+import { cn } from '@/lib/utils'
 
 const SCROLL_STEP = 240
 const SCROLL_THRESHOLD = 1
-const FADE_WIDTH = 100
-const fadeTransition = { duration: 0.2, ease: 'easeOut' as const }
 const buttonTransition = { duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }
 
-const categories = patternCategories.toSorted((a, b) =>
-  a.name.localeCompare(b.name),
-)
+type NavCategory = {
+  slug: string
+  name: string
+  href: string
+  hasNew?: boolean
+  itemCount: number
+}
+
+const formsNavCategory: NavCategory = {
+  slug: 'forms',
+  name: 'Forms',
+  href: '/forms/react-hook-form',
+  hasNew: true,
+  itemCount: allFormPatterns.length,
+}
+
+const categories: NavCategory[] = [
+  ...patternCategories.map((category) => ({
+    slug: category.slug,
+    name: category.name,
+    href: `/patterns/${category.slug}`,
+    hasNew: category.hasNew,
+    itemCount: category.items.length,
+  })),
+  formsNavCategory,
+].toSorted((a, b) => a.name.localeCompare(b.name))
+
+function isNavCategoryActive(pathname: string, category: NavCategory) {
+  if (category.slug === 'forms') {
+    return pathname.startsWith('/forms')
+  }
+
+  return pathname === category.href
+}
 
 export function PatternCategoryNav() {
   const pathname = usePathname()
@@ -113,30 +143,13 @@ export function PatternCategoryNav() {
       ?.scrollIntoView({ inline: 'center', block: 'nearest' })
   }, [pathname])
 
-  const activeCategory = categories.find(
-    (category) => pathname === `/patterns/${category.slug}`,
+  const activeCategory = categories.find((category) =>
+    isNavCategoryActive(pathname, category),
   )
 
   return (
     <div className="flex min-w-0 items-center justify-start gap-2">
       <div className="relative hidden min-w-0 flex-1 md:block">
-        <motion.div
-          aria-hidden={!showLeft}
-          className="from-background via-background/80 pointer-events-none absolute top-0 bottom-0 left-0 z-10 bg-gradient-to-r to-transparent"
-          style={{ width: FADE_WIDTH }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showLeft ? 1 : 0 }}
-          transition={fadeTransition}
-        />
-        <motion.div
-          aria-hidden={!showRight}
-          className="from-background via-background/80 pointer-events-none absolute top-0 right-0 bottom-0 z-10 bg-gradient-to-l to-transparent"
-          style={{ width: FADE_WIDTH }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showRight ? 1 : 0 }}
-          transition={fadeTransition}
-        />
-
         <AnimatePresence>
           {showLeft && (
             <motion.div
@@ -184,15 +197,15 @@ export function PatternCategoryNav() {
 
         <div
           ref={scrollRef}
-          className="no-scrollbar min-w-0 overflow-x-auto overflow-y-hidden"
+          className="scroll-fade-x scroll-fade-[50px] no-scrollbar min-w-0 overflow-x-auto overflow-y-hidden"
         >
           <div className="inline-flex w-max flex-nowrap gap-1.5 py-0.5">
             {categories.map((category) => {
-              const isActive = pathname === `/patterns/${category.slug}`
+              const isActive = isNavCategoryActive(pathname, category)
               return (
                 <Link
                   key={category.slug}
-                  href={`/patterns/${category.slug}`}
+                  href={category.href}
                   aria-current={isActive ? 'true' : undefined}
                   className={cn(
                     'shrink-0 scroll-mx-12 rounded-full px-3 py-1 text-sm font-medium',
@@ -239,7 +252,7 @@ export function PatternCategoryNav() {
                     key={category.slug}
                     value={category.name}
                     onSelect={() => {
-                      router.push(`/patterns/${category.slug}`)
+                      router.push(category.href)
                       setShowAllOpen(false)
                     }}
                   >
@@ -247,7 +260,7 @@ export function PatternCategoryNav() {
                     {category.hasNew && (
                       <span className="size-1.5 shrink-0 rounded-full bg-emerald-500" />
                     )}
-                    <CommandShortcut>{category.items.length}</CommandShortcut>
+                    <CommandShortcut>{category.itemCount}</CommandShortcut>
                   </CommandItem>
                 ))}
               </CommandGroup>

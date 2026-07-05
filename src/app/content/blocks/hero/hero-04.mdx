@@ -1,28 +1,16 @@
 export const metadata = {
   title: 'Hero 04',
   description:
-    'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+    'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
   openGraph: {
     title: 'Hero 04',
     description:
-      'Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.',
+      'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
     type: 'article',
   },
 }
 
-<BlockLiveEditor category="hero" slug="hero-04">
-<BlockPageCols>
-
-<BlockPageCols.Left>
-
-<PageHeader>
-  <PageTitle>Hero 04</PageTitle>
-  <PageDescription>
-    Centered headline, one primary CTA, and full-width preview media with a soft bottom fade.
-  </PageDescription>
-</PageHeader>
-
-<BlockLiveEditor.FieldsPanel />
+<BlockView category="hero" slug="hero-04" />
 
 ## Implementation
 
@@ -49,17 +37,21 @@ export const metadata = {
 
 <Steps>
 
-<Step>Add CTA Component</Step>
-
-<CodeBlockFromFile
-  filePath="registry/blocks/shared/cta.tsx"
-  title="cta.tsx"
-  collapsible
-/>
-
-<Step>Install react-wrap-balancer</Step>
+<Step>Install dependencies</Step>
 
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Add the art collage</Step>
+
+A layered collage of two overlapping art images. Swap the images via props or
+drop the file to use your own media.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-04/art-collage.tsx"
+  title="art-collage.tsx"
+  collapsible
+/>
 
 <Step>Copy the component</Step>
 
@@ -77,14 +69,3 @@ export const metadata = {
 
 </TabsContent>
 </CodeTabs>
-
-<Contact />
-
-</BlockPageCols.Left>
-
-<BlockPageCols.Right>
-  <BlockLiveEditor.Preview />
-</BlockPageCols.Right>
-
-</BlockPageCols>
-</BlockLiveEditor>

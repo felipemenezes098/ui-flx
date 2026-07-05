@@ -19,7 +19,7 @@ Intent = the problem ("Show Team Members")
         └── Demo component = live preview of that solution
 ```
 
-Each decision has **one demo file** + **one registry.json entry**. The registry entry is what the install command references (`npx shadcn@latest add @flx/<intent-slug>-<n>`).
+Each decision has **one demo file** + **one registry.json entry**. The registry entry is what the install command references (`pnpm dlx shadcn@latest add @flx/<intent-slug>-<n>`).
 
 ### Decision slug convention (IMPORTANT)
 
@@ -163,9 +163,9 @@ Build decisions out of shadcn/ui components, not hand-rolled markup. Before
 writing custom `div`s, **check what's already in the project and what shadcn
 offers** (see the `shadcn` skill):
 
-1. List installed primitives: `src/components/ui/` (or `npx shadcn@latest info`).
+1. List installed primitives: `src/components/ui/` (or `pnpm dlx shadcn@latest info`).
 2. If a primitive you need isn't there, check the shadcn registry and add it:
-   `npx shadcn@latest add <component>` (e.g. `table`, `checkbox`, `calendar`).
+   `pnpm dlx shadcn@latest add <component>` (e.g. `table`, `checkbox`, `calendar`).
    Don't reinvent a component the registry already provides.
 3. Only fall back to plain markup when the registry genuinely has nothing
    (e.g. brand SVGs for Google/Apple — lucide has no brand marks; inline the
@@ -356,7 +356,7 @@ Each domain has its own `registry.json`. Add entries there — **not** in `regis
 
 One entry **per decision**. The `name` must follow the pattern `<intent-slug>-<n>` (n = the decision's numeric slug), e.g. `share-access-1`.
 
-**The sync script (`npm run registry:sync`) auto-corrects `title`, `description`, and `files` from the manifest — but will NOT create missing entries.** You must add each entry manually. Only `registryDependencies` and `dependencies` are yours to maintain permanently.
+**The sync script (`pnpm run registry:sync`) auto-corrects `title`, `description`, and `files` from the manifest — but will NOT create missing entries.** You must add each entry manually. Only `registryDependencies` and `dependencies` are yours to maintain permanently.
 
 ```json
 {
@@ -368,7 +368,7 @@ One entry **per decision**. The `name` must follow the pattern `<intent-slug>-<n
 }
 ```
 
-Minimal entry: `name`, `type`, `registryDependencies`, `dependencies`. Leave `title`, `description`, and `files` empty or omit — `npm run registry:sync` will fill them (with paths relative to the domain directory: `<intent-slug>/<intent-slug>-<n>.tsx`).
+Minimal entry: `name`, `type`, `registryDependencies`, `dependencies`. Leave `title`, `description`, and `files` empty or omit — `pnpm run registry:sync` will fill them (with paths relative to the domain directory: `<intent-slug>/<intent-slug>-<n>.tsx`).
 
 ### Adding a new domain (very rare)
 
@@ -381,13 +381,13 @@ Minimal entry: `name`, `type`, `registryDependencies`, `dependencies`. Leave `ti
 
 ```bash
 # Sync title, description, files for all intent decisions from their manifests
-npm run registry:sync
+pnpm run registry:sync
 
 # Validate — exits 1 if any entry is missing or out of sync
-npm run registry:validate
+pnpm run registry:validate
 
 # Regenerate public/r/*.json (install command code files)
-npm run registry:build
+pnpm run registry:build
 ```
 
 If `registry:validate` prints `MISSING in registry.json: "<name>" (intent decision)` → the entry in step 4 is absent or the `name` is wrong.
@@ -437,7 +437,7 @@ This skill touches the same handful of files every time. Minimize round-trips:
    Inline-SVG-only demos → `dependencies: []`; lucide icons → `["lucide-react"]`.
 6. **One chained command** at the end — don't run them in three separate calls:
    ```bash
-   npm run registry:sync && npm run registry:validate && npm run registry:build
+   pnpm run registry:sync && pnpm run registry:validate && pnpm run registry:build
    ```
 7. **Don't re-read files you just wrote** to "verify" — Write/Edit already
    confirmed success, and `registry:validate` is the real check.
@@ -449,7 +449,7 @@ This skill touches the same handful of files every time. Minimize round-trips:
 - [ ] Intent earns its place: common problem, **3+ decisions** with real, distinct trade-offs (strong `best` + `caveat` each)
 - [ ] Copy is dash-free: no `—`/`–` in `problem`, `best`, `caveat`, or demo text
 - [ ] Demos wrap in real shadcn `<Card>` (and use installed primitives), not hand-rolled `bg-card` divs
-- [ ] Needed shadcn primitives confirmed installed (or added via `npx shadcn@latest add`)
+- [ ] Needed shadcn primitives confirmed installed (or added via `pnpm dlx shadcn@latest add`)
 - [ ] `registry/intents/<domain>/<intent-slug>/` folder created
 - [ ] One `<intent-slug>-<n>.tsx` per decision (`share-access-1.tsx`, …): named export is the PascalCase of the file name (`ShareAccess1`); elaborate/stateful is fine
 - [ ] `concept.tsx`: wireframe for the `/intents` gallery card, referenced as `concept` in the manifest
@@ -458,6 +458,6 @@ This skill touches the same handful of files every time. Minimize round-trips:
 - [ ] Each decision has `previewSize` aligned with demo size (`sm`/`md` compact, `lg`/`full` large); demo root is `w-full` without `max-w-*` (see "Preview sizing")
 - [ ] `src/lib/intents/intent-catalog.ts` — manifest imported + `fromManifest()` entry in the correct domain
 - [ ] `registry/intents/<domain>/registry.json` — one entry per decision with `name`, `type`, `registryDependencies`, `dependencies`
-- [ ] `npm run registry:sync` — fills `title`, `description`, `files` from manifest
-- [ ] `npm run registry:validate` — passes with no MISSING or OUT OF SYNC errors
-- [ ] `npm run registry:build` — regenerates `public/r/*.json`
+- [ ] `pnpm run registry:sync` — fills `title`, `description`, `files` from manifest
+- [ ] `pnpm run registry:validate` — passes with no MISSING or OUT OF SYNC errors
+- [ ] `pnpm run registry:build` — regenerates `public/r/*.json`

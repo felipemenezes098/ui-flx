@@ -1,7 +1,6 @@
 import { Content05, type Content05Props } from '../content-05'
 
-export function Content05Minimalist() {
-  const values = {
+export const values = {
     title: 'Our process',
     description: 'From idea to launch—click each phase to see how we work.',
     dimUnfocused: false,
@@ -23,15 +22,8 @@ export function Content05Minimalist() {
           'Clean interfaces and clear flows that people love to use every day.',
       },
     ],
-  } satisfies Content05Props
+} satisfies Content05Props
 
-  return (
-    <Content05
-      title={values.title}
-      description={values.description}
-      dimUnfocused={values.dimUnfocused}
-      descriptionOnFocus={values.descriptionOnFocus}
-      items={values.items}
-    />
-  )
+export function Content05Minimalist() {
+  return <Content05 {...values} />
 }

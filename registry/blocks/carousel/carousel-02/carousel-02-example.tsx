@@ -9,7 +9,7 @@ export const values = {
       description: 'Less setup, more shipping.',
       media: {
         src: 'https://images.unsplash.com/photo-1596308501201-1d81619d907a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Team collaboration',
+        alt: 'alt image',
         overlay: true,
       },
       invert: true,
@@ -19,7 +19,7 @@ export const values = {
       description: 'Your code, your design system.',
       media: {
         src: 'https://images.unsplash.com/photo-1747370273882-20aefaa41dac?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Developer at work',
+        alt: 'alt image',
         overlay: true,
       },
       invert: true,
@@ -29,7 +29,7 @@ export const values = {
       description: 'Open by default, improved by the community.',
       media: {
         src: 'https://images.unsplash.com/photo-1740073067432-0fd060f2ecde?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Team collaborating',
+        alt: 'alt image',
         overlay: true,
       },
       invert: true,
@@ -39,7 +39,7 @@ export const values = {
       description: 'Fast by default, without the tradeoffs.',
       media: {
         src: 'https://images.unsplash.com/photo-1567354440819-667147e4d12d?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Developer on laptop',
+        alt: 'alt image',
         overlay: true,
       },
       invert: true,

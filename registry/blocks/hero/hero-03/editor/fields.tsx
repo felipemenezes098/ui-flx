@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -15,12 +16,22 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { values as defaults } from '../hero-03-example'
 
+import type { ButtonVariant, CtaProps } from '../../../shared/cta'
 import type { Hero03Props } from '../hero-03'
 
 interface Hero03EditorFieldsProps {
   props?: Hero03Props
   onUpdate?: (props: Hero03Props) => void
 }
+
+const VARIANTS: ButtonVariant[] = [
+  'default',
+  'secondary',
+  'outline',
+  'ghost',
+  'link',
+  'destructive',
+]
 
 export function Hero03EditorFields({
   props: externalProps,
@@ -31,81 +42,76 @@ export function Hero03EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: string) => {
-    const newProps = { ...props, [field]: value }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const commit = (next: Hero03Props) => {
+    if (onUpdate) onUpdate(next)
+    else setInternalProps(next)
   }
 
-  const updateImage = (field: 'src' | 'alt', value: string) => {
-    const newProps = {
-      ...props,
-      media: { ...props.media, [field]: value },
-    }
+  const updateField = <K extends keyof Hero03Props>(
+    field: K,
+    value: Hero03Props[K],
+  ) => commit({ ...props, [field]: value })
 
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const updateCta = (
+    key: 'primaryCTA' | 'secondaryCTA',
+    field: keyof CtaProps,
+    value: unknown,
+  ) => {
+    const current = props[key] ?? { ctaEnabled: true, text: '', link: '' }
+    commit({ ...props, [key]: { ...current, [field]: value } })
   }
 
-  const updatePrimaryCta = (field: string, value: unknown) => {
-    const current = props.primaryCTA ?? defaults.primaryCTA
-    const newProps: Hero03Props = {
-      ...props,
-      primaryCTA: { ...current, [field]: value },
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
+  const renderCtaFields = (
+    key: 'primaryCTA' | 'secondaryCTA',
+    title: string,
+  ) => {
+    const cta = props[key]
+    return (
+      <div className="space-y-3 rounded-md border p-3">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm font-medium">{title}</Label>
+          <Switch
+            checked={cta?.ctaEnabled ?? false}
+            onCheckedChange={(checked) => updateCta(key, 'ctaEnabled', checked)}
+          />
+        </div>
+        {cta?.ctaEnabled && (
+          <div className="space-y-2">
+            <Input
+              value={cta?.text ?? ''}
+              onChange={(e) => updateCta(key, 'text', e.target.value)}
+              placeholder="Button text"
+            />
+            <Input
+              type="url"
+              value={cta?.link ?? ''}
+              onChange={(e) => updateCta(key, 'link', e.target.value)}
+              placeholder="Link URL"
+            />
+            <Select
+              value={cta?.variant ?? 'default'}
+              onValueChange={(value) =>
+                updateCta(key, 'variant', value as ButtonVariant)
+              }
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Variant" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {VARIANTS.map((v) => (
+                    <SelectItem key={v} value={v}>
+                      {v}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+      </div>
+    )
   }
-
-  const setPrimaryCtaEnabled = (checked: boolean) => {
-    updatePrimaryCta('ctaEnabled', checked)
-  }
-
-  const updateSecondaryCta = (field: string, value: unknown) => {
-    const current = props.secondaryCTA ?? defaults.secondaryCTA
-    const newProps: Hero03Props = {
-      ...props,
-      secondaryCTA: { ...current, [field]: value },
-    }
-
-    if (onUpdate) {
-      onUpdate(newProps)
-    } else {
-      setInternalProps(newProps)
-    }
-  }
-
-  const setSecondaryCtaEnabled = (checked: boolean) => {
-    updateSecondaryCta('ctaEnabled', checked)
-  }
-
-  const ctaVariantOptions = [
-    'default',
-    'destructive',
-    'outline',
-    'secondary',
-    'ghost',
-    'link',
-  ] as const
-
-  const blockVariantOptions = [
-    'standard',
-    'compact',
-    'prominent',
-  ] as const
-
-  const animationOptions = ['none', 'subtle', 'emphasis'] as const
 
   return (
     <div className="space-y-4">
@@ -115,10 +121,9 @@ export function Hero03EditorFields({
         </Label>
         <Input
           id="title"
-          type="text"
           value={props.title}
           onChange={(e) => updateField('title', e.target.value)}
-          placeholder="Enter title"
+          placeholder="Space to feel heard again."
         />
       </div>
 
@@ -130,8 +135,33 @@ export function Hero03EditorFields({
           id="description"
           value={props.description}
           onChange={(e) => updateField('description', e.target.value)}
-          placeholder="Enter description"
           rows={3}
+          placeholder="Enter description"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="portrait-image" className="text-sm font-medium">
+          Portrait image
+        </Label>
+        <Input
+          id="portrait-image"
+          type="url"
+          value={props.portraitImage}
+          onChange={(e) => updateField('portraitImage', e.target.value)}
+          placeholder="https://images.unsplash.com/..."
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="portrait-alt" className="text-sm font-medium">
+          Portrait alt text
+        </Label>
+        <Input
+          id="portrait-alt"
+          value={props.portraitAlt ?? ''}
+          onChange={(e) => updateField('portraitAlt', e.target.value)}
+          placeholder="Describe the portrait"
         />
       </div>
 
@@ -142,21 +172,17 @@ export function Hero03EditorFields({
         <Select
           value={props.variant ?? 'standard'}
           onValueChange={(value) =>
-            updateField(
-              'variant',
-              value as (typeof blockVariantOptions)[number],
-            )
+            updateField('variant', value as Hero03Props['variant'])
           }
         >
           <SelectTrigger id="variant" className="w-full">
-            <SelectValue placeholder="Select variant" />
+            <SelectValue placeholder="Variant" />
           </SelectTrigger>
           <SelectContent>
-            {blockVariantOptions.map((v) => (
-              <SelectItem key={v} value={v}>
-                {v.charAt(0).toUpperCase() + v.slice(1)}
-              </SelectItem>
-            ))}
+            <SelectGroup>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
@@ -168,224 +194,23 @@ export function Hero03EditorFields({
         <Select
           value={props.animation ?? 'none'}
           onValueChange={(value) =>
-            updateField(
-              'animation',
-              value as (typeof animationOptions)[number],
-            )
+            updateField('animation', value as Hero03Props['animation'])
           }
         >
           <SelectTrigger id="animation" className="w-full">
-            <SelectValue placeholder="Select animation" />
+            <SelectValue placeholder="Animation" />
           </SelectTrigger>
           <SelectContent>
-            {animationOptions.map((a) => (
-              <SelectItem key={a} value={a}>
-                {a.charAt(0).toUpperCase() + a.slice(1)}
-              </SelectItem>
-            ))}
+            <SelectGroup>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
-      <div className="space-y-3 rounded-md border p-3">
-        <Label className="text-sm font-medium">Image</Label>
-        <div className="space-y-2">
-          <div className="space-y-2">
-            <Label
-              htmlFor="media-src"
-              className="text-muted-foreground text-xs"
-            >
-              Image URL
-            </Label>
-            <Input
-              id="media-src"
-              type="url"
-              value={props.media.src}
-              onChange={(e) => updateImage('src', e.target.value)}
-              placeholder="https://example.com/media.jpg"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label
-              htmlFor="media-alt"
-              className="text-muted-foreground text-xs"
-            >
-              Alt Text
-            </Label>
-            <Input
-              id="media-alt"
-              type="text"
-              value={props.media.alt}
-              onChange={(e) => updateImage('alt', e.target.value)}
-              placeholder="Image description"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between rounded-md border p-3">
-        <div className="space-y-0.5">
-          <Label htmlFor="show-primary-cta" className="text-sm font-medium">
-            Primary CTA
-          </Label>
-          <p className="text-muted-foreground text-xs">
-            Toggle to show or hide the primary button
-          </p>
-        </div>
-        <Switch
-          id="show-primary-cta"
-          checked={props.primaryCTA?.ctaEnabled ?? false}
-          onCheckedChange={setPrimaryCtaEnabled}
-        />
-      </div>
-
-      {(props.primaryCTA?.ctaEnabled ?? false) && props.primaryCTA && (
-        <div className="space-y-3 rounded-md border p-3">
-          <Label className="text-sm font-medium">Primary CTA</Label>
-          <div className="space-y-2">
-            <div className="space-y-2">
-              <Label
-                htmlFor="primary-cta-text"
-                className="text-muted-foreground text-xs"
-              >
-                Button Text
-              </Label>
-              <Input
-                id="primary-cta-text"
-                type="text"
-                value={props.primaryCTA?.text ?? ''}
-                onChange={(e) => updatePrimaryCta('text', e.target.value)}
-                placeholder="Get started"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="primary-cta-link"
-                className="text-muted-foreground text-xs"
-              >
-                Link URL
-              </Label>
-              <Input
-                id="primary-cta-link"
-                type="url"
-                value={props.primaryCTA?.link ?? ''}
-                onChange={(e) => updatePrimaryCta('link', e.target.value)}
-                placeholder="/"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="primary-cta-variant"
-                className="text-muted-foreground text-xs"
-              >
-                Variant
-              </Label>
-              <Select
-                value={props.primaryCTA?.variant ?? 'default'}
-                onValueChange={(value) =>
-                  updatePrimaryCta(
-                    'variant',
-                    value as (typeof ctaVariantOptions)[number],
-                  )
-                }
-              >
-                <SelectTrigger id="primary-cta-variant" className="w-full">
-                  <SelectValue placeholder="Select variant" />
-                </SelectTrigger>
-                <SelectContent>
-                  {ctaVariantOptions.map((v) => (
-                    <SelectItem key={v} value={v}>
-                      {v.charAt(0).toUpperCase() + v.slice(1)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex items-center justify-between rounded-md border p-3">
-        <div className="space-y-0.5">
-          <Label htmlFor="show-secondary-cta" className="text-sm font-medium">
-            Secondary CTA
-          </Label>
-          <p className="text-muted-foreground text-xs">
-            Toggle to show or hide the secondary button
-          </p>
-        </div>
-        <Switch
-          id="show-secondary-cta"
-          checked={props.secondaryCTA?.ctaEnabled ?? false}
-          onCheckedChange={setSecondaryCtaEnabled}
-        />
-      </div>
-
-      {(props.secondaryCTA?.ctaEnabled ?? false) && props.secondaryCTA && (
-        <div className="space-y-3 rounded-md border p-3">
-          <Label className="text-sm font-medium">Secondary CTA</Label>
-          <div className="space-y-2">
-            <div className="space-y-2">
-              <Label
-                htmlFor="secondary-cta-text"
-                className="text-muted-foreground text-xs"
-              >
-                Button Text
-              </Label>
-              <Input
-                id="secondary-cta-text"
-                type="text"
-                value={props.secondaryCTA?.text ?? ''}
-                onChange={(e) => updateSecondaryCta('text', e.target.value)}
-                placeholder="Learn more"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="secondary-cta-link"
-                className="text-muted-foreground text-xs"
-              >
-                Link URL
-              </Label>
-              <Input
-                id="secondary-cta-link"
-                type="url"
-                value={props.secondaryCTA?.link ?? ''}
-                onChange={(e) => updateSecondaryCta('link', e.target.value)}
-                placeholder="/docs"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="secondary-cta-variant"
-                className="text-muted-foreground text-xs"
-              >
-                Variant
-              </Label>
-              <Select
-                value={props.secondaryCTA?.variant ?? 'outline'}
-                onValueChange={(value) =>
-                  updateSecondaryCta(
-                    'variant',
-                    value as (typeof ctaVariantOptions)[number],
-                  )
-                }
-              >
-                <SelectTrigger id="secondary-cta-variant" className="w-full">
-                  <SelectValue placeholder="Select variant" />
-                </SelectTrigger>
-                <SelectContent>
-                  {ctaVariantOptions.map((v) => (
-                    <SelectItem key={v} value={v}>
-                      {v.charAt(0).toUpperCase() + v.slice(1)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
-      )}
+      {renderCtaFields('primaryCTA', 'Primary CTA')}
+      {renderCtaFields('secondaryCTA', 'Secondary CTA')}
     </div>
   )
 }

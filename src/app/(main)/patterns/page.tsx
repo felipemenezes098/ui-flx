@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import type { ComponentType } from 'react'
 
 import {
-  CategoryPreviewCard,
-  CategoryPreviewCardBadge,
-  CategoryPreviewCardFooter,
-  CategoryPreviewCardPreview,
-  CategoryPreviewCardTitle,
-} from '@/components/core/category-preview-card'
+  ConceptGalleryCard,
+  ConceptGalleryCardBadge,
+  ConceptGalleryCardFooter,
+  ConceptGalleryCardMedia,
+  ConceptGalleryCardTitle,
+} from '@/components/core/gallery/concept-gallery-card'
+import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
 import { Footer } from '@/components/core/footer'
 import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
@@ -72,26 +72,26 @@ export default function PatternsPage() {
             </p>
           </section>
           <section>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <GalleryGridUniform className="md:grid-cols-3">
               {sortedPatternItems.map((item) => {
                 const Concept = item.preview
                 return (
-                  <Link key={item.slug} href={item.href} className="group">
-                    <CategoryPreviewCard>
-                      <CategoryPreviewCardPreview className="aspect-square">
-                        {item.hasNew && <CategoryPreviewCardBadge />}
+                  <GalleryGridLink key={item.slug} href={item.href}>
+                    <ConceptGalleryCard>
+                      <ConceptGalleryCardMedia className="aspect-square">
+                        {item.hasNew && <ConceptGalleryCardBadge />}
                         <Concept />
-                      </CategoryPreviewCardPreview>
-                      <CategoryPreviewCardFooter>
-                        <CategoryPreviewCardTitle>
+                      </ConceptGalleryCardMedia>
+                      <ConceptGalleryCardFooter>
+                        <ConceptGalleryCardTitle>
                           {item.name}
-                        </CategoryPreviewCardTitle>
-                      </CategoryPreviewCardFooter>
-                    </CategoryPreviewCard>
-                  </Link>
+                        </ConceptGalleryCardTitle>
+                      </ConceptGalleryCardFooter>
+                    </ConceptGalleryCard>
+                  </GalleryGridLink>
                 )
               })}
-            </div>
+            </GalleryGridUniform>
           </section>
         </div>
       </div>

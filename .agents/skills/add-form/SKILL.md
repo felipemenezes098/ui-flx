@@ -233,7 +233,7 @@ export function TsfFields02() {
   `field.state.value.map((_, i) => <form.Field name={`items[${i}].x`}>…)` with
   `field.pushValue({...})` / `field.removeValue(i)`.
 
-Preview loads via `forms-registry.tsx` →
+Preview loads via `src/lib/forms/forms-registry.ts` →
 `import(\`registry/forms/${library}/${category}/${slug}\`)`. The catalog entry must exist
 before the preview works.
 
@@ -294,16 +294,16 @@ to any aggregator or the root registry.
 - `react-hook-form` → `["react-hook-form", "@hookform/resolvers", "zod", "sonner"]`
 - `tanstack-form` → `["@tanstack/react-form", "zod", "sonner"]`
 
-**Do NOT add `title` or `description`** — `npm run registry:sync` writes them from the catalog.
+**Do NOT add `title` or `description`** — `pnpm run registry:sync` writes them from the catalog.
 
 ---
 
 ## 4. Run sync, validate, and build
 
 ```bash
-npm run registry:sync
-npm run registry:validate
-npm run registry:build
+pnpm run registry:sync
+pnpm run registry:validate
+pnpm run registry:build
 ```
 
 | Command             | Purpose                                                                        |
@@ -373,9 +373,9 @@ and add the aggregator to `registry/forms/registry.json` includes.
 - [ ] `registry/forms/<library>/<category>/<slug>.tsx` — `'use client'`, named PascalCase export
 - [ ] `registry/forms/<library>/<category>/catalog.ts` — `slug`, `name`, `description` added to `items`
 - [ ] `registry/forms/<library>/<category>/registry.json` — entry with `path: "<slug>.tsx"` (relative)
-- [ ] `npm run registry:sync`
-- [ ] `npm run registry:validate` — passes
-- [ ] `npm run registry:build` — `public/r/<slug>.json` exists
+- [ ] `pnpm run registry:sync`
+- [ ] `pnpm run registry:validate` — passes
+- [ ] `pnpm run registry:build` — `public/r/<slug>.json` exists
 
 ---
 
@@ -400,4 +400,4 @@ and add the aggregator to `registry/forms/registry.json` includes.
 - Gallery: `/forms/<library>` (e.g. `/forms/react-hook-form`) — use the category filter
   pills (`All` shows every form in a 3-column grid; a category shows its own grid).
 - Install snippet: the Code dialog uses `public/r/<slug>.json` after `registry:build`.
-- CLI: `npx shadcn@latest add @flx/<slug>`.
+- CLI: `pnpm dlx shadcn@latest add @flx/<slug>`.

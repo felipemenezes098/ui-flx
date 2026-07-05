@@ -26,7 +26,7 @@ export function useConfig() {
 
 export function ConfigProvider({ children }: { children: React.ReactNode }) {
   const [config, setConfig] = useState<Config>({
-    packageManager: 'npm',
+    packageManager: 'pnpm',
     installationType: 'cli',
   })
 

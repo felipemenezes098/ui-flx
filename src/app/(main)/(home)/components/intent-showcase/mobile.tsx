@@ -20,7 +20,7 @@ export function IntentShowcaseMobile() {
 
   return (
     <Card className="dark:bg-background gap-0 py-0 shadow-sm md:hidden">
-      <div className="no-scrollbar flex gap-1.5 overflow-x-auto border-b p-3">
+      <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar flex gap-1.5 overflow-x-auto overflow-y-hidden border-b p-3">
         {showcaseIntents.map((intent) => (
           <button
             key={intent.slug}

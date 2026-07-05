@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.brandfetch.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'pixabay.com',
+      },
     ],
   },
   webpack: (config) => {
@@ -36,7 +40,7 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ['remark-gfm'], // <- aqui como string
+    remarkPlugins: ['remark-gfm'],
   },
 })
 

@@ -19,20 +19,29 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { useActiveFile } from '@/app/(main)/intents/hooks/use-active-file'
+import { useActiveFile } from '@/hooks/use-active-file'
 import { registryInstallTarget } from '@/lib/registry-command'
 import { buildPatternPrompt } from '@/lib/patterns/patterns-utils'
-import { fetchRegistryCodeFiles } from '@/lib/registry-source'
+import {
+  fetchRegistryCodeFiles,
+  type RegistryCodeFile,
+} from '@/lib/registry-source'
 import { cn } from '@/lib/utils'
 
 interface PatternActionsProps {
   item: RegistryItem
   categorySlug: string
+  buildPrompt?: (
+    item: RegistryItem,
+    categorySlug: string,
+    codeFiles: RegistryCodeFile[],
+  ) => string
 }
 
 export function PatternActions({
   item,
   categorySlug,
+  buildPrompt = buildPatternPrompt,
 }: Readonly<PatternActionsProps>) {
   const [openCode, setOpenCode] = useState(false)
 
@@ -43,8 +52,8 @@ export function PatternActions({
   })
 
   const prompt = useMemo(
-    () => buildPatternPrompt(item, categorySlug, codeFiles),
-    [item, categorySlug, codeFiles],
+    () => buildPrompt(item, categorySlug, codeFiles),
+    [buildPrompt, item, categorySlug, codeFiles],
   )
 
   const { activeFile, setActiveName } = useActiveFile(codeFiles)

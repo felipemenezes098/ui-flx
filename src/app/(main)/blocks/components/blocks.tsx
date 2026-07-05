@@ -1,31 +1,14 @@
 'use client'
 
-import { EyeIcon } from 'lucide-react'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
-import { BlockEditor } from '@/components/core/editor/block-view/block-editor'
-import {
-  BlockEditorCodeContainer,
-  BlockEditorCodeView,
-  BlockEditorFileTree,
-} from '@/components/core/editor/block-view/block-editor-code'
-import { BlockEditorPreview } from '@/components/core/editor/block-view/block-editor-preview'
-import {
-  BlockEditorCli,
-  BlockEditorTabs,
-  BlockEditorTools,
-} from '@/components/core/editor/block-view/block-editor-toolbar'
+import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
-import { Button } from '@/components/ui/button'
 import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from '@/components/ui/resizable'
-import { Separator } from '@/components/ui/separator'
-import { getValidBlocksCategorySlug } from '../lib/blocks-category'
+  getValidBlocksCategorySlug,
+  isAllBlocksCategory,
+} from '../lib/blocks-category'
 import { blocks } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
@@ -37,144 +20,52 @@ export function Blocks() {
   const visitedRef = useRef<Set<string>>(new Set())
   visitedRef.current.add(activeTab)
 
-  useEffect(() => {
-    const hash =
-      globalThis.window === undefined
-        ? ''
-        : globalThis.window.location.hash.slice(1)
-    if (hash) {
-      const scrollToBlock = () => {
-        const el = document.getElementById(hash)
-        if (el) {
-          const offset = 50
-          const y =
-            el.getBoundingClientRect().top +
-            (globalThis.window?.scrollY ?? 0) -
-            offset
-          globalThis.window?.scrollTo({
-            top: Math.max(0, y),
-            behavior: 'smooth',
-          })
-        }
-      }
-      const t = setTimeout(scrollToBlock, 150)
-      return () => clearTimeout(t)
-    }
-  }, [activeTab])
+  const showAll = isAllBlocksCategory(activeTab)
 
   return (
     <div className="space-y-6">
       <div className="bg-background sticky top-14 z-30 w-full lg:hidden">
         <BlocksNavigation />
       </div>
-      {blocks.map((block) => {
-        if (!visitedRef.current.has(block.slug)) return null
-        const isActive = activeTab === block.slug
-        return (
-          <div
-            key={block.slug}
-            className={cn(
-              'transition-opacity duration-300',
-              isActive ? 'opacity-100' : 'hidden opacity-0',
+      {showAll && (
+        <div role="tabpanel" aria-hidden={false}>
+          <BlockPreviewGrid
+            withScrollAnchor
+            items={blocks.flatMap((category) =>
+              category.blocks.map((subBlock) => ({
+                key: `${category.slug}-${subBlock.slug}`,
+                categorySlug: category.slug,
+                subBlock,
+              })),
             )}
-            role="tabpanel"
-            aria-hidden={!isActive}
-          >
-            <div className="grid grid-cols-1 gap-6">
-              {block.blocks.map((subBlock) => (
-                <div
-                  key={subBlock.slug}
-                  id={`${block.slug}-${subBlock.slug}`}
-                  className="flex flex-col gap-4"
-                >
-                  <BlockEditor category={block.slug} slug={subBlock.slug}>
-                    <div className="hidden flex-col gap-4 md:flex">
-                      <div className="flex w-full flex-wrap justify-between gap-4 pr-4 pl-1 xl:flex-row xl:items-center">
-                        <div className="flex min-w-0 items-center gap-4 xl:flex-1">
-                          <BlockEditorTabs />
-                          <div className="flex items-center">
-                            <Separator
-                              orientation="vertical"
-                              className="h-5! shrink-0"
-                            />
-                          </div>
-                          <BlockEditorTools />
-                        </div>
-                        <div className="flex shrink-0 flex-wrap items-center gap-4">
-                          <BlockEditorCli />
-                          <div className="flex items-center">
-                            <Separator
-                              orientation="vertical"
-                              className="h-5!"
-                            />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Button asChild variant="outline" size="sm">
-                              <Link
-                                href={`/blocks/${block.slug}/${subBlock.slug}`}
-                                className="flex items-center gap-1.5"
-                              >
-                                <EyeIcon className="size-4 shrink-0" />
-                                <span>Details</span>
-                              </Link>
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                      <BlockEditorPreview />
-                      <BlockEditorCodeContainer>
-                        <ResizablePanelGroup orientation="horizontal">
-                          <ResizablePanel
-                            defaultSize="30%"
-                            minSize="20%"
-                            maxSize="50%"
-                          >
-                            <BlockEditorFileTree />
-                          </ResizablePanel>
-                          <ResizableHandle withHandle />
-                          <ResizablePanel defaultSize="70%" minSize="20%">
-                            <BlockEditorCodeView />
-                          </ResizablePanel>
-                        </ResizablePanelGroup>
-                      </BlockEditorCodeContainer>
-                    </div>
-                    <div className="flex flex-col gap-4 md:hidden">
-                      <div className="flex items-center justify-between gap-2 px-2">
-                        <div className="line-clamp-1 text-sm font-medium">
-                          {subBlock.description}
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          asChild
-                          className="h-6.5 w-fit"
-                        >
-                          <Link href={`/blocks/${block.slug}/${subBlock.slug}`}>
-                            <EyeIcon className="size-3.5 shrink-0" />
-                            <span className="text-xs">View</span>
-                          </Link>
-                        </Button>
-                      </div>
-
-                      <div className="bg-muted/50 dark:bg-muted/20 relative h-[600px] w-full overflow-hidden rounded-lg border md:h-[80vh] lg:h-[85vh] xl:h-[88vh] 2xl:h-[600px]">
-                        <iframe
-                          src={`/preview-editor/${block.slug}/${subBlock.slug}`}
-                          title="Block preview"
-                          className="h-full w-full"
-                        />
-                      </div>
-                    </div>
-                  </BlockEditor>
-                  {/* <BlockEditorDisplay
-                      category={block.slug}
-                      slug={subBlock.slug}
-                    /> */}
-                </div>
-              ))}
+          />
+        </div>
+      )}
+      {!showAll &&
+        blocks.map((block) => {
+          if (!visitedRef.current.has(block.slug)) return null
+          const isActive = activeTab === block.slug
+          return (
+            <div
+              key={block.slug}
+              className={cn(
+                'transition-opacity duration-300',
+                isActive ? 'opacity-100' : 'hidden opacity-0',
+              )}
+              role="tabpanel"
+              aria-hidden={!isActive}
+            >
+              <BlockPreviewGrid
+                withScrollAnchor
+                items={block.blocks.map((subBlock) => ({
+                  key: subBlock.slug,
+                  categorySlug: block.slug,
+                  subBlock,
+                }))}
+              />
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
     </div>
   )
 }

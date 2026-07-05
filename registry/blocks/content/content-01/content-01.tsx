@@ -1,8 +1,9 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import * as React from 'react'
+import { useState } from 'react'
 
-import { motion, type Variants } from 'motion/react'
+import { motion, useReducedMotion, type Variants } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -20,12 +21,13 @@ export interface Content01Item {
 export interface Content01Props {
   items: Content01Item[]
   variant?: 'standard' | 'compact' | 'prominent'
-  animation?: 'none' | 'subtle' | 'emphasis'
+  animation?: 'none' | 'subtle'
 }
 
 const variantStyles = {
   standard: {
-    grid: 'grid-cols-1 gap-10 md:grid-cols-2 md:gap-14',
+    container: 'py-12 sm:py-16',
+    grid: 'grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-14',
     nav: 'gap-1',
     button: 'py-2.5',
     title: 'text-base',
@@ -35,7 +37,8 @@ const variantStyles = {
     mediaRadius: 'rounded-lg',
   },
   compact: {
-    grid: 'grid-cols-1 gap-6 md:grid-cols-2 md:gap-10',
+    container: 'py-10 sm:py-12',
+    grid: 'grid-cols-1 gap-6 md:grid-cols-2 md:items-center md:gap-10',
     nav: 'gap-0.5',
     button: 'py-2',
     title: 'text-sm md:text-base',
@@ -45,7 +48,8 @@ const variantStyles = {
     mediaRadius: 'rounded-md',
   },
   prominent: {
-    grid: 'grid-cols-1 gap-12 md:grid-cols-2 md:gap-16',
+    container: 'py-14 sm:py-20',
+    grid: 'grid-cols-1 gap-12 md:grid-cols-2 md:items-center md:gap-16',
     nav: 'gap-1.5',
     button: 'py-3',
     title: 'text-base md:text-lg',
@@ -56,14 +60,27 @@ const variantStyles = {
   },
 } as const
 
-const emphasisNavList: Variants = {
+const container: Variants = {
   hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+}
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
   visible: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
-const emphasisItem: Variants = {
+const navList: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06, delayChildren: 0.04 } },
+}
+
+const navItem: Variants = {
   hidden: { opacity: 0, y: 12, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
@@ -73,7 +90,7 @@ const emphasisItem: Variants = {
   },
 }
 
-const emphasisMediaEnter: Variants = {
+const mediaEnter: Variants = {
   hidden: { opacity: 0, scale: 0.96, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
@@ -83,15 +100,29 @@ const emphasisMediaEnter: Variants = {
   },
 }
 
-const subtleEnter = {
-  initial: { opacity: 0, y: 10, filter: 'blur(8px)' },
-  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-} as const
-
 const viewport = {
   once: true,
   margin: '-80px' as const,
+}
+
+function Reveal({
+  active,
+  variants,
+  className,
+  children,
+}: Readonly<{
+  active: boolean
+  variants?: Variants
+  className?: string
+  children: React.ReactNode
+}>) {
+  if (!active) return <div className={className}>{children}</div>
+
+  return (
+    <motion.div variants={variants ?? item} className={className}>
+      {children}
+    </motion.div>
+  )
 }
 
 export function Content01({
@@ -100,71 +131,60 @@ export function Content01({
   animation = 'none',
 }: Readonly<Content01Props>) {
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const reduce = useReducedMotion()
+  const animate = animation === 'subtle' && !reduce
   const vs = variantStyles[variant]
 
   if (!items.length) return null
 
-  const navBody = (
-    <>
-      {items.map((item, index) => {
-        const isSelected = index === selectedIndex
-        const buttonEl = (
-          <Button
-            variant="ghost"
-            type="button"
-            onClick={() => setSelectedIndex(index)}
-            aria-current={isSelected ? 'true' : undefined}
+  const renderNavButton = (item: Content01Item, index: number) => {
+    const isSelected = index === selectedIndex
+
+    return (
+      <Button
+        variant="ghost"
+        type="button"
+        onClick={() => setSelectedIndex(index)}
+        aria-current={isSelected ? 'true' : undefined}
+        className={cn(
+          'h-auto w-full justify-start rounded-sm text-left font-normal whitespace-normal',
+          vs.button,
+          'hover:bg-muted/50 hover:opacity-100',
+          isSelected && 'text-foreground bg-muted/50',
+          !isSelected && 'text-muted-foreground hover:text-foreground',
+        )}
+      >
+        <span className="flex flex-col gap-1">
+          <span className={cn(vs.title, isSelected && vs.titleSelected)}>
+            {item.title}
+          </span>
+          <span
             className={cn(
-              'h-auto w-full justify-start rounded-sm text-left font-normal whitespace-normal',
-              vs.button,
-              'hover:bg-muted/50 transition-none hover:opacity-100',
-              isSelected && 'text-foreground bg-muted/50',
-              !isSelected && 'text-muted-foreground hover:text-foreground',
+              'grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+              isSelected ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
             )}
           >
-            <span className="flex flex-col gap-1">
-              <span className={cn(vs.title, isSelected && vs.titleSelected)}>
-                {item.title}
-              </span>
+            <span className="overflow-hidden">
               <span
                 className={cn(
-                  'grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
-                  isSelected ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
+                  'text-muted-foreground block pb-0.5 transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                  vs.desc,
+                  isSelected ? 'opacity-100' : 'opacity-0',
                 )}
               >
-                <span className="overflow-hidden">
-                  <span
-                    className={cn(
-                      'text-muted-foreground block pb-0.5 transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
-                      vs.desc,
-                      isSelected ? 'opacity-100' : 'opacity-0',
-                    )}
-                  >
-                    {item.description}
-                  </span>
-                </span>
+                {item.description}
               </span>
             </span>
-          </Button>
-        )
-
-        if (animation === 'emphasis') {
-          return (
-            <motion.div key={item.id} variants={emphasisItem}>
-              {buttonEl}
-            </motion.div>
-          )
-        }
-
-        return <Fragment key={item.id}>{buttonEl}</Fragment>
-      })}
-    </>
-  )
+          </span>
+        </span>
+      </Button>
+    )
+  }
 
   const mediaCrossfade = (
     <div
       className={cn(
-        'relative w-full overflow-hidden',
+        'relative w-full overflow-hidden outline outline-black/10 dark:outline-white/10',
         vs.media,
         vs.mediaRadius,
       )}
@@ -190,55 +210,69 @@ export function Content01({
     </div>
   )
 
-  const grid = (
+  const gridElement = (
     <div className={cn('grid grid-cols-1 md:grid-cols-2', vs.grid)}>
-      {animation === 'emphasis' && (
-        <motion.nav
-          className={cn('flex flex-col justify-center', vs.nav)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={emphasisNavList}
-          aria-label="List of items"
-        >
-          {navBody}
-        </motion.nav>
-      )}
-      {animation !== 'emphasis' && (
-        <nav
-          className={cn('flex flex-col justify-center', vs.nav)}
-          aria-label="List of items"
-        >
-          {navBody}
-        </nav>
-      )}
-      {animation === 'emphasis' && (
-        <motion.div
-          className="relative min-w-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={emphasisMediaEnter}
-        >
-          {mediaCrossfade}
-        </motion.div>
-      )}
-      {animation !== 'emphasis' && mediaCrossfade}
+      <nav
+        className={cn('flex flex-col justify-center', vs.nav)}
+        aria-label="List of items"
+      >
+        {items.map((item, index) => (
+          <div key={item.id}>{renderNavButton(item, index)}</div>
+        ))}
+      </nav>
+      {mediaCrossfade}
     </div>
   )
 
-  if (animation === 'subtle') {
-    return (
-      <motion.div
-        initial={subtleEnter.initial}
-        whileInView={subtleEnter.animate}
-        viewport={viewport}
-        transition={subtleEnter.transition}
+  const animatedGridElement = (
+    <div className={cn('grid grid-cols-1 md:grid-cols-2', vs.grid)}>
+      <Reveal active={animate} className="w-full self-center">
+        <motion.nav
+          className={cn('flex flex-col justify-center', vs.nav)}
+          variants={navList}
+          aria-label="List of items"
+        >
+          {items.map((item, index) => (
+            <motion.div key={item.id} variants={navItem}>
+              {renderNavButton(item, index)}
+            </motion.div>
+          ))}
+        </motion.nav>
+      </Reveal>
+      <Reveal
+        active={animate}
+        variants={mediaEnter}
+        className="relative min-w-0"
       >
-        {grid}
-      </motion.div>
+        {mediaCrossfade}
+      </Reveal>
+    </div>
+  )
+
+  if (animate) {
+    return (
+      <section className="w-full">
+        <div
+          className={cn('mx-auto w-full max-w-6xl px-6', vs.container)}
+        >
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            {animatedGridElement}
+          </motion.div>
+        </div>
+      </section>
     )
   }
 
-  return grid
+  return (
+    <section className="w-full">
+      <div className={cn('mx-auto w-full max-w-6xl px-6', vs.container)}>
+        {gridElement}
+      </div>
+    </section>
+  )
 }

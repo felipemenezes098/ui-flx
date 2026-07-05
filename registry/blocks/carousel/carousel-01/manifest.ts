@@ -2,7 +2,10 @@ import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Carousel01 } from './carousel-01'
 import { Carousel01EditorFields } from './editor/fields'
 import { Carousel01Example, values } from './carousel-01-example'
-import { Carousel01TitleInside } from './examples/carousel-01-title-inside'
+import {
+  Carousel01TitleInside,
+  values as titleInsideValues,
+} from './examples/carousel-01-title-inside'
 
 export const manifest: BlockManifest = {
   slug: 'carousel-01',
@@ -12,7 +15,7 @@ export const manifest: BlockManifest = {
   category: 'carousel',
   image: {
     light: '/images/blocks/carousel/carousel-01.png',
-    dark: '/images/blocks/carousel/carousel-01.png',
+    dark: '/images/blocks/carousel/carousel-01-dark.png',
   },
   meta: {
     iframeHeight: 500,
@@ -24,5 +27,8 @@ export const manifest: BlockManifest = {
   defaults: values,
   variations: {
     'title-inside': Carousel01TitleInside,
+  },
+  variationDefaults: {
+    'title-inside': titleInsideValues,
   },
 }

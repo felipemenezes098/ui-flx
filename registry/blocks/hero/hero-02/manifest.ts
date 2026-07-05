@@ -7,15 +7,14 @@ export const manifest: BlockManifest = {
   slug: 'hero-02',
   name: 'Hero 02',
   description:
-    'Hero with title, description, two CTAs, logo marquee, and image carousel below.',
+    'A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-02.png',
-    dark: '/images/blocks/hero/hero-02.png',
+    dark: '/images/blocks/hero/hero-02-dark.png',
   },
   meta: {
-    iframeHeight: 800,
-    containerClassName: 'max-w-full overflow-hidden px-0',
+    iframeHeight: 1300,
   },
   component: Hero02,
   editorFields: Hero02EditorFields,

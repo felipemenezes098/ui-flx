@@ -28,9 +28,9 @@ Visit [ui.flexnative.com](https://ui.flexnative.com) to browse intents, decision
 ## Development
 
 ```bash
-npm run dev
-npm run build
-npm run registry:build
+pnpm dev
+pnpm build
+pnpm registry:build
 ```
 
 ## Contributing

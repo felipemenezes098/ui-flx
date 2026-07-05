@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spot-04",
+  "title": "Analytics",
+  "description": "A card with a gradient area chart.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/illustrations/spot/spot-04.tsx",
+      "content": "import { Button } from '@/components/ui/button'\nimport { Card } from '@/components/ui/card'\n\nexport function Spot04() {\n  return (\n    <Card className=\"w-64 gap-3 p-4 shadow-sm\">\n      <div className=\"flex items-center justify-between\">\n        <div className=\"flex flex-col gap-0.5\">\n          <span className=\"text-muted-foreground text-xs\">Visitors</span>\n          <span className=\"text-xl font-semibold tracking-tight tabular-nums\">\n            18,204\n          </span>\n        </div>\n        <Button variant=\"outline\" size=\"xs\">\n          This week\n        </Button>\n      </div>\n\n      <svg\n        viewBox=\"0 0 240 60\"\n        className=\"h-14 w-full\"\n        preserveAspectRatio=\"none\"\n        aria-hidden\n      >\n        <defs>\n          <linearGradient id=\"spot-04-fill\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n            <stop\n              offset=\"0%\"\n              className=\"text-primary\"\n              stopColor=\"currentColor\"\n              stopOpacity=\"0.22\"\n            />\n            <stop\n              offset=\"100%\"\n              className=\"text-primary\"\n              stopColor=\"currentColor\"\n              stopOpacity=\"0\"\n            />\n          </linearGradient>\n        </defs>\n        <path\n          d=\"M0 44 C 30 40, 45 20, 70 24 S 120 12, 150 28 S 205 8, 240 16 L 240 60 L 0 60 Z\"\n          fill=\"url(#spot-04-fill)\"\n        />\n        <path\n          d=\"M0 44 C 30 40, 45 20, 70 24 S 120 12, 150 28 S 205 8, 240 16\"\n          className=\"text-primary stroke-current\"\n          strokeWidth=\"2.5\"\n          fill=\"none\"\n          strokeLinecap=\"round\"\n        />\n      </svg>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/illustrations/spot/spot-04.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

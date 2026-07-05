@@ -11,7 +11,7 @@ export const manifest: BlockManifest = {
   category: 'logos',
   image: {
     light: '/images/blocks/logos/logos-01.png',
-    dark: '/images/blocks/logos/logos-01.png',
+    dark: '/images/blocks/logos/logos-01-dark.png',
   },
   meta: {
     containerClassName: 'max-w-full overflow-hidden px-0',
