@@ -1,29 +1,27 @@
 # Flexnative
 
-Interfaces are decisions, not component collections.
+**Ship UI. Keep the Taste.**
 
-From intent to interface.
+Scale taste across projects. Blocks, patterns, intents, and prompts for builders and AI agents.
 
-![Flexnative UI Intents, Decisions, Prompts, and Patterns](public/images/docs/flx-2.png)
+![Flexnative: patterns, blocks, illustrations, and intents](public/images/docs/flx-2.png)
 
-Flexnative is an open source collection of UI intents, interface decisions, prompts, and patterns.
+Flexnative is open source. Built on [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. You get the source, you own it, extend it, ship it.
 
-This repo documents the reasoning, prompts, and code behind reusable interface decisions.
+Not a component catalog. A way to document taste and scale the layers you reuse across projects:
 
-Built on [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. Designed to be extended and owned.
+- **Patterns**: reusable UI implementations
+- **Blocks**: full page sections with live editing
+- **Illustrations**: visuals built with shadcn/ui and Motion
+- **Intents**: from problem to decision, with reasoning and code
 
-Each intent maps to decisions with tradeoffs, then to prompts, patterns, and implementations.
+Tradeoffs written down. Instructions builders and AI agents can follow. Code you keep.
 
-- **Intent** — what the interface needs to achieve.
-- **Decision** — the tradeoffs behind a solution.
-- **Prompt** — instructions for builders and agents.
-- **Pattern** — a reusable implementation.
-
-**This repo is the open source project behind [ui.flexnative.com](https://ui.flexnative.com).**
+**This repo powers [ui.flexnative.com](https://ui.flexnative.com).**
 
 ## Documentation
 
-Visit [ui.flexnative.com](https://ui.flexnative.com) to browse intents, decisions, prompts, patterns, blocks, and documentation.
+Browse patterns, blocks, illustrations, intents, and docs at [ui.flexnative.com](https://ui.flexnative.com).
 
 ## Development
 
