@@ -31,7 +31,10 @@ export function Content06EditorFields({
 
   const props = externalProps ?? internalProps
 
-  const updateField = (field: string, value: any) => {
+  const updateField = <K extends keyof Content06Props>(
+    field: K,
+    value: Content06Props[K],
+  ) => {
     const newProps = { ...props, [field]: value }
 
     if (onUpdate) {
@@ -75,6 +78,50 @@ export function Content06EditorFields({
 
   return (
     <div className="space-y-4">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-06-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content06Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-06-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-06-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content06Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-06-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="title" className="text-sm font-medium">
           Title

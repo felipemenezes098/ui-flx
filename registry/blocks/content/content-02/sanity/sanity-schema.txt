@@ -18,6 +18,12 @@ export const content02Block = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'content',
+    }),
+    defineField({
       name: 'items',
       title: 'Items',
       type: 'array',
@@ -46,18 +52,6 @@ export const content02Block = defineType({
                   name: 'alt',
                   title: 'Alt text',
                   type: 'string',
-                }),
-                defineField({
-                  name: 'overlay',
-                  title: 'Overlay',
-                  type: 'boolean',
-                  initialValue: false,
-                }),
-                defineField({
-                  name: 'whiteTexts',
-                  title: 'White texts',
-                  type: 'boolean',
-                  initialValue: false,
                 }),
               ],
             }),

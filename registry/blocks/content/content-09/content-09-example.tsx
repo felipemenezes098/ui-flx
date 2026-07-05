@@ -2,6 +2,10 @@ import { Content09, type Content09Props } from './content-09'
 
 export const values = {
   title: 'What we offer',
+  description:
+    'Four focused capabilities, each with a clear icon, headline, and short explanation.',
+  variant: 'standard',
+  animation: 'subtle',
   items: [
     {
       title: 'Modern Design',
@@ -30,5 +34,13 @@ export const values = {
 } satisfies Content09Props
 
 export function Content09Example() {
-  return <Content09 title={values.title} items={values.items} />
+  return (
+    <Content09
+      title={values.title}
+      description={values.description}
+      items={values.items}
+      variant={values.variant}
+      animation={values.animation}
+    />
+  )
 }

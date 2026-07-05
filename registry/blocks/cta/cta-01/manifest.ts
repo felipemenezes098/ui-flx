@@ -16,4 +16,7 @@ export const manifest: BlockManifest = {
   editorFields: Cta01EditorFields,
   example: Cta01Example,
   defaults: values,
+  meta: {
+    iframeHeight: 600,
+  },
 }

@@ -13,8 +13,8 @@ export const values = {
       size: 'sm' as const,
     },
     media: {
-      title: 'Bento section preview',
-      src: 'https://images.unsplash.com/photo-1624888726831-f06836b69e55?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      title: 'Design',
+      src: 'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
   },
   items: [
@@ -22,8 +22,8 @@ export const values = {
       title: 'Dynamic cards',
       description: 'Swap images and copy without breaking layout or spacing.',
       media: {
-        title: 'Reusable cards media',
-        src: 'https://images.unsplash.com/photo-1611310424006-42cf1e064288?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        title: 'Components',
+        src: 'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
     },
     {
@@ -31,8 +31,8 @@ export const values = {
       description:
         'Stacks on mobile and becomes a 3-column bento on larger screens.',
       media: {
-        title: 'Responsive cards media',
-        src: 'https://images.unsplash.com/photo-1712068944624-395e0948a71d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        title: 'Developer Experience',
+        src: 'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
     },
     {
@@ -40,8 +40,8 @@ export const values = {
       description:
         'Primary content stands out while the supporting cards stay readable.',
       media: {
-        title: 'Visual hierarchy media',
-        src: 'https://images.unsplash.com/photo-1617020329399-a1fe5d8646d5?q=80&w=1077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        title: 'Customization',
+        src: 'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
     },
     {
@@ -49,8 +49,8 @@ export const values = {
       description:
         'Add more cards, switch aspect ratios, and tune the spacing.',
       media: {
-        title: 'Extendable cards media',
-        src: 'https://images.unsplash.com/photo-1678567668518-fc22c9c76f1f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        title: 'Performance',
+        src: 'https://images.unsplash.com/photo-1734552452335-e8b67797bad0?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
     },
   ],

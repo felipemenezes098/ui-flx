@@ -1,15 +1,6 @@
-import Link from 'next/link'
-
 import { blocks } from '@/lib/blocks/block-catalog'
 
-import {
-  BlockPreviewCard,
-  BlockPreviewCardBadge,
-  BlockPreviewCardFooter,
-  BlockPreviewCardImage,
-  BlockPreviewCardPreview,
-  BlockPreviewCardTitle,
-} from './block-preview-card'
+import { BlockPreviewGrid } from './block-preview-grid'
 
 interface BlockMoreProps {
   category: string
@@ -31,28 +22,14 @@ export function BlockMore({ category, slug }: Readonly<BlockMoreProps>) {
         </p>
       </div>
 
-      <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {related.map((subBlock) => (
-          <Link
-            key={subBlock.slug}
-            href={`/blocks/${category}/${subBlock.slug}`}
-            className="group relative mb-4 block w-full min-w-0 break-inside-avoid"
-          >
-            <BlockPreviewCard>
-              <BlockPreviewCardPreview className="flex min-h-30 items-center justify-center">
-                {subBlock.hasNew && <BlockPreviewCardBadge />}
-                <BlockPreviewCardImage
-                  image={subBlock.image}
-                  alt={subBlock.name}
-                />
-              </BlockPreviewCardPreview>
-              <BlockPreviewCardFooter>
-                <BlockPreviewCardTitle>{subBlock.name}</BlockPreviewCardTitle>
-              </BlockPreviewCardFooter>
-            </BlockPreviewCard>
-          </Link>
-        ))}
-      </div>
+      <BlockPreviewGrid
+        lgColumns={3}
+        items={related.map((subBlock) => ({
+          key: subBlock.slug,
+          categorySlug: category,
+          subBlock,
+        }))}
+      />
     </section>
   )
 }

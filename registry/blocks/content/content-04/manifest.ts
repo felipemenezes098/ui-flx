@@ -7,11 +7,14 @@ export const manifest: BlockManifest = {
   slug: 'content-04',
   name: 'Content 04',
   description:
-    'Two-column grid of cards: title, description, and image at the bottom.',
+    'Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.',
   category: 'content',
   image: {
     light: '/images/blocks/content/content-04.png',
     dark: '/images/blocks/content/content-04-dark.png',
+  },
+  meta: {
+    iframeHeight: 900,
   },
   component: Content04,
   editorFields: Content04EditorFields,

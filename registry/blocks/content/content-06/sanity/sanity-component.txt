@@ -4,6 +4,7 @@ import { createImageUrlBuilder } from "@sanity/image-url";
 import { cn } from "@/lib/utils";
 import { Blocks } from "@/sanity.types";
 import { client } from "@/sanity/client";
+
 type Content06Block = Extract<
   Blocks[number],
   { _type: "content06" }
@@ -19,46 +20,38 @@ export function Content06({ block }: Readonly<Content06Props>) {
   const imageUrl = block.media?.asset ? builder.image(block.media).url() : null;
 
   return (
-    <div
-      className={cn(
-        "grid grid-cols-1 gap-10 overflow-x-hidden md:grid-cols-2 md:items-stretch"
-      )}
-    >
-      <div
-        className={cn(
-          "order-1 flex w-full min-w-0 flex-col space-y-8 self-center overflow-x-hidden"
-        )}
-      >
-        <div className="space-y-6">
-          {block.title && (
-            <h2 className={cn("text-2xl font-bold max-w-full md:max-w-sm")}>
-              <Balancer balance={0.5}>{block.title}</Balancer>
-            </h2>
-          )}
-          {block.content && (
-            <p
-              className={cn(
-                "text-muted-foreground max-w-full whitespace-pre-line md:max-w-sm"
+    <section className="w-full">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:py-16">
+        <div className="grid w-full grid-cols-1 gap-10 overflow-x-hidden md:grid-cols-2 md:items-center md:gap-14">
+          <div className="order-1 flex w-full min-w-0 flex-col gap-8 self-center">
+            <div className="flex flex-col gap-3">
+              {block.title && (
+                <h2 className="text-foreground font-serif text-2xl font-normal tracking-tight text-balance sm:text-3xl">
+                  <Balancer>{block.title}</Balancer>
+                </h2>
               )}
-            >
-              <Balancer balance={0.5}>{block.content}</Balancer>
-            </p>
-          )}
+              {block.content && (
+                <p className="text-muted-foreground max-w-sm text-sm whitespace-pre-line sm:text-base">
+                  <Balancer>{block.content}</Balancer>
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="relative order-2 flex md:h-full md:items-center">
+            {imageUrl && (
+              <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg outline outline-black/10 md:min-h-[420px] dark:outline-white/10">
+                <img
+                  src={imageUrl}
+                  alt={block.title ?? "Content 06 Image"}
+                  loading="eager"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
-      <div className={cn("order-2 relative flex md:h-full md:items-center")}>
-        {imageUrl && (
-          <div className="relative min-h-80 w-full overflow-hidden rounded-lg group/image">
-            <img
-              src={imageUrl}
-              alt={block.title ?? "Content 06 Image"}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 size-full rounded-lg object-cover transition-all duration-300 group-hover/image:scale-105"
-            />
-          </div>
-        )}
-      </div>
-    </div>
+    </section>
   );
 }

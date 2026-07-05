@@ -38,10 +38,12 @@ export function Content01({ block }: Readonly<Content01Props>) {
   if (!items.length) return null;
 
   return (
-    <div
-      className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14"
-      aria-label="List of items"
-    >
+    <section className="w-full">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:py-16">
+        <div
+          className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-14"
+          aria-label="List of items"
+        >
       <nav className="flex flex-col justify-center gap-1">
         {items.map((item, index) => {
           const isSelected = index === selectedIndex;
@@ -106,6 +108,7 @@ export function Content01({ block }: Readonly<Content01Props>) {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

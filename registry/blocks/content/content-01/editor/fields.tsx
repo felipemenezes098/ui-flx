@@ -150,7 +150,6 @@ export function Content01EditorFields({
             <SelectContent>
               <SelectItem value="none">None</SelectItem>
               <SelectItem value="subtle">Subtle</SelectItem>
-              <SelectItem value="emphasis">Emphasis</SelectItem>
             </SelectContent>
           </Select>
         </div>

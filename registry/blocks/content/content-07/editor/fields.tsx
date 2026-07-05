@@ -33,6 +33,19 @@ export function Content07EditorFields({
 
   const props = externalProps ?? internalProps
 
+  const updateField = <K extends keyof Content07Props>(
+    field: K,
+    value: Content07Props[K],
+  ) => {
+    const newProps = { ...props, [field]: value }
+
+    if (onUpdate) {
+      onUpdate(newProps)
+    } else {
+      setInternalProps(newProps)
+    }
+  }
+
   const addItem = () => {
     const newProps = {
       ...props,
@@ -42,7 +55,7 @@ export function Content07EditorFields({
           title: 'New Column',
           content: 'Column content',
           media: {
-            src: 'https://images.unsplash.com/photo-1545584483-c26adab78e78?q=80&w=638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            src: 'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             alt: 'Column image',
           },
           cta: {
@@ -150,6 +163,76 @@ export function Content07EditorFields({
 
   return (
     <div className="space-y-6">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="content-07-variant" className="text-sm font-medium">
+            Variant
+          </Label>
+          <Select
+            value={props.variant ?? 'standard'}
+            onValueChange={(value) =>
+              updateField('variant', value as Content07Props['variant'])
+            }
+          >
+            <SelectTrigger id="content-07-variant" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label
+            htmlFor="content-07-animation"
+            className="text-sm font-medium"
+          >
+            Animation
+          </Label>
+          <Select
+            value={props.animation ?? 'none'}
+            onValueChange={(value) =>
+              updateField('animation', value as Content07Props['animation'])
+            }
+          >
+            <SelectTrigger id="content-07-animation" className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="title" className="text-sm font-medium">
+          Title
+        </Label>
+        <Input
+          id="title"
+          type="text"
+          value={props.title}
+          onChange={(e) => updateField('title', e.target.value)}
+          placeholder="Enter title"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="description" className="text-sm font-medium">
+          Description
+        </Label>
+        <Textarea
+          id="description"
+          value={props.description ?? ''}
+          onChange={(e) => updateField('description', e.target.value)}
+          placeholder="Enter section description"
+          rows={3}
+        />
+      </div>
+
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <Label className="text-sm font-medium">Column Items</Label>

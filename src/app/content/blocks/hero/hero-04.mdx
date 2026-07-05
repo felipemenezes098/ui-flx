@@ -1,0 +1,71 @@
+export const metadata = {
+  title: 'Hero 04',
+  description:
+    'A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.',
+  openGraph: {
+    title: 'Hero 04',
+    description:
+      'A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-04" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-04" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-04/hero-04-example.tsx"
+  title="hero-04-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Add the art collage</Step>
+
+A layered collage of two overlapping art images. Swap the images via props or
+drop the file to use your own media.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-04/art-collage.tsx"
+  title="art-collage.tsx"
+  collapsible
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-04/hero-04.tsx"
+  collapsible
+  title="hero-04.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-04/hero-04-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

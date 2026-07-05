@@ -6,7 +6,8 @@ import { Content02Example, values } from './content-02-example'
 export const manifest: BlockManifest = {
   slug: 'content-02',
   name: 'Content 02',
-  description: 'A grid of media cards with a title and items.',
+  description:
+    'A grid of media cards with a section header and item details below each image.',
   category: 'content',
   image: {
     light: '/images/blocks/content/content-02.png',
@@ -16,4 +17,7 @@ export const manifest: BlockManifest = {
   editorFields: Content02EditorFields,
   example: Content02Example,
   defaults: values,
+  meta: {
+    iframeHeight: 900,
+  },
 }

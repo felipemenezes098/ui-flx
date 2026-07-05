@@ -1,9 +1,11 @@
 export const metadata = {
   title: 'Content 09',
-  description: 'A grid of cards with a title and items.',
+  description:
+    'Two-column icon card grid with serif section header and subtle entrance motion.',
   openGraph: {
     title: 'Content 09',
-    description: 'A grid of cards with a title and items.',
+    description:
+      'Two-column icon card grid with serif section header and subtle entrance motion.',
     type: 'article',
   },
 }
@@ -36,8 +38,17 @@ export const metadata = {
 
 <Steps>
 
-<Step>Install react-wrap-balancer</Step>
+<Step>Add Dynamic Icon</Step>
 
+<CodeBlockFromFile
+  filePath="registry/blocks/shared/dynamic-icon.tsx"
+  title="dynamic-icon.tsx"
+  collapsible
+/>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="motion" isPackage />
 <CodeBlockCommand command="react-wrap-balancer" isPackage />
 
 <Step>Copy the component</Step>
@@ -85,4 +96,3 @@ Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for
 
 </TabsContent>
 </CodeTabs>
-

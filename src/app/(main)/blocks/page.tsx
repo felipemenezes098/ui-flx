@@ -33,10 +33,10 @@ export default function BlocksPage() {
         <BlocksSidebar />
       </Suspense>
       <div className="min-w-0 flex-1">
-        <div className="space-y-4 py-6">
+        <div className="space-y-4 pt-1 pb-6">
           <section>
             <div className="flex flex-col justify-center">
-              <h1 className="mb-1 text-3xl font-bold">Blocks</h1>
+              <h1 className="font-semi mb-1 text-2xl">Blocks</h1>
               <p className="text-muted-foreground mb-4 text-balance">
                 All Blocks are ready to copy and paste into your websites.
               </p>

@@ -12,6 +12,18 @@ export const content07Block = defineType({
   ],
   fields: [
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'content',
+    }),
+    defineField({
       name: 'items',
       title: 'Items',
       type: 'array',

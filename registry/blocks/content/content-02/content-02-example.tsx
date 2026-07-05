@@ -1,43 +1,53 @@
 import { Content02, type Content02Props } from './content-02'
 
 export const values = {
-  title: 'Focus areas',
+  title: 'Everything you need to ship',
+  description:
+    'Design, build, and iterate with blocks made for clarity, not clutter.',
+  variant: 'standard',
+  animation: 'subtle',
   items: [
     {
-      title: 'Clean interfaces',
-      description: 'Minimal layouts that put content first and noise last.',
+      title: 'Design',
+      description:
+        'Clean, accessible components that make your product feel modern and easy to use.',
       icon: 'Palette',
-      invert: true,
       media: {
-        src: 'https://images.unsplash.com/photo-1770838917379-32208420ea9a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Clean workspace',
+        src: 'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        alt: 'Design',
       },
     },
     {
-      title: 'Documentation',
+      title: 'Components',
       description:
-        'Clear guides and examples so you can move fast without guessing.',
+        'Pre-built blocks you can drop into any layout. Customize once, reuse everywhere.',
+      icon: 'Layers',
+      media: {
+        src: 'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        alt: 'Components',
+      },
+    },
+    {
+      title: 'Developer Experience',
+      description:
+        'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
       icon: 'Code',
-      invert: true,
       media: {
-        src: 'https://images.unsplash.com/photo-1756826513350-5b660cb91b55?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Developer on laptop',
-      },
-    },
-    {
-      title: 'Open by default',
-      description:
-        'Built in the open so you can adapt, extend, and own your stack.',
-      icon: 'Users',
-      invert: true,
-      media: {
-        src: 'https://images.unsplash.com/photo-1658725935880-3b93d812d42c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Team collaboration',
+        src: 'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        alt: 'Developer Experience',
       },
     },
   ],
 } satisfies Content02Props
 
 export function Content02Example() {
-  return <Content02 title={values.title} items={values.items} />
+  return (
+    <Content02
+      title={values.title}
+      description={values.description}
+      items={values.items}
+      variant={values.variant}
+      animation={values.animation}
+    />
+  )
 }

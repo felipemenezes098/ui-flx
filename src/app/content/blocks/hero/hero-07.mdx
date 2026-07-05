@@ -1,0 +1,61 @@
+export const metadata = {
+  title: 'Hero 07',
+  description:
+    'An editorial hero with a full-width landscape image above, a top-aligned tagline, and right-aligned headline and copy below.',
+  openGraph: {
+    title: 'Hero 07',
+    description:
+      'An editorial hero with a full-width landscape image above, a top-aligned tagline, and right-aligned headline and copy below.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-07" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-07" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-07/hero-07-example.tsx"
+  title="hero-07-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-07/hero-07.tsx"
+  collapsible
+  title="hero-07.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-07/hero-07-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

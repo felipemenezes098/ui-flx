@@ -1,51 +1,16 @@
 'use client'
 
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useRef } from 'react'
 
-import {
-  BlockPreviewCard,
-  BlockPreviewCardBadge,
-  BlockPreviewCardFooter,
-  BlockPreviewCardImage,
-  BlockPreviewCardPreview,
-  BlockPreviewCardTitle,
-} from './block-preview-card'
+import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
 import {
   getValidBlocksCategorySlug,
   isAllBlocksCategory,
 } from '../lib/blocks-category'
 import { blocks } from '@/lib/blocks/block-catalog'
-import type { BlockItem } from '@/lib/blocks/block-manifest-types'
 import { cn } from '@/lib/utils'
-
-function BlockPreviewLink({
-  categorySlug,
-  subBlock,
-}: Readonly<{
-  categorySlug: string
-  subBlock: BlockItem
-}>) {
-  return (
-    <Link
-      id={`${categorySlug}-${subBlock.slug}`}
-      href={`/blocks/${categorySlug}/${subBlock.slug}`}
-      className="group relative mb-4 block w-full min-w-0 scroll-mt-16 break-inside-avoid"
-    >
-      <BlockPreviewCard>
-        <BlockPreviewCardPreview className="flex min-h-30 items-center justify-center">
-          {subBlock.hasNew && <BlockPreviewCardBadge />}
-          <BlockPreviewCardImage image={subBlock.image} alt={subBlock.name} />
-        </BlockPreviewCardPreview>
-        <BlockPreviewCardFooter>
-          <BlockPreviewCardTitle>{subBlock.name}</BlockPreviewCardTitle>
-        </BlockPreviewCardFooter>
-      </BlockPreviewCard>
-    </Link>
-  )
-}
 
 export function Blocks() {
   const searchParams = useSearchParams()
@@ -64,17 +29,16 @@ export function Blocks() {
       </div>
       {showAll && (
         <div role="tabpanel" aria-hidden={false}>
-          <div className="columns-1 gap-4 sm:columns-3">
-            {blocks.flatMap((category) =>
-              category.blocks.map((subBlock) => (
-                <BlockPreviewLink
-                  key={`${category.slug}-${subBlock.slug}`}
-                  categorySlug={category.slug}
-                  subBlock={subBlock}
-                />
-              )),
+          <BlockPreviewGrid
+            withScrollAnchor
+            items={blocks.flatMap((category) =>
+              category.blocks.map((subBlock) => ({
+                key: `${category.slug}-${subBlock.slug}`,
+                categorySlug: category.slug,
+                subBlock,
+              })),
             )}
-          </div>
+          />
         </div>
       )}
       {!showAll &&
@@ -91,15 +55,14 @@ export function Blocks() {
               role="tabpanel"
               aria-hidden={!isActive}
             >
-              <div className="columns-1 gap-4 sm:columns-3">
-                {block.blocks.map((subBlock) => (
-                  <BlockPreviewLink
-                    key={subBlock.slug}
-                    categorySlug={block.slug}
-                    subBlock={subBlock}
-                  />
-                ))}
-              </div>
+              <BlockPreviewGrid
+                withScrollAnchor
+                items={block.blocks.map((subBlock) => ({
+                  key: subBlock.slug,
+                  categorySlug: block.slug,
+                  subBlock,
+                }))}
+              />
             </div>
           )
         })}

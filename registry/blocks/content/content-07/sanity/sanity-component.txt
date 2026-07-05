@@ -23,41 +23,62 @@ export function Content07({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-      {block.items.map((item, index) => {
-        const imageUrl = item.media?.asset
-          ? builder.image(item.media).url()
-          : null;
-
-        return (
-          <div key={`${item.title}-${index}`} className="space-y-5">
-            {imageUrl && (
-              <div className="relative h-64 w-full overflow-hidden rounded-lg">
-                <img
-                  src={imageUrl}
-                  alt={item.title ?? "Content 07 image"}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 size-full object-cover"
-                />
-              </div>
+    <section className="w-full">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12 sm:gap-12 sm:py-16">
+        {(block.title || block.description) && (
+          <div className="flex max-w-2xl flex-col gap-3">
+            {block.title && (
+              <h2 className="text-foreground font-serif text-2xl font-normal tracking-tight text-balance sm:text-3xl">
+                <Balancer>{block.title}</Balancer>
+              </h2>
             )}
-
-            <div className="space-y-2">
-              {item.title && (
-                <h3 className="text-xl font-medium">{item.title}</h3>
-              )}
-              {item.content && (
-                <p className="text-muted-foreground whitespace-pre-line">
-                  <Balancer balance={0.5}>{item.content}</Balancer>
-                </p>
-              )}
-            </div>
-
-            {item.cta && <Cta cta={item.cta} />}
+            {block.description && (
+              <p className="text-muted-foreground max-w-xl text-sm sm:text-base">
+                <Balancer>{block.description}</Balancer>
+              </p>
+            )}
           </div>
-        );
-      })}
-    </div>
+        )}
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {block.items.map((item, index) => {
+            const imageUrl = item.media?.asset
+              ? builder.image(item.media).url()
+              : null;
+
+            return (
+              <article key={`${item.title}-${index}`} className="flex flex-col gap-5">
+                {imageUrl && (
+                  <div className="group/image relative h-64 w-full overflow-hidden rounded-lg outline outline-black/10 dark:outline-white/10">
+                    <img
+                      src={imageUrl}
+                      alt={item.title ?? "Content 07 image"}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
+                    />
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-2">
+                  {item.title && (
+                    <h3 className="text-lg font-medium tracking-tight">
+                      {item.title}
+                    </h3>
+                  )}
+                  {item.content && (
+                    <p className="text-muted-foreground text-sm whitespace-pre-line">
+                      <Balancer>{item.content}</Balancer>
+                    </p>
+                  )}
+                </div>
+
+                {item.cta && <Cta cta={item.cta} />}
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

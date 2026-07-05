@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.brandfetch.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'pixabay.com',
+      },
     ],
   },
   webpack: (config) => {

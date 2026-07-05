@@ -10,23 +10,18 @@ export const content09Block = defineType({
       title: 'Content',
     },
   ],
-  fieldsets: [
-    {
-      name: 'headerFieldset',
-      title: 'Header',
-      options: {
-        collapsible: true,
-        collapsed: false,
-      },
-    },
-  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       group: 'content',
-      fieldset: 'headerFieldset',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      group: 'content',
     }),
     defineField({
       name: 'items',
@@ -47,15 +42,23 @@ export const content09Block = defineType({
               title: 'Description',
               type: 'text',
             }),
+            defineField({
+              name: 'icon',
+              title: 'Icon',
+              type: 'string',
+              description: 'Lucide icon name (e.g. Palette, Code, Users)',
+            }),
           ],
           preview: {
             select: {
               title: 'title',
+              icon: 'icon',
             },
             prepare(selection) {
-              const {title} = selection
+              const {title, icon} = selection
               return {
                 title: title ? `Card - ${title}` : 'Card',
+                subtitle: icon ? `Icon: ${icon}` : undefined,
               }
             },
           },

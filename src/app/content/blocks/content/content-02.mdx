@@ -1,9 +1,11 @@
 export const metadata = {
   title: 'Content 02',
-  description: 'A grid of media cards with a title and items.',
+  description:
+    'A grid of media cards with a section header and item details below each image.',
   openGraph: {
     title: 'Content 02',
-    description: 'A grid of media cards with a title and items.',
+    description:
+      'A grid of media cards with a section header and item details below each image.',
     type: 'article',
   },
 }
@@ -35,6 +37,11 @@ export const metadata = {
 <TabsContent value="manual">
 
 <Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="motion" isPackage />
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
 
 <Step>Add dynamic-icon Component</Step>
 

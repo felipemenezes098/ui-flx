@@ -32,63 +32,67 @@ export function BentoGrids01({
   items,
 }: Readonly<BentoGrids01Props>) {
   return (
-    <div
-      className={cn('grid grid-cols-1 gap-6 md:grid-cols-3', className)}
-      aria-label="Bento grids 01"
-    >
-      <article className="bg-muted/50 col-span-1 overflow-hidden rounded-lg p-6 md:col-span-2">
-        <div className="grid h-full grid-cols-1 items-stretch gap-6 md:grid-cols-2">
-          <div className="flex flex-col justify-between gap-6">
-            <div className="space-y-3">
-              <h2 className="text-lg font-semibold tracking-tight md:text-xl">
-                {primary.title}
-              </h2>
-              <p className="text-muted-foreground text-sm whitespace-pre-line">
-                {primary.description}
-              </p>
-            </div>
-
-            <div className="flex">
-              <Cta cta={{ ...primary.cta, variant: 'outline' }} />
-            </div>
-          </div>
-
-          <div className="bg-muted relative min-h-64 w-full overflow-hidden rounded-xl md:min-h-0">
-            <img
-              src={primary.media.src}
-              alt={primary.media.title}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 size-full object-cover"
-            />
-          </div>
-        </div>
-      </article>
-
-      {items.map((item) => (
-        <article
-          key={`${item.title}-${item.media.src}`}
-          className="bg-muted/50 col-span-1 overflow-hidden rounded-lg p-6"
+    <section className="w-full">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:py-16">
+        <div
+          className={cn('grid grid-cols-1 gap-6 md:grid-cols-3', className)}
+          aria-label="Bento grids 01"
         >
-          <div className="flex h-full flex-col gap-6">
-            <div className="bg-muted relative aspect-[4/3] overflow-hidden rounded-xl">
-              <img
-                src={item.media.src}
-                alt={item.media.title}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 size-full object-cover"
-              />
+          <article className="bg-muted/50 col-span-1 overflow-hidden rounded-md p-4 md:col-span-2">
+            <div className="grid h-full grid-cols-1 items-stretch gap-6 md:grid-cols-2">
+              <div className="flex flex-col justify-between gap-6">
+                <div className="space-y-3">
+                  <h2 className="text-lg font-semibold tracking-tight md:text-xl">
+                    {primary.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm whitespace-pre-line">
+                    {primary.description}
+                  </p>
+                </div>
+
+                <div className="flex">
+                  <Cta cta={{ ...primary.cta, variant: 'outline' }} />
+                </div>
+              </div>
+
+              <div className="bg-muted relative min-h-64 w-full overflow-hidden rounded-md md:min-h-0">
+                <img
+                  src={primary.media.src}
+                  alt={primary.media.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover"
+                />
+              </div>
             </div>
-            <div className="space-y-1">
-              <h3 className="text-base font-medium">{item.title}</h3>
-              <p className="text-muted-foreground text-sm whitespace-pre-line">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
+          </article>
+
+          {items.map((item) => (
+            <article
+              key={`${item.title}-${item.media.src}`}
+              className="bg-muted/50 col-span-1 overflow-hidden rounded-md p-4"
+            >
+              <div className="flex h-full flex-col gap-6">
+                <div className="bg-muted relative aspect-[4/3] overflow-hidden rounded-md">
+                  <img
+                    src={item.media.src}
+                    alt={item.media.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 size-full object-cover"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-base font-medium">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm whitespace-pre-line">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

@@ -75,6 +75,95 @@
       }
     },
     {
+      "name": "hero-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-03/hero-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-03/hero-03.tsx"
+        },
+        {
+          "path": "hero-03/hero-03-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
+        }
+      ],
+      "title": "Hero 03",
+      "description": "A wellness hero with dual CTAs and a portrait that fades into the page below the copy.",
+      "meta": {
+        "iframeHeight": 1200
+      }
+    },
+    {
+      "name": "hero-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-04/hero-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-04/hero-04.tsx"
+        },
+        {
+          "path": "hero-04/hero-04-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
+        },
+        {
+          "path": "hero-04/art-collage.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-04/art-collage.tsx"
+        }
+      ],
+      "title": "Hero 04",
+      "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.",
+      "meta": {
+        "iframeHeight": 820
+      }
+    },
+    {
+      "name": "hero-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-05/hero-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05.tsx"
+        },
+        {
+          "path": "hero-05/hero-05-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
+        }
+      ],
+      "title": "Hero 05",
+      "description": "An editorial studio hero with a left tagline, right-aligned headline and copy, and a full-width landscape image below.",
+      "meta": {
+        "iframeHeight": 1100
+      }
+    },
+    {
       "name": "hero-06",
       "type": "registry:block",
       "title": "Hero 06",
@@ -101,6 +190,34 @@
       ],
       "meta": {
         "iframeHeight": 820
+      }
+    },
+    {
+      "name": "hero-07",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-07/hero-07.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-07/hero-07.tsx"
+        },
+        {
+          "path": "hero-07/hero-07-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-07/hero-07-example.tsx"
+        }
+      ],
+      "title": "Hero 07",
+      "description": "An editorial hero with a full-width landscape image above, a top-aligned tagline, and right-aligned headline and copy below.",
+      "meta": {
+        "iframeHeight": 1100
       }
     }
   ]
