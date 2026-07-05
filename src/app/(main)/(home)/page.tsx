@@ -4,8 +4,8 @@ import { Footer } from '@/components/core/footer'
 import { siteConfig } from '@/config/site'
 
 import { BlocksPreview } from './components/blocks-preview'
-import { CompositionSpotlight } from './components/composition-spotlight'
 import { HeroSection } from './components/hero-section'
+import { IllustrationsPreview } from './components/illustrations-preview'
 import { PatternTeaser } from './components/pattern-teaser'
 import { IntentShowcase } from './components/intent-showcase'
 import { IntentList } from './components/intent-showcase/intent-list'
@@ -44,8 +44,60 @@ export default function HomePage() {
           <PatternTeaser />
         </section>
 
-        <section>
-          <CompositionSpotlight />
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col justify-between md:flex-row md:items-end">
+            <div className="flex flex-col gap-2">
+              <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+                Blocks
+              </span>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                Sections, ready to ship
+              </h2>
+              <p className="text-muted-foreground max-w-2xl">
+                Full page sections with live editing. Copy the code and ship.
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <Button
+                asChild
+                variant="link"
+                size="sm"
+                className="bg-background"
+              >
+                <Link href="/blocks">View all</Link>
+              </Button>
+            </div>
+          </div>
+
+          <BlocksPreview />
+        </section>
+
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col justify-between md:flex-row md:items-end">
+            <div className="flex flex-col gap-2">
+              <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
+                Illustrations
+              </span>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                UI that feels alive
+              </h2>
+              <p className="text-muted-foreground max-w-2xl">
+                Elegant visuals built with shadcn/ui and Motion. Copy and paste.
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <Button
+                asChild
+                variant="link"
+                size="sm"
+                className="bg-background"
+              >
+                <Link href="/illustrations">View all</Link>
+              </Button>
+            </div>
+          </div>
+
+          <IllustrationsPreview />
         </section>
 
         <section className="flex flex-col gap-8">
@@ -77,34 +129,6 @@ export default function HomePage() {
           <IntentShowcase />
 
           <IntentList />
-        </section>
-
-        <section className="flex flex-col gap-8">
-          <div className="flex flex-col justify-between md:flex-row md:items-end">
-            <div className="flex flex-col gap-2">
-              <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
-                Blocks
-              </span>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-                Sections, ready to ship
-              </h2>
-              <p className="text-muted-foreground max-w-2xl">
-                Full page sections, with live editing. Ready to ship.
-              </p>
-            </div>
-            <div className="flex justify-end">
-              <Button
-                asChild
-                variant="link"
-                size="sm"
-                className="bg-background"
-              >
-                <Link href="/blocks">View all</Link>
-              </Button>
-            </div>
-          </div>
-
-          <BlocksPreview />
         </section>
       </div>
       <Footer />

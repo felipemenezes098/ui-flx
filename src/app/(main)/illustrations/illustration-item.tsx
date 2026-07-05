@@ -9,6 +9,11 @@ import { useQuery } from '@tanstack/react-query'
 import { CopyButton } from '@/components/core/copy-button'
 import { Logo } from '@/components/core/logo'
 import { PatternRenderer } from '@/components/core/patterns/pattern-renderer'
+import {
+  MosaicCell,
+  type MosaicCellSize,
+} from '@/components/core/mosaic/mosaic-cell'
+import type { MosaicSpan } from '@/components/core/mosaic/mosaic-span'
 import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
 import { CodeBlockCommand } from '@/components/core/code/code-block-command'
@@ -30,7 +35,6 @@ import {
 import { useActiveFile } from '@/hooks/use-active-file'
 import { useConfig } from '@/hooks/use-config'
 import { illustrationRegistry } from '@/lib/illustrations/illustration-registry'
-import type { IllustrationSize } from '@/lib/illustrations/illustration-types'
 import { buildIllustrationPrompt } from '@/lib/illustrations/illustrations-utils'
 import {
   registryAddCommand,
@@ -44,13 +48,8 @@ interface IllustrationItemProps {
   name: string
   description?: string
   categorySlug: string
-  size?: IllustrationSize
-  className?: string
-}
-
-const minHeightBySize: Record<IllustrationSize, string> = {
-  md: 'min-h-70',
-  lg: 'min-h-96',
+  span?: MosaicSpan
+  size?: MosaicCellSize
 }
 
 const tooltipContentClass =
@@ -61,8 +60,8 @@ export function IllustrationItem({
   name,
   description,
   categorySlug,
+  span = 1,
   size = 'md',
-  className,
 }: Readonly<IllustrationItemProps>) {
   const [openCode, setOpenCode] = useState(false)
   const [config] = useConfig()
@@ -89,12 +88,10 @@ export function IllustrationItem({
   const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
-    <div
-      className={cn(
-        'group border-border/60 hover:bg-muted/50 relative flex items-center justify-center border-r border-b p-6',
-        minHeightBySize[size],
-        className,
-      )}
+    <MosaicCell
+      span={span}
+      size={size}
+      className="group hover:bg-muted/50"
     >
       <PatternRenderer name={slug} registry={illustrationRegistry} />
 
@@ -215,6 +212,6 @@ export function IllustrationItem({
           </div>
         </div>
       </TooltipProvider>
-    </div>
+    </MosaicCell>
   )
 }

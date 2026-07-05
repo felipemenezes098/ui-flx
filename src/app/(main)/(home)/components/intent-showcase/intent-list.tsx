@@ -1,11 +1,13 @@
 import Link from 'next/link'
 
 import {
-  CategoryPreviewCard,
-  CategoryPreviewCardFooter,
-  CategoryPreviewCardPreview,
-  CategoryPreviewCardTitle,
-} from '@/components/core/category-preview-card'
+  ConceptGalleryCard,
+  ConceptGalleryCardFooter,
+  ConceptGalleryCardMedia,
+  ConceptGalleryCardTitle,
+} from '@/components/core/gallery/concept-gallery-card'
+import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
+import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
 import { Button } from '@/components/ui/button'
 import { allIntents } from '@/lib/intents/intent-catalog'
 
@@ -13,34 +15,33 @@ export function IntentList() {
   const items = allIntents.filter((i) => i.manifest).slice(0, 8)
 
   return (
-    <div className="relative">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4">
+    <GalleryFade>
+      <GalleryGridUniform>
         {items.map((intent) => {
           const Concept = intent.manifest?.concept
           if (!Concept) return null
 
           return (
-            <Link
+            <GalleryGridLink
               key={intent.slug}
               href={`/intents/${intent.slug}`}
-              className="group"
             >
-              <CategoryPreviewCard>
-                <CategoryPreviewCardPreview className="aspect-square">
+              <ConceptGalleryCard>
+                <ConceptGalleryCardMedia className="aspect-square">
                   <Concept />
-                </CategoryPreviewCardPreview>
-                <CategoryPreviewCardFooter>
-                  <CategoryPreviewCardTitle>
+                </ConceptGalleryCardMedia>
+                <ConceptGalleryCardFooter>
+                  <ConceptGalleryCardTitle>
                     {intent.name}
-                  </CategoryPreviewCardTitle>
-                </CategoryPreviewCardFooter>
-              </CategoryPreviewCard>
-            </Link>
+                  </ConceptGalleryCardTitle>
+                </ConceptGalleryCardFooter>
+              </ConceptGalleryCard>
+            </GalleryGridLink>
           )
         })}
-      </div>
+      </GalleryGridUniform>
 
-      <div className="from-background absolute inset-x-0 -bottom-10 flex h-40 items-end justify-center bg-gradient-to-t from-30% to-transparent pb-10">
+      <GalleryFadeFooter>
         <Button
           asChild
           variant="outline"
@@ -49,7 +50,7 @@ export function IntentList() {
         >
           <Link href="/intents">View all</Link>
         </Button>
-      </div>
-    </div>
+      </GalleryFadeFooter>
+    </GalleryFade>
   )
 }

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import type { ComponentType } from 'react'
 
 import {
-  CategoryPreviewCard,
-  CategoryPreviewCardFooter,
-  CategoryPreviewCardPreview,
-  CategoryPreviewCardTitle,
-} from '@/components/core/category-preview-card'
+  ConceptGalleryCard,
+  ConceptGalleryCardFooter,
+  ConceptGalleryCardMedia,
+  ConceptGalleryCardTitle,
+} from '@/components/core/gallery/concept-gallery-card'
+import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
 import { Footer } from '@/components/core/footer'
 import { intentDomains } from '@/lib/intents/intent-catalog'
 
@@ -37,23 +37,19 @@ function IntentPreviewCard({
   comingSoon?: boolean
 }>) {
   const card = (
-    <CategoryPreviewCard className={comingSoon ? 'opacity-50' : undefined}>
-      <CategoryPreviewCardPreview className="aspect-square">
+    <ConceptGalleryCard className={comingSoon ? 'opacity-50' : undefined}>
+      <ConceptGalleryCardMedia className="aspect-square">
         {Concept && <Concept />}
-      </CategoryPreviewCardPreview>
-      <CategoryPreviewCardFooter>
-        <CategoryPreviewCardTitle>{name}</CategoryPreviewCardTitle>
-      </CategoryPreviewCardFooter>
-    </CategoryPreviewCard>
+      </ConceptGalleryCardMedia>
+      <ConceptGalleryCardFooter>
+        <ConceptGalleryCardTitle>{name}</ConceptGalleryCardTitle>
+      </ConceptGalleryCardFooter>
+    </ConceptGalleryCard>
   )
 
   if (comingSoon || !href) return card
 
-  return (
-    <Link href={href} className="group">
-      {card}
-    </Link>
-  )
+  return <GalleryGridLink href={href}>{card}</GalleryGridLink>
 }
 
 export default function AiPage() {
@@ -90,7 +86,7 @@ export default function AiPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <GalleryGridUniform>
                     {domain.intents.map((intent) => (
                       <IntentPreviewCard
                         key={intent.slug}
@@ -100,7 +96,7 @@ export default function AiPage() {
                         comingSoon={intent.comingSoon}
                       />
                     ))}
-                  </div>
+                  </GalleryGridUniform>
                 </section>
               )
             })}

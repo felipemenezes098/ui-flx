@@ -3,7 +3,6 @@
 import { flushSync } from 'react-dom'
 import { usePathname, useRouter } from 'next/navigation'
 import {
-  AppWindow,
   ArrowDown,
   ArrowUp,
   Blocks,
@@ -12,7 +11,6 @@ import {
   LayoutGrid,
   Search,
   Sparkles,
-  SquareDashed,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -32,10 +30,8 @@ import {
 import { Kbd } from '@/components/ui/kbd'
 import { cn } from '@/lib/utils'
 import { blockCategories } from '@/lib/blocks/block-catalog'
-import { compositionCategories } from '@/lib/compositions/compositions-catalog'
 import { intentDomains } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
-import { sketchCategories } from '@/lib/sketches/sketches-catalog'
 
 const patterns = [
   ...patternCategories.map((category) => ({
@@ -49,22 +45,6 @@ const patterns = [
     href: '/forms/react-hook-form',
   },
 ].toSorted((a, b) => a.name.localeCompare(b.name))
-
-const compositions = compositionCategories
-  .map((category) => ({
-    key: `composition-${category.slug}`,
-    name: category.name,
-    href: `/compositions#${category.slug}`,
-  }))
-  .toSorted((a, b) => a.name.localeCompare(b.name))
-
-const sketches = sketchCategories
-  .map((category) => ({
-    key: `sketch-${category.slug}`,
-    name: category.name,
-    href: `/sketches#${category.slug}`,
-  }))
-  .toSorted((a, b) => a.name.localeCompare(b.name))
 
 const intents = intentDomains
   .map((domain) => {
@@ -132,10 +112,10 @@ export function GlobalSearch() {
         className="top-1/5 shadow-lg data-closed:!animate-none"
         onOpenChange={setOpen}
         title="Global search"
-        description="Search patterns, compositions, blocks, intents and sketches"
+        description="Search patterns, blocks, illustrations and intents"
       >
         <Command>
-          <CommandInput placeholder="Search patterns, compositions, blocks…" />
+          <CommandInput placeholder="Search patterns, blocks, illustrations…" />
           <CommandList className="2xl:max-h-80">
             <CommandEmpty>No results found.</CommandEmpty>
 
@@ -148,22 +128,6 @@ export function GlobalSearch() {
                   onSelect={() => navigate(item.href)}
                 >
                   <LayoutGrid className="size-4 shrink-0 opacity-60" />
-                  <span className="truncate">{item.name}</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-
-            <CommandSeparator />
-
-            <CommandGroup heading="Compositions">
-              {compositions.map((item) => (
-                <CommandItem
-                  key={item.key}
-                  className="h-9"
-                  value={`composition ${item.name}`}
-                  onSelect={() => navigate(item.href)}
-                >
-                  <AppWindow className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{item.name}</span>
                 </CommandItem>
               ))}
@@ -187,6 +151,19 @@ export function GlobalSearch() {
 
             <CommandSeparator />
 
+            <CommandGroup heading="Illustrations">
+              <CommandItem
+                className="h-9"
+                value="illustrations"
+                onSelect={() => navigate('/illustrations')}
+              >
+                <Image className="size-4 shrink-0 opacity-60" />
+                <span className="truncate">Illustrations</span>
+              </CommandItem>
+            </CommandGroup>
+
+            <CommandSeparator />
+
             <CommandGroup heading="Intents">
               {intents.map((item) => (
                 <CommandItem
@@ -199,35 +176,6 @@ export function GlobalSearch() {
                   <span className="truncate">{item.name}</span>
                 </CommandItem>
               ))}
-            </CommandGroup>
-
-            <CommandSeparator />
-
-            <CommandGroup heading="Sketches">
-              {sketches.map((item) => (
-                <CommandItem
-                  key={item.key}
-                  className="h-9"
-                  value={`sketch ${item.name}`}
-                  onSelect={() => navigate(item.href)}
-                >
-                  <SquareDashed className="size-4 shrink-0 opacity-60" />
-                  <span className="truncate">{item.name}</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-
-            <CommandSeparator />
-
-            <CommandGroup heading="Illustrations">
-              <CommandItem
-                className="h-9"
-                value="illustrations"
-                onSelect={() => navigate('/illustrations')}
-              >
-                <Image className="size-4 shrink-0 opacity-60" />
-                <span className="truncate">Illustrations</span>
-              </CommandItem>
             </CommandGroup>
           </CommandList>
           <div className="text-muted-foreground flex items-center gap-4 border-t px-3 py-2 text-xs">

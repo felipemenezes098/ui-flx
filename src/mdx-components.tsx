@@ -11,6 +11,7 @@ import { ScrollArea, ScrollBar } from './components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
 import { siteConfig } from './config/site'
 import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar'
 import { Button } from './components/ui/button'
 import { Logo } from './components/core/logo'
 
@@ -265,14 +266,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     BlockView,
     Contact: () => (
       <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
-        <div className="flex flex-col gap-0.5">
-          <span className="text-sm">Need help? Contact me</span>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="text-muted-foreground text-sm underline underline-offset-4"
-          >
-            {siteConfig.email}
-          </a>
+        <div className="flex items-center gap-3">
+          <Avatar className="size-10">
+            <AvatarImage src={siteConfig.authorImage} alt={siteConfig.author} />
+            <AvatarFallback>FM</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-sm">Need help? Contact me</span>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="text-muted-foreground text-sm underline underline-offset-4"
+            >
+              {siteConfig.email}
+            </a>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           <Button asChild variant="outline" size="sm">
