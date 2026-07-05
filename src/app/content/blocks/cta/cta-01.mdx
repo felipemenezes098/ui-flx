@@ -16,7 +16,6 @@ export const metadata = {
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
-  <TabsTrigger value="sanity">Sanity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="cli">
@@ -59,35 +58,6 @@ export const metadata = {
 <Step>Use the component</Step>
 
 <CodeBlockFromFile filePath="registry/blocks/cta/cta-01/cta-01-example.tsx" />
-
-</Steps>
-
-</TabsContent>
-
-<TabsContent value="sanity">
-
-<Steps>
-
-<Step>Schema (Studio)</Step>
-
-Define the block in the Studio so editors can add and edit Call to Action 01. Add the schema and export it according to your project structure.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/cta/cta-01/sanity/sanity-schema.txt"
-  language="ts"
-  title="sanity/schema-types/blocks/cta/cta-01.ts"
-/>
-
-<Step>Sanity component (UI)</Step>
-
-Component that receives the block and renders it. Uses <b>Sanity TypeGen</b> for types. Register and use it according to your project setup.
-
-<CodeBlockFromFile
-  filePath="registry/blocks/cta/cta-01/sanity/sanity-component.txt"
-  language="tsx"
-  title="web/components/flx/sanity/cta/cta-01.tsx"
-  showLineNumbers
-/>
 
 </Steps>
 

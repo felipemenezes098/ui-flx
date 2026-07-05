@@ -13,7 +13,7 @@ export const values = {
         'Clean, accessible components that make your product feel modern and easy to use.',
       media: {
         src: 'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Design',
+        alt: 'alt image',
       },
       cta: {
         ctaEnabled: true,
@@ -28,7 +28,7 @@ export const values = {
         'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
       media: {
         src: 'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Developer Experience',
+        alt: 'alt image',
       },
       cta: {
         ctaEnabled: true,

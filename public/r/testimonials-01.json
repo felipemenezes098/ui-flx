@@ -16,7 +16,7 @@
     },
     {
       "path": "registry/blocks/testimonials/testimonials-01/testimonials-01-example.tsx",
-      "content": "import {\n  Testimonials01,\n  type Testimonials01Props,\n} from './testimonials-01'\n\nexport const values = {\n  quote:\n    'Switching to these blocks gave our team a cleaner system and helped us launch polished pages in a fraction of the time.',\n  author: {\n    name: 'Sophie Carter',\n    role: 'Product Design Lead at Northstar',\n    avatar: {\n      src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',\n      alt: 'Sophie Carter',\n      fallback: 'SC',\n    },\n  },\n} satisfies Testimonials01Props\n\nexport function Testimonials01Example() {\n  return <Testimonials01 quote={values.quote} author={values.author} />\n}\n",
+      "content": "import {\n  Testimonials01,\n  type Testimonials01Props,\n} from './testimonials-01'\n\nexport const values = {\n  quote:\n    'Switching to these blocks gave our team a cleaner system and helped us launch polished pages in a fraction of the time.',\n  author: {\n    name: 'Sophie Carter',\n    role: 'Product Design Lead at Northstar',\n    avatar: {\n      src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',\n      alt: 'alt image',\n      fallback: 'SC',\n    },\n  },\n} satisfies Testimonials01Props\n\nexport function Testimonials01Example() {\n  return <Testimonials01 quote={values.quote} author={values.author} />\n}\n",
       "type": "registry:component",
       "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
     }

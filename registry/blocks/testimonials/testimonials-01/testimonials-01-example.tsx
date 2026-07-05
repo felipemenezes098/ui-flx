@@ -11,7 +11,7 @@ export const values = {
     role: 'Product Design Lead at Northstar',
     avatar: {
       src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-      alt: 'Sophie Carter',
+      alt: 'alt image',
       fallback: 'SC',
     },
   },

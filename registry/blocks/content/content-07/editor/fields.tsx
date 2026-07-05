@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -56,7 +57,7 @@ export function Content07EditorFields({
           content: 'Column content',
           media: {
             src: 'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            alt: 'Column image',
+            alt: 'alt image',
           },
           cta: {
             ctaEnabled: true,
@@ -178,8 +179,10 @@ export function Content07EditorFields({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="standard">Standard</SelectItem>
-              <SelectItem value="compact">Compact</SelectItem>
+              <SelectGroup>
+                <SelectItem value="standard">Standard</SelectItem>
+                <SelectItem value="compact">Compact</SelectItem>
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>
@@ -200,8 +203,10 @@ export function Content07EditorFields({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="none">None</SelectItem>
-              <SelectItem value="subtle">Subtle</SelectItem>
+              <SelectGroup>
+                <SelectItem value="none">None</SelectItem>
+                <SelectItem value="subtle">Subtle</SelectItem>
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>
@@ -339,12 +344,14 @@ export function Content07EditorFields({
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="default">Default</SelectItem>
-                      <SelectItem value="destructive">Destructive</SelectItem>
-                      <SelectItem value="outline">Outline</SelectItem>
-                      <SelectItem value="secondary">Secondary</SelectItem>
-                      <SelectItem value="ghost">Ghost</SelectItem>
-                      <SelectItem value="link">Link</SelectItem>
+                      <SelectGroup>
+                        <SelectItem value="default">Default</SelectItem>
+                        <SelectItem value="destructive">Destructive</SelectItem>
+                        <SelectItem value="outline">Outline</SelectItem>
+                        <SelectItem value="secondary">Secondary</SelectItem>
+                        <SelectItem value="ghost">Ghost</SelectItem>
+                        <SelectItem value="link">Link</SelectItem>
+                      </SelectGroup>
                     </SelectContent>
                   </Select>
                 </div>

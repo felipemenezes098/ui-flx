@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -120,8 +121,10 @@ export function Carousel01EditorFields({
             <SelectValue placeholder="Select position" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="outside">Above media</SelectItem>
-            <SelectItem value="inside">Inside media (bottom)</SelectItem>
+            <SelectGroup>
+              <SelectItem value="outside">Above media</SelectItem>
+              <SelectItem value="inside">Inside media (bottom)</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
         <p className="text-muted-foreground text-xs">
@@ -184,9 +187,11 @@ export function Carousel01EditorFields({
                   <SelectValue placeholder="Select aspect" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="landscape">Landscape</SelectItem>
-                  <SelectItem value="portrait">Portrait</SelectItem>
-                  <SelectItem value="wide">Wide</SelectItem>
+                  <SelectGroup>
+                    <SelectItem value="landscape">Landscape</SelectItem>
+                    <SelectItem value="portrait">Portrait</SelectItem>
+                    <SelectItem value="wide">Wide</SelectItem>
+                  </SelectGroup>
                 </SelectContent>
               </Select>
             </div>

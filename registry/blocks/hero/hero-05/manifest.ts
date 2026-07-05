@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   slug: 'hero-05',
   name: 'Hero 05',
   description:
-    'An editorial studio hero with a left tagline, right-aligned headline and copy, and a full-width landscape image below.',
+    'An editorial hero with a left tagline, right-aligned headline and copy, and a full-width image below.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-05.png',

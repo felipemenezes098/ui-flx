@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   slug: 'hero-03',
   name: 'Hero 03',
   description:
-    'A wellness hero with dual CTAs and a portrait that fades into the page below the copy.',
+    'A centered hero with dual CTAs and an image that fades into the page below the copy.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-03.png',

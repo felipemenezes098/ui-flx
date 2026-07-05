@@ -14,7 +14,7 @@ export const values = {
       icon: 'Palette',
       media: {
         src: 'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Design',
+        alt: 'alt image',
       },
     },
     {
@@ -24,7 +24,7 @@ export const values = {
       icon: 'Layers',
       media: {
         src: 'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Components',
+        alt: 'alt image',
       },
     },
     {
@@ -34,7 +34,7 @@ export const values = {
       icon: 'Code',
       media: {
         src: 'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        alt: 'Developer Experience',
+        alt: 'alt image',
       },
     },
   ],

@@ -69,7 +69,7 @@
         }
       ],
       "title": "Hero 02",
-      "description": "A left-aligned serif hero with a media panel: a photo backdrop with an elaborate dashboard mockup floating on top.",
+      "description": "A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.",
       "meta": {
         "iframeHeight": 1300
       }
@@ -97,7 +97,7 @@
         }
       ],
       "title": "Hero 03",
-      "description": "A wellness hero with dual CTAs and a portrait that fades into the page below the copy.",
+      "description": "A centered hero with dual CTAs and an image that fades into the page below the copy.",
       "meta": {
         "iframeHeight": 1200
       }
@@ -130,7 +130,7 @@
         }
       ],
       "title": "Hero 04",
-      "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.",
+      "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.",
       "meta": {
         "iframeHeight": 820
       }
@@ -158,7 +158,7 @@
         }
       ],
       "title": "Hero 05",
-      "description": "An editorial studio hero with a left tagline, right-aligned headline and copy, and a full-width landscape image below.",
+      "description": "An editorial hero with a left tagline, right-aligned headline and copy, and a full-width image below.",
       "meta": {
         "iframeHeight": 1100
       }
@@ -215,7 +215,7 @@
         }
       ],
       "title": "Hero 07",
-      "description": "An editorial hero with a full-width landscape image above, a top-aligned tagline, and right-aligned headline and copy below.",
+      "description": "An editorial hero with a full-width image above, a top-aligned tagline, and right-aligned headline and copy below.",
       "meta": {
         "iframeHeight": 1100
       }

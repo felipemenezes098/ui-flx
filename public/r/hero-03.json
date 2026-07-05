@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-03",
   "title": "Hero 03",
-  "description": "A wellness hero with dual CTAs and a portrait that fades into the page below the copy.",
+  "description": "A centered hero with dual CTAs and an image that fades into the page below the copy.",
   "dependencies": [
     "react-wrap-balancer",
     "motion"

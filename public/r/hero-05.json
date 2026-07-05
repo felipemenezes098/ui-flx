@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-05",
   "title": "Hero 05",
-  "description": "An editorial studio hero with a left tagline, right-aligned headline and copy, and a full-width landscape image below.",
+  "description": "An editorial hero with a left tagline, right-aligned headline and copy, and a full-width image below.",
   "dependencies": [
     "react-wrap-balancer",
     "motion"

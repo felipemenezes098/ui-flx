@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -175,8 +176,10 @@ export function Hero01EditorFields({
             <SelectValue placeholder="Variant" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="standard">Standard</SelectItem>
-            <SelectItem value="compact">Compact</SelectItem>
+            <SelectGroup>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="compact">Compact</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
@@ -195,8 +198,10 @@ export function Hero01EditorFields({
             <SelectValue placeholder="Animation" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="none">None</SelectItem>
-            <SelectItem value="subtle">Subtle</SelectItem>
+            <SelectGroup>
+              <SelectItem value="none">None</SelectItem>
+              <SelectItem value="subtle">Subtle</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </div>
@@ -292,11 +297,13 @@ export function Hero01EditorFields({
                 <SelectValue placeholder="Variant" />
               </SelectTrigger>
               <SelectContent>
-                {VARIANTS.map((v) => (
-                  <SelectItem key={v} value={v}>
-                    {v}
-                  </SelectItem>
-                ))}
+                <SelectGroup>
+                  {VARIANTS.map((v) => (
+                    <SelectItem key={v} value={v}>
+                      {v}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
               </SelectContent>
             </Select>
           </div>

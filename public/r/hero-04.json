@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-04",
   "title": "Hero 04",
-  "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.",
+  "description": "A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.",
   "dependencies": [
     "react-wrap-balancer",
     "motion"

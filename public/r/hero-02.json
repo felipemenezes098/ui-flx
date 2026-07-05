@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-02",
   "title": "Hero 02",
-  "description": "A left-aligned serif hero with a media panel: a photo backdrop with an elaborate dashboard mockup floating on top.",
+  "description": "A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.",
   "dependencies": [
     "react-wrap-balancer",
     "motion",

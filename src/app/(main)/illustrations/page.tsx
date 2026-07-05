@@ -34,8 +34,7 @@ export default function IllustrationsPage() {
               Illustrations
             </h1>
             <p className="text-muted-foreground max-w-2xl text-balance">
-              UI illustrations and motion components that make interfaces feel
-              alive, built with shadcn/ui and Motion.{' '}
+              Elegant UI visuals built with shadcn/ui and Motion.
               <span className="text-foreground font-medium">
                 Copy and paste.
               </span>

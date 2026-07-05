@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   slug: 'hero-04',
   name: 'Hero 04',
   description:
-    'A two-column editorial hero with a soft background wash and a layered collage of two overlapping art images.',
+    'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
   category: 'hero',
   image: {
     light: '/images/blocks/hero/hero-04.png',
