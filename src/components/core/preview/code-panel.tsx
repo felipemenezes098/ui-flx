@@ -41,12 +41,15 @@ export function CodePanel({ files, className }: Readonly<CodePanelProps>) {
                   variant="outline"
                   asChild
                   className={cn(
-                    'cursor-pointer font-mono text-[11px] font-normal transition-colors',
+                    'hover:bg-muted cursor-pointer font-mono text-[11px] font-normal transition-colors',
                     activeName === file.name &&
                       'border-foreground/20 bg-muted text-foreground',
                   )}
                 >
-                  <button type="button" onClick={() => setActiveName(file.name)}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveName(file.name)}
+                  >
                     {file.name}
                   </button>
                 </Badge>
@@ -73,7 +76,7 @@ export function CodePanel({ files, className }: Readonly<CodePanelProps>) {
             language="tsx"
             showLineNumbers
             collapsible
-            className="max-h-none px-4"
+            className="max-h-none pr-4 pl-1.5"
           />
         ) : (
           <p className="text-muted-foreground flex h-full items-center justify-center p-5 text-sm italic">

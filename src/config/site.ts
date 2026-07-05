@@ -9,6 +9,7 @@ export const siteConfig = {
     'The reasoning, prompts, and code behind every ui pattern. Built on shadcn/ui. Open source, open code.',
   author: 'Felipe Menezes',
   email: 'felipemenezes.dev@gmail.com',
+  authorImage: 'https://github.com/felipemenezes098.png',
   links: {
     twitter: 'https://x.com/fmenezes_',
     github: 'https://github.com/felipemenezes098/ui-flx',
