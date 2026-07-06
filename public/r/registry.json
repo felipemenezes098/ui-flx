@@ -559,6 +559,93 @@
       "type": "registry:block"
     },
     {
+      "name": "hero-08",
+      "title": "Hero 08",
+      "description": "A split hero with a bold headline, avatar social proof, and two image cards with invertible overlay text and CTAs.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@flx/cta",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-08/hero-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-08/hero-08.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-08/hero-08-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-08/hero-08-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 820
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-09",
+      "title": "Hero 09",
+      "description": "A centered real-estate hero with a search bar, a masked architecture image that fades into the page, and a split closing statement.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-09/hero-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-09/hero-09.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-09/hero-09-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-09/hero-09-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1300
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-10",
+      "title": "Hero 10",
+      "description": "A centered hero with a highlighted headline, dual CTAs, social proof, and a fanned collage of three overlapping images.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-10/hero-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-10/hero-10.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-10/hero-10-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-10/hero-10-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "logos-01",
       "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",

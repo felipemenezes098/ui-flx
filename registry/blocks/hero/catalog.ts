@@ -8,6 +8,9 @@ import { manifest as hero04Manifest } from './hero-04/manifest'
 import { manifest as hero05Manifest } from './hero-05/manifest'
 import { manifest as hero06Manifest } from './hero-06/manifest'
 import { manifest as hero07Manifest } from './hero-07/manifest'
+import { manifest as hero08Manifest } from './hero-08/manifest'
+import { manifest as hero09Manifest } from './hero-09/manifest'
+import { manifest as hero10Manifest } from './hero-10/manifest'
 
 export const heroCategory: BlockCategoryRow = {
   slug: 'hero',
@@ -24,5 +27,8 @@ export const heroCategory: BlockCategoryRow = {
     hero05Manifest,
     hero06Manifest,
     hero07Manifest,
+    hero08Manifest,
+    hero09Manifest,
+    hero10Manifest,
   ],
 }
