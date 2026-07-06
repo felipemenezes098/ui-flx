@@ -14,12 +14,12 @@ export function Collapsible06() {
         <Label htmlFor="name">Project name</Label>
         <Input id="name" placeholder="my-app" />
       </div>
-      <Collapsible className="group space-y-4">
-        <CollapsibleTrigger className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm font-medium">
-          <ChevronDownIcon className="size-4 transition-transform group-data-[state=open]:rotate-180" />
+      <Collapsible className="space-y-4">
+        <CollapsibleTrigger className="group text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm font-medium">
+          <ChevronDownIcon className="size-4 transition-transform group-data-panel-open:rotate-180" />
           Advanced options
         </CollapsibleTrigger>
-        <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down space-y-4 overflow-hidden p-1">
+        <CollapsibleContent className="space-y-4 p-1">
           <div className="space-y-2">
             <Label htmlFor="region">Region</Label>
             <Input id="region" placeholder="us-east-1" />

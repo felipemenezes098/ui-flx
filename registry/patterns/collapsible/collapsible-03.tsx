@@ -58,12 +58,12 @@ function Tree({ nodes, level = 0 }: { nodes: TreeNode[]; level?: number }) {
                 className="group/folder hover:bg-accent flex w-full items-center gap-1.5 rounded-md py-1 pr-2 text-sm"
                 style={{ paddingLeft: `${level * 16 + 8}px` }}
               >
-                <ChevronRightIcon className="text-muted-foreground size-3.5 shrink-0 transition-transform group-data-[state=open]/folder:rotate-90" />
-                <FolderIcon className="text-muted-foreground size-4 shrink-0 group-data-[state=open]/folder:hidden" />
-                <FolderOpenIcon className="text-muted-foreground hidden size-4 shrink-0 group-data-[state=open]/folder:block" />
+                <ChevronRightIcon className="text-muted-foreground size-3.5 shrink-0 transition-transform group-data-panel-open/folder:rotate-90" />
+                <FolderIcon className="text-muted-foreground size-4 shrink-0 group-data-panel-open/folder:hidden" />
+                <FolderOpenIcon className="text-muted-foreground hidden size-4 shrink-0 group-data-panel-open/folder:block" />
                 {node.name}
               </CollapsibleTrigger>
-              <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+              <CollapsibleContent>
                 <Tree nodes={node.children} level={level + 1} />
               </CollapsibleContent>
             </Collapsible>

@@ -26,7 +26,7 @@ export function Collapsible01() {
       <div className="rounded-md border px-4 py-2 font-mono text-sm">
         {repos[0]}
       </div>
-      <CollapsibleContent className="data-closed:animate-collapsible-up data-open:animate-collapsible-down space-y-2 overflow-hidden">
+      <CollapsibleContent className="space-y-2">
         {repos.slice(1).map((repo) => (
           <div
             key={repo}
