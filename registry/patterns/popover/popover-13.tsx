@@ -37,7 +37,7 @@ export function Popover13() {
           <Field>
             <FieldLabel>Status</FieldLabel>
             <ToggleGroup
-              type="multiple"
+              multiple
               defaultValue={['open', 'in-progress']}
               variant="outline"
               size="sm"
@@ -51,7 +51,7 @@ export function Popover13() {
           <Field>
             <FieldLabel>Priority</FieldLabel>
             <ToggleGroup
-              type="multiple"
+              multiple
               defaultValue={['high']}
               variant="outline"
               size="sm"

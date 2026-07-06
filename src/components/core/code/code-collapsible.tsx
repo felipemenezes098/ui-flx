@@ -31,21 +31,27 @@ export function CodeCollapsible({
       onOpenChange={setIsOpened}
       className="relative w-full"
     >
-      <CollapsibleContent forceMount asChild>
-        <motion.div
-          initial={false}
-          animate={{ height: isOpened ? 'auto' : 200 }}
-          transition={{
-            duration: 0.35,
-            ease: [0.25, 0.1, 0.25, 1],
-          }}
-          className={cn(className, 'collapsible-code-content overflow-hidden')}
-          data-collapsible="true"
-          data-collapsed={isOpened ? undefined : 'true'}
-        >
-          {children}
-        </motion.div>
-      </CollapsibleContent>
+      <CollapsibleContent
+        keepMounted
+        render={
+          <motion.div
+            initial={false}
+            animate={{ height: isOpened ? 'auto' : 200 }}
+            transition={{
+              duration: 0.35,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+            className={cn(
+              className,
+              'collapsible-code-content overflow-hidden',
+            )}
+            data-collapsible="true"
+            data-collapsed={isOpened ? undefined : 'true'}
+          >
+            {children}
+          </motion.div>
+        }
+      />
 
       <AnimatePresence>
         {!isOpened && (
@@ -60,15 +66,17 @@ export function CodeCollapsible({
             }}
             className="from-background via-background/70 absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t to-transparent p-4"
           >
-            <CollapsibleTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-card text-muted-foreground hover:bg-muted"
-              >
-                Expand
-              </Button>
-            </CollapsibleTrigger>
+            <CollapsibleTrigger
+              render={
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="bg-card text-muted-foreground hover:bg-muted"
+                >
+                  Expand
+                </Button>
+              }
+            />
           </motion.div>
         )}
       </AnimatePresence>

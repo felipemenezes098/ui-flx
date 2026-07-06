@@ -9,12 +9,7 @@ import { ArrowRightIcon } from 'lucide-react'
 
 export function Accordion09() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="features"
-      className="w-full max-w-md"
-    >
+    <Accordion defaultValue={['features']} className="w-full max-w-md">
       <AccordionItem value="features">
         <AccordionTrigger>What is included?</AccordionTrigger>
         <AccordionContent className="text-muted-foreground">

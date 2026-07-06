@@ -58,7 +58,7 @@ export function RhfFields04() {
                 max={100}
                 step={5}
                 value={[field.value]}
-                onValueChange={(v) => field.onChange(v[0])}
+                onValueChange={(v) => field.onChange((v as number[])[0])}
                 aria-invalid={fieldState.invalid}
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

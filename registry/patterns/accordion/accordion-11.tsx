@@ -7,12 +7,7 @@ import {
 
 export function Accordion11() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="account"
-      className="w-full max-w-md"
-    >
+    <Accordion defaultValue={['account']} className="w-full max-w-md">
       <AccordionItem value="account">
         <AccordionTrigger>Account</AccordionTrigger>
         <AccordionContent>
@@ -20,7 +15,7 @@ export function Accordion11() {
             Manage your profile and security in the grouped sections below.
           </p>
           <div className="bg-muted/40 mt-3 rounded-lg border px-3">
-            <Accordion type="single" collapsible defaultValue="profile">
+            <Accordion defaultValue={['profile']}>
               <AccordionItem value="profile">
                 <AccordionTrigger className="text-foreground py-3">
                   Profile

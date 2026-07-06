@@ -40,12 +40,12 @@ const sections = [
 
 export function Accordion03() {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion className="w-full max-w-md">
       {sections.map((section) => (
         <AccordionItem key={section.value} value={section.value}>
           <AccordionTrigger>
             <span className="flex items-center gap-2.5">
-              <section.icon className="size-4 text-muted-foreground" />
+              <section.icon className="text-muted-foreground size-4" />
               {section.title}
             </span>
           </AccordionTrigger>

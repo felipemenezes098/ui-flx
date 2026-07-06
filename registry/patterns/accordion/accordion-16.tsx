@@ -28,13 +28,13 @@ const items = [
 
 export function Accordion16() {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion className="w-full max-w-md">
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger className="items-center">
             <span className="flex flex-col gap-0.5">
               <span>{item.title}</span>
-              <span className="text-xs font-normal text-muted-foreground">
+              <span className="text-muted-foreground text-xs font-normal">
                 {item.subtitle}
               </span>
             </span>

@@ -22,14 +22,14 @@ const faqs = [
 
 export function Accordion12() {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion className="w-full max-w-md">
       {faqs.map((faq, index) => (
         <AccordionItem
           key={faq.q}
           value={`item-${index}`}
           className="border-b-0"
         >
-          <AccordionTrigger className="py-3 hover:no-underline data-[state=open]:text-primary">
+          <AccordionTrigger className="data-[state=open]:text-primary py-3 hover:no-underline">
             {faq.q}
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground">

@@ -1,5 +1,5 @@
 import { PlusIcon } from 'lucide-react'
-import { Accordion as AccordionPrimitive } from 'radix-ui'
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion'
 
 import {
   Accordion,
@@ -24,7 +24,7 @@ const faqs = [
 
 export function Accordion06() {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion className="w-full max-w-md">
       {faqs.map((faq) => (
         <AccordionItem key={faq.q} value={faq.q}>
           <AccordionPrimitive.Header className="flex">

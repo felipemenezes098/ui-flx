@@ -29,12 +29,7 @@ const groups = [
 
 export function Accordion15() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="email"
-      className="w-full max-w-md"
-    >
+    <Accordion defaultValue={['email']} className="w-full max-w-md">
       {groups.map((group) => (
         <AccordionItem key={group.value} value={group.value}>
           <AccordionTrigger>{group.title}</AccordionTrigger>

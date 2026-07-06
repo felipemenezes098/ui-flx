@@ -75,9 +75,8 @@ export function CommentThread2() {
           Comments
         </CardTitle>
         <ToggleGroup
-          type="single"
-          value={filter}
-          onValueChange={(v) => v && setFilter(v)}
+          value={filter ? [filter] : []}
+          onValueChange={(v) => v[0] && setFilter(v[0])}
           variant="outline"
           size="sm"
           className="w-full"

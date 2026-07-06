@@ -29,7 +29,8 @@ export function Checkbox06() {
       <div className="flex items-center gap-3 border-b pb-3">
         <Checkbox
           id="checkbox-06-all"
-          checked={allChecked ? true : someChecked ? 'indeterminate' : false}
+          checked={allChecked}
+          indeterminate={someChecked && !allChecked}
           onCheckedChange={(value) => toggleAll(value === true)}
         />
         <Label htmlFor="checkbox-06-all" className="font-medium">

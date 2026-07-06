@@ -7,12 +7,7 @@ import {
 
 export function Accordion01() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="item-1"
-      className="w-full max-w-md"
-    >
+    <Accordion defaultValue={['item-1']} className="w-full max-w-md">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>

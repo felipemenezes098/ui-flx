@@ -44,11 +44,10 @@ export function TsfFields06() {
                 <FieldLabel htmlFor={field.name}>Default view</FieldLabel>
                 <ToggleGroup
                   id={field.name}
-                  type="single"
                   variant="outline"
                   className="w-full"
-                  value={field.state.value}
-                  onValueChange={(v) => v && field.handleChange(v)}
+                  value={field.state.value ? [field.state.value] : []}
+                  onValueChange={(v) => v[0] && field.handleChange(v[0])}
                 >
                   <ToggleGroupItem value="list" className="flex-1">
                     List

@@ -3,11 +3,7 @@
 import { useState } from 'react'
 import { Monitor, Moon, Settings2, Sun } from 'lucide-react'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -62,9 +58,8 @@ export function Settings4() {
             <div className="flex flex-col gap-2">
               <Label className="text-xs">Theme</Label>
               <ToggleGroup
-                type="single"
-                value={theme}
-                onValueChange={(v) => v && setTheme(v)}
+                value={theme ? [theme] : []}
+                onValueChange={(v) => v[0] && setTheme(v[0])}
                 variant="outline"
                 className="w-full"
               >
@@ -89,7 +84,11 @@ export function Settings4() {
               <Label htmlFor="pd-sound" className="font-normal">
                 Sound effects
               </Label>
-              <Switch id="pd-sound" checked={sound} onCheckedChange={setSound} />
+              <Switch
+                id="pd-sound"
+                checked={sound}
+                onCheckedChange={setSound}
+              />
             </div>
             <div className="flex items-center justify-between">
               <Label htmlFor="pd-compact" className="font-normal">

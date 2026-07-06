@@ -55,12 +55,10 @@ function TreeItem({
 }>) {
   const leaves = leafIds(node)
   const checkedLeaves = leaves.filter((id) => checked.has(id))
-  const state =
-    checkedLeaves.length === 0
-      ? false
-      : checkedLeaves.length === leaves.length
-        ? true
-        : 'indeterminate'
+  const allLeavesChecked =
+    checkedLeaves.length > 0 && checkedLeaves.length === leaves.length
+  const someLeavesChecked =
+    checkedLeaves.length > 0 && checkedLeaves.length < leaves.length
 
   return (
     <div className="flex flex-col gap-2.5">
@@ -70,7 +68,8 @@ function TreeItem({
       >
         <Checkbox
           id={`checkbox-07-${node.id}`}
-          checked={state}
+          checked={allLeavesChecked}
+          indeterminate={someLeavesChecked}
           onCheckedChange={(value) => onToggle(leaves, value === true)}
         />
         {node.children ? (
