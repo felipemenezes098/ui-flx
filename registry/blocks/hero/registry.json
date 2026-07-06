@@ -219,6 +219,93 @@
       "meta": {
         "iframeHeight": 1100
       }
+    },
+    {
+      "name": "hero-08",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta",
+        "avatar"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-08/hero-08.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-08/hero-08.tsx"
+        },
+        {
+          "path": "hero-08/hero-08-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-08/hero-08-example.tsx"
+        }
+      ],
+      "title": "Hero 08",
+      "description": "A split hero with a bold headline, avatar social proof, and two image cards with invertible overlay text and CTAs.",
+      "meta": {
+        "iframeHeight": 820
+      }
+    },
+    {
+      "name": "hero-09",
+      "type": "registry:block",
+      "registryDependencies": [
+        "input",
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "hero-09/hero-09.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-09/hero-09.tsx"
+        },
+        {
+          "path": "hero-09/hero-09-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-09/hero-09-example.tsx"
+        }
+      ],
+      "title": "Hero 09",
+      "description": "A centered real-estate hero with a search bar, a masked architecture image that fades into the page, and a split closing statement.",
+      "meta": {
+        "iframeHeight": 1300
+      }
+    },
+    {
+      "name": "hero-10",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-10/hero-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-10/hero-10.tsx"
+        },
+        {
+          "path": "hero-10/hero-10-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-10/hero-10-example.tsx"
+        }
+      ],
+      "title": "Hero 10",
+      "description": "A centered hero with a highlighted headline, dual CTAs, social proof, and a fanned collage of three overlapping images.",
+      "meta": {
+        "iframeHeight": 900
+      }
     }
   ]
 }

@@ -1,0 +1,61 @@
+export const metadata = {
+  title: 'Hero 10',
+  description:
+    'A centered hero with a highlighted headline, dual CTAs, social proof, and a fanned collage of three overlapping images.',
+  openGraph: {
+    title: 'Hero 10',
+    description:
+      'A centered hero with a highlighted headline, dual CTAs, social proof, and a fanned collage of three overlapping images.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-10" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-10" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-10/hero-10-example.tsx"
+  title="hero-10-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-10/hero-10.tsx"
+  collapsible
+  title="hero-10.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-10/hero-10-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

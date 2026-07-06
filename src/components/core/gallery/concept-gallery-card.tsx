@@ -14,9 +14,7 @@ function ConceptGalleryCard({
   className,
   ...props
 }: Readonly<ComponentProps<typeof GalleryCard>>) {
-  return (
-    <GalleryCard className={cn('bg-card/50 p-3 py-3', className)} {...props} />
-  )
+  return <GalleryCard className={cn('bg-card/50', className)} {...props} />
 }
 
 function ConceptGalleryCardMedia({
@@ -26,7 +24,7 @@ function ConceptGalleryCardMedia({
   return (
     <GalleryCardMedia
       className={cn(
-        'border-border bg-muted/40 dark:bg-background transition-transform duration-200 ease-out group-hover/gallery-grid-link:-translate-y-0.5',
+        'border-border bg-muted/40 dark:bg-background [&>:not([data-slot=gallery-card-badge])]:transition-transform [&>:not([data-slot=gallery-card-badge])]:duration-200 [&>:not([data-slot=gallery-card-badge])]:ease-out group-hover/gallery-grid-link:[&>:not([data-slot=gallery-card-badge])]:-translate-y-0.5',
         className,
       )}
       {...props}
@@ -39,10 +37,7 @@ function ConceptGalleryCardFooter({
   ...props
 }: Readonly<ComponentProps<'div'>>) {
   return (
-    <GalleryCardFooter
-      className={cn('items-center', className)}
-      {...props}
-    />
+    <GalleryCardFooter className={cn('items-center', className)} {...props} />
   )
 }
 

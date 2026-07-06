@@ -13,7 +13,7 @@ function GalleryCard({
     <Card
       size={size}
       className={cn(
-        'group/gallery-card gap-3 p-2 py-2 hover:bg-card/30',
+        'group/gallery-card hover:bg-card/30 gap-2.5! p-3 py-2.5!',
         className,
       )}
       {...props}
@@ -95,10 +95,7 @@ function GalleryCardFooter({
   return (
     <div
       data-slot="gallery-card-footer"
-      className={cn(
-        'flex w-full flex-col items-start gap-0.5 px-0.5',
-        className,
-      )}
+      className={cn('flex w-full flex-col items-start gap-0.5', className)}
       {...props}
     />
   )
