@@ -157,9 +157,8 @@ export function Hero08EditorFields({
             onChange={(e) =>
               updateCard(i, {
                 cta: {
+                  ...(card.cta ?? { ctaEnabled: true, text: '', link: '' }),
                   ctaEnabled: true,
-                  link: '',
-                  ...card.cta,
                   text: e.target.value,
                 },
               })
