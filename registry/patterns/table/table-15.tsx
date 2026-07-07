@@ -117,7 +117,7 @@ export function Table15() {
                   key={column.id}
                   className="capitalize"
                   checked={column.getIsVisible()}
-                  onSelect={(event) => event.preventDefault()}
+                  closeOnClick={false}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
                   {column.id}

@@ -52,7 +52,7 @@ export function Dropdown15() {
             key={status}
             checked={selected.includes(status)}
             onCheckedChange={(checked) => toggle(status, checked === true)}
-            onSelect={(event) => event.preventDefault()}
+            closeOnClick={false}
           >
             {status}
           </DropdownMenuCheckboxItem>
@@ -60,7 +60,7 @@ export function Dropdown15() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           disabled={selected.length === 0}
-          onSelect={() => setSelected([])}
+          onClick={() => setSelected([])}
         >
           Clear filters
         </DropdownMenuItem>

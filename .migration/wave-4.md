@@ -47,6 +47,17 @@ Notes:
 - **Command palette final focus**: `finalFocus={false}` means focus is NOT returned to the trigger on close (matches old `onCloseAutoFocus preventDefault`). Confirm no focus jump when the palette closes.
 - **Focus trap / scroll lock**: Base defaults — confirm focus enters the dialog and body scroll locks.
 
+## Follow-up fix — Base menu composition (runtime bugs, not caught by tsc)
+
+The initial mechanical `asChild→render` pass preserved Radix-only menu idioms that Base UI does not support. Base `Menu.Item`/`CheckboxItem` have **`onClick` + `closeOnClick`, NO `onSelect`** (`onSelect` silently lands on the div's native text-select event → handler never fires). Fixed per Base docs (https://base-ui.com/react/components/menu.md, .../dialog.md):
+
+- **Opening a Dialog from a menu item** must use controlled state, NOT a `DialogTrigger` rendering a `DropdownMenuItem`. Pattern: `Dialog.Root` placed outside the menu with `open`/`onOpenChange`; menu item `onClick={() => setOpen(true)}` (menu auto-closes via default `closeOnClick`).
+  - **dialog-22**: rewrote — removed the nested `DialogTrigger render={<DropdownMenuItem/>}`, added `useState`, controlled Dialog outside the menu, `DropdownMenuItem onClick`. (This was the reported open/close-instantly bug.)
+- **`onSelect` → `onClick`** on action items: dropdown-15 (Clear filters), dropdown-17 (Delete → opens controlled dialog).
+- **`onSelect={(e) => e.preventDefault()}` → `closeOnClick={false}`** on checkbox items that must keep the menu open: dropdown-15 (status filters), table-15 (column visibility), table-20 (column visibility).
+
+Note: `onSelect` in command patterns / global-search / intent-sidebar / pattern-category-nav is the **cmdk `CommandItem`** API (not Base Menu) — left untouched, correct.
+
 ## Verify by hand
 - dialog-01..22: trigger opens, Cancel/Close closes, nested dialog (dialog-21) stacks, dialog-22 dropdown item opens dialog.
 - command-02/03 command dialogs: open, no focus jump on close.

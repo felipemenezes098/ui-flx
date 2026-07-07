@@ -42,10 +42,7 @@ export function Dropdown17() {
           <DropdownMenuSeparator />
           <DropdownMenuItem
             variant="destructive"
-            onSelect={(event) => {
-              event.preventDefault()
-              setConfirmOpen(true)
-            }}
+            onClick={() => setConfirmOpen(true)}
           >
             <TrashIcon />
             Delete
