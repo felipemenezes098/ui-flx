@@ -27,11 +27,13 @@ import { Input } from '@/components/ui/input'
 export function Dialog22() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" aria-label="Open menu">
-          <EllipsisIcon />
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="icon" aria-label="Open menu">
+            <EllipsisIcon />
+          </Button>
+        }
+      />
       <DropdownMenuContent align="end" className="w-48">
         <DropdownMenuGroup>
           <Dialog>

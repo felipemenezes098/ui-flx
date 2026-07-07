@@ -118,7 +118,7 @@ export function Dialog20() {
                     <Select
                       value={field.state.value}
                       onValueChange={(value) => {
-                        field.handleChange(value)
+                        field.handleChange(value ?? '')
                         field.handleBlur()
                       }}
                     >

@@ -33,12 +33,14 @@ export function Avatar11() {
     <AvatarGroup>
       {members.map((member) => (
         <Tooltip key={member.name}>
-          <TooltipTrigger asChild>
-            <Avatar>
-              <AvatarImage src={member.src} alt={member.name} />
-              <AvatarFallback>{member.initials}</AvatarFallback>
-            </Avatar>
-          </TooltipTrigger>
+          <TooltipTrigger
+            render={
+              <Avatar>
+                <AvatarImage src={member.src} alt={member.name} />
+                <AvatarFallback>{member.initials}</AvatarFallback>
+              </Avatar>
+            }
+          />
           <TooltipContent>{member.name}</TooltipContent>
         </Tooltip>
       ))}

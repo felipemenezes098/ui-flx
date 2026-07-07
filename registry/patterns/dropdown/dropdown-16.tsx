@@ -41,21 +41,23 @@ export function Dropdown16() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon-sm"
-          className="relative"
-          aria-label="Notifications"
-        >
-          <BellIcon />
-          {unread > 0 && (
-            <span className="bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
-              {unread}
-            </span>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="outline"
+            size="icon-sm"
+            className="relative"
+            aria-label="Notifications"
+          >
+            <BellIcon />
+            {unread > 0 && (
+              <span className="bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
+                {unread}
+              </span>
+            )}
+          </Button>
+        }
+      />
       <DropdownMenuContent align="center" className="w-72">
         <DropdownMenuLabel className="text-foreground flex items-center justify-between">
           Notifications

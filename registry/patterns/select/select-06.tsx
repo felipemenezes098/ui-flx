@@ -32,7 +32,7 @@ export function Select06() {
   ]
 
   return (
-    <Select value={value} onValueChange={setValue}>
+    <Select value={value} onValueChange={(value) => setValue(value ?? '')}>
       <SelectTrigger className="w-full max-w-64">
         <SelectValue placeholder="Select a plan">
           {value && items.find((item) => item.value === value)?.label}

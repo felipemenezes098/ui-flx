@@ -105,15 +105,17 @@ export function RegistryCli({
         </span>
       </Button>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            className="w-fit gap-1 px-2 !pl-2 shadow-none"
-            size={size}
-          >
-            <ChevronDownIcon className="size-3.5" />
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button
+              variant="outline"
+              className="w-fit gap-1 px-2 !pl-2 shadow-none"
+              size={size}
+            >
+              <ChevronDownIcon className="size-3.5" />
+            </Button>
+          }
+        />
         <DropdownMenuContent align="end" className="w-44">
           <DropdownMenuGroup>
             {PACKAGE_MANAGERS.map((pm) => (

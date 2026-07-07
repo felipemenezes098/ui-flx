@@ -11,26 +11,22 @@ export function Tooltip08() {
   return (
     <div className="flex items-center gap-2">
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button>Primary</Button>
-        </TooltipTrigger>
+        <TooltipTrigger render={<Button>Primary</Button>} />
         <TooltipContent className="bg-primary text-primary-foreground [&>span>svg]:bg-primary [&>span>svg]:fill-primary">
           Primary tone
         </TooltipContent>
       </Tooltip>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Secondary</Button>
-        </TooltipTrigger>
+        <TooltipTrigger render={<Button variant="outline">Secondary</Button>} />
         <TooltipContent className="bg-secondary text-secondary-foreground [&>span>svg]:bg-secondary [&>span>svg]:fill-secondary">
           Secondary tone
         </TooltipContent>
       </Tooltip>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="destructive">Delete</Button>
-        </TooltipTrigger>
-        <TooltipContent className="bg-destructive text-white [&>span>svg]:bg-destructive [&>span>svg]:fill-destructive">
+        <TooltipTrigger
+          render={<Button variant="destructive">Delete</Button>}
+        />
+        <TooltipContent className="bg-destructive [&>span>svg]:bg-destructive [&>span>svg]:fill-destructive text-white">
           This cannot be undone
         </TooltipContent>
       </Tooltip>

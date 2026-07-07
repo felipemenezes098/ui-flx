@@ -208,12 +208,14 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => (
       <div className="text-right">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="size-8">
-              <MoreHorizontalIcon />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="ghost" size="icon" className="size-8">
+                <MoreHorizontalIcon />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
@@ -266,12 +268,14 @@ export function Table20() {
           className="max-w-xs"
         />
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" className="ml-auto">
-              <SlidersHorizontalIcon data-icon="inline-start" />
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline" size="sm" className="ml-auto">
+                <SlidersHorizontalIcon data-icon="inline-start" />
+                Columns
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()

@@ -8,9 +8,7 @@ import {
 export function Tooltip01() {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Hover me</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline">Hover me</Button>} />
       <TooltipContent>Add to library</TooltipContent>
     </Tooltip>
   )

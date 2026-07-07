@@ -19,11 +19,13 @@ import {
 export function Dropdown08() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Team
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Team
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-48">
         <DropdownMenuItem>
           <PlusIcon />

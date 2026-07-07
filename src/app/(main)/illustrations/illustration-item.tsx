@@ -88,30 +88,28 @@ export function IllustrationItem({
   const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
-    <MosaicCell
-      span={span}
-      size={size}
-      className="group hover:bg-muted/50"
-    >
+    <MosaicCell span={span} size={size} className="group hover:bg-muted/50">
       <PatternRenderer name={slug} registry={illustrationRegistry} />
 
-      <TooltipProvider disableHoverableContent delayDuration={300}>
+      <TooltipProvider delay={300}>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-3 opacity-0 transition-opacity group-hover:pointer-events-auto group-hover:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
           <div className="flex items-center gap-1">
             <Dialog open={openCode} onOpenChange={setOpenCode}>
               <Tooltip>
-                <TooltipTrigger asChild>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
-                      className="border-border border"
-                      aria-label="View code"
-                    >
-                      <Code2 className="size-4" />
-                    </Button>
-                  </DialogTrigger>
-                </TooltipTrigger>
+                <TooltipTrigger
+                  render={
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon-sm"
+                        className="border-border border"
+                        aria-label="View code"
+                      >
+                        <Code2 className="size-4" />
+                      </Button>
+                    </DialogTrigger>
+                  }
+                />
                 <TooltipContent
                   side="top"
                   sideOffset={4}
@@ -169,17 +167,19 @@ export function IllustrationItem({
             </Dialog>
 
             <Tooltip>
-              <TooltipTrigger asChild>
-                <CopyButton
-                  text={cliCommand}
-                  variant="ghost"
-                  size="icon-sm"
-                  icon={<Logo.ShadcnIcon className="size-4" />}
-                  iconClassName="size-4"
-                  aria-label="Copy CLI command"
-                  className="border-border border"
-                />
-              </TooltipTrigger>
+              <TooltipTrigger
+                render={
+                  <CopyButton
+                    text={cliCommand}
+                    variant="ghost"
+                    size="icon-sm"
+                    icon={<Logo.ShadcnIcon className="size-4" />}
+                    iconClassName="size-4"
+                    aria-label="Copy CLI command"
+                    className="border-border border"
+                  />
+                }
+              />
               <TooltipContent
                 side="top"
                 sideOffset={4}
@@ -190,17 +190,19 @@ export function IllustrationItem({
             </Tooltip>
 
             <Tooltip>
-              <TooltipTrigger asChild>
-                <CopyButton
-                  text={prompt}
-                  variant="ghost"
-                  size="icon-sm"
-                  icon={<Sparkles className="size-4" strokeWidth={1.5} />}
-                  iconClassName="size-4"
-                  aria-label="Copy prompt"
-                  className="border-border border"
-                />
-              </TooltipTrigger>
+              <TooltipTrigger
+                render={
+                  <CopyButton
+                    text={prompt}
+                    variant="ghost"
+                    size="icon-sm"
+                    icon={<Sparkles className="size-4" strokeWidth={1.5} />}
+                    iconClassName="size-4"
+                    aria-label="Copy prompt"
+                    className="border-border border"
+                  />
+                }
+              />
               <TooltipContent
                 side="top"
                 sideOffset={4}

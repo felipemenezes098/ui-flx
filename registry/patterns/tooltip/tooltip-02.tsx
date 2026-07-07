@@ -10,33 +10,25 @@ export function Tooltip02() {
     <div className="grid grid-cols-3 grid-rows-3 gap-3">
       <div className="col-start-2 row-start-1 flex justify-center">
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Top</Button>
-          </TooltipTrigger>
+          <TooltipTrigger render={<Button variant="outline">Top</Button>} />
           <TooltipContent side="top">Tooltip on top</TooltipContent>
         </Tooltip>
       </div>
       <div className="col-start-1 row-start-2 flex justify-start">
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Left</Button>
-          </TooltipTrigger>
+          <TooltipTrigger render={<Button variant="outline">Left</Button>} />
           <TooltipContent side="left">Tooltip on left</TooltipContent>
         </Tooltip>
       </div>
       <div className="col-start-3 row-start-2 flex justify-end">
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Right</Button>
-          </TooltipTrigger>
+          <TooltipTrigger render={<Button variant="outline">Right</Button>} />
           <TooltipContent side="right">Tooltip on right</TooltipContent>
         </Tooltip>
       </div>
       <div className="col-start-2 row-start-3 flex justify-center">
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="outline">Bottom</Button>
-          </TooltipTrigger>
+          <TooltipTrigger render={<Button variant="outline">Bottom</Button>} />
           <TooltipContent side="bottom">Tooltip on bottom</TooltipContent>
         </Tooltip>
       </div>

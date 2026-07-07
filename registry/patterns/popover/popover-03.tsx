@@ -26,11 +26,13 @@ export function Popover03() {
 function SideButton({ side }: { side: (typeof sides)[number] }) {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="w-24 capitalize">
-          {side}
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline" size="sm" className="w-24 capitalize">
+            {side}
+          </Button>
+        }
+      />
       <PopoverContent side={side} className="w-auto px-3 py-2 text-sm">
         Side <span className="font-medium">{side}</span>
       </PopoverContent>

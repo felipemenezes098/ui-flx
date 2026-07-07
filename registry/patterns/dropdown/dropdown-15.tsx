@@ -28,17 +28,19 @@ export function Dropdown15() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          <ListFilterIcon data-icon="inline-start" />
-          Status
-          {selected.length > 0 && (
-            <Badge variant="secondary" className="ml-1 rounded-sm px-1">
-              {selected.length}
-            </Badge>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            <ListFilterIcon data-icon="inline-start" />
+            Status
+            {selected.length > 0 && (
+              <Badge variant="secondary" className="ml-1 rounded-sm px-1">
+                {selected.length}
+              </Badge>
+            )}
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-48">
         <DropdownMenuLabel>Filter by status</DropdownMenuLabel>
         <DropdownMenuSeparator />

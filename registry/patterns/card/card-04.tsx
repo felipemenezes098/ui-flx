@@ -1,4 +1,9 @@
-import { MoreHorizontalIcon, PencilIcon, Share2Icon, TrashIcon } from 'lucide-react'
+import {
+  MoreHorizontalIcon,
+  PencilIcon,
+  Share2Icon,
+  TrashIcon,
+} from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -26,12 +31,14 @@ export function Card04() {
         <CardDescription>Finance · Q2 2026</CardDescription>
         <CardAction>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon-sm">
-                <MoreHorizontalIcon />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </DropdownMenuTrigger>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="ghost" size="icon-sm">
+                  <MoreHorizontalIcon />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              }
+            />
             <DropdownMenuContent align="end">
               <DropdownMenuGroup>
                 <DropdownMenuItem>

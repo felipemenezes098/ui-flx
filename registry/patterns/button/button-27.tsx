@@ -26,11 +26,13 @@ export function Button27() {
   return (
     <ButtonGroup>
       <Popover>
-        <PopoverTrigger asChild>
-          <Button variant="outline" size="icon" aria-label="Pick color">
-            <span className="size-4 rounded-sm bg-blue-500" />
-          </Button>
-        </PopoverTrigger>
+        <PopoverTrigger
+          render={
+            <Button variant="outline" size="icon" aria-label="Pick color">
+              <span className="size-4 rounded-sm bg-blue-500" />
+            </Button>
+          }
+        />
         <PopoverContent align="start" className="w-auto p-2">
           <div className="grid grid-cols-6 gap-1">
             {swatches.map((s) => (

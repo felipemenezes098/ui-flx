@@ -52,18 +52,20 @@ export function Popover12() {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <span className="bg-muted relative size-5 overflow-hidden rounded-sm">
-            <img
-              src={active.src}
-              alt=""
-              className="absolute inset-0 size-full object-cover"
-            />
-          </span>
-          Cover image
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <span className="bg-muted relative size-5 overflow-hidden rounded-sm">
+              <img
+                src={active.src}
+                alt=""
+                className="absolute inset-0 size-full object-cover"
+              />
+            </span>
+            Cover image
+          </Button>
+        }
+      />
       <PopoverContent className="w-72">
         <PopoverHeader>
           <PopoverTitle>Cover image</PopoverTitle>

@@ -29,12 +29,14 @@ export function Breadcrumb09() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="-ml-1">
-                Breadcrumb
-                <ChevronDownIcon data-icon="inline-end" />
-              </Button>
-            </DropdownMenuTrigger>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="ghost" size="sm" className="-ml-1">
+                  Breadcrumb
+                  <ChevronDownIcon data-icon="inline-end" />
+                </Button>
+              }
+            />
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Breadcrumb</DropdownMenuItem>
               <DropdownMenuItem>Button</DropdownMenuItem>

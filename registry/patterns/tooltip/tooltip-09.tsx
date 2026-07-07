@@ -11,17 +11,13 @@ export function Tooltip09() {
   return (
     <div className="flex items-center gap-2">
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">No arrow</Button>
-        </TooltipTrigger>
+        <TooltipTrigger render={<Button variant="outline">No arrow</Button>} />
         <TooltipContent className="[&>span]:hidden" sideOffset={10}>
           Clean tooltip without the arrow
         </TooltipContent>
       </Tooltip>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button>Primary</Button>
-        </TooltipTrigger>
+        <TooltipTrigger render={<Button>Primary</Button>} />
         <TooltipContent
           className="bg-primary text-primary-foreground [&>span]:hidden"
           sideOffset={10}

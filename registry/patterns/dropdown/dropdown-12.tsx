@@ -10,11 +10,13 @@ export function Dropdown12() {
   return (
     <div className="flex flex-wrap items-center gap-3">
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm">
-            Align start
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" size="sm">
+              Align start
+            </Button>
+          }
+        />
         <DropdownMenuContent align="start" className="w-40">
           <DropdownMenuItem>Edit</DropdownMenuItem>
           <DropdownMenuItem>Duplicate</DropdownMenuItem>
@@ -23,11 +25,13 @@ export function Dropdown12() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm">
-            Align end
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" size="sm">
+              Align end
+            </Button>
+          }
+        />
         <DropdownMenuContent align="end" className="w-40">
           <DropdownMenuItem>Edit</DropdownMenuItem>
           <DropdownMenuItem>Duplicate</DropdownMenuItem>
@@ -36,11 +40,13 @@ export function Dropdown12() {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm">
-            Side right
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" size="sm">
+              Side right
+            </Button>
+          }
+        />
         <DropdownMenuContent side="right" align="start" className="w-40">
           <DropdownMenuItem>Edit</DropdownMenuItem>
           <DropdownMenuItem>Duplicate</DropdownMenuItem>

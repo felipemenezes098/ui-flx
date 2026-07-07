@@ -41,15 +41,17 @@ const settings = [
 export function Popover07() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          aria-label="Notification settings"
-        >
-          <BellIcon />
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label="Notification settings"
+          >
+            <BellIcon />
+          </Button>
+        }
+      />
       <PopoverContent className="w-80">
         <PopoverHeader>
           <PopoverTitle>Notifications</PopoverTitle>

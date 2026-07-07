@@ -62,21 +62,23 @@ export function RhfFields09() {
                   Visibility
                 </FieldLabel>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      id="rhf-fields-09-visibility"
-                      type="button"
-                      variant="outline"
-                      aria-invalid={fieldState.invalid}
-                      className="w-full justify-between font-normal"
-                    >
-                      {selected ? selected.label : 'Select visibility'}
-                      <ChevronDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </DropdownMenuTrigger>
+                  <DropdownMenuTrigger
+                    render={
+                      <Button
+                        id="rhf-fields-09-visibility"
+                        type="button"
+                        variant="outline"
+                        aria-invalid={fieldState.invalid}
+                        className="w-full justify-between font-normal"
+                      >
+                        {selected ? selected.label : 'Select visibility'}
+                        <ChevronDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
                   <DropdownMenuContent
                     align="start"
-                    className="w-(--radix-dropdown-menu-trigger-width)"
+                    className="w-(--anchor-width)"
                   >
                     <DropdownMenuLabel>Repository visibility</DropdownMenuLabel>
                     <DropdownMenuSeparator />

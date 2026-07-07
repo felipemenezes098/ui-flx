@@ -46,49 +46,51 @@ export function Command15() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          size="sm"
-          role="combobox"
-          aria-expanded={open}
-          className="h-8 min-w-44 border-dashed font-normal"
-        >
-          <PlusCircleIcon className="size-4" />
-          Skills
-          {selected.length > 0 && (
-            <>
-              <Separator orientation="vertical" className="mx-1 h-auto!" />
-              <Badge
-                variant="secondary"
-                className="rounded-sm px-1 font-normal lg:hidden"
-              >
-                {selected.length}
-              </Badge>
-              <div className="hidden gap-1 lg:flex">
-                {selected.length > 1 ? (
-                  <Badge
-                    variant="secondary"
-                    className="rounded-sm px-1.5 font-normal"
-                  >
-                    {selected.length} selected
-                  </Badge>
-                ) : (
-                  selectedSkills.map((skill) => (
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            size="sm"
+            role="combobox"
+            aria-expanded={open}
+            className="h-8 min-w-44 border-dashed font-normal"
+          >
+            <PlusCircleIcon className="size-4" />
+            Skills
+            {selected.length > 0 && (
+              <>
+                <Separator orientation="vertical" className="mx-1 h-auto!" />
+                <Badge
+                  variant="secondary"
+                  className="rounded-sm px-1 font-normal lg:hidden"
+                >
+                  {selected.length}
+                </Badge>
+                <div className="hidden gap-1 lg:flex">
+                  {selected.length > 1 ? (
                     <Badge
-                      key={skill.value}
                       variant="secondary"
                       className="rounded-sm px-1.5 font-normal"
                     >
-                      {skill.label}
+                      {selected.length} selected
                     </Badge>
-                  ))
-                )}
-              </div>
-            </>
-          )}
-        </Button>
-      </PopoverTrigger>
+                  ) : (
+                    selectedSkills.map((skill) => (
+                      <Badge
+                        key={skill.value}
+                        variant="secondary"
+                        className="rounded-sm px-1.5 font-normal"
+                      >
+                        {skill.label}
+                      </Badge>
+                    ))
+                  )}
+                </div>
+              </>
+            )}
+          </Button>
+        }
+      />
       <PopoverContent className="w-64 p-0" align="start">
         <Command>
           <CommandInput placeholder="Filter skills..." />

@@ -51,15 +51,17 @@ export function Dropdown11() {
               <TableCell>{member.role}</TableCell>
               <TableCell>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
-                      aria-label={`Actions for ${member.name}`}
-                    >
-                      <MoreHorizontalIcon />
-                    </Button>
-                  </DropdownMenuTrigger>
+                  <DropdownMenuTrigger
+                    render={
+                      <Button
+                        variant="ghost"
+                        size="icon-sm"
+                        aria-label={`Actions for ${member.name}`}
+                      >
+                        <MoreHorizontalIcon />
+                      </Button>
+                    }
+                  />
                   <DropdownMenuContent align="end" className="w-40">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuSeparator />

@@ -11,9 +11,9 @@ import {
 export function Popover05() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">Wide popover</Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={<Button variant="outline">Wide popover</Button>}
+      />
       <PopoverContent className="w-96">
         <PopoverHeader>
           <PopoverTitle>Custom width</PopoverTitle>

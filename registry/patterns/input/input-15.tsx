@@ -27,7 +27,10 @@ export function Input15() {
   return (
     <ButtonGroup className="max-w-sm">
       <ButtonGroup>
-        <Select value={currency} onValueChange={setCurrency}>
+        <Select
+          value={currency}
+          onValueChange={(value) => setCurrency(value ?? '')}
+        >
           <SelectTrigger>
             <SelectValue>{currency}</SelectValue>
           </SelectTrigger>

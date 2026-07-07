@@ -19,12 +19,14 @@ export function Dropdown14() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon-sm" aria-label="Toggle theme">
-          <SunIcon className="dark:hidden" />
-          <MoonIcon className="hidden dark:block" />
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="icon-sm" aria-label="Toggle theme">
+            <SunIcon className="dark:hidden" />
+            <MoonIcon className="hidden dark:block" />
+          </Button>
+        }
+      />
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuLabel>Theme</DropdownMenuLabel>
         <DropdownMenuSeparator />

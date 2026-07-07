@@ -19,11 +19,13 @@ export function Tooltip04() {
     <div className="flex items-center gap-2">
       {actions.map(({ icon: Icon, label }) => (
         <Tooltip key={label}>
-          <TooltipTrigger asChild>
-            <Button variant="outline" size="icon" aria-label={label}>
-              <Icon />
-            </Button>
-          </TooltipTrigger>
+          <TooltipTrigger
+            render={
+              <Button variant="outline" size="icon" aria-label={label}>
+                <Icon />
+              </Button>
+            }
+          />
           <TooltipContent>{label}</TooltipContent>
         </Tooltip>
       ))}

@@ -18,11 +18,13 @@ export function Dropdown07() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Panel position
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Panel position
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-44">
         <DropdownMenuLabel>Position</DropdownMenuLabel>
         <DropdownMenuSeparator />

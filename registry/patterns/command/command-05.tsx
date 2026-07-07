@@ -31,19 +31,21 @@ export function Command05() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-56 justify-between font-normal"
-        >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : 'Select framework...'}
-          <ChevronsUpDownIcon className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-56 justify-between font-normal"
+          >
+            {value
+              ? frameworks.find((framework) => framework.value === value)?.label
+              : 'Select framework...'}
+            <ChevronsUpDownIcon className="text-muted-foreground" />
+          </Button>
+        }
+      />
       <PopoverContent className="w-56 p-0" align="start">
         <Command>
           <CommandInput placeholder="Search framework..." />

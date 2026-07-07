@@ -12,10 +12,10 @@ import {
 export function Tooltip07() {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline">Hover me</Button>
-      </TooltipTrigger>
-      <TooltipContent className="dark">Light tooltip via dark class</TooltipContent>
+      <TooltipTrigger render={<Button variant="outline">Hover me</Button>} />
+      <TooltipContent className="dark">
+        Light tooltip via dark class
+      </TooltipContent>
     </Tooltip>
   )
 }

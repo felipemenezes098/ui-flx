@@ -76,32 +76,34 @@ export function Command13() {
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Framework</FieldLabel>
                 <Popover open={open} onOpenChange={setOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      id={field.name}
-                      type="button"
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={open}
-                      aria-invalid={isInvalid}
-                      className="w-full justify-between font-normal"
-                    >
-                      <span
-                        className={cn(
-                          !field.state.value && 'text-muted-foreground',
-                        )}
+                  <PopoverTrigger
+                    render={
+                      <Button
+                        id={field.name}
+                        type="button"
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={open}
+                        aria-invalid={isInvalid}
+                        className="w-full justify-between font-normal"
                       >
-                        {field.state.value
-                          ? frameworks.find(
-                              (item) => item.value === field.state.value,
-                            )?.label
-                          : 'Select framework'}
-                      </span>
-                      <ChevronsUpDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </PopoverTrigger>
+                        <span
+                          className={cn(
+                            !field.state.value && 'text-muted-foreground',
+                          )}
+                        >
+                          {field.state.value
+                            ? frameworks.find(
+                                (item) => item.value === field.state.value,
+                              )?.label
+                            : 'Select framework'}
+                        </span>
+                        <ChevronsUpDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
                   <PopoverContent
-                    className="w-(--radix-popover-trigger-width) p-0"
+                    className="w-(--anchor-width) p-0"
                     align="start"
                   >
                     <Command>

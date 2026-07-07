@@ -81,17 +81,19 @@ export function IntentSidebar() {
     <>
       <div className="w-full shrink-0 lg:hidden">
         <Popover open={showAllOpen} onOpenChange={setShowAllOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              className="w-full justify-start"
-            >
-              <Search data-icon="inline-start" />
-              <span className="truncate">{mobileLabel}</span>
-            </Button>
-          </PopoverTrigger>
+          <PopoverTrigger
+            render={
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="w-full justify-start"
+              >
+                <Search data-icon="inline-start" />
+                <span className="truncate">{mobileLabel}</span>
+              </Button>
+            }
+          />
           <PopoverContent
             align="start"
             className="w-[min(100vw-2rem,22rem)] overscroll-contain p-0"

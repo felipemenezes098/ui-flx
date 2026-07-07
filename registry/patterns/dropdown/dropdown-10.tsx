@@ -17,11 +17,13 @@ import {
 export function Dropdown10() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon-sm" aria-label="Open actions">
-          <MoreHorizontalIcon />
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="ghost" size="icon-sm" aria-label="Open actions">
+            <MoreHorizontalIcon />
+          </Button>
+        }
+      />
       <DropdownMenuContent align="end" className="w-44">
         <DropdownMenuItem>
           <PencilIcon />

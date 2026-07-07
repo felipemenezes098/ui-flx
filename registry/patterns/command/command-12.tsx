@@ -73,27 +73,32 @@ export function Command12() {
             <Field data-invalid={fieldState.invalid}>
               <FieldLabel htmlFor="command-rhf-framework">Framework</FieldLabel>
               <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    id="command-rhf-framework"
-                    type="button"
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    aria-invalid={fieldState.invalid}
-                    className="w-full justify-between font-normal"
-                  >
-                    <span className={cn(!field.value && 'text-muted-foreground')}>
-                      {field.value
-                        ? frameworks.find((item) => item.value === field.value)
-                            ?.label
-                        : 'Select framework'}
-                    </span>
-                    <ChevronsUpDownIcon className="text-muted-foreground" />
-                  </Button>
-                </PopoverTrigger>
+                <PopoverTrigger
+                  render={
+                    <Button
+                      id="command-rhf-framework"
+                      type="button"
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={open}
+                      aria-invalid={fieldState.invalid}
+                      className="w-full justify-between font-normal"
+                    >
+                      <span
+                        className={cn(!field.value && 'text-muted-foreground')}
+                      >
+                        {field.value
+                          ? frameworks.find(
+                              (item) => item.value === field.value,
+                            )?.label
+                          : 'Select framework'}
+                      </span>
+                      <ChevronsUpDownIcon className="text-muted-foreground" />
+                    </Button>
+                  }
+                />
                 <PopoverContent
-                  className="w-(--radix-popover-trigger-width) p-0"
+                  className="w-(--anchor-width) p-0"
                   align="start"
                 >
                   <Command>

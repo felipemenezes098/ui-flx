@@ -18,11 +18,13 @@ export function Dropdown13() {
   return (
     <div className="flex flex-col items-center gap-3">
       <DropdownMenu open={open} onOpenChange={setOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm">
-            {open ? 'Menu open' : 'Menu closed'}
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" size="sm">
+              {open ? 'Menu open' : 'Menu closed'}
+            </Button>
+          }
+        />
         <DropdownMenuContent align="start" className="w-44">
           <DropdownMenuLabel>Controlled</DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -30,7 +32,7 @@ export function Dropdown13() {
           <DropdownMenuItem>Settings</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         State: {open ? 'open' : 'closed'}
       </p>
     </div>

@@ -32,17 +32,19 @@ export function Command10() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="ghost" size="sm" className="font-normal">
-          <span
-            className={cn(
-              'size-2 rounded-full',
-              selected ? selected.color : 'bg-muted-foreground',
-            )}
-          />
-          {selected ? selected.label : 'Set status'}
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="ghost" size="sm" className="font-normal">
+            <span
+              className={cn(
+                'size-2 rounded-full',
+                selected ? selected.color : 'bg-muted-foreground',
+              )}
+            />
+            {selected ? selected.label : 'Set status'}
+          </Button>
+        }
+      />
       <PopoverContent className="w-48 p-0" align="start">
         <Command>
           <CommandInput placeholder="Set status..." />

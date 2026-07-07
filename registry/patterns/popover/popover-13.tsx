@@ -17,15 +17,17 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 export function Popover13() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <FilterIcon data-icon="inline-start" />
-          Filters
-          <Badge variant="secondary" className="ml-1 h-5 px-1.5 text-xs">
-            3
-          </Badge>
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <FilterIcon data-icon="inline-start" />
+            Filters
+            <Badge variant="secondary" className="ml-1 h-5 px-1.5 text-xs">
+              3
+            </Badge>
+          </Button>
+        }
+      />
       <PopoverContent align="start" className="w-80">
         <PopoverHeader>
           <PopoverTitle>Filters</PopoverTitle>

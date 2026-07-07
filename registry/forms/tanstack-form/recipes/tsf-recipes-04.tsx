@@ -94,7 +94,7 @@ export function TsfRecipes04() {
                     <FieldLabel htmlFor={field.name}>Frequency</FieldLabel>
                     <Select
                       value={field.state.value}
-                      onValueChange={field.handleChange}
+                      onValueChange={(value) => field.handleChange(value ?? '')}
                     >
                       <SelectTrigger
                         id={field.name}

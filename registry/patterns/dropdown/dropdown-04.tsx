@@ -11,11 +11,13 @@ import { CopyIcon, PencilIcon, TrashIcon } from 'lucide-react'
 export function Dropdown04() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Manage
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Manage
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-44">
         <DropdownMenuItem>
           <PencilIcon />

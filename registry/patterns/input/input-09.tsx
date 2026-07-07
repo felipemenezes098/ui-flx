@@ -18,11 +18,16 @@ export function Input09() {
       <InputGroupInput placeholder="Enter password" type="password" />
       <InputGroupAddon align="inline-end">
         <Popover>
-          <PopoverTrigger asChild>
-            <InputGroupButton aria-label="Password requirements" size="icon-xs">
-              <InfoIcon />
-            </InputGroupButton>
-          </PopoverTrigger>
+          <PopoverTrigger
+            render={
+              <InputGroupButton
+                aria-label="Password requirements"
+                size="icon-xs"
+              >
+                <InfoIcon />
+              </InputGroupButton>
+            }
+          />
           <PopoverContent align="end" className="w-64">
             <p className="font-medium">Password requirements</p>
             <ul className="text-muted-foreground list-inside list-disc space-y-1 text-sm">

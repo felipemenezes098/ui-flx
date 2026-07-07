@@ -95,12 +95,14 @@ export function Table15() {
     <div className="flex w-full max-w-xl flex-col gap-3">
       <div className="flex justify-end">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm">
-              <SlidersHorizontalIcon data-icon="inline-start" />
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline" size="sm">
+                <SlidersHorizontalIcon data-icon="inline-start" />
+                Columns
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end" className="w-40">
             <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
             <DropdownMenuSeparator />
