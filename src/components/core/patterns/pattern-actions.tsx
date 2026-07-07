@@ -68,17 +68,19 @@ export function PatternActions({
         className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
       />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
-        <DialogTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            aria-label="View code"
-            className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
-          >
-            <CodeIcon className="size-3" />
-            Code
-          </Button>
-        </DialogTrigger>
+        <DialogTrigger
+          render={
+            <Button
+              variant="outline"
+              size="sm"
+              aria-label="View code"
+              className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
+            >
+              <CodeIcon className="size-3" />
+              Code
+            </Button>
+          }
+        />
         <DialogContent className="max-h-[95vh] overflow-y-auto sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle>{item.title}</DialogTitle>

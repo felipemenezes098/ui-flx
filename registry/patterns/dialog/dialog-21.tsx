@@ -17,9 +17,9 @@ import { Input } from '@/components/ui/input'
 export function Dialog21() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Nested dialog</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">Nested dialog</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
@@ -35,11 +35,13 @@ export function Dialog21() {
         </FieldGroup>
         <DialogFooter className="sm:justify-between">
           <Dialog>
-            <DialogTrigger asChild>
-              <Button type="button" variant="outline">
-                Change avatar
-              </Button>
-            </DialogTrigger>
+            <DialogTrigger
+              render={
+                <Button type="button" variant="outline">
+                  Change avatar
+                </Button>
+              }
+            />
             <DialogContent className="sm:max-w-sm">
               <DialogHeader>
                 <DialogTitle>Change avatar</DialogTitle>
@@ -54,21 +56,25 @@ export function Dialog21() {
                 </span>
               </div>
               <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="button" variant="outline">
-                    Cancel
-                  </Button>
-                </DialogClose>
+                <DialogClose
+                  render={
+                    <Button type="button" variant="outline">
+                      Cancel
+                    </Button>
+                  }
+                />
                 <Button type="button">Save avatar</Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>
           <div className="flex gap-2">
-            <DialogClose asChild>
-              <Button type="button" variant="outline">
-                Close
-              </Button>
-            </DialogClose>
+            <DialogClose
+              render={
+                <Button type="button" variant="outline">
+                  Close
+                </Button>
+              }
+            />
             <Button type="button">Save profile</Button>
           </div>
         </DialogFooter>

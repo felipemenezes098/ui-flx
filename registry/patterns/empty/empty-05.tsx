@@ -21,9 +21,7 @@ import {
 export function Empty05() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Open inbox</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Open inbox</Button>} />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Inbox</DialogTitle>
@@ -40,9 +38,7 @@ export function Empty05() {
           </EmptyHeader>
         </Empty>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Close</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Close</Button>} />
           <Button>
             <PlusIcon data-icon="inline-start" />
             New message

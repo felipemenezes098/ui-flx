@@ -13,9 +13,7 @@ import {
 export function Dialog18() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Upgrade plan</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Upgrade plan</Button>} />
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
           <DialogTitle>Upgrade to Pro</DialogTitle>
@@ -34,11 +32,13 @@ export function Dialog18() {
         </div>
         <DialogFooter className="flex-col gap-2 sm:flex-col">
           <Button className="w-full">Upgrade now</Button>
-          <DialogClose asChild>
-            <Button variant="outline" className="w-full">
-              Maybe later
-            </Button>
-          </DialogClose>
+          <DialogClose
+            render={
+              <Button variant="outline" className="w-full">
+                Maybe later
+              </Button>
+            }
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>

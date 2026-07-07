@@ -24,7 +24,7 @@ export function PresetGetDialog({
 }>) {
   return (
     <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogTrigger render={trigger as React.ReactElement} />
       <DialogContent className="sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle className="text-base font-medium tracking-tight">

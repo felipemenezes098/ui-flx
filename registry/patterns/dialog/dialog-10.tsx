@@ -13,9 +13,9 @@ import {
 export function Dialog10() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Submit feedback</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">Submit feedback</Button>}
+      />
       <DialogContent showCloseButton={false} className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Thanks for your feedback</DialogTitle>
@@ -25,9 +25,9 @@ export function Dialog10() {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button className="w-full sm:w-auto">Done</Button>
-          </DialogClose>
+          <DialogClose
+            render={<Button className="w-full sm:w-auto">Done</Button>}
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>

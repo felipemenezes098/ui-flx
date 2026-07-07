@@ -71,9 +71,9 @@ export function Dialog11() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Invite teammates</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">Invite teammates</Button>}
+      />
       <DialogContent className="flex flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
         <DialogHeader className="px-6 pt-6">
           <DialogTitle>Add to project</DialogTitle>
@@ -126,9 +126,7 @@ export function Dialog11() {
           </ul>
         </div>
         <DialogFooter className="border-t px-6 py-4">
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Invite {selected.length}</Button>
         </DialogFooter>
       </DialogContent>

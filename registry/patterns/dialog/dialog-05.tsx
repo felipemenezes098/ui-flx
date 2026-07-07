@@ -30,9 +30,7 @@ export function Dialog05() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Share link</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Share link</Button>} />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Share link</DialogTitle>
@@ -64,9 +62,7 @@ export function Dialog05() {
           </div>
         </div>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Close</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Close</Button>} />
         </DialogFooter>
       </DialogContent>
     </Dialog>

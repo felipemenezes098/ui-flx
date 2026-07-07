@@ -37,11 +37,13 @@ export function Dialog22() {
       <DropdownMenuContent align="end" className="w-48">
         <DropdownMenuGroup>
           <Dialog>
-            <DialogTrigger asChild>
-              <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                Rename project
-              </DropdownMenuItem>
-            </DialogTrigger>
+            <DialogTrigger
+              render={
+                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                  Rename project
+                </DropdownMenuItem>
+              }
+            />
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
                 <DialogTitle>Rename project</DialogTitle>
@@ -57,9 +59,9 @@ export function Dialog22() {
                 </Field>
               </FieldGroup>
               <DialogFooter>
-                <DialogClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DialogClose>
+                <DialogClose
+                  render={<Button variant="outline">Cancel</Button>}
+                />
                 <Button>Save</Button>
               </DialogFooter>
             </DialogContent>

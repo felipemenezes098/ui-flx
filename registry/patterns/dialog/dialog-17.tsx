@@ -16,9 +16,7 @@ import { Textarea } from '@/components/ui/textarea'
 export function Dialog17() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Create event</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Create event</Button>} />
       <DialogContent className="flex flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
         <DialogHeader className="px-6 pt-6">
           <DialogTitle>Create event</DialogTitle>
@@ -59,9 +57,7 @@ export function Dialog17() {
           </FieldGroup>
         </div>
         <DialogFooter className="bg-muted/30 border-t px-6 py-4">
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Create event</Button>
         </DialogFooter>
       </DialogContent>

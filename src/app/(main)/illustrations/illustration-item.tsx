@@ -98,16 +98,18 @@ export function IllustrationItem({
               <Tooltip>
                 <TooltipTrigger
                   render={
-                    <DialogTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="icon-sm"
-                        className="border-border border"
-                        aria-label="View code"
-                      >
-                        <Code2 className="size-4" />
-                      </Button>
-                    </DialogTrigger>
+                    <DialogTrigger
+                      render={
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          className="border-border border"
+                          aria-label="View code"
+                        >
+                          <Code2 className="size-4" />
+                        </Button>
+                      }
+                    />
                   }
                 />
                 <TooltipContent

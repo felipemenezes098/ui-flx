@@ -53,9 +53,7 @@ export function Dialog15() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Choose cover</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Choose cover</Button>} />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Choose image</DialogTitle>
@@ -85,9 +83,7 @@ export function Dialog15() {
           ))}
         </div>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Choose</Button>
         </DialogFooter>
       </DialogContent>

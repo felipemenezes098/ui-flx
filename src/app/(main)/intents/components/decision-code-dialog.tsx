@@ -30,18 +30,20 @@ export function DecisionCodeDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button
-          type="button"
-          size="sm"
-          variant="outline"
-          aria-label="View code"
-          className={cn('text-xs', className)}
-        >
-          <CodeIcon className="size-3.5" aria-hidden />
-          Code
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button
+            type="button"
+            size="sm"
+            variant="outline"
+            aria-label="View code"
+            className={cn('text-xs', className)}
+          >
+            <CodeIcon className="size-3.5" aria-hidden />
+            Code
+          </Button>
+        }
+      />
       <DialogContent className="max-h-[95vh] overflow-y-auto sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle>{name}</DialogTitle>

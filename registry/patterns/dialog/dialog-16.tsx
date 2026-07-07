@@ -17,9 +17,7 @@ import { Input } from '@/components/ui/input'
 export function Dialog16() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Invite team</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Invite team</Button>} />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <div className="flex flex-col gap-3">
@@ -47,9 +45,7 @@ export function Dialog16() {
           </FieldDescription>
         </Field>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Send invites</Button>
         </DialogFooter>
       </DialogContent>

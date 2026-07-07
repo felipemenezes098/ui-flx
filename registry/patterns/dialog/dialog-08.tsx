@@ -22,15 +22,15 @@ import {
 export function Dialog08() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Verify email</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Verify email</Button>} />
       <DialogContent className="sm:max-w-sm">
         <DialogHeader className="text-center sm:text-center">
           <DialogTitle>Check your email</DialogTitle>
           <DialogDescription>
             We sent a 6-digit code to{' '}
-            <span className="text-foreground font-medium">j•••@example.com</span>
+            <span className="text-foreground font-medium">
+              j•••@example.com
+            </span>
           </DialogDescription>
         </DialogHeader>
         <Field className="items-center gap-4">
@@ -66,9 +66,7 @@ export function Dialog08() {
           </FieldDescription>
         </Field>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Verify</Button>
         </DialogFooter>
       </DialogContent>

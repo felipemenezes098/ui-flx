@@ -41,11 +41,13 @@ export function Settings4() {
       </div>
 
       <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline" size="icon" aria-label="Preferences">
-            <Settings2 className="size-4" />
-          </Button>
-        </DialogTrigger>
+        <DialogTrigger
+          render={
+            <Button variant="outline" size="icon" aria-label="Preferences">
+              <Settings2 className="size-4" />
+            </Button>
+          }
+        />
         <DialogContent className="sm:max-w-sm">
           <DialogHeader>
             <DialogTitle>Preferences</DialogTitle>
