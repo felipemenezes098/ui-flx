@@ -6,8 +6,14 @@ import {
   ConceptGalleryCardMedia,
   ConceptGalleryCardTitle,
 } from '@/components/core/gallery/concept-gallery-card'
-import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
-import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
+import {
+  GalleryFade,
+  GalleryFadeFooter,
+} from '@/components/core/gallery/gallery-fade'
+import {
+  GalleryGridLink,
+  GalleryGridUniform,
+} from '@/components/core/gallery/gallery-grid'
 import { Button } from '@/components/ui/button'
 import { allIntents } from '@/lib/intents/intent-catalog'
 
@@ -22,10 +28,7 @@ export function IntentList() {
           if (!Concept) return null
 
           return (
-            <GalleryGridLink
-              key={intent.slug}
-              href={`/intents/${intent.slug}`}
-            >
+            <GalleryGridLink key={intent.slug} href={`/intents/${intent.slug}`}>
               <ConceptGalleryCard>
                 <ConceptGalleryCardMedia className="aspect-square">
                   <Concept />
@@ -43,12 +46,13 @@ export function IntentList() {
 
       <GalleryFadeFooter>
         <Button
-          asChild
+          render={<Link href="/intents" />}
+          nativeButton={false}
           variant="outline"
           size="sm"
           className="bg-background dark:bg-background hover:dark:bg-muted"
         >
-          <Link href="/intents">View all</Link>
+          View all
         </Button>
       </GalleryFadeFooter>
     </GalleryFade>

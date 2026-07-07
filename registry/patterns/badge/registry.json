@@ -120,7 +120,7 @@
         }
       ],
       "title": "As link",
-      "description": "asChild renders the badge as an anchor with a trailing icon."
+      "description": "render prop renders the badge as an anchor with a trailing icon."
     },
     {
       "name": "badge-08",

@@ -282,16 +282,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button asChild variant="outline" size="sm">
-            <Link href={siteConfig.links.twitter} target="_blank">
-              <Logo.X className="size-3" />/ Twitter
-            </Link>
+          <Button
+            render={<Link href={siteConfig.links.twitter} target="_blank" />}
+            nativeButton={false}
+            variant="outline"
+            size="sm"
+          >
+            <Logo.X className="size-3" />/ Twitter
           </Button>
-          <Button asChild variant="outline" size="sm">
-            <Link href={siteConfig.links.linkedin} target="_blank">
-              <Logo.Linkedin className="size-3" />
-              LinkedIn
-            </Link>
+          <Button
+            render={<Link href={siteConfig.links.linkedin} target="_blank" />}
+            nativeButton={false}
+            variant="outline"
+            size="sm"
+          >
+            <Logo.Linkedin className="size-3" />
+            LinkedIn
           </Button>
         </div>
       </div>

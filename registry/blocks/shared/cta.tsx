@@ -4,12 +4,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export type ButtonVariant =
-  | 'default'
-  | 'destructive'
-  | 'outline'
-  | 'secondary'
-  | 'ghost'
-  | 'link'
+  'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
 
 export interface CtaProps {
   ctaEnabled?: boolean
@@ -60,18 +55,19 @@ export function Cta({
     <Button
       className={cn(ctaVariants({ invert }), className)}
       variant={variant}
-      asChild
+      render={
+        <a
+          href={cta.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={cta?.text}
+        />
+      }
+      nativeButton={false}
       size={cta?.size ?? 'default'}
     >
-      <a
-        href={cta.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={cta?.text}
-      >
-        {cta?.text}
-        <span className="sr-only">{`${cta?.text} (opens in new tab)`}</span>
-      </a>
+      {cta?.text}
+      <span className="sr-only">{`${cta?.text} (opens in new tab)`}</span>
     </Button>
   )
 }

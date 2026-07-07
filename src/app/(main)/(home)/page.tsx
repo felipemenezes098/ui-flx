@@ -59,12 +59,13 @@ export default function HomePage() {
             </div>
             <div className="flex justify-end">
               <Button
-                asChild
+                render={<Link href="/blocks" />}
+                nativeButton={false}
                 variant="link"
                 size="sm"
                 className="bg-background"
               >
-                <Link href="/blocks">View all</Link>
+                View all
               </Button>
             </div>
           </div>
@@ -87,12 +88,13 @@ export default function HomePage() {
             </div>
             <div className="flex justify-end">
               <Button
-                asChild
+                render={<Link href="/illustrations" />}
+                nativeButton={false}
                 variant="link"
                 size="sm"
                 className="bg-background"
               >
-                <Link href="/illustrations">View all</Link>
+                View all
               </Button>
             </div>
           </div>
@@ -116,12 +118,13 @@ export default function HomePage() {
             </div>
             <div className="flex justify-end">
               <Button
-                asChild
+                render={<Link href="/intents" />}
+                nativeButton={false}
                 variant="link"
                 size="sm"
                 className="bg-background"
               >
-                <Link href="/intents">View all</Link>
+                View all
               </Button>
             </div>
           </div>

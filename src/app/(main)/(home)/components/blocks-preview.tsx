@@ -6,8 +6,14 @@ import {
   GalleryCardMedia,
   GalleryCardThemeImage,
 } from '@/components/core/gallery/gallery-card'
-import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
-import { GalleryGrid, GalleryGridLink } from '@/components/core/gallery/gallery-grid'
+import {
+  GalleryFade,
+  GalleryFadeFooter,
+} from '@/components/core/gallery/gallery-fade'
+import {
+  GalleryGrid,
+  GalleryGridLink,
+} from '@/components/core/gallery/gallery-grid'
 import { Button } from '@/components/ui/button'
 import { blocks } from '@/lib/blocks/block-catalog'
 
@@ -47,12 +53,13 @@ export function BlocksPreview() {
 
       <GalleryFadeFooter>
         <Button
-          asChild
+          render={<Link href="/blocks" />}
+          nativeButton={false}
           variant="outline"
           size="sm"
           className="bg-background dark:bg-background hover:dark:bg-muted"
         >
-          <Link href="/blocks">View all</Link>
+          View all
         </Button>
       </GalleryFadeFooter>
     </GalleryFade>

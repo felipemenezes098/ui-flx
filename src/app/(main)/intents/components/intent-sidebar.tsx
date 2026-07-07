@@ -111,15 +111,14 @@ export function IntentSidebar() {
           <SidebarMenu>
             <SidebarMenuItem>
               <Button
-                asChild
+                render={<Link href="/intents" />}
+                nativeButton={false}
                 size="sm"
                 variant="outline"
                 className="w-full justify-start gap-2"
               >
-                <Link href="/intents">
-                  <LayoutGrid className="size-4" />
-                  <span className="text-xs">All intents</span>
-                </Link>
+                <LayoutGrid className="size-4" />
+                <span className="text-xs">All intents</span>
               </Button>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -142,14 +141,12 @@ export function IntentSidebar() {
                         return (
                           <SidebarMenuItem key={intent.slug}>
                             <SidebarMenuButton
-                              asChild
+                              render={<Link href={href} />}
                               size="sm"
                               className="font-medium"
                               isActive={pathname === href}
                             >
-                              <Link href={href}>
-                                <span>{intent.name}</span>
-                              </Link>
+                              <span>{intent.name}</span>
                             </SidebarMenuButton>
                           </SidebarMenuItem>
                         )

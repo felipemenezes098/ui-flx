@@ -59,11 +59,14 @@ export function PreviewEditor({
   return (
     <div className="flex min-h-screen w-full flex-col lg:h-screen lg:min-h-0">
       <header className="flex shrink-0 items-center gap-3 border-b px-4 py-3">
-        <Button variant="ghost" size="sm" asChild>
-          <Link href={`/blocks/${category}/${slug}`}>
-            <ArrowLeft className="size-4" />
-            Back
-          </Link>
+        <Button
+          variant="ghost"
+          size="sm"
+          render={<Link href={`/blocks/${category}/${slug}`} />}
+          nativeButton={false}
+        >
+          <ArrowLeft className="size-4" />
+          Back
         </Button>
         <span className="text-sm font-medium">{manifest.name}</span>
         {variation && (

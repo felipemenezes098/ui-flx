@@ -41,11 +41,10 @@ export function FullscreenButton({
       title="Open fullscreen"
       aria-label="Open fullscreen"
       className={className}
-      asChild
+      render={<Link href={href} target="_blank" />}
+      nativeButton={false}
     >
-      <Link href={href} target="_blank">
-        <Fullscreen className="size-3.5 shrink-0" />
-      </Link>
+      <Fullscreen className="size-3.5 shrink-0" />
     </Button>
   )
 }
@@ -61,11 +60,10 @@ export function EditButton({
       title="Edit"
       aria-label="Edit"
       className={className}
-      asChild
+      render={<Link href={href} />}
+      nativeButton={false}
     >
-      <Link href={href}>
-        <Palette className="size-3.5 shrink-0" />
-      </Link>
+      <Palette className="size-3.5 shrink-0" />
     </Button>
   )
 }

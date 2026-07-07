@@ -28,21 +28,20 @@ export function NavbarDesktop() {
             <Button
               variant="ghost"
               className="hover:bg-muted h-7 shrink-0 rounded-lg px-2"
-              asChild
+              render={<Link href="/" />}
+              nativeButton={false}
             >
-              <Link href="/">
-                <div className="flex items-center gap-1.5">
-                  <div className="relative size-5 overflow-hidden rounded-xl">
-                    <Logo.Flexnative className="text-primary mt-0.5 h-6 w-auto" />
-                  </div>
-                  <span className="block text-sm font-medium md:hidden">
-                    {siteConfig.shortName}
-                  </span>
-                  <span className="hidden text-sm font-medium md:block">
-                    {siteConfig.name}
-                  </span>
+              <div className="flex items-center gap-1.5">
+                <div className="relative size-5 overflow-hidden rounded-xl">
+                  <Logo.Flexnative className="text-primary mt-0.5 h-6 w-auto" />
                 </div>
-              </Link>
+                <span className="block text-sm font-medium md:hidden">
+                  {siteConfig.shortName}
+                </span>
+                <span className="hidden text-sm font-medium md:block">
+                  {siteConfig.name}
+                </span>
+              </div>
             </Button>
             <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto py-1 md:flex">
               <div className="inline-flex w-max flex-nowrap gap-1 first:ml-0.5 last:mr-0.5">
@@ -68,22 +67,22 @@ export function NavbarDesktop() {
               <Button
                 variant="ghost"
                 size="icon"
-                asChild
+                render={
+                  <Link href={siteConfig.links.twitter} target="_blank" />
+                }
+                nativeButton={false}
                 className="h-8 w-8 transition-none"
               >
-                <Link href={siteConfig.links.twitter} target="_blank">
-                  <Logo.X className="size-3" />
-                </Link>
+                <Logo.X className="size-3" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                asChild
+                render={<Link href={siteConfig.links.github} target="_blank" />}
+                nativeButton={false}
                 className="h-8 w-8 transition-none"
               >
-                <Link href={siteConfig.links.github} target="_blank">
-                  <Logo.Github className="size-4" />
-                </Link>
+                <Logo.Github className="size-4" />
               </Button>
             </div>
             <div className="flex items-center">

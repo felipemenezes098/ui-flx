@@ -77,22 +77,24 @@ export function NavbarMobile() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  asChild
+                  render={
+                    <Link href={siteConfig.links.twitter} target="_blank" />
+                  }
+                  nativeButton={false}
                   className="h-8 w-8 transition-none"
                 >
-                  <Link href={siteConfig.links.twitter} target="_blank">
-                    <Logo.X className="size-3" />
-                  </Link>
+                  <Logo.X className="size-3" />
                 </Button>
                 <Button
                   variant="ghost"
                   size="icon"
-                  asChild
+                  render={
+                    <Link href={siteConfig.links.github} target="_blank" />
+                  }
+                  nativeButton={false}
                   className="h-8 w-8 transition-none"
                 >
-                  <Link href={siteConfig.links.github} target="_blank">
-                    <Logo.Github className="size-4" />
-                  </Link>
+                  <Logo.Github className="size-4" />
                 </Button>
                 <div className="flex items-center">
                   <Separator orientation="vertical" className="!h-4" />
@@ -105,14 +107,15 @@ export function NavbarMobile() {
                   variant="ghost"
                   className="hover:bg-muted h-7 rounded-lg px-2"
                   size="sm"
-                  asChild
+                  render={
+                    <Link href="/" className="flex items-center gap-1.5" />
+                  }
+                  nativeButton={false}
                 >
-                  <Link href="/" className="flex items-center gap-1.5">
-                    <Logo.Flexnative className="text-primary h-6 w-auto" />
-                    <span className="text-sm font-medium">
-                      {siteConfig.shortName}
-                    </span>
-                  </Link>
+                  <Logo.Flexnative className="text-primary h-6 w-auto" />
+                  <span className="text-sm font-medium">
+                    {siteConfig.shortName}
+                  </span>
                 </Button>
               </motion.div>
             </div>

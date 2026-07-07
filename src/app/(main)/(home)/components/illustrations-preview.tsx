@@ -55,12 +55,13 @@ export function IllustrationsPreview() {
 
       <GalleryFadeFooter className="h-52 h-60 pb-15">
         <Button
-          asChild
+          render={<Link href="/illustrations" />}
+          nativeButton={false}
           variant="outline"
           size="sm"
           className="bg-background dark:bg-background hover:dark:bg-muted"
         >
-          <Link href="/illustrations">View all</Link>
+          View all
         </Button>
       </GalleryFadeFooter>
     </GalleryFade>

@@ -11,8 +11,14 @@ import {
   ConceptGalleryCardMedia,
   ConceptGalleryCardTitle,
 } from '@/components/core/gallery/concept-gallery-card'
-import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
-import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
+import {
+  GalleryFade,
+  GalleryFadeFooter,
+} from '@/components/core/gallery/gallery-fade'
+import {
+  GalleryGridLink,
+  GalleryGridUniform,
+} from '@/components/core/gallery/gallery-grid'
 import { Button } from '@/components/ui/button'
 import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
@@ -58,8 +64,14 @@ export function PatternTeaser() {
             {sorted.length} components
           </span>
         </div>
-        <Button asChild variant="link" size="sm" className="bg-background">
-          <Link href="/patterns">View all</Link>
+        <Button
+          render={<Link href="/patterns" />}
+          nativeButton={false}
+          variant="link"
+          size="sm"
+          className="bg-background"
+        >
+          View all
         </Button>
       </div>
 

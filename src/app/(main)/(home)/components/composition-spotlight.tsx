@@ -29,8 +29,14 @@ export function CompositionSpotlight() {
             A chat. Anything.
           </p>
         </div>
-        <Button asChild variant="link" size="sm" className="bg-background">
-          <Link href="/compositions">Browse compositions</Link>
+        <Button
+          render={<Link href="/compositions" />}
+          nativeButton={false}
+          variant="link"
+          size="sm"
+          className="bg-background"
+        >
+          Browse compositions
         </Button>
       </div>
 
@@ -43,12 +49,13 @@ export function CompositionSpotlight() {
           <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-1.5">
             <Button
-              asChild
+              render={<Link href="/compositions" />}
+              nativeButton={false}
               variant="outline"
               size="sm"
               className="bg-background pointer-events-auto"
             >
-              <Link href="/compositions">View all</Link>
+              View all
             </Button>
           </div>
         </div>

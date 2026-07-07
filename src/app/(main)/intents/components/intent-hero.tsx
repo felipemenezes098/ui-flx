@@ -150,19 +150,19 @@ export function IntentHero({
                   <Badge
                     key={file.name}
                     variant="outline"
-                    asChild
+                    render={
+                      <button
+                        type="button"
+                        onClick={() => setActiveName(file.name)}
+                      />
+                    }
                     className={cn(
                       'cursor-pointer font-mono text-[11px] font-normal transition-colors',
                       activeFile?.name === file.name &&
                         'border-foreground/20 bg-muted text-foreground',
                     )}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setActiveName(file.name)}
-                    >
-                      {file.name}
-                    </button>
+                    {file.name}
                   </Badge>
                 ))}
               </div>
