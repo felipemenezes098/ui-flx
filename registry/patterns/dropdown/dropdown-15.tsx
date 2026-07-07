@@ -8,6 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -42,7 +43,9 @@ export function Dropdown15() {
         }
       />
       <DropdownMenuContent align="start" className="w-48">
-        <DropdownMenuLabel>Filter by status</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Filter by status</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         {statuses.map((status) => (
           <DropdownMenuCheckboxItem

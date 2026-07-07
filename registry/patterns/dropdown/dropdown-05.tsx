@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -20,7 +21,9 @@ export function Dropdown05() {
         }
       />
       <DropdownMenuContent align="start" className="w-48">
-        <DropdownMenuLabel>Draft #1042</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Draft #1042</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <PencilIcon />

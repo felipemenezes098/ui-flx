@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -26,7 +27,9 @@ export function Dropdown13() {
           }
         />
         <DropdownMenuContent align="start" className="w-44">
-          <DropdownMenuLabel>Controlled</DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Controlled</DropdownMenuLabel>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem>Settings</DropdownMenuItem>

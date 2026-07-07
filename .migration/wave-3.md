@@ -2,7 +2,7 @@
 
 Date: 2026-07-06
 Strategy: `shadcn add <comp> --overwrite`, prettier, fix all consumers (asChild→render + Select API + width var), `tsc --noEmit` clean, `pnpm build`.
-Verdict: green. tsc 0 errors. Consumer fan-out was the biggest so far (121 initial type errors across ~90 files); all resolved.
+Verdict: green. tsc 0 errors. Consumer fan-out was the biggest so far (121 initial type errors across ~90 files); all resolved. Post-commit follow-up: fixed a runtime-only Base rule (DropdownMenuLabel must be inside a DropdownMenuGroup) that tsc did not catch — see below.
 
 ## Changed — ui/ primitives
 
@@ -45,6 +45,10 @@ Base `onValueChange` passes `string | null` (Radix passed `string`). Fixed by co
 
 ### Select positioning
 - select-15: `<SelectContent position="popper" ...>` → `alignItemWithTrigger={false}`.
+
+### DropdownMenuLabel must be inside a DropdownMenuGroup (runtime, not caught by tsc)
+Base `Menu.GroupLabel` (our `DropdownMenuLabel`) throws at render if it has no `Menu.Group` ancestor: *"MenuGroupContext is missing. Menu group parts must be used within `<Menu.Group>` or `<Menu.RadioGroup>`."* Radix allowed a standalone label. shadcn's own Base example wraps the label in a group. Wrapped the bare label in `<DropdownMenuGroup>` (added the import where missing) in: dropdown-01,02,05,06,07,09,11,13,14,15,16; table-15,20; rhf-fields-09; tsf-fields-09. (dropdown-03 already grouped its labels.)
+`SelectLabel` has the same Base rule but every Select consumer already wraps it in `SelectGroup`, so no Select changes were needed.
 
 ### width var --radix-*-trigger-width → --anchor-width
 - command-12,13,14 (`w-(--radix-popover-trigger-width)`)

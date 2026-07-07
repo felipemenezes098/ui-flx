@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -59,12 +60,14 @@ export function Dropdown16() {
         }
       />
       <DropdownMenuContent align="center" className="w-72">
-        <DropdownMenuLabel className="text-foreground flex items-center justify-between">
-          Notifications
-          <Badge variant="secondary" className="rounded-sm px-1.5">
-            {unread} new
-          </Badge>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="text-foreground flex items-center justify-between">
+            Notifications
+            <Badge variant="secondary" className="rounded-sm px-1.5">
+              {unread} new
+            </Badge>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         {notifications.map((item) => (
           <DropdownMenuItem

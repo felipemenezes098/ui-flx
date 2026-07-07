@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
@@ -80,7 +81,11 @@ export function RhfFields09() {
                     align="start"
                     className="w-(--anchor-width)"
                   >
-                    <DropdownMenuLabel>Repository visibility</DropdownMenuLabel>
+                    <DropdownMenuGroup>
+                      <DropdownMenuLabel>
+                        Repository visibility
+                      </DropdownMenuLabel>
+                    </DropdownMenuGroup>
                     <DropdownMenuSeparator />
                     <DropdownMenuRadioGroup
                       value={field.value}

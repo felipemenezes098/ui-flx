@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
@@ -26,7 +27,9 @@ export function Dropdown07() {
         }
       />
       <DropdownMenuContent align="start" className="w-44">
-        <DropdownMenuLabel>Position</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Position</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
           <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
