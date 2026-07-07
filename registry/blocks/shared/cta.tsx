@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export type ButtonVariant =
@@ -52,22 +52,21 @@ export function Cta({
   }
 
   return (
-    <Button
-      className={cn(ctaVariants({ invert }), className)}
-      variant={variant}
-      render={
-        <a
-          href={cta.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={cta?.text}
-        />
-      }
-      nativeButton={false}
-      size={cta?.size ?? 'default'}
+    <a
+      href={cta.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={cta?.text}
+      className={cn(
+        buttonVariants({
+          variant,
+          size: cta?.size ?? 'default',
+          className: cn(ctaVariants({ invert }), className),
+        }),
+      )}
     >
       {cta?.text}
       <span className="sr-only">{`${cta?.text} (opens in new tab)`}</span>
-    </Button>
+    </a>
   )
 }

@@ -10,7 +10,7 @@ import {
 import type { MosaicCellSize } from '@/components/core/mosaic/mosaic-cell'
 import { MosaicSlot } from '@/components/core/mosaic/mosaic-cell'
 import { MosaicGrid } from '@/components/core/mosaic/mosaic-grid'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { allIllustrations } from '@/lib/illustrations/illustrations-catalog'
 import { illustrationRegistry } from '@/lib/illustrations/illustration-registry'
@@ -54,15 +54,18 @@ export function IllustrationsPreview() {
       </MosaicGrid>
 
       <GalleryFadeFooter className="h-52 h-60 pb-15">
-        <Button
-          render={<Link href="/illustrations" />}
-          nativeButton={false}
-          variant="outline"
-          size="sm"
-          className="bg-background dark:bg-background hover:dark:bg-muted"
+        <Link
+          href="/illustrations"
+          className={cn(
+            buttonVariants({
+              variant: 'outline',
+              size: 'sm',
+              className: 'bg-background dark:bg-background hover:dark:bg-muted',
+            }),
+          )}
         >
           View all
-        </Button>
+        </Link>
       </GalleryFadeFooter>
     </GalleryFade>
   )

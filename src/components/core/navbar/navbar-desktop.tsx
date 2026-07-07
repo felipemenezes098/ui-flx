@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { dataNavbar } from '@/data/navbar'
@@ -25,11 +25,14 @@ export function NavbarDesktop() {
       <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
           <nav className="flex min-w-0 flex-1 items-center gap-1 text-sm">
-            <Button
-              variant="ghost"
-              className="hover:bg-muted h-7 shrink-0 rounded-lg px-2"
-              render={<Link href="/" />}
-              nativeButton={false}
+            <Link
+              href="/"
+              className={cn(
+                buttonVariants({
+                  variant: 'ghost',
+                  className: 'hover:bg-muted h-7 shrink-0 rounded-lg px-2',
+                }),
+              )}
             >
               <div className="flex items-center gap-1.5">
                 <div className="relative size-5 overflow-hidden rounded-xl">
@@ -42,7 +45,7 @@ export function NavbarDesktop() {
                   {siteConfig.name}
                 </span>
               </div>
-            </Button>
+            </Link>
             <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto py-1 md:flex">
               <div className="inline-flex w-max flex-nowrap gap-1 first:ml-0.5 last:mr-0.5">
                 {dataNavbar.map((item) => (
@@ -64,26 +67,32 @@ export function NavbarDesktop() {
           <div className="flex shrink-0 items-center gap-3">
             <GlobalSearch />
             <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                render={
-                  <Link href={siteConfig.links.twitter} target="_blank" />
-                }
-                nativeButton={false}
-                className="h-8 w-8 transition-none"
+              <Link
+                href={siteConfig.links.twitter}
+                target="_blank"
+                className={cn(
+                  buttonVariants({
+                    variant: 'ghost',
+                    size: 'icon',
+                    className: 'h-8 w-8 transition-none',
+                  }),
+                )}
               >
                 <Logo.X className="size-3" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                render={<Link href={siteConfig.links.github} target="_blank" />}
-                nativeButton={false}
-                className="h-8 w-8 transition-none"
+              </Link>
+              <Link
+                href={siteConfig.links.github}
+                target="_blank"
+                className={cn(
+                  buttonVariants({
+                    variant: 'ghost',
+                    size: 'icon',
+                    className: 'h-8 w-8 transition-none',
+                  }),
+                )}
               >
                 <Logo.Github className="size-4" />
-              </Button>
+              </Link>
             </div>
             <div className="flex items-center">
               <Separator orientation="vertical" className="!h-4" />

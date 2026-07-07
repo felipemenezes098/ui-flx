@@ -1,18 +1,18 @@
 import { ExternalLinkIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export function Button09() {
   return (
-    <Button
-      variant="link"
-      render={
-        <a href="https://ui.shadcn.com" target="_blank" rel="noreferrer" />
-      }
-      nativeButton={false}
+    <a
+      href="https://ui.shadcn.com"
+      target="_blank"
+      rel="noreferrer"
+      className={cn(buttonVariants({ variant: 'link' }))}
     >
       Read the docs
       <ExternalLinkIcon data-icon="inline-end" />
-    </Button>
+    </a>
   )
 }

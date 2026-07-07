@@ -12,9 +12,25 @@ All six were built on `import { Slot } from 'radix-ui'` (`const Comp = asChild ?
 - **`badge.tsx`**, **`item.tsx`**, **`button-group.tsx` (`ButtonGroupText`)**, **`breadcrumb.tsx` (`BreadcrumbLink`)** — migrated to the `useRender` + `mergeProps` pattern (`@base-ui/react/use-render`, `@base-ui/react/merge-props`). `data-slot`/`data-variant`/`data-size` are emitted via useRender's `state` (state keys → `data-*` automatically). Local CVA / lucide icon imports preserved.
 - **`sidebar.tsx`** — 5 internal `Slot.Root` sites migrated to `useRender`: `SidebarGroupLabel`, `SidebarGroupAction`, `SidebarMenuButton`, `SidebarMenuAction`, `SidebarMenuSubButton`. `data-sidebar`/`data-size`/`data-active` moved into useRender `state` (as `sidebar`/`size`/`active`) — the strict `mergeProps` props type rejects arbitrary `data-*` keys, so they must go through `state`. `SidebarMenuButton` still wraps its element in `Tooltip` + `TooltipTrigger render={button}` (already migrated in wave 3).
 
-## Changed — consumers (asChild → render)
+## ⚠️ Correction (post-wave): links must use `buttonVariants`, NOT `Button render={<a/>}`
 
-Rule applied: move the single child element into `render={<… />}`, its children become the component's children; add `nativeButton={false}` **only** on `Button`/`InputGroupButton` (the ButtonPrimitive-based components) when the rendered element is not a native `<button>` (`<a>`, Next `<Link>`). `useRender`-based components (`Badge`, `Item`, `BreadcrumbLink`, `SidebarMenuButton`) have no `nativeButton` prop — plain `render`.
+The first pass migrated `Button asChild <a/Link>` → `<Button render={<a/>} nativeButton={false}>`. **That is the anti-pattern the shadcn Base docs explicitly warn against** — Base `ButtonPrimitive` always applies `role="button"`, which overrides the semantic link role on `<a>`. Correct pattern for a link-styled-as-button:
+
+```tsx
+<Link href="…" className={buttonVariants({ variant, size, className })}>Label</Link>
+```
+
+All link-as-button sites were re-converted to `buttonVariants` on a plain `<a>`/`<Link>`:
+- `page.tsx` (×3), `blocks-preview`, `composition-spotlight` (×2), `explore-button`, `github-button`, `illustrations-preview`, `intent-list`, `pattern-teaser`, `intent-sidebar` (the `Button` one), `preview-editor`, `navbar-desktop` (×3), `navbar-mobile` (×3), `preview-actions` (×2), `mdx-components` (×2).
+- registry: `blocks/shared/cta.tsx`, `patterns/button/button-09.tsx`, `data/docs/…/cta.txt`.
+- `ui/pagination.tsx` — `PaginationLink` now applies `buttonVariants` to its `<a>` (matches the pre-Base pattern; drops the `Button` dependency).
+
+`render` is reserved for **real button triggers only** (e.g. `PopoverTrigger render={<Button/>}`, `TooltipTrigger render={button}`, `InputGroupButton render={<ComboboxTrigger/>}` where the target renders a native button). `nativeButton={false}` is no longer used anywhere in code.
+
+`useRender`-based components (`Badge`, `Item`, `BreadcrumbLink`, `SidebarMenuButton`) do NOT force `role="button"` — their `render={<a/>}` is fine and stays.
+
+### Original asChild → render sweep (Badge/Item/BreadcrumbLink kept as render)
+Rule: move the single child element into `render={<… />}`, its children become the component's children.
 
 src/:
 - `mdx-components.tsx` — 2× `Button` → `render={<Link/>}`.

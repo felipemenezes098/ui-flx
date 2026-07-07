@@ -9,7 +9,8 @@ import { IllustrationsPreview } from './components/illustrations-preview'
 import { PatternTeaser } from './components/pattern-teaser'
 import { IntentShowcase } from './components/intent-showcase'
 import { IntentList } from './components/intent-showcase/intent-list'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 export const dynamic = 'force-static'
@@ -58,15 +59,18 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex justify-end">
-              <Button
-                render={<Link href="/blocks" />}
-                nativeButton={false}
-                variant="link"
-                size="sm"
-                className="bg-background"
+              <Link
+                href="/blocks"
+                className={cn(
+                  buttonVariants({
+                    variant: 'link',
+                    size: 'sm',
+                    className: 'bg-background',
+                  }),
+                )}
               >
                 View all
-              </Button>
+              </Link>
             </div>
           </div>
 
@@ -87,15 +91,18 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex justify-end">
-              <Button
-                render={<Link href="/illustrations" />}
-                nativeButton={false}
-                variant="link"
-                size="sm"
-                className="bg-background"
+              <Link
+                href="/illustrations"
+                className={cn(
+                  buttonVariants({
+                    variant: 'link',
+                    size: 'sm',
+                    className: 'bg-background',
+                  }),
+                )}
               >
                 View all
-              </Button>
+              </Link>
             </div>
           </div>
 
@@ -117,15 +124,18 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex justify-end">
-              <Button
-                render={<Link href="/intents" />}
-                nativeButton={false}
-                variant="link"
-                size="sm"
-                className="bg-background"
+              <Link
+                href="/intents"
+                className={cn(
+                  buttonVariants({
+                    variant: 'link',
+                    size: 'sm',
+                    className: 'bg-background',
+                  }),
+                )}
               >
                 View all
-              </Button>
+              </Link>
             </div>
           </div>
 

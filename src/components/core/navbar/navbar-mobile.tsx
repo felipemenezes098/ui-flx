@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { dataNavbar } from '@/data/navbar'
@@ -74,28 +74,32 @@ export function NavbarMobile() {
                 )}
                 aria-hidden={open}
               >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  render={
-                    <Link href={siteConfig.links.twitter} target="_blank" />
-                  }
-                  nativeButton={false}
-                  className="h-8 w-8 transition-none"
+                <Link
+                  href={siteConfig.links.twitter}
+                  target="_blank"
+                  className={cn(
+                    buttonVariants({
+                      variant: 'ghost',
+                      size: 'icon',
+                      className: 'h-8 w-8 transition-none',
+                    }),
+                  )}
                 >
                   <Logo.X className="size-3" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  render={
-                    <Link href={siteConfig.links.github} target="_blank" />
-                  }
-                  nativeButton={false}
-                  className="h-8 w-8 transition-none"
+                </Link>
+                <Link
+                  href={siteConfig.links.github}
+                  target="_blank"
+                  className={cn(
+                    buttonVariants({
+                      variant: 'ghost',
+                      size: 'icon',
+                      className: 'h-8 w-8 transition-none',
+                    }),
+                  )}
                 >
                   <Logo.Github className="size-4" />
-                </Button>
+                </Link>
                 <div className="flex items-center">
                   <Separator orientation="vertical" className="!h-4" />
                 </div>
@@ -103,20 +107,22 @@ export function NavbarMobile() {
                 <div className="flex items-center">
                   <Separator orientation="vertical" className="!h-4" />
                 </div>
-                <Button
-                  variant="ghost"
-                  className="hover:bg-muted h-7 rounded-lg px-2"
-                  size="sm"
-                  render={
-                    <Link href="/" className="flex items-center gap-1.5" />
-                  }
-                  nativeButton={false}
+                <Link
+                  href="/"
+                  className={cn(
+                    buttonVariants({
+                      variant: 'ghost',
+                      size: 'sm',
+                      className:
+                        'hover:bg-muted h-7 items-center gap-1.5 rounded-lg px-2',
+                    }),
+                  )}
                 >
                   <Logo.Flexnative className="text-primary h-6 w-auto" />
                   <span className="text-sm font-medium">
                     {siteConfig.shortName}
                   </span>
-                </Button>
+                </Link>
               </motion.div>
             </div>
           </div>

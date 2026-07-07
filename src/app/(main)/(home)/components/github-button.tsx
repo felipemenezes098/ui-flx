@@ -5,26 +5,25 @@ import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 
 export function GitHubButton() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Button
-      render={
-        <Link
-          href={siteConfig.links.github}
-          target="_blank"
-          className="flex items-center gap-2"
-        />
-      }
-      nativeButton={false}
-      variant="ghost"
-      className="h-9.5 rounded-xl px-4"
+    <Link
+      href={siteConfig.links.github}
+      target="_blank"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className={cn(
+        buttonVariants({
+          variant: 'ghost',
+          className: 'flex h-9.5 items-center gap-2 rounded-xl px-4',
+        }),
+      )}
     >
       <span className="relative size-4">
         <AnimatePresence mode="sync" initial={false}>
@@ -58,6 +57,6 @@ export function GitHubButton() {
         </AnimatePresence>
       </span>{' '}
       Star on GitHub
-    </Button>
+    </Link>
   )
 }

@@ -3,7 +3,8 @@
 import { Fullscreen, Palette, RotateCcw } from 'lucide-react'
 import Link from 'next/link'
 
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 /**
  * Dumb toolbar actions for a preview surface. Each scenario composes the ones
@@ -35,17 +36,21 @@ export function FullscreenButton({
   className,
 }: Readonly<{ href: string; className?: string }>) {
   return (
-    <Button
-      variant="outline"
-      size="sm"
+    <Link
+      href={href}
+      target="_blank"
       title="Open fullscreen"
       aria-label="Open fullscreen"
-      className={className}
-      render={<Link href={href} target="_blank" />}
-      nativeButton={false}
+      className={cn(
+        buttonVariants({
+          variant: 'outline',
+          size: 'sm',
+          className,
+        }),
+      )}
     >
       <Fullscreen className="size-3.5 shrink-0" />
-    </Button>
+    </Link>
   )
 }
 
@@ -54,16 +59,19 @@ export function EditButton({
   className,
 }: Readonly<{ href: string; className?: string }>) {
   return (
-    <Button
-      variant="outline"
-      size="sm"
+    <Link
+      href={href}
       title="Edit"
       aria-label="Edit"
-      className={className}
-      render={<Link href={href} />}
-      nativeButton={false}
+      className={cn(
+        buttonVariants({
+          variant: 'outline',
+          size: 'sm',
+          className,
+        }),
+      )}
     >
       <Palette className="size-3.5 shrink-0" />
-    </Button>
+    </Link>
   )
 }

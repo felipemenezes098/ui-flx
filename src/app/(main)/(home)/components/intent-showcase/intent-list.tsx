@@ -14,7 +14,8 @@ import {
   GalleryGridLink,
   GalleryGridUniform,
 } from '@/components/core/gallery/gallery-grid'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { allIntents } from '@/lib/intents/intent-catalog'
 
 export function IntentList() {
@@ -45,15 +46,18 @@ export function IntentList() {
       </GalleryGridUniform>
 
       <GalleryFadeFooter>
-        <Button
-          render={<Link href="/intents" />}
-          nativeButton={false}
-          variant="outline"
-          size="sm"
-          className="bg-background dark:bg-background hover:dark:bg-muted"
+        <Link
+          href="/intents"
+          className={cn(
+            buttonVariants({
+              variant: 'outline',
+              size: 'sm',
+              className: 'bg-background dark:bg-background hover:dark:bg-muted',
+            }),
+          )}
         >
           View all
-        </Button>
+        </Link>
       </GalleryFadeFooter>
     </GalleryFade>
   )

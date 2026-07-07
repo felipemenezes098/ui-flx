@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { getCompositionBySlug } from '@/lib/compositions/compositions-catalog'
 
 import { compositionRegistry } from '@/lib/compositions/composition-registry'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const CATEGORY = 'dashboard'
 const COMPOSITION = 'dashboard-01'
@@ -29,15 +30,18 @@ export function CompositionSpotlight() {
             A chat. Anything.
           </p>
         </div>
-        <Button
-          render={<Link href="/compositions" />}
-          nativeButton={false}
-          variant="link"
-          size="sm"
-          className="bg-background"
+        <Link
+          href="/compositions"
+          className={cn(
+            buttonVariants({
+              variant: 'link',
+              size: 'sm',
+              className: 'bg-background',
+            }),
+          )}
         >
           Browse compositions
-        </Button>
+        </Link>
       </div>
 
       {Composition && (
@@ -48,15 +52,18 @@ export function CompositionSpotlight() {
           <Composition />
           <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-1.5">
-            <Button
-              render={<Link href="/compositions" />}
-              nativeButton={false}
-              variant="outline"
-              size="sm"
-              className="bg-background pointer-events-auto"
+            <Link
+              href="/compositions"
+              className={cn(
+                buttonVariants({
+                  variant: 'outline',
+                  size: 'sm',
+                  className: 'bg-background pointer-events-auto',
+                }),
+              )}
             >
               View all
-            </Button>
+            </Link>
           </div>
         </div>
       )}

@@ -14,8 +14,9 @@ import {
   GalleryGrid,
   GalleryGridLink,
 } from '@/components/core/gallery/gallery-grid'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { blocks } from '@/lib/blocks/block-catalog'
+import { cn } from '@/lib/utils'
 
 const HOME_BLOCK_PREVIEW_COUNT = 4
 
@@ -52,15 +53,18 @@ export function BlocksPreview() {
       </GalleryGrid>
 
       <GalleryFadeFooter>
-        <Button
-          render={<Link href="/blocks" />}
-          nativeButton={false}
-          variant="outline"
-          size="sm"
-          className="bg-background dark:bg-background hover:dark:bg-muted"
+        <Link
+          href="/blocks"
+          className={cn(
+            buttonVariants({
+              variant: 'outline',
+              size: 'sm',
+              className: 'bg-background dark:bg-background hover:dark:bg-muted',
+            }),
+          )}
         >
           View all
-        </Button>
+        </Link>
       </GalleryFadeFooter>
     </GalleryFade>
   )

@@ -19,7 +19,8 @@ import {
   GalleryGridLink,
   GalleryGridUniform,
 } from '@/components/core/gallery/gallery-grid'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
@@ -64,15 +65,18 @@ export function PatternTeaser() {
             {sorted.length} components
           </span>
         </div>
-        <Button
-          render={<Link href="/patterns" />}
-          nativeButton={false}
-          variant="link"
-          size="sm"
-          className="bg-background"
+        <Link
+          href="/patterns"
+          className={cn(
+            buttonVariants({
+              variant: 'link',
+              size: 'sm',
+              className: 'bg-background',
+            }),
+          )}
         >
           View all
-        </Button>
+        </Link>
       </div>
 
       <GalleryFade>

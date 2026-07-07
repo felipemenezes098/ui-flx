@@ -5,7 +5,8 @@ import { usePathname, useRouter } from 'next/navigation'
 import { LayoutGrid, Search } from 'lucide-react'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import {
   Command,
   CommandEmpty,
@@ -110,16 +111,19 @@ export function IntentSidebar() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Button
-                render={<Link href="/intents" />}
-                nativeButton={false}
-                size="sm"
-                variant="outline"
-                className="w-full justify-start gap-2"
+              <Link
+                href="/intents"
+                className={cn(
+                  buttonVariants({
+                    size: 'sm',
+                    variant: 'outline',
+                    className: 'w-full justify-start gap-2',
+                  }),
+                )}
               >
-                <LayoutGrid className="size-4" />
+                <LayoutGrid data-icon="inline-start" className="size-4" />
                 <span className="text-xs">All intents</span>
-              </Button>
+              </Link>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
