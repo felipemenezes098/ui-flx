@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/tooltip/tooltip-07.tsx",
-      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\n// Trick: applying the `dark` class to TooltipContent flips its local CSS\n// variables to the dark-scheme values, so `bg-foreground` (default tooltip\n// background) resolves to a light color — and the arrow follows automatically\n// because it also reads `--foreground`. In dark mode this is a no-op.\nexport function Tooltip07() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent className=\"dark\">Light tooltip via dark class</TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\n// Trick: applying the `dark` class to TooltipContent flips its local CSS\n// variables to the dark-scheme values, so `bg-foreground` (default tooltip\n// background) resolves to a light color — and the arrow follows automatically\n// because it also reads `--foreground`. In dark mode this is a no-op.\nexport function Tooltip07() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant=\"outline\">Hover me</Button>} />\n      <TooltipContent className=\"dark\">\n        Light tooltip via dark class\n      </TooltipContent>\n    </Tooltip>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/tooltip/tooltip-07.tsx"
     }

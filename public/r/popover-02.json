@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/popover/popover-02.tsx",
-      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nexport function Popover02() {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">View details</Button>\n      </PopoverTrigger>\n      <PopoverContent>\n        <PopoverHeader>\n          <PopoverTitle>About this feature</PopoverTitle>\n          <PopoverDescription>\n            Popovers display rich content tied to a trigger. Use them for\n            previews, settings, or quick actions.\n          </PopoverDescription>\n        </PopoverHeader>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '@/components/ui/popover'\n\nexport function Popover02() {\n  return (\n    <Popover>\n      <PopoverTrigger\n        render={<Button variant=\"outline\">View details</Button>}\n      />\n      <PopoverContent>\n        <PopoverHeader>\n          <PopoverTitle>About this feature</PopoverTitle>\n          <PopoverDescription>\n            Popovers display rich content tied to a trigger. Use them for\n            previews, settings, or quick actions.\n          </PopoverDescription>\n        </PopoverHeader>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/popover/popover-02.tsx"
     }

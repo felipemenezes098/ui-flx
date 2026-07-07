@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/patterns/tooltip/tooltip-01.tsx",
-      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip01() {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent>Add to library</TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "content": "import { Button } from '@/components/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from '@/components/ui/tooltip'\n\nexport function Tooltip01() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant=\"outline\">Hover me</Button>} />\n      <TooltipContent>Add to library</TooltipContent>\n    </Tooltip>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/tooltip/tooltip-01.tsx"
     }

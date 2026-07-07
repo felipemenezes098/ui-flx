@@ -29,7 +29,7 @@ export function Accordion12() {
           value={`item-${index}`}
           className="border-b-0"
         >
-          <AccordionTrigger className="data-[state=open]:text-primary py-3 hover:no-underline">
+          <AccordionTrigger className="aria-expanded:text-primary py-3 hover:no-underline">
             {faq.q}
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground">

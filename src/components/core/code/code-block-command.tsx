@@ -125,7 +125,7 @@ export function CodeBlockCommand({
                   <TabsTrigger
                     key={key}
                     value={key}
-                    className="data-[state=active]:bg-background ring-offset-background focus-visible:ring-ring data-[state=active]:text-foreground data-[state=active]:border-border text-muted-foreground hover:bg-muted hover:text-foreground h-7 rounded-md px-2 text-xs font-medium transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none data-[state=active]:border data-[state=active]:shadow-none"
+                    className="data-active:bg-background ring-offset-background focus-visible:ring-ring data-active:text-foreground data-active:border-border text-muted-foreground hover:bg-muted hover:text-foreground h-7 rounded-md px-2 text-xs font-medium transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none data-active:border data-active:shadow-none"
                   >
                     {key}
                   </TabsTrigger>
