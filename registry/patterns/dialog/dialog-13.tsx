@@ -24,9 +24,9 @@ export function Dialog13() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="destructive">Delete project</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="destructive">Delete project</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Delete project</DialogTitle>
@@ -52,9 +52,7 @@ export function Dialog13() {
           </FieldDescription>
         </Field>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button variant="destructive" disabled={!canDelete}>
             Delete project
           </Button>

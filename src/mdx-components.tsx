@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
 import { siteConfig } from './config/site'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar'
-import { Button } from './components/ui/button'
+import { buttonVariants } from './components/ui/button'
 import { Logo } from './components/core/logo'
 
 let headingCounter = 0
@@ -148,7 +148,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       ...props
     }: React.ComponentProps<typeof TabsTrigger>) => (
       <TabsTrigger
-        className="text-muted-foreground data-[state=active]:text-foreground data-[state=active]:border-primary dark:data-[state=active]:border-primary hover:text-primary rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-3 text-base data-[state=active]:bg-transparent data-[state=active]:shadow-none! dark:data-[state=active]:bg-transparent"
+        className="text-muted-foreground data-active:text-foreground data-active:border-primary dark:data-active:border-primary hover:text-primary rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-3 text-base data-active:bg-transparent data-active:shadow-none! dark:data-active:bg-transparent"
         {...props}
       />
     ),
@@ -282,17 +282,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button asChild variant="outline" size="sm">
-            <Link href={siteConfig.links.twitter} target="_blank">
-              <Logo.X className="size-3" />/ Twitter
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="sm">
-            <Link href={siteConfig.links.linkedin} target="_blank">
-              <Logo.Linkedin className="size-3" />
-              LinkedIn
-            </Link>
-          </Button>
+          <Link
+            href={siteConfig.links.twitter}
+            target="_blank"
+            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }))}
+          >
+            <Logo.X data-icon="inline-start" className="size-3" />/ Twitter
+          </Link>
+          <Link
+            href={siteConfig.links.linkedin}
+            target="_blank"
+            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }))}
+          >
+            <Logo.Linkedin data-icon="inline-start" className="size-3" />
+            LinkedIn
+          </Link>
         </div>
       </div>
     ),

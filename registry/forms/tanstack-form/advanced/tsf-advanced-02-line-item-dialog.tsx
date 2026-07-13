@@ -64,12 +64,14 @@ export function LineItemDialog({
         if (!next) form.reset()
       }}
     >
-      <DialogTrigger asChild>
-        <Button type="button" variant="outline" size="sm" className="w-full">
-          <PlusIcon className="size-4" />
-          Add line item
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button type="button" variant="outline" size="sm" className="w-full">
+            <PlusIcon className="size-4" />
+            Add line item
+          </Button>
+        }
+      />
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add line item</DialogTitle>

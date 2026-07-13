@@ -70,7 +70,7 @@ export function Select13() {
                 <Select
                   value={field.state.value}
                   onValueChange={(value) => {
-                    field.handleChange(value)
+                    field.handleChange(value ?? '')
                     field.handleBlur()
                   }}
                 >

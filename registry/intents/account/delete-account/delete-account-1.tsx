@@ -40,11 +40,13 @@ export function DeleteAccount1() {
       </CardHeader>
       <CardContent>
         <Dialog onOpenChange={() => setValue('')}>
-          <DialogTrigger asChild>
-            <Button variant="destructive" className="w-full">
-              Delete account
-            </Button>
-          </DialogTrigger>
+          <DialogTrigger
+            render={
+              <Button variant="destructive" className="w-full">
+                Delete account
+              </Button>
+            }
+          />
           <DialogContent className="sm:max-w-sm">
             <DialogHeader>
               <div className="bg-destructive/10 text-destructive mb-2 flex size-10 items-center justify-center rounded-full">

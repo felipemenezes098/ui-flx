@@ -40,9 +40,8 @@ export function Checkbox10() {
             <TableHead className="w-10">
               <Checkbox
                 aria-label="Select all"
-                checked={
-                  allChecked ? true : someChecked ? 'indeterminate' : false
-                }
+                checked={allChecked}
+                indeterminate={someChecked && !allChecked}
                 onCheckedChange={(value) => toggleAll(value === true)}
               />
             </TableHead>

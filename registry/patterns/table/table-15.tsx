@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -95,14 +96,18 @@ export function Table15() {
     <div className="flex w-full max-w-xl flex-col gap-3">
       <div className="flex justify-end">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm">
-              <SlidersHorizontalIcon data-icon="inline-start" />
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline" size="sm">
+                <SlidersHorizontalIcon data-icon="inline-start" />
+                Columns
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end" className="w-40">
-            <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             {table
               .getAllColumns()
@@ -112,7 +117,7 @@ export function Table15() {
                   key={column.id}
                   className="capitalize"
                   checked={column.getIsVisible()}
-                  onSelect={(event) => event.preventDefault()}
+                  closeOnClick={false}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
                   {column.id}

@@ -25,12 +25,7 @@ const items = [
 
 export function Accordion05() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="overview"
-      className="w-full max-w-md gap-3"
-    >
+    <Accordion defaultValue={['overview']} className="w-full max-w-md gap-3">
       {items.map((item) => (
         <AccordionItem
           key={item.value}

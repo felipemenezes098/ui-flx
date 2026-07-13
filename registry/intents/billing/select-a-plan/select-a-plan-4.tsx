@@ -56,7 +56,7 @@ export function SelectAPlan4() {
           min={1}
           max={120}
           step={1}
-          onValueChange={(value) => setSeats(value[0])}
+          onValueChange={(value) => setSeats((value as number[])[0])}
           aria-label="Number of seats"
         />
 

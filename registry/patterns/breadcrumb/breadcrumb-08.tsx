@@ -14,24 +14,26 @@ export function Breadcrumb08() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              Docs
-            </a>
+          <BreadcrumbLink
+            render={<a href="#" target="_blank" rel="noopener noreferrer" />}
+          >
+            Docs
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1"
-            >
-              Changelog
-              <ArrowUpRightIcon className="size-3.5" />
-            </a>
+          <BreadcrumbLink
+            render={
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+              />
+            }
+          >
+            Changelog
+            <ArrowUpRightIcon className="size-3.5" />
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

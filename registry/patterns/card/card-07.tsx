@@ -31,9 +31,9 @@ export function Card07() {
       </CardContent>
       <CardFooter>
         <Dialog>
-          <DialogTrigger asChild>
-            <Button className="w-full">Manage subscription</Button>
-          </DialogTrigger>
+          <DialogTrigger
+            render={<Button className="w-full">Manage subscription</Button>}
+          />
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
               <DialogTitle>Manage subscription</DialogTitle>
@@ -52,9 +52,7 @@ export function Card07() {
               <span className="text-2xl font-semibold tabular-nums">$290</span>
             </div>
             <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="outline">Close</Button>
-              </DialogClose>
+              <DialogClose render={<Button variant="outline">Close</Button>} />
               <Button variant="destructive">Cancel plan</Button>
             </DialogFooter>
           </DialogContent>

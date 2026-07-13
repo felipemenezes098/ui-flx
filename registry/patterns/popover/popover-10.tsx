@@ -38,22 +38,24 @@ const notifications = [
 export function Popover10() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="relative"
-          aria-label="Notifications"
-        >
-          <BellIcon />
-          <Badge
-            variant="destructive"
-            className="pointer-events-none absolute -top-1 -right-1 size-4 rounded-full p-0 text-[10px]"
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            size="icon"
+            className="relative"
+            aria-label="Notifications"
           >
-            2
-          </Badge>
-        </Button>
-      </PopoverTrigger>
+            <BellIcon />
+            <Badge
+              variant="destructive"
+              className="pointer-events-none absolute -top-1 -right-1 size-4 rounded-full p-0 text-[10px]"
+            >
+              2
+            </Badge>
+          </Button>
+        }
+      />
       <PopoverContent className="w-72 gap-0 p-0">
         <div className="flex items-center justify-between px-3 py-2">
           <p className="text-sm font-medium">Notifications</p>

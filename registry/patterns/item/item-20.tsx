@@ -21,9 +21,9 @@ import { LogOutIcon, SettingsIcon } from 'lucide-react'
 export function Item20() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Account</Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={<Button variant="outline">Account</Button>}
+      />
       <DropdownMenuContent align="start" className="w-60 p-2">
         <Item size="xs">
           <ItemMedia variant="image">

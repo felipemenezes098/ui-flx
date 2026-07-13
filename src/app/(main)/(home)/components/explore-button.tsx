@@ -1,15 +1,22 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export function ExploreButton() {
   return (
-    <Button className="group h-9.5 rounded-xl px-4" asChild>
-      <Link href="/patterns">
-        Explore Patterns
-        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-      </Link>
-    </Button>
+    <Link
+      href="/patterns"
+      className={cn(
+        buttonVariants({ className: 'group h-9.5 rounded-xl px-4' }),
+      )}
+    >
+      Explore Patterns
+      <ArrowRight
+        data-icon="inline-end"
+        className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1"
+      />
+    </Link>
   )
 }

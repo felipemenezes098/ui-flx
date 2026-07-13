@@ -61,7 +61,10 @@ export function DeleteAccount2() {
         {step === 0 && (
           <div className="flex flex-col gap-2">
             <Label className="text-xs">Reason</Label>
-            <Select value={reason} onValueChange={setReason}>
+            <Select
+              value={reason}
+              onValueChange={(value) => setReason(value ?? '')}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a reason" />
               </SelectTrigger>

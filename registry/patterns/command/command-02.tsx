@@ -45,17 +45,19 @@ export function Command02() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="text-muted-foreground w-64 justify-between font-normal"
-        >
-          Press to open...
-          <kbd className="bg-muted pointer-events-none inline-flex h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium">
-            ⌘K
-          </kbd>
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button
+            variant="outline"
+            className="text-muted-foreground w-64 justify-between font-normal"
+          >
+            Press to open...
+            <kbd className="bg-muted pointer-events-none inline-flex h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium">
+              ⌘K
+            </kbd>
+          </Button>
+        }
+      />
       <DialogContent showCloseButton={false} className="p-0">
         <DialogHeader className="sr-only">
           <DialogTitle>Command Palette</DialogTitle>

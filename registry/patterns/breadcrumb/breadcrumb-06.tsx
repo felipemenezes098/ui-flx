@@ -25,11 +25,13 @@ export function Breadcrumb06() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon-xs" aria-label="Toggle menu">
-                <BreadcrumbEllipsis />
-              </Button>
-            </DropdownMenuTrigger>
+            <DropdownMenuTrigger
+              render={
+                <Button variant="ghost" size="icon-xs" aria-label="Toggle menu">
+                  <BreadcrumbEllipsis />
+                </Button>
+              }
+            />
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>
               <DropdownMenuItem>Building Your Application</DropdownMenuItem>

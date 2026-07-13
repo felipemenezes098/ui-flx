@@ -64,9 +64,9 @@ export function Dialog20() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">New request (TanStack)</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">New request (TanStack)</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <form
           id="dialog-20-tanstack-form"
@@ -118,7 +118,7 @@ export function Dialog20() {
                     <Select
                       value={field.state.value}
                       onValueChange={(value) => {
-                        field.handleChange(value)
+                        field.handleChange(value ?? '')
                         field.handleBlur()
                       }}
                     >
@@ -148,11 +148,13 @@ export function Dialog20() {
             </form.Field>
           </FieldGroup>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button type="button" variant="outline">
-                Cancel
-              </Button>
-            </DialogClose>
+            <DialogClose
+              render={
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
+              }
+            />
             <Button type="submit">Submit</Button>
           </DialogFooter>
         </form>

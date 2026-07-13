@@ -71,21 +71,23 @@ export function RhfFields08() {
                   Language
                 </FieldLabel>
                 <Popover open={open} onOpenChange={setOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      id="rhf-fields-08-language"
-                      type="button"
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={open}
-                      aria-invalid={fieldState.invalid}
-                      className="w-full justify-between font-normal"
-                    >
-                      {selected ? selected.label : 'Select a language'}
-                      <ChevronsUpDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
+                  <PopoverTrigger
+                    render={
+                      <Button
+                        id="rhf-fields-08-language"
+                        type="button"
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={open}
+                        aria-invalid={fieldState.invalid}
+                        className="w-full justify-between font-normal"
+                      >
+                        {selected ? selected.label : 'Select a language'}
+                        <ChevronsUpDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
+                  <PopoverContent className="w-(--anchor-width) p-0">
                     <Command>
                       <CommandInput placeholder="Search language..." />
                       <CommandList>

@@ -51,19 +51,21 @@ export function Command08() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-60 justify-between font-normal"
-        >
-          {value
-            ? allZones.find((zone) => zone.value === value)?.label
-            : 'Select timezone...'}
-          <ChevronsUpDownIcon className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-60 justify-between font-normal"
+          >
+            {value
+              ? allZones.find((zone) => zone.value === value)?.label
+              : 'Select timezone...'}
+            <ChevronsUpDownIcon className="text-muted-foreground" />
+          </Button>
+        }
+      />
       <PopoverContent className="w-60 p-0" align="start">
         <Command>
           <CommandInput placeholder="Search timezone..." />

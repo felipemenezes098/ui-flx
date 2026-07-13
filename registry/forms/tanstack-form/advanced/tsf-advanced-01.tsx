@@ -234,7 +234,9 @@ export function TsfAdvanced01() {
                                       />
                                       {rowErrors.email && (
                                         <FieldError
-                                          errors={[{ message: rowErrors.email }]}
+                                          errors={[
+                                            { message: rowErrors.email },
+                                          ]}
                                         />
                                       )}
                                     </Field>
@@ -248,7 +250,9 @@ export function TsfAdvanced01() {
                                       </FieldLabel>
                                       <Select
                                         value={field.state.value}
-                                        onValueChange={field.handleChange}
+                                        onValueChange={(value) =>
+                                          field.handleChange(value ?? '')
+                                        }
                                       >
                                         <SelectTrigger
                                           id={field.name}

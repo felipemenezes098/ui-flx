@@ -6,10 +6,17 @@ import {
   GalleryCardMedia,
   GalleryCardThemeImage,
 } from '@/components/core/gallery/gallery-card'
-import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
-import { GalleryGrid, GalleryGridLink } from '@/components/core/gallery/gallery-grid'
-import { Button } from '@/components/ui/button'
+import {
+  GalleryFade,
+  GalleryFadeFooter,
+} from '@/components/core/gallery/gallery-fade'
+import {
+  GalleryGrid,
+  GalleryGridLink,
+} from '@/components/core/gallery/gallery-grid'
+import { buttonVariants } from '@/components/ui/button'
 import { blocks } from '@/lib/blocks/block-catalog'
+import { cn } from '@/lib/utils'
 
 const HOME_BLOCK_PREVIEW_COUNT = 4
 
@@ -46,14 +53,18 @@ export function BlocksPreview() {
       </GalleryGrid>
 
       <GalleryFadeFooter>
-        <Button
-          asChild
-          variant="outline"
-          size="sm"
-          className="bg-background dark:bg-background hover:dark:bg-muted"
+        <Link
+          href="/blocks"
+          className={cn(
+            buttonVariants({
+              variant: 'outline',
+              size: 'sm',
+              className: 'bg-background dark:bg-background hover:dark:bg-muted',
+            }),
+          )}
         >
-          <Link href="/blocks">View all</Link>
-        </Button>
+          View all
+        </Link>
       </GalleryFadeFooter>
     </GalleryFade>
   )

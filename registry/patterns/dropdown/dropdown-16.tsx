@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -41,28 +42,32 @@ export function Dropdown16() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon-sm"
-          className="relative"
-          aria-label="Notifications"
-        >
-          <BellIcon />
-          {unread > 0 && (
-            <span className="bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
-              {unread}
-            </span>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="outline"
+            size="icon-sm"
+            className="relative"
+            aria-label="Notifications"
+          >
+            <BellIcon />
+            {unread > 0 && (
+              <span className="bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full text-[10px] font-medium">
+                {unread}
+              </span>
+            )}
+          </Button>
+        }
+      />
       <DropdownMenuContent align="center" className="w-72">
-        <DropdownMenuLabel className="text-foreground flex items-center justify-between">
-          Notifications
-          <Badge variant="secondary" className="rounded-sm px-1.5">
-            {unread} new
-          </Badge>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="text-foreground flex items-center justify-between">
+            Notifications
+            <Badge variant="secondary" className="rounded-sm px-1.5">
+              {unread} new
+            </Badge>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         {notifications.map((item) => (
           <DropdownMenuItem

@@ -53,7 +53,7 @@ interface IllustrationItemProps {
 }
 
 const tooltipContentClass =
-  'pointer-events-none border bg-background text-foreground shadow-md [&>span>svg]:bg-background [&>span>svg]:fill-background dark:border-transparent dark:bg-foreground dark:text-background dark:[&>span>svg]:bg-foreground dark:[&>span>svg]:fill-foreground'
+  'pointer-events-none border bg-background text-foreground shadow-md [&>div[aria-hidden]]:bg-background dark:border-transparent dark:bg-foreground dark:text-background dark:[&>div[aria-hidden]]:bg-foreground'
 
 export function IllustrationItem({
   slug,
@@ -88,30 +88,30 @@ export function IllustrationItem({
   const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
-    <MosaicCell
-      span={span}
-      size={size}
-      className="group hover:bg-muted/50"
-    >
+    <MosaicCell span={span} size={size} className="group hover:bg-muted/50">
       <PatternRenderer name={slug} registry={illustrationRegistry} />
 
-      <TooltipProvider disableHoverableContent delayDuration={300}>
+      <TooltipProvider delay={300}>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-3 opacity-0 transition-opacity group-hover:pointer-events-auto group-hover:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
           <div className="flex items-center gap-1">
             <Dialog open={openCode} onOpenChange={setOpenCode}>
               <Tooltip>
-                <TooltipTrigger asChild>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
-                      className="border-border border"
-                      aria-label="View code"
-                    >
-                      <Code2 className="size-4" />
-                    </Button>
-                  </DialogTrigger>
-                </TooltipTrigger>
+                <TooltipTrigger
+                  render={
+                    <DialogTrigger
+                      render={
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          className="border-border border"
+                          aria-label="View code"
+                        >
+                          <Code2 className="size-4" />
+                        </Button>
+                      }
+                    />
+                  }
+                />
                 <TooltipContent
                   side="top"
                   sideOffset={4}
@@ -140,19 +140,19 @@ export function IllustrationItem({
                             <Badge
                               key={file.name}
                               variant="outline"
-                              asChild
+                              render={
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveName(file.name)}
+                                />
+                              }
                               className={cn(
                                 'cursor-pointer font-mono text-[11px] font-normal transition-colors',
                                 activeFile?.name === file.name &&
                                   'border-foreground/20 bg-muted/30 text-foreground',
                               )}
                             >
-                              <button
-                                type="button"
-                                onClick={() => setActiveName(file.name)}
-                              >
-                                {file.name}
-                              </button>
+                              {file.name}
                             </Badge>
                           ))}
                         </div>
@@ -169,17 +169,19 @@ export function IllustrationItem({
             </Dialog>
 
             <Tooltip>
-              <TooltipTrigger asChild>
-                <CopyButton
-                  text={cliCommand}
-                  variant="ghost"
-                  size="icon-sm"
-                  icon={<Logo.ShadcnIcon className="size-4" />}
-                  iconClassName="size-4"
-                  aria-label="Copy CLI command"
-                  className="border-border border"
-                />
-              </TooltipTrigger>
+              <TooltipTrigger
+                render={
+                  <CopyButton
+                    text={cliCommand}
+                    variant="ghost"
+                    size="icon-sm"
+                    icon={<Logo.ShadcnIcon className="size-4" />}
+                    iconClassName="size-4"
+                    aria-label="Copy CLI command"
+                    className="border-border border"
+                  />
+                }
+              />
               <TooltipContent
                 side="top"
                 sideOffset={4}
@@ -190,17 +192,19 @@ export function IllustrationItem({
             </Tooltip>
 
             <Tooltip>
-              <TooltipTrigger asChild>
-                <CopyButton
-                  text={prompt}
-                  variant="ghost"
-                  size="icon-sm"
-                  icon={<Sparkles className="size-4" strokeWidth={1.5} />}
-                  iconClassName="size-4"
-                  aria-label="Copy prompt"
-                  className="border-border border"
-                />
-              </TooltipTrigger>
+              <TooltipTrigger
+                render={
+                  <CopyButton
+                    text={prompt}
+                    variant="ghost"
+                    size="icon-sm"
+                    icon={<Sparkles className="size-4" strokeWidth={1.5} />}
+                    iconClassName="size-4"
+                    aria-label="Copy prompt"
+                    className="border-border border"
+                  />
+                }
+              />
               <TooltipContent
                 side="top"
                 sideOffset={4}

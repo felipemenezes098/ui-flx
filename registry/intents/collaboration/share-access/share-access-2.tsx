@@ -97,7 +97,10 @@ export function ShareAccess2() {
             onKeyDown={(e) => e.key === 'Enter' && invite()}
           />
           <div className="flex gap-2">
-            <Select value={inviteRole} onValueChange={setInviteRole}>
+            <Select
+              value={inviteRole}
+              onValueChange={(value) => setInviteRole(value ?? '')}
+            >
               <SelectTrigger className="w-28">
                 <SelectValue />
               </SelectTrigger>
@@ -143,7 +146,7 @@ export function ShareAccess2() {
               ) : (
                 <Select
                   value={person.role}
-                  onValueChange={(v) => setRole(person.id, v)}
+                  onValueChange={(v) => setRole(person.id, v ?? '')}
                 >
                   <SelectTrigger size="sm" className="w-28 shrink-0">
                     <SelectValue />

@@ -58,7 +58,7 @@ export function TsfFields04() {
                   max={100}
                   step={5}
                   value={[field.state.value]}
-                  onValueChange={(v) => field.handleChange(v[0])}
+                  onValueChange={(v) => field.handleChange((v as number[])[0])}
                   aria-invalid={isInvalid}
                 />
                 {isInvalid && <FieldError errors={field.state.meta.errors} />}

@@ -8,9 +8,7 @@ import {
 export function Tooltip03() {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button>Save</Button>
-      </TooltipTrigger>
+      <TooltipTrigger render={<Button>Save</Button>} />
       <TooltipContent>
         Save changes
         <kbd

@@ -16,9 +16,7 @@ const heroImage =
 export function Dialog09() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Welcome tour</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Welcome tour</Button>} />
       <DialogContent
         className="gap-0 overflow-hidden p-0 sm:max-w-sm"
         showCloseButton={false}
@@ -40,11 +38,13 @@ export function Dialog09() {
           </DialogHeader>
           <DialogFooter className="flex-col gap-2 sm:flex-col">
             <Button className="w-full">Get started</Button>
-            <DialogClose asChild>
-              <Button variant="ghost" className="w-full">
-                Skip for now
-              </Button>
-            </DialogClose>
+            <DialogClose
+              render={
+                <Button variant="ghost" className="w-full">
+                  Skip for now
+                </Button>
+              }
+            />
           </DialogFooter>
         </div>
       </DialogContent>

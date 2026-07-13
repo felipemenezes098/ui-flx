@@ -88,9 +88,9 @@ function CodeBlockCode({
   }, [code, language, theme, themeName, highlightLines, highlightWords])
 
   const classNames = cn(
-    'w-full overflow-auto no-scrollbar text-[13px] py-2  font-monos',
+    'w-full overflow-auto no-scrollbar text-[13px] py-2 font-monos max-h-120',
     showLineNumbers && 'shiki-with-lines',
-    !collapsible && 'max-h-100',
+    // !collapsible && 'max-h-100',
     className,
   )
 

@@ -69,25 +69,27 @@ export function Dropdown19() {
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Visibility</FieldLabel>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      id={field.name}
-                      type="button"
-                      variant="outline"
-                      className="w-full justify-between font-normal"
-                      aria-invalid={isInvalid}
-                    >
-                      <span
-                        className={selected ? '' : 'text-muted-foreground'}
+                  <DropdownMenuTrigger
+                    render={
+                      <Button
+                        id={field.name}
+                        type="button"
+                        variant="outline"
+                        className="w-full justify-between font-normal"
+                        aria-invalid={isInvalid}
                       >
-                        {selected?.label ?? 'Select visibility'}
-                      </span>
-                      <ChevronDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </DropdownMenuTrigger>
+                        <span
+                          className={selected ? '' : 'text-muted-foreground'}
+                        >
+                          {selected?.label ?? 'Select visibility'}
+                        </span>
+                        <ChevronDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
                   <DropdownMenuContent
                     align="start"
-                    className="w-(--radix-dropdown-menu-trigger-width)"
+                    className="w-(--anchor-width)"
                   >
                     <DropdownMenuRadioGroup
                       value={field.state.value}

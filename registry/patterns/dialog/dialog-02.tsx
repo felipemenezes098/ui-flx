@@ -15,9 +15,7 @@ import { Input } from '@/components/ui/input'
 export function Dialog02() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Edit profile</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Edit profile</Button>} />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
@@ -37,9 +35,7 @@ export function Dialog02() {
           </Field>
         </FieldGroup>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button type="submit">Save changes</Button>
         </DialogFooter>
       </DialogContent>

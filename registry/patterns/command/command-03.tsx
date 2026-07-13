@@ -51,15 +51,17 @@ function initials(name: string) {
 export function Command03() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="text-muted-foreground w-72 justify-start font-normal"
-        >
-          <SearchIcon className="opacity-50" />
-          Search everything...
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button
+            variant="outline"
+            className="text-muted-foreground w-72 justify-start font-normal"
+          >
+            <SearchIcon className="opacity-50" />
+            Search everything...
+          </Button>
+        }
+      />
       <DialogContent showCloseButton={false} className="gap-0 p-0">
         <DialogHeader className="sr-only">
           <DialogTitle>Global search</DialogTitle>

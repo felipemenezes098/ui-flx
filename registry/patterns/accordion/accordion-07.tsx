@@ -1,4 +1,4 @@
-import { Accordion as AccordionPrimitive } from 'radix-ui'
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion'
 import { ChevronRightIcon } from 'lucide-react'
 
 const items = [
@@ -22,9 +22,7 @@ const items = [
 export function Accordion07() {
   return (
     <AccordionPrimitive.Root
-      type="single"
-      collapsible
-      defaultValue="getting-started"
+      defaultValue={['getting-started']}
       className="flex w-full max-w-md flex-col"
     >
       {items.map((item) => (
@@ -35,15 +33,15 @@ export function Accordion07() {
         >
           <AccordionPrimitive.Header className="flex">
             <AccordionPrimitive.Trigger className="group/trigger flex flex-1 items-center gap-2 py-4 text-left text-sm font-medium outline-none focus-visible:underline">
-              <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform group-aria-expanded/trigger:rotate-90" />
+              <ChevronRightIcon className="text-muted-foreground size-4 shrink-0 transition-transform group-aria-expanded/trigger:rotate-90" />
               {item.title}
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
-          <AccordionPrimitive.Content className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up">
-            <p className="h-(--radix-accordion-content-height) pb-4 pl-6 text-muted-foreground">
+          <AccordionPrimitive.Panel className="data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm">
+            <p className="text-muted-foreground h-(--accordion-panel-height) pb-4 pl-6 data-ending-style:h-0 data-starting-style:h-0">
               {item.body}
             </p>
-          </AccordionPrimitive.Content>
+          </AccordionPrimitive.Panel>
         </AccordionPrimitive.Item>
       ))}
     </AccordionPrimitive.Root>

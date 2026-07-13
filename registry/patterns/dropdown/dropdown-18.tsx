@@ -70,25 +70,27 @@ export function Dropdown18() {
                   Visibility
                 </FieldLabel>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      id="dropdown-rhf-visibility"
-                      type="button"
-                      variant="outline"
-                      className="w-full justify-between font-normal"
-                      aria-invalid={fieldState.invalid}
-                    >
-                      <span
-                        className={selected ? '' : 'text-muted-foreground'}
+                  <DropdownMenuTrigger
+                    render={
+                      <Button
+                        id="dropdown-rhf-visibility"
+                        type="button"
+                        variant="outline"
+                        className="w-full justify-between font-normal"
+                        aria-invalid={fieldState.invalid}
                       >
-                        {selected?.label ?? 'Select visibility'}
-                      </span>
-                      <ChevronDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </DropdownMenuTrigger>
+                        <span
+                          className={selected ? '' : 'text-muted-foreground'}
+                        >
+                          {selected?.label ?? 'Select visibility'}
+                        </span>
+                        <ChevronDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
                   <DropdownMenuContent
                     align="start"
-                    className="w-(--radix-dropdown-menu-trigger-width)"
+                    className="w-(--anchor-width)"
                   >
                     <DropdownMenuRadioGroup
                       value={field.value}

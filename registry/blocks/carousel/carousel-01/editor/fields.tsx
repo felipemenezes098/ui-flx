@@ -180,7 +180,7 @@ export function Carousel01EditorFields({
               <Select
                 value={item.media.aspect}
                 onValueChange={(value) =>
-                  updateItemMedia(index, 'aspect', value)
+                  updateItemMedia(index, 'aspect', value ?? '')
                 }
               >
                 <SelectTrigger className="w-full">

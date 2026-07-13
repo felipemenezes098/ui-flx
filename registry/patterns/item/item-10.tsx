@@ -9,19 +9,17 @@ import { ArrowUpRightIcon, BookOpenIcon } from 'lucide-react'
 
 export function Item10() {
   return (
-    <Item asChild variant="outline" className="w-full max-w-md">
-      <a href="#">
-        <ItemMedia variant="icon">
-          <BookOpenIcon />
-        </ItemMedia>
-        <ItemContent>
-          <ItemTitle>Read the documentation</ItemTitle>
-          <ItemDescription>
-            Learn how to compose blocks with patterns.
-          </ItemDescription>
-        </ItemContent>
-        <ArrowUpRightIcon className="text-muted-foreground size-4" />
-      </a>
+    <Item variant="outline" className="w-full max-w-md" render={<a href="#" />}>
+      <ItemMedia variant="icon">
+        <BookOpenIcon />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Read the documentation</ItemTitle>
+        <ItemDescription>
+          Learn how to compose blocks with patterns.
+        </ItemDescription>
+      </ItemContent>
+      <ArrowUpRightIcon className="text-muted-foreground size-4" />
     </Item>
   )
 }

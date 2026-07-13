@@ -33,34 +33,36 @@ export function Command06() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-56 justify-between font-normal"
-        >
-          <span className={cn(!selected && 'text-muted-foreground')}>
-            {selected ? selected.label : 'Select language...'}
-          </span>
-          {value ? (
-            <span
-              role="button"
-              aria-label="Clear selection"
-              className="hover:bg-muted -mr-1 grid size-5 place-items-center rounded-sm"
-              onPointerDown={(event) => {
-                event.stopPropagation()
-                event.preventDefault()
-                setValue('')
-              }}
-            >
-              <XIcon className="size-4" />
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-56 justify-between font-normal"
+          >
+            <span className={cn(!selected && 'text-muted-foreground')}>
+              {selected ? selected.label : 'Select language...'}
             </span>
-          ) : (
-            <ChevronsUpDownIcon className="text-muted-foreground" />
-          )}
-        </Button>
-      </PopoverTrigger>
+            {value ? (
+              <span
+                role="button"
+                aria-label="Clear selection"
+                className="hover:bg-muted -mr-1 grid size-5 place-items-center rounded-sm"
+                onPointerDown={(event) => {
+                  event.stopPropagation()
+                  event.preventDefault()
+                  setValue('')
+                }}
+              >
+                <XIcon className="size-4" />
+              </span>
+            ) : (
+              <ChevronsUpDownIcon className="text-muted-foreground" />
+            )}
+          </Button>
+        }
+      />
       <PopoverContent className="w-56 p-0" align="start">
         <Command>
           <CommandInput placeholder="Search language..." />

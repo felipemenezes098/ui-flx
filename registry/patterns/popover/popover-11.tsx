@@ -11,11 +11,13 @@ import {
 export function Popover11() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="link" className="h-auto p-0 font-medium">
-          @sofia.r
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="link" className="h-auto p-0 font-medium">
+            @sofia.r
+          </Button>
+        }
+      />
       <PopoverContent className="w-80 overflow-hidden p-0">
         <div className="bg-muted relative h-20 w-full">
           <img
@@ -37,8 +39,8 @@ export function Popover11() {
             <p className="text-muted-foreground text-xs">@sofia.r</p>
           </div>
           <p className="text-sm">
-            Product designer crafting calm interfaces. Currently shipping the new
-            blocks library.
+            Product designer crafting calm interfaces. Currently shipping the
+            new blocks library.
           </p>
           <div className="text-muted-foreground flex flex-wrap gap-3 text-xs">
             <span className="flex items-center gap-1">

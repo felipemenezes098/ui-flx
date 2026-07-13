@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
@@ -61,23 +62,29 @@ export function TsfFields09() {
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Visibility</FieldLabel>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      id={field.name}
-                      type="button"
-                      variant="outline"
-                      aria-invalid={isInvalid}
-                      className="w-full justify-between font-normal"
-                    >
-                      {selected ? selected.label : 'Select visibility'}
-                      <ChevronDownIcon className="text-muted-foreground" />
-                    </Button>
-                  </DropdownMenuTrigger>
+                  <DropdownMenuTrigger
+                    render={
+                      <Button
+                        id={field.name}
+                        type="button"
+                        variant="outline"
+                        aria-invalid={isInvalid}
+                        className="w-full justify-between font-normal"
+                      >
+                        {selected ? selected.label : 'Select visibility'}
+                        <ChevronDownIcon className="text-muted-foreground" />
+                      </Button>
+                    }
+                  />
                   <DropdownMenuContent
                     align="start"
-                    className="w-(--radix-dropdown-menu-trigger-width)"
+                    className="w-(--anchor-width)"
                   >
-                    <DropdownMenuLabel>Repository visibility</DropdownMenuLabel>
+                    <DropdownMenuGroup>
+                      <DropdownMenuLabel>
+                        Repository visibility
+                      </DropdownMenuLabel>
+                    </DropdownMenuGroup>
                     <DropdownMenuSeparator />
                     <DropdownMenuRadioGroup
                       value={field.state.value}

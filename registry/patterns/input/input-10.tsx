@@ -20,12 +20,14 @@ export function Input10() {
       <InputGroupInput placeholder="Search..." />
       <InputGroupAddon align="inline-end">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <InputGroupButton variant="ghost" className="text-xs">
-              Search in
-              <ChevronDownIcon className="size-3" />
-            </InputGroupButton>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <InputGroupButton variant="ghost" className="text-xs">
+                Search in
+                <ChevronDownIcon className="size-3" />
+              </InputGroupButton>
+            }
+          />
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
               <DropdownMenuItem>Documentation</DropdownMenuItem>

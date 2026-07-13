@@ -93,7 +93,7 @@
       "type": "registry:block",
       "registryDependencies": [],
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "files": [
         {
@@ -110,7 +110,7 @@
       "type": "registry:block",
       "registryDependencies": [],
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "files": [
         {

@@ -20,11 +20,13 @@ import {
 export function Dropdown03() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Actions
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Actions
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-48">
         <DropdownMenuGroup>
           <DropdownMenuLabel>Edit</DropdownMenuLabel>

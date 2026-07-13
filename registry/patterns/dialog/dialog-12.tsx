@@ -15,9 +15,9 @@ import {
 export function Dialog12() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Complete setup</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">Complete setup</Button>}
+      />
       <DialogContent className="sm:max-w-sm">
         <DialogHeader className="items-center text-center">
           <div className="bg-primary/10 text-primary mb-1 flex size-14 items-center justify-center rounded-full">
@@ -30,9 +30,9 @@ export function Dialog12() {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="sm:justify-center">
-          <DialogClose asChild>
-            <Button className="w-full sm:w-auto">Continue</Button>
-          </DialogClose>
+          <DialogClose
+            render={<Button className="w-full sm:w-auto">Continue</Button>}
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>

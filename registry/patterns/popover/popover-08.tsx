@@ -31,15 +31,17 @@ export function Popover08() {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <span
-            className={cn('size-4 rounded-sm', color.className)}
-            aria-hidden
-          />
-          <span className="font-mono text-xs">{color.hex}</span>
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <span
+              className={cn('size-4 rounded-sm', color.className)}
+              aria-hidden
+            />
+            <span className="font-mono text-xs">{color.hex}</span>
+          </Button>
+        }
+      />
       <PopoverContent align="start" className="w-auto p-3">
         <div className="grid grid-cols-6 gap-1.5">
           {swatches.map((s) => (
@@ -49,7 +51,7 @@ export function Popover08() {
               aria-label={s.hex}
               onClick={() => setColor(s)}
               className={cn(
-                'flex size-7 items-center justify-center rounded-md outline-none transition',
+                'flex size-7 items-center justify-center rounded-md transition outline-none',
                 s.className,
                 'hover:ring-ring focus-visible:ring-ring hover:ring-2 focus-visible:ring-2',
               )}

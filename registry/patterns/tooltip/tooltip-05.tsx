@@ -2,30 +2,31 @@ import { Button } from '@/components/ui/button'
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
 export function Tooltip05() {
   return (
     <div className="flex items-center gap-3">
-      <Tooltip delayDuration={0}>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Instant</Button>
-        </TooltipTrigger>
-        <TooltipContent>Opens with no delay</TooltipContent>
-      </Tooltip>
-      <Tooltip delayDuration={500}>
-        <TooltipTrigger asChild>
-          <Button variant="outline">500ms</Button>
-        </TooltipTrigger>
-        <TooltipContent>Opens after 500ms hover</TooltipContent>
-      </Tooltip>
-      <Tooltip delayDuration={1200}>
-        <TooltipTrigger asChild>
-          <Button variant="outline">1.2s</Button>
-        </TooltipTrigger>
-        <TooltipContent>Opens after 1.2s hover</TooltipContent>
-      </Tooltip>
+      <TooltipProvider delay={0}>
+        <Tooltip>
+          <TooltipTrigger render={<Button variant="outline">Instant</Button>} />
+          <TooltipContent>Opens with no delay</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <TooltipProvider delay={500}>
+        <Tooltip>
+          <TooltipTrigger render={<Button variant="outline">500ms</Button>} />
+          <TooltipContent>Opens after 500ms hover</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <TooltipProvider delay={1200}>
+        <Tooltip>
+          <TooltipTrigger render={<Button variant="outline">1.2s</Button>} />
+          <TooltipContent>Opens after 1.2s hover</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   )
 }

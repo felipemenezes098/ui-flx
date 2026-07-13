@@ -66,9 +66,9 @@ export function Dialog19() {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">New request (RHF)</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">New request (RHF)</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <form
           id="dialog-19-rhf-form"
@@ -134,11 +134,13 @@ export function Dialog19() {
             />
           </FieldGroup>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button type="button" variant="outline">
-                Cancel
-              </Button>
-            </DialogClose>
+            <DialogClose
+              render={
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
+              }
+            />
             <Button type="submit">Submit</Button>
           </DialogFooter>
         </form>

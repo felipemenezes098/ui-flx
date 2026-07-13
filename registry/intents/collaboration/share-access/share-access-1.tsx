@@ -97,7 +97,10 @@ export function ShareAccess1() {
             <div className="flex flex-wrap gap-3">
               <div className="flex min-w-40 flex-1 flex-col gap-2">
                 <Label className="text-xs">Permission</Label>
-                <Select value={role} onValueChange={setRole}>
+                <Select
+                  value={role}
+                  onValueChange={(value) => setRole(value ?? '')}
+                >
                   <SelectTrigger className="w-full">
                     <SelectValue />
                   </SelectTrigger>
@@ -112,7 +115,10 @@ export function ShareAccess1() {
               </div>
               <div className="flex min-w-40 flex-1 flex-col gap-2">
                 <Label className="text-xs">Expires</Label>
-                <Select value={expiry} onValueChange={setExpiry}>
+                <Select
+                  value={expiry}
+                  onValueChange={(value) => setExpiry(value ?? '')}
+                >
                   <SelectTrigger className="w-full">
                     <SelectValue />
                   </SelectTrigger>

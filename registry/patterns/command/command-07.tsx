@@ -40,45 +40,47 @@ export function Command07() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="hover:bg-background hover:text-foreground h-auto min-h-9 w-72 justify-between py-1 font-normal"
-        >
-          <span className="flex flex-1 flex-wrap gap-1">
-            {selected.length === 0 ? (
-              <span className="text-muted-foreground">Select skills...</span>
-            ) : (
-              skills
-                .filter((skill) => selected.includes(skill.value))
-                .map((skill) => (
-                  <Badge
-                    key={skill.value}
-                    variant="secondary"
-                    className="gap-1"
-                  >
-                    {skill.label}
-                    <span
-                      role="button"
-                      aria-label={`Remove ${skill.label}`}
-                      className="hover:text-foreground"
-                      onPointerDown={(event) => {
-                        event.stopPropagation()
-                        event.preventDefault()
-                        toggle(skill.value)
-                      }}
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="hover:bg-background hover:text-foreground h-auto min-h-9 w-72 justify-between py-1 font-normal"
+          >
+            <span className="flex flex-1 flex-wrap gap-1">
+              {selected.length === 0 ? (
+                <span className="text-muted-foreground">Select skills...</span>
+              ) : (
+                skills
+                  .filter((skill) => selected.includes(skill.value))
+                  .map((skill) => (
+                    <Badge
+                      key={skill.value}
+                      variant="secondary"
+                      className="gap-1"
                     >
-                      <XIcon className="size-3" />
-                    </span>
-                  </Badge>
-                ))
-            )}
-          </span>
-          <ChevronsUpDownIcon className="text-muted-foreground shrink-0 self-center" />
-        </Button>
-      </PopoverTrigger>
+                      {skill.label}
+                      <span
+                        role="button"
+                        aria-label={`Remove ${skill.label}`}
+                        className="hover:text-foreground"
+                        onPointerDown={(event) => {
+                          event.stopPropagation()
+                          event.preventDefault()
+                          toggle(skill.value)
+                        }}
+                      >
+                        <XIcon className="size-3" />
+                      </span>
+                    </Badge>
+                  ))
+              )}
+            </span>
+            <ChevronsUpDownIcon className="text-muted-foreground shrink-0 self-center" />
+          </Button>
+        }
+      />
       <PopoverContent className="w-72 p-0" align="start">
         <Command>
           <CommandInput placeholder="Search skills..." />

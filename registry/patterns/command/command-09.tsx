@@ -39,28 +39,30 @@ export function Command09() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-64 justify-between font-normal"
-        >
-          {selected ? (
-            <span className="flex items-center gap-2">
-              <Avatar className="size-5">
-                <AvatarFallback className="text-[10px]">
-                  {initials(selected.name)}
-                </AvatarFallback>
-              </Avatar>
-              {selected.name}
-            </span>
-          ) : (
-            <span className="text-muted-foreground">Assign member...</span>
-          )}
-          <ChevronsUpDownIcon className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-64 justify-between font-normal"
+          >
+            {selected ? (
+              <span className="flex items-center gap-2">
+                <Avatar className="size-5">
+                  <AvatarFallback className="text-[10px]">
+                    {initials(selected.name)}
+                  </AvatarFallback>
+                </Avatar>
+                {selected.name}
+              </span>
+            ) : (
+              <span className="text-muted-foreground">Assign member...</span>
+            )}
+            <ChevronsUpDownIcon className="text-muted-foreground" />
+          </Button>
+        }
+      />
       <PopoverContent className="w-64 p-0" align="start">
         <Command>
           <CommandInput placeholder="Search member..." />

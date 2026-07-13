@@ -56,11 +56,13 @@ export function Item14() {
           </ItemContent>
           <ItemActions>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon-sm" aria-label="More">
-                  <MoreHorizontalIcon />
-                </Button>
-              </DropdownMenuTrigger>
+              <DropdownMenuTrigger
+                render={
+                  <Button variant="ghost" size="icon-sm" aria-label="More">
+                    <MoreHorizontalIcon />
+                  </Button>
+                }
+              />
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>Open</DropdownMenuItem>
                 <DropdownMenuItem>Download</DropdownMenuItem>

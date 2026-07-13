@@ -35,23 +35,25 @@ export function Command11() {
     <div className="flex w-56 flex-col gap-2">
       <Label htmlFor="framework-combobox">Framework</Label>
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button
-            id="framework-combobox"
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="w-full justify-between font-normal"
-          >
-            <span className={cn(!value && 'text-muted-foreground')}>
-              {value
-                ? frameworks.find((framework) => framework.value === value)
-                    ?.label
-                : 'Select framework'}
-            </span>
-            <ChevronsUpDownIcon className="text-muted-foreground" />
-          </Button>
-        </PopoverTrigger>
+        <PopoverTrigger
+          render={
+            <Button
+              id="framework-combobox"
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              className="w-full justify-between font-normal"
+            >
+              <span className={cn(!value && 'text-muted-foreground')}>
+                {value
+                  ? frameworks.find((framework) => framework.value === value)
+                      ?.label
+                  : 'Select framework'}
+              </span>
+              <ChevronsUpDownIcon className="text-muted-foreground" />
+            </Button>
+          }
+        />
         <PopoverContent className="w-56 p-0" align="start">
           <Command>
             <CommandInput placeholder="Search framework..." />

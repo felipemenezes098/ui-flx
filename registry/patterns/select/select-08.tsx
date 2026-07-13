@@ -43,7 +43,7 @@ export function Select08() {
   const selected = users.find((user) => user.value === value)
 
   return (
-    <Select value={value} onValueChange={setValue}>
+    <Select value={value} onValueChange={(value) => setValue(value ?? '')}>
       <SelectTrigger className="w-full max-w-64">
         <SelectValue placeholder="Select a user">
           {selected && (

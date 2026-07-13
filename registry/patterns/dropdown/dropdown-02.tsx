@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -19,13 +20,17 @@ import {
 export function Dropdown02() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Account
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Account
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-52">
-        <DropdownMenuLabel>My account</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>My account</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <UserIcon />

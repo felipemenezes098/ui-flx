@@ -62,9 +62,8 @@ export function SelectAPlan3() {
   return (
     <div className="flex flex-col items-center gap-5">
       <ToggleGroup
-        type="single"
-        value={active}
-        onValueChange={(value) => value && setActive(value)}
+        value={active ? [active] : []}
+        onValueChange={(value) => value[0] && setActive(value[0])}
         variant="outline"
         spacing={0}
         className="w-full"

@@ -56,23 +56,24 @@ export function Command14() {
   return (
     <div className="flex w-72 items-center gap-1">
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="flex-1 justify-between font-normal"
-          >
-            <span className={cn(selected.length === 0 && 'text-muted-foreground')}>
-              {summary}
-            </span>
-            <ChevronsUpDownIcon className="text-muted-foreground" />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent
-          className="w-(--radix-popover-trigger-width) p-0"
-          align="start"
-        >
+        <PopoverTrigger
+          render={
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              className="flex-1 justify-between font-normal"
+            >
+              <span
+                className={cn(selected.length === 0 && 'text-muted-foreground')}
+              >
+                {summary}
+              </span>
+              <ChevronsUpDownIcon className="text-muted-foreground" />
+            </Button>
+          }
+        />
+        <PopoverContent className="w-(--anchor-width) p-0" align="start">
           <Command>
             <CommandInput placeholder="Search skills..." />
             <CommandList>

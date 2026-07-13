@@ -7,7 +7,7 @@ import {
 
 export function Accordion10() {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion className="w-full max-w-md">
       <AccordionItem value="item-1">
         <AccordionTrigger>Personal information</AccordionTrigger>
         <AccordionContent className="text-muted-foreground">

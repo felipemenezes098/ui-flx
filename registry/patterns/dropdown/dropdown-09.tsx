@@ -26,12 +26,14 @@ export function Dropdown09() {
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel className="text-foreground flex flex-col gap-0.5">
-          <span className="text-sm font-medium">Shadcn</span>
-          <span className="text-muted-foreground text-xs font-normal">
-            shadcn@example.com
-          </span>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="text-foreground flex flex-col gap-0.5">
+            <span className="text-sm font-medium">Shadcn</span>
+            <span className="text-muted-foreground text-xs font-normal">
+              shadcn@example.com
+            </span>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>

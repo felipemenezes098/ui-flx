@@ -41,12 +41,14 @@ const files = [
 export function Item21() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <FilesIcon data-icon="inline-start" />
-          Files
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <FilesIcon data-icon="inline-start" />
+            Files
+          </Button>
+        }
+      />
       <PopoverContent className="w-72 p-2">
         <ItemGroup>
           {files.map((file) => (

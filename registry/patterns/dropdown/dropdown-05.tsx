@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -12,13 +13,17 @@ import { ArchiveIcon, DownloadIcon, PencilIcon, SendIcon } from 'lucide-react'
 export function Dropdown05() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          Invoice
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            Invoice
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-48">
-        <DropdownMenuLabel>Draft #1042</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Draft #1042</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <PencilIcon />

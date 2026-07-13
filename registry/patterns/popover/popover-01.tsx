@@ -8,12 +8,10 @@ import {
 export function Popover01() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">Open popover</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        Place content for the popover here.
-      </PopoverContent>
+      <PopoverTrigger
+        render={<Button variant="outline">Open popover</Button>}
+      />
+      <PopoverContent>Place content for the popover here.</PopoverContent>
     </Popover>
   )
 }

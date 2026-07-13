@@ -8,7 +8,7 @@ import {
 export function Accordion02() {
   return (
     <Accordion
-      type="multiple"
+      multiple
       defaultValue={['item-1', 'item-2']}
       className="w-full max-w-md"
     >

@@ -223,21 +223,23 @@ export function PatternCategoryNav() {
       </div>
 
       <Popover open={showAllOpen} onOpenChange={setShowAllOpen}>
-        <PopoverTrigger asChild>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="w-full shrink-0 justify-start gap-1.5 md:w-auto md:justify-center"
-          >
-            <Search className="size-3.5 shrink-0 md:hidden" />
-            <LayoutGrid className="hidden size-3.5 md:block" />
-            <span className="truncate md:hidden">
-              {activeCategory?.name ?? 'Categories'}
-            </span>
-            <span className="hidden md:inline">Show all</span>
-          </Button>
-        </PopoverTrigger>
+        <PopoverTrigger
+          render={
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full shrink-0 justify-start gap-1.5 md:w-auto md:justify-center"
+            >
+              <Search className="size-3.5 shrink-0 md:hidden" />
+              <LayoutGrid className="hidden size-3.5 md:block" />
+              <span className="truncate md:hidden">
+                {activeCategory?.name ?? 'Categories'}
+              </span>
+              <span className="hidden md:inline">Show all</span>
+            </Button>
+          }
+        />
         <PopoverContent
           align="end"
           className="w-[min(100vw-5rem,22rem)] overscroll-contain p-0"

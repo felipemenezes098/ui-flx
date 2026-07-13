@@ -5,7 +5,8 @@ import { usePathname, useRouter } from 'next/navigation'
 import { LayoutGrid, Search } from 'lucide-react'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import {
   Command,
   CommandEmpty,
@@ -81,17 +82,19 @@ export function IntentSidebar() {
     <>
       <div className="w-full shrink-0 lg:hidden">
         <Popover open={showAllOpen} onOpenChange={setShowAllOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              className="w-full justify-start"
-            >
-              <Search data-icon="inline-start" />
-              <span className="truncate">{mobileLabel}</span>
-            </Button>
-          </PopoverTrigger>
+          <PopoverTrigger
+            render={
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="w-full justify-start"
+              >
+                <Search data-icon="inline-start" />
+                <span className="truncate">{mobileLabel}</span>
+              </Button>
+            }
+          />
           <PopoverContent
             align="start"
             className="w-[min(100vw-2rem,22rem)] overscroll-contain p-0"
@@ -108,17 +111,19 @@ export function IntentSidebar() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Button
-                asChild
-                size="sm"
-                variant="outline"
-                className="w-full justify-start gap-2"
+              <Link
+                href="/intents"
+                className={cn(
+                  buttonVariants({
+                    size: 'sm',
+                    variant: 'outline',
+                    className: 'w-full justify-start gap-2',
+                  }),
+                )}
               >
-                <Link href="/intents">
-                  <LayoutGrid className="size-4" />
-                  <span className="text-xs">All intents</span>
-                </Link>
-              </Button>
+                <LayoutGrid data-icon="inline-start" className="size-4" />
+                <span className="text-xs">All intents</span>
+              </Link>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
@@ -140,14 +145,12 @@ export function IntentSidebar() {
                         return (
                           <SidebarMenuItem key={intent.slug}>
                             <SidebarMenuButton
-                              asChild
+                              render={<Link href={href} />}
                               size="sm"
                               className="font-medium"
                               isActive={pathname === href}
                             >
-                              <Link href={href}>
-                                <span>{intent.name}</span>
-                              </Link>
+                              <span>{intent.name}</span>
                             </SidebarMenuButton>
                           </SidebarMenuItem>
                         )

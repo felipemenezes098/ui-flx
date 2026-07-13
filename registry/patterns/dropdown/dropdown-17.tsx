@@ -27,11 +27,13 @@ export function Dropdown17() {
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon-sm" aria-label="Open actions">
-            <MoreHorizontalIcon />
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" size="icon-sm" aria-label="Open actions">
+              <MoreHorizontalIcon />
+            </Button>
+          }
+        />
         <DropdownMenuContent align="end" className="w-44">
           <DropdownMenuItem>
             <PencilIcon />
@@ -40,10 +42,7 @@ export function Dropdown17() {
           <DropdownMenuSeparator />
           <DropdownMenuItem
             variant="destructive"
-            onSelect={(event) => {
-              event.preventDefault()
-              setConfirmOpen(true)
-            }}
+            onClick={() => setConfirmOpen(true)}
           >
             <TrashIcon />
             Delete
@@ -61,9 +60,7 @@ export function Dropdown17() {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DialogClose>
+            <DialogClose render={<Button variant="outline">Cancel</Button>} />
             <Button variant="destructive" onClick={() => setConfirmOpen(false)}>
               Delete
             </Button>

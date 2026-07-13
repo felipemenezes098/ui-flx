@@ -846,7 +846,7 @@
       "title": "Plus / minus icon",
       "description": "Plus icon on each trigger that turns into a minus when open, instead of a chevron.",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [],
       "files": [
@@ -863,7 +863,7 @@
       "title": "Left chevron",
       "description": "Rotating chevron placed before the label instead of after it.",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [],
       "files": [
@@ -1342,7 +1342,7 @@
     {
       "name": "badge-07",
       "title": "As link",
-      "description": "asChild renders the badge as an anchor with a trailing icon.",
+      "description": "render prop renders the badge as an anchor with a trailing icon.",
       "dependencies": [],
       "registryDependencies": [
         "badge"
@@ -5818,7 +5818,7 @@
       "title": "Icon in thumb",
       "description": "Custom larger toggle with sun / moon icons that swap inside the thumb.",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [],
       "files": [

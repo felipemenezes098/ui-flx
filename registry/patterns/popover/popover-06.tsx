@@ -15,12 +15,14 @@ import {
 export function Popover06() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <Settings2Icon data-icon="inline-start" />
-          Dimensions
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <Settings2Icon data-icon="inline-start" />
+            Dimensions
+          </Button>
+        }
+      />
       <PopoverContent className="w-80">
         <PopoverHeader>
           <PopoverTitle>Dimensions</PopoverTitle>

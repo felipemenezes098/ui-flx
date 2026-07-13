@@ -15,11 +15,17 @@ export function Button21() {
     <ButtonGroup>
       <Button variant="outline">Save</Button>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon" aria-label="More save options">
-            <ChevronDownIcon />
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={
+            <Button
+              variant="outline"
+              size="icon"
+              aria-label="More save options"
+            >
+              <ChevronDownIcon />
+            </Button>
+          }
+        />
         <DropdownMenuContent align="end">
           <DropdownMenuGroup>
             <DropdownMenuItem>Save as draft</DropdownMenuItem>

@@ -40,9 +40,9 @@ const releases = [
 export function Dialog06() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">View changelog</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">View changelog</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Release notes</DialogTitle>
@@ -63,7 +63,9 @@ export function Dialog06() {
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm font-medium">{release.version}</span>
+                    <span className="text-sm font-medium">
+                      {release.version}
+                    </span>
                     <span className="text-muted-foreground text-xs">
                       {release.date}
                     </span>

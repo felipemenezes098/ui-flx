@@ -40,13 +40,8 @@ const columns: ColumnDef<Subscriber>[] = [
     header: ({ table }) => (
       <Checkbox
         aria-label="Select all"
-        checked={
-          table.getIsAllPageRowsSelected()
-            ? true
-            : table.getIsSomePageRowsSelected()
-              ? 'indeterminate'
-              : false
-        }
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={table.getIsSomePageRowsSelected()}
         onCheckedChange={(value) =>
           table.toggleAllPageRowsSelected(value === true)
         }

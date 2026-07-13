@@ -15,9 +15,9 @@ import {
 export function Dialog03() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="destructive">Delete account</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="destructive">Delete account</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <div className="flex flex-col gap-3">
@@ -37,9 +37,7 @@ export function Dialog03() {
           </div>
         </DialogHeader>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button variant="destructive">Delete account</Button>
         </DialogFooter>
       </DialogContent>

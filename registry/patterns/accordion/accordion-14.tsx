@@ -53,7 +53,7 @@ export function Accordion14() {
           Collapse all
         </Button>
       </div>
-      <Accordion type="multiple" value={open} onValueChange={setOpen}>
+      <Accordion multiple value={open} onValueChange={setOpen}>
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
             <AccordionTrigger>{item.title}</AccordionTrigger>

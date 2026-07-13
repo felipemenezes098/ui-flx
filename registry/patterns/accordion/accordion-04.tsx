@@ -28,7 +28,7 @@ export function Accordion04() {
   return (
     <div className="w-full max-w-xl">
       <h3 className="mb-4 text-lg font-semibold">Frequently asked questions</h3>
-      <Accordion type="single" collapsible>
+      <Accordion>
         {faqs.map((faq, index) => (
           <AccordionItem key={faq.q} value={`faq-${index}`}>
             <AccordionTrigger>{faq.q}</AccordionTrigger>

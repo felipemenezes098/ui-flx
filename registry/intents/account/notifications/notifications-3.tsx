@@ -73,7 +73,7 @@ export function Notifications3() {
             </div>
             <Select
               value={item.value}
-              onValueChange={(v) => setValue(item.id, v)}
+              onValueChange={(v) => setValue(item.id, v ?? '')}
             >
               <SelectTrigger className="w-36 shrink-0">
                 <SelectValue />

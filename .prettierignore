@@ -1,6 +1,7 @@
 node_modules
 dist
-public
 .next
-.env
-.env.local
+build
+public
+registry.json
+tsconfig.tsbuildinfo

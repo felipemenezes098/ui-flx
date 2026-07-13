@@ -32,12 +32,14 @@ export function Popover09() {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">
-          <Share2Icon data-icon="inline-start" />
-          Share
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline">
+            <Share2Icon data-icon="inline-start" />
+            Share
+          </Button>
+        }
+      />
       <PopoverContent align="end" className="w-80">
         <PopoverHeader>
           <PopoverTitle>Share link</PopoverTitle>
@@ -46,7 +48,11 @@ export function Popover09() {
           </PopoverDescription>
         </PopoverHeader>
         <InputGroup>
-          <InputGroupInput readOnly value={link} className="font-mono text-xs" />
+          <InputGroupInput
+            readOnly
+            value={link}
+            className="font-mono text-xs"
+          />
           <InputGroupAddon align="inline-end">
             <InputGroupButton
               aria-label={copied ? 'Copied' : 'Copy link'}

@@ -13,7 +13,7 @@ export function Select15() {
       <SelectTrigger className="w-full max-w-56">
         <SelectValue placeholder="Select a team" />
       </SelectTrigger>
-      <SelectContent position="popper" sideOffset={4}>
+      <SelectContent alignItemWithTrigger={false} sideOffset={4}>
         <SelectGroup>
           <SelectItem value="design">Design</SelectItem>
           <SelectItem value="engineering">Engineering</SelectItem>

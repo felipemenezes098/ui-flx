@@ -24,9 +24,7 @@ const terms = [
 export function Dialog04() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Review terms</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="outline">Review terms</Button>} />
       <DialogContent className="flex flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
         <DialogHeader className="px-6 pt-6">
           <DialogTitle>Terms of service</DialogTitle>
@@ -48,9 +46,7 @@ export function Dialog04() {
           </ul>
         </div>
         <DialogFooter className="bg-muted/30 border-t px-6 py-4">
-          <DialogClose asChild>
-            <Button variant="outline">Decline</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Decline</Button>} />
           <Button>Accept</Button>
         </DialogFooter>
       </DialogContent>

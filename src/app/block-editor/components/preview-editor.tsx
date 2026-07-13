@@ -5,7 +5,8 @@ import * as React from 'react'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { getBlockBySlug } from '@/lib/blocks/block-catalog'
 
 interface PreviewEditorProps {
@@ -59,12 +60,13 @@ export function PreviewEditor({
   return (
     <div className="flex min-h-screen w-full flex-col lg:h-screen lg:min-h-0">
       <header className="flex shrink-0 items-center gap-3 border-b px-4 py-3">
-        <Button variant="ghost" size="sm" asChild>
-          <Link href={`/blocks/${category}/${slug}`}>
-            <ArrowLeft className="size-4" />
-            Back
-          </Link>
-        </Button>
+        <Link
+          href={`/blocks/${category}/${slug}`}
+          className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }))}
+        >
+          <ArrowLeft data-icon="inline-start" className="size-4" />
+          Back
+        </Link>
         <span className="text-sm font-medium">{manifest.name}</span>
         {variation && (
           <span className="text-muted-foreground text-xs">/ {variation}</span>

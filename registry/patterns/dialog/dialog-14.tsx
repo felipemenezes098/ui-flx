@@ -15,9 +15,9 @@ import { Switch } from '@/components/ui/switch'
 export function Dialog14() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Notification settings</Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={<Button variant="outline">Notification settings</Button>}
+      />
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
@@ -65,9 +65,7 @@ export function Dialog14() {
           </div>
         </div>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
           <Button>Save</Button>
         </DialogFooter>
       </DialogContent>

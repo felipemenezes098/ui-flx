@@ -8,6 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -28,26 +29,30 @@ export function Dropdown15() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
-          <ListFilterIcon data-icon="inline-start" />
-          Status
-          {selected.length > 0 && (
-            <Badge variant="secondary" className="ml-1 rounded-sm px-1">
-              {selected.length}
-            </Badge>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="sm">
+            <ListFilterIcon data-icon="inline-start" />
+            Status
+            {selected.length > 0 && (
+              <Badge variant="secondary" className="ml-1 rounded-sm px-1">
+                {selected.length}
+              </Badge>
+            )}
+          </Button>
+        }
+      />
       <DropdownMenuContent align="start" className="w-48">
-        <DropdownMenuLabel>Filter by status</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Filter by status</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         {statuses.map((status) => (
           <DropdownMenuCheckboxItem
             key={status}
             checked={selected.includes(status)}
             onCheckedChange={(checked) => toggle(status, checked === true)}
-            onSelect={(event) => event.preventDefault()}
+            closeOnClick={false}
           >
             {status}
           </DropdownMenuCheckboxItem>
@@ -55,7 +60,7 @@ export function Dropdown15() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           disabled={selected.length === 0}
-          onSelect={() => setSelected([])}
+          onClick={() => setSelected([])}
         >
           Clear filters
         </DropdownMenuItem>

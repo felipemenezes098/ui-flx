@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { dataNavbar } from '@/data/navbar'
@@ -25,25 +25,27 @@ export function NavbarDesktop() {
       <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
           <nav className="flex min-w-0 flex-1 items-center gap-1 text-sm">
-            <Button
-              variant="ghost"
-              className="hover:bg-muted h-7 shrink-0 rounded-lg px-2"
-              asChild
+            <Link
+              href="/"
+              className={cn(
+                buttonVariants({
+                  variant: 'ghost',
+                  className: 'hover:bg-muted h-7 shrink-0 rounded-lg px-2',
+                }),
+              )}
             >
-              <Link href="/">
-                <div className="flex items-center gap-1.5">
-                  <div className="relative size-5 overflow-hidden rounded-xl">
-                    <Logo.Flexnative className="text-primary mt-0.5 h-6 w-auto" />
-                  </div>
-                  <span className="block text-sm font-medium md:hidden">
-                    {siteConfig.shortName}
-                  </span>
-                  <span className="hidden text-sm font-medium md:block">
-                    {siteConfig.name}
-                  </span>
+              <div className="flex items-center gap-1.5">
+                <div className="relative size-5 overflow-hidden rounded-xl">
+                  <Logo.Flexnative className="text-primary mt-0.5 h-6 w-auto" />
                 </div>
-              </Link>
-            </Button>
+                <span className="block text-sm font-medium md:hidden">
+                  {siteConfig.shortName}
+                </span>
+                <span className="hidden text-sm font-medium md:block">
+                  {siteConfig.name}
+                </span>
+              </div>
+            </Link>
             <div className="scroll-fade-x scroll-fade-[50px] no-scrollbar hidden min-w-0 flex-1 overflow-x-auto py-1 md:flex">
               <div className="inline-flex w-max flex-nowrap gap-1 first:ml-0.5 last:mr-0.5">
                 {dataNavbar.map((item) => (
@@ -65,26 +67,32 @@ export function NavbarDesktop() {
           <div className="flex shrink-0 items-center gap-3">
             <GlobalSearch />
             <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                asChild
-                className="h-8 w-8 transition-none"
+              <Link
+                href={siteConfig.links.twitter}
+                target="_blank"
+                className={cn(
+                  buttonVariants({
+                    variant: 'ghost',
+                    size: 'icon',
+                    className: 'h-8 w-8 transition-none',
+                  }),
+                )}
               >
-                <Link href={siteConfig.links.twitter} target="_blank">
-                  <Logo.X className="size-3" />
-                </Link>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                asChild
-                className="h-8 w-8 transition-none"
+                <Logo.X className="size-3" />
+              </Link>
+              <Link
+                href={siteConfig.links.github}
+                target="_blank"
+                className={cn(
+                  buttonVariants({
+                    variant: 'ghost',
+                    size: 'icon',
+                    className: 'h-8 w-8 transition-none',
+                  }),
+                )}
               >
-                <Link href={siteConfig.links.github} target="_blank">
-                  <Logo.Github className="size-4" />
-                </Link>
-              </Button>
+                <Logo.Github className="size-4" />
+              </Link>
             </div>
             <div className="flex items-center">
               <Separator orientation="vertical" className="!h-4" />

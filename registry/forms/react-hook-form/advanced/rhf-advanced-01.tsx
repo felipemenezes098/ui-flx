@@ -235,9 +235,13 @@ export function RhfAdvanced01() {
                           <Select
                             value={form.watch(`members.${index}.role`)}
                             onValueChange={(value) =>
-                              form.setValue(`members.${index}.role`, value, {
-                                shouldDirty: true,
-                              })
+                              form.setValue(
+                                `members.${index}.role`,
+                                value ?? '',
+                                {
+                                  shouldDirty: true,
+                                },
+                              )
                             }
                           >
                             <SelectTrigger

@@ -5,25 +5,21 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-// Hide the arrow by collapsing its wrapper span. Useful for flat tooltips
-// or chip-style hints where the pointer would feel noisy.
+// Hide the arrow via [&>div[aria-hidden]] — Base UI Arrow is a rotated
+// <div> sibling, not a wrapper span.
 export function Tooltip09() {
   return (
     <div className="flex items-center gap-2">
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">No arrow</Button>
-        </TooltipTrigger>
-        <TooltipContent className="[&>span]:hidden" sideOffset={10}>
+        <TooltipTrigger render={<Button variant="outline">No arrow</Button>} />
+        <TooltipContent className="[&>div[aria-hidden]]:hidden" sideOffset={10}>
           Clean tooltip without the arrow
         </TooltipContent>
       </Tooltip>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button>Primary</Button>
-        </TooltipTrigger>
+        <TooltipTrigger render={<Button>Primary</Button>} />
         <TooltipContent
-          className="bg-primary text-primary-foreground [&>span]:hidden"
+          className="bg-primary text-primary-foreground [&>div[aria-hidden]]:hidden"
           sideOffset={10}
         >
           Primary tone, no arrow

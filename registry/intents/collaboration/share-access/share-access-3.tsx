@@ -105,7 +105,7 @@ export function ShareAccess3() {
                 <Select
                   value={grantRole[req.id] ?? 'viewer'}
                   onValueChange={(v) =>
-                    setGrantRole((prev) => ({ ...prev, [req.id]: v }))
+                    setGrantRole((prev) => ({ ...prev, [req.id]: v ?? '' }))
                   }
                 >
                   <SelectTrigger size="sm" className="w-28">

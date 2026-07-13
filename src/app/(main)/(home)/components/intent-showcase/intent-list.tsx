@@ -6,9 +6,16 @@ import {
   ConceptGalleryCardMedia,
   ConceptGalleryCardTitle,
 } from '@/components/core/gallery/concept-gallery-card'
-import { GalleryFade, GalleryFadeFooter } from '@/components/core/gallery/gallery-fade'
-import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
-import { Button } from '@/components/ui/button'
+import {
+  GalleryFade,
+  GalleryFadeFooter,
+} from '@/components/core/gallery/gallery-fade'
+import {
+  GalleryGridLink,
+  GalleryGridUniform,
+} from '@/components/core/gallery/gallery-grid'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { allIntents } from '@/lib/intents/intent-catalog'
 
 export function IntentList() {
@@ -22,10 +29,7 @@ export function IntentList() {
           if (!Concept) return null
 
           return (
-            <GalleryGridLink
-              key={intent.slug}
-              href={`/intents/${intent.slug}`}
-            >
+            <GalleryGridLink key={intent.slug} href={`/intents/${intent.slug}`}>
               <ConceptGalleryCard>
                 <ConceptGalleryCardMedia className="aspect-square">
                   <Concept />
@@ -42,14 +46,18 @@ export function IntentList() {
       </GalleryGridUniform>
 
       <GalleryFadeFooter>
-        <Button
-          asChild
-          variant="outline"
-          size="sm"
-          className="bg-background dark:bg-background hover:dark:bg-muted"
+        <Link
+          href="/intents"
+          className={cn(
+            buttonVariants({
+              variant: 'outline',
+              size: 'sm',
+              className: 'bg-background dark:bg-background hover:dark:bg-muted',
+            }),
+          )}
         >
-          <Link href="/intents">View all</Link>
-        </Button>
+          View all
+        </Link>
       </GalleryFadeFooter>
     </GalleryFade>
   )

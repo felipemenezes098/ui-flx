@@ -49,26 +49,30 @@ export function LivePresence1() {
         <div className="flex -space-x-2">
           {VIEWERS.map((viewer) => (
             <Tooltip key={viewer.id}>
-              <TooltipTrigger asChild>
-                <Avatar className="ring-background size-9 ring-2">
-                  <AvatarImage src={viewer.avatar} alt={viewer.name} />
-                  <AvatarFallback className="bg-muted text-xs">
-                    {viewer.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
-                  </AvatarFallback>
-                </Avatar>
-              </TooltipTrigger>
+              <TooltipTrigger
+                render={
+                  <Avatar className="ring-background size-9 ring-2">
+                    <AvatarImage src={viewer.avatar} alt={viewer.name} />
+                    <AvatarFallback className="bg-muted text-xs">
+                      {viewer.name
+                        .split(' ')
+                        .map((n) => n[0])
+                        .join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                }
+              />
               <TooltipContent>{viewer.name}</TooltipContent>
             </Tooltip>
           ))}
           <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="bg-muted text-muted-foreground ring-background flex size-9 items-center justify-center rounded-full text-xs font-medium ring-2">
-                +{OVERFLOW}
-              </div>
-            </TooltipTrigger>
+            <TooltipTrigger
+              render={
+                <div className="bg-muted text-muted-foreground ring-background flex size-9 items-center justify-center rounded-full text-xs font-medium ring-2">
+                  +{OVERFLOW}
+                </div>
+              }
+            />
             <TooltipContent>3 more viewing</TooltipContent>
           </Tooltip>
         </div>

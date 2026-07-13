@@ -44,11 +44,10 @@ export function RhfFields06() {
               <FieldLabel htmlFor="rhf-fields-06-view">Default view</FieldLabel>
               <ToggleGroup
                 id="rhf-fields-06-view"
-                type="single"
                 variant="outline"
                 className="w-full"
-                value={field.value}
-                onValueChange={(v) => v && field.onChange(v)}
+                value={field.value ? [field.value] : []}
+                onValueChange={(v) => v[0] && field.onChange(v[0])}
               >
                 <ToggleGroupItem value="list" className="flex-1">
                   List

@@ -68,17 +68,19 @@ export function PatternActions({
         className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
       />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
-        <DialogTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            aria-label="View code"
-            className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
-          >
-            <CodeIcon className="size-3" />
-            Code
-          </Button>
-        </DialogTrigger>
+        <DialogTrigger
+          render={
+            <Button
+              variant="outline"
+              size="sm"
+              aria-label="View code"
+              className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
+            >
+              <CodeIcon className="size-3" />
+              Code
+            </Button>
+          }
+        />
         <DialogContent className="max-h-[95vh] overflow-y-auto sm:max-w-2xl">
           <DialogHeader>
             <DialogTitle>{item.title}</DialogTitle>
@@ -99,19 +101,19 @@ export function PatternActions({
                       <Badge
                         key={file.name}
                         variant="outline"
-                        asChild
+                        render={
+                          <button
+                            type="button"
+                            onClick={() => setActiveName(file.name)}
+                          />
+                        }
                         className={cn(
                           'cursor-pointer font-mono text-[11px] font-normal transition-colors',
                           activeFile?.name === file.name &&
                             'border-foreground/20 bg-muted/30 text-foreground',
                         )}
                       >
-                        <button
-                          type="button"
-                          onClick={() => setActiveName(file.name)}
-                        >
-                          {file.name}
-                        </button>
+                        {file.name}
                       </Badge>
                     ))}
                   </div>

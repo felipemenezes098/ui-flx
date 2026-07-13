@@ -7,6 +7,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -125,13 +126,8 @@ const columns: ColumnDef<Payment>[] = [
     header: ({ table }) => (
       <Checkbox
         aria-label="Select all"
-        checked={
-          table.getIsAllPageRowsSelected()
-            ? true
-            : table.getIsSomePageRowsSelected()
-              ? 'indeterminate'
-              : false
-        }
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={table.getIsSomePageRowsSelected()}
         onCheckedChange={(value) =>
           table.toggleAllPageRowsSelected(value === true)
         }
@@ -213,14 +209,18 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => (
       <div className="text-right">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="size-8">
-              <MoreHorizontalIcon />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="ghost" size="icon" className="size-8">
+                <MoreHorizontalIcon />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(row.original.id)}
             >
@@ -271,12 +271,14 @@ export function Table20() {
           className="max-w-xs"
         />
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" className="ml-auto">
-              <SlidersHorizontalIcon data-icon="inline-start" />
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <Button variant="outline" size="sm" className="ml-auto">
+                <SlidersHorizontalIcon data-icon="inline-start" />
+                Columns
+              </Button>
+            }
+          />
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
@@ -287,7 +289,7 @@ export function Table20() {
                   className="capitalize"
                   checked={column.getIsVisible()}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                  onSelect={(event) => event.preventDefault()}
+                  closeOnClick={false}
                 >
                   {column.id}
                 </DropdownMenuCheckboxItem>

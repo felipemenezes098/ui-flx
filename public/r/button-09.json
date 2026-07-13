@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/patterns/button/button-09.tsx",
-      "content": "import { ExternalLinkIcon } from 'lucide-react'\n\nimport { Button } from '@/components/ui/button'\n\nexport function Button09() {\n  return (\n    <Button asChild variant=\"link\">\n      <a href=\"https://ui.shadcn.com\" target=\"_blank\" rel=\"noreferrer\">\n        Read the docs\n        <ExternalLinkIcon data-icon=\"inline-end\" />\n      </a>\n    </Button>\n  )\n}\n",
+      "content": "import { ExternalLinkIcon } from 'lucide-react'\n\nimport { buttonVariants } from '@/components/ui/button'\nimport { cn } from '@/lib/utils'\n\nexport function Button09() {\n  return (\n    <a\n      href=\"https://ui.shadcn.com\"\n      target=\"_blank\"\n      rel=\"noreferrer\"\n      className={cn(buttonVariants({ variant: 'link' }))}\n    >\n      Read the docs\n      <ExternalLinkIcon data-icon=\"inline-end\" />\n    </a>\n  )\n}\n",
       "type": "registry:component",
       "target": "components/flx/patterns/button/button-09.tsx"
     }

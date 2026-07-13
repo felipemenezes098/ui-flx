@@ -11,9 +11,9 @@ import {
 export function Popover02() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">View details</Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={<Button variant="outline">View details</Button>}
+      />
       <PopoverContent>
         <PopoverHeader>
           <PopoverTitle>About this feature</PopoverTitle>

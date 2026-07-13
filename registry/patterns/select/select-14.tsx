@@ -24,7 +24,7 @@ export function Select14() {
   const selected = priorities.find((item) => item.value === value)
 
   return (
-    <Select value={value} onValueChange={setValue}>
+    <Select value={value} onValueChange={(value) => setValue(value ?? '')}>
       <SelectTrigger className="w-full max-w-48" aria-label="Select priority">
         <SelectValue placeholder="Select priority">
           {selected && (

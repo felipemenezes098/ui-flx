@@ -52,7 +52,7 @@ export function TsfFields07() {
                 <FieldLabel htmlFor={field.name}>Framework</FieldLabel>
                 <Select
                   value={field.state.value}
-                  onValueChange={field.handleChange}
+                  onValueChange={(value) => field.handleChange(value ?? '')}
                 >
                   <SelectTrigger
                     id={field.name}
