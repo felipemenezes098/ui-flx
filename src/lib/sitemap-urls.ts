@@ -2,15 +2,10 @@ import { readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 import type { MetadataRoute } from 'next'
-import type { RegistryItem } from 'shadcn/schema'
 
 import { siteConfig } from '@/config/site'
 import { allIntents } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
-
-import registry from '../../public/r/registry.json'
-
-const registryItems = registry.items as RegistryItem[]
 
 const staticPaths = [
   '/',
@@ -65,7 +60,7 @@ function collectBlockDocPaths(dir: string, segments: string[] = []): string[] {
 }
 
 export function getSitemapEntries(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [
+  return [
     ...staticPaths.map((path) =>
       entry(path, {
         priority: path === '/' ? 1 : 0.8,
@@ -81,14 +76,5 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
     ...collectBlockDocPaths(join(process.cwd(), 'src/app/content/blocks')).map(
       (path) => entry(path, { priority: 0.8 }),
     ),
-    entry('/r/registry.json', { priority: 0.9, changeFrequency: 'daily' }),
-    ...registryItems.map((item) =>
-      entry(`/r/${item.name}.json`, {
-        priority: 0.6,
-        changeFrequency: 'weekly',
-      }),
-    ),
   ]
-
-  return entries
 }
