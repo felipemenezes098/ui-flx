@@ -53,7 +53,7 @@ interface IllustrationItemProps {
 }
 
 const tooltipContentClass =
-  'pointer-events-none border bg-background text-foreground shadow-md [&>span>svg]:bg-background [&>span>svg]:fill-background dark:border-transparent dark:bg-foreground dark:text-background dark:[&>span>svg]:bg-foreground dark:[&>span>svg]:fill-foreground'
+  'pointer-events-none border bg-background text-foreground shadow-md [&>div[aria-hidden]]:bg-background dark:border-transparent dark:bg-foreground dark:text-background dark:[&>div[aria-hidden]]:bg-foreground'
 
 export function IllustrationItem({
   slug,

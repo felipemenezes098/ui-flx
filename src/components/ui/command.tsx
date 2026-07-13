@@ -36,16 +36,19 @@ function CommandDialog({
   children,
   className,
   showCloseButton = false,
+  showOverlay,
+  modal = true,
   ...props
 }: Omit<React.ComponentProps<typeof Dialog>, 'children'> & {
   title?: string
   description?: string
   className?: string
-  children?: React.ReactNode
   showCloseButton?: boolean
+  showOverlay?: boolean
+  children: React.ReactNode
 }) {
   return (
-    <Dialog {...props}>
+    <Dialog modal={modal} {...props}>
       <DialogHeader className="sr-only">
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
@@ -56,7 +59,7 @@ function CommandDialog({
           className,
         )}
         showCloseButton={showCloseButton}
-        finalFocus={false}
+        showOverlay={showOverlay ?? modal !== false}
       >
         {children}
       </DialogContent>
