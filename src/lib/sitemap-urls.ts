@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import type { MetadataRoute } from 'next'
 
 import { siteConfig } from '@/config/site'
+import { categories as blockCategories } from '@/lib/blocks/block-catalog'
 import { allIntents } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
@@ -66,6 +67,9 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
         priority: path === '/' ? 1 : 0.8,
         changeFrequency: path === '/' ? 'daily' : 'weekly',
       }),
+    ),
+    ...blockCategories.map((category) =>
+      entry(`/blocks?category=${category.slug}`, { priority: 0.8 }),
     ),
     ...patternCategories.map((category) =>
       entry(`/patterns/${category.slug}`, { priority: 0.7 }),
