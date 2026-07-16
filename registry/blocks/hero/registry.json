@@ -306,6 +306,43 @@
       "meta": {
         "iframeHeight": 1100
       }
+    },
+    {
+      "name": "hero-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "avatar",
+        "separator",
+        "badge"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "hero-11/hero-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-11/hero-11.tsx"
+        },
+        {
+          "path": "hero-11/hero-11-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-11/hero-11-example.tsx"
+        },
+        {
+          "path": "hero-11/studio-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-11/studio-demo.tsx"
+        }
+      ],
+      "title": "Hero 11",
+      "description": "A split-copy hero with a light product studio mock — issue feed, properties, and a floating agent panel that fades into the page.",
+      "meta": {
+        "iframeHeight": 1100
+      }
     }
   ]
 }

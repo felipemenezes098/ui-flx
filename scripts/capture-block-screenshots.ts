@@ -12,6 +12,9 @@
  *   pnpm blocks:capture-screenshots
  *   pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=hero-01
  *   pnpm dlx tsx scripts/capture-block-screenshots.ts --missing-only
+ *
+ * Per-block delay: set meta.captureDelay (ms) in the block manifest.
+ * Default wait is 500ms.
  */
 
 import fs from 'node:fs'
@@ -47,6 +50,7 @@ async function captureBlock(
   const manifest = getBlockBySlug(slug)
   const captureViewportOnly = manifest?.meta?.captureViewportOnly ?? false
   const captureHeight = manifest?.meta?.iframeHeight ?? DEFAULT_CAPTURE_HEIGHT
+  const captureDelay = manifest?.meta?.captureDelay ?? 500
 
   const context = await browser.newContext({
     viewport: { width: 1280, height: 900 },
@@ -93,7 +97,7 @@ async function captureBlock(
 
     const container = page.locator('[data-block-preview]').first()
     await container.waitFor({ state: 'visible', timeout: 30_000 })
-    await page.waitForTimeout(500)
+    await page.waitForTimeout(captureDelay)
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true })
     await container.screenshot({ path: outputPath, type: 'png' })

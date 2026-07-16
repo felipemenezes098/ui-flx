@@ -11,6 +11,7 @@ export interface BlockMeta {
   componentClassName?: string
   iframeHeight?: number
   captureViewportOnly?: boolean
+  captureDelay?: number
 }
 
 export interface BlockManifest<TProps = Record<string, unknown>> {
