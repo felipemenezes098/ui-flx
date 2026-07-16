@@ -1,0 +1,73 @@
+export const metadata = {
+  title: 'Hero 11',
+  description:
+    'A split-copy hero with a light product studio mock — issue feed, properties, and a floating agent panel that fades into the page.',
+  openGraph: {
+    title: 'Hero 11',
+    description:
+      'A split-copy hero with a light product studio mock — issue feed, properties, and a floating agent panel that fades into the page.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-11" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-11" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-11/hero-11-example.tsx"
+  title="hero-11-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<CodeBlockCommand command="lucide-react" isPackage />
+
+<Step>Add the studio demo (optional)</Step>
+
+Hero 11 ships an inline product studio illustration — sidebar, issue feed, properties rail, and a floating agent panel. Swap content or remove it entirely.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-11/studio-demo.tsx"
+  title="studio-demo.tsx"
+  collapsible
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-11/hero-11.tsx"
+  collapsible
+  title="hero-11.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-11/hero-11-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>
