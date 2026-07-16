@@ -655,11 +655,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "badge",
         "button",
-        "card",
         "avatar",
-        "separator"
+        "separator",
+        "badge"
       ],
       "files": [
         {
