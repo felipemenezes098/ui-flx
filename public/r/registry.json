@@ -683,6 +683,35 @@
       "type": "registry:block"
     },
     {
+      "name": "hero-12",
+      "title": "Hero 12",
+      "description": "A full-bleed image hero with an oversized name, an established label, and a floating pill CTA anchored to the corner.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-12/hero-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-12/hero-12.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-12/hero-12-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-12/hero-12-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 720,
+        "containerClassName": "flex min-h-screen max-w-full overflow-hidden p-0"
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "logos-01",
       "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
