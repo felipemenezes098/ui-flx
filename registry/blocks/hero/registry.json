@@ -343,6 +343,35 @@
       "meta": {
         "iframeHeight": 1100
       }
+    },
+    {
+      "name": "hero-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-12/hero-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-12/hero-12.tsx"
+        },
+        {
+          "path": "hero-12/hero-12-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-12/hero-12-example.tsx"
+        }
+      ],
+      "title": "Hero 12",
+      "description": "A full-bleed image hero with an oversized name, an established label, and a floating pill CTA anchored to the corner.",
+      "meta": {
+        "iframeHeight": 720,
+        "containerClassName": "flex min-h-screen max-w-full overflow-hidden p-0"
+      }
     }
   ]
 }

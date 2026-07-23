@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-12",
+  "title": "Hero 12",
+  "description": "A full-bleed image hero with an oversized name, an established label, and a floating pill CTA anchored to the corner.",
+  "dependencies": [
+    "react-wrap-balancer",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@flx/cta"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/hero/hero-12/hero-12.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\nimport { motion, useReducedMotion, type Variants } from 'motion/react'\nimport Balancer from 'react-wrap-balancer'\n\nimport { cn } from '@/lib/utils'\n\nimport { Cta, type CtaProps } from '../../shared/cta'\n\nexport interface Hero12Props {\n  title: string\n  established?: string\n  description: string\n  backgroundImage: string\n  backgroundAlt?: string\n  animation?: 'none' | 'subtle'\n  primaryCTA: CtaProps\n  variant?: 'standard' | 'compact'\n}\n\nconst variantStyles = {\n  standard: {\n    section: 'min-h-[560px] sm:min-h-[600px]',\n    padding: 'px-6 py-10 sm:px-10 sm:py-12',\n    title: 'text-4xl sm:text-5xl md:text-6xl',\n    established: 'text-xs sm:text-sm',\n    description: 'max-w-lg text-sm sm:text-base',\n    copy: 'gap-5 sm:gap-6',\n  },\n  compact: {\n    section: 'min-h-[440px] sm:min-h-[480px]',\n    padding: 'px-6 py-8 sm:px-8 sm:py-10',\n    title: 'text-3xl sm:text-4xl md:text-5xl',\n    established: 'text-[0.65rem] sm:text-xs',\n    description: 'max-w-md text-sm',\n    copy: 'gap-4 sm:gap-5',\n  },\n} as const\n\nconst container: Variants = {\n  hidden: {},\n  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },\n}\n\nconst item: Variants = {\n  hidden: { opacity: 0, y: 16, filter: 'blur(6px)' },\n  visible: {\n    opacity: 1,\n    y: 0,\n    filter: 'blur(0px)',\n    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  },\n}\n\nconst media: Variants = {\n  hidden: { opacity: 0, scale: 1.08 },\n  visible: {\n    opacity: 1,\n    scale: 1,\n    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },\n  },\n}\n\nfunction Reveal({\n  active,\n  variants,\n  className,\n  children,\n}: Readonly<{\n  active: boolean\n  variants?: Variants\n  className?: string\n  children: React.ReactNode\n}>) {\n  if (!active) return <div className={className}>{children}</div>\n\n  return (\n    <motion.div variants={variants ?? item} className={className}>\n      {children}\n    </motion.div>\n  )\n}\n\nexport function Hero12({\n  title,\n  established,\n  description,\n  backgroundImage,\n  backgroundAlt = '',\n  animation = 'none',\n  primaryCTA,\n  variant = 'standard',\n}: Readonly<Hero12Props>) {\n  const reduce = useReducedMotion()\n  const animate = animation === 'subtle' && !reduce\n  const vs = variantStyles[variant]\n\n  const backgroundElement = backgroundImage && (\n    <div aria-hidden className=\"absolute inset-0 z-0 overflow-hidden\">\n      <motion.img\n        src={backgroundImage}\n        alt={backgroundAlt}\n        decoding=\"async\"\n        className=\"size-full object-cover\"\n        variants={animate ? media : undefined}\n        initial={animate ? 'hidden' : false}\n        whileInView={animate ? 'visible' : undefined}\n        viewport={{ once: true, margin: '-80px' }}\n      />\n      <div className=\"absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10\" />\n    </div>\n  )\n\n  const titleElement = title && (\n    <div className=\"flex flex-wrap items-baseline gap-x-4 gap-y-1\">\n      <h1\n        className={cn(\n          'font-normal tracking-tight text-white',\n          vs.title,\n        )}\n      >\n        <Balancer>{title}</Balancer>\n      </h1>\n      {established && (\n        <span\n          className={cn(\n            'font-medium tracking-widest text-white/70 uppercase',\n            vs.established,\n          )}\n        >\n          {established}\n        </span>\n      )}\n    </div>\n  )\n\n  const descriptionElement = description && (\n    <p className={cn('leading-relaxed text-white/80', vs.description)}>\n      <Balancer>{description}</Balancer>\n    </p>\n  )\n\n  const copyElement = (\n    <div className={cn('flex flex-col', vs.copy)}>\n      {titleElement}\n      {descriptionElement}\n    </div>\n  )\n\n  const ctaElement = primaryCTA?.ctaEnabled && (\n    <Cta cta={primaryCTA} invert className=\"shrink-0\" />\n  )\n\n  return (\n    <section\n      className={cn(\n        'bg-background relative isolate flex w-full flex-col justify-end overflow-hidden',\n        vs.section,\n      )}\n    >\n      {backgroundElement}\n\n      <motion.div\n        className={cn(\n          'relative z-10 flex w-full flex-col gap-6 sm:flex-row sm:items-end sm:justify-between',\n          vs.padding,\n        )}\n        variants={animate ? container : undefined}\n        initial={animate ? 'hidden' : false}\n        whileInView={animate ? 'visible' : undefined}\n        viewport={{ once: true, margin: '-80px' }}\n      >\n        <Reveal active={animate} className=\"min-w-0\">\n          {copyElement}\n        </Reveal>\n\n        {ctaElement && <Reveal active={animate}>{ctaElement}</Reveal>}\n      </motion.div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-12/hero-12.tsx"
+    },
+    {
+      "path": "registry/blocks/hero/hero-12/hero-12-example.tsx",
+      "content": "import { Hero12, type Hero12Props } from './hero-12'\n\nexport const values = {\n  title: 'Aspen Ridge',\n  established: 'Est. 2019',\n  description:\n    'A secluded mountain retreat set among the aspens, with floor-to-ceiling windows framing uninterrupted views of the Rockies. Wake to still water, quiet forest, and nothing on the schedule.',\n  backgroundImage:\n    'https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  backgroundAlt: 'A calm mountain lake at dusk beneath a forested ridge',\n  animation: 'subtle',\n  primaryCTA: {\n    ctaEnabled: true,\n    text: 'Reserve a Stay',\n    link: '',\n    size: 'default',\n  },\n} satisfies Hero12Props\n\nexport function Hero12Example() {\n  return <Hero12 {...values} />\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-12/hero-12-example.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 720,
+    "containerClassName": "flex min-h-screen max-w-full overflow-hidden p-0"
+  },
+  "type": "registry:block"
+}
