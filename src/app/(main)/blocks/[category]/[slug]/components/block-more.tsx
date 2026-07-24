@@ -1,6 +1,6 @@
 import { blocks } from '@/lib/blocks/block-catalog'
 
-import { BlockPreviewGrid } from './block-preview-grid'
+import { BlockPreviewGrid } from '../../../components/block-preview-grid'
 
 interface BlockMoreProps {
   category: string

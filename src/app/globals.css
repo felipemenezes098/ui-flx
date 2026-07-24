@@ -183,6 +183,10 @@
   @apply mx-auto max-w-4xl md:max-w-5xl lg:max-w-[75rem] xl:max-w-[80rem] 2xl:max-w-[90rem];
 }
 
+.container-page-wide {
+  @apply mx-auto w-full max-w-384 px-4 md:px-6;
+}
+
 .container-page-inner {
   @apply p-5;
 }

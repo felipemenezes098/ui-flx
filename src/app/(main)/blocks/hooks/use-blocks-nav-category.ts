@@ -3,19 +3,19 @@
 import { useSearchParams } from 'next/navigation'
 import { useLayoutEffect, useState } from 'react'
 
-import { getValidBlocksCategorySlug } from '../lib/blocks-category'
+import { parseCategoryFilter } from '../lib/blocks-category'
 
-export function useBlocksNavCategorySlug(): string | null {
+export function useBlocksNavCategories(): string[] | null {
   const searchParams = useSearchParams()
   const nextQs = searchParams.toString()
-  const [fromLocation, setFromLocation] = useState<string | null>(null)
+  const [fromLocation, setFromLocation] = useState<string[] | null>(null)
 
   useLayoutEffect(() => {
     const sync = () => {
       const raw = new URLSearchParams(globalThis.window.location.search).get(
         'category',
       )
-      setFromLocation(getValidBlocksCategorySlug(raw))
+      setFromLocation(parseCategoryFilter(raw))
     }
     sync()
     globalThis.window.addEventListener('popstate', sync)
