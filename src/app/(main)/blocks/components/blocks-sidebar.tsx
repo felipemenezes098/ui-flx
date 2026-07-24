@@ -1,91 +1,117 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { LayoutGrid } from 'lucide-react'
+import { PanelLeftCloseIcon } from 'lucide-react'
 
+import { isAllCategories } from '../lib/blocks-category'
 import {
-  ALL_BLOCKS_CATEGORY_SLUG,
-  isAllBlocksCategory,
-} from '../lib/blocks-category'
-import { useBlocksNavCategorySlug } from '../hooks/use-blocks-nav-category'
-import { blockCategories } from '@/lib/blocks/block-catalog'
-import { cn } from '@/lib/utils'
+  allBlocksHref,
+  categoryFilterHref,
+  themeFilterHref,
+} from '../lib/blocks-filter-url'
+import {
+  getAllBlocksCount,
+  getCategoryBlockCount,
+  getThemeBlockCount,
+  getValidThemeSlug,
+  isAllThemes,
+} from '../lib/blocks-theme'
+import { useBlocksNavCategories } from '../hooks/use-blocks-nav-category'
+import { BlocksFilterChip } from './blocks-filter-chip'
+import { Button } from '@/components/ui/button'
+import { blockCategories, themes } from '@/lib/blocks/block-catalog'
 
-export function BlocksSidebar() {
+function Section({
+  label,
+  children,
+}: Readonly<{
+  label: string
+  children: React.ReactNode
+}>) {
+  return (
+    <div className="space-y-2.5">
+      <p className="text-muted-foreground text-sm">{label}</p>
+      <div className="flex flex-wrap gap-1.5">{children}</div>
+    </div>
+  )
+}
+
+export function BlocksSidebar({
+  onHide,
+}: Readonly<{
+  onHide: () => void
+}>) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const navCategorySlug = useBlocksNavCategorySlug()
-  const allParams = new URLSearchParams(searchParams.toString())
-  allParams.set('category', ALL_BLOCKS_CATEGORY_SLUG)
-  const allHref = `${pathname}?${allParams.toString()}`
-  const isAllActive =
-    navCategorySlug !== null && isAllBlocksCategory(navCategorySlug)
+  const navCategories = useBlocksNavCategories()
+  const activeCategories = navCategories ?? []
+  const activeTheme = getValidThemeSlug(searchParams.get('theme'))
+  const themeIsAll = isAllThemes(activeTheme)
+  const categoryIsAll = isAllCategories(activeCategories)
+  const isAllActive = categoryIsAll && themeIsAll
 
   return (
-    <aside
-      aria-label="Block categories"
-      className={cn(
-        'sticky top-20 z-30 hidden h-[calc(100svh-120px)] w-54 shrink-0 self-start lg:flex lg:flex-col',
-      )}
-    >
-      <div className="scroll-fade scroll-fade-11 no-scrollbar min-h-0 flex-1 overflow-y-auto py-1 pr-2 pl-0.5">
-        <nav className="flex flex-col gap-1 pb-2">
-          <Link
-            href={allHref}
-            aria-current={isAllActive ? 'page' : undefined}
-            className={cn(
-              'text-foreground flex items-center gap-3 rounded-lg border border-transparent px-2 py-2 text-sm font-medium',
-              'hover:bg-card hover:border-border',
-              isAllActive && 'bg-card border-border',
-            )}
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto px-1 pr-3">
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <p className="text-sm font-medium">Filters</p>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon-xs"
+            onClick={onHide}
+            aria-label="Hide filters"
+            className="shrink-0 transition-none"
           >
-            <div className="bg-muted/40 dark:bg-background flex h-9 w-12 shrink-0 items-center justify-center rounded-md border">
-              <LayoutGrid className="text-muted-foreground size-4" />
-            </div>
-            <span className="truncate">All Blocks</span>
-          </Link>
-          {blockCategories.map((block) => {
-            const isActive =
-              navCategorySlug !== null && navCategorySlug === block.slug
-            const params = new URLSearchParams(searchParams.toString())
-            params.set('category', block.slug)
-            const href = `${pathname}?${params.toString()}`
-            const Concept = block.concept
-            return (
-              <Link
-                key={block.slug}
-                href={href}
-                aria-current={isActive ? 'page' : undefined}
-                className={cn(
-                  'text-foreground flex items-center gap-3 rounded-lg border border-transparent px-2 py-2 text-sm font-medium',
-                  'hover:bg-card hover:border-border',
-                  isActive && 'bg-card border-border',
+            <PanelLeftCloseIcon />
+          </Button>
+        </div>
+
+        <nav className="flex flex-col gap-4 pb-6">
+          <Section label="View">
+            <BlocksFilterChip
+              href={allBlocksHref(pathname, searchParams)}
+              active={isAllActive}
+              label="All blocks"
+              count={getAllBlocksCount()}
+            />
+          </Section>
+
+          <Section label="Themes">
+            {themes.map((theme) => (
+              <BlocksFilterChip
+                key={theme.slug}
+                href={themeFilterHref(
+                  pathname,
+                  searchParams,
+                  theme.slug,
+                  activeTheme,
                 )}
-              >
-                <div className="relative h-9 w-12 shrink-0">
-                  <div className="bg-muted/40 dark:bg-background relative h-full w-full overflow-hidden rounded-md border">
-                    <div
-                      className="absolute top-0 left-0 origin-top-left"
-                      style={{
-                        width: '200px',
-                        height: '150px',
-                        transform: 'scale(0.24)',
-                      }}
-                    >
-                      <Concept />
-                    </div>
-                  </div>
-                  {block.hasNew && (
-                    <span className="ring-background absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 ring-2" />
-                  )}
-                </div>
-                <span className="truncate">{block.category}</span>
-              </Link>
-            )
-          })}
+                active={activeTheme === theme.slug}
+                label={theme.name}
+                count={getThemeBlockCount(theme.slug)}
+              />
+            ))}
+          </Section>
+
+          <Section label="Categories">
+            {blockCategories.map((block) => (
+              <BlocksFilterChip
+                key={block.slug}
+                href={categoryFilterHref(
+                  pathname,
+                  searchParams,
+                  block.slug,
+                  activeCategories,
+                )}
+                active={activeCategories.includes(block.slug)}
+                label={block.category}
+                count={getCategoryBlockCount(block.slug, activeTheme)}
+              />
+            ))}
+          </Section>
         </nav>
       </div>
-    </aside>
+    </div>
   )
 }

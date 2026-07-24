@@ -1,71 +1,71 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useRef } from 'react'
+import { useMemo } from 'react'
+import { LayoutGridIcon } from 'lucide-react'
 
 import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
 import {
-  getValidBlocksCategorySlug,
-  isAllBlocksCategory,
+  isAllCategories,
+  parseCategoryFilter,
 } from '../lib/blocks-category'
+import {
+  filterBlocksByTheme,
+  getValidThemeSlug,
+} from '../lib/blocks-theme'
 import { blocks } from '@/lib/blocks/block-catalog'
-import { cn } from '@/lib/utils'
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty'
 
 export function Blocks() {
   const searchParams = useSearchParams()
 
-  const activeTab = getValidBlocksCategorySlug(searchParams.get('category'))
+  const activeCategories = parseCategoryFilter(searchParams.get('category'))
+  const activeTheme = getValidThemeSlug(searchParams.get('theme'))
 
-  const visitedRef = useRef<Set<string>>(new Set())
-  visitedRef.current.add(activeTab)
+  const items = useMemo(() => {
+    const byTheme = filterBlocksByTheme(blocks, activeTheme)
+    const categories = isAllCategories(activeCategories)
+      ? byTheme
+      : byTheme.filter((cat) => activeCategories.includes(cat.slug))
 
-  const showAll = isAllBlocksCategory(activeTab)
+    return categories.flatMap((category) =>
+      category.blocks.map((subBlock) => ({
+        key: `${category.slug}-${subBlock.slug}`,
+        categorySlug: category.slug,
+        subBlock,
+      })),
+    )
+  }, [activeTheme, activeCategories])
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="bg-background sticky top-14 z-30 w-full lg:hidden">
         <BlocksNavigation />
       </div>
-      {showAll && (
-        <div role="tabpanel" aria-hidden={false}>
-          <BlockPreviewGrid
-            withScrollAnchor
-            items={blocks.flatMap((category) =>
-              category.blocks.map((subBlock) => ({
-                key: `${category.slug}-${subBlock.slug}`,
-                categorySlug: category.slug,
-                subBlock,
-              })),
-            )}
-          />
-        </div>
+
+      {items.length === 0 ? (
+        <Empty className="border-border min-h-64 border border-dashed">
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <LayoutGridIcon />
+            </EmptyMedia>
+            <EmptyTitle>No blocks found</EmptyTitle>
+            <EmptyDescription>
+              No blocks match this filter combination. Try another theme or
+              category.
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
+      ) : (
+        <BlockPreviewGrid withScrollAnchor items={items} />
       )}
-      {!showAll &&
-        blocks.map((block) => {
-          if (!visitedRef.current.has(block.slug)) return null
-          const isActive = activeTab === block.slug
-          return (
-            <div
-              key={block.slug}
-              className={cn(
-                'transition-opacity duration-300',
-                isActive ? 'opacity-100' : 'hidden opacity-0',
-              )}
-              role="tabpanel"
-              aria-hidden={!isActive}
-            >
-              <BlockPreviewGrid
-                withScrollAnchor
-                items={block.blocks.map((subBlock) => ({
-                  key: subBlock.slug,
-                  categorySlug: block.slug,
-                  subBlock,
-                }))}
-              />
-            </div>
-          )
-        })}
     </div>
   )
 }

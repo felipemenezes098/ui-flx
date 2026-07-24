@@ -13,7 +13,7 @@ function GalleryCard({
     <Card
       size={size}
       className={cn(
-        'group/gallery-card hover:bg-card/30 gap-2.5! p-3 py-2.5!',
+        'group/gallery-card hover:bg-card/30 dark:bg-card/30 dark:hover:bg-card/60 gap-2.5! p-3 py-2.5!',
         className,
       )}
       {...props}

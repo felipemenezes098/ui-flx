@@ -2,8 +2,8 @@ import { Footer } from '@/components/core/footer'
 import { useMDXComponents } from '@/mdx-components'
 import { Metadata } from 'next'
 
-import { BlockBreadcrumb } from '../../components/block-breadcrumb'
-import { BlockMore } from '../../components/block-more'
+import { BlockBreadcrumb } from './components/block-breadcrumb'
+import { BlockMore } from './components/block-more'
 
 type Props = {
   params: Promise<{ category: string; slug: string }>

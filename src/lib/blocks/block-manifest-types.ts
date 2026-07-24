@@ -59,3 +59,10 @@ export interface BlockCategoryRow {
   concept: ComponentType
   blocks: BlockManifest[]
 }
+
+export interface BlockTheme {
+  slug: string
+  name: string
+  description: string
+  blocks: BlockManifest[]
+}
