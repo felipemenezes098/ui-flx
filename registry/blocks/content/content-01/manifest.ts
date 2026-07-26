@@ -9,8 +9,8 @@ export const manifest: BlockManifest = {
   description: 'List of items: select one to reveal its description and media.',
   category: 'content',
   image: {
-    light: '/images/blocks/content/content-01.png',
-    dark: '/images/blocks/content/content-01-dark.png',
+    light: '/images/blocks/content/content-01.webp',
+    dark: '/images/blocks/content/content-01-dark.webp',
   },
   component: Content01,
   editorFields: Content01EditorFields,

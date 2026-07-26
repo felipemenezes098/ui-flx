@@ -21,8 +21,8 @@ export const manifest: BlockManifest = {
   description: 'A focus grid with items that can be focused and dimmed.',
   category: 'content',
   image: {
-    light: '/images/blocks/content/content-05.png',
-    dark: '/images/blocks/content/content-05-dark.png',
+    light: '/images/blocks/content/content-05.webp',
+    dark: '/images/blocks/content/content-05-dark.webp',
   },
   component: Content05,
   editorFields: Content05EditorFields,

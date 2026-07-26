@@ -2,7 +2,7 @@
  * Capture block preview screenshots into public/images/blocks/.
  *
  * Light → manifest.image.light (white page background)
- * Dark  → manifest.image.dark ({slug}-dark.png)
+ * Dark  → manifest.image.dark ({slug}-dark.webp)
  *
  * Setup (once per machine, or after Playwright updates):
  *   pnpm playwright:install
@@ -21,6 +21,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { chromium, type Browser } from 'playwright'
+import sharp from 'sharp'
 
 import { blocks, getBlockBySlug } from '../src/lib/blocks/block-catalog'
 
@@ -31,6 +32,11 @@ const slugFilter = process.argv
   ?.split('=')[1]
 const missingOnly = process.argv.includes('--missing-only')
 const DEFAULT_CAPTURE_HEIGHT = 600
+
+// Gallery cards top out around 600px wide, so 1200px covers retina. Captures
+// come out at 2560px (1280 viewport x deviceScaleFactor 2).
+const OUTPUT_WIDTH = 1200
+const WEBP_QUALITY = 80
 
 function publicImagePath(urlPath: string) {
   return path.join(ROOT, 'public', urlPath.replace(/^\//, ''))
@@ -99,8 +105,13 @@ async function captureBlock(
     await container.waitFor({ state: 'visible', timeout: 30_000 })
     await page.waitForTimeout(captureDelay)
 
+    const png = await container.screenshot({ type: 'png' })
+
     fs.mkdirSync(path.dirname(outputPath), { recursive: true })
-    await container.screenshot({ path: outputPath, type: 'png' })
+    await sharp(png)
+      .resize({ width: OUTPUT_WIDTH, withoutEnlargement: true })
+      .webp({ quality: WEBP_QUALITY })
+      .toFile(outputPath)
   } finally {
     await context.close()
   }

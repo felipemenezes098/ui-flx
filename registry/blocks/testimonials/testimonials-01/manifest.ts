@@ -9,8 +9,8 @@ export const manifest: BlockManifest = {
   description: 'A single testimonial with quote, avatar, author name and role.',
   category: 'testimonials',
   image: {
-    light: '/images/blocks/testimonials/testimonials-01.png',
-    dark: '/images/blocks/testimonials/testimonials-01-dark.png',
+    light: '/images/blocks/testimonials/testimonials-01.webp',
+    dark: '/images/blocks/testimonials/testimonials-01-dark.webp',
   },
   component: Testimonials01,
   editorFields: Testimonials01EditorFields,

@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
 
-import { Analytics } from '@/components/core/analytics'
-import { SpeedInsights } from '@/components/core/speed-insights'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { siteConfig } from '@/config/site'
@@ -107,8 +105,6 @@ export default function RootLayout({
               </UIProvider>
             </ThemeProvider>
           </QueryProvider>
-          <Analytics />
-          <SpeedInsights />
         </TooltipProvider>
         <Toaster />
       </body>

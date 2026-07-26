@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'Two-column icon card grid with serif section header and subtle entrance motion.',
   category: 'content',
   image: {
-    light: '/images/blocks/content/content-09.png',
-    dark: '/images/blocks/content/content-09-dark.png',
+    light: '/images/blocks/content/content-09.webp',
+    dark: '/images/blocks/content/content-09-dark.webp',
   },
   meta: {
     iframeHeight: 700,

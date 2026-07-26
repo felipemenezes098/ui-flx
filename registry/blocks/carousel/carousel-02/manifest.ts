@@ -9,8 +9,8 @@ export const manifest: BlockManifest = {
   description: 'A carousel of media with a title and description.',
   category: 'carousel',
   image: {
-    light: '/images/blocks/carousel/carousel-02.png',
-    dark: '/images/blocks/carousel/carousel-02-dark.png',
+    light: '/images/blocks/carousel/carousel-02.webp',
+    dark: '/images/blocks/carousel/carousel-02-dark.webp',
   },
   meta: {
     iframeHeight: 700,

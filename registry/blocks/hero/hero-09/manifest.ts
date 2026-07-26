@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A centered real-estate hero with a search bar, a masked architecture image that fades into the page, and a split closing statement.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-09.png',
-    dark: '/images/blocks/hero/hero-09-dark.png',
+    light: '/images/blocks/hero/hero-09.webp',
+    dark: '/images/blocks/hero/hero-09-dark.webp',
   },
   meta: {
     iframeHeight: 1300,

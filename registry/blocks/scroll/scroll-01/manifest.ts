@@ -9,8 +9,8 @@ export const manifest: BlockManifest = {
   description: 'Sticky media that changes as you scroll through text content.',
   category: 'scroll',
   image: {
-    light: '/images/blocks/scroll/scroll-01.png',
-    dark: '/images/blocks/scroll/scroll-01-dark.png',
+    light: '/images/blocks/scroll/scroll-01.webp',
+    dark: '/images/blocks/scroll/scroll-01-dark.webp',
   },
   meta: {
     iframeHeight: 600,

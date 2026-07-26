@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A split hero with a bold headline, avatar social proof, and two image cards with invertible overlay text and CTAs.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-08.png',
-    dark: '/images/blocks/hero/hero-08-dark.png',
+    light: '/images/blocks/hero/hero-08.webp',
+    dark: '/images/blocks/hero/hero-08-dark.webp',
   },
   meta: {
     iframeHeight: 820,
