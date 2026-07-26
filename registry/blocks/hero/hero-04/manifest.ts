@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-04.png',
-    dark: '/images/blocks/hero/hero-04-dark.png',
+    light: '/images/blocks/hero/hero-04.webp',
+    dark: '/images/blocks/hero/hero-04-dark.webp',
   },
   meta: {
     iframeHeight: 820,

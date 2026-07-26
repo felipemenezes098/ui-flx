@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A centered hero with a highlighted headline, dual CTAs, social proof, and a fanned collage of three overlapping images.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-10.png',
-    dark: '/images/blocks/hero/hero-10-dark.png',
+    light: '/images/blocks/hero/hero-10.webp',
+    dark: '/images/blocks/hero/hero-10-dark.webp',
   },
   meta: {
     iframeHeight: 1100,

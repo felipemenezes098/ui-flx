@@ -14,8 +14,8 @@ export const manifest: BlockManifest = {
     'Auto-scroll carousel that pauses on item hover and reveals title.',
   category: 'carousel',
   image: {
-    light: '/images/blocks/carousel/carousel-01.png',
-    dark: '/images/blocks/carousel/carousel-01-dark.png',
+    light: '/images/blocks/carousel/carousel-01.webp',
+    dark: '/images/blocks/carousel/carousel-01-dark.webp',
   },
   meta: {
     iframeHeight: 500,

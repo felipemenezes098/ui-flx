@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-01.png',
-    dark: '/images/blocks/hero/hero-01-dark.png',
+    light: '/images/blocks/hero/hero-01.webp',
+    dark: '/images/blocks/hero/hero-01-dark.webp',
   },
   meta: {
     iframeHeight: 720,

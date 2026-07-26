@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'An editorial hero with a full-width image above, a top-aligned tagline, and right-aligned headline and copy below.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-07.png',
-    dark: '/images/blocks/hero/hero-07-dark.png',
+    light: '/images/blocks/hero/hero-07.webp',
+    dark: '/images/blocks/hero/hero-07-dark.webp',
   },
   meta: {
     iframeHeight: 1100,

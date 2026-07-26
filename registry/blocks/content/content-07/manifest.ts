@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'Two-column grid with serif header, media on top, copy, and optional CTA per column.',
   category: 'content',
   image: {
-    light: '/images/blocks/content/content-07.png',
-    dark: '/images/blocks/content/content-07-dark.png',
+    light: '/images/blocks/content/content-07.webp',
+    dark: '/images/blocks/content/content-07-dark.webp',
   },
   meta: {
     iframeHeight: 800,

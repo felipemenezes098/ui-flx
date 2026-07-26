@@ -9,8 +9,8 @@ export const manifest: BlockManifest = {
   description: 'A centered text block with a title, description, and CTA.',
   category: 'cta',
   image: {
-    light: '/images/blocks/cta/cta-01.png',
-    dark: '/images/blocks/cta/cta-01-dark.png',
+    light: '/images/blocks/cta/cta-01.webp',
+    dark: '/images/blocks/cta/cta-01-dark.webp',
   },
   component: Cta01,
   editorFields: Cta01EditorFields,

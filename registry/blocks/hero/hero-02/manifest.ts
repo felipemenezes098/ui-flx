@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-02.png',
-    dark: '/images/blocks/hero/hero-02-dark.png',
+    light: '/images/blocks/hero/hero-02.webp',
+    dark: '/images/blocks/hero/hero-02-dark.webp',
   },
   meta: {
     iframeHeight: 1300,

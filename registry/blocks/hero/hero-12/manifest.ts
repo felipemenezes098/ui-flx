@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'A full-bleed image hero with an oversized name, an established label, and a floating pill CTA anchored to the corner.',
   category: 'hero',
   image: {
-    light: '/images/blocks/hero/hero-12.png',
-    dark: '/images/blocks/hero/hero-12-dark.png',
+    light: '/images/blocks/hero/hero-12.webp',
+    dark: '/images/blocks/hero/hero-12-dark.webp',
   },
   meta: {
     iframeHeight: 720,

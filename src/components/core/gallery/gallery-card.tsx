@@ -75,12 +75,16 @@ function GalleryCardThemeImage({
       <img
         src={src.light}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         data-slot="gallery-card-image"
         className={cn('block w-full dark:hidden', className)}
       />
       <img
         src={src.dark}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         data-slot="gallery-card-image"
         className={cn('hidden w-full dark:block', className)}
       />

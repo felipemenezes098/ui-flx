@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'Logo carousel with auto-scroll, edge gradient and minimalist style.',
   category: 'logos',
   image: {
-    light: '/images/blocks/logos/logos-01.png',
-    dark: '/images/blocks/logos/logos-01-dark.png',
+    light: '/images/blocks/logos/logos-01.webp',
+    dark: '/images/blocks/logos/logos-01-dark.webp',
   },
   meta: {
     containerClassName: 'max-w-full overflow-hidden px-0',

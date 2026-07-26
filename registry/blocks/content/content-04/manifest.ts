@@ -10,8 +10,8 @@ export const manifest: BlockManifest = {
     'Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.',
   category: 'content',
   image: {
-    light: '/images/blocks/content/content-04.png',
-    dark: '/images/blocks/content/content-04-dark.png',
+    light: '/images/blocks/content/content-04.webp',
+    dark: '/images/blocks/content/content-04-dark.webp',
   },
   meta: {
     iframeHeight: 900,
