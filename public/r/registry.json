@@ -712,6 +712,32 @@
       "type": "registry:block"
     },
     {
+      "name": "hero-13",
+      "title": "Hero 13",
+      "description": "Asymmetric editorial hero with serif brand title, supporting copy, and two overlapping media frames.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-13/hero-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-13/hero-13.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-13/hero-13-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-13/hero-13-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "logos-01",
       "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",

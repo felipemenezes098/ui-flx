@@ -1,0 +1,61 @@
+export const metadata = {
+  title: 'Hero 13',
+  description:
+    'Asymmetric editorial hero with serif brand title, supporting copy, and two overlapping media frames.',
+  openGraph: {
+    title: 'Hero 13',
+    description:
+      'Asymmetric editorial hero with serif brand title, supporting copy, and two overlapping media frames.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-13" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-13" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-13/hero-13-example.tsx"
+  title="hero-13-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-13/hero-13.tsx"
+  collapsible
+  title="hero-13.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-13/hero-13-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

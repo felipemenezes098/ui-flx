@@ -372,6 +372,32 @@
         "iframeHeight": 720,
         "containerClassName": "flex min-h-screen max-w-full overflow-hidden p-0"
       }
+    },
+    {
+      "name": "hero-13",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "hero-13/hero-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-13/hero-13.tsx"
+        },
+        {
+          "path": "hero-13/hero-13-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-13/hero-13-example.tsx"
+        }
+      ],
+      "title": "Hero 13",
+      "description": "Asymmetric editorial hero with serif brand title, supporting copy, and two overlapping media frames.",
+      "meta": {
+        "iframeHeight": 1100
+      }
     }
   ]
 }

@@ -1,13 +1,11 @@
 import type { BlockTheme } from '@/lib/blocks/block-manifest-types'
 
-import { manifest as bentoGrids01 } from '../../bento-grids/bento-grids-01/manifest'
 import { manifest as content01 } from '../../content/content-01/manifest'
 import { manifest as content02 } from '../../content/content-02/manifest'
 import { manifest as content04 } from '../../content/content-04/manifest'
 import { manifest as content06 } from '../../content/content-06/manifest'
 import { manifest as content07 } from '../../content/content-07/manifest'
 import { manifest as content09 } from '../../content/content-09/manifest'
-import { manifest as cta01 } from '../../cta/cta-01/manifest'
 import { manifest as hero01 } from '../../hero/hero-01/manifest'
 import { manifest as hero02 } from '../../hero/hero-02/manifest'
 import { manifest as hero03 } from '../../hero/hero-03/manifest'
@@ -19,7 +17,7 @@ import { manifest as hero08 } from '../../hero/hero-08/manifest'
 import { manifest as hero09 } from '../../hero/hero-09/manifest'
 import { manifest as hero10 } from '../../hero/hero-10/manifest'
 import { manifest as hero11 } from '../../hero/hero-11/manifest'
-import { manifest as testimonials01 } from '../../testimonials/testimonials-01/manifest'
+import { manifest as hero13 } from '../../hero/hero-13/manifest'
 
 export const siennaTheme: BlockTheme = {
   slug: 'sienna',
@@ -38,6 +36,7 @@ export const siennaTheme: BlockTheme = {
     hero09,
     hero10,
     hero11,
+    hero13,
     content01,
     content02,
     content04,
