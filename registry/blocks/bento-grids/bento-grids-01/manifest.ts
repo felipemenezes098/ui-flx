@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.',
   category: 'bento-grids',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/bento-grids/bento-grids-01.webp',
     dark: '/images/blocks/bento-grids/bento-grids-01-dark.webp',

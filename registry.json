@@ -9,7 +9,8 @@
     "registry/intents/registry.json",
     "registry/compositions/registry.json",
     "registry/sketches/registry.json",
-    "registry/illustrations/registry.json"
+    "registry/illustrations/registry.json",
+    "registry/presets/registry.json"
   ],
   "items": []
 }

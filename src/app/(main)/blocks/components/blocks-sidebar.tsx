@@ -7,19 +7,19 @@ import { isAllCategories } from '../lib/blocks-category'
 import {
   allBlocksHref,
   categoryFilterHref,
-  themeFilterHref,
+  presetFilterHref,
 } from '../lib/blocks-filter-url'
 import {
   getAllBlocksCount,
   getCategoryBlockCount,
-  getThemeBlockCount,
-  getValidThemeSlug,
-  isAllThemes,
-} from '../lib/blocks-theme'
+  getPresetBlockCount,
+  getValidPresetSlug,
+  isAllPresets,
+} from '../lib/blocks-preset'
 import { useBlocksNavCategories } from '../hooks/use-blocks-nav-category'
 import { BlocksFilterChip } from './blocks-filter-chip'
 import { Button } from '@/components/ui/button'
-import { blockCategories, themes } from '@/lib/blocks/block-catalog'
+import { blockCategories, blockPresets } from '@/lib/blocks/block-catalog'
 
 function Section({
   label,
@@ -45,10 +45,10 @@ export function BlocksSidebar({
   const searchParams = useSearchParams()
   const navCategories = useBlocksNavCategories()
   const activeCategories = navCategories ?? []
-  const activeTheme = getValidThemeSlug(searchParams.get('theme'))
-  const themeIsAll = isAllThemes(activeTheme)
+  const activePreset = getValidPresetSlug(searchParams.get('preset'))
+  const presetIsAll = isAllPresets(activePreset)
   const categoryIsAll = isAllCategories(activeCategories)
-  const isAllActive = categoryIsAll && themeIsAll
+  const isAllActive = categoryIsAll && presetIsAll
 
   return (
     <div className="flex h-full min-h-0 flex-col">
@@ -77,19 +77,19 @@ export function BlocksSidebar({
             />
           </Section>
 
-          <Section label="Themes">
-            {themes.map((theme) => (
+          <Section label="Presets">
+            {blockPresets.map((preset) => (
               <BlocksFilterChip
-                key={theme.slug}
-                href={themeFilterHref(
+                key={preset.id}
+                href={presetFilterHref(
                   pathname,
                   searchParams,
-                  theme.slug,
-                  activeTheme,
+                  preset.id,
+                  activePreset,
                 )}
-                active={activeTheme === theme.slug}
-                label={theme.name}
-                count={getThemeBlockCount(theme.slug)}
+                active={activePreset === preset.id}
+                label={preset.name}
+                count={getPresetBlockCount(preset.id)}
               />
             ))}
           </Section>
@@ -106,7 +106,7 @@ export function BlocksSidebar({
                 )}
                 active={activeCategories.includes(block.slug)}
                 label={block.category}
-                count={getCategoryBlockCount(block.slug, activeTheme)}
+                count={getCategoryBlockCount(block.slug, activePreset)}
               />
             ))}
           </Section>

@@ -8,6 +8,7 @@ export const manifest: BlockManifest = {
   name: 'Carousel 03',
   description: 'A carousel of cards with a title and description.',
   category: 'carousel',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/carousel/carousel-03.webp',
     dark: '/images/blocks/carousel/carousel-03-dark.webp',

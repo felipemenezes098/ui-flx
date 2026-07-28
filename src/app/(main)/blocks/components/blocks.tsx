@@ -6,14 +6,8 @@ import { LayoutGridIcon } from 'lucide-react'
 
 import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
-import {
-  isAllCategories,
-  parseCategoryFilter,
-} from '../lib/blocks-category'
-import {
-  filterBlocksByTheme,
-  getValidThemeSlug,
-} from '../lib/blocks-theme'
+import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
+import { filterBlocksByPreset, getValidPresetSlug } from '../lib/blocks-preset'
 import { blocks } from '@/lib/blocks/block-catalog'
 import {
   Empty,
@@ -27,13 +21,13 @@ export function Blocks() {
   const searchParams = useSearchParams()
 
   const activeCategories = parseCategoryFilter(searchParams.get('category'))
-  const activeTheme = getValidThemeSlug(searchParams.get('theme'))
+  const activePreset = getValidPresetSlug(searchParams.get('preset'))
 
   const items = useMemo(() => {
-    const byTheme = filterBlocksByTheme(blocks, activeTheme)
+    const byPreset = filterBlocksByPreset(blocks, activePreset)
     const categories = isAllCategories(activeCategories)
-      ? byTheme
-      : byTheme.filter((cat) => activeCategories.includes(cat.slug))
+      ? byPreset
+      : byPreset.filter((cat) => activeCategories.includes(cat.slug))
 
     return categories.flatMap((category) =>
       category.blocks.map((subBlock) => ({
@@ -42,7 +36,7 @@ export function Blocks() {
         subBlock,
       })),
     )
-  }, [activeTheme, activeCategories])
+  }, [activePreset, activeCategories])
 
   return (
     <div className="space-y-4">
@@ -58,7 +52,7 @@ export function Blocks() {
             </EmptyMedia>
             <EmptyTitle>No blocks found</EmptyTitle>
             <EmptyDescription>
-              No blocks match this filter combination. Try another theme or
+              No blocks match this filter combination. Try another preset or
               category.
             </EmptyDescription>
           </EmptyHeader>

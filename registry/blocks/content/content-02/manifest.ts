@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'A grid of media cards with a section header and item details below each image.',
   category: 'content',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/content/content-02.webp',
     dark: '/images/blocks/content/content-02-dark.webp',

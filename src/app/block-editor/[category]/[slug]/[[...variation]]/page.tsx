@@ -42,8 +42,7 @@ export async function generateMetadata({
     ? `${item.name} (${variationName}) Editor`
     : `${item.name} Editor`
   const description =
-    item.description ||
-    `Edit the ${item.name} block. ${siteConfig.description}`
+    item.description || `Edit the ${item.name} block. ${siteConfig.description}`
 
   return {
     title,

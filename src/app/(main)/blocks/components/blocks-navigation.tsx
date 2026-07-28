@@ -2,31 +2,31 @@
 
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { blockCategories, themes } from '@/lib/blocks/block-catalog'
+import { blockCategories, blockPresets } from '@/lib/blocks/block-catalog'
 
 import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
 import {
   allBlocksHref,
   categoryFilterHref,
-  themeFilterHref,
+  presetFilterHref,
 } from '../lib/blocks-filter-url'
 import {
   getAllBlocksCount,
   getCategoryBlockCount,
-  getThemeBlockCount,
-  getValidThemeSlug,
-  isAllThemes,
-} from '../lib/blocks-theme'
+  getPresetBlockCount,
+  getValidPresetSlug,
+  isAllPresets,
+} from '../lib/blocks-preset'
 import { BlocksFilterChip } from './blocks-filter-chip'
 
 export function BlocksNavigation() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const activeCategories = parseCategoryFilter(searchParams.get('category'))
-  const activeTheme = getValidThemeSlug(searchParams.get('theme'))
-  const themeIsAll = isAllThemes(activeTheme)
+  const activePreset = getValidPresetSlug(searchParams.get('preset'))
+  const presetIsAll = isAllPresets(activePreset)
   const categoryIsAll = isAllCategories(activeCategories)
-  const isAllActive = categoryIsAll && themeIsAll
+  const isAllActive = categoryIsAll && presetIsAll
 
   return (
     <div className="no-scrollbar scroll-fade-x flex min-w-0 overflow-x-auto py-2">
@@ -39,18 +39,18 @@ export function BlocksNavigation() {
           className="shrink-0"
         />
 
-        {themes.map((theme) => (
+        {blockPresets.map((preset) => (
           <BlocksFilterChip
-            key={theme.slug}
-            href={themeFilterHref(
+            key={preset.id}
+            href={presetFilterHref(
               pathname,
               searchParams,
-              theme.slug,
-              activeTheme,
+              preset.id,
+              activePreset,
             )}
-            active={activeTheme === theme.slug}
-            label={theme.name}
-            count={getThemeBlockCount(theme.slug)}
+            active={activePreset === preset.id}
+            label={preset.name}
+            count={getPresetBlockCount(preset.id)}
             className="shrink-0"
           />
         ))}
@@ -66,7 +66,7 @@ export function BlocksNavigation() {
             )}
             active={activeCategories.includes(block.slug)}
             label={block.category}
-            count={getCategoryBlockCount(block.slug, activeTheme)}
+            count={getCategoryBlockCount(block.slug, activePreset)}
             className="shrink-0"
           />
         ))}

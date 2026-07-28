@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'A split-copy hero with a light product studio mock — issue feed, properties, and a floating agent panel that fades into the page.',
   category: 'hero',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/hero/hero-11.webp',
     dark: '/images/blocks/hero/hero-11-dark.webp',

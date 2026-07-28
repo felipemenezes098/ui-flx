@@ -11,6 +11,7 @@
  *   pnpm dev   (port 3002)
  *   pnpm blocks:capture-screenshots
  *   pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=hero-01
+ *   pnpm dlx tsx scripts/capture-block-screenshots.ts --preset=sienna
  *   pnpm dlx tsx scripts/capture-block-screenshots.ts --missing-only
  *
  * Per-block delay: set meta.captureDelay (ms) in the block manifest.
@@ -30,6 +31,9 @@ const BASE_URL = process.env.BASE_URL ?? 'http://localhost:3002'
 const slugFilter = process.argv
   .find((arg) => arg.startsWith('--slug='))
   ?.split('=')[1]
+const presetFilter = process.argv
+  .find((arg) => arg.startsWith('--preset='))
+  ?.split('=')[1]
 const missingOnly = process.argv.includes('--missing-only')
 const DEFAULT_CAPTURE_HEIGHT = 600
 
@@ -39,7 +43,8 @@ const OUTPUT_WIDTH = 1200
 const WEBP_QUALITY = 80
 
 function publicImagePath(urlPath: string) {
-  return path.join(ROOT, 'public', urlPath.replace(/^\//, ''))
+  const withoutQuery = urlPath.split('?')[0]
+  return path.join(ROOT, 'public', withoutQuery.replace(/^\//, ''))
 }
 
 function imageExists(urlPath: string) {
@@ -89,9 +94,6 @@ async function captureBlock(
     const captureStyles = [
       '*, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; }',
       '#next-logo, nextjs-portal, [data-nextjs-dev-tools-button] { display: none !important; }',
-      theme === 'light'
-        ? 'html, body { background-color: #ffffff !important; }'
-        : '',
       captureViewportOnly
         ? `[data-block-preview] { max-height: ${captureHeight}px !important; overflow: hidden !important; }`
         : '',
@@ -125,6 +127,7 @@ async function main() {
   for (const category of blocks) {
     for (const block of category.blocks) {
       if (slugFilter && block.slug !== slugFilter) continue
+      if (presetFilter && block.preset !== presetFilter) continue
 
       const lightPath = publicImagePath(block.image.light)
       const darkPath = publicImagePath(block.image.dark)

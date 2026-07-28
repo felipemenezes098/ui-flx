@@ -1,6 +1,8 @@
 import type React from 'react'
 import type { ComponentType } from 'react'
 
+import type { PresetId } from '@/lib/presets/presets-config'
+
 export interface BlockImage {
   light: string
   dark: string
@@ -19,6 +21,7 @@ export interface BlockManifest<TProps = Record<string, unknown>> {
   name: string
   description: string
   category: string
+  preset: PresetId
   image: BlockImage
   meta?: BlockMeta
   hasNew?: boolean
@@ -33,6 +36,7 @@ export interface BlockManifest<TProps = Record<string, unknown>> {
 export interface BlockItem {
   name: string
   description: string
+  preset: PresetId
   image: BlockImage
   slug: string
   hasNew?: boolean
@@ -57,12 +61,5 @@ export interface BlockCategoryRow {
   hasNew?: boolean
   image: BlockImage
   concept: ComponentType
-  blocks: BlockManifest[]
-}
-
-export interface BlockTheme {
-  slug: string
-  name: string
-  description: string
   blocks: BlockManifest[]
 }

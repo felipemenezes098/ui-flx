@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { PresetScope } from '@/components/core/preset/preset-scope'
 import { siteConfig } from '@/config/site'
 import { blocks, getBlockBySlug } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
@@ -74,22 +75,27 @@ export default async function BlockPreviewPage({
   if (!item) return notFound()
 
   const manifest = getBlockBySlug(slug)
+  if (!manifest) return notFound()
+
   const VariationExample = variationName
-    ? manifest?.variations?.[variationName]
+    ? manifest.variations?.[variationName]
     : null
-  const Example = VariationExample || manifest?.example
-  const Comp = Example || manifest?.component
+  const Example = VariationExample || manifest.example
+  const Comp = Example || manifest.component
   if (!Comp) return notFound()
 
-  const defaults = manifest?.defaults ?? {}
+  const defaults = manifest.defaults ?? {}
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center">
+    <PresetScope
+      preset={manifest.preset}
+      className="bg-background flex min-h-screen w-full items-center justify-center"
+    >
       <div
         data-block-preview
         className={cn(
           'mx-auto h-full w-full max-w-7xl p-5',
-          manifest?.meta?.containerClassName,
+          manifest.meta?.containerClassName,
         )}
       >
         {Example ? (
@@ -97,13 +103,13 @@ export default async function BlockPreviewPage({
         ) : (
           <Comp
             {...defaults}
-            className={manifest?.meta?.componentClassName}
+            className={manifest.meta?.componentClassName}
             imageProps={{
               unoptimized: true,
             }}
           />
         )}
       </div>
-    </div>
+    </PresetScope>
   )
 }

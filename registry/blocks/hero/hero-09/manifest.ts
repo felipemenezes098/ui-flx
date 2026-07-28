@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'A centered real-estate hero with a search bar, a masked architecture image that fades into the page, and a split closing statement.',
   category: 'hero',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/hero/hero-09.webp',
     dark: '/images/blocks/hero/hero-09-dark.webp',

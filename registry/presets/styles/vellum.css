@@ -1,9 +1,9 @@
-/* Preset: flint — Flexnative default (matches app :root / .dark tokens) */
+/* Preset: vellum — the Flexnative shell as shipped (mirrors app :root / .dark) */
 
-[data-preset='flint'] {
+[data-preset='vellum'] {
   --background: oklch(0.986 0 0);
   --foreground: oklch(0.2435 0 0);
-  --card: oklch(0.9911 0 0);
+  --card: oklch(100% 0.00011 271.152);
   --card-foreground: oklch(0.2435 0 0);
   --popover: oklch(0.9911 0 0);
   --popover-foreground: oklch(0.2435 0 0);
@@ -29,7 +29,7 @@
   --sidebar-foreground: oklch(0.2645 0 0);
   --sidebar-primary: oklch(0.325 0 0);
   --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.9761 0 0);
+  --sidebar-accent: oklch(94% 0.00011 271.152);
   --sidebar-accent-foreground: oklch(0.325 0 0);
   --sidebar-border: oklch(0.9401 0 0);
   --sidebar-ring: oklch(0.7731 0 0);
@@ -56,8 +56,8 @@
   --spacing: 0.25rem;
 }
 
-.dark [data-preset='flint'],
-[data-preset='flint'].dark {
+.dark [data-preset='vellum'],
+[data-preset='vellum'].dark {
   --background: oklch(0.1776 0 0);
   --foreground: oklch(0.9491 0 0);
   --card: oklch(0.2134 0 0);
@@ -66,7 +66,7 @@
   --popover-foreground: oklch(0.9491 0 0);
   --primary: oklch(0.9911 0 0);
   --primary-foreground: oklch(0.2029 0.024 200.1962);
-  --secondary: oklch(0.342 0.0044 67.6778);
+  --secondary: oklch(23.536% 0.00404 84.55);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.252 0 0);
   --muted-foreground: oklch(0.7699 0 0);

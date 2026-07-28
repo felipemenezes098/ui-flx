@@ -6,15 +6,15 @@ import type {
   BlockImage,
   BlockItem,
   BlockManifest,
-  BlockTheme,
 } from '@/lib/blocks/block-manifest-types'
+import type { PresetConfig } from '@/lib/presets/presets-config'
+import { presets } from '@/lib/presets/presets-config'
 
 import { bentoGridsCategory } from 'registry/blocks/bento-grids/catalog'
 import { contentCategory } from 'registry/blocks/content/catalog'
 import { ctaCategory } from 'registry/blocks/cta/catalog'
 import { heroCategory } from 'registry/blocks/hero/catalog'
 import { testimonialsCategory } from 'registry/blocks/testimonials/catalog'
-import { themes } from 'registry/blocks/themes/catalog'
 
 export const categories: BlockCategoryRow[] = [
   heroCategory,
@@ -30,6 +30,7 @@ function manifestToBlockItem(m: BlockManifest): BlockItem {
   return {
     name: m.name,
     description: m.description,
+    preset: m.preset,
     image: m.image,
     slug: m.slug,
     hasNew: m.hasNew,
@@ -68,16 +69,9 @@ export function getBlockBySlug(slug: string): BlockManifest | undefined {
   return allManifests.find((m) => m.slug === slug)
 }
 
-export { themes }
+/** Presets with at least one block, in presets-config order. */
+export const blockPresets: PresetConfig[] = presets.filter((p) =>
+  allManifests.some((m) => m.preset === p.id),
+)
 
-export function getThemeBySlug(slug: string): BlockTheme | undefined {
-  return themes.find((t) => t.slug === slug)
-}
-
-export type {
-  BlockCategory,
-  BlockItem,
-  BlockImage,
-  BlockManifest,
-  BlockTheme,
-}
+export type { BlockCategory, BlockItem, BlockImage, BlockManifest }

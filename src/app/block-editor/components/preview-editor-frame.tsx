@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 
+import { PresetScope } from '@/components/core/preset/preset-scope'
 import { getBlockBySlug } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
 
@@ -32,12 +33,15 @@ export function PreviewEditorFrame({
   const Comp = manifest.component
 
   return (
-    <div className="no-scrollbar h-screen w-full overflow-y-auto">
+    <PresetScope
+      preset={manifest.preset}
+      className="bg-background no-scrollbar h-screen w-full overflow-y-auto"
+    >
       <div className="flex min-h-full w-full items-center justify-center">
         <div
           data-block-preview
           className={cn(
-            'mx-auto h-full w-full max-w-7xl p-5',
+            'mx-auto h-full w-full max-w-7xl',
             manifest.meta?.containerClassName,
           )}
         >
@@ -48,6 +52,6 @@ export function PreviewEditorFrame({
           />
         </div>
       </div>
-    </div>
+    </PresetScope>
   )
 }

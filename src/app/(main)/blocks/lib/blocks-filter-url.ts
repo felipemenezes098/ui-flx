@@ -10,29 +10,29 @@ function toHref(pathname: string, params: URLSearchParams): string {
   return qs ? `${pathname}?${qs}` : pathname
 }
 
-/** Clear theme + category → all blocks. */
+/** Clear preset + category → all blocks. */
 export function allBlocksHref(
   pathname: string,
   searchParams: URLSearchParams,
 ): string {
   const params = new URLSearchParams(searchParams.toString())
   params.set('category', ALL_BLOCKS_CATEGORY_SLUG)
-  params.delete('theme')
+  params.delete('preset')
   return toHref(pathname, params)
 }
 
-/** Toggle theme: same slug clears; other slug selects. */
-export function themeFilterHref(
+/** Toggle preset: same slug clears; other slug selects. */
+export function presetFilterHref(
   pathname: string,
   searchParams: URLSearchParams,
-  themeSlug: string,
-  activeTheme: string,
+  presetSlug: string,
+  activePreset: string,
 ): string {
   const params = new URLSearchParams(searchParams.toString())
-  if (activeTheme === themeSlug) {
-    params.delete('theme')
+  if (activePreset === presetSlug) {
+    params.delete('preset')
   } else {
-    params.set('theme', themeSlug)
+    params.set('preset', presetSlug)
   }
   return toHref(pathname, params)
 }

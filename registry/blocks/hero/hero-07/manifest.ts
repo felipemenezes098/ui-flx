@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'An editorial hero with a full-width image above, a top-aligned tagline, and right-aligned headline and copy below.',
   category: 'hero',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/hero/hero-07.webp',
     dark: '/images/blocks/hero/hero-07-dark.webp',

@@ -8,6 +8,7 @@ export const manifest: BlockManifest = {
   name: 'Scroll 01',
   description: 'Sticky media that changes as you scroll through text content.',
   category: 'scroll',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/scroll/scroll-01.webp',
     dark: '/images/blocks/scroll/scroll-01-dark.webp',

@@ -20,6 +20,7 @@ export const manifest: BlockManifest = {
   name: 'Content 05',
   description: 'A focus grid with items that can be focused and dimmed.',
   category: 'content',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/content/content-05.webp',
     dark: '/images/blocks/content/content-05-dark.webp',
