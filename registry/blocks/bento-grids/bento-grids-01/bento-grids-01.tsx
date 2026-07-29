@@ -38,7 +38,7 @@ export function BentoGrids01({
           className={cn('grid grid-cols-1 gap-6 md:grid-cols-3', className)}
           aria-label="Bento grids 01"
         >
-          <article className="bg-muted/50 col-span-1 overflow-hidden rounded-md p-4 md:col-span-2">
+          <article className="bg-card col-span-1 overflow-hidden rounded-md p-4 md:col-span-2">
             <div className="grid h-full grid-cols-1 items-stretch gap-6 md:grid-cols-2">
               <div className="flex flex-col justify-between gap-6">
                 <div className="space-y-3">
@@ -70,7 +70,7 @@ export function BentoGrids01({
           {items.map((item) => (
             <article
               key={`${item.title}-${item.media.src}`}
-              className="bg-muted/50 col-span-1 overflow-hidden rounded-md p-4"
+              className="bg-card col-span-1 overflow-hidden rounded-md p-4"
             >
               <div className="flex h-full flex-col gap-6">
                 <div className="bg-muted relative aspect-[4/3] overflow-hidden rounded-md">
