@@ -20,10 +20,14 @@ and **8 (screenshots)** — they are not optional.
 4. **Add entry** to `registry/blocks/<category>/registry.json`.
 5. **Create MDX** at `src/app/content/blocks/<category>/<slug>.mdx`.
 6. **Validate + sync + build** (`registry:validate` → `registry:sync` → `registry:validate` → `registry:build`).
-7. **Capture screenshots** (`image.light` + `image.dark` PNGs). REQUIRED.
+7. **Capture screenshots** (`image.light` + `image.dark` WebP). REQUIRED.
 8. **Report** the illustration decision.
 
-Categories: `hero` | `content` | `carousel` | `showcase` | `bento-grids` | `logos` | `testimonials` | `scroll`
+Categories rendered in the gallery: `hero` | `content` | `cta` | `bento-grids` | `testimonials`
+
+`carousel`, `logos` and `scroll` have folders and manifests but are **not** registered in
+`src/lib/blocks/block-catalog.ts` — a block added there builds fine and never appears on
+`/blocks`. Do not use them without asking first.
 
 ---
 
@@ -170,7 +174,7 @@ export function MyBlockEditorFields({
 ### `manifest.ts` — single source of truth
 
 `image.light` + `image.dark` are **both required** (`registry:validate` fails if empty). Paths:
-`public/images/blocks/<category>/<slug>.png` (light) and `<slug>-dark.png` (dark).
+`public/images/blocks/<category>/<slug>.webp` (light) and `<slug>-dark.webp` (dark).
 
 ```ts
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
@@ -183,9 +187,10 @@ export const manifest: BlockManifest = {
   name: 'My Block',
   description: 'Short description of what the block does.',
   category: 'content', // must match an existing category slug
+  preset: 'sienna', // 'sienna' | 'vellum' — see below
   image: {
-    light: '/images/blocks/content/my-block.png',
-    dark: '/images/blocks/content/my-block-dark.png',
+    light: '/images/blocks/content/my-block.webp',
+    dark: '/images/blocks/content/my-block-dark.webp',
   },
   meta: { iframeHeight: 600 }, // + captureViewportOnly: true for scroll/interactive blocks
   hasNew: true, // optional badge
@@ -195,6 +200,27 @@ export const manifest: BlockManifest = {
   defaults: values, // must be the same `values` object from the example file
 }
 ```
+
+### Choosing the `preset`
+
+Required — `tsc` fails without it. It does two things at once:
+
+- **Gallery filter** — the block only shows under that preset's chip on `/blocks`
+- **Screenshot palette** — the preview wraps the block in `PresetScope`, so step 7 captures
+  it under those tokens
+
+Blocks are preset-agnostic by construction (semantic tokens only, never a hard-coded color),
+so this is a **showcase decision, not a constraint**: the same block works under any preset.
+Pick the one the design was composed for.
+
+| | |
+|---|---|
+| `sienna` | Cream paper, burnt-earth ink, generous radius. Editorial and warm — serif headlines, watercolor or painterly art. |
+| `vellum` | The app shell: near-neutral surfaces, warm charcoal primary. Product-y and understated — dashboards, logo walls, dense UI. |
+
+Never invent a preset id — it must already exist in `src/lib/presets/presets-config.ts` with
+a matching `registry/presets/styles/<id>.css` and an entry in `registry/presets/registry.json`.
+Creating a preset is out of scope for this skill; ask before doing it.
 
 ### Inline illustration (hero / feature / empty-state / CTA blocks)
 
@@ -343,17 +369,21 @@ pnpm run registry:build      # regenerates public/r/*.json
 
 ## Step 7 — Capture screenshots (REQUIRED)
 
-The manifest points at `image.light`/`image.dark` PNGs that do **not exist until you capture
-them**. Do not skip this — the block card renders broken without them.
+The manifest points at `image.light`/`image.dark` WebP files that do **not exist until you
+capture them**. Do not skip this — the block card renders broken without them.
 
 ```bash
-pnpm run playwright:install   # once per machine
-pnpm run dev                  # in a separate terminal — capture needs it running
-pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=<slug>
+pnpm run playwright:install                          # once per machine
+pnpm run dev                                         # separate terminal — capture needs it
+pnpm run blocks:capture-screenshots --slug=<slug>
 ```
 
-Confirm both PNGs now exist under `public/images/blocks/<category>/`. Batch options:
-`pnpm run blocks:capture-screenshots` (all) or `... --missing-only`.
+Confirm both `.webp` now exist under `public/images/blocks/<category>/`. Other filters:
+`--preset=<id>` (every block on that preset — use after changing a preset's tokens),
+`--missing-only`, or no flag for all.
+
+Captures render inside `PresetScope`, so the block sits on its own preset's surface. If a
+capture looks like the wrong palette, the `preset` in the manifest is wrong — not the script.
 
 ---
 
@@ -371,12 +401,12 @@ chose a photo / none. Never silently drop it.
 - [ ] Constitution held — staggered enter / subtle exit, `prefers-reduced-motion`, only `transform`/`opacity`/`filter`, `<Balancer>`, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii, `mask-*` for fades, shadcn primitives
 - [ ] `<slug>-example.tsx` — exports `values` + named example
 - [ ] `editor/fields.tsx` — defaults from `../<slug>-example`
-- [ ] `manifest.ts` — all fields incl. `image.light` + `image.dark`; `defaults` === example `values`
+- [ ] `manifest.ts` — all fields incl. `preset` and `image.light` + `image.dark` (`.webp`); `defaults` === example `values`
 - [ ] `catalog.ts` — import + array entry
 - [ ] `registry.json` — entry with `files[]` for every `.tsx`, `registryDependencies`, `dependencies`
 - [ ] `<slug>.mdx` — metadata matches manifest; Command + Manual tabs; a `<Step>` per extra file
 - [ ] `registry:sync` → `registry:validate` PASSES → `registry:build`
-- [ ] Screenshots captured — both PNGs exist under `public/images/blocks/<category>/`
+- [ ] Screenshots captured — both `.webp` exist under `public/images/blocks/<category>/`, in the manifest's preset
 - [ ] Illustration decision reported
 
 ---
