@@ -1,5 +1,7 @@
 import { getBlockBySlug } from '@/lib/blocks/block-catalog'
 import { buildBlockPrompt } from '@/lib/blocks/blocks-utils'
+import { loadPresetCss } from '@/lib/presets/load-preset-css'
+import { presets } from '@/lib/presets/presets-config'
 import { toRegistryCodeFiles } from '@/lib/registry-source'
 import { getRegistryItem } from '@/lib/registry-utils.server'
 
@@ -29,7 +31,10 @@ export function BlockView({
   // iframeHeight comes from the TS catalog (source of truth) so height edits
   // reflect without registry:sync + registry:build. Code files still come from
   // the built public/r JSON via getRegistryItem above.
-  const iframeHeight = getBlockBySlug(slug)?.meta?.iframeHeight
+  const manifest = getBlockBySlug(slug)
+  const iframeHeight = manifest?.meta?.iframeHeight
+  const preset = presets.find((p) => p.id === manifest?.preset) ?? presets[0]
+  const presetCss = loadPresetCss()[preset.id]
 
   const src = variation
     ? `/preview/blocks/${category}/${slug}/${variation}`
@@ -45,6 +50,8 @@ export function BlockView({
       registryName={slug}
       codeFiles={codeFiles}
       prompt={prompt}
+      preset={preset}
+      presetCss={presetCss}
       iframeHeight={iframeHeight}
       className={className}
     />
