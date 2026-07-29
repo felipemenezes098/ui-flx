@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'Logo carousel with auto-scroll, edge gradient and minimalist style.',
   category: 'logos',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/logos/logos-01.webp',
     dark: '/images/blocks/logos/logos-01-dark.webp',

@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'A split hero with a bold headline, avatar social proof, and two image cards with invertible overlay text and CTAs.',
   category: 'hero',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/hero/hero-08.webp',
     dark: '/images/blocks/hero/hero-08-dark.webp',

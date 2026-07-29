@@ -8,6 +8,7 @@ export const manifest: BlockManifest = {
   name: 'Call to Action 01',
   description: 'A centered text block with a title, description, and CTA.',
   category: 'cta',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/cta/cta-01.webp',
     dark: '/images/blocks/cta/cta-01-dark.webp',

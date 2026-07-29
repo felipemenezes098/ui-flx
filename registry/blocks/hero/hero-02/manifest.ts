@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'A left-aligned serif hero with a media panel: an image backdrop with a floating dashboard mockup on top.',
   category: 'hero',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/hero/hero-02.webp',
     dark: '/images/blocks/hero/hero-02-dark.webp',

@@ -9,6 +9,7 @@ export const manifest: BlockManifest = {
   description:
     'Two-column icon card grid with serif section header and subtle entrance motion.',
   category: 'content',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/content/content-09.webp',
     dark: '/images/blocks/content/content-09-dark.webp',

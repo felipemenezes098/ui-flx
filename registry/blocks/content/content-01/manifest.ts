@@ -8,6 +8,7 @@ export const manifest: BlockManifest = {
   name: 'Content 01',
   description: 'List of items: select one to reveal its description and media.',
   category: 'content',
+  preset: 'sienna',
   image: {
     light: '/images/blocks/content/content-01.webp',
     dark: '/images/blocks/content/content-01-dark.webp',

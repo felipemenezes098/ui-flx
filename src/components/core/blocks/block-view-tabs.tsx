@@ -4,9 +4,11 @@ import {
   EditButton,
   FullscreenButton,
 } from '@/components/core/preview/preview-actions'
+import { PresetPanel } from '@/components/core/preview/preset-panel'
 import { PreviewTabs } from '@/components/core/preview/preview-tabs'
 import { PromptPanel } from '@/components/core/preview/prompt-panel'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
+import type { PresetConfig } from '@/lib/presets/presets-config'
 import type { RegistryCodeFile } from '@/lib/registry-source'
 
 interface BlockViewTabsProps {
@@ -15,6 +17,8 @@ interface BlockViewTabsProps {
   registryName: string
   codeFiles: RegistryCodeFile[]
   prompt: string
+  preset: PresetConfig
+  presetCss: string
   iframeHeight?: number
   className?: string
 }
@@ -30,6 +34,8 @@ export function BlockViewTabs({
   registryName,
   codeFiles,
   prompt,
+  preset,
+  presetCss,
   iframeHeight,
   className,
 }: Readonly<BlockViewTabsProps>) {
@@ -41,6 +47,7 @@ export function BlockViewTabs({
           <PreviewTabs.Trigger value="code" disabled={!codeFiles.length}>
             Code
           </PreviewTabs.Trigger>
+          <PreviewTabs.Trigger value="preset">Preset</PreviewTabs.Trigger>
           <PreviewTabs.Trigger value="prompt" disabled={!prompt}>
             Prompt
           </PreviewTabs.Trigger>
@@ -56,8 +63,15 @@ export function BlockViewTabs({
           <EditButton href={editSrc} />
         </PreviewTabs.Actions>
       </PreviewTabs.Bar>
-      <PreviewTabs.Preview src={src} height={iframeHeight} title="Block preview" />
+      <PreviewTabs.Preview
+        src={src}
+        height={iframeHeight}
+        title="Block preview"
+      />
       <PreviewTabs.Code files={codeFiles} />
+      <PreviewTabs.Panel value="preset">
+        <PresetPanel preset={preset} css={presetCss} />
+      </PreviewTabs.Panel>
       <PreviewTabs.Panel value="prompt">
         <PromptPanel prompt={prompt} />
       </PreviewTabs.Panel>

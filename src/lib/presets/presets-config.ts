@@ -1,4 +1,4 @@
-export type PresetId = 'loom' | 'axis' | 'flint' | 'mist'
+export type PresetId = 'vellum' | 'sienna'
 
 export type PresetConfig = {
   id: PresetId
@@ -13,56 +13,32 @@ const cssPathFor = (id: PresetId) => `registry/presets/styles/${id}.css`
 
 export const presets: ReadonlyArray<PresetConfig> = [
   {
-    id: 'flint',
-    name: 'Flint',
+    id: 'vellum',
+    name: 'Vellum',
     tagline: 'Neutral. Grounded. Product default.',
     description:
-      'The Flexnative shell as shipped: near-neutral surfaces, warm charcoal primary (~40° hue, low chroma), soft gray chrome and the same radius and shadows as the app theme.',
+      'The Flexnative shell as shipped: near-neutral surfaces, a warm charcoal primary, soft gray chrome and the same radius and shadows as the app itself.',
     traits: [
       'Warm-neutral grays',
       'Charcoal primary',
       'Low chroma',
-      'Matches :root / .dark',
+      'Matches the app shell',
     ],
-    cssPath: cssPathFor('flint'),
+    cssPath: cssPathFor('vellum'),
   },
   {
-    id: 'loom',
-    name: 'Loom',
-    tagline: 'Warm. Woven. Organic.',
+    id: 'sienna',
+    name: 'Sienna',
+    tagline: 'Editorial. Warm. Crafted.',
     description:
-      'A warm, hand-stitched atmosphere. Sand neutrals, terra accent, generous radius and soft warm shadows give every surface a textile quality.',
+      'Cream paper and burnt-earth ink. Warm off-white surfaces, a deep brown primary, soft warm-tinted shadows and a generous radius, built for editorial serif headlines and watercolor art.',
     traits: [
-      'Warm neutrals',
-      'Soft shadows',
+      'Cream paper surfaces',
+      'Burnt-earth primary',
+      'Warm-tinted shadows',
       'Generous radius',
-      'Subtle tracking',
     ],
-    cssPath: cssPathFor('loom'),
-  },
-  {
-    id: 'axis',
-    name: 'Axis',
-    tagline: 'Precise. Engineered. Sharp.',
-    description:
-      'An editorial, instrument-grade atmosphere. Cool slate neutrals, tight radius and crisp low-blur shadows draw attention to alignment and structure.',
-    traits: ['Cool slate', 'Crisp shadows', 'Tight radius', 'Strong tracking'],
-    cssPath: cssPathFor('axis'),
-  },
-
-  {
-    id: 'mist',
-    name: 'Mist',
-    tagline: 'Airy. Calm. Low density.',
-    description:
-      'A quiet, low-energy atmosphere. Pale cool palette, oversized radius and barely-there shadows give content room to breathe.',
-    traits: [
-      'Pale palette',
-      'Minimal shadow',
-      'Oversized radius',
-      'Open tracking',
-    ],
-    cssPath: cssPathFor('mist'),
+    cssPath: cssPathFor('sienna'),
   },
 ]
 

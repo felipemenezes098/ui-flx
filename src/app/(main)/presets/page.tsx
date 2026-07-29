@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { Footer } from '@/components/core/footer'
 import { PresetsPageContent } from '@/app/(main)/presets/components/presets-page-content'
-import { loadPresetCss } from '@/app/(main)/presets/lib/load-preset-css'
+import { loadPresetCss } from '@/lib/presets/load-preset-css'
 
 export const dynamic = 'force-static'
 export const revalidate = false

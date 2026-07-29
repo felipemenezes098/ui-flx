@@ -51,7 +51,7 @@ function PresetSwitcher({
 }
 
 export function PresetsShowroom() {
-  const [active, setActive] = useState<PresetId>('loom')
+  const [active, setActive] = useState<PresetId>(presets[0].id)
 
   return (
     <motion.section

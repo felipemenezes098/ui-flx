@@ -5,9 +5,10 @@
  * Patterns: `title`, `description` from registry/patterns/<cat>/catalog.ts.
  * Forms: `title`, `description` from registry/forms/<lib>/<cat>/catalog.ts.
  * Intents: `title`, `description`, `files` from intent manifests.
+ * Presets: `title`, `description`, `css` from registry/presets/styles/<id>.css.
  *
  * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified
- * for blocks and patterns (only intents auto-fix `files`).
+ * for blocks and patterns (only intents auto-fix `files`, presets auto-fix `css`).
  *
  * Supports the `include` feature: registry.json may reference sub-registries.
  *
@@ -25,6 +26,7 @@ import { allPatterns } from '../src/lib/patterns/patterns-catalog'
 import { allCompositions } from '../src/lib/compositions/compositions-catalog'
 import { allSketches } from '../src/lib/sketches/sketches-catalog'
 import { allIllustrations } from '../src/lib/illustrations/illustrations-catalog'
+import { presets } from '../src/lib/presets/presets-config'
 
 const ROOT = process.cwd()
 const CHECK_ONLY = process.argv.includes('--check')
@@ -203,13 +205,27 @@ function syncEntry(entry: CatalogEntry) {
     if (CHECK_ONLY) {
       issues.push(`  OUT OF SYNC: "${entry.slug}"`)
       if (item.title !== expectedTitle)
-        issues.push(`    title: registry="${item.title}" catalog="${expectedTitle}"`)
+        issues.push(
+          `    title: registry="${item.title}" catalog="${expectedTitle}"`,
+        )
       if (item.description !== expectedDescription)
-        issues.push(`    description: registry="${item.description}" catalog="${expectedDescription}"`)
-      if (expectedIframeHeight !== undefined && item.meta?.iframeHeight !== expectedIframeHeight)
-        issues.push(`    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`)
-      if (expectedContainerClassName !== undefined && item.meta?.containerClassName !== expectedContainerClassName)
-        issues.push(`    meta.containerClassName: registry=${item.meta?.containerClassName} catalog=${expectedContainerClassName}`)
+        issues.push(
+          `    description: registry="${item.description}" catalog="${expectedDescription}"`,
+        )
+      if (
+        expectedIframeHeight !== undefined &&
+        item.meta?.iframeHeight !== expectedIframeHeight
+      )
+        issues.push(
+          `    meta.iframeHeight: registry=${item.meta?.iframeHeight} catalog=${expectedIframeHeight}`,
+        )
+      if (
+        expectedContainerClassName !== undefined &&
+        item.meta?.containerClassName !== expectedContainerClassName
+      )
+        issues.push(
+          `    meta.containerClassName: registry=${item.meta?.containerClassName} catalog=${expectedContainerClassName}`,
+        )
     } else {
       item.title = expectedTitle
       item.description = expectedDescription
@@ -228,11 +244,91 @@ function syncEntry(entry: CatalogEntry) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Preset sync — stylesheets are the source of truth; `css` is generated.
+// ---------------------------------------------------------------------------
+type CssRules = Record<string, Record<string, string>>
+
+function parseFlatCss(source: string): CssRules {
+  const withoutComments = source.replace(/\/\*[\s\S]*?\*\//g, '')
+  const rules: CssRules = {}
+
+  for (const match of withoutComments.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const selector = match[1].trim().replace(/\s*\n\s*/g, ' ')
+    const declarations: Record<string, string> = {}
+
+    for (const chunk of match[2].split(';')) {
+      const separator = chunk.indexOf(':')
+      if (separator === -1) continue
+      const prop = chunk.slice(0, separator).trim()
+      const value = chunk
+        .slice(separator + 1)
+        .trim()
+        .replace(/\s*\n\s*/g, ' ')
+      if (prop && value) declarations[prop] = value
+    }
+
+    if (Object.keys(declarations).length > 0) rules[selector] = declarations
+  }
+
+  return rules
+}
+
+function syncPresetItems() {
+  for (const preset of presets) {
+    const name = `preset-${preset.id}`
+    const found = itemIndex.get(name)
+    if (!found) {
+      issues.push(`  MISSING in registry: "${name}" (preset)`)
+      continue
+    }
+
+    const cssFile = path.join(ROOT, preset.cssPath)
+    if (!fs.existsSync(cssFile)) {
+      issues.push(
+        `  MISSING stylesheet for preset "${preset.id}": ${preset.cssPath}`,
+      )
+      continue
+    }
+
+    const rules = parseFlatCss(fs.readFileSync(cssFile, 'utf-8'))
+    if (Object.keys(rules).length === 0) {
+      issues.push(
+        `  EMPTY stylesheet for preset "${preset.id}": ${preset.cssPath}`,
+      )
+      continue
+    }
+
+    const { item, filePath } = found
+    const expectedCss = { '@layer base': rules }
+    const expectedTitle = `${preset.name} Preset`
+    const expectedDescription = preset.description
+
+    const drifted =
+      JSON.stringify(item.css ?? {}) !== JSON.stringify(expectedCss) ||
+      item.title !== expectedTitle ||
+      item.description !== expectedDescription
+
+    if (!drifted) continue
+
+    if (CHECK_ONLY) {
+      issues.push(`  OUT OF SYNC: "${name}" (preset — re-run registry:sync)`)
+    } else {
+      item.title = expectedTitle
+      item.description = expectedDescription
+      item.css = expectedCss
+      dirtyFiles.add(filePath)
+      console.log(`  Updated preset item: ${name}`)
+    }
+  }
+}
+
 for (const entry of catalogEntries) {
   syncEntry(entry)
 }
 
 syncIntentItems()
+syncPresetItems()
 
 // Image validation (blocks only)
 for (const manifest of allManifests) {

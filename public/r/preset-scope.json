@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "preset-scope",
+  "title": "Preset Scope",
+  "description": "Activates a preset for a subtree by writing the data-preset attribute. Required by every preset.",
+  "files": [
+    {
+      "path": "registry/presets/preset-scope.tsx",
+      "content": "import { cn } from '@/lib/utils'\n\nexport type PresetScopeProps = Readonly<{\n  preset: string\n  appearance?: 'inherit' | 'dark'\n  className?: string\n  children: React.ReactNode\n}>\n\nexport function PresetScope({\n  preset,\n  appearance = 'inherit',\n  className,\n  children,\n}: PresetScopeProps) {\n  return (\n    <div\n      data-preset={preset}\n      className={cn(appearance === 'dark' && 'dark', className)}\n    >\n      {children}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/preset-scope.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,6 +1,8 @@
 'use client'
 
+import { CodeBlock } from '@/components/core/code/code-block'
 import { CodeBlockCode } from '@/components/core/code/code-block-code'
+import { RegistryCli } from '@/components/core/registry/registry-cli'
 import {
   Dialog,
   DialogContent,
@@ -11,7 +13,6 @@ import {
 } from '@/components/ui/dialog'
 
 import type { PresetConfig } from '@/lib/presets/presets-config'
-import { CodeBlock } from '@/components/core/code/code-block'
 
 export function PresetGetDialog({
   preset,
@@ -25,7 +26,7 @@ export function PresetGetDialog({
   return (
     <Dialog>
       <DialogTrigger render={trigger as React.ReactElement} />
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="gap-4 sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle className="text-base font-medium tracking-tight">
             {preset.name}
@@ -35,11 +36,11 @@ export function PresetGetDialog({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex max-w-full min-w-0 flex-col gap-2">
-          <CodeBlock>
-            <CodeBlockCode code={css} language="css" withCopy showLineNumbers />
-          </CodeBlock>
-        </div>
+        <RegistryCli registryName={`preset-${preset.id}`} />
+
+        <CodeBlock>
+          <CodeBlockCode code={css} language="css" withCopy showLineNumbers />
+        </CodeBlock>
       </DialogContent>
     </Dialog>
   )

@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 
-import type { PresetCssMap } from '@/app/(main)/presets/lib/load-preset-css'
+import type { PresetCssMap } from '@/lib/presets/load-preset-css'
 
 import { PresetsComparison } from './presets-comparison'
 import { PresetsHero } from './presets-hero'

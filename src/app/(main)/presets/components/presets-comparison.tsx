@@ -3,7 +3,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { motion } from 'motion/react'
 
-import type { PresetCssMap } from '@/app/(main)/presets/lib/load-preset-css'
+import type { PresetCssMap } from '@/lib/presets/load-preset-css'
 import { PresetScope } from '@/components/core/preset/preset-scope'
 import { Button } from '@/components/ui/button'
 

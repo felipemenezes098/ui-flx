@@ -13,6 +13,7 @@ export const manifest: BlockManifest = {
   description:
     'Auto-scroll carousel that pauses on item hover and reveals title.',
   category: 'carousel',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/carousel/carousel-01.webp',
     dark: '/images/blocks/carousel/carousel-01-dark.webp',

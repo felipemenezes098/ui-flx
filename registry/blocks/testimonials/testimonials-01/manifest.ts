@@ -8,6 +8,7 @@ export const manifest: BlockManifest = {
   name: 'Testimonials 01',
   description: 'A single testimonial with quote, avatar, author name and role.',
   category: 'testimonials',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/testimonials/testimonials-01.webp',
     dark: '/images/blocks/testimonials/testimonials-01-dark.webp',
