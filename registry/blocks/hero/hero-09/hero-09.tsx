@@ -138,7 +138,7 @@ export function Hero09({
   const searchElement = (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="bg-background focus-within:ring-ring/40 mx-auto flex w-full max-w-lg items-center gap-2 rounded-full border p-1.5 shadow-sm transition focus-within:ring-2"
+      className="bg-card focus-within:ring-ring/40 mx-auto flex w-full max-w-lg items-center gap-2 rounded-full border p-1.5 shadow-sm transition focus-within:ring-2"
     >
       <div className="text-muted-foreground pl-3">
         <Search className="size-4" />

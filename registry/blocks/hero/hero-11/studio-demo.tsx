@@ -90,7 +90,7 @@ export function StudioDemo() {
       >
         <div className="flex min-h-[30rem]">
           {/* Sidebar */}
-          <aside className="bg-muted/40 hidden w-52 shrink-0 flex-col border-r sm:flex">
+          <aside className="bg-card hidden w-52 shrink-0 flex-col border-r sm:flex">
             <div className="flex items-center gap-2 px-3 py-3">
               <div className="bg-foreground text-background flex size-5 items-center justify-center rounded-md text-[10px] font-semibold">
                 F
