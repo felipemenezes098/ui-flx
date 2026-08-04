@@ -195,6 +195,32 @@
       "meta": {
         "iframeHeight": 900
       }
+    },
+    {
+      "name": "content-10",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "content-10/content-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-10/content-10.tsx"
+        },
+        {
+          "path": "content-10/content-10-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-10/content-10-example.tsx"
+        }
+      ],
+      "title": "Content 10",
+      "description": "A process section with a split title/description header and a portrait image flanked by two columns of numbered step cards.",
+      "meta": {
+        "iframeHeight": 1000
+      }
     }
   ]
 }
