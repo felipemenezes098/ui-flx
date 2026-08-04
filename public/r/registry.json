@@ -9042,7 +9042,7 @@
           "[data-preset='sienna']": {
             "--background": "oklch(0.975 0.007 78)",
             "--foreground": "oklch(0.27 0.018 55)",
-            "--card": "oklch(0.99 0.005 82)",
+            "--card": "oklch(1 0.005 82)",
             "--card-foreground": "oklch(0.27 0.018 55)",
             "--popover": "oklch(0.99 0.005 82)",
             "--popover-foreground": "oklch(0.27 0.018 55)",
@@ -9093,7 +9093,7 @@
           ".dark [data-preset='sienna'], [data-preset='sienna'].dark": {
             "--background": "oklch(0.1776 0 0)",
             "--foreground": "oklch(0.94 0.008 82)",
-            "--card": "oklch(0.225 0.009 58)",
+            "--card": "oklch(19.241% 0.00161 16.547)",
             "--card-foreground": "oklch(0.94 0.008 82)",
             "--popover": "oklch(0.225 0.009 58)",
             "--popover-foreground": "oklch(0.94 0.008 82)",

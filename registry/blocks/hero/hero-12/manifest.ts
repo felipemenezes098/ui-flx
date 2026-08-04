@@ -18,7 +18,6 @@ export const manifest: BlockManifest = {
     iframeHeight: 720,
     containerClassName: 'flex min-h-screen max-w-full overflow-hidden p-0',
   },
-  hasNew: true,
   component: Hero12,
   editorFields: Hero12EditorFields,
   example: Hero12Example,
