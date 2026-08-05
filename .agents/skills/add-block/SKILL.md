@@ -2,8 +2,9 @@
 name: add-block
 description: >-
   Full workflow for adding a new UI block to ui-flx: file structure, manifest,
-  catalog + registry.json registration, MDX docs, validation, and screenshot
-  capture. Triggers: "add block", "new block", "criar bloco", "novo bloco",
+  catalog + registry.json registration, MDX docs, and validation. Screenshot
+  capture is never run by the agent — only suggested as a command at the end.
+  Triggers: "add block", "new block", "criar bloco", "novo bloco",
   "add a new section", or any request to create a new Flexnative block.
 ---
 
@@ -11,8 +12,8 @@ description: >-
 
 ## The pipeline — do every step, in order
 
-Do NOT stop early. Every step below is required; the two most-skipped are **6 (MDX)**
-and **8 (screenshots)** — they are not optional.
+Do NOT stop early. Every step below is required except **7 (screenshots)**, which is
+never run by the agent — the most-skipped real step is **6 (MDX)**, it is not optional.
 
 1. **Read** the category's `catalog.ts` + `registry.json` (nothing else).
 2. **Create files** — `<slug>.tsx`, `<slug>-example.tsx`, `editor/fields.tsx`, `manifest.ts` (+ any illustration/subcomponent).
@@ -20,8 +21,12 @@ and **8 (screenshots)** — they are not optional.
 4. **Add entry** to `registry/blocks/<category>/registry.json`.
 5. **Create MDX** at `src/app/content/blocks/<category>/<slug>.mdx`.
 6. **Validate + sync + build** (`registry:validate` → `registry:sync` → `registry:validate` → `registry:build`).
-7. **Capture screenshots** (`image.light` + `image.dark` WebP). REQUIRED.
-8. **Report** the illustration decision.
+7. **Do NOT capture screenshots.** Never run `playwright:install`, `dev`, or
+   `blocks:capture-screenshots` yourself. `image.light`/`image.dark` stay pointed at
+   WebP files that don't exist yet — that's expected and fine to leave as-is.
+8. **Report** the illustration decision, and as the last line of your final message
+   suggest the exact screenshot command for the user to run themselves, e.g.:
+   `pnpm run blocks:capture-screenshots --slug=<slug>`.
 
 Categories rendered in the gallery: `hero` | `content` | `cta` | `bento-grids` | `testimonials`
 
@@ -367,10 +372,11 @@ pnpm run registry:build      # regenerates public/r/*.json
 
 ---
 
-## Step 7 — Capture screenshots (REQUIRED)
+## Step 7 — Do NOT capture screenshots
 
-The manifest points at `image.light`/`image.dark` WebP files that do **not exist until you
-capture them**. Do not skip this — the block card renders broken without them.
+The manifest points at `image.light`/`image.dark` WebP files that will **not exist** after
+this skill runs — that's expected. Never run `playwright:install`, `dev`, or
+`blocks:capture-screenshots` yourself; leave that entirely to the user.
 
 ```bash
 pnpm run playwright:install                          # once per machine
@@ -378,20 +384,27 @@ pnpm run dev                                         # separate terminal — cap
 pnpm run blocks:capture-screenshots --slug=<slug>
 ```
 
-Confirm both `.webp` now exist under `public/images/blocks/<category>/`. Other filters:
-`--preset=<id>` (every block on that preset — use after changing a preset's tokens),
-`--missing-only`, or no flag for all.
+Surface this exact command block in step 8 instead of running it. Other filters the user
+may want to know about: `--preset=<id>` (every block on that preset — use after changing a
+preset's tokens), `--missing-only`, or no flag for all.
 
 Captures render inside `PresetScope`, so the block sits on its own preset's surface. If a
 capture looks like the wrong palette, the `preset` in the manifest is wrong — not the script.
 
 ---
 
-## Step 8 — Report the illustration decision
+## Step 8 — Report the illustration decision + suggest the screenshot command
 
 State whether you built an inline illustration and why — e.g. *"Inline dashboard illustration
 in `dashboard-demo.tsx` (layered cards, static), following add-illustration rules"* — or why you
 chose a photo / none. Never silently drop it.
+
+Close your final message with the screenshot command for the user to run themselves
+(don't run it for them):
+
+```bash
+pnpm run blocks:capture-screenshots --slug=<slug>
+```
 
 ---
 
@@ -406,8 +419,8 @@ chose a photo / none. Never silently drop it.
 - [ ] `registry.json` — entry with `files[]` for every `.tsx`, `registryDependencies`, `dependencies`
 - [ ] `<slug>.mdx` — metadata matches manifest; Command + Manual tabs; a `<Step>` per extra file
 - [ ] `registry:sync` → `registry:validate` PASSES → `registry:build`
-- [ ] Screenshots captured — both `.webp` exist under `public/images/blocks/<category>/`, in the manifest's preset
-- [ ] Illustration decision reported
+- [ ] Screenshots NOT captured by the agent — `image.light`/`image.dark` are left pointing at not-yet-existing files
+- [ ] Illustration decision reported + screenshot command suggested in the final message
 
 ---
 
