@@ -13,6 +13,9 @@ export const manifest: BlockManifest = {
     light: '/images/blocks/testimonials/testimonials-01.webp',
     dark: '/images/blocks/testimonials/testimonials-01-dark.webp',
   },
+  meta: {
+    iframeHeight: 800,
+  },
   component: Testimonials01,
   editorFields: Testimonials01EditorFields,
   example: Testimonials01Example,

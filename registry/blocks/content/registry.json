@@ -221,6 +221,41 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "content-11",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/dynamic-icon",
+        "card",
+        "badge"
+      ],
+      "dependencies": [
+        "motion",
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-11/content-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/content-11.tsx"
+        },
+        {
+          "path": "content-11/dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/dashboard-demo.tsx"
+        },
+        {
+          "path": "content-11/content-11-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/content-11-example.tsx"
+        }
+      ],
+      "title": "Content 11",
+      "description": "A billing overview split with a dashboard preview card and two feature highlights, built for the app-shell preset.",
+      "meta": {
+        "iframeHeight": 950
+      }
     }
   ]
 }
