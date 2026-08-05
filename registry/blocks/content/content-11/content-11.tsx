@@ -36,7 +36,7 @@ const variantStyles = {
     frame: 'h-72 sm:h-80 lg:h-[22rem]',
     peek: 'absolute top-6 left-6 w-[125%] max-w-none overflow-hidden rounded-2xl',
     features: 'gap-4 sm:gap-5',
-    featureCard: 'gap-3 p-6',
+    featureCard: 'gap-2 p-6',
     icon: 'size-5',
   },
   compact: {
@@ -89,7 +89,10 @@ function FeatureCard({
   className: string
   iconClassName: string
 }>) {
-  const cardClassName = cn('bg-secondary flex h-full flex-col rounded-3xl', className)
+  const cardClassName = cn(
+    'bg-secondary/70 dark:bg-secondary/30 flex h-full flex-col rounded-3xl',
+    className,
+  )
 
   const content = (
     <>
@@ -99,9 +102,7 @@ function FeatureCard({
           className={cn('text-foreground', iconClassName)}
         />
       )}
-      <h3 className="text-foreground text-sm font-semibold">
-        {feature.title}
-      </h3>
+      <h3 className="text-foreground text-sm font-semibold">{feature.title}</h3>
       <p className="text-muted-foreground text-sm leading-relaxed">
         <Balancer>{feature.description}</Balancer>
       </p>
@@ -170,7 +171,7 @@ export function Content11({
   const mediaElement = media && (
     <div
       className={cn(
-        'bg-secondary relative w-full overflow-hidden rounded-3xl',
+        'bg-secondary/70 dark:bg-secondary/30 relative w-full overflow-hidden rounded-3xl',
         vs.frame,
       )}
     >
