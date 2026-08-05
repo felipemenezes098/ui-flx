@@ -907,6 +907,9 @@
           "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
         }
       ],
+      "meta": {
+        "iframeHeight": 800
+      },
       "type": "registry:block"
     },
     {

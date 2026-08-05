@@ -18,7 +18,7 @@ export function Testimonials01({
   author,
 }: Readonly<Testimonials01Props>) {
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-7 rounded-3xl text-center">
+    <div className="mx-auto flex min-h-80 max-w-3xl flex-col items-center justify-center gap-8 rounded-3xl text-center">
       <p className="text-xl leading-tight font-medium tracking-tight md:text-[2rem]">
         "{quote}"
       </p>
