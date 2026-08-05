@@ -315,6 +315,67 @@
       "type": "registry:block"
     },
     {
+      "name": "content-10",
+      "title": "Content 10",
+      "description": "A process section with a split title/description header and a portrait image flanked by two columns of numbered step cards.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-10/content-10.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-10/content-10.tsx"
+        },
+        {
+          "path": "registry/blocks/content/content-10/content-10-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-10/content-10-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1000
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-11",
+      "title": "Content 11",
+      "description": "A billing overview split with a dashboard preview card and two feature highlights, built for the app-shell preset.",
+      "dependencies": [
+        "motion",
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "@flx/dynamic-icon",
+        "card",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-11/content-11.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/content-11.tsx"
+        },
+        {
+          "path": "registry/blocks/content/content-11/dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/dashboard-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/content/content-11/content-11-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-11/content-11-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 950
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "cta-01",
       "title": "Call to Action 01",
       "description": "A centered text block with a title, description, and CTA.",
@@ -846,6 +907,9 @@
           "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
         }
       ],
+      "meta": {
+        "iframeHeight": 800
+      },
       "type": "registry:block"
     },
     {
