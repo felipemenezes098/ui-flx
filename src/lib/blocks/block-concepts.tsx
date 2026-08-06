@@ -58,6 +58,27 @@ export function ContentConcept() {
   )
 }
 
+export function FeatureConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-6">
+      <div className="flex w-full flex-col gap-3">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="flex items-center gap-3">
+            <div className="bg-card dark:bg-muted border-border size-7 shrink-0 rounded-md border shadow-sm" />
+            <div className="flex flex-1 flex-col gap-1.5">
+              <div
+                className="bg-foreground/20 h-1.5 rounded-full"
+                style={{ width: `${60 - i * 8}%` }}
+              />
+              <div className="bg-foreground/8 h-1 w-4/5 rounded-full" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function CarouselConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-4">

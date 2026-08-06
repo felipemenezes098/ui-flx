@@ -6,18 +6,18 @@ import Balancer from 'react-wrap-balancer'
 
 import { cn } from '@/lib/utils'
 
-export interface Content10Step {
+export interface Feature02Step {
   number: string
   title: string
   description: string
 }
 
-export interface Content10Props {
+export interface Feature02Props {
   title: string
   description: string
   image: string
   imageAlt?: string
-  steps: Content10Step[]
+  steps: Feature02Step[]
   animation?: 'none' | 'subtle'
   variant?: 'standard' | 'compact'
 }
@@ -91,7 +91,7 @@ function Reveal({
 function StepCard({
   step,
   animate,
-}: Readonly<{ step: Content10Step; animate: boolean }>) {
+}: Readonly<{ step: Feature02Step; animate: boolean }>) {
   const cardClassName = 'border-border/80 bg-card rounded-2xl border p-5 sm:p-6'
 
   const content = (
@@ -123,7 +123,7 @@ function StepCard({
   )
 }
 
-export function Content10({
+export function Feature02({
   title,
   description,
   image,
@@ -131,7 +131,7 @@ export function Content10({
   steps,
   animation = 'none',
   variant = 'standard',
-}: Readonly<Content10Props>) {
+}: Readonly<Feature02Props>) {
   const reduce = useReducedMotion()
   const animate = animation === 'subtle' && !reduce
   const vs = variantStyles[variant]

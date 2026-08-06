@@ -1,4 +1,4 @@
-import { Content01, type Content01Props } from './content-01'
+import { Feature01, type Feature01Props } from './feature-01'
 
 export const values = {
   variant: 'standard',
@@ -55,11 +55,11 @@ export const values = {
       },
     },
   ],
-} satisfies Content01Props
+} satisfies Feature01Props
 
-export function Content01Example() {
+export function Feature01Example() {
   return (
-    <Content01
+    <Feature01
       items={values.items}
       variant={values.variant}
       animation={values.animation}

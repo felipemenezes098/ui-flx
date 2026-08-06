@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-feature",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "feature-01",
+      "type": "registry:block",
+      "title": "Feature 01",
+      "description": "List of items: select one to reveal its description and media.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "feature-01/feature-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-01/feature-01.tsx"
+        },
+        {
+          "path": "feature-01/feature-01-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-01/feature-01-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 700
+      }
+    },
+    {
+      "name": "feature-02",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "feature-02/feature-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-02/feature-02.tsx"
+        },
+        {
+          "path": "feature-02/feature-02-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-02/feature-02-example.tsx"
+        }
+      ],
+      "title": "Feature 02",
+      "description": "A process section with a split title/description header and a portrait image flanked by two columns of numbered step cards.",
+      "meta": {
+        "iframeHeight": 1000
+      }
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import { motion, useReducedMotion, type Variants } from 'motion/react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-export interface Content01Item {
+export interface Feature01Item {
   id: string
   title: string
   description: string
@@ -18,8 +18,8 @@ export interface Content01Item {
   }
 }
 
-export interface Content01Props {
-  items: Content01Item[]
+export interface Feature01Props {
+  items: Feature01Item[]
   variant?: 'standard' | 'compact' | 'prominent'
   animation?: 'none' | 'subtle'
 }
@@ -125,11 +125,11 @@ function Reveal({
   )
 }
 
-export function Content01({
+export function Feature01({
   items,
   variant = 'standard',
   animation = 'none',
-}: Readonly<Content01Props>) {
+}: Readonly<Feature01Props>) {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const reduce = useReducedMotion()
   const animate = animation === 'subtle' && !reduce
@@ -137,7 +137,7 @@ export function Content01({
 
   if (!items.length) return null
 
-  const renderNavButton = (item: Content01Item, index: number) => {
+  const renderNavButton = (item: Feature01Item, index: number) => {
     const isSelected = index === selectedIndex
 
     return (
