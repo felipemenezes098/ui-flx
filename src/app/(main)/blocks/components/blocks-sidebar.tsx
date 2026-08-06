@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { PanelLeftCloseIcon } from 'lucide-react'
 
@@ -7,6 +8,8 @@ import { isAllCategories } from '../lib/blocks-category'
 import {
   allBlocksHref,
   categoryFilterHref,
+  clearCategoriesHref,
+  clearPresetHref,
   presetFilterHref,
 } from '../lib/blocks-filter-url'
 import {
@@ -23,14 +26,26 @@ import { blockCategories, blockPresets } from '@/lib/blocks/block-catalog'
 
 function Section({
   label,
+  clearHref,
   children,
 }: Readonly<{
   label: string
+  clearHref?: string
   children: React.ReactNode
 }>) {
   return (
     <div className="space-y-2.5">
-      <p className="text-muted-foreground text-sm">{label}</p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-muted-foreground text-sm">{label}</p>
+        {clearHref && (
+          <Link
+            href={clearHref}
+            className="text-muted-foreground/60 hover:text-foreground text-xs transition-none"
+          >
+            Clear
+          </Link>
+        )}
+      </div>
       <div className="flex flex-wrap gap-1.5">{children}</div>
     </div>
   )
@@ -77,7 +92,14 @@ export function BlocksSidebar({
             />
           </Section>
 
-          <Section label="Presets">
+          <Section
+            label="Presets"
+            clearHref={
+              !presetIsAll
+                ? clearPresetHref(pathname, searchParams)
+                : undefined
+            }
+          >
             {blockPresets.map((preset) => (
               <BlocksFilterChip
                 key={preset.id}
@@ -94,7 +116,14 @@ export function BlocksSidebar({
             ))}
           </Section>
 
-          <Section label="Categories">
+          <Section
+            label="Categories"
+            clearHref={
+              !categoryIsAll
+                ? clearCategoriesHref(pathname, searchParams)
+                : undefined
+            }
+          >
             {blockCategories.map((block) => (
               <BlocksFilterChip
                 key={block.slug}

@@ -2,6 +2,7 @@
 
 import { usePathname, useSearchParams } from 'next/navigation'
 
+import { Separator } from '@/components/ui/separator'
 import { blockCategories, blockPresets } from '@/lib/blocks/block-catalog'
 
 import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
@@ -39,6 +40,10 @@ export function BlocksNavigation() {
           className="shrink-0"
         />
 
+        <div className="flex shrink-0 items-center">
+          <Separator orientation="vertical" className="!h-4" />
+        </div>
+
         {blockPresets.map((preset) => (
           <BlocksFilterChip
             key={preset.id}
@@ -54,6 +59,10 @@ export function BlocksNavigation() {
             className="shrink-0"
           />
         ))}
+
+        <div className="flex shrink-0 items-center">
+          <Separator orientation="vertical" className="!h-4" />
+        </div>
 
         {blockCategories.map((block) => (
           <BlocksFilterChip

@@ -15,26 +15,26 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { values as defaults } from '../content-10-example'
+import { values as defaults } from '../feature-02-example'
 
-import type { Content10Props, Content10Step } from '../content-10'
+import type { Feature02Props, Feature02Step } from '../feature-02'
 
-export function Content10EditorFields({
+export function Feature02EditorFields({
   props: externalProps,
   onUpdate,
 }: {
-  props?: Content10Props
-  onUpdate?: (props: Content10Props) => void
+  props?: Feature02Props
+  onUpdate?: (props: Feature02Props) => void
 } = {}) {
-  const [internal, setInternal] = React.useState<Content10Props>(defaults)
+  const [internal, setInternal] = React.useState<Feature02Props>(defaults)
   const props = externalProps ?? internal
 
-  const update = (partial: Partial<Content10Props>) => {
+  const update = (partial: Partial<Feature02Props>) => {
     const next = { ...props, ...partial }
     onUpdate ? onUpdate(next) : setInternal(next)
   }
 
-  const updateStep = (index: number, partial: Partial<Content10Step>) => {
+  const updateStep = (index: number, partial: Partial<Feature02Step>) => {
     update({
       steps: props.steps.map((step, i) =>
         i === index ? { ...step, ...partial } : step,
@@ -91,7 +91,7 @@ export function Content10EditorFields({
         <Select
           value={props.variant ?? 'standard'}
           onValueChange={(value) =>
-            update({ variant: value as Content10Props['variant'] })
+            update({ variant: value as Feature02Props['variant'] })
           }
         >
           <SelectTrigger id="variant" className="w-full">
@@ -113,7 +113,7 @@ export function Content10EditorFields({
         <Select
           value={props.animation ?? 'none'}
           onValueChange={(value) =>
-            update({ animation: value as Content10Props['animation'] })
+            update({ animation: value as Feature02Props['animation'] })
           }
         >
           <SelectTrigger id="animation" className="w-full">

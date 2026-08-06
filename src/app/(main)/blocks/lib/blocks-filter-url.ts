@@ -21,6 +21,26 @@ export function allBlocksHref(
   return toHref(pathname, params)
 }
 
+/** Clear the preset filter only, keep the category filter as-is. */
+export function clearPresetHref(
+  pathname: string,
+  searchParams: URLSearchParams,
+): string {
+  const params = new URLSearchParams(searchParams.toString())
+  params.delete('preset')
+  return toHref(pathname, params)
+}
+
+/** Clear the category filter only, keep the preset filter as-is. */
+export function clearCategoriesHref(
+  pathname: string,
+  searchParams: URLSearchParams,
+): string {
+  const params = new URLSearchParams(searchParams.toString())
+  params.set('category', ALL_BLOCKS_CATEGORY_SLUG)
+  return toHref(pathname, params)
+}
+
 /** Toggle preset: same slug clears; other slug selects. */
 export function presetFilterHref(
   pathname: string,

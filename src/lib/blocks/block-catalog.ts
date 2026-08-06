@@ -13,12 +13,14 @@ import { presets } from '@/lib/presets/presets-config'
 import { bentoGridsCategory } from 'registry/blocks/bento-grids/catalog'
 import { contentCategory } from 'registry/blocks/content/catalog'
 import { ctaCategory } from 'registry/blocks/cta/catalog'
+import { featureCategory } from 'registry/blocks/feature/catalog'
 import { heroCategory } from 'registry/blocks/hero/catalog'
 import { testimonialsCategory } from 'registry/blocks/testimonials/catalog'
 
 export const categories: BlockCategoryRow[] = [
   heroCategory,
   contentCategory,
+  featureCategory,
   ctaCategory,
   bentoGridsCategory,
   testimonialsCategory,

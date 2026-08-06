@@ -14,19 +14,19 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { values as defaults } from '../content-01-example'
+import { values as defaults } from '../feature-01-example'
 
 import type {
-  Content01Item,
-  Content01Props,
-} from '../content-01'
+  Feature01Item,
+  Feature01Props,
+} from '../feature-01'
 
-interface Content01EditorFieldsProps {
-  props?: Content01Props
-  onUpdate?: (props: Content01Props) => void
+interface Feature01EditorFieldsProps {
+  props?: Feature01Props
+  onUpdate?: (props: Feature01Props) => void
 }
 
-function createEmptyItem(index: number): Content01Item {
+function createEmptyItem(index: number): Feature01Item {
   return {
     id: `item-${Date.now()}-${index}`,
     title: 'New Item',
@@ -38,17 +38,17 @@ function createEmptyItem(index: number): Content01Item {
   }
 }
 
-export function Content01EditorFields({
+export function Feature01EditorFields({
   props: externalProps,
   onUpdate,
-}: Content01EditorFieldsProps = {}) {
+}: Feature01EditorFieldsProps = {}) {
   const [internalProps, setInternalProps] =
-    React.useState<Content01Props>(defaults)
+    React.useState<Feature01Props>(defaults)
 
   const props = externalProps ?? internalProps
   const items = props.items ?? []
 
-  const updateItems = (newItems: Content01Item[]) => {
+  const updateItems = (newItems: Feature01Item[]) => {
     const newProps = { ...props, items: newItems }
     if (onUpdate) {
       onUpdate(newProps)
@@ -88,9 +88,9 @@ export function Content01EditorFields({
     updateItems(items.filter((_, i) => i !== index))
   }
 
-  const updateField = <K extends keyof Content01Props>(
+  const updateField = <K extends keyof Feature01Props>(
     key: K,
-    value: Content01Props[K],
+    value: Feature01Props[K],
   ) => {
     const newProps = { ...props, [key]: value }
     if (onUpdate) {
@@ -105,7 +105,7 @@ export function Content01EditorFields({
       <div className="flex flex-col gap-4">
         <div className="space-y-2">
           <Label
-            htmlFor="content-01-variant"
+            htmlFor="feature-01-variant"
             className="text-sm font-medium"
           >
             Variant
@@ -113,10 +113,10 @@ export function Content01EditorFields({
           <Select
             value={props.variant ?? 'standard'}
             onValueChange={(value) =>
-              updateField('variant', value as Content01Props['variant'])
+              updateField('variant', value as Feature01Props['variant'])
             }
           >
-            <SelectTrigger id="content-01-variant" className="w-full">
+            <SelectTrigger id="feature-01-variant" className="w-full">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -130,7 +130,7 @@ export function Content01EditorFields({
         </div>
         <div className="space-y-2">
           <Label
-            htmlFor="content-01-animation"
+            htmlFor="feature-01-animation"
             className="text-sm font-medium"
           >
             Animation
@@ -140,12 +140,12 @@ export function Content01EditorFields({
             onValueChange={(value) =>
               updateField(
                 'animation',
-                value as Content01Props['animation'],
+                value as Feature01Props['animation'],
               )
             }
           >
             <SelectTrigger
-              id="content-01-animation"
+              id="feature-01-animation"
               className="w-full"
             >
               <SelectValue />

@@ -1,4 +1,4 @@
-import { Content10, type Content10Props } from './content-10'
+import { Feature02, type Feature02Props } from './feature-02'
 
 export const values = {
   title: 'Turning Your Product Vision into Interface, Simply.',
@@ -34,8 +34,8 @@ export const values = {
     },
   ],
   animation: 'subtle',
-} satisfies Content10Props
+} satisfies Feature02Props
 
-export function Content10Example() {
-  return <Content10 {...values} />
+export function Feature02Example() {
+  return <Feature02 {...values} />
 }

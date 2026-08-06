@@ -142,33 +142,6 @@
       }
     },
     {
-      "name": "content-01",
-      "type": "registry:block",
-      "title": "Content 01",
-      "description": "List of items: select one to reveal its description and media.",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "content-01/content-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-01/content-01.tsx"
-        },
-        {
-          "path": "content-01/content-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-01/content-01-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 700
-      }
-    },
-    {
       "name": "content-04",
       "type": "registry:block",
       "title": "Content 04",
@@ -194,32 +167,6 @@
       ],
       "meta": {
         "iframeHeight": 900
-      }
-    },
-    {
-      "name": "content-10",
-      "type": "registry:block",
-      "registryDependencies": [],
-      "dependencies": [
-        "react-wrap-balancer",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "content-10/content-10.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-10/content-10.tsx"
-        },
-        {
-          "path": "content-10/content-10-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-10/content-10-example.tsx"
-        }
-      ],
-      "title": "Content 10",
-      "description": "A process section with a split title/description header and a portrait image flanked by two columns of numbered step cards.",
-      "meta": {
-        "iframeHeight": 1000
       }
     },
     {
