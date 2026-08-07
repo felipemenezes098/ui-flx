@@ -134,7 +134,13 @@ function FeatureRow({
   if (!animate) return <div className="flex flex-col gap-4">{content}</div>
 
   return (
-    <motion.div variants={featureItem} className="flex flex-col gap-4">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-40px' }}
+      variants={featureItem}
+      className="flex flex-col gap-4"
+    >
       {content}
     </motion.div>
   )
