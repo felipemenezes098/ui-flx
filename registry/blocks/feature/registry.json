@@ -55,6 +55,32 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "feature-03",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "feature-03/feature-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-03/feature-03.tsx"
+        },
+        {
+          "path": "feature-03/feature-03-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-03/feature-03-example.tsx"
+        }
+      ],
+      "title": "Feature 03",
+      "description": "A sticky title/description column paired with a scrolling list of features, each with its own title, description, and media.",
+      "meta": {
+        "iframeHeight": 1400
+      }
     }
   ]
 }

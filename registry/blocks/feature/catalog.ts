@@ -3,6 +3,7 @@ import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
 import { manifest as feature01Manifest } from './feature-01/manifest'
 import { manifest as feature02Manifest } from './feature-02/manifest'
+import { manifest as feature03Manifest } from './feature-03/manifest'
 
 export const featureCategory: BlockCategoryRow = {
   slug: 'feature',
@@ -11,5 +12,5 @@ export const featureCategory: BlockCategoryRow = {
   type: 'feature',
   image: feature01Manifest.image,
   concept: FeatureConcept,
-  blocks: [feature01Manifest, feature02Manifest],
+  blocks: [feature01Manifest, feature02Manifest, feature03Manifest],
 }
