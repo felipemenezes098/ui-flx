@@ -403,6 +403,32 @@
       "type": "registry:block"
     },
     {
+      "name": "feature-03",
+      "title": "Feature 03",
+      "description": "A sticky title/description column paired with a scrolling list of features, each with its own title, description, and media.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature/feature-03/feature-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-03/feature-03.tsx"
+        },
+        {
+          "path": "registry/blocks/feature/feature-03/feature-03-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-03/feature-03-example.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1400
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "hero-01",
       "title": "Hero 01",
       "description": "A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.",
