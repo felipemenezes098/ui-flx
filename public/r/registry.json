@@ -825,6 +825,41 @@
       "type": "registry:block"
     },
     {
+      "name": "hero-14",
+      "title": "Hero 14",
+      "description": "A centered product hero with dual CTAs, a full-width photo with a floating block-builder demo panel, and a logo strip.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@flx/cta",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-14/hero-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/hero-14.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-14/hero-14-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/hero-14-example.tsx"
+        },
+        {
+          "path": "registry/blocks/hero/hero-14/block-builder-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/block-builder-demo.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1200
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "logos-01",
       "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
