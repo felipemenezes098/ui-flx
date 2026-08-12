@@ -1,0 +1,73 @@
+export const metadata = {
+  title: 'Hero 14',
+  description:
+    'A centered product hero with dual CTAs, a full-width photo with a floating block-builder demo panel, and a logo strip.',
+  openGraph: {
+    title: 'Hero 14',
+    description:
+      'A centered product hero with dual CTAs, a full-width photo with a floating block-builder demo panel, and a logo strip.',
+    type: 'article',
+  },
+}
+
+<BlockView category="hero" slug="hero-14" />
+
+## Implementation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlockCommand command="shadcn@latest add @flx/hero-14" />
+
+## Usage
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-14/hero-14-example.tsx"
+  title="hero-14-example.tsx"
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<CodeBlockCommand command="react-wrap-balancer" isPackage />
+
+<CodeBlockCommand command="motion" isPackage />
+
+<CodeBlockCommand command="lucide-react" isPackage />
+
+<Step>Add the block-builder demo (optional)</Step>
+
+Hero 14 ships an inline block-builder illustration, a chat that turns a description into a ready-to-copy block. Swap the content or replace it with an image directly in the file.
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-14/block-builder-demo.tsx"
+  title="block-builder-demo.tsx"
+  collapsible
+/>
+
+<Step>Copy the component</Step>
+
+<CodeBlockFromFile
+  filePath="registry/blocks/hero/hero-14/hero-14.tsx"
+  collapsible
+  title="hero-14.tsx"
+/>
+
+<Step>Use the component</Step>
+
+<CodeBlockFromFile filePath="registry/blocks/hero/hero-14/hero-14-example.tsx" />
+
+</Steps>
+
+</TabsContent>
+</CodeTabs>

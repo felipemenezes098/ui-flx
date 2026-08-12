@@ -398,6 +398,41 @@
       "meta": {
         "iframeHeight": 1100
       }
+    },
+    {
+      "name": "hero-14",
+      "type": "registry:block",
+      "registryDependencies": [
+        "@flx/cta",
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "hero-14/hero-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/hero-14.tsx"
+        },
+        {
+          "path": "hero-14/hero-14-example.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/hero-14-example.tsx"
+        },
+        {
+          "path": "hero-14/block-builder-demo.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-14/block-builder-demo.tsx"
+        }
+      ],
+      "title": "Hero 14",
+      "description": "A centered product hero with dual CTAs, a full-width photo with a floating block-builder demo panel, and a logo strip.",
+      "meta": {
+        "iframeHeight": 1100
+      }
     }
   ]
 }
