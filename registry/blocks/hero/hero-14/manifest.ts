@@ -15,7 +15,7 @@ export const manifest: BlockManifest = {
     dark: '/images/blocks/hero/hero-14-dark.webp',
   },
   meta: {
-    iframeHeight: 1100,
+    iframeHeight: 1200,
   },
   hasNew: true,
   component: Hero14,

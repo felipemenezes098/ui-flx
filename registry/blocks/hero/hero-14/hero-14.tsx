@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { Rocket, Sparkles, Wand2, Zap } from 'lucide-react'
 import { motion, useReducedMotion, type Variants } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 
@@ -44,8 +43,6 @@ const variantStyles = {
     logos: 'gap-x-8 gap-y-3 pt-6 sm:pt-8',
   },
 } as const
-
-const logoIcons = [Zap, Sparkles, Wand2, Rocket, Zap, Sparkles]
 
 const easeOut = [0.22, 1, 0.36, 1] as const
 
@@ -176,18 +173,14 @@ export function Hero14({
         vs.logos,
       )}
     >
-      {logos.map((logo, index) => {
-        const Icon = logoIcons[index % logoIcons.length]
-        return (
-          <span
-            key={`${logo}-${index}`}
-            className="text-muted-foreground/70 inline-flex items-center gap-1.5 text-sm font-semibold tracking-tight"
-          >
-            <Icon className="size-3.5" />
-            {logo}
-          </span>
-        )
-      })}
+      {logos.map((logo, index) => (
+        <span
+          key={`${logo}-${index}`}
+          className="text-muted-foreground/70 text-sm font-semibold tracking-tight"
+        >
+          {logo}
+        </span>
+      ))}
     </div>
   )
 
