@@ -12,13 +12,12 @@ import { cn } from '@/lib/utils'
 import { Logo } from '../logo'
 import { GlobalSearch } from './global-search'
 import { ThemeSwitcher } from './theme'
-import { shellContainerClass, useUI } from '@/contexts/ui-context'
+import { useUI } from '@/contexts/ui-context'
 
 export function NavbarDesktop() {
   const pathname = usePathname()
   const firstPath = pathname.split('/')[1]
-  const { shellWidth, hideNavbar } = useUI()
-  const isWide = shellWidth === 'wide'
+  const { hideNavbar } = useUI()
 
   return (
     <header
@@ -26,13 +25,7 @@ export function NavbarDesktop() {
       aria-label="Main navigation"
       aria-hidden={hideNavbar || undefined}
     >
-      <div
-        className={cn(
-          shellContainerClass(shellWidth),
-          !isWide && 'container-page-inner',
-          'py-3!',
-        )}
-      >
+      <div className="container-page container-page-inner py-3!">
         <div className="flex items-center justify-between gap-2">
           <nav className="flex min-w-0 flex-1 items-center gap-1 text-sm">
             <Link

@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'motion/react'
 
 import { BlocksSidebar } from './blocks-sidebar'
 import { Button } from '@/components/ui/button'
-import { shellContainerClass, useUI } from '@/contexts/ui-context'
+import { useUI } from '@/contexts/ui-context'
 import { cn } from '@/lib/utils'
 
 const sidebarTransition = {
@@ -22,15 +22,13 @@ export function BlocksShell({
   children: React.ReactNode
 }>) {
   const [filtersOpen, setFiltersOpen] = useState(true)
-  const { setShellWidth, setHideNavbar } = useUI()
+  const { setHideNavbar } = useUI()
 
   useLayoutEffect(() => {
-    setShellWidth('wide')
     return () => {
-      setShellWidth('default')
       setHideNavbar(false)
     }
-  }, [setShellWidth, setHideNavbar])
+  }, [setHideNavbar])
 
   function openFilters() {
     setFiltersOpen(true)
@@ -44,10 +42,7 @@ export function BlocksShell({
 
   return (
     <div
-      className={cn(
-        shellContainerClass('wide'),
-        'flex min-w-0 items-start pt-4 pb-8',
-      )}
+      className={cn('container-page flex min-w-0 items-start px-5 pt-4 pb-8')}
     >
       <motion.aside
         aria-label="Filters"
