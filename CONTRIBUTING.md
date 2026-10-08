@@ -75,3 +75,7 @@ For more detail, see [Conventional Commits](https://www.conventionalcommits.org/
 ## Requests for new blocks or components
 
 If you’d like to suggest a new block or component, please open a [Discussion](https://github.com/felipemenezes098/ui-flx/discussions) on GitHub. We’ll be happy to help.
+
+## License
+
+Contributions to `registry/` are licensed under [MIT](registry/LICENSE). Everything else is under [AGPL-3.0](LICENSE).

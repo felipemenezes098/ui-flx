@@ -8,6 +8,11 @@ Open source blocks for landing pages and marketing sites, patterns for everyday 
 
 [Website](https://ui.flexnative.com) · [Blocks](https://ui.flexnative.com/blocks) · [Illustrations](https://ui.flexnative.com/illustrations) · [Patterns](https://ui.flexnative.com/patterns)
 
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000)
+![React 19](https://img.shields.io/badge/React-19-000)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind-4-000)
+![Components: MIT](https://img.shields.io/badge/components-MIT-blue)
+
 ![Flexnative: blocks, patterns and illustrations for shadcn/ui](public/images/docs/flx-2.png)
 
 </div>
@@ -31,6 +36,18 @@ npx shadcn@latest add @flx/feature-01
 ```
 
 Swap `feature-01` for any block, pattern or illustration name shown on the website. Prefer not to use the CLI? Every page has the source to copy by hand.
+
+Using Claude Code, Cursor or Codex? Point your agent to [llms.txt](https://ui.flexnative.com/llms.txt).
+
+Blocks are plain components with their content inline, so you can use one right away and edit the text, images and links in the file:
+
+```tsx
+import { Feature01 } from '@/components/flx/blocks/feature/feature-01'
+
+export default function Page() {
+  return <Feature01 />
+}
+```
 
 ## What's inside
 
@@ -67,10 +84,16 @@ UI illustrations built with shadcn/ui and Motion, ready to drop into blocks, emp
 
 [Browse illustrations](https://ui.flexnative.com/illustrations).
 
+## Requirements
+
+- A project with [shadcn/ui](https://ui.shadcn.com/docs/installation) set up, using the Base UI style
+- React 19 and Tailwind CSS 4
+- The [shadcn CLI](https://ui.shadcn.com/docs/cli) to install items, or nothing at all if you copy them by hand
+
 ## FAQ
 
 **Is it free?**
-Yes. Everything on the website is open source.
+Yes. Everything in `registry/` is MIT, so you can use it in any project, commercial or not.
 
 **Does it work with my design?**
 Yes. Everything reads your shadcn/ui theme tokens, so changing your theme changes them too.
@@ -85,10 +108,16 @@ pnpm dev
 pnpm registry:build
 ```
 
-## Contributing
+Source lives in `registry/`, and `pnpm registry:build` generates the installable files in `public/r`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules every item follows.
 
-Please read the [contributing guide](/CONTRIBUTING.md).
+## Credits
+
+Inspired by [shadcn/ui](https://ui.shadcn.com). Built by [Felipe Menezes](https://x.com/fmenezes_).
+
+If Flexnative saves you time, a star helps other developers find it.
 
 ## License
 
-Licensed under the [AGPL-3.0 license](/LICENSE).
+The blocks, patterns, forms, illustrations and presets in [`registry/`](registry) are licensed under the [MIT license](registry/LICENSE). Use them in any project, commercial or not.
+
+Everything else in this repository, including the website, is licensed under the [AGPL-3.0 license](LICENSE).
