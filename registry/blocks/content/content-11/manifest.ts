@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Content11 } from './content-11'
-import { Content11EditorFields } from './editor/fields'
-import { Content11Example, values } from './content-11-example'
 
 export const manifest: BlockManifest = {
   slug: 'content-11',
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     iframeHeight: 950,
   },
   component: Content11,
-  editorFields: Content11EditorFields,
-  example: Content11Example,
-  defaults: values,
 }

@@ -7,27 +7,21 @@
       "name": "hero-01",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-01/hero-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-01/hero-01.tsx"
+          "target": "components/flx/blocks/hero/hero-01.tsx"
         },
         {
-          "path": "hero-01/hero-01-example.tsx",
+          "path": "hero-01/hero-01-integration-cloud.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-01/hero-01-example.tsx"
-        },
-        {
-          "path": "hero-01/integration-cloud.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-01/integration-cloud.tsx"
+          "target": "components/flx/blocks/hero/hero-01-integration-cloud.tsx"
         }
       ],
       "title": "Hero 01",
@@ -40,7 +34,7 @@
       "name": "hero-02",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta",
+        "button",
         "card",
         "badge",
         "avatar",
@@ -48,24 +42,18 @@
       ],
       "dependencies": [
         "react-wrap-balancer",
-        "motion",
         "lucide-react"
       ],
       "files": [
         {
           "path": "hero-02/hero-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-02/hero-02.tsx"
+          "target": "components/flx/blocks/hero/hero-02.tsx"
         },
         {
-          "path": "hero-02/hero-02-example.tsx",
+          "path": "hero-02/hero-02-dashboard.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-02/hero-02-example.tsx"
-        },
-        {
-          "path": "hero-02/dashboard-demo.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-02/dashboard-demo.tsx"
+          "target": "components/flx/blocks/hero/hero-02-dashboard.tsx"
         }
       ],
       "title": "Hero 02",
@@ -78,22 +66,16 @@
       "name": "hero-03",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-03/hero-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-03/hero-03.tsx"
-        },
-        {
-          "path": "hero-03/hero-03-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-03/hero-03-example.tsx"
+          "target": "components/flx/blocks/hero/hero-03.tsx"
         }
       ],
       "title": "Hero 03",
@@ -106,27 +88,21 @@
       "name": "hero-04",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-04/hero-04.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-04/hero-04.tsx"
+          "target": "components/flx/blocks/hero/hero-04.tsx"
         },
         {
-          "path": "hero-04/hero-04-example.tsx",
+          "path": "hero-04/hero-04-art-collage.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-04/hero-04-example.tsx"
-        },
-        {
-          "path": "hero-04/art-collage.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-04/art-collage.tsx"
+          "target": "components/flx/blocks/hero/hero-04-art-collage.tsx"
         }
       ],
       "title": "Hero 04",
@@ -138,23 +114,15 @@
     {
       "name": "hero-05",
       "type": "registry:block",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
+      "registryDependencies": [],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-05/hero-05.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-05/hero-05.tsx"
-        },
-        {
-          "path": "hero-05/hero-05-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-05/hero-05-example.tsx"
+          "target": "components/flx/blocks/hero/hero-05.tsx"
         }
       ],
       "title": "Hero 05",
@@ -169,23 +137,17 @@
       "title": "Hero 06",
       "description": "A split product hero with dual CTA, a compact logo row, and the Spot 01 illustration.",
       "registryDependencies": [
-        "@flx/cta",
-        "@flx/spot-01"
+        "@flx/spot-01",
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-06/hero-06.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-06/hero-06.tsx"
-        },
-        {
-          "path": "hero-06/hero-06-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-06/hero-06-example.tsx"
+          "target": "components/flx/blocks/hero/hero-06.tsx"
         }
       ],
       "meta": {
@@ -195,23 +157,15 @@
     {
       "name": "hero-07",
       "type": "registry:block",
-      "registryDependencies": [
-        "@flx/cta"
-      ],
+      "registryDependencies": [],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-07/hero-07.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-07/hero-07.tsx"
-        },
-        {
-          "path": "hero-07/hero-07-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-07/hero-07-example.tsx"
+          "target": "components/flx/blocks/hero/hero-07.tsx"
         }
       ],
       "title": "Hero 07",
@@ -224,23 +178,17 @@
       "name": "hero-08",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta",
-        "avatar"
+        "avatar",
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-08/hero-08.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-08/hero-08.tsx"
-        },
-        {
-          "path": "hero-08/hero-08-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-08/hero-08-example.tsx"
+          "target": "components/flx/blocks/hero/hero-08.tsx"
         }
       ],
       "title": "Hero 08",
@@ -258,19 +206,13 @@
       ],
       "dependencies": [
         "react-wrap-balancer",
-        "motion",
         "lucide-react"
       ],
       "files": [
         {
           "path": "hero-09/hero-09.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-09/hero-09.tsx"
-        },
-        {
-          "path": "hero-09/hero-09-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-09/hero-09-example.tsx"
+          "target": "components/flx/blocks/hero/hero-09.tsx"
         }
       ],
       "title": "Hero 09",
@@ -283,22 +225,16 @@
       "name": "hero-10",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-10/hero-10.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-10/hero-10.tsx"
-        },
-        {
-          "path": "hero-10/hero-10-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-10/hero-10-example.tsx"
+          "target": "components/flx/blocks/hero/hero-10.tsx"
         }
       ],
       "title": "Hero 10",
@@ -318,24 +254,18 @@
       ],
       "dependencies": [
         "react-wrap-balancer",
-        "motion",
         "lucide-react"
       ],
       "files": [
         {
           "path": "hero-11/hero-11.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-11/hero-11.tsx"
+          "target": "components/flx/blocks/hero/hero-11.tsx"
         },
         {
-          "path": "hero-11/hero-11-example.tsx",
+          "path": "hero-11/hero-11-studio.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-11/hero-11-example.tsx"
-        },
-        {
-          "path": "hero-11/studio-demo.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-11/studio-demo.tsx"
+          "target": "components/flx/blocks/hero/hero-11-studio.tsx"
         }
       ],
       "title": "Hero 11",
@@ -348,22 +278,16 @@
       "name": "hero-12",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-12/hero-12.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-12/hero-12.tsx"
-        },
-        {
-          "path": "hero-12/hero-12-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-12/hero-12-example.tsx"
+          "target": "components/flx/blocks/hero/hero-12.tsx"
         }
       ],
       "title": "Hero 12",
@@ -378,19 +302,13 @@
       "type": "registry:block",
       "registryDependencies": [],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "hero-13/hero-13.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-13/hero-13.tsx"
-        },
-        {
-          "path": "hero-13/hero-13-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-13/hero-13-example.tsx"
+          "target": "components/flx/blocks/hero/hero-13.tsx"
         }
       ],
       "title": "Hero 13",
@@ -403,29 +321,22 @@
       "name": "hero-14",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/cta",
         "button"
       ],
       "dependencies": [
         "react-wrap-balancer",
-        "motion",
         "lucide-react"
       ],
       "files": [
         {
           "path": "hero-14/hero-14.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-14/hero-14.tsx"
+          "target": "components/flx/blocks/hero/hero-14.tsx"
         },
         {
-          "path": "hero-14/hero-14-example.tsx",
+          "path": "hero-14/hero-14-block-builder.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-14/hero-14-example.tsx"
-        },
-        {
-          "path": "hero-14/block-builder-demo.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/hero/hero-14/block-builder-demo.tsx"
+          "target": "components/flx/blocks/hero/hero-14-block-builder.tsx"
         }
       ],
       "title": "Hero 14",

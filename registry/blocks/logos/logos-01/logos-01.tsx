@@ -9,32 +9,40 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import { cn } from '@/lib/utils'
 
-export interface Logos01Item {
-  title: string
-  url: string
-}
+const logos = [
+  {
+    name: 'Supabase',
+    src: 'https://cdn.brandfetch.io/idsSceG8fK/w/800/h/156/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B',
+  },
+  {
+    name: 'Google',
+    src: 'https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+  },
+  {
+    name: 'Shopify',
+    src: 'https://cdn.brandfetch.io/idAgPm7IvG/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+  },
+  {
+    name: 'Mongo',
+    src: 'https://cdn.brandfetch.io/ideyyfT0Lp/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+  },
+  {
+    name: 'LottieFiles',
+    src: 'https://cdn.brandfetch.io/idEExqEvR9/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B',
+  },
+]
 
-export interface Logos01Props {
-  items: Logos01Item[]
-  className?: string
-}
+// Repeat the list so the loop always has enough slides to scroll through.
+const items = [...logos, ...logos, ...logos]
 
-export function Logos01({ items, className }: Readonly<Logos01Props>) {
+export function Logos01() {
   const [api, setApi] = useState<CarouselApi>()
 
   useEffect(() => {
     if (!api) return
     api.plugins()?.autoScroll?.play()
   }, [api])
-
-  const normalizedItems =
-    items.length < 8 ? [...items, ...items, ...items] : items
-
-  const containerWidthClassName = cn('w-full max-w-6xl mx-auto px-4', className)
-
-  if (!normalizedItems.length) return null
 
   return (
     <div className="relative w-full">
@@ -53,20 +61,18 @@ export function Logos01({ items, className }: Readonly<Logos01Props>) {
           }),
         ]}
         className="w-full"
-        aria-label="Carrossel de logos"
+        aria-label="Customer logos"
       >
-        <CarouselContent
-          className={cn('flex items-center', containerWidthClassName)}
-        >
-          {normalizedItems.map((item, index) => (
+        <CarouselContent className="mx-auto flex w-full max-w-6xl items-center px-4">
+          {items.map((logo, index) => (
             <CarouselItem
-              key={`${item.title}-${index}`}
+              key={`${logo.name}-${index}`}
               className="basis-auto pl-15"
             >
               <div className="flex h-12 items-center">
                 <img
-                  src={item.url}
-                  alt={item.title}
+                  src={logo.src}
+                  alt={logo.name}
                   width={120}
                   height={32}
                   loading="lazy"

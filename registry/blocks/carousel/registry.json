@@ -12,22 +12,13 @@
         "carousel"
       ],
       "dependencies": [
-        "motion",
-        "class-variance-authority"
-      ],
-      "devDependencies": [
         "embla-carousel-auto-scroll"
       ],
       "files": [
         {
           "path": "carousel-01/carousel-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-01/carousel-01.tsx"
-        },
-        {
-          "path": "carousel-01/carousel-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-01/carousel-01-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-01.tsx"
         }
       ],
       "meta": {
@@ -44,23 +35,19 @@
         "carousel",
         "button"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "carousel-03/carousel-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-03/carousel-03.tsx"
-        },
-        {
-          "path": "carousel-03/carousel-03-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-03/carousel-03-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-03.tsx"
         }
       ],
       "meta": {
         "iframeHeight": 700,
-        "containerClassName": "max-w-full overflow-hidden px-0",
-        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+        "containerClassName": "max-w-full overflow-hidden px-0"
       }
     },
     {
@@ -80,18 +67,12 @@
         {
           "path": "carousel-02/carousel-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-02/carousel-02.tsx"
-        },
-        {
-          "path": "carousel-02/carousel-02-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-02/carousel-02-example.tsx"
+          "target": "components/flx/blocks/carousel/carousel-02.tsx"
         }
       ],
       "meta": {
         "iframeHeight": 700,
-        "containerClassName": "max-w-full overflow-hidden px-0",
-        "componentClassName": "2xl:max-w-6xl xl:max-w-6xl lg:max-w-5xl md:max-w-4xl max-w-4xl mx-auto px-5"
+        "containerClassName": "max-w-full overflow-hidden px-0"
       }
     }
   ]

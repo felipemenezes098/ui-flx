@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Feature02 } from './feature-02'
-import { Feature02EditorFields } from './editor/fields'
-import { Feature02Example, values } from './feature-02-example'
 
 export const manifest: BlockManifest = {
   slug: 'feature-02',
@@ -19,7 +17,4 @@ export const manifest: BlockManifest = {
     captureDelay: 1200,
   },
   component: Feature02,
-  editorFields: Feature02EditorFields,
-  example: Feature02Example,
-  defaults: values,
 }

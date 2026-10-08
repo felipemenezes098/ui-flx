@@ -1,11 +1,7 @@
-import { readdirSync, statSync } from 'node:fs'
-import { join } from 'node:path'
-
 import type { MetadataRoute } from 'next'
 
 import { siteConfig } from '@/config/site'
 import { categories as blockCategories } from '@/lib/blocks/block-catalog'
-import { allIntents } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 const staticPaths = [
@@ -15,13 +11,7 @@ const staticPaths = [
   '/forms',
   '/forms/react-hook-form',
   '/forms/tanstack-form',
-  '/intents',
-  '/compositions',
-  '/sketches',
   '/illustrations',
-  '/presets',
-  '/new',
-  '/cms/sanity',
   '/me',
 ] as const
 
@@ -38,28 +28,6 @@ function entry(
   }
 }
 
-function collectBlockDocPaths(dir: string, segments: string[] = []): string[] {
-  const paths: string[] = []
-
-  for (const name of readdirSync(dir)) {
-    const fullPath = join(dir, name)
-    if (statSync(fullPath).isDirectory()) {
-      paths.push(...collectBlockDocPaths(fullPath, [...segments, name]))
-      continue
-    }
-
-    if (!name.endsWith('.mdx')) continue
-
-    const slug = name.replace(/\.mdx$/, '')
-    const [category] = segments.slice(-1)
-    if (!category) continue
-
-    paths.push(`/blocks/${category}/${slug}`)
-  }
-
-  return paths
-}
-
 export function getSitemapEntries(): MetadataRoute.Sitemap {
   return [
     ...staticPaths.map((path) =>
@@ -69,16 +37,15 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
       }),
     ),
     ...blockCategories.map((category) =>
-      entry(`/blocks?category=${category.slug}`, { priority: 0.8 }),
+      entry(`/blocks/${category.slug}`, { priority: 0.8 }),
     ),
     ...patternCategories.map((category) =>
       entry(`/patterns/${category.slug}`, { priority: 0.7 }),
     ),
-    ...allIntents
-      .filter((intent) => intent.manifest)
-      .map((intent) => entry(`/intents/${intent.slug}`, { priority: 0.7 })),
-    ...collectBlockDocPaths(join(process.cwd(), 'src/app/content/blocks')).map(
-      (path) => entry(path, { priority: 0.8 }),
+    ...blockCategories.flatMap((category) =>
+      category.blocks.map((block) =>
+        entry(`/blocks/${category.slug}/${block.slug}`, { priority: 0.8 }),
+      ),
     ),
   ]
 }

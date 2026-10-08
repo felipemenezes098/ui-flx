@@ -33,15 +33,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    'UI',
-    'Shadcn',
-    'Blocks',
+    'shadcn/ui',
+    'shadcn blocks',
+    'shadcn registry',
+    'landing page',
+    'marketing website',
     'React',
     'Next.js',
     'Tailwind CSS',
-    'Sanity',
-    'CMS',
-    'Components',
+    'Base UI',
+    'Motion',
   ],
   authors: [
     {

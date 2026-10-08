@@ -1,264 +1,73 @@
-'use client'
-
-import * as React from 'react'
-import { motion, useReducedMotion, type Variants } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 
-import type { CtaProps } from '../../shared/cta'
-import { Cta } from '../../shared/cta'
-import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 
-export interface Content07Item {
-  title?: string
-  content?: string
-  media?: {
-    src: string
-    alt: string
-  }
-  cta?: CtaProps
-}
-
-export interface Content07Props {
-  title: string
-  description?: string
-  items: Content07Item[]
-  variant?: 'standard' | 'compact'
-  animation?: 'none' | 'subtle'
-}
-
-const variantStyles = {
-  standard: {
-    container: 'py-12 sm:py-16',
-    section: 'gap-10 sm:gap-12',
-    header: 'gap-3',
-    title: 'text-2xl sm:text-3xl',
-    description: 'max-w-xl text-sm sm:text-base',
-    grid: 'grid-cols-1 gap-8 md:grid-cols-2',
-    column: 'gap-5',
-    copy: 'gap-2',
-    itemTitle: 'text-lg font-medium tracking-tight',
-    itemContent: 'text-sm',
-    media: 'h-64',
-    mediaRadius: 'rounded-lg',
+const items = [
+  {
+    title: 'Design',
+    content:
+      'Clean, accessible components that make your product feel modern and easy to use.',
+    image:
+      'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop',
+    cta: 'Learn more',
   },
-  compact: {
-    container: 'py-10 sm:py-12',
-    section: 'gap-8',
-    header: 'gap-2',
-    title: 'text-xl sm:text-2xl',
-    description: 'max-w-lg text-sm',
-    grid: 'grid-cols-1 gap-6 md:grid-cols-2',
-    column: 'gap-4',
-    copy: 'gap-1.5',
-    itemTitle: 'text-base font-medium tracking-tight',
-    itemContent: 'text-xs',
-    media: 'h-52',
-    mediaRadius: 'rounded-md',
+  {
+    title: 'Developer Experience',
+    content:
+      'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
+    image:
+      'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop',
+    cta: 'Get started',
   },
-} as const
+]
 
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-}
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-}
-
-const columnItem: Variants = {
-  hidden: { opacity: 0, y: 16, filter: 'blur(8px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-}
-
-const gridContainer: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-}
-
-const viewport = {
-  once: true,
-  margin: '-80px' as const,
-}
-
-function Reveal({
-  active,
-  variants,
-  className,
-  children,
-}: Readonly<{
-  active: boolean
-  variants?: Variants
-  className?: string
-  children: React.ReactNode
-}>) {
-  if (!active) return <div className={className}>{children}</div>
-
-  return (
-    <motion.div variants={variants ?? item} className={className}>
-      {children}
-    </motion.div>
-  )
-}
-
-export function Content07({
-  title,
-  description,
-  items,
-  variant = 'standard',
-  animation = 'none',
-}: Readonly<Content07Props>) {
-  const reduce = useReducedMotion()
-  const animate = animation === 'subtle' && !reduce
-  const vs = variantStyles[variant]
-
-  if (!items.length) return null
-
-  const titleElement = title && (
-    <h2
-      className={cn(
-        'text-foreground font-serif font-normal tracking-tight text-balance',
-        vs.title,
-      )}
-    >
-      <Balancer>{title}</Balancer>
-    </h2>
-  )
-
-  const descriptionElement = description && (
-    <p className={cn('text-muted-foreground', vs.description)}>
-      <Balancer>{description}</Balancer>
-    </p>
-  )
-
-  const renderColumn = (itemData: Content07Item, index: number) => (
-    <article className={cn('flex flex-col', vs.column)}>
-      {itemData.media && (
-        <div
-          className={cn(
-            'group/image relative w-full overflow-hidden outline outline-black/10 dark:outline-white/10',
-            vs.media,
-            vs.mediaRadius,
-          )}
-        >
-          <img
-            src={itemData.media.src}
-            alt={itemData.media.alt || itemData.title || 'Content 07 image'}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-            fetchPriority={index === 0 ? 'high' : 'low'}
-            className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
-          />
-        </div>
-      )}
-
-      <div className={cn('flex flex-col', vs.copy)}>
-        {itemData.title && (
-          <h3 className={vs.itemTitle}>{itemData.title}</h3>
-        )}
-        {itemData.content && (
-          <p
-            className={cn(
-              'text-muted-foreground whitespace-pre-line',
-              vs.itemContent,
-            )}
-          >
-            <Balancer>{itemData.content}</Balancer>
-          </p>
-        )}
-      </div>
-
-      {itemData.cta && <Cta cta={itemData.cta} />}
-    </article>
-  )
-
-  const gridElement = (
-    <div className={cn('grid', vs.grid)}>
-      {items.map((itemData, index) => (
-        <div key={`${itemData.title}-${index}`}>
-          {renderColumn(itemData, index)}
-        </div>
-      ))}
-    </div>
-  )
-
-  const animatedGridElement = (
-    <motion.div className={cn('grid', vs.grid)} variants={gridContainer}>
-      {items.map((itemData, index) => (
-        <motion.div key={`${itemData.title}-${index}`} variants={columnItem}>
-          {renderColumn(itemData, index)}
-        </motion.div>
-      ))}
-    </motion.div>
-  )
-
-  const body = (
-    <>
-      {(title || description) && (
-        <div className={cn('flex max-w-2xl flex-col', vs.header)}>
-          {titleElement}
-          {descriptionElement}
-        </div>
-      )}
-      {gridElement}
-    </>
-  )
-
-  const animatedBody = (
-    <>
-      <Reveal active={animate} className={cn('flex max-w-2xl flex-col', vs.header)}>
-        {titleElement}
-        {descriptionElement}
-      </Reveal>
-      <Reveal active={animate}>{animatedGridElement}</Reveal>
-    </>
-  )
-
-  if (animate) {
-    return (
-      <section className="w-full">
-        <div
-          className={cn(
-            'mx-auto flex w-full max-w-6xl flex-col px-6',
-            vs.container,
-            vs.section,
-          )}
-        >
-          <motion.div
-            className={cn('flex flex-col', vs.section)}
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {animatedBody}
-          </motion.div>
-        </div>
-      </section>
-    )
-  }
-
+export function Content07() {
   return (
     <section className="w-full">
-      <div
-        className={cn(
-          'mx-auto flex w-full max-w-6xl flex-col px-6',
-          vs.container,
-          vs.section,
-        )}
-      >
-        {body}
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12 sm:gap-12 sm:py-16">
+        <div className="flex max-w-2xl flex-col gap-3">
+          <h2 className="text-foreground font-serif text-2xl font-normal tracking-tight text-balance sm:text-3xl">
+            <Balancer>Two ways to move faster</Balancer>
+          </h2>
+          <p className="text-muted-foreground max-w-xl text-sm sm:text-base">
+            <Balancer>
+              Pair a strong visual with clear copy and an optional action — side
+              by side.
+            </Balancer>
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {items.map((item) => (
+            <article key={item.title} className="flex flex-col gap-5">
+              <div className="group/image relative h-64 w-full overflow-hidden rounded-lg outline outline-black/10 dark:outline-white/10">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-medium tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  <Balancer>{item.content}</Balancer>
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                className="w-fit rounded-full px-4"
+                nativeButton={false}
+                render={<a href="#" />}
+              >
+                {item.cta}
+              </Button>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )

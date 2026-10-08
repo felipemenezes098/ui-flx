@@ -5,8 +5,8 @@ import { SpeedInsights } from '@/components/core/speed-insights'
 export const dynamic = 'force-static'
 export const revalidate = false
 
-// Analytics lives here and not in the root layout: /preview and /block-editor
-// render inside iframes, and every iframe would report its own pageview.
+// Analytics lives here and not in the root layout: /preview renders inside
+// iframes, and every iframe would report its own pageview.
 export default function MainLayout({
   children,
 }: Readonly<{

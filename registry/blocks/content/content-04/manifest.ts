@@ -1,13 +1,11 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Content04 } from './content-04'
-import { Content04EditorFields } from './editor/fields'
-import { Content04Example, values } from './content-04-example'
 
 export const manifest: BlockManifest = {
   slug: 'content-04',
   name: 'Content 04',
   description:
-    'Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.',
+    'Two-column card grid with a serif section header and copy above each image.',
   category: 'content',
   preset: 'sienna',
   image: {
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     iframeHeight: 900,
   },
   component: Content04,
-  editorFields: Content04EditorFields,
-  example: Content04Example,
-  defaults: values,
 }

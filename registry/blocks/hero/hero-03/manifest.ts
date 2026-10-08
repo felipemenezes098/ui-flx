@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Hero03 } from './hero-03'
-import { Hero03EditorFields } from './editor/fields'
-import { Hero03Example, values } from './hero-03-example'
 
 export const manifest: BlockManifest = {
   slug: 'hero-03',
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     iframeHeight: 1200,
   },
   component: Hero03,
-  editorFields: Hero03EditorFields,
-  example: Hero03Example,
-  defaults: values,
 }

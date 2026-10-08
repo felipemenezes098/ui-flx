@@ -6,7 +6,7 @@ import { manifest as scroll01Manifest } from './scroll-01/manifest'
 export const scrollCategory: BlockCategoryRow = {
   slug: 'scroll',
   category: 'Scroll',
-  description: 'Scroll-based interactive blocks with animations.',
+  description: 'Sticky media that changes as you scroll through text.',
   type: 'scroll',
   image: scroll01Manifest.image,
   concept: ScrollConcept,

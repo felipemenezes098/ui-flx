@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Hero11 } from './hero-11'
-import { Hero11EditorFields } from './editor/fields'
-import { Hero11Example, values } from './hero-11-example'
 
 export const manifest: BlockManifest = {
   slug: 'hero-11',
@@ -19,7 +17,4 @@ export const manifest: BlockManifest = {
     captureDelay: 3000,
   },
   component: Hero11,
-  editorFields: Hero11EditorFields,
-  example: Hero11Example,
-  defaults: values,
 }

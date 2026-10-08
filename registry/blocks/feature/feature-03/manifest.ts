@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Feature03 } from './feature-03'
-import { Feature03EditorFields } from './editor/fields'
-import { Feature03Example, values } from './feature-03-example'
 
 export const manifest: BlockManifest = {
   slug: 'feature-03',
@@ -20,7 +18,4 @@ export const manifest: BlockManifest = {
     captureViewportOnly: true,
   },
   component: Feature03,
-  editorFields: Feature03EditorFields,
-  example: Feature03Example,
-  defaults: values,
 }

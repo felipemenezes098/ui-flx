@@ -9,7 +9,7 @@
       "title": "Call to Action 01",
       "description": "A centered text block with a title, description, and CTA.",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
         "react-wrap-balancer"
@@ -18,12 +18,7 @@
         {
           "path": "cta-01/cta-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/cta/cta-01/cta-01.tsx"
-        },
-        {
-          "path": "cta-01/cta-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/cta/cta-01/cta-01-example.tsx"
+          "target": "components/flx/blocks/cta/cta-01.tsx"
         }
       ],
       "meta": {

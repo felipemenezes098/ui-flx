@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Testimonials01 } from './testimonials-01'
-import { Testimonials01EditorFields } from './editor/fields'
-import { Testimonials01Example, values } from './testimonials-01-example'
 
 export const manifest: BlockManifest = {
   slug: 'testimonials-01',
@@ -17,7 +15,4 @@ export const manifest: BlockManifest = {
     iframeHeight: 800,
   },
   component: Testimonials01,
-  editorFields: Testimonials01EditorFields,
-  example: Testimonials01Example,
-  defaults: values,
 }

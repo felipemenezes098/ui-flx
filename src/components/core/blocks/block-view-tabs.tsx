@@ -1,9 +1,6 @@
 'use client'
 
-import {
-  EditButton,
-  FullscreenButton,
-} from '@/components/core/preview/preview-actions'
+import { FullscreenButton } from '@/components/core/preview/preview-actions'
 import { PresetPanel } from '@/components/core/preview/preset-panel'
 import { PreviewTabs } from '@/components/core/preview/preview-tabs'
 import { PromptPanel } from '@/components/core/preview/prompt-panel'
@@ -13,7 +10,6 @@ import type { RegistryCodeFile } from '@/lib/registry-source'
 
 interface BlockViewTabsProps {
   src: string
-  editSrc: string
   registryName: string
   codeFiles: RegistryCodeFile[]
   prompt: string
@@ -25,12 +21,11 @@ interface BlockViewTabsProps {
 
 /**
  * Block-domain assembly of the generic PreviewTabs: CLI install + refresh +
- * fullscreen + edit. Lives client-side so the compound (PreviewTabs.*) resolves
+ * fullscreen. Lives client-side so the compound (PreviewTabs.*) resolves
  * within the client boundary; BlockView (RSC) feeds it resolved data.
  */
 export function BlockViewTabs({
   src,
-  editSrc,
   registryName,
   codeFiles,
   prompt,
@@ -60,7 +55,6 @@ export function BlockViewTabs({
           />
           <PreviewTabs.RefreshButton />
           <FullscreenButton href={src} />
-          <EditButton href={editSrc} />
         </PreviewTabs.Actions>
       </PreviewTabs.Bar>
       <PreviewTabs.Preview

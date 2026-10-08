@@ -29,13 +29,6 @@ export const getStartedSections = [
   },
 ]
 
-export const sharedSections = [
-  {
-    name: 'CTA',
-    href: '/docs/shared/cta',
-  },
-]
-
 export const docsSanitySections = [
   {
     name: 'Getting Started',

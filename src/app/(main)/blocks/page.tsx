@@ -9,8 +9,9 @@ import { BlocksShell } from './components/blocks-shell'
 export const dynamic = 'force-static'
 export const revalidate = false
 
-const title = 'Blocks'
-const description = 'All Blocks are ready to copy and paste into your websites.'
+const title = 'shadcn/ui Blocks'
+const description =
+  'Open source shadcn/ui blocks for landing pages and marketing sites: hero, feature, content, CTA, testimonial, bento, carousel, logo and scroll sections. Copy and paste, or install with the shadcn CLI.'
 
 export const metadata: Metadata = {
   title,

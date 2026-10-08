@@ -10,13 +10,12 @@ export interface BlockImage {
 
 export interface BlockMeta {
   containerClassName?: string
-  componentClassName?: string
   iframeHeight?: number
   captureViewportOnly?: boolean
   captureDelay?: number
 }
 
-export interface BlockManifest<TProps = Record<string, unknown>> {
+export interface BlockManifest {
   slug: string
   name: string
   description: string
@@ -26,11 +25,6 @@ export interface BlockManifest<TProps = Record<string, unknown>> {
   meta?: BlockMeta
   hasNew?: boolean
   component: React.ComponentType<any>
-  editorFields: React.ComponentType<any>
-  example?: React.ComponentType<any>
-  defaults: TProps
-  variations?: Record<string, React.ComponentType<any>>
-  variationDefaults?: Record<string, TProps>
 }
 
 export interface BlockItem {

@@ -1,75 +1,78 @@
 'use client'
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from 'motion/react'
-import { useRef, useState, Dispatch, SetStateAction } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-type Scroll01Item = {
-  title: string
-  description: string
-  media: string
-}
+import { cn } from '@/lib/utils'
 
-export interface Scroll01Props {
-  items: Scroll01Item[]
-}
+const items = [
+  {
+    title: 'Build faster',
+    description: 'Create interfaces quickly using reusable blocks.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1486092642310-0c4e84309adb?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Alt 1',
+    },
+  },
+  {
+    title: 'Customize easily',
+    description: 'Adapt everything to your design system.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1479707406242-e8929e87e734?q=80&w=1170&auto=format&fit=crop',
+      alt: 'Alt 2',
+    },
+  },
+  {
+    title: 'Stay consistent',
+    description: 'Keep layouts balanced with a clear visual rhythm.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1628880689946-f4a0533ac5fc?q=80&w=1170&auto=format&fit=crop',
+      alt: 'Alt 3',
+    },
+  },
+  {
+    title: 'Guide attention',
+    description: 'Highlight the right content without adding noise.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1571495653425-621ba3cb7ac1?q=80&w=1170&auto=format&fit=crop',
+      alt: 'Alt 4',
+    },
+  },
+  {
+    title: 'Scale calmly',
+    description: 'Expand your pages with patterns that stay elegant.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1561990306-7462bfe923b6?q=80&w=1170&auto=format&fit=crop',
+      alt: 'Alt 5',
+    },
+  },
+]
 
-function ScrollItem({
-  item,
-  index,
-  setActive,
-}: {
-  item: Scroll01Item
-  index: number
-  setActive: Dispatch<SetStateAction<number>>
-}) {
-  const ref = useRef<HTMLDivElement | null>(null)
+export function Scroll01() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const textRefs = useRef<(HTMLElement | null)[]>([])
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start 90%', 'end 15%'],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], [20, -20])
-
-  const opacityValues = index === 0 ? [1, 0.7, 1, 0] : [0, 0.7, 1, 0]
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], opacityValues)
-
-  const isActive = useTransform(scrollYProgress, (v) => v > 0.4 && v < 0.6)
-
-  useMotionValueEvent(isActive, 'change', (v) => {
-    if (v) {
-      setActive((prev) => (prev === index ? prev : index))
-    }
-  })
+  useEffect(() => {
+    // A text item becomes active while it crosses the middle of the viewport.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveIndex(Number(entry.target.getAttribute('data-index')))
+          }
+        }
+      },
+      { rootMargin: '-45% 0px -45% 0px' },
+    )
+    textRefs.current.forEach((el) => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <motion.article
-      ref={ref}
-      style={{ opacity, y }}
-      className="flex flex-col items-center"
-    >
-      <div className="text-center">
-        <h3 className="mb-2 text-2xl font-semibold">{item.title}</h3>
-        <p className="text-muted-foreground">{item.description}</p>
-      </div>
-    </motion.article>
-  )
-}
-
-export function Scroll01({ items }: Readonly<Scroll01Props>) {
-  const [activeIndex, setActiveIndex] = useState<number>(0)
-
-  return (
-    <>
+    <div className="mx-auto w-full max-w-6xl px-6 py-10">
       <div className="space-y-10 md:hidden">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <article
-            key={`${item.title}-${index}`}
+            key={item.title}
             className="flex flex-col items-start space-y-4"
           >
             <div className="space-y-2">
@@ -77,8 +80,8 @@ export function Scroll01({ items }: Readonly<Scroll01Props>) {
               <p className="text-muted-foreground">{item.description}</p>
             </div>
             <img
-              src={item.media}
-              alt={item.title}
+              src={item.image.src}
+              alt={item.image.alt}
               className="h-72 w-full rounded-2xl object-cover"
             />
           </article>
@@ -86,39 +89,39 @@ export function Scroll01({ items }: Readonly<Scroll01Props>) {
       </div>
 
       <div className="hidden gap-10 md:grid md:grid-cols-2">
-        <div className="sticky top-20 max-h-[70vh] overflow-hidden rounded-2xl">
+        <div className="sticky top-20 h-[70vh] self-start overflow-hidden rounded-2xl">
           {items.map((item, index) => (
-            <motion.img
-              key={`${item.title}-${index}`}
-              src={item.media}
-              alt={item.title}
-              className="absolute inset-0 aspect-4/3 h-full w-full object-cover"
-              initial={{ opacity: index === 0 ? 1 : 0 }}
-              animate={{
-                opacity: activeIndex === index ? 1 : 0,
-                willChange: 'opacity',
-              }}
-              transition={{
-                duration: 0.15,
-                ease: 'linear',
-              }}
+            <img
+              key={item.title}
+              src={item.image.src}
+              alt={item.image.alt}
+              className={cn(
+                'absolute inset-0 size-full object-cover transition-opacity duration-300 ease-linear',
+                activeIndex === index ? 'opacity-100' : 'opacity-0',
+              )}
             />
           ))}
         </div>
 
-        <div className="py-[35vh]">
-          <div className="space-y-[30vh]">
-            {items.map((item, index) => (
-              <ScrollItem
-                key={`${item.title}-${index}`}
-                item={item}
-                index={index}
-                setActive={setActiveIndex}
-              />
-            ))}
-          </div>
+        <div className="space-y-[30vh] py-[35vh]">
+          {items.map((item, index) => (
+            <article
+              key={item.title}
+              ref={(el) => {
+                textRefs.current[index] = el
+              }}
+              data-index={index}
+              className={cn(
+                'text-center transition-opacity duration-300',
+                activeIndex === index ? 'opacity-100' : 'opacity-30',
+              )}
+            >
+              <h3 className="mb-2 text-2xl font-semibold">{item.title}</h3>
+              <p className="text-muted-foreground">{item.description}</p>
+            </article>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }

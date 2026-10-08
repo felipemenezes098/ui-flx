@@ -10,7 +10,6 @@ import {
   Image,
   LayoutGrid,
   Search,
-  Sparkles,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -30,7 +29,6 @@ import {
 import { Kbd } from '@/components/ui/kbd'
 import { cn } from '@/lib/utils'
 import { blockCategories } from '@/lib/blocks/block-catalog'
-import { intentDomains } from '@/lib/intents/intent-catalog'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
 const patterns = [
@@ -45,21 +43,6 @@ const patterns = [
     href: '/forms/react-hook-form',
   },
 ].toSorted((a, b) => a.name.localeCompare(b.name))
-
-const intents = intentDomains
-  .map((domain) => {
-    const first = domain.intents.find(
-      (intent) => intent.manifest && !intent.comingSoon,
-    )
-    if (!first) return null
-    return {
-      key: `intent-${domain.slug}`,
-      name: domain.name,
-      href: `/intents/${first.slug}`,
-    }
-  })
-  .filter((item): item is NonNullable<typeof item> => item !== null)
-  .toSorted((a, b) => a.name.localeCompare(b.name))
 
 const blocks = blockCategories.toSorted((a, b) =>
   a.category.localeCompare(b.category),
@@ -112,7 +95,7 @@ export function GlobalSearch() {
         className="top-1/5 shadow-lg data-closed:!animate-none"
         onOpenChange={setOpen}
         title="Global search"
-        description="Search patterns, blocks, illustrations and intents"
+        description="Search patterns, blocks and illustrations"
       >
         <Command>
           <CommandInput placeholder="Search patterns, blocks, illustrations…" />
@@ -141,7 +124,7 @@ export function GlobalSearch() {
                   key={`block-${block.slug}`}
                   className="h-9"
                   value={`block ${block.category}`}
-                  onSelect={() => navigate(`/blocks?category=${block.slug}`)}
+                  onSelect={() => navigate(`/blocks/${block.slug}`)}
                 >
                   <Blocks className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{block.category}</span>
@@ -160,22 +143,6 @@ export function GlobalSearch() {
                 <Image className="size-4 shrink-0 opacity-60" />
                 <span className="truncate">Illustrations</span>
               </CommandItem>
-            </CommandGroup>
-
-            <CommandSeparator />
-
-            <CommandGroup heading="Intents">
-              {intents.map((item) => (
-                <CommandItem
-                  key={item.key}
-                  className="h-9"
-                  value={`intent ${item.name}`}
-                  onSelect={() => navigate(item.href)}
-                >
-                  <Sparkles className="size-4 shrink-0 opacity-60" />
-                  <span className="truncate">{item.name}</span>
-                </CommandItem>
-              ))}
             </CommandGroup>
           </CommandList>
           <div className="text-muted-foreground flex items-center gap-4 border-t px-3 py-2 text-xs">

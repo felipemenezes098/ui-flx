@@ -9,22 +9,16 @@
       "title": "Content 06",
       "description": "Two-column split with serif headline, supporting copy, optional CTA, and a media panel.",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "motion",
         "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "content-06/content-06.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-06/content-06.tsx"
-        },
-        {
-          "path": "content-06/content-06-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-06/content-06-example.tsx"
+          "target": "components/flx/blocks/content/content-06.tsx"
         }
       ],
       "meta": {
@@ -35,25 +29,19 @@
       "name": "content-09",
       "type": "registry:block",
       "title": "Content 09",
-      "description": "Two-column icon card grid with serif section header and subtle entrance motion.",
+      "description": "Two-column icon card grid with a serif section header.",
       "registryDependencies": [
-        "@flx/dynamic-icon",
         "card"
       ],
       "dependencies": [
-        "motion",
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "lucide-react"
       ],
       "files": [
         {
           "path": "content-09/content-09.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-09/content-09.tsx"
-        },
-        {
-          "path": "content-09/content-09-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-09/content-09-example.tsx"
+          "target": "components/flx/blocks/content/content-09.tsx"
         }
       ],
       "meta": {
@@ -65,23 +53,16 @@
       "type": "registry:block",
       "title": "Content 02",
       "description": "A grid of media cards with a section header and item details below each image.",
-      "registryDependencies": [
-        "@flx/dynamic-icon"
-      ],
+      "registryDependencies": [],
       "dependencies": [
-        "motion",
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "lucide-react"
       ],
       "files": [
         {
           "path": "content-02/content-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-02/content-02.tsx"
-        },
-        {
-          "path": "content-02/content-02-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-02/content-02-example.tsx"
+          "target": "components/flx/blocks/content/content-02.tsx"
         }
       ],
       "meta": {
@@ -94,47 +75,16 @@
       "title": "Content 07",
       "description": "Two-column grid with serif header, media on top, copy, and optional CTA per column.",
       "registryDependencies": [
-        "@flx/cta"
+        "button"
       ],
       "dependencies": [
-        "motion",
         "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "content-07/content-07.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-07/content-07.tsx"
-        },
-        {
-          "path": "content-07/content-07-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-07/content-07-example.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 800
-      }
-    },
-    {
-      "name": "content-05",
-      "type": "registry:block",
-      "title": "Content 05",
-      "description": "A focus grid with items that can be focused and dimmed.",
-      "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "content-05/content-05.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-05/content-05.tsx"
-        },
-        {
-          "path": "content-05/content-05-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-05/content-05-example.tsx"
+          "target": "components/flx/blocks/content/content-07.tsx"
         }
       ],
       "meta": {
@@ -145,24 +95,18 @@
       "name": "content-04",
       "type": "registry:block",
       "title": "Content 04",
-      "description": "Two-column card grid with a serif section header, copy above each image, and subtle entrance motion.",
+      "description": "Two-column card grid with a serif section header and copy above each image.",
       "registryDependencies": [
         "card"
       ],
       "dependencies": [
-        "motion",
         "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "content-04/content-04.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-04/content-04.tsx"
-        },
-        {
-          "path": "content-04/content-04-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-04/content-04-example.tsx"
+          "target": "components/flx/blocks/content/content-04.tsx"
         }
       ],
       "meta": {
@@ -173,29 +117,22 @@
       "name": "content-11",
       "type": "registry:block",
       "registryDependencies": [
-        "@flx/dynamic-icon",
-        "card",
-        "badge"
+        "card"
       ],
       "dependencies": [
-        "motion",
-        "react-wrap-balancer"
+        "react-wrap-balancer",
+        "lucide-react"
       ],
       "files": [
         {
           "path": "content-11/content-11.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-11/content-11.tsx"
+          "target": "components/flx/blocks/content/content-11.tsx"
         },
         {
-          "path": "content-11/dashboard-demo.tsx",
+          "path": "content-11/content-11-dashboard.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/content/content-11/dashboard-demo.tsx"
-        },
-        {
-          "path": "content-11/content-11-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-11/content-11-example.tsx"
+          "target": "components/flx/blocks/content/content-11-dashboard.tsx"
         }
       ],
       "title": "Content 11",

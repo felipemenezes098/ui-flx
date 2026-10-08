@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
         destination: '/docs/get-started/introduction',
         permanent: false,
       },
+      {
+        source: '/intents/:path*',
+        destination: '/blocks',
+        permanent: true,
+      },
+      {
+        source: '/blocks/content/content-05',
+        destination: '/blocks',
+        permanent: true,
+      },
     ]
   },
   async headers() {

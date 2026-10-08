@@ -12,10 +12,6 @@ export const dataNavbar = [
     href: '/illustrations',
   },
   {
-    name: 'Intents',
-    href: '/intents',
-  },
-  {
     name: 'Me',
     href: '/me',
   },

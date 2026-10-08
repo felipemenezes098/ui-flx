@@ -9,21 +9,13 @@
       "title": "Bento grids 01",
       "description": "Three-column bento: primary tile (two-thirds) with title, description, CTA and media, plus supporting image cards.",
       "registryDependencies": [
-        "@flx/cta"
-      ],
-      "dependencies": [
-        "react-wrap-balancer"
+        "button"
       ],
       "files": [
         {
           "path": "bento-grids-01/bento-grids-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01.tsx"
-        },
-        {
-          "path": "bento-grids-01/bento-grids-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/bento-grids/bento-grids-01/bento-grids-01-example.tsx"
+          "target": "components/flx/blocks/bento-grids/bento-grids-01.tsx"
         }
       ],
       "meta": {
