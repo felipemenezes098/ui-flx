@@ -1,5 +1,10 @@
 import { dataNavbar } from '@/data/navbar'
 
+export const swiftuiLink = {
+  name: 'SwiftUI',
+  href: 'https://swiftui.flexnative.com/',
+}
+
 export const sidebarNavItems = [{ name: 'Home', href: '/' }, ...dataNavbar]
 
 export function isActiveNavPath(pathname: string, href: string) {

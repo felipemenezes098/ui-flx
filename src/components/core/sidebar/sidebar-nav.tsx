@@ -2,8 +2,13 @@
 
 import { usePathname } from 'next/navigation'
 
+import { SidebarExternalLink } from './sidebar-external-link'
 import { SidebarLink } from './sidebar-link'
-import { isActiveNavPath, sidebarNavItems } from './sidebar-nav-items'
+import {
+  isActiveNavPath,
+  sidebarNavItems,
+  swiftuiLink,
+} from './sidebar-nav-items'
 
 export function SidebarNav() {
   const pathname = usePathname()
@@ -19,6 +24,9 @@ export function SidebarNav() {
           {item.name}
         </SidebarLink>
       ))}
+      <SidebarExternalLink href={swiftuiLink.href}>
+        {swiftuiLink.name}
+      </SidebarExternalLink>
     </nav>
   )
 }

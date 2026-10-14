@@ -9,9 +9,14 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
 
 import { SidebarBlockFilters } from '../sidebar/sidebar-block-filters'
+import { SidebarExternalLink } from '../sidebar/sidebar-external-link'
 import { SidebarLink } from '../sidebar/sidebar-link'
 import { SidebarLogo } from '../sidebar/sidebar-logo'
-import { isActiveNavPath, sidebarNavItems } from '../sidebar/sidebar-nav-items'
+import {
+  isActiveNavPath,
+  sidebarNavItems,
+  swiftuiLink,
+} from '../sidebar/sidebar-nav-items'
 import { SidebarSocialLinks } from '../sidebar/sidebar-social-links'
 
 const menuLabels = {
@@ -155,6 +160,18 @@ export function NavbarMobile() {
                   </SidebarLink>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                variants={itemVariants}
+                className="flex flex-col"
+              >
+                <SidebarExternalLink
+                  href={swiftuiLink.href}
+                  className="py-2 text-base"
+                >
+                  {swiftuiLink.name}
+                </SidebarExternalLink>
+              </motion.div>
             </nav>
             <motion.div initial={{ opacity: 0, y: 8 }} variants={itemVariants}>
               <Suspense>
