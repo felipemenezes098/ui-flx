@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3002",
-    "build": "next build --turbopack",
+    "build": "node scripts/generate-image-versions.mjs && next build --turbopack",
     "start": "next start",
     "registry:build": "pnpm dlx shadcn@latest build",
     "registry:sync": "pnpm dlx tsx scripts/sync-registry.ts",
     "registry:validate": "pnpm dlx tsx scripts/sync-registry.ts --check",
-    "blocks:capture-screenshots": "pnpm dlx tsx scripts/capture-block-screenshots.ts",
+    "blocks:capture-screenshots": "pnpm dlx tsx scripts/capture-block-screenshots.ts && pnpm images:version",
+    "images:version": "node scripts/generate-image-versions.mjs",
     "readme:capture-image": "pnpm dlx tsx scripts/capture-readme-image.ts",
     "playwright:install": "playwright install chromium"
   },

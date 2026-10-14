@@ -7,6 +7,7 @@ import type {
   BlockItem,
   BlockManifest,
 } from '@/lib/blocks/block-manifest-types'
+import { versionedBlockImage } from '@/lib/blocks/versioned-block-image'
 import type { PresetConfig } from '@/lib/presets/presets-config'
 import { presets } from '@/lib/presets/presets-config'
 
@@ -39,7 +40,7 @@ function manifestToBlockItem(m: BlockManifest): BlockItem {
     name: m.name,
     description: m.description,
     preset: m.preset,
-    image: m.image,
+    image: versionedBlockImage(m.image),
     slug: m.slug,
     hasNew: m.hasNew,
     meta: m.meta,
@@ -57,7 +58,7 @@ export const blockCategories: BlockCategoryWithConcept[] = categories.map(
     description: cat.description,
     type: cat.type,
     hasNew: cat.hasNew,
-    image: cat.image,
+    image: versionedBlockImage(cat.image),
     concept: cat.concept,
     blocks: cat.blocks.map(manifestToBlockItem),
   }),
@@ -69,7 +70,7 @@ export const blocks: BlockCategory[] = categories.map((cat) => ({
   description: cat.description,
   type: cat.type,
   hasNew: cat.hasNew,
-  image: cat.image,
+  image: versionedBlockImage(cat.image),
   blocks: cat.blocks.map(manifestToBlockItem),
 }))
 
