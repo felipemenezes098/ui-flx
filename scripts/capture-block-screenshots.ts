@@ -36,6 +36,8 @@ const presetFilter = process.argv
   ?.split('=')[1]
 const missingOnly = process.argv.includes('--missing-only')
 const DEFAULT_CAPTURE_HEIGHT = 600
+const BROWSER_USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'
 
 // Gallery cards top out around 600px wide, so 1200px covers retina. Captures
 // come out at 2560px (1280 viewport x deviceScaleFactor 2).
@@ -67,6 +69,7 @@ async function captureBlock(
     viewport: { width: 1280, height: 900 },
     deviceScaleFactor: 2,
     colorScheme: theme,
+    userAgent: BROWSER_USER_AGENT,
   })
 
   await context.addInitScript((mode: 'light' | 'dark') => {

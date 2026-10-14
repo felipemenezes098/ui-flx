@@ -51,11 +51,15 @@ export function RegistryCli({
   size = 'sm',
   className,
   labelClassName,
+  showCommand,
+  onCopy,
 }: Readonly<{
   registryName: string
   size?: 'sm' | 'xs' | 'default'
   className?: string
   labelClassName?: string
+  showCommand?: boolean
+  onCopy?: () => void
 }>) {
   const [config, setConfig] = useConfig()
   const { copied, copy } = useCopy()
@@ -63,10 +67,16 @@ export function RegistryCli({
   const packageManager = config.packageManager ?? 'pnpm'
   const registryLabel = `@${siteConfig.codeName}/${registryName}`
 
+  const activeManager = PACKAGE_MANAGERS.find((p) => p.name === packageManager)
+  const command =
+    (activeManager && `${activeManager.command}/${registryName}`) || ''
+  const label = (showCommand && command) || registryLabel
+
   const copyCommand = () => {
-    const pm = PACKAGE_MANAGERS.find((p) => p.name === packageManager)
-    const command = pm ? `${pm.command}/${registryName}` : ''
-    if (command) copy(command)
+    if (command) {
+      copy(command)
+      onCopy?.()
+    }
   }
 
   const handleSelectPackageManager = (name: PackageManager) => {
@@ -100,9 +110,7 @@ export function RegistryCli({
             </motion.div>
           </AnimatePresence>
         </span>
-        <span className={cn('truncate text-xs', labelClassName)}>
-          {registryLabel}
-        </span>
+        <span className={cn('truncate text-xs', labelClassName)}>{label}</span>
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger

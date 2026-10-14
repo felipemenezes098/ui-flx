@@ -1,16 +1,20 @@
-export const metadata = {
+import { PageHeader } from '@/components/core/page-header/page-header'
+import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata = createPageMetadata({
   title: 'Me',
   description:
     'Why I built Flexnative: document taste and scale patterns, blocks, illustrations, and prompts. Built on shadcn/ui.',
-  openGraph: {
-    title: 'Me',
-    description:
-      'Why I built Flexnative: document taste and scale patterns, blocks, illustrations, and prompts.',
-    type: 'article',
-  },
-}
+  path: '/me',
+  type: 'article',
+})
 
-# Me
+<PageHeader>
+  <PageHeaderTitle>Me</PageHeaderTitle>
+</PageHeader>
+
+<div className="mt-3">
 
 I built Flexnative to scale the layers I work with and document taste.
 
@@ -23,3 +27,5 @@ When that chain is explicit, consistency holds. Teams move faster. AI stops inve
 This is not a component catalog. I want taste and decisions saved so I do not start from scratch on every repo.
 
 <Contact />
+
+</div>

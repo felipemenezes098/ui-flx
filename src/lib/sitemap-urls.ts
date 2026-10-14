@@ -8,7 +8,6 @@ const staticPaths = [
   '/',
   '/blocks',
   '/patterns',
-  '/forms',
   '/forms/react-hook-form',
   '/forms/tanstack-form',
   '/illustrations',
@@ -35,9 +34,6 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
         priority: path === '/' ? 1 : 0.8,
         changeFrequency: path === '/' ? 'daily' : 'weekly',
       }),
-    ),
-    ...blockCategories.map((category) =>
-      entry(`/blocks/${category.slug}`, { priority: 0.8 }),
     ),
     ...patternCategories.map((category) =>
       entry(`/patterns/${category.slug}`, { priority: 0.7 }),

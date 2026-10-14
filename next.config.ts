@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blocks/:category',
+        destination: '/blocks?category=:category',
+        permanent: true,
+      },
+      {
         source: '/blocks/content/content-05',
         destination: '/blocks',
         permanent: true,
@@ -36,6 +41,9 @@ const nextConfig: NextConfig = {
     ]
   },
   outputFileTracingRoot: __dirname,
+  outputFileTracingIncludes: {
+    '/og': ['./assets/fonts/**'],
+  },
   images: {
     remotePatterns: [
       {

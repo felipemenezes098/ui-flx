@@ -46,7 +46,7 @@ export function FormsToolbar() {
   ]
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3">
+    <div className="flex flex-wrap items-center gap-3">
       <FormsTabs />
       <div className="bg-muted flex flex-wrap gap-1 rounded-full p-1">
         <AnimatedBackground

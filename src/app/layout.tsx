@@ -7,6 +7,7 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { siteConfig } from '@/config/site'
+import { createOgImageUrl } from '@/lib/metadata'
 import { UIProvider } from '@/contexts/ui-context'
 import { ConfigProvider } from '@/hooks/use-config'
 import { QueryProvider } from '@/providers/query-provider'
@@ -23,6 +24,11 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
   subsets: ['latin'],
   display: 'swap',
+})
+
+const defaultOgImage = createOgImageUrl({
+  title: siteConfig.title,
+  description: siteConfig.description,
 })
 
 export const metadata: Metadata = {
@@ -60,7 +66,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -71,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [defaultOgImage],
     creator: '@fmenezes_',
   },
   icons: {

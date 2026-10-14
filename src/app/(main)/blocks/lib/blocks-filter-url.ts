@@ -1,9 +1,4 @@
-import {
-  ALL_BLOCKS_CATEGORY_SLUG,
-  isAllCategories,
-  parseCategoryFilter,
-  serializeCategoryFilter,
-} from './blocks-category'
+import { ALL_BLOCKS_CATEGORY_SLUG } from './blocks-category'
 
 function toHref(pathname: string, params: URLSearchParams): string {
   const qs = params.toString()
@@ -31,16 +26,6 @@ export function clearPresetHref(
   return toHref(pathname, params)
 }
 
-/** Clear the category filter only, keep the preset filter as-is. */
-export function clearCategoriesHref(
-  pathname: string,
-  searchParams: URLSearchParams,
-): string {
-  const params = new URLSearchParams(searchParams.toString())
-  params.set('category', ALL_BLOCKS_CATEGORY_SLUG)
-  return toHref(pathname, params)
-}
-
 /** Toggle preset: same slug clears; other slug selects. */
 export function presetFilterHref(
   pathname: string,
@@ -57,30 +42,13 @@ export function presetFilterHref(
   return toHref(pathname, params)
 }
 
-/**
- * Toggle category into a comma-separated multi-select.
- * From "all", first click selects only that category.
- * Click active again removes it; empty → all.
- */
+/** Select a single category. */
 export function categoryFilterHref(
   pathname: string,
   searchParams: URLSearchParams,
   categorySlug: string,
-  activeCategories: string[],
 ): string {
   const params = new URLSearchParams(searchParams.toString())
-  let next: string[]
-
-  if (isAllCategories(activeCategories)) {
-    next = [categorySlug]
-  } else if (activeCategories.includes(categorySlug)) {
-    next = activeCategories.filter((s) => s !== categorySlug)
-  } else {
-    next = parseCategoryFilter(
-      serializeCategoryFilter([...activeCategories, categorySlug]),
-    )
-  }
-
-  params.set('category', serializeCategoryFilter(next))
+  params.set('category', categorySlug)
   return toHref(pathname, params)
 }

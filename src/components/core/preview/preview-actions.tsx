@@ -1,7 +1,7 @@
 'use client'
 
 import { Fullscreen, RotateCcw } from 'lucide-react'
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -36,7 +36,7 @@ export function FullscreenButton({
   className,
 }: Readonly<{ href: string; className?: string }>) {
   return (
-    <Link
+    <HoverPrefetchLink
       href={href}
       target="_blank"
       title="Open fullscreen"
@@ -50,6 +50,6 @@ export function FullscreenButton({
       )}
     >
       <Fullscreen className="size-3.5 shrink-0" />
-    </Link>
+    </HoverPrefetchLink>
   )
 }

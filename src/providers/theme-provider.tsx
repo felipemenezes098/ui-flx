@@ -3,6 +3,13 @@
 import * as React from 'react'
 import { ThemeProvider as NextThemesProvider, useTheme } from 'next-themes'
 
+import { useThemeTransition } from '@/hooks/use-theme-transition'
+
+const oppositeTheme: Record<string, string> = {
+  dark: 'light',
+  light: 'dark',
+}
+
 function ThemeProvider({
   children,
   ...props
@@ -35,7 +42,8 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 function ThemeHotkey() {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
+  const setTheme = useThemeTransition()
 
   React.useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -55,7 +63,7 @@ function ThemeHotkey() {
         return
       }
 
-      setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+      setTheme(oppositeTheme[resolvedTheme ?? 'light'] ?? 'dark')
     }
 
     window.addEventListener('keydown', onKeyDown)

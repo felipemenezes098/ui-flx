@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { BlockView } from '@/components/core/blocks/block-view'
-import { Footer } from '@/components/core/footer'
+import { PageHeader } from '@/components/core/page-header/page-header'
+import { PageHeaderDescription } from '@/components/core/page-header/page-header-description'
+import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
 import { categories } from '@/lib/blocks/block-catalog'
+import { createPageMetadata } from '@/lib/metadata'
+import { toRegistryCodeFiles } from '@/lib/registry-source'
 import { getRegistryItem } from '@/lib/registry-utils.server'
 
+import { BlockCopyPromptButton } from '../../components/block-copy-prompt-button'
 import { BlockBreadcrumb } from './components/block-breadcrumb'
-import { BlockImplementation } from './components/block-implementation'
-import { BlockMore } from './components/block-more'
+import { BlockCode } from './components/block-code'
+import { BlockInstallButton } from './components/block-install-button'
+import { BlockLivePreview } from './components/block-live-preview'
 
 export const dynamicParams = false
 
@@ -43,12 +48,13 @@ export async function generateMetadata({
   const title = `${found.manifest.name}: ${found.cat.category} block for shadcn/ui`
   const description = `${found.manifest.description} Copy and paste, or install with the shadcn CLI.`
 
-  return {
+  return createPageMetadata({
     title,
     description,
-    openGraph: { title, description, type: 'article' },
-    twitter: { card: 'summary_large_image', title, description },
-  }
+    path: `/blocks/${category}/${slug}`,
+    imageTitle: found.manifest.name,
+    type: 'article',
+  })
 }
 
 export default async function BlockPage({ params }: Readonly<Props>) {
@@ -56,20 +62,33 @@ export default async function BlockPage({ params }: Readonly<Props>) {
   const found = findBlock(category, slug)
   if (!found) notFound()
 
-  const item = getRegistryItem(slug)
+  const { manifest } = found
+  const files = toRegistryCodeFiles(getRegistryItem(slug))
+  const height = manifest.meta?.iframeHeight ?? 800
 
   return (
-    <div className="container-page flex flex-col px-6 pt-4">
-      <BlockBreadcrumb
-        category={category}
-        slug={slug}
-        title={found.manifest.name}
-        className="mb-6"
-      />
-      <BlockView category={category} slug={slug} />
-      <BlockImplementation category={category} slug={slug} item={item} />
-      <BlockMore category={category} slug={slug} />
-      <Footer />
-    </div>
+    <main className="min-w-0 px-5 pt-12 pb-8 md:px-12 md:pt-32">
+      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-12">
+        <PageHeader>
+          <BlockBreadcrumb
+            category={category}
+            title={manifest.name}
+            className="mb-6"
+          />
+          <PageHeaderTitle>{manifest.name}</PageHeaderTitle>
+          <PageHeaderDescription>{manifest.description}</PageHeaderDescription>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <BlockCopyPromptButton slug={slug} />
+            <BlockInstallButton slug={slug} />
+          </div>
+        </PageHeader>
+        <BlockLivePreview
+          src={`/preview/blocks/${category}/${slug}`}
+          title={manifest.name}
+          height={height}
+        />
+        <BlockCode files={files} />
+      </div>
+    </main>
   )
 }

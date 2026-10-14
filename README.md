@@ -13,7 +13,10 @@ Open source blocks for landing pages and marketing sites, patterns for everyday 
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind-4-000)
 ![Components: MIT](https://img.shields.io/badge/components-MIT-blue)
 
-![Flexnative: blocks, patterns and illustrations for shadcn/ui](public/images/docs/flx-2.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/images/docs/readme-dark.png">
+  <img alt="Flexnative blocks on desktop and mobile" src="public/images/docs/readme-light.png">
+</picture>
 
 </div>
 

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 import type { ComponentProps, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
@@ -65,7 +65,7 @@ function MosaicCellLink({
   children: ReactNode
 }>) {
   return (
-    <Link
+    <HoverPrefetchLink
       href={href}
       data-slot="mosaic-cell-link"
       data-span={span}
@@ -77,7 +77,7 @@ function MosaicCellLink({
       })}
     >
       {children}
-    </Link>
+    </HoverPrefetchLink>
   )
 }
 

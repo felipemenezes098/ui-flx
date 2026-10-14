@@ -10,6 +10,7 @@
     "registry:sync": "pnpm dlx tsx scripts/sync-registry.ts",
     "registry:validate": "pnpm dlx tsx scripts/sync-registry.ts --check",
     "blocks:capture-screenshots": "pnpm dlx tsx scripts/capture-block-screenshots.ts",
+    "readme:capture-image": "pnpm dlx tsx scripts/capture-readme-image.ts",
     "playwright:install": "playwright install chromium"
   },
   "dependencies": {

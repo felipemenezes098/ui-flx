@@ -5,6 +5,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 type Config = {
   packageManager: 'npm' | 'yarn' | 'pnpm' | 'bun'
   installationType: 'cli' | 'manual'
+  blocksLayout?: 'list' | 'grid'
 }
 
 type ConfigContextType = {

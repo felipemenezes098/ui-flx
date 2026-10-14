@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
+import { useThemeTransition } from '@/hooks/use-theme-transition'
 
 const THEME_CYCLE = [
   { value: 'system', Icon: Monitor, label: 'System theme' },
@@ -14,7 +15,8 @@ const THEME_CYCLE = [
 ] as const
 
 export function ThemeSwitcher() {
-  const { setTheme, theme: currentTheme } = useTheme()
+  const { theme: currentTheme } = useTheme()
+  const setTheme = useThemeTransition()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {

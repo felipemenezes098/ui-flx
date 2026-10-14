@@ -7,8 +7,8 @@ export const patternGridVariants = cva('grid grid-cols-1 gap-4', {
   variants: {
     columns: {
       1: 'md:grid-cols-1',
-      2: 'md:grid-cols-2',
-      3: 'md:grid-cols-2 lg:grid-cols-3',
+      2: 'lg:grid-cols-2',
+      3: 'lg:grid-cols-2 xl:grid-cols-3',
     },
   },
   defaultVariants: {
@@ -32,17 +32,17 @@ export const patternGridItemVariants = cva('', {
     {
       span: 'full',
       columns: 1,
-      className: 'sm:col-span-1',
+      className: '',
     },
     {
       span: 'full',
       columns: 2,
-      className: 'sm:col-span-2',
+      className: 'lg:col-span-2',
     },
     {
       span: 'full',
       columns: 3,
-      className: 'sm:col-span-2 lg:col-span-3',
+      className: 'lg:col-span-2 xl:col-span-3',
     },
   ],
   defaultVariants: {

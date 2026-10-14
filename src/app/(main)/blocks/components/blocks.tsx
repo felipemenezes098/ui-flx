@@ -25,9 +25,11 @@ export function Blocks() {
 
   const items = useMemo(() => {
     const byPreset = filterBlocksByPreset(blocks, activePreset)
-    const categories = isAllCategories(activeCategories)
-      ? byPreset
-      : byPreset.filter((cat) => activeCategories.includes(cat.slug))
+    const categories = byPreset.filter(
+      (cat) =>
+        isAllCategories(activeCategories) ||
+        activeCategories.includes(cat.slug),
+    )
 
     return categories.flatMap((category) =>
       category.blocks.map((subBlock) => ({
@@ -40,11 +42,11 @@ export function Blocks() {
 
   return (
     <div className="space-y-4">
-      <div className="bg-background sticky top-14 z-30 w-full lg:hidden">
+      <div className="bg-background sticky top-14 z-30 w-full md:hidden">
         <BlocksNavigation />
       </div>
 
-      {items.length === 0 ? (
+      {items.length === 0 && (
         <Empty className="border-border min-h-64 border border-dashed">
           <EmptyHeader>
             <EmptyMedia variant="icon">
@@ -57,9 +59,9 @@ export function Blocks() {
             </EmptyDescription>
           </EmptyHeader>
         </Empty>
-      ) : (
-        <BlockPreviewGrid withScrollAnchor items={items} />
       )}
+
+      {items.length > 0 && <BlockPreviewGrid withScrollAnchor items={items} />}
     </div>
   )
 }

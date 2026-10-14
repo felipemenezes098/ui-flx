@@ -80,7 +80,7 @@ export function GlobalSearch() {
         size="sm"
         onClick={() => setOpen(true)}
         className={cn(
-          'text-muted-foreground hidden h-8 w-48 justify-start gap-2 md:flex',
+          'text-muted-foreground h-8 w-full justify-start gap-2',
           open && 'pointer-events-none opacity-80',
         )}
       >
@@ -124,7 +124,7 @@ export function GlobalSearch() {
                   key={`block-${block.slug}`}
                   className="h-9"
                   value={`block ${block.category}`}
-                  onSelect={() => navigate(`/blocks/${block.slug}`)}
+                  onSelect={() => navigate(`/blocks?category=${block.slug}`)}
                 >
                   <Blocks className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{block.category}</span>

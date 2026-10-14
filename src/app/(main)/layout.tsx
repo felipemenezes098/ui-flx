@@ -1,5 +1,6 @@
 import { Analytics } from '@/components/core/analytics'
 import { Navbar } from '@/components/core/navbar'
+import { AppSidebar } from '@/components/core/sidebar/app-sidebar'
 import { SpeedInsights } from '@/components/core/speed-insights'
 
 export const dynamic = 'force-static'
@@ -15,7 +16,8 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      {children}
+      <AppSidebar />
+      <div className="md:pl-64">{children}</div>
       <Analytics />
       <SpeedInsights />
     </>

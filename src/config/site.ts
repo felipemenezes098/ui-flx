@@ -3,7 +3,6 @@ export const siteConfig = {
   shortName: 'Flx',
   codeName: 'flx',
   url: 'https://ui.flexnative.com',
-  ogImage: 'https://ui.flexnative.com/og.png',
   title: 'Open source shadcn/ui blocks for landing pages',
   description:
     'Open source shadcn/ui blocks for landing pages and marketing sites: hero, feature, content, CTA, testimonial and bento sections, plus patterns and Motion illustrations. Copy, paste and own the code.',

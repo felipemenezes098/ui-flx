@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 
 import { categories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
@@ -30,18 +30,21 @@ export function BlockBreadcrumb({
         className,
       )}
     >
-      <Link href="/blocks" className="hover:text-foreground transition-colors">
+      <HoverPrefetchLink
+        href="/blocks"
+        className="hover:text-foreground transition-colors"
+      >
         Blocks
-      </Link>
+      </HoverPrefetchLink>
       <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
       {current ? (
         <>
-          <Link
-            href={`/blocks/${category}`}
+          <HoverPrefetchLink
+            href={`/blocks?category=${category}`}
             className="hover:text-foreground transition-colors"
           >
             {categoryLabel(category)}
-          </Link>
+          </HoverPrefetchLink>
           <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
           <span className="text-foreground font-medium" aria-current="page">
             {current}

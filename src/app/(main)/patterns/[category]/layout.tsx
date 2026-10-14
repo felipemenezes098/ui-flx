@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 
-import { Footer } from '@/components/core/footer'
+import { PageHeader } from '@/components/core/page-header/page-header'
+import { PageHeaderDescription } from '@/components/core/page-header/page-header-description'
+import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
 import { getCategoryBySlug } from '@/lib/patterns/patterns-catalog'
 
 import { PatternCategoryNav } from '../components/pattern-category-nav'
@@ -22,19 +24,18 @@ export default async function PatternCategoryLayout({
   return (
     <div>
       <main className="container-page container-page-inner min-w-0">
-        <div className="flex flex-col gap-8 px-3 py-10">
-          <section className="max-w-xl">
-            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-              {category.name}
-            </h1>
-            <p className="text-muted-foreground mt-2">{category.description}</p>
-          </section>
+        <div className="flex flex-col gap-6 px-3 pt-7 pb-10 md:pt-27">
+          <PageHeader>
+            <PageHeaderTitle>{category.name}</PageHeaderTitle>
+            <PageHeaderDescription>
+              {category.description}
+            </PageHeaderDescription>
+          </PageHeader>
 
           <PatternCategoryNav />
           {children}
         </div>
       </main>
-      <Footer />
     </div>
   )
 }
