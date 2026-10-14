@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 
 import { getFormLibraryBySlug } from '@/lib/forms/catalog'
 
@@ -11,12 +12,11 @@ const library = getFormLibraryBySlug('tanstack-form')!
 const title = library.name
 const description = library.description
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title,
   description,
-  openGraph: { title, description },
-  twitter: { card: 'summary_large_image', title, description },
-}
+  path: '/forms/tanstack-form',
+})
 
 export default function TanstackFormPage() {
   return <FormsGallery librarySlug="tanstack-form" />

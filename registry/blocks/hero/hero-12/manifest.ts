@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Hero12 } from './hero-12'
-import { Hero12EditorFields } from './editor/fields'
-import { Hero12Example, values } from './hero-12-example'
 
 export const manifest: BlockManifest = {
   slug: 'hero-12',
@@ -19,7 +17,4 @@ export const manifest: BlockManifest = {
     containerClassName: 'flex min-h-screen max-w-full overflow-hidden p-0',
   },
   component: Hero12,
-  editorFields: Hero12EditorFields,
-  example: Hero12Example,
-  defaults: values,
 }

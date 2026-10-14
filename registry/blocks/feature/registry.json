@@ -11,19 +11,11 @@
       "registryDependencies": [
         "button"
       ],
-      "dependencies": [
-        "motion"
-      ],
       "files": [
         {
           "path": "feature-01/feature-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-01/feature-01.tsx"
-        },
-        {
-          "path": "feature-01/feature-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-01/feature-01-example.tsx"
+          "target": "components/flx/blocks/feature/feature-01.tsx"
         }
       ],
       "meta": {
@@ -35,19 +27,13 @@
       "type": "registry:block",
       "registryDependencies": [],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "feature-02/feature-02.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-02/feature-02.tsx"
-        },
-        {
-          "path": "feature-02/feature-02-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-02/feature-02-example.tsx"
+          "target": "components/flx/blocks/feature/feature-02.tsx"
         }
       ],
       "title": "Feature 02",
@@ -61,19 +47,13 @@
       "type": "registry:block",
       "registryDependencies": [],
       "dependencies": [
-        "react-wrap-balancer",
-        "motion"
+        "react-wrap-balancer"
       ],
       "files": [
         {
           "path": "feature-03/feature-03.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-03/feature-03.tsx"
-        },
-        {
-          "path": "feature-03/feature-03-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/feature/feature-03/feature-03-example.tsx"
+          "target": "components/flx/blocks/feature/feature-03.tsx"
         }
       ],
       "title": "Feature 03",

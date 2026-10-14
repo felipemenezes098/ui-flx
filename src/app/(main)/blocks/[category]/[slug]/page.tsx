@@ -1,46 +1,94 @@
-import { Footer } from '@/components/core/footer'
-import { useMDXComponents } from '@/mdx-components'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
+import { PageHeader } from '@/components/core/page-header/page-header'
+import { PageHeaderDescription } from '@/components/core/page-header/page-header-description'
+import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
+import { categories } from '@/lib/blocks/block-catalog'
+import { createPageMetadata } from '@/lib/metadata'
+import { toRegistryCodeFiles } from '@/lib/registry-source'
+import { getRegistryItem } from '@/lib/registry-utils.server'
+
+import { BlockCopyPromptButton } from '../../components/block-copy-prompt-button'
 import { BlockBreadcrumb } from './components/block-breadcrumb'
-import { BlockMore } from './components/block-more'
+import { BlockCode } from './components/block-code'
+import { BlockInstallButton } from './components/block-install-button'
+import { BlockLivePreview } from './components/block-live-preview'
+
+export const dynamicParams = false
 
 type Props = {
   params: Promise<{ category: string; slug: string }>
+}
+
+export function generateStaticParams() {
+  return categories.flatMap((category) =>
+    category.blocks.map((block) => ({
+      category: category.slug,
+      slug: block.slug,
+    })),
+  )
+}
+
+function findBlock(category: string, slug: string) {
+  const cat = categories.find((c) => c.slug === category)
+  const manifest = cat?.blocks.find((b) => b.slug === slug)
+  return cat && manifest ? { cat, manifest } : undefined
 }
 
 export async function generateMetadata({
   params,
 }: Readonly<Props>): Promise<Metadata> {
   const { category, slug } = await params
-  const { metadata } = await import(
-    `@/app/content/blocks/${category}/${slug}.mdx`
-  )
-  return metadata ?? {}
+  const found = findBlock(category, slug)
+  if (!found) return {}
+
+  // "Hero 02" alone is not something people search for, so name the
+  // category and the stack in the title.
+  const title = `${found.manifest.name}: ${found.cat.category} block for shadcn/ui`
+  const description = `${found.manifest.description} Copy and paste, or install with the shadcn CLI.`
+
+  return createPageMetadata({
+    title,
+    description,
+    path: `/blocks/${category}/${slug}`,
+    imageTitle: found.manifest.name,
+    type: 'article',
+  })
 }
 
 export default async function BlockPage({ params }: Readonly<Props>) {
   const { category, slug } = await params
+  const found = findBlock(category, slug)
+  if (!found) notFound()
 
-  const mod = await import(`@/app/content/blocks/${category}/${slug}.mdx`)
-  const Content = mod.default
-  const blockMeta = mod.metadata as { title?: string } | undefined
-  const title =
-    typeof blockMeta?.title === 'string' ? blockMeta.title : undefined
-
-  const components = useMDXComponents({})
+  const { manifest } = found
+  const files = toRegistryCodeFiles(getRegistryItem(slug))
+  const height = manifest.meta?.iframeHeight ?? 800
 
   return (
-    <div className="container-page flex flex-col px-6 pt-4">
-      <BlockBreadcrumb
-        category={category}
-        slug={slug}
-        title={title}
-        className="mb-6"
-      />
-      <Content components={components} />
-      <BlockMore category={category} slug={slug} />
-      <Footer />
-    </div>
+    <main className="min-w-0 px-5 pt-12 pb-8 md:px-12 md:pt-32">
+      <div className="mx-auto flex w-full max-w-[880px] flex-col gap-12">
+        <PageHeader>
+          <BlockBreadcrumb
+            category={category}
+            title={manifest.name}
+            className="mb-6"
+          />
+          <PageHeaderTitle>{manifest.name}</PageHeaderTitle>
+          <PageHeaderDescription>{manifest.description}</PageHeaderDescription>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <BlockCopyPromptButton slug={slug} />
+            <BlockInstallButton slug={slug} />
+          </div>
+        </PageHeader>
+        <BlockLivePreview
+          src={`/preview/blocks/${category}/${slug}`}
+          title={manifest.name}
+          height={height}
+        />
+        <BlockCode files={files} />
+      </div>
+    </main>
   )
 }

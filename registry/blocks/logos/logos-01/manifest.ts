@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Logos01 } from './logos-01'
-import { Logos01EditorFields } from './editor/fields'
-import { Logos01Example, values } from './logos-01-example'
 
 export const manifest: BlockManifest = {
   slug: 'logos-01',
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     containerClassName: 'max-w-full overflow-hidden px-0',
   },
   component: Logos01,
-  editorFields: Logos01EditorFields,
-  example: Logos01Example,
-  defaults: values,
 }

@@ -1,18 +1,19 @@
 'use client'
 
 import {
-  EditButton,
   FullscreenButton,
   RefreshButton,
 } from '@/components/core/preview/preview-actions'
-import { PreviewFrame, usePreviewReload } from '@/components/core/preview/preview-frame'
+import {
+  PreviewFrame,
+  usePreviewReload,
+} from '@/components/core/preview/preview-frame'
 import { RegistryCli } from '@/components/core/registry/registry-cli'
 import { cn } from '@/lib/utils'
 
 interface BlockPreviewFrameProps {
   category: string
   slug: string
-  variation?: string
   iframeHeight?: number
   className?: string
 }
@@ -24,18 +25,12 @@ interface BlockPreviewFrameProps {
 export function BlockPreviewFrame({
   category,
   slug,
-  variation,
   iframeHeight,
   className,
 }: Readonly<BlockPreviewFrameProps>) {
   const { reloadKey, loading, refresh, handleLoad } = usePreviewReload()
 
-  const src = variation
-    ? `/preview/blocks/${category}/${slug}/${variation}`
-    : `/preview/blocks/${category}/${slug}`
-  const editSrc = variation
-    ? `/block-editor/${category}/${slug}/${variation}`
-    : `/block-editor/${category}/${slug}`
+  const src = `/preview/blocks/${category}/${slug}`
 
   return (
     <div className={cn('flex w-full flex-col gap-2', className)}>
@@ -47,7 +42,6 @@ export function BlockPreviewFrame({
         />
         <RefreshButton onClick={refresh} className="rounded-lg" />
         <FullscreenButton href={src} className="rounded-lg" />
-        <EditButton href={editSrc} className="rounded-lg" />
       </div>
 
       <PreviewFrame

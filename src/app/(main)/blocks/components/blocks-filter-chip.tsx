@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -17,7 +17,7 @@ export function BlocksFilterChip({
   className?: string
 }>) {
   return (
-    <Link
+    <HoverPrefetchLink
       href={href}
       aria-current={active ? 'true' : undefined}
       className={cn(
@@ -44,6 +44,6 @@ export function BlocksFilterChip({
           {count}
         </span>
       )}
-    </Link>
+    </HoverPrefetchLink>
   )
 }

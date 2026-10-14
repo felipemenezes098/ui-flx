@@ -1,63 +1,67 @@
 ---
 name: add-block
 description: >-
-  Full workflow for adding a new UI block to ui-flx: file structure, manifest,
-  catalog + registry.json registration, MDX docs, and validation. Screenshot
-  capture is never run by the agent — only suggested as a command at the end.
+  Full workflow for adding a new UI block to ui-flx: inline component file,
+  manifest, catalog + registry.json registration, and validation. The block
+  page and install docs are generated from the catalog. Screenshot capture is
+  never run by the agent — only suggested as a command at the end.
   Triggers: "add block", "new block", "criar bloco", "novo bloco",
   "add a new section", or any request to create a new Flexnative block.
 ---
 
 # Add a new block to ui-flx
 
+A block is **inline**, the way shadcn/ui ships its own blocks: the component takes no props
+and its content (copy, images, link targets) is written straight into the JSX. There is no
+editor, no example file and no variation. The page at `/blocks/<category>/<slug>` and the
+install docs are generated from the catalog and the registry entry — there is no MDX to write.
+
 ## The pipeline — do every step, in order
 
-Do NOT stop early. Every step below is required except **7 (screenshots)**, which is
-never run by the agent — the most-skipped real step is **6 (MDX)**, it is not optional.
+Do NOT stop early. Every step below is required except **6 (screenshots)**, which is
+never run by the agent.
 
 1. **Read** the category's `catalog.ts` + `registry.json` (nothing else).
-2. **Create files** — `<slug>.tsx`, `<slug>-example.tsx`, `editor/fields.tsx`, `manifest.ts` (+ any illustration/subcomponent).
+2. **Create files** — `<slug>.tsx`, `manifest.ts` (+ any auxiliary file, prefixed with the slug).
 3. **Register** in `registry/blocks/<category>/catalog.ts`.
 4. **Add entry** to `registry/blocks/<category>/registry.json`.
-5. **Create MDX** at `src/app/content/blocks/<category>/<slug>.mdx`.
-6. **Validate + sync + build** (`registry:validate` → `registry:sync` → `registry:validate` → `registry:build`).
-7. **Do NOT capture screenshots.** Never run `playwright:install`, `dev`, or
+5. **Validate + sync + build** (`registry:sync` → `registry:validate` → `registry:build`).
+6. **Do NOT capture screenshots.** Never run `playwright:install`, `dev`, or
    `blocks:capture-screenshots` yourself. `image.light`/`image.dark` stay pointed at
    WebP files that don't exist yet — that's expected and fine to leave as-is.
-8. **Report** the illustration decision, and as the last line of your final message
+7. **Report** the illustration decision, and as the last line of your final message
    suggest the exact screenshot command for the user to run themselves, e.g.:
    `pnpm run blocks:capture-screenshots --slug=<slug>`.
 
-Categories rendered in the gallery: `hero` | `content` | `cta` | `bento-grids` | `testimonials`
-
-`carousel`, `logos` and `scroll` have folders and manifests but are **not** registered in
-`src/lib/blocks/block-catalog.ts` — a block added there builds fine and never appears on
-`/blocks`. Do not use them without asking first.
+Categories rendered in the gallery: `hero` | `content` | `feature` | `cta` | `bento-grids` |
+`testimonials` | `carousel` | `logos` | `scroll`. A new category needs a `catalog.ts` +
+`registry.json` + an entry in `registry/blocks/registry.json` `include` and in
+`src/lib/blocks/block-catalog.ts` `categories`, a concept in `src/lib/blocks/block-concepts.tsx`,
+and a cover image — ask before creating one.
 
 ---
 
 ## Non-negotiables (the constitution)
 
 These govern all visual work here. On conflict, they win — read
-[make-interfaces-feel-better](../make-interfaces-feel-better/SKILL.md) +
-[animations](../animations/SKILL.md) when unsure.
+[make-interfaces-feel-better](../make-interfaces-feel-better/SKILL.md) when unsure.
 
-- **Motion**: enter = split + staggered per element; exit subtle. Only animate
-  `transform`/`opacity`/`filter`, never `transition: all`. Guard every animation with
-  `useReducedMotion()`. `ease-out` enter/exit, durations < 300ms, no perpetual loops.
-- **Typography**: headings use `<Balancer>`; dynamic numbers use `tabular-nums`.
+- **No motion.** No entrance animation, no stagger, no `motion` import. Motion only exists
+  where it *is* the block (a carousel, scroll-driven media, a logo marquee) and even then
+  prefer CSS (`transition-*`, `IntersectionObserver`) over a library. Only animate
+  `transform`/`opacity`/`filter`, never `transition: all`.
+- **Typography**: headings use `<Balancer>`; dynamic numbers use `tabular-nums`. A hero uses
+  `h1`, every other section title uses `h2`.
 - **Surfaces**: images carry `outline-black/10 dark:outline-white/10`; nested radii are
   concentric (`outer = inner + padding`); prefer `shadow-sm` over hard borders.
 - **Interaction**: `active:scale-[0.96]`, ≥ 40×40px hit area.
 - **Primitives over markup**: reach for `Card`/`Badge`/`Button`/`Avatar`/`Separator` from
-  `@/components/ui/*` instead of re-inventing them with a styled `div`. List every one used
-  in `registryDependencies`.
+  `@/components/ui/*` instead of re-inventing them with a styled `div`.
 - **Fades = Tailwind `mask-*`**: any image/component dissolving into the background uses
   composable `mask-radial-*` / `mask-*-from/to` on a wrapper (holding image + overlay) —
   never inline `style={{maskImage}}`, `[mask-image:…]`, or `bg-gradient-*` as the primary
-  fade. Read [the docs](https://tailwindcss.com/docs/mask-image). Reference: `hero-01.tsx`.
-- **Never** import from `@/lib/block-defaults` or `@/lib/block-registry` (deleted) or
-  import `registry.json` in app code — use `@/lib/blocks/block-catalog`.
+  fade. Reference: `hero-01.tsx`.
+- **Never** import `registry.json` in app code — use `@/lib/blocks/block-catalog`.
 
 ---
 
@@ -69,107 +73,63 @@ registry/blocks/<category>/registry.json    ← existing entries + path format
 ```
 
 Do NOT read root `registry.json`, `src/lib/blocks/block-catalog.ts`, or other categories.
-**New category?** Also read `registry/blocks/registry.json` + `src/lib/blocks/block-catalog.ts`.
 
 ---
 
 ## Step 2 — Create the files
 
-### `<slug>.tsx` — code ordering is the point
+Everything lives in `registry/blocks/<category>/<slug>/`.
 
-Server-safe, `Readonly<Props>`. Follow the reading order of
-`registry/blocks/hero/hero-03/hero-03.tsx` exactly — this is about **structure, not content**:
+### `<slug>.tsx` — inline, no props
 
-1. **Props interface** — typed, exported. Include `variant`; add an `animation` union when it animates.
-2. **`variantStyles` map** — `const … as const` keyed by variant, holding className strings. Replaces all sizing `if/else`.
-3. **Motion `Variants`** — module-level consts, never inlined in JSX.
-4. **Body** — resolve `const vs = variantStyles[variant]`, build **named element constants**
-   (`titleElement`, `mediaElement`, …) guarded with `&&`, then `return` a clean composition.
+Server-safe unless it needs state or handlers (then `'use client'`). Take
+`registry/blocks/hero/hero-02/hero-02.tsx` and `registry/blocks/cta/cta-01/cta-01.tsx` as
+the reference for shape and density.
 
-No `if/else` / nested ternaries for layout — branch with the map, gate with `cond && <El />`.
+- `export function MyBlock()` — **no props**. Text, `src`, `alt` and link targets are written
+  in the JSX.
+- A repeated list is a `const items = [...]` at the top of the file, rendered with `.map`.
+- **CTAs** are the shadcn `Button` (Base UI, so it takes `render`, not `asChild`):
+
+  ```tsx
+  <Button className="w-fit rounded-full px-4" nativeButton={false} render={<a href="#" />}>
+    Start free
+  </Button>
+  ```
+
+  Secondary: `variant="outline"` or `variant="link"`. On a dark image:
+  `variant="secondary"` + `className="border-transparent bg-white text-zinc-900 hover:bg-zinc-100"`.
+- **Icons** come straight from `lucide-react`.
+- **Images**: Unsplash URLs without `ixlib`/`ixid`, e.g. `?q=80&w=1170&auto=format&fit=crop`.
+  Alts are generic: `alt="Alt"`, or `alt="Alt 1"`, `alt="Alt 2"` when there are several.
+  Decorative images use `alt=""` with `aria-hidden`.
+- **Imports from other registry folders** use the install alias, never `../../..`:
+  `import { Spot01 } from '@/components/flx/illustrations/spot/spot-01'`.
+- **Auxiliary files** (a mock dashboard, a collage) are a second file prefixed with the slug
+  (`hero-02-dashboard.tsx` exporting `Hero02Dashboard`). They are imported as `./hero-02-dashboard`.
 
 ```tsx
 import Balancer from 'react-wrap-balancer'
-import { cn } from '@/lib/utils'
 
-export interface MyBlockProps {
-  title: string
-  description?: string
-  variant?: 'standard' | 'compact'
-}
+import { Button } from '@/components/ui/button'
 
-const variantStyles = {
-  standard: { title: 'text-3xl md:text-4xl', spacing: 'space-y-6' },
-  compact: { title: 'text-2xl md:text-3xl', spacing: 'space-y-4' },
-} as const
-
-export function MyBlock({ title, description, variant = 'standard' }: Readonly<MyBlockProps>) {
-  const vs = variantStyles[variant]
-
-  const titleElement = title && (
-    <h1 className={cn('tracking-tight', vs.title)}><Balancer>{title}</Balancer></h1>
-  )
-  const descriptionElement = description && (
-    <p className="text-muted-foreground"><Balancer>{description}</Balancer></p>
-  )
-
+export function Cta01() {
   return (
-    <section className={cn('flex flex-col', vs.spacing)}>
-      {titleElement}
-      {descriptionElement}
-    </section>
-  )
-}
-```
-
-For animated blocks: add the `animation` prop, declare `Variants` as module consts, and
-branch the `return` per mode reusing the same element constants — like `hero-03.tsx`.
-
-### `<slug>-example.tsx`
-
-```tsx
-import { MyBlock, type MyBlockProps } from './my-block'
-
-export const values = {
-  title: 'Example title',
-  description: 'Example description.',
-} satisfies MyBlockProps
-
-export function MyBlockExample() {
-  return <MyBlock {...values} />
-}
-```
-
-### `editor/fields.tsx`
-
-`'use client'`. Import defaults from `../<slug>-example` (**never** a global file). Accept
-`props?` + `onUpdate?`; use internal state only when `props` is absent.
-
-```tsx
-'use client'
-import * as React from 'react'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { values as defaults } from '../my-block-example'
-import type { MyBlockProps } from '../my-block'
-
-export function MyBlockEditorFields({
-  props: externalProps,
-  onUpdate,
-}: { props?: MyBlockProps; onUpdate?: (p: MyBlockProps) => void } = {}) {
-  const [internal, setInternal] = React.useState<MyBlockProps>(defaults)
-  const props = externalProps ?? internal
-
-  const updateField = (field: keyof MyBlockProps, value: unknown) => {
-    const next = { ...props, [field]: value }
-    onUpdate ? onUpdate(next) : setInternal(next)
-  }
-
-  return (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <Label>Title</Label>
-        <Input value={props.title} onChange={(e) => updateField('title', e.target.value)} />
+    <div className="bg-muted/50 flex min-h-120 items-center justify-center rounded-xl p-5">
+      <div className="flex flex-col items-center space-y-4 self-center">
+        <div className="space-y-2">
+          <h2 className="text-center text-2xl font-bold md:max-w-200">
+            <Balancer balance={0.5}>Simple & Elegant</Balancer>
+          </h2>
+          <p className="text-muted-foreground text-center md:max-w-200">
+            <Balancer balance={0.5}>
+              Display content in a minimal and visually appealing way.
+            </Balancer>
+          </p>
+        </div>
+        <Button className="w-fit rounded-full px-4" nativeButton={false} render={<a href="#" />}>
+          Click here
+        </Button>
       </div>
     </div>
   )
@@ -184,8 +144,6 @@ export function MyBlockEditorFields({
 ```ts
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { MyBlock } from './my-block'
-import { MyBlockEditorFields } from './editor/fields'
-import { MyBlockExample, values } from './my-block-example'
 
 export const manifest: BlockManifest = {
   slug: 'my-block',
@@ -200,18 +158,18 @@ export const manifest: BlockManifest = {
   meta: { iframeHeight: 600 }, // + captureViewportOnly: true for scroll/interactive blocks
   hasNew: true, // optional badge
   component: MyBlock,
-  editorFields: MyBlockEditorFields,
-  example: MyBlockExample,
-  defaults: values, // must be the same `values` object from the example file
 }
 ```
+
+The `name` and `description` become the page title, the meta description and the registry
+`title`/`description`. Write them as plain copy: no mention of animation, editing or variants.
 
 ### Choosing the `preset`
 
 Required — `tsc` fails without it. It does two things at once:
 
 - **Gallery filter** — the block only shows under that preset's chip on `/blocks`
-- **Screenshot palette** — the preview wraps the block in `PresetScope`, so step 7 captures
+- **Screenshot palette** — the preview wraps the block in `PresetScope`, so step 6 captures
   it under those tokens
 
 Blocks are preset-agnostic by construction (semantic tokens only, never a hard-coded color),
@@ -230,17 +188,17 @@ Creating a preset is out of scope for this skill; ask before doing it.
 ### Inline illustration (hero / feature / empty-state / CTA blocks)
 
 When the layout has visual space, prefer a purpose-built illustration over a stock photo.
-Build it **inside the block's files** (not under `registry/illustrations/`) but to the
-[add-illustration](../add-illustration/SKILL.md) bar: compose don't symbolize, layer for
-depth, theme tokens (light + dark), motion optional (one-shot, reduced-motion-safe).
+Build it **inside the block's folder** as an auxiliary file (not under
+`registry/illustrations/`) but to the [add-illustration](../add-illustration/SKILL.md) bar:
+compose don't symbolize, layer for depth, theme tokens (light + dark).
 
-- **Hard-code its content** — it simulates a real screen; do NOT wire it to props/editor fields.
-- **Wire the file into `registry.json`** — add it as a `files[]` entry with its own `target`
-  (step 4) and add any shadcn primitives it uses to `registryDependencies`.
-- **Report the decision** in step 8.
+- **Hard-code its content** — it simulates a real screen.
+- **Wire the file into `registry.json`** — add it as a `files[]` entry (step 4) and add any
+  shadcn primitives it uses to `registryDependencies`.
+- **Report the decision** in step 7.
 
-Palette to reach for (only when it fits): real Unsplash crops (`?w=800&q=80` + image outline),
-layered `Card`/`Badge`/`Avatar` fragments, small SVG sparklines, a big `tabular-nums` metric,
+Palette to reach for (only when it fits): real Unsplash crops (image outline), layered
+`Card`/`Badge`/`Avatar` fragments, small SVG sparklines, a big `tabular-nums` metric,
 `mask-*` edge fades, a faint background grid/glow (`opacity-[0.04]`–`10`, `pointer-events-none`),
 a card peeking behind another.
 
@@ -256,33 +214,37 @@ import { manifest as myBlockManifest } from './my-block/manifest'
 blocks: [/* ...existing, */ myBlockManifest],
 ```
 
-`src/lib/blocks/block-catalog.ts` is a thin aggregator — never edit it.
+`src/lib/blocks/block-catalog.ts` is a thin aggregator — never edit it for a new block.
 
 ---
 
 ## Step 4 — Add entry to `registry/blocks/<category>/registry.json`
 
 Per-category file (not root). `files[].path` is **relative to the category dir** (`<slug>/<file>`);
-`files[].target` is the absolute install path. Add a `files[]` entry for **every** `.tsx` the
-block ships (main, example, illustrations, subcomponents). Do **NOT** write `title`,
-`description`, or `meta.iframeHeight` — `registry:sync` fills them from the manifest.
+`files[].target` is the install path and is **flat**: `components/flx/blocks/<category>/<file>.tsx`.
+Add a `files[]` entry for **every** `.tsx` the block ships (main + auxiliary). Do **NOT** write
+`title`, `description`, or `meta.iframeHeight` — `registry:sync` fills them from the manifest.
+
+`registryDependencies` lists every shadcn primitive imported from `@/components/ui/*`, plus
+`@flx/<name>` for another registry item the block imports (e.g. `@flx/spot-01`).
+`dependencies` lists every npm package imported (`react-wrap-balancer`, `lucide-react`, …).
 
 ```json
 {
   "name": "my-block",
   "type": "registry:block",
   "registryDependencies": ["button", "card"],
-  "dependencies": ["react-wrap-balancer", "motion"],
+  "dependencies": ["react-wrap-balancer", "lucide-react"],
   "files": [
     {
       "path": "my-block/my-block.tsx",
       "type": "registry:component",
-      "target": "components/flx/blocks/content/my-block/my-block.tsx"
+      "target": "components/flx/blocks/content/my-block.tsx"
     },
     {
-      "path": "my-block/my-block-example.tsx",
+      "path": "my-block/my-block-dashboard.tsx",
       "type": "registry:component",
-      "target": "components/flx/blocks/content/my-block/my-block-example.tsx"
+      "target": "components/flx/blocks/content/my-block-dashboard.tsx"
     }
   ]
 }
@@ -292,72 +254,7 @@ Add `meta.containerClassName` manually only for special previews (carousels: `"m
 
 ---
 
-## Step 5 — Create the docs MDX
-
-`src/app/content/blocks/<category>/<slug>.mdx` — auto-discovered by path, no registration.
-Copy the shape of `src/app/content/blocks/hero/hero-01.mdx`. `metadata` (title + description +
-openGraph copies) **matches the manifest**. Add a `<Step>` + `collapsible` `<CodeBlockFromFile>`
-for **every** extra file in `files[]`.
-
-```mdx
-export const metadata = {
-  title: 'My Block',
-  description: 'Same one-line description as the manifest.',
-  openGraph: { title: 'My Block', description: 'Same one-line description as the manifest.', type: 'article' },
-}
-
-<BlockView category="<category>" slug="<slug>" />
-
-## Implementation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-
-<TabsContent value="cli">
-
-<CodeBlockCommand command="shadcn@latest add @flx/<slug>" />
-
-## Usage
-
-<CodeBlockFromFile filePath="registry/blocks/<category>/<slug>/<slug>-example.tsx" title="<slug>-example.tsx" />
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Install dependencies</Step>
-
-<CodeBlockCommand command="react-wrap-balancer" isPackage />
-<CodeBlockCommand command="motion" isPackage />
-
-<Step>Add the illustration (optional)</Step>
-
-One line describing the inline illustration and that it can be swapped/removed.
-
-<CodeBlockFromFile filePath="registry/blocks/<category>/<slug>/<extra-file>.tsx" title="<extra-file>.tsx" collapsible />
-
-<Step>Copy the component</Step>
-
-<CodeBlockFromFile filePath="registry/blocks/<category>/<slug>/<slug>.tsx" title="<slug>.tsx" collapsible />
-
-<Step>Use the component</Step>
-
-<CodeBlockFromFile filePath="registry/blocks/<category>/<slug>/<slug>-example.tsx" />
-
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-```
-
----
-
-## Step 6 — Validate, sync, build
+## Step 5 — Validate, sync, build
 
 Run in order. Pre-sync validate failing on the new block is expected (title/description not
 synced yet) — continue.
@@ -368,11 +265,12 @@ pnpm run registry:validate   # must PASS
 pnpm run registry:build      # regenerates public/r/*.json
 ```
 
-`registry:validate` prints exactly which field is out of sync or missing.
+`registry:validate` prints exactly which field is out of sync or missing. After the build,
+`/blocks/<category>/<slug>` and `/preview/blocks/<category>/<slug>` must both answer 200.
 
 ---
 
-## Step 7 — Do NOT capture screenshots
+## Step 6 — Do NOT capture screenshots
 
 The manifest points at `image.light`/`image.dark` WebP files that will **not exist** after
 this skill runs — that's expected. Never run `playwright:install`, `dev`, or
@@ -384,7 +282,7 @@ pnpm run dev                                         # separate terminal — cap
 pnpm run blocks:capture-screenshots --slug=<slug>
 ```
 
-Surface this exact command block in step 8 instead of running it. Other filters the user
+Surface this exact command block in step 7 instead of running it. Other filters the user
 may want to know about: `--preset=<id>` (every block on that preset — use after changing a
 preset's tokens), `--missing-only`, or no flag for all.
 
@@ -393,11 +291,11 @@ capture looks like the wrong palette, the `preset` in the manifest is wrong — 
 
 ---
 
-## Step 8 — Report the illustration decision + suggest the screenshot command
+## Step 7 — Report the illustration decision + suggest the screenshot command
 
 State whether you built an inline illustration and why — e.g. *"Inline dashboard illustration
-in `dashboard-demo.tsx` (layered cards, static), following add-illustration rules"* — or why you
-chose a photo / none. Never silently drop it.
+in `my-block-dashboard.tsx` (layered cards, static), following add-illustration rules"* — or why
+you chose a photo / none. Never silently drop it.
 
 Close your final message with the screenshot command for the user to run themselves
 (don't run it for them):
@@ -410,25 +308,14 @@ pnpm run blocks:capture-screenshots --slug=<slug>
 
 ## Checklist
 
-- [ ] `<slug>.tsx` — `Readonly<Props>`; hero-03 ordering (props → `variantStyles` → motion consts → named element constants → clean `return`); no `if/else`/ternaries for layout
-- [ ] Constitution held — staggered enter / subtle exit, `prefers-reduced-motion`, only `transform`/`opacity`/`filter`, `<Balancer>`, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii, `mask-*` for fades, shadcn primitives
-- [ ] `<slug>-example.tsx` — exports `values` + named example
-- [ ] `editor/fields.tsx` — defaults from `../<slug>-example`
-- [ ] `manifest.ts` — all fields incl. `preset` and `image.light` + `image.dark` (`.webp`); `defaults` === example `values`
+- [ ] `<slug>.tsx` — no props; content inline; repeated items in a top-level `const items`; CTAs are `Button` + `render`; `'use client'` only when needed
+- [ ] Constitution held — no motion library or entrance animation, `<Balancer>`, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii, `mask-*` for fades, shadcn primitives, `h2` for non-hero titles
+- [ ] Generic alts (`Alt`, `Alt 1`, `Alt 2`…); Unsplash URLs without `ixlib`/`ixid`
+- [ ] Cross-folder imports use `@/components/flx/*`, never `../../`
+- [ ] Auxiliary files and their components are prefixed with the slug
+- [ ] `manifest.ts` — `slug`, `name`, `description`, `category`, `preset`, `image.light` + `image.dark` (`.webp`), `component`; nothing else of the old editor shape
 - [ ] `catalog.ts` — import + array entry
-- [ ] `registry.json` — entry with `files[]` for every `.tsx`, `registryDependencies`, `dependencies`
-- [ ] `<slug>.mdx` — metadata matches manifest; Command + Manual tabs; a `<Step>` per extra file
-- [ ] `registry:sync` → `registry:validate` PASSES → `registry:build`
+- [ ] `registry.json` — entry with a flat `target` for every `.tsx`, `registryDependencies`, `dependencies`
+- [ ] `registry:sync` → `registry:validate` PASSES → `registry:build`; both routes answer 200
 - [ ] Screenshots NOT captured by the agent — `image.light`/`image.dark` are left pointing at not-yet-existing files
 - [ ] Illustration decision reported + screenshot command suggested in the final message
-
----
-
-## Variations (optional)
-
-Named visual variants rendered as standalone examples:
-
-1. Create `examples/<slug>-<variant>.tsx` (self-contained).
-2. Add to `manifest.ts`: `variations: { 'variant-name': MyBlockVariant }`.
-
-They appear at `/preview/<category>/<slug>/<variant>`.

@@ -10,19 +10,17 @@ import { BlockViewTabs } from './block-view-tabs'
 interface BlockViewProps {
   category: string
   slug: string
-  variation?: string
   className?: string
 }
 
 /**
  * Final block viewer used in docs/MDX. Server component: resolves the registry
- * item (with its dependency code merged), builds the preview/edit URLs, then
+ * item (with its dependency code merged), builds the preview URL, then
  * hands everything to the client BlockViewTabs.
  */
 export function BlockView({
   category,
   slug,
-  variation,
   className,
 }: Readonly<BlockViewProps>) {
   const item = getRegistryItem(slug)
@@ -36,17 +34,11 @@ export function BlockView({
   const preset = presets.find((p) => p.id === manifest?.preset) ?? presets[0]
   const presetCss = loadPresetCss()[preset.id]
 
-  const src = variation
-    ? `/preview/blocks/${category}/${slug}/${variation}`
-    : `/preview/blocks/${category}/${slug}`
-  const editSrc = variation
-    ? `/block-editor/${category}/${slug}/${variation}`
-    : `/block-editor/${category}/${slug}`
+  const src = `/preview/blocks/${category}/${slug}`
 
   return (
     <BlockViewTabs
       src={src}
-      editSrc={editSrc}
       registryName={slug}
       codeFiles={codeFiles}
       prompt={prompt}

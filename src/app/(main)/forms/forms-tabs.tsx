@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 import { usePathname } from 'next/navigation'
 
 import { AnimatedBackground } from '@/components/core/animated-background'
@@ -28,7 +28,7 @@ export function FormsTabs() {
         }}
       >
         {tabs.map((tab) => (
-          <Link
+          <HoverPrefetchLink
             key={tab.href}
             href={`${tab.href}${hash}`}
             scroll={false}
@@ -36,7 +36,7 @@ export function FormsTabs() {
             className="inline-flex items-center justify-center rounded-full px-3 py-1.5 text-center text-sm font-medium transition-transform active:scale-[0.98]"
           >
             {tab.label}
-          </Link>
+          </HoverPrefetchLink>
         ))}
       </AnimatedBackground>
     </div>

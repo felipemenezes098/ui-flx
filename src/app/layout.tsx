@@ -7,6 +7,7 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { siteConfig } from '@/config/site'
+import { createOgImageUrl } from '@/lib/metadata'
 import { UIProvider } from '@/contexts/ui-context'
 import { ConfigProvider } from '@/hooks/use-config'
 import { QueryProvider } from '@/providers/query-provider'
@@ -25,6 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
+const defaultOgImage = createOgImageUrl({
+  title: siteConfig.title,
+  description: siteConfig.description,
+})
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -33,15 +39,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    'UI',
-    'Shadcn',
-    'Blocks',
+    'shadcn/ui',
+    'shadcn blocks',
+    'shadcn registry',
+    'landing page',
+    'marketing website',
     'React',
     'Next.js',
     'Tailwind CSS',
-    'Sanity',
-    'CMS',
-    'Components',
+    'Base UI',
+    'Motion',
   ],
   authors: [
     {
@@ -59,7 +66,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -70,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [defaultOgImage],
     creator: '@fmenezes_',
   },
   icons: {

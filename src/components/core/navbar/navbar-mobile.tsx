@@ -1,138 +1,94 @@
 'use client'
 
 import { AnimatePresence, motion } from 'motion/react'
-import Link from 'next/link'
-import * as React from 'react'
+import { usePathname } from 'next/navigation'
+import { Suspense, useEffect, useState } from 'react'
 
-import { buttonVariants } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { siteConfig } from '@/config/site'
-import { dataNavbar } from '@/data/navbar'
+import { useUI } from '@/contexts/ui-context'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
 
-import { Logo } from '../logo'
-import { ThemeSwitcher } from './theme'
-import { shellContainerClass, useUI } from '@/contexts/ui-context'
+import { SidebarBlockFilters } from '../sidebar/sidebar-block-filters'
+import { SidebarLink } from '../sidebar/sidebar-link'
+import { SidebarLogo } from '../sidebar/sidebar-logo'
+import { isActiveNavPath, sidebarNavItems } from '../sidebar/sidebar-nav-items'
+import { SidebarSocialLinks } from '../sidebar/sidebar-social-links'
+
+const menuLabels = {
+  open: 'Close menu',
+  closed: 'Open menu',
+}
+
+const easing = [0.32, 0.72, 0, 1] as const
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: -8,
+    transition: { duration: 0.2 },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: easing },
+  },
+}
 
 export function NavbarMobile() {
   const isMobile = useIsMobile()
-  const [open, setOpen] = React.useState(false)
-  const { shellWidth, hideNavbar } = useUI()
-  const isWide = shellWidth === 'wide'
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+  const { hideNavbar } = useUI()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isMobile) setOpen(false)
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = (open && 'hidden') || ''
   }, [open, isMobile])
+
+  function closeOnLinkClick(event: React.MouseEvent<HTMLDivElement>) {
+    if ((event.target as Element).closest('a')) {
+      setOpen(false)
+    }
+  }
 
   return (
     <>
       <header
-        className="bg-background w-full overflow-hidden md:hidden"
+        className="bg-background relative z-[42] w-full overflow-hidden md:hidden"
         aria-label="Main navigation"
         aria-hidden={hideNavbar || undefined}
       >
-        <div
-          className={cn(
-            shellContainerClass(shellWidth),
-            isWide ? 'py-3' : 'px-5 py-3',
-          )}
-        >
+        <div className="container-page px-5 py-3">
           <div className="flex items-center justify-between gap-2">
-            <button
-              type="button"
-              aria-label={open ? 'Close menu' : 'Open menu'}
-              aria-expanded={open}
-              onClick={() => setOpen((prev) => !prev)}
-              className="extend-touch-target flex h-8 touch-manipulation items-center justify-start gap-3 p-0"
-            >
-              <div className="relative flex h-8 w-4 items-center justify-center">
-                <div className="relative mb-1 size-3">
-                  <span
-                    className={cn(
-                      'bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-300',
-                      open ? 'top-[0.4rem] -rotate-45' : 'top-1',
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      'bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-300',
-                      open ? 'top-[0.4rem] rotate-45' : 'top-2.5',
-                    )}
-                  />
-                </div>
-              </div>
-            </button>
-
-            <div className="flex items-center gap-2">
-              <motion.div
-                animate={{ opacity: open ? 0 : 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: open ? 0 : 0.15,
-                  ease: [0.32, 0.72, 0, 1],
-                }}
-                className={cn(
-                  'flex items-center gap-2',
-                  open && 'pointer-events-none',
-                )}
-                aria-hidden={open}
+            <SidebarLogo />
+            <div className="flex items-center gap-1">
+              <SidebarSocialLinks />
+              <button
+                type="button"
+                aria-label={menuLabels[(open && 'open') || 'closed']}
+                aria-expanded={open}
+                onClick={() => setOpen((prev) => !prev)}
+                className="extend-touch-target text-muted-foreground hover:text-foreground ml-1 flex h-8 touch-manipulation items-center justify-start gap-3 p-0"
               >
-                <Link
-                  href={siteConfig.links.twitter}
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({
-                      variant: 'ghost',
-                      size: 'icon',
-                      className: 'h-8 w-8 transition-none',
-                    }),
-                  )}
-                >
-                  <Logo.X className="size-3" />
-                </Link>
-                <Link
-                  href={siteConfig.links.github}
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({
-                      variant: 'ghost',
-                      size: 'icon',
-                      className: 'h-8 w-8 transition-none',
-                    }),
-                  )}
-                >
-                  <Logo.Github className="size-4" />
-                </Link>
-                <div className="flex items-center">
-                  <Separator orientation="vertical" className="!h-4" />
+                <div className="relative flex h-8 w-4 items-center justify-center">
+                  <div className="relative mb-1 size-3">
+                    <span
+                      className={cn(
+                        'absolute left-0 block h-0.5 w-4 bg-current transition-all duration-300',
+                        open && 'top-[0.4rem] -rotate-45',
+                        !open && 'top-1',
+                      )}
+                    />
+                    <span
+                      className={cn(
+                        'absolute left-0 block h-0.5 w-4 bg-current transition-all duration-300',
+                        open && 'top-[0.4rem] rotate-45',
+                        !open && 'top-2.5',
+                      )}
+                    />
+                  </div>
                 </div>
-                <ThemeSwitcher />
-                <div className="flex items-center">
-                  <Separator orientation="vertical" className="!h-4" />
-                </div>
-                <Link
-                  href="/"
-                  className={cn(
-                    buttonVariants({
-                      variant: 'ghost',
-                      size: 'sm',
-                      className:
-                        'hover:bg-muted h-7 items-center gap-1.5 rounded-lg px-2',
-                    }),
-                  )}
-                >
-                  <Logo.Flexnative className="text-primary h-6 w-auto" />
-                  <span className="text-sm font-medium">
-                    {siteConfig.shortName}
-                  </span>
-                </Link>
-              </motion.div>
+              </button>
             </div>
           </div>
         </div>
@@ -146,10 +102,7 @@ export function NavbarMobile() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{
-                duration: 1.3,
-                ease: [0.32, 0.72, 0, 1],
-              }}
+              transition={{ duration: 1.3, ease: easing }}
               className="bg-background fixed inset-0 top-[3.5rem] z-[39] md:hidden"
               aria-hidden
             />
@@ -161,11 +114,7 @@ export function NavbarMobile() {
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
                 exit={{ scaleY: 0 }}
-                transition={{
-                  duration: 0.35,
-                  ease: [0.32, 0.72, 0, 1],
-                  delay: 0.1,
-                }}
+                transition={{ duration: 0.35, ease: easing, delay: 0.1 }}
                 style={{ transformOrigin: 'top' }}
                 className="bg-background h-full w-full"
               />
@@ -184,64 +133,37 @@ export function NavbarMobile() {
             variants={{
               hidden: {},
               visible: {
-                transition: {
-                  staggerChildren: 0.06,
-                  delayChildren: 0.15,
-                },
+                transition: { staggerChildren: 0.06, delayChildren: 0.15 },
               },
             }}
-            className="fixed top-[3.5rem] right-0 bottom-0 left-0 z-[41] overflow-auto px-5 pt-6 pb-6 md:hidden"
+            onClick={closeOnLinkClick}
+            className="no-scrollbar fixed top-[3.5rem] right-0 bottom-0 left-0 z-[41] flex flex-col gap-10 overflow-auto px-5 pt-6 pb-6 md:hidden [&_a[aria-current]]:py-2 [&_a[aria-current]]:text-base"
           >
-            <nav className="flex flex-col items-start gap-6">
-              {dataNavbar.map((item) => (
+            <nav className="flex flex-col">
+              {sidebarNavItems.map((item) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, y: 8 }}
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: -8,
-                      transition: { duration: 0.2 },
-                    },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        duration: 0.5,
-                        ease: [0.32, 0.72, 0, 1],
-                      },
-                    },
-                  }}
+                  variants={itemVariants}
+                  className="flex flex-col"
                 >
-                  <MobileLink href={item.href} onClose={() => setOpen(false)}>
-                    <span className="text-xl font-medium">{item.name}</span>
-                  </MobileLink>
+                  <SidebarLink
+                    href={item.href}
+                    active={isActiveNavPath(pathname, item.href)}
+                  >
+                    {item.name}
+                  </SidebarLink>
                 </motion.div>
               ))}
             </nav>
+            <motion.div initial={{ opacity: 0, y: 8 }} variants={itemVariants}>
+              <Suspense>
+                <SidebarBlockFilters />
+              </Suspense>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
-}
-
-function MobileLink({
-  href,
-  onClose,
-  children,
-}: Readonly<{
-  href: string
-  onClose: () => void
-  children: React.ReactNode
-}>) {
-  return (
-    <Link
-      href={href}
-      onClick={onClose}
-      className="text-foreground hover:text-foreground/80 focus-visible:outline-ring focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2"
-    >
-      {children}
-    </Link>
   )
 }

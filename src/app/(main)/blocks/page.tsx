@@ -1,53 +1,21 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
+import { createPageMetadata } from '@/lib/metadata'
 
-import { Footer } from '@/components/core/footer'
-
-import { Blocks } from './components/blocks'
-import { BlocksShell } from './components/blocks-shell'
+import { BlocksCatalog } from './components/blocks-catalog'
 
 export const dynamic = 'force-static'
 export const revalidate = false
 
-const title = 'Blocks'
-const description = 'All Blocks are ready to copy and paste into your websites.'
+const title = 'shadcn/ui Blocks'
+const description =
+  'Landing page sections built with shadcn/ui. Copy the prompt or add any of them with the CLI.'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title,
   description,
-  openGraph: {
-    title,
-    description,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title,
-    description,
-  },
-}
+  path: '/blocks',
+})
 
 export default function BlocksPage() {
-  return (
-    <main className="min-w-0">
-      <Suspense>
-        <BlocksShell>
-          <Suspense fallback={<BlocksFallback />}>
-            <Blocks />
-          </Suspense>
-          <Footer />
-        </BlocksShell>
-      </Suspense>
-    </main>
-  )
-}
-
-function BlocksFallback() {
-  return (
-    <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
-      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
-      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
-      <div className="border-border bg-muted h-40 animate-pulse rounded-xl border" />
-    </section>
-  )
+  return <BlocksCatalog title={title} description={description} />
 }

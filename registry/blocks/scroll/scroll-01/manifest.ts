@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Scroll01 } from './scroll-01'
-import { Scroll01EditorFields } from './editor/fields'
-import { Scroll01Example, values } from './scroll-01-example'
 
 export const manifest: BlockManifest = {
   slug: 'scroll-01',
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     captureViewportOnly: true,
   },
   component: Scroll01,
-  editorFields: Scroll01EditorFields,
-  example: Scroll01Example,
-  defaults: values,
 }

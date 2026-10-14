@@ -17,9 +17,9 @@ function MosaicGrid({
       data-slot="mosaic-grid"
       data-variant={variant}
       className={cn(
-        'grid w-full grid-cols-1 md:grid-cols-4',
+        'grid w-full grid-cols-1 md:grid-cols-2 xl:grid-cols-4',
         variant === 'mosaic' &&
-          'border-border/60 relative overflow-hidden rounded-xl after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:border after:border-border/60',
+          'border-border/60 after:border-border/60 relative overflow-hidden rounded-xl after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:border',
         variant === 'cards' && 'gap-4',
         className,
       )}

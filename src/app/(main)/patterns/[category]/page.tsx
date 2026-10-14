@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import { notFound } from 'next/navigation'
 import type { RegistryItem } from 'shadcn/schema'
 
@@ -32,7 +33,11 @@ export async function generateMetadata({
   const { category: slug } = await params
   const category = getCategoryBySlug(slug)
   if (!category) return {}
-  return { title: category.name, description: category.description }
+  return createPageMetadata({
+    title: category.name,
+    description: category.description,
+    path: `/patterns/${slug}`,
+  })
 }
 
 export default async function PatternCategoryPage({

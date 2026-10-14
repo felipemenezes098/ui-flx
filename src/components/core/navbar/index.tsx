@@ -2,7 +2,6 @@
 
 import { motion } from 'motion/react'
 
-import { NavbarDesktop } from './navbar-desktop'
 import { NavbarMobile } from './navbar-mobile'
 import { useUI } from '@/contexts/ui-context'
 
@@ -24,9 +23,8 @@ export function Navbar() {
         opacity: hideNavbar ? 0 : 1,
       }}
       transition={navbarTransition}
-      className="sticky top-0 z-50 overflow-hidden"
+      className="sticky top-0 z-50 overflow-hidden md:hidden"
     >
-      <NavbarDesktop />
       <NavbarMobile />
     </motion.div>
   )

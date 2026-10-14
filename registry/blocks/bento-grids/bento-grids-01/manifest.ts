@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { BentoGrids01 } from './bento-grids-01'
-import { BentoGrids01EditorFields } from './editor/fields'
-import { BentoGrids01Example, values } from './bento-grids-01-example'
 
 export const manifest: BlockManifest = {
   slug: 'bento-grids-01',
@@ -18,7 +16,4 @@ export const manifest: BlockManifest = {
     iframeHeight: 1000,
   },
   component: BentoGrids01,
-  editorFields: BentoGrids01EditorFields,
-  example: BentoGrids01Example,
-  defaults: values,
 }

@@ -9,10 +9,17 @@ import { useCopy } from '@/hooks/use-copy'
 import { cn } from '@/lib/utils'
 
 interface CopyButtonProps extends ComponentProps<typeof Button> {
-  text: string
+  text: string | (() => Promise<string>)
   label?: string
   icon?: ReactNode
   iconClassName?: string
+}
+
+function resolveText(text: CopyButtonProps['text']) {
+  if (typeof text === 'function') {
+    return text()
+  }
+  return text
 }
 
 const copyTransition = {
@@ -42,7 +49,7 @@ export function CopyButton({
       {...props}
       onClick={(event) => {
         onClick?.(event)
-        copy(text)
+        copy(resolveText(text))
       }}
     >
       <span

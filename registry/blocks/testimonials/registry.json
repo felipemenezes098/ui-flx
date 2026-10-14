@@ -11,17 +11,11 @@
       "registryDependencies": [
         "avatar"
       ],
-      "dependencies": [],
       "files": [
         {
           "path": "testimonials-01/testimonials-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01.tsx"
-        },
-        {
-          "path": "testimonials-01/testimonials-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/testimonials/testimonials-01/testimonials-01-example.tsx"
+          "target": "components/flx/blocks/testimonials/testimonials-01.tsx"
         }
       ],
       "meta": {

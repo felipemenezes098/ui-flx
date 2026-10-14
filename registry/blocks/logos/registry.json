@@ -11,20 +11,14 @@
       "registryDependencies": [
         "carousel"
       ],
-      "dependencies": [],
-      "devDependencies": [
+      "dependencies": [
         "embla-carousel-auto-scroll"
       ],
       "files": [
         {
           "path": "logos-01/logos-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/logos/logos-01/logos-01.tsx"
-        },
-        {
-          "path": "logos-01/logos-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/logos/logos-01/logos-01-example.tsx"
+          "target": "components/flx/blocks/logos/logos-01.tsx"
         }
       ],
       "meta": {

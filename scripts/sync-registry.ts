@@ -4,11 +4,10 @@
  * Blocks: `title`, `description`, `meta.iframeHeight` from block manifests.
  * Patterns: `title`, `description` from registry/patterns/<cat>/catalog.ts.
  * Forms: `title`, `description` from registry/forms/<lib>/<cat>/catalog.ts.
- * Intents: `title`, `description`, `files` from intent manifests.
  * Presets: `title`, `description`, `css` from registry/presets/styles/<id>.css.
  *
  * Shadcn-specific fields (files, registryDependencies, dependencies) are NOT modified
- * for blocks and patterns (only intents auto-fix `files`, presets auto-fix `css`).
+ * for blocks and patterns (only presets auto-fix `css`).
  *
  * Supports the `include` feature: registry.json may reference sub-registries.
  *
@@ -20,7 +19,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { allManifests } from '../src/lib/blocks/block-catalog'
-import { allIntents } from '../src/lib/intents/intent-catalog'
 import { allFormPatterns } from '../src/lib/forms/catalog'
 import { allPatterns } from '../src/lib/patterns/patterns-catalog'
 import { allCompositions } from '../src/lib/compositions/compositions-catalog'
@@ -77,55 +75,6 @@ const ROOT_REGISTRY = path.join(ROOT, 'registry.json')
 loadRegistry(ROOT_REGISTRY)
 
 const issues: string[] = []
-
-// ---------------------------------------------------------------------------
-// Intent sync
-// ---------------------------------------------------------------------------
-function syncIntentItems() {
-  for (const entry of allIntents) {
-    const manifest = entry.manifest
-    if (!manifest) continue
-
-    for (const decision of manifest.decisions) {
-      const name = `${manifest.slug}-${decision.slug}`
-      const file = `${manifest.slug}-${decision.slug}.tsx`
-      // path is relative to registry/intents/registry.json (its containing directory)
-      const expectedFiles = [
-        {
-          path: `${manifest.slug}/${file}`,
-          type: 'registry:component',
-          target: `components/flx/intent/${manifest.slug}/${file}`,
-        },
-      ]
-      const expectedTitle = decision.name
-      const expectedDescription = `${decision.name} for ${manifest.name}.`
-
-      const found = itemIndex.get(name)
-      if (!found) {
-        issues.push(`  MISSING in registry: "${name}" (intent decision)`)
-        continue
-      }
-
-      const { item, filePath } = found
-      const drifted =
-        JSON.stringify(item.files ?? []) !== JSON.stringify(expectedFiles) ||
-        item.title !== expectedTitle ||
-        item.description !== expectedDescription
-
-      if (drifted) {
-        if (CHECK_ONLY) {
-          issues.push(`  OUT OF SYNC: "${name}" (intent decision)`)
-        } else {
-          item.title = expectedTitle
-          item.description = expectedDescription
-          item.files = expectedFiles
-          dirtyFiles.add(filePath)
-          console.log(`  Updated intent item: ${name}`)
-        }
-      }
-    }
-  }
-}
 
 // ---------------------------------------------------------------------------
 // Block + pattern sync
@@ -327,7 +276,6 @@ for (const entry of catalogEntries) {
   syncEntry(entry)
 }
 
-syncIntentItems()
 syncPresetItems()
 
 // Image validation (blocks only)

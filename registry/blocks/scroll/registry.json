@@ -9,19 +9,11 @@
       "title": "Scroll 01",
       "description": "Sticky media that changes as you scroll through text content.",
       "registryDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
       "files": [
         {
           "path": "scroll-01/scroll-01.tsx",
           "type": "registry:component",
-          "target": "components/flx/blocks/scroll/scroll-01/scroll-01.tsx"
-        },
-        {
-          "path": "scroll-01/scroll-01-example.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/scroll/scroll-01/scroll-01-example.tsx"
+          "target": "components/flx/blocks/scroll/scroll-01.tsx"
         }
       ],
       "meta": {

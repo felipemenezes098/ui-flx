@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 
 import { categories } from '@/lib/blocks/block-catalog'
 import { cn } from '@/lib/utils'
@@ -10,18 +10,17 @@ function categoryLabel(slug: string) {
 
 interface BlockBreadcrumbProps {
   category: string
-  slug: string
+  slug?: string
   title?: string
   className?: string
 }
 
 export function BlockBreadcrumb({
   category,
-  slug,
   title,
   className,
 }: Readonly<BlockBreadcrumbProps>) {
-  const current = title ?? slug
+  const current = title
 
   return (
     <nav
@@ -31,20 +30,31 @@ export function BlockBreadcrumb({
         className,
       )}
     >
-      <Link href="/blocks" className="hover:text-foreground transition-colors">
-        Blocks
-      </Link>
-      <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
-      <Link
-        href={`/blocks?category=${encodeURIComponent(category)}`}
+      <HoverPrefetchLink
+        href="/blocks"
         className="hover:text-foreground transition-colors"
       >
-        {categoryLabel(category)}
-      </Link>
+        Blocks
+      </HoverPrefetchLink>
       <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
-      <span className="text-foreground font-medium" aria-current="page">
-        {current}
-      </span>
+      {current ? (
+        <>
+          <HoverPrefetchLink
+            href={`/blocks?category=${category}`}
+            className="hover:text-foreground transition-colors"
+          >
+            {categoryLabel(category)}
+          </HoverPrefetchLink>
+          <ChevronRight className="size-3.5 shrink-0 opacity-50" aria-hidden />
+          <span className="text-foreground font-medium" aria-current="page">
+            {current}
+          </span>
+        </>
+      ) : (
+        <span className="text-foreground font-medium" aria-current="page">
+          {categoryLabel(category)}
+        </span>
+      )}
     </nav>
   )
 }

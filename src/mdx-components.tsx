@@ -12,8 +12,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
 import { siteConfig } from './config/site'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar'
-import { buttonVariants } from './components/ui/button'
 import { Logo } from './components/core/logo'
+import { buttonVariants } from './components/ui/button'
 
 let headingCounter = 0
 
@@ -265,14 +265,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     BlockPreviewFrame,
     BlockView,
     Contact: () => (
-      <div className="bg-card mt-6 mb-10 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
+      <div className="mt-6 mb-10 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <Avatar className="size-10">
             <AvatarImage src={siteConfig.authorImage} alt={siteConfig.author} />
             <AvatarFallback>FM</AvatarFallback>
           </Avatar>
           <div className="flex flex-col gap-0.5">
-            <span className="text-sm">Need help? Contact me</span>
+            <span className="text-sm">Say hi</span>
             <a
               href={`mailto:${siteConfig.email}`}
               className="text-muted-foreground text-sm underline underline-offset-4"

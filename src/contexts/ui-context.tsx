@@ -2,21 +2,16 @@
 
 import * as React from 'react'
 
-export type ShellWidth = 'default' | 'wide'
-
 interface UIContextValue {
   hideNavbar: boolean
   setHideNavbar: (hide: boolean) => void
   toggleNavbar: () => void
-  shellWidth: ShellWidth
-  setShellWidth: (width: ShellWidth) => void
 }
 
 const UIContext = React.createContext<UIContextValue | undefined>(undefined)
 
 export function UIProvider({ children }: { children: React.ReactNode }) {
   const [hideNavbar, setHideNavbar] = React.useState(false)
-  const [shellWidth, setShellWidth] = React.useState<ShellWidth>('default')
 
   const toggleNavbar = React.useCallback(() => {
     setHideNavbar((prev) => !prev)
@@ -27,10 +22,8 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       hideNavbar,
       setHideNavbar,
       toggleNavbar,
-      shellWidth,
-      setShellWidth,
     }),
-    [hideNavbar, toggleNavbar, shellWidth],
+    [hideNavbar, toggleNavbar],
   )
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>
@@ -42,9 +35,4 @@ export function useUI() {
     throw new Error('useUI must be used within a UIProvider')
   }
   return context
-}
-
-/** Container class for page shell + navbar alignment. */
-export function shellContainerClass(width: ShellWidth): string {
-  return width === 'wide' ? 'container-page-wide' : 'container-page'
 }

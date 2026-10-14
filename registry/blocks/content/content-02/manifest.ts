@@ -1,7 +1,5 @@
 import type { BlockManifest } from '@/lib/blocks/block-manifest-types'
 import { Content02 } from './content-02'
-import { Content02EditorFields } from './editor/fields'
-import { Content02Example, values } from './content-02-example'
 
 export const manifest: BlockManifest = {
   slug: 'content-02',
@@ -15,9 +13,6 @@ export const manifest: BlockManifest = {
     dark: '/images/blocks/content/content-02-dark.webp',
   },
   component: Content02,
-  editorFields: Content02EditorFields,
-  example: Content02Example,
-  defaults: values,
   meta: {
     iframeHeight: 900,
   },

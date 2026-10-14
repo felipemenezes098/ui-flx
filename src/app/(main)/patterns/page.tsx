@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/metadata'
 import type { ComponentType } from 'react'
 
 import {
@@ -8,8 +9,13 @@ import {
   ConceptGalleryCardMedia,
   ConceptGalleryCardTitle,
 } from '@/components/core/gallery/concept-gallery-card'
-import { GalleryGridLink, GalleryGridUniform } from '@/components/core/gallery/gallery-grid'
-import { Footer } from '@/components/core/footer'
+import {
+  GalleryGridLink,
+  GalleryGridUniform,
+} from '@/components/core/gallery/gallery-grid'
+import { PageHeader } from '@/components/core/page-header/page-header'
+import { PageHeaderDescription } from '@/components/core/page-header/page-header-description'
+import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
 import { FormsConcept } from '@/lib/patterns/pattern-concepts'
 import { patternCategories } from '@/lib/patterns/patterns-catalog'
 
@@ -47,32 +53,29 @@ const title = 'Patterns'
 const description =
   'Practical UI compositions built with shadcn/ui — copy, adapt, ship.'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title,
   description,
-  openGraph: { title, description },
-  twitter: { card: 'summary_large_image', title, description },
-}
+  path: '/patterns',
+})
 
 export default function PatternsPage() {
   return (
     <main className="container-page min-w-0">
       <div className="container-page-inner">
-        <div className="flex flex-col gap-10 px-3 py-10">
-          <section className="flex flex-col items-center gap-3 text-center">
-            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              UI Patterns
-            </h1>
-            <p className="text-muted-foreground max-w-md text-balance">
+        <div className="flex flex-col gap-12 px-3 pt-7 pb-10 md:pt-27">
+          <PageHeader>
+            <PageHeaderTitle>UI Patterns</PageHeaderTitle>
+            <PageHeaderDescription>
               Patterns for everyday interfaces, built with shadcn/ui. Take the
               prompt or the code.{' '}
               <span className="text-foreground font-medium">
                 Copy and paste.
-              </span>{' '}
-            </p>
-          </section>
+              </span>
+            </PageHeaderDescription>
+          </PageHeader>
           <section>
-            <GalleryGridUniform className="md:grid-cols-3">
+            <GalleryGridUniform className="lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
               {sortedPatternItems.map((item) => {
                 const Concept = item.preview
                 return (
@@ -95,7 +98,6 @@ export default function PatternsPage() {
           </section>
         </div>
       </div>
-      <Footer />
     </main>
   )
 }

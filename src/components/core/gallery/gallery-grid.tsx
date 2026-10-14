@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 import { Children, type ComponentProps, type ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
@@ -25,7 +25,7 @@ function GalleryGridLink({
   children: ReactNode
 }>) {
   return (
-    <Link
+    <HoverPrefetchLink
       href={href}
       id={id}
       data-slot="gallery-grid-link"
@@ -36,7 +36,7 @@ function GalleryGridLink({
       )}
     >
       {children}
-    </Link>
+    </HoverPrefetchLink>
   )
 }
 

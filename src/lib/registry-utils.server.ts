@@ -23,7 +23,7 @@ function readRegistryItem(name: string): RegistryItem | undefined {
 
 /**
  * Resolves registryDependencies recursively and merges their files into the
- * item. Internal deps are namespaced (e.g. "@flx/cta") and resolve to a local
+ * item. Internal deps are namespaced (e.g. "@flx/spot-01") and resolve to a local
  * public/r/*.json; shadcn primitives (e.g. "button") have no local file and are
  * skipped — the CLI installs those at `shadcn add` time. Mirrors the runtime
  * resolver in registry-utils.ts but reads from disk instead of fetching.
@@ -38,9 +38,11 @@ function resolveRegistryDependencies(
   if (!item.registryDependencies?.length) return item
 
   const allFiles = [...(item.files ?? [])]
+  const allDependencies = new Set(item.dependencies ?? [])
+  const allRegistryDependencies = new Set(item.registryDependencies ?? [])
 
   for (const dep of item.registryDependencies) {
-    // Strip registry namespace prefix (@flx/cta -> cta).
+    // Strip registry namespace prefix (@flx/spot-01 -> spot-01).
     const depName = dep.replace(/^@[^/]+\//, '')
     const depItem = readRegistryItem(depName)
     // No local file => shadcn primitive; the CLI installs it separately.
@@ -48,15 +50,25 @@ function resolveRegistryDependencies(
 
     const resolvedDep = resolveRegistryDependencies(depItem, visited)
     if (resolvedDep.files) allFiles.push(...resolvedDep.files)
+    // The reader installs these too, so surface the dependency's own packages.
+    resolvedDep.dependencies?.forEach((d) => allDependencies.add(d))
+    resolvedDep.registryDependencies?.forEach((d) =>
+      allRegistryDependencies.add(d),
+    )
   }
 
-  return { ...item, files: allFiles }
+  return {
+    ...item,
+    files: allFiles,
+    dependencies: [...allDependencies],
+    registryDependencies: [...allRegistryDependencies],
+  }
 }
 
 /**
  * Server/build lookup for a registry item with its registryDependencies
  * resolved and their files merged in. Lives in a separate file from
- * registry-utils.ts so client code (e.g. block-editor) does not bundle the
+ * registry-utils.ts so client code does not bundle the
  * full registry.json.
  */
 export function getRegistryItem(name: string): RegistryItem | undefined {

@@ -20,6 +20,7 @@
       }
     ],
     "paths": {
+      "@/components/flx/*": ["./registry/*"],
       "@/*": ["./src/*"]
     }
   },

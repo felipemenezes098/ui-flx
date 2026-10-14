@@ -2,7 +2,7 @@
 
 Thanks for your interest in contributing to **Flexnative**. I'm happy to have you here.
 
-Flexnative is an open source collection of UI intents, interface decisions, prompts, and patterns. This repo documents the reasoning, prompts, and code behind reusable interface decisions. Built on [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. Designed to be extended and owned.
+Flexnative is an open source collection of UI patterns, blocks, illustrations, and prompts. This repo documents the reasoning, prompts, and code behind reusable interface decisions. Built on [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. Designed to be extended and owned.
 
 Before you get started, take a moment to read this guide and check [open issues](https://github.com/felipemenezes098/ui-flx/issues) and [pull requests](https://github.com/felipemenezes098/ui-flx/pulls) to see if someone is already working on something similar.
 
@@ -75,3 +75,7 @@ For more detail, see [Conventional Commits](https://www.conventionalcommits.org/
 ## Requests for new blocks or components
 
 If you’d like to suggest a new block or component, please open a [Discussion](https://github.com/felipemenezes098/ui-flx/discussions) on GitHub. We’ll be happy to help.
+
+## License
+
+Contributions to `registry/` are licensed under [MIT](registry/LICENSE). Everything else is under [AGPL-3.0](LICENSE).

@@ -1,27 +1,23 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 import { Separator } from '@/components/ui/separator'
-import { blockCategories, blockPresets } from '@/lib/blocks/block-catalog'
+import { blockCategories } from '@/lib/blocks/block-catalog'
 
 import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
-import {
-  allBlocksHref,
-  categoryFilterHref,
-  presetFilterHref,
-} from '../lib/blocks-filter-url'
+import { allBlocksHref, categoryFilterHref } from '../lib/blocks-filter-url'
 import {
   getAllBlocksCount,
   getCategoryBlockCount,
-  getPresetBlockCount,
   getValidPresetSlug,
   isAllPresets,
 } from '../lib/blocks-preset'
 import { BlocksFilterChip } from './blocks-filter-chip'
 
+const pathname = '/blocks'
+
 export function BlocksNavigation() {
-  const pathname = usePathname()
   const searchParams = useSearchParams()
   const activeCategories = parseCategoryFilter(searchParams.get('category'))
   const activePreset = getValidPresetSlug(searchParams.get('preset'))
@@ -44,35 +40,10 @@ export function BlocksNavigation() {
           <Separator orientation="vertical" className="!h-4" />
         </div>
 
-        {blockPresets.map((preset) => (
-          <BlocksFilterChip
-            key={preset.id}
-            href={presetFilterHref(
-              pathname,
-              searchParams,
-              preset.id,
-              activePreset,
-            )}
-            active={activePreset === preset.id}
-            label={preset.name}
-            count={getPresetBlockCount(preset.id)}
-            className="shrink-0"
-          />
-        ))}
-
-        <div className="flex shrink-0 items-center">
-          <Separator orientation="vertical" className="!h-4" />
-        </div>
-
         {blockCategories.map((block) => (
           <BlocksFilterChip
             key={block.slug}
-            href={categoryFilterHref(
-              pathname,
-              searchParams,
-              block.slug,
-              activeCategories,
-            )}
+            href={categoryFilterHref(pathname, searchParams, block.slug)}
             active={activeCategories.includes(block.slug)}
             label={block.category}
             count={getCategoryBlockCount(block.slug, activePreset)}

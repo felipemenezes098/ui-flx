@@ -8,7 +8,7 @@ import { copyToClipboard } from '@/utils/copy-to-clipboard'
 export function useCopy(timeout = 2000) {
   const [copied, setCopied] = useState(false)
 
-  async function copy(text: string) {
+  async function copy(text: string | Promise<string>) {
     await copyToClipboard(text)
     setCopied(true)
     setTimeout(() => setCopied(false), timeout)

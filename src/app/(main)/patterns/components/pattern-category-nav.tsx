@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
+import { HoverPrefetchLink } from '@/components/core/hover-prefetch-link'
 import { usePathname, useRouter } from 'next/navigation'
-import { ChevronLeft, ChevronRight, LayoutGrid, Search } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 
@@ -203,7 +203,7 @@ export function PatternCategoryNav() {
             {categories.map((category) => {
               const isActive = isNavCategoryActive(pathname, category)
               return (
-                <Link
+                <HoverPrefetchLink
                   key={category.slug}
                   href={category.href}
                   aria-current={isActive ? 'true' : undefined}
@@ -215,7 +215,7 @@ export function PatternCategoryNav() {
                   )}
                 >
                   {category.name}
-                </Link>
+                </HoverPrefetchLink>
               )
             })}
           </div>
@@ -229,14 +229,12 @@ export function PatternCategoryNav() {
               type="button"
               variant="outline"
               size="sm"
-              className="w-full shrink-0 justify-start gap-1.5 md:w-auto md:justify-center"
+              className="w-full shrink-0 justify-start gap-1.5 md:hidden"
             >
-              <Search className="size-3.5 shrink-0 md:hidden" />
-              <LayoutGrid className="hidden size-3.5 md:block" />
-              <span className="truncate md:hidden">
+              <Search className="size-3.5 shrink-0" />
+              <span className="truncate">
                 {activeCategory?.name ?? 'Categories'}
               </span>
-              <span className="hidden md:inline">Show all</span>
             </Button>
           }
         />
