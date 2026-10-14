@@ -60,15 +60,15 @@ Full page sections for landing pages and marketing sites.
 
 | Category | |
 | --- | --- |
-| [Hero](https://ui.flexnative.com/blocks/hero) | The first section of a landing page |
-| [Feature](https://ui.flexnative.com/blocks/feature) | Explain product capabilities |
-| [Content](https://ui.flexnative.com/blocks/content) | Present information in an organized way |
-| [Call to Action](https://ui.flexnative.com/blocks/cta) | Drive visitors toward a next step |
-| [Testimonials](https://ui.flexnative.com/blocks/testimonials) | Social proof from customers |
-| [Bento grids](https://ui.flexnative.com/blocks/bento-grids) | A primary tile with supporting cards |
-| [Carousel](https://ui.flexnative.com/blocks/carousel) | Browsable media and cards |
-| [Logos](https://ui.flexnative.com/blocks/logos) | A logo row for social proof |
-| [Scroll](https://ui.flexnative.com/blocks/scroll) | Sticky media that changes as you scroll |
+| [Hero](https://ui.flexnative.com/blocks?category=hero) | The first section of a landing page |
+| [Feature](https://ui.flexnative.com/blocks?category=feature) | Explain product capabilities |
+| [Content](https://ui.flexnative.com/blocks?category=content) | Present information in an organized way |
+| [Call to Action](https://ui.flexnative.com/blocks?category=cta) | Drive visitors toward a next step |
+| [Testimonials](https://ui.flexnative.com/blocks?category=testimonials) | Social proof from customers |
+| [Bento grids](https://ui.flexnative.com/blocks?category=bento-grids) | A primary tile with supporting cards |
+| [Carousel](https://ui.flexnative.com/blocks?category=carousel) | Browsable media and cards |
+| [Logos](https://ui.flexnative.com/blocks?category=logos) | A logo row for social proof |
+| [Scroll](https://ui.flexnative.com/blocks?category=scroll) | Sticky media that changes as you scroll |
 
 More categories are on the way.
 
