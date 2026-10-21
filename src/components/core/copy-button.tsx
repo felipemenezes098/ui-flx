@@ -1,6 +1,6 @@
 'use client'
 
-import { Check, CopyIcon } from 'lucide-react'
+import { Check, CopyIcon, LoaderCircle } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import type { ComponentProps, ReactNode } from 'react'
 
@@ -38,7 +38,8 @@ export function CopyButton({
   onClick,
   ...props
 }: Readonly<CopyButtonProps>) {
-  const { copied, copy } = useCopy()
+  const { copied, copying, copy } = useCopy()
+  const state = copying ? 'loading' : copied ? 'check' : 'idle'
 
   return (
     <Button
@@ -46,8 +47,10 @@ export function CopyButton({
       variant={variant}
       size={size}
       aria-label={label || (copied ? 'Copied' : 'Copy')}
+      aria-busy={copying}
       {...props}
       onClick={(event) => {
+        if (copying) return
         onClick?.(event)
         copy(resolveText(text))
       }}
@@ -60,18 +63,24 @@ export function CopyButton({
       >
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
-            key={copied ? 'check' : 'idle'}
+            key={state}
             initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
             transition={copyTransition}
             className="flex items-center justify-center"
           >
-            {copied ? (
-              <Check className={iconClassName} aria-hidden />
-            ) : (
-              (icon ?? <CopyIcon className={iconClassName} aria-hidden />)
+            {state === 'loading' && (
+              <LoaderCircle
+                className={cn(iconClassName, 'animate-spin')}
+                aria-hidden
+              />
             )}
+            {state === 'check' && (
+              <Check className={iconClassName} aria-hidden />
+            )}
+            {state === 'idle' &&
+              (icon ?? <CopyIcon className={iconClassName} aria-hidden />)}
           </motion.div>
         </AnimatePresence>
       </span>
