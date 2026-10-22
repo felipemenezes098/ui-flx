@@ -344,6 +344,28 @@
       "meta": {
         "iframeHeight": 1200
       }
+    },
+    {
+      "name": "hero-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "hero-15/hero-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-15.tsx"
+        }
+      ],
+      "title": "Hero 15",
+      "description": "A directory-style hero with an oversized title, split intro with dual CTAs, and a row of wordmark cards with minimal imagery.",
+      "meta": {
+        "iframeHeight": 1100
+      }
     }
   ]
 }

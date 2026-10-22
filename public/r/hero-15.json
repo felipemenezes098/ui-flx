@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-15",
+  "title": "Hero 15",
+  "description": "A directory-style hero with an oversized title, split intro with dual CTAs, and a row of wordmark cards with minimal imagery.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/hero/hero-15/hero-15.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport { Button } from '@/components/ui/button'\n\nconst studios = [\n  {\n    name: 'Halden',\n    wordmark: (\n      <span className=\"font-serif text-3xl leading-none tracking-tight italic\">\n        Halden\n      </span>\n    ),\n    description:\n      'An independent product studio of 40 designers and engineers building calm, durable software for teams in health and finance.',\n    image:\n      'https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=1200&auto=format&fit=crop',\n  },\n  {\n    name: 'Northfield',\n    wordmark: (\n      <span className=\"text-lg leading-none font-medium tracking-[0.24em] uppercase\">\n        Northfield\n      </span>\n    ),\n    description:\n      'Northfield partners with early-stage founders to shape brand, interface, and launch strategy in focused six-week sprints.',\n    image:\n      'https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=1200&auto=format&fit=crop',\n  },\n  {\n    name: 'Formworks',\n    wordmark: (\n      <span className=\"text-xl leading-[0.9] font-black tracking-tight\">\n        Form—\n        <br />\n        works\n      </span>\n    ),\n    description:\n      'A small collective pairing industrial design with careful frontend engineering for consumer hardware brands worldwide.',\n    image:\n      'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1200&auto=format&fit=crop',\n  },\n]\n\nexport function Hero15() {\n  return (\n    <section className=\"bg-background relative isolate w-full overflow-hidden\">\n      <div className=\"relative z-10 mx-auto flex max-w-7xl flex-col gap-14 px-6 py-20 sm:gap-20 sm:py-28\">\n        <div className=\"grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-16\">\n          <h1 className=\"text-foreground text-4xl font-medium tracking-tight text-balance sm:text-5xl\">\n            Studio Directory\n          </h1>\n\n          <div className=\"flex flex-col gap-6 lg:pt-2\">\n            <p className=\"text-muted-foreground max-w-lg text-base sm:text-lg\">\n              <Balancer>\n                Meet independent teams that turn rough ideas into polished,\n                well-built products.\n              </Balancer>\n            </p>\n            <div className=\"flex flex-wrap items-center gap-3\">\n              <Button\n                size=\"lg\"\n                className=\"w-fit rounded-full px-5\"\n                nativeButton={false}\n                render={<a href=\"#\" />}\n              >\n                Browse studios\n              </Button>\n              <Button\n                size=\"lg\"\n                variant=\"outline\"\n                className=\"w-fit rounded-full px-5\"\n                nativeButton={false}\n                render={<a href=\"#\" />}\n              >\n                List your studio\n              </Button>\n            </div>\n          </div>\n        </div>\n\n        <div className=\"grid gap-4 lg:grid-cols-3 lg:gap-6\">\n          {studios.map((studio) => (\n            <a\n              key={studio.name}\n              href=\"#\"\n              aria-label={studio.name}\n              className=\"group bg-card text-card-foreground focus-visible:ring-ring/50 flex flex-col gap-6 rounded-sm p-6 outline-none focus-visible:ring-3 sm:p-8\"\n            >\n              <div className=\"flex h-10 items-end\">{studio.wordmark}</div>\n              <p className=\"text-muted-foreground line-clamp-2 text-sm sm:text-base\">\n                {studio.description}\n              </p>\n              <div className=\"relative mt-auto aspect-16/9 overflow-hidden rounded-sm outline outline-black/5 dark:outline-white/10\">\n                <img\n                  src={studio.image}\n                  alt=\"Alt\"\n                  decoding=\"async\"\n                  className=\"size-full object-cover grayscale transition-transform duration-500 ease-out group-hover:scale-[1.03]\"\n                />\n              </div>\n            </a>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/hero/hero-15.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 1100
+  },
+  "type": "registry:block"
+}

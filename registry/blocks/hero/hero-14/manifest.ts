@@ -15,6 +15,5 @@ export const manifest: BlockManifest = {
   meta: {
     iframeHeight: 1200,
   },
-  hasNew: true,
   component: Hero14,
 }
