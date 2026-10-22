@@ -31,10 +31,10 @@ export function Hero02() {
 
         <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
           <img
-            src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
             alt=""
             aria-hidden
-            className="absolute inset-0 size-full object-cover"
+            className="absolute inset-0 size-full object-cover grayscale"
           />
           <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
           <div className="relative flex items-center justify-center px-6 py-12 sm:px-12 sm:py-16">

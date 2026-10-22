@@ -6,7 +6,7 @@ export const manifest: BlockManifest = {
   name: 'Feature 01',
   description: 'List of items: select one to reveal its description and media.',
   category: 'feature',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/feature/feature-01.webp',
     dark: '/images/blocks/feature/feature-01-dark.webp',

@@ -23,14 +23,14 @@ const courses = [
     title: 'Design Fundamentals',
     subtitle: 'Starting at $ 29 per month',
     image:
-      'https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=1131&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=1131&auto=format&fit=crop',
     imageAlt: 'Alt 1',
   },
   {
     title: 'Advanced Motion',
     subtitle: 'Starting at $ 29 per month',
     image:
-      'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1144&auto=format&fit=crop',
     imageAlt: 'Alt 2',
   },
 ]
@@ -81,7 +81,7 @@ export function Hero08() {
                 src={course.image}
                 alt={course.imageAlt}
                 decoding="async"
-                className="absolute inset-0 -z-10 size-full object-cover"
+                className="absolute inset-0 -z-10 size-full object-cover grayscale"
               />
               <div
                 aria-hidden

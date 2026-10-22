@@ -12,9 +12,9 @@ export function Hero13() {
             />
             <div className="relative aspect-4/3 overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
               <img
-                src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
                 alt="Alt 1"
-                className="size-full object-cover"
+                className="size-full object-cover grayscale"
               />
             </div>
           </div>
@@ -51,9 +51,9 @@ export function Hero13() {
             />
             <div className="relative aspect-3/4 max-w-md overflow-hidden rounded-md outline outline-black/10 lg:max-w-none dark:outline-white/10">
               <img
-                src="https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=1131&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1131&auto=format&fit=crop"
                 alt="Alt 2"
-                className="size-full object-cover"
+                className="size-full object-cover grayscale"
               />
             </div>
           </div>

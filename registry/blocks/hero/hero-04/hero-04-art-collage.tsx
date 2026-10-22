@@ -21,7 +21,7 @@ export function Hero04ArtCollage({
           src={primaryImage}
           alt={primaryAlt}
           decoding="async"
-          className="size-full object-cover"
+          className="size-full object-cover grayscale"
         />
         <div className="from-background/20 absolute inset-0 bg-gradient-to-t to-transparent" />
       </div>
@@ -31,7 +31,7 @@ export function Hero04ArtCollage({
           src={secondaryImage}
           alt={secondaryAlt}
           decoding="async"
-          className="size-full object-cover"
+          className="size-full object-cover grayscale"
         />
       </div>
     </div>

@@ -10,10 +10,10 @@ export function Hero07() {
             className="bg-background/15 dark:bg-background/30 pointer-events-none absolute inset-0 z-10 mix-blend-overlay"
           />
           <img
-            src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
             alt="Alt"
             decoding="async"
-            className="aspect-[2/1] w-full object-cover object-center outline outline-black/10 sm:aspect-[9/4] dark:outline-white/10 dark:brightness-[0.97] dark:saturate-[0.92]"
+            className="aspect-[2/1] w-full object-cover object-center outline outline-black/10 grayscale sm:aspect-[9/4] dark:outline-white/10 dark:brightness-[0.97] dark:saturate-[0.92]"
           />
         </div>
       </div>

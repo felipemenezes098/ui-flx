@@ -12,9 +12,9 @@ export function Hero04() {
         className="pointer-events-none absolute inset-0 z-0 aspect-2/3 mask-radial-[75%_100%] mask-radial-from-45% mask-radial-to-75% mask-radial-at-top opacity-75 blur-xl md:aspect-square lg:aspect-video dark:opacity-5"
       >
         <img
-          src="https://images.unsplash.com/photo-1685013640715-8701bbaa2207?q=80&w=2198&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2198&auto=format&fit=crop"
           alt=""
-          className="h-full w-full object-cover object-top"
+          className="h-full w-full object-cover object-top grayscale"
         />
       </div>
 
@@ -52,8 +52,8 @@ export function Hero04() {
 
         <div className="w-full">
           <Hero04ArtCollage
-            primaryImage="https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=1131&auto=format&fit=crop"
-            secondaryImage="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop"
+            primaryImage="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1131&auto=format&fit=crop"
+            secondaryImage="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
             primaryAlt="Alt 1"
             secondaryAlt="Alt 2"
           />

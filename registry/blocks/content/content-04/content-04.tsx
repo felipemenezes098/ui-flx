@@ -14,14 +14,14 @@ const items = [
     description:
       'Clean, accessible components that make your product feel modern and easy to use.',
     image:
-      'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
   },
   {
     title: 'Components',
     description:
       'Pre-built blocks you can drop into any layout. Customize once, reuse everywhere.',
     image:
-      'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1202&auto=format&fit=crop',
   },
 ]
 
@@ -60,7 +60,7 @@ export function Content04() {
                     alt={item.title}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
+                    className="absolute inset-0 size-full object-cover grayscale transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
                   />
                 </div>
               </CardContent>

@@ -8,7 +8,7 @@ const items = [
     content:
       'Clean, accessible components that make your product feel modern and easy to use.',
     image:
-      'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
     cta: 'Learn more',
   },
   {
@@ -16,7 +16,7 @@ const items = [
     content:
       'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
     image:
-      'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
     cta: 'Get started',
   },
 ]
@@ -46,7 +46,7 @@ export function Content07() {
                   alt={item.title}
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
+                  className="absolute inset-0 size-full object-cover grayscale transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
                 />
               </div>
               <div className="flex flex-col gap-2">

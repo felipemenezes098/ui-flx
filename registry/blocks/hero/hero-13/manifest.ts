@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   description:
     'Asymmetric editorial hero with serif brand title, supporting copy, and two overlapping media frames.',
   category: 'hero',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/hero/hero-13.webp?v=2',
     dark: '/images/blocks/hero/hero-13-dark.webp?v=2',

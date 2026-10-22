@@ -5,7 +5,7 @@ const items = [
     title: 'Dynamic cards',
     description: 'Swap images and copy without breaking layout or spacing.',
     image: {
-      src: 'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1202&auto=format&fit=crop',
       alt: 'Alt 1',
     },
   },
@@ -14,7 +14,7 @@ const items = [
     description:
       'Stacks on mobile and becomes a 3-column bento on larger screens.',
     image: {
-      src: 'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
       alt: 'Alt 2',
     },
   },
@@ -23,7 +23,7 @@ const items = [
     description:
       'Primary content stands out while the supporting cards stay readable.',
     image: {
-      src: 'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1062&auto=format&fit=crop',
       alt: 'Alt 3',
     },
   },
@@ -31,7 +31,7 @@ const items = [
     title: 'Extendable cards',
     description: 'Add more cards, switch aspect ratios, and tune the spacing.',
     image: {
-      src: 'https://images.unsplash.com/photo-1734552452335-e8b67797bad0?q=80&w=1212&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1212&auto=format&fit=crop',
       alt: 'Alt 4',
     },
   },
@@ -70,11 +70,11 @@ export function BentoGrids01() {
 
               <div className="bg-muted relative min-h-64 w-full overflow-hidden rounded-md md:min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop"
                   alt="Alt 5"
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 size-full object-cover"
+                  className="absolute inset-0 size-full object-cover grayscale"
                 />
               </div>
             </div>
@@ -92,7 +92,7 @@ export function BentoGrids01() {
                     alt={item.image.alt}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 size-full object-cover"
+                    className="absolute inset-0 size-full object-cover grayscale"
                   />
                 </div>
                 <div className="space-y-1">

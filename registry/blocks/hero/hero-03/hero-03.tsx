@@ -42,10 +42,10 @@ export function Hero03() {
               className="bg-background/25 dark:bg-background/40 pointer-events-none absolute inset-0 mix-blend-overlay"
             />
             <img
-              src="https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=1131&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1131&auto=format&fit=crop"
               alt="Alt"
               decoding="async"
-              className="relative aspect-[5/4] w-full object-cover object-[center_15%] dark:mix-blend-lighten dark:brightness-[0.92] dark:contrast-[1.05] dark:saturate-[0.9]"
+              className="relative aspect-[5/4] w-full object-cover object-[center_15%] grayscale dark:mix-blend-lighten dark:brightness-[0.92] dark:contrast-[1.05] dark:saturate-[0.9]"
             />
           </div>
         </div>

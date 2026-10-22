@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   description:
     'Two-column card grid with a serif section header and copy above each image.',
   category: 'content',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/content/content-04.webp',
     dark: '/images/blocks/content/content-04-dark.webp',

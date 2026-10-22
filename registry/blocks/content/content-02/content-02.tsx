@@ -8,7 +8,7 @@ const items = [
       'Clean, accessible components that make your product feel modern and easy to use.',
     icon: Palette,
     image:
-      'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
   },
   {
     title: 'Components',
@@ -16,7 +16,7 @@ const items = [
       'Pre-built blocks you can drop into any layout. Customize once, reuse everywhere.',
     icon: Layers,
     image:
-      'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1202&auto=format&fit=crop',
   },
   {
     title: 'Developer Experience',
@@ -24,7 +24,7 @@ const items = [
       'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
     icon: Code,
     image:
-      'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
   },
 ]
 
@@ -53,7 +53,7 @@ export function Content02() {
                   alt={item.title}
                   loading="lazy"
                   decoding="async"
-                  className="size-full object-cover"
+                  className="size-full object-cover grayscale"
                 />
               </div>
               <div className="flex flex-col gap-1.5">

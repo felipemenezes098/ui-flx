@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   description:
     'A two-column editorial hero with a soft background wash and a layered collage of two overlapping images.',
   category: 'hero',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/hero/hero-04.webp',
     dark: '/images/blocks/hero/hero-04-dark.webp',

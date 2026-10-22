@@ -12,9 +12,9 @@ export function Hero01() {
         className="pointer-events-none absolute inset-x-0 top-0 z-0 mx-auto h-full w-full mask-t-from-60% mask-t-to-90% mask-b-from-75% mask-b-to-85% mask-radial-[70%_70%] mask-radial-from-60% mask-radial-to-90% mask-radial-at-top opacity-50 md:mask-radial-[70%_90%] dark:opacity-10"
       >
         <img
-          src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
           alt=""
-          className="absolute inset-0 size-full object-cover object-top"
+          className="absolute inset-0 size-full object-cover object-top grayscale"
         />
         <div className="bg-background/30 dark:bg-background/45 absolute inset-0" />
       </div>

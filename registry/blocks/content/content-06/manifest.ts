@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   description:
     'Two-column split with serif headline, supporting copy, optional CTA, and a media panel.',
   category: 'content',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/content/content-06.webp',
     dark: '/images/blocks/content/content-06-dark.webp',

@@ -5,17 +5,17 @@ import { cn } from '@/lib/utils'
 
 const fan = [
   {
-    src: 'https://images.unsplash.com/photo-1685013640715-8701bbaa2207?q=80&w=900&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=900&auto=format&fit=crop',
     alt: 'Alt 1',
     className: 'z-10 -mr-8 w-[38%] translate-y-6 -rotate-6',
   },
   {
-    src: 'https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=900&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=900&auto=format&fit=crop',
     alt: 'Alt 2',
     className: 'z-20 w-[42%] -translate-y-2',
   },
   {
-    src: 'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=900&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=900&auto=format&fit=crop',
     alt: 'Alt 3',
     className: 'z-10 -ml-8 w-[38%] translate-y-6 rotate-6',
   },
@@ -78,7 +78,7 @@ export function Hero10() {
                   src={card.src}
                   alt={card.alt}
                   decoding="async"
-                  className="size-full object-cover"
+                  className="size-full object-cover grayscale"
                 />
               </div>
             ))}

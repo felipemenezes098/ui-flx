@@ -42,10 +42,10 @@ export function Hero09() {
         <div className="relative mx-auto w-full max-w-4xl">
           <div className="relative mx-auto w-full overflow-hidden mask-t-from-35% mask-t-to-95% mask-x-from-80% mask-x-to-100% mask-b-from-55% mask-b-to-100% mask-radial-[95%_85%] mask-radial-from-60% mask-radial-to-100% mask-radial-at-center dark:opacity-85">
             <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1400&auto=format&fit=crop"
               alt="Alt"
               decoding="async"
-              className="aspect-16/10 w-full object-cover object-center"
+              className="aspect-16/10 w-full object-cover object-center grayscale"
             />
           </div>
         </div>

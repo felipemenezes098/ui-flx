@@ -11,35 +11,35 @@ const items = [
     description:
       'Clean, accessible components that make your product feel modern and easy to use.',
     image:
-      'https://images.unsplash.com/photo-1695152560286-b09a744834e1?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
   },
   {
     title: 'Components',
     description:
       'Pre-built blocks you can drop into any layout. Customize once, reuse everywhere.',
     image:
-      'https://images.unsplash.com/photo-1683143724745-d66cf5ea5ce7?q=80&w=1202&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1202&auto=format&fit=crop',
   },
   {
     title: 'Developer Experience',
     description:
       'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
     image:
-      'https://images.unsplash.com/photo-1577083862054-7324cd025fa6?q=80&w=1241&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
   },
   {
     title: 'Customization',
     description:
       'Themes, variants, and overrides. Make it look and behave exactly how you need.',
     image:
-      'https://images.unsplash.com/photo-1683143726118-9abaed4e10f9?q=80&w=1062&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1062&auto=format&fit=crop',
   },
   {
     title: 'Performance',
     description:
       'Optimized for speed and accessibility. Less bundle size, smoother interactions.',
     image:
-      'https://images.unsplash.com/photo-1734552452335-e8b67797bad0?q=80&w=1212&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1212&auto=format&fit=crop',
   },
 ]
 
@@ -109,7 +109,7 @@ export function Feature01() {
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
                 className={cn(
-                  'absolute inset-0 size-full object-cover transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                  'absolute inset-0 size-full object-cover grayscale transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
                   index === selectedIndex ? 'opacity-100' : 'opacity-0',
                 )}
               />

@@ -7,7 +7,7 @@ export const manifest: BlockManifest = {
   description:
     'A centered serif hero with a soft gradient wash, pill CTA, and a floating integration cloud.',
   category: 'hero',
-  preset: 'sienna',
+  preset: 'vellum',
   image: {
     light: '/images/blocks/hero/hero-01.webp',
     dark: '/images/blocks/hero/hero-01-dark.webp',
