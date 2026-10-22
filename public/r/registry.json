@@ -656,6 +656,28 @@
       "type": "registry:block"
     },
     {
+      "name": "hero-15",
+      "title": "Hero 15",
+      "description": "A directory-style hero with an oversized title, split intro with dual CTAs, and a row of wordmark cards with minimal imagery.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero-15/hero-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/hero/hero-15.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1100
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "logos-01",
       "title": "Logos 01",
       "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
