@@ -12,7 +12,7 @@ export function BlockCode({ files }: Readonly<{ files: RegistryCodeFile[] }>) {
         <div key={file.name} className="flex flex-col gap-2">
           <p className="text-muted-foreground font-mono text-xs">{file.name}</p>
           <div className="bg-card rounded-xl border px-4">
-            <CodeBlockCode code={file.content} />
+            <CodeBlockCode code={file.content} withCopy />
           </div>
         </div>
       ))}

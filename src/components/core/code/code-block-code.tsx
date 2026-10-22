@@ -113,7 +113,7 @@ function CodeBlockCode({
     return (
       <div className="relative">
         <div className="pointer-events-none sticky top-2 z-10 flex h-0 w-full justify-end pr-2">
-          <div className="pointer-events-auto">
+          <div className="pointer-events-auto mt-2">
             <CopyButton
               text={code}
               variant="ghost"
