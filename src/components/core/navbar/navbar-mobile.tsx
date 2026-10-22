@@ -17,6 +17,7 @@ import {
   sidebarNavItems,
   swiftuiLink,
 } from '../sidebar/sidebar-nav-items'
+import { SidebarPatternFilters } from '../sidebar/sidebar-pattern-filters'
 import { SidebarSocialLinks } from '../sidebar/sidebar-social-links'
 
 const menuLabels = {
@@ -142,7 +143,7 @@ export function NavbarMobile() {
               },
             }}
             onClick={closeOnLinkClick}
-            className="no-scrollbar fixed top-[3.5rem] right-0 bottom-0 left-0 z-[41] flex flex-col gap-10 overflow-auto px-5 pt-6 pb-6 md:hidden [&_a[aria-current]]:py-2 [&_a[aria-current]]:text-base"
+            className="no-scrollbar fixed top-[3.5rem] right-0 bottom-0 left-0 z-[41] flex flex-col gap-10 overflow-auto scroll-fade-y px-5 pt-6 pb-6 md:hidden [&_a[aria-current]]:py-2 [&_a[aria-current]]:text-base"
           >
             <nav className="flex flex-col">
               {sidebarNavItems.map((item) => (
@@ -177,6 +178,7 @@ export function NavbarMobile() {
               <Suspense>
                 <SidebarBlockFilters />
               </Suspense>
+              <SidebarPatternFilters />
             </motion.div>
           </motion.div>
         )}

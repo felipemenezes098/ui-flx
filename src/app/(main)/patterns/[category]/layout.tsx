@@ -5,8 +5,6 @@ import { PageHeaderDescription } from '@/components/core/page-header/page-header
 import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
 import { getCategoryBySlug } from '@/lib/patterns/patterns-catalog'
 
-import { PatternCategoryNav } from '../components/pattern-category-nav'
-
 export const dynamic = 'force-static'
 export const revalidate = false
 
@@ -32,7 +30,6 @@ export default async function PatternCategoryLayout({
             </PageHeaderDescription>
           </PageHeader>
 
-          <PatternCategoryNav />
           {children}
         </div>
       </main>
