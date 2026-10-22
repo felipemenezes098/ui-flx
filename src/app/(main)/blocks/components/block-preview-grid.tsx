@@ -31,7 +31,8 @@ export function BlockPreviewGrid({
   const [config] = useConfig()
   const hydrated = useHydrated()
   const isMobile = useIsMobile()
-  const isGrid = hydrated && !isMobile && config.blocksLayout === 'grid'
+  const isGrid =
+    hydrated && !isMobile && (config.blocksLayout ?? 'grid') === 'grid'
 
   const cards = items.map(({ key, categorySlug, subBlock }) => (
     <BlockPreviewCard

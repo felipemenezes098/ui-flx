@@ -15,7 +15,7 @@ function isBlocksLayout(value: string | undefined): value is BlocksLayout {
 
 export function BlocksLayoutToggle() {
   const [config, setConfig] = useConfig()
-  const layout = config.blocksLayout ?? 'list'
+  const layout = config.blocksLayout ?? 'grid'
 
   function handleChange(value: string[]) {
     const next = value[0]
