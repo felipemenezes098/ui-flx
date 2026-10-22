@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grids-03",
+  "title": "Bento grids 03",
+  "description": "A product grid with a tall featured item in the center, four smaller items around it, category badges, prices and names.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/bento-grids/bento-grids-03/bento-grids-03.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport { Badge } from '@/components/ui/badge'\nimport { cn } from '@/lib/utils'\n\nconst products = [\n  {\n    name: 'Everyday Smartwatch',\n    price: '$ 189.00 USD',\n    tag: 'Wearables',\n    image:\n      'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1000&auto=format&fit=crop',\n    alt: 'Alt 1',\n  },\n  {\n    name: 'Studio Floor Lamp',\n    price: '$ 149.00 USD',\n    tag: 'Home',\n    image:\n      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1200&auto=format&fit=crop',\n    alt: 'Alt 2',\n    featured: true,\n  },\n  {\n    name: 'Instant Film Camera',\n    price: '$ 119.00 USD',\n    tag: 'Photo',\n    image:\n      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1000&auto=format&fit=crop',\n    alt: 'Alt 3',\n  },\n  {\n    name: 'Over-Ear Headphones',\n    price: '$ 229.00 USD',\n    tag: 'Audio',\n    image:\n      'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=1000&auto=format&fit=crop',\n    alt: 'Alt 4',\n  },\n  {\n    name: 'Compact Earbuds',\n    price: '$ 59.00 USD',\n    tag: 'Audio',\n    image:\n      'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=1000&auto=format&fit=crop',\n    alt: 'Alt 5',\n  },\n]\n\nexport function BentoGrids03() {\n  return (\n    <section className=\"bg-background w-full\">\n      <div className=\"mx-auto flex max-w-7xl flex-col gap-10 px-6 py-20 sm:gap-12 sm:py-28\">\n        <h2 className=\"text-foreground text-3xl font-medium tracking-tight sm:text-4xl\">\n          <Balancer>New this season</Balancer>\n        </h2>\n\n        <div className=\"grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3\">\n          {products.map((product) => (\n            <a\n              key={product.name}\n              href=\"#\"\n              className={cn(\n                'group focus-visible:ring-ring/50 flex flex-col gap-4 rounded-3xl outline-none focus-visible:ring-3',\n                product.featured && 'sm:col-span-2 lg:col-span-1 lg:row-span-2',\n              )}\n            >\n              <div\n                className={cn(\n                  'bg-muted relative aspect-square overflow-hidden rounded-3xl outline outline-black/5 dark:outline-white/10',\n                  product.featured && 'lg:aspect-auto lg:flex-1',\n                )}\n              >\n                <img\n                  src={product.image}\n                  alt={product.alt}\n                  loading=\"lazy\"\n                  decoding=\"async\"\n                  className=\"absolute inset-0 size-full object-cover grayscale transition-transform duration-500 ease-out group-hover:scale-[1.03]\"\n                />\n                <Badge\n                  variant=\"outline\"\n                  className=\"bg-background text-muted-foreground absolute right-4 bottom-4 h-8 rounded-lg border-transparent px-3 text-sm font-normal\"\n                >\n                  {product.tag}\n                </Badge>\n              </div>\n\n              <div\n                className={cn(\n                  'flex flex-col gap-1',\n                  product.featured && 'lg:items-center lg:text-center',\n                )}\n              >\n                <p className=\"text-muted-foreground text-sm tabular-nums\">\n                  {product.price}\n                </p>\n                <h3 className=\"text-foreground text-lg font-medium\">\n                  {product.name}\n                </h3>\n              </div>\n            </a>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/bento-grids/bento-grids-03.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 1200
+  },
+  "type": "registry:block"
+}

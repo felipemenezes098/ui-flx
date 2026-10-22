@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-12",
+  "title": "Content 12",
+  "description": "A centered section header with supporting copy and a CTA, followed by two large side-by-side photos.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/content/content-12/content-12.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport { Button } from '@/components/ui/button'\n\nconst images = [\n  {\n    src: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=1400&auto=format&fit=crop',\n    alt: 'Alt 1',\n  },\n  {\n    src: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?q=80&w=1400&auto=format&fit=crop',\n    alt: 'Alt 2',\n  },\n]\n\nexport function Content12() {\n  return (\n    <section className=\"bg-background w-full\">\n      <div className=\"mx-auto flex max-w-7xl flex-col gap-12 px-6 py-20 sm:gap-16 sm:py-28\">\n        <div className=\"mx-auto flex max-w-2xl flex-col items-center gap-6 text-center\">\n          <h2 className=\"text-foreground text-3xl font-medium tracking-tight sm:text-5xl\">\n            <Balancer>Made slowly, built to stay</Balancer>\n          </h2>\n          <p className=\"text-muted-foreground text-base sm:text-lg\">\n            <Balancer>\n              Every piece starts with honest materials and ends with hours of\n              small refinements, so it feels right on day one and years later.\n            </Balancer>\n          </p>\n          <Button\n            size=\"lg\"\n            className=\"w-fit rounded-full px-6\"\n            nativeButton={false}\n            render={<a href=\"#\" />}\n          >\n            See how we work\n          </Button>\n        </div>\n\n        <div className=\"grid grid-cols-1 gap-6 md:grid-cols-2\">\n          {images.map((image) => (\n            <div\n              key={image.alt}\n              className=\"bg-muted relative aspect-[4/3] overflow-hidden rounded-3xl outline outline-black/10 dark:outline-white/10\"\n            >\n              <img\n                src={image.src}\n                alt={image.alt}\n                decoding=\"async\"\n                className=\"size-full object-cover grayscale\"\n              />\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/content-12.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 1000
+  },
+  "type": "registry:block"
+}

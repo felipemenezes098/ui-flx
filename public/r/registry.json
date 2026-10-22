@@ -23,6 +23,51 @@
       "type": "registry:block"
     },
     {
+      "name": "bento-grids-02",
+      "title": "Bento grids 02",
+      "description": "A row of collection cards, one twice as wide, each with a product photo bleeding off the top, a title, a short description and a link.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/bento-grids/bento-grids-02/bento-grids-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-02.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "bento-grids-03",
+      "title": "Bento grids 03",
+      "description": "A product grid with a tall featured item in the center, four smaller items around it, category badges, prices and names.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/bento-grids/bento-grids-03/bento-grids-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-03.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1200
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "content-06",
       "title": "Content 06",
       "description": "Two-column split with serif headline, supporting copy, optional CTA, and a media panel.",
@@ -134,6 +179,28 @@
       ],
       "meta": {
         "iframeHeight": 950
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-12",
+      "title": "Content 12",
+      "description": "A centered section header with supporting copy and a CTA, followed by two large side-by-side photos.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-12/content-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-12.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1000
       },
       "type": "registry:block"
     },

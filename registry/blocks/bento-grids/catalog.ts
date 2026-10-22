@@ -2,6 +2,8 @@ import { BentoGridConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
 import { manifest as bentoGrids01Manifest } from './bento-grids-01/manifest'
+import { manifest as bentoGrids02Manifest } from './bento-grids-02/manifest'
+import { manifest as bentoGrids03Manifest } from './bento-grids-03/manifest'
 
 export const bentoGridsCategory: BlockCategoryRow = {
   slug: 'bento-grids',
@@ -11,5 +13,5 @@ export const bentoGridsCategory: BlockCategoryRow = {
   type: 'bento-grids',
   image: bentoGrids01Manifest.image,
   concept: BentoGridConcept,
-  blocks: [bentoGrids01Manifest],
+  blocks: [bentoGrids01Manifest, bentoGrids02Manifest, bentoGrids03Manifest],
 }

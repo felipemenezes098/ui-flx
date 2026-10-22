@@ -117,6 +117,28 @@
       "meta": {
         "iframeHeight": 950
       }
+    },
+    {
+      "name": "content-12",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-12/content-12.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-12.tsx"
+        }
+      ],
+      "title": "Content 12",
+      "description": "A centered section header with supporting copy and a CTA, followed by two large side-by-side photos.",
+      "meta": {
+        "iframeHeight": 1000
+      }
     }
   ]
 }

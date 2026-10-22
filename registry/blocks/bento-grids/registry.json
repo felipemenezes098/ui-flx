@@ -21,6 +21,51 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "bento-grids-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "bento-grids-02/bento-grids-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-02.tsx"
+        }
+      ],
+      "title": "Bento grids 02",
+      "description": "A row of collection cards, one twice as wide, each with a product photo bleeding off the top, a title, a short description and a link.",
+      "meta": {
+        "iframeHeight": 800
+      }
+    },
+    {
+      "name": "bento-grids-03",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "bento-grids-03/bento-grids-03.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-03.tsx"
+        }
+      ],
+      "title": "Bento grids 03",
+      "description": "A product grid with a tall featured item in the center, four smaller items around it, category badges, prices and names.",
+      "meta": {
+        "iframeHeight": 1200
+      }
     }
   ]
 }
