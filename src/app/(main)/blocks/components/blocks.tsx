@@ -6,7 +6,11 @@ import { LayoutGridIcon } from 'lucide-react'
 
 import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
-import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
+import {
+  isAllCategories,
+  isNewBlocksFilter,
+  parseCategoryFilter,
+} from '../lib/blocks-category'
 import { filterBlocksByPreset, getValidPresetSlug } from '../lib/blocks-preset'
 import { blocks } from '@/lib/blocks/block-catalog'
 import {
@@ -25,6 +29,19 @@ export function Blocks() {
 
   const items = useMemo(() => {
     const byPreset = filterBlocksByPreset(blocks, activePreset)
+
+    if (isNewBlocksFilter(activeCategories)) {
+      return byPreset.flatMap((category) =>
+        category.blocks
+          .filter((subBlock) => subBlock.hasNew)
+          .map((subBlock) => ({
+            key: `${category.slug}-${subBlock.slug}`,
+            categorySlug: category.slug,
+            subBlock,
+          })),
+      )
+    }
+
     const categories = byPreset.filter(
       (cat) =>
         isAllCategories(activeCategories) ||

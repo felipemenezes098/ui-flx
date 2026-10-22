@@ -2,7 +2,11 @@
 
 import { usePathname, useSearchParams } from 'next/navigation'
 
-import { isAllCategories } from '@/app/(main)/blocks/lib/blocks-category'
+import {
+  NEW_BLOCKS_CATEGORY_SLUG,
+  isAllCategories,
+  newBlocksCount,
+} from '@/app/(main)/blocks/lib/blocks-category'
 import {
   allBlocksHref,
   categoryFilterHref,
@@ -28,22 +32,38 @@ export function SidebarBlockFilters() {
   const categoryIsAll = isAllCategories(activeCategories)
 
   return (
-    <SidebarSection label="Categories">
-      <SidebarLink
-        href={allBlocksHref(blocksPath, searchParams)}
-        active={pathname === blocksPath && categoryIsAll}
-      >
-        All blocks
-      </SidebarLink>
-      {blockCategories.map((block) => (
+    <div className="flex flex-col gap-8">
+      <SidebarSection label="Browse">
         <SidebarLink
-          key={block.slug}
-          href={categoryFilterHref(blocksPath, searchParams, block.slug)}
-          active={activeCategories.includes(block.slug)}
+          href={allBlocksHref(blocksPath, searchParams)}
+          active={pathname === blocksPath && categoryIsAll}
         >
-          {block.category}
+          All blocks
         </SidebarLink>
-      ))}
-    </SidebarSection>
+        {newBlocksCount > 0 && (
+          <SidebarLink
+            href={categoryFilterHref(
+              blocksPath,
+              searchParams,
+              NEW_BLOCKS_CATEGORY_SLUG,
+            )}
+            active={activeCategories.includes(NEW_BLOCKS_CATEGORY_SLUG)}
+          >
+            New
+          </SidebarLink>
+        )}
+      </SidebarSection>
+      <SidebarSection label="Categories">
+        {blockCategories.map((block) => (
+          <SidebarLink
+            key={block.slug}
+            href={categoryFilterHref(blocksPath, searchParams, block.slug)}
+            active={activeCategories.includes(block.slug)}
+          >
+            {block.category}
+          </SidebarLink>
+        ))}
+      </SidebarSection>
+    </div>
   )
 }

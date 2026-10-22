@@ -1,6 +1,5 @@
 import type { BlockItem } from '@/lib/blocks/block-manifest-types'
 import {
-  GalleryCardBadge,
   GalleryCardMedia,
   GalleryCardThemeImage,
 } from '@/components/core/gallery/gallery-card'
@@ -24,9 +23,6 @@ export function BlockPreviewCard({
         id={anchorId}
       >
         <GalleryCardMedia className="flex min-h-30 items-center justify-center rounded-xl">
-          {subBlock.hasNew && (
-            <GalleryCardBadge className="right-auto left-2" />
-          )}
           <GalleryCardThemeImage src={subBlock.image} alt={subBlock.name} />
         </GalleryCardMedia>
       </GalleryGridLink>

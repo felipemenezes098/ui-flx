@@ -1,12 +1,21 @@
 import { blocks } from '@/lib/blocks/block-catalog'
 
 export const ALL_BLOCKS_CATEGORY_SLUG = 'all'
+/** Pseudo-category: every block flagged `hasNew`, across categories. */
+export const NEW_BLOCKS_CATEGORY_SLUG = 'new'
 
 const catalogSlugs = blocks.map((b) => b.slug)
+
+export const newBlocksCount = blocks
+  .flatMap((b) => b.blocks)
+  .filter((b) => b.hasNew).length
 
 /** Empty array = all categories. */
 export function parseCategoryFilter(raw: string | null): string[] {
   if (!raw || isAllBlocksCategoryParam(raw)) return []
+  if (raw === NEW_BLOCKS_CATEGORY_SLUG && newBlocksCount > 0) {
+    return [NEW_BLOCKS_CATEGORY_SLUG]
+  }
   const valid = new Set(catalogSlugs)
   const selected = new Set(
     raw
@@ -24,6 +33,10 @@ export function isAllBlocksCategoryParam(slug: string): boolean {
 
 export function isAllCategories(slugs: string[]): boolean {
   return slugs.length === 0
+}
+
+export function isNewBlocksFilter(slugs: string[]): boolean {
+  return slugs.includes(NEW_BLOCKS_CATEGORY_SLUG)
 }
 
 export function serializeCategoryFilter(slugs: string[]): string {

@@ -5,7 +5,12 @@ import { useSearchParams } from 'next/navigation'
 import { Separator } from '@/components/ui/separator'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 
-import { isAllCategories, parseCategoryFilter } from '../lib/blocks-category'
+import {
+  NEW_BLOCKS_CATEGORY_SLUG,
+  isAllCategories,
+  newBlocksCount,
+  parseCategoryFilter,
+} from '../lib/blocks-category'
 import { allBlocksHref, categoryFilterHref } from '../lib/blocks-filter-url'
 import {
   getAllBlocksCount,
@@ -35,6 +40,20 @@ export function BlocksNavigation() {
           count={getAllBlocksCount()}
           className="shrink-0"
         />
+
+        {newBlocksCount > 0 && (
+          <BlocksFilterChip
+            href={categoryFilterHref(
+              pathname,
+              searchParams,
+              NEW_BLOCKS_CATEGORY_SLUG,
+            )}
+            active={activeCategories.includes(NEW_BLOCKS_CATEGORY_SLUG)}
+            label="New"
+            count={newBlocksCount}
+            className="shrink-0"
+          />
+        )}
 
         <div className="flex shrink-0 items-center">
           <Separator orientation="vertical" className="!h-4" />
