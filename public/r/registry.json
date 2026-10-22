@@ -23,78 +23,6 @@
       "type": "registry:block"
     },
     {
-      "name": "carousel-01",
-      "title": "Carousel 01",
-      "description": "Auto-scroll carousel that pauses on item hover and reveals title.",
-      "dependencies": [
-        "embla-carousel-auto-scroll"
-      ],
-      "registryDependencies": [
-        "carousel"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/carousel/carousel-01/carousel-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-01.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 500,
-        "containerClassName": "max-w-full overflow-hidden px-0"
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "carousel-03",
-      "title": "Carousel 03",
-      "description": "A carousel of cards with a title and description.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "carousel",
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/carousel/carousel-03/carousel-03.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-03.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 700,
-        "containerClassName": "max-w-full overflow-hidden px-0"
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "carousel-02",
-      "title": "Carousel 02",
-      "description": "A carousel of media with a title and description.",
-      "dependencies": [
-        "react-wrap-balancer",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "carousel",
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/carousel/carousel-02/carousel-02.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/carousel/carousel-02.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 700,
-        "containerClassName": "max-w-full overflow-hidden px-0"
-      },
-      "type": "registry:block"
-    },
-    {
       "name": "content-06",
       "title": "Content 06",
       "description": "Two-column split with serif headline, supporting copy, optional CTA, and a media panel.",
@@ -109,29 +37,6 @@
           "path": "registry/blocks/content/content-06/content-06.tsx",
           "type": "registry:component",
           "target": "components/flx/blocks/content/content-06.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 700
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "content-09",
-      "title": "Content 09",
-      "description": "Two-column icon card grid with a serif section header.",
-      "dependencies": [
-        "react-wrap-balancer",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/content/content-09/content-09.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-09.tsx"
         }
       ],
       "meta": {
@@ -674,45 +579,6 @@
       ],
       "meta": {
         "iframeHeight": 1100
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "logos-01",
-      "title": "Logos 01",
-      "description": "Logo carousel with auto-scroll, edge gradient and minimalist style.",
-      "dependencies": [
-        "embla-carousel-auto-scroll"
-      ],
-      "registryDependencies": [
-        "carousel"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/logos/logos-01/logos-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/logos/logos-01.tsx"
-        }
-      ],
-      "meta": {
-        "containerClassName": "max-w-full overflow-hidden px-0"
-      },
-      "type": "registry:block"
-    },
-    {
-      "name": "scroll-01",
-      "title": "Scroll 01",
-      "description": "Sticky media that changes as you scroll through text content.",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/blocks/scroll/scroll-01/scroll-01.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/scroll/scroll-01.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 600
       },
       "type": "registry:block"
     },

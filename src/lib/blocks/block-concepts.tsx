@@ -79,26 +79,6 @@ export function FeatureConcept() {
   )
 }
 
-export function CarouselConcept() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-4">
-      <div className="relative w-full overflow-hidden">
-        <div className="flex gap-2.5">
-          <div className="bg-card dark:bg-muted border-border w-[63%] shrink-0 rounded-xl border p-3 shadow-sm">
-            <div className="bg-foreground/8 mb-2.5 h-16 w-full rounded-lg" />
-            <div className="bg-foreground/20 mb-1.5 h-1.5 w-16 rounded-full" />
-            <div className="bg-foreground/10 h-1 w-10 rounded-full" />
-          </div>
-          <div className="bg-card dark:bg-muted border-border w-[63%] shrink-0 rounded-xl border p-3 opacity-40 shadow-sm">
-            <div className="bg-foreground/8 mb-2.5 h-16 w-full rounded-lg" />
-            <div className="bg-foreground/15 h-1.5 w-12 rounded-full" />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export function ShowcaseConcept() {
   return (
     <div className="flex h-full w-full items-end justify-center p-4 pb-5">
@@ -130,33 +110,6 @@ export function BentoGridConcept() {
   )
 }
 
-export function LogosConcept() {
-  return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-5">
-      <div className="bg-foreground/12 h-1.5 w-16 rounded-full" />
-      <div className="relative w-full overflow-hidden">
-        <div className="from-muted/80 absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r to-transparent" />
-        <div className="from-muted/80 absolute top-0 right-0 z-10 h-full w-6 bg-gradient-to-l to-transparent" />
-        <div className="flex items-center justify-center gap-5">
-          {[
-            { id: 'a', w: 34 },
-            { id: 'b', w: 42 },
-            { id: 'c', w: 28 },
-            { id: 'd', w: 38 },
-            { id: 'e', w: 32 },
-          ].map(({ id, w }) => (
-            <div
-              key={id}
-              className="bg-foreground/20 h-3.5 shrink-0 rounded-sm"
-              style={{ width: `${w}px` }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export function TestimonialsConcept() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
@@ -175,28 +128,6 @@ export function TestimonialsConcept() {
           <div className="bg-foreground/15 h-6 w-6 rounded-full" />
           <div className="bg-foreground/15 h-1.5 w-14 rounded-full" />
         </div>
-      </div>
-    </div>
-  )
-}
-
-export function ScrollConcept() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="flex w-full gap-3">
-        <div className="flex flex-col gap-2">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className={`bg-card dark:bg-muted rounded-md border px-2.5 py-2 shadow-sm transition-all ${i === 1 ? 'border-foreground/30' : 'opacity-40'}`}
-            >
-              <div
-                className={`h-1.5 w-14 rounded-full ${i === 1 ? 'bg-foreground/25' : 'bg-foreground/10'}`}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="bg-card dark:bg-muted flex-1 rounded-lg border shadow-sm" />
       </div>
     </div>
   )

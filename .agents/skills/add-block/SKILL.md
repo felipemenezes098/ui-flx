@@ -34,7 +34,7 @@ never run by the agent.
    `pnpm run blocks:capture-screenshots --slug=<slug>`.
 
 Categories rendered in the gallery: `hero` | `content` | `feature` | `cta` | `bento-grids` |
-`testimonials` | `carousel` | `logos` | `scroll`. A new category needs a `catalog.ts` +
+`testimonials`. A new category needs a `catalog.ts` +
 `registry.json` + an entry in `registry/blocks/registry.json` `include` and in
 `src/lib/blocks/block-catalog.ts` `categories`, a concept in `src/lib/blocks/block-concepts.tsx`,
 and a cover image — ask before creating one.

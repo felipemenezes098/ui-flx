@@ -5,7 +5,6 @@ import { manifest as content02Manifest } from './content-02/manifest'
 import { manifest as content04Manifest } from './content-04/manifest'
 import { manifest as content06Manifest } from './content-06/manifest'
 import { manifest as content07Manifest } from './content-07/manifest'
-import { manifest as content09Manifest } from './content-09/manifest'
 import { manifest as content11Manifest } from './content-11/manifest'
 
 export const contentCategory: BlockCategoryRow = {
@@ -20,7 +19,6 @@ export const contentCategory: BlockCategoryRow = {
     content04Manifest,
     content06Manifest,
     content07Manifest,
-    content09Manifest,
     content11Manifest,
   ],
 }

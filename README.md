@@ -66,9 +66,6 @@ Full page sections for landing pages and marketing sites.
 | [Call to Action](https://ui.flexnative.com/blocks?category=cta) | Drive visitors toward a next step |
 | [Testimonials](https://ui.flexnative.com/blocks?category=testimonials) | Social proof from customers |
 | [Bento grids](https://ui.flexnative.com/blocks?category=bento-grids) | A primary tile with supporting cards |
-| [Carousel](https://ui.flexnative.com/blocks?category=carousel) | Browsable media and cards |
-| [Logos](https://ui.flexnative.com/blocks?category=logos) | A logo row for social proof |
-| [Scroll](https://ui.flexnative.com/blocks?category=scroll) | Sticky media that changes as you scroll |
 
 More categories are on the way.
 

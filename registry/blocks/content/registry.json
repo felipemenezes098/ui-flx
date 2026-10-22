@@ -26,29 +26,6 @@
       }
     },
     {
-      "name": "content-09",
-      "type": "registry:block",
-      "title": "Content 09",
-      "description": "Two-column icon card grid with a serif section header.",
-      "registryDependencies": [
-        "card"
-      ],
-      "dependencies": [
-        "react-wrap-balancer",
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "content-09/content-09.tsx",
-          "type": "registry:component",
-          "target": "components/flx/blocks/content/content-09.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": 700
-      }
-    },
-    {
       "name": "content-02",
       "type": "registry:block",
       "title": "Content 02",

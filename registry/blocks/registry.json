@@ -4,13 +4,10 @@
   "homepage": "https://ui.flexnative.com",
   "include": [
     "./bento-grids/registry.json",
-    "./carousel/registry.json",
     "./content/registry.json",
     "./cta/registry.json",
     "./feature/registry.json",
     "./hero/registry.json",
-    "./logos/registry.json",
-    "./scroll/registry.json",
     "./testimonials/registry.json"
   ],
   "items": []
