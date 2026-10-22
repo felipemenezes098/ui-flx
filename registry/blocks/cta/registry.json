@@ -24,6 +24,23 @@
       "meta": {
         "iframeHeight": 600
       }
+    },
+    {
+      "name": "cta-02",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "cta-02/cta-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/cta/cta-02.tsx"
+        }
+      ],
+      "title": "Call to Action 02",
+      "description": "An oversized two-word headline split around a full-bleed photo, with a bracketed call to action at its center.",
+      "meta": {
+        "iframeHeight": 900
+      }
     }
   ]
 }

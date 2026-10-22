@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-13",
+  "title": "Content 13",
+  "description": "An editorial layout with a large photo, a short title and paragraph beside it, and two smaller photos offset below.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/blocks/content/content-13/content-13.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nconst imageClassName =\n  'relative overflow-hidden outline outline-black/10 dark:outline-white/10'\n\nexport function Content13() {\n  return (\n    <section className=\"bg-background w-full\">\n      <div className=\"mx-auto flex max-w-7xl flex-col gap-10 px-6 py-20 sm:gap-14 sm:py-28 lg:grid lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0\">\n        <div className=\"contents lg:col-span-7 lg:flex lg:flex-col lg:gap-16\">\n          <div className={`${imageClassName} order-2 aspect-[3/2] w-full`}>\n            <img\n              src=\"https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop\"\n              alt=\"Alt 1\"\n              decoding=\"async\"\n              className=\"size-full object-cover grayscale\"\n            />\n          </div>\n          <div\n            className={`${imageClassName} order-4 aspect-[2/3] w-3/5 self-end sm:w-2/5 lg:w-[38%]`}\n          >\n            <img\n              src=\"https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=900&auto=format&fit=crop\"\n              alt=\"Alt 2\"\n              loading=\"lazy\"\n              decoding=\"async\"\n              className=\"size-full object-cover grayscale\"\n            />\n          </div>\n        </div>\n\n        <div className=\"contents lg:col-span-5 lg:flex lg:flex-col lg:gap-14 lg:pt-24\">\n          <div className=\"order-1 flex max-w-md flex-col gap-4\">\n            <h2 className=\"text-foreground text-2xl font-medium tracking-tight sm:text-3xl\">\n              <Balancer>Rooms that let you breathe</Balancer>\n            </h2>\n            <p className=\"text-muted-foreground text-base leading-relaxed sm:text-lg\">\n              Open plans, soft daylight and honest materials. Every space is\n              arranged around one idea: leave enough room for the people who use\n              it, and nothing more.\n            </p>\n          </div>\n          <div\n            className={`${imageClassName} order-3 aspect-[16/15] w-5/6 sm:w-3/5 lg:w-[85%]`}\n          >\n            <img\n              src=\"https://images.unsplash.com/photo-1586105251261-72a756497a11?q=80&w=1200&auto=format&fit=crop\"\n              alt=\"Alt 3\"\n              loading=\"lazy\"\n              decoding=\"async\"\n              className=\"size-full object-cover grayscale\"\n            />\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/content/content-13.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 1200
+  },
+  "type": "registry:block"
+}

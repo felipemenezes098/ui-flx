@@ -61,6 +61,26 @@
       "meta": {
         "iframeHeight": 1400
       }
+    },
+    {
+      "name": "feature-04",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "feature-04/feature-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-04.tsx"
+        }
+      ],
+      "title": "Feature 04",
+      "description": "A title with a two-column list of ruled milestones below it, beside a tall photo.",
+      "meta": {
+        "iframeHeight": 1000
+      }
     }
   ]
 }

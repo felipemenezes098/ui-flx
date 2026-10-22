@@ -205,6 +205,46 @@
       "type": "registry:block"
     },
     {
+      "name": "content-13",
+      "title": "Content 13",
+      "description": "An editorial layout with a large photo, a short title and paragraph beside it, and two smaller photos offset below.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-13/content-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-13.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1200
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-14",
+      "title": "Content 14",
+      "description": "A two-weight studio title with a short intro and link beside a square photo, followed by a bordered row of client marks.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-14/content-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-14.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1000
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "cta-01",
       "title": "Call to Action 01",
       "description": "A centered text block with a title, description, and CTA.",
@@ -223,6 +263,23 @@
       ],
       "meta": {
         "iframeHeight": 600
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "cta-02",
+      "title": "Call to Action 02",
+      "description": "An oversized two-word headline split around a full-bleed photo, with a bracketed call to action at its center.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/cta/cta-02/cta-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/cta/cta-02.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
       },
       "type": "registry:block"
     },
@@ -282,6 +339,26 @@
       ],
       "meta": {
         "iframeHeight": 1400
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "feature-04",
+      "title": "Feature 04",
+      "description": "A title with a two-column list of ruled milestones below it, beside a tall photo.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature/feature-04/feature-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-04.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1000
       },
       "type": "registry:block"
     },

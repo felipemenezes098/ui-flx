@@ -139,6 +139,46 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "content-13",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-13/content-13.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-13.tsx"
+        }
+      ],
+      "title": "Content 13",
+      "description": "An editorial layout with a large photo, a short title and paragraph beside it, and two smaller photos offset below.",
+      "meta": {
+        "iframeHeight": 1200
+      }
+    },
+    {
+      "name": "content-14",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "content-14/content-14.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-14.tsx"
+        }
+      ],
+      "title": "Content 14",
+      "description": "A two-weight studio title with a short intro and link beside a square photo, followed by a bordered row of client marks.",
+      "meta": {
+        "iframeHeight": 1000
+      }
     }
   ]
 }

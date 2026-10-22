@@ -2,6 +2,7 @@ import { CtaConcept } from '@/lib/blocks/block-concepts'
 import type { BlockCategoryRow } from '@/lib/blocks/block-manifest-types'
 
 import { manifest as cta01Manifest } from './cta-01/manifest'
+import { manifest as cta02Manifest } from './cta-02/manifest'
 
 export const ctaCategory: BlockCategoryRow = {
   slug: 'cta',
@@ -10,5 +11,5 @@ export const ctaCategory: BlockCategoryRow = {
   type: 'cta',
   image: cta01Manifest.image,
   concept: CtaConcept,
-  blocks: [cta01Manifest],
+  blocks: [cta01Manifest, cta02Manifest],
 }
