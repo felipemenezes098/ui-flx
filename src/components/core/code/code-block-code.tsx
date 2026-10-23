@@ -7,12 +7,19 @@ import {
   transformerNotationHighlight,
   transformerRemoveLineBreak,
 } from '@shikijs/transformers'
-import { useTheme } from 'next-themes'
 import React, { useEffect, useState } from 'react'
-import { BundledTheme, codeToHtml } from 'shiki'
+import { BundledTheme, codeToHtml, createCssVariablesTheme } from 'shiki'
 
 import { CopyButton } from '@/components/core/copy-button'
 import { cn } from '@/lib/utils'
+
+// Monochrome syntax theme: every token color is a CSS variable mapped to the
+// site's tokens in globals.css, so light/dark follow the page with no JS.
+const monochromeTheme = createCssVariablesTheme({
+  name: 'flx-monochrome',
+  variablePrefix: '--shiki-',
+  fontStyle: true,
+})
 
 export type CodeBlockCodeProps = {
   code: string
@@ -39,7 +46,6 @@ function CodeBlockCode({
   ...props
 }: CodeBlockCodeProps) {
   const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null)
-  const { theme: themeName } = useTheme()
 
   useEffect(() => {
     async function highlight() {
@@ -77,7 +83,7 @@ function CodeBlockCode({
 
       const html = await codeToHtml(code, {
         lang: language,
-        theme: themeName === 'dark' ? 'min-dark' : 'min-light',
+        theme: monochromeTheme,
         transformers,
         meta: metaString ? { __raw: metaString.trim() } : undefined,
       })
@@ -85,7 +91,7 @@ function CodeBlockCode({
       setHighlightedHtml(html)
     }
     highlight()
-  }, [code, language, theme, themeName, highlightLines, highlightWords])
+  }, [code, language, highlightLines, highlightWords])
 
   const classNames = cn(
     'w-full overflow-auto no-scrollbar text-[13px] py-2 font-monos max-h-120',

@@ -190,6 +190,32 @@
 .shiki {
   /* Shiki pre without padding to avoid duplication with container */
   @apply px-0;
+
+  /* Monochrome syntax theme (see code-block-code.tsx): structure in the
+     foreground, keywords and strings in muted tones, punctuation faintest. */
+  --shiki-background: transparent;
+  --shiki-foreground: var(--foreground);
+  --shiki-token-constant: var(--foreground);
+  --shiki-token-function: var(--foreground);
+  --shiki-token-parameter: var(--foreground);
+  --shiki-token-link: var(--foreground);
+  --shiki-token-keyword: var(--muted-foreground);
+  --shiki-token-string: color-mix(in oklab, var(--foreground) 62%, transparent);
+  --shiki-token-string-expression: color-mix(
+    in oklab,
+    var(--foreground) 62%,
+    transparent
+  );
+  --shiki-token-comment: color-mix(
+    in oklab,
+    var(--muted-foreground) 70%,
+    transparent
+  );
+  --shiki-token-punctuation: color-mix(
+    in oklab,
+    var(--muted-foreground) 75%,
+    transparent
+  );
 }
 
 .shiki code {
@@ -199,12 +225,12 @@
 
 .shiki .line {
   /* Smooth line height even without shiki-with-lines */
-  @apply block px-4 py-1;
+  @apply block px-4 leading-6;
 }
 
 .shiki-with-lines .shiki .line {
   counter-increment: line;
-  @apply flex py-1;
+  @apply flex leading-6;
 }
 
 .shiki-with-lines .shiki .line::before {
