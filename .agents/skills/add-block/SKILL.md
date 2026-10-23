@@ -2,9 +2,10 @@
 name: add-block
 description: >-
   Full workflow for adding a new UI block to ui-flx: inline component file,
-  manifest, catalog + registry.json registration, and validation. The block
-  page and install docs are generated from the catalog. Screenshot capture is
-  never run by the agent — only suggested as a command at the end.
+  manifest, catalog + registry.json registration, validation, responsive
+  check in the browser and screenshot capture. The block page and install docs
+  are generated from the catalog. Also covers building a block from a
+  reference screenshot.
   Triggers: "add block", "new block", "criar bloco", "novo bloco",
   "add a new section", or any request to create a new Flexnative block.
 ---
@@ -18,26 +19,36 @@ install docs are generated from the catalog and the registry entry — there is 
 
 ## The pipeline — do every step, in order
 
-Do NOT stop early. Every step below is required except **6 (screenshots)**, which is
-never run by the agent.
+Do NOT stop early. Every step below is required.
 
+0. **Pick the category** (see below) — and the next free slug in it.
 1. **Read** the category's `catalog.ts` + `registry.json` (nothing else).
 2. **Create files** — `<slug>.tsx`, `manifest.ts` (+ any auxiliary file, prefixed with the slug).
 3. **Register** in `registry/blocks/<category>/catalog.ts`.
 4. **Add entry** to `registry/blocks/<category>/registry.json`.
 5. **Validate + sync + build** (`registry:sync` → `registry:validate` → `registry:build`).
-6. **Do NOT capture screenshots.** Never run `playwright:install`, `dev`, or
-   `blocks:capture-screenshots` yourself. `image.light`/`image.dark` stay pointed at
-   WebP files that don't exist yet — that's expected and fine to leave as-is.
-7. **Report** the illustration decision, and as the last line of your final message
-   suggest the exact screenshot command for the user to run themselves, e.g.:
-   `pnpm run blocks:capture-screenshots --slug=<slug>`.
+6. **Verify in the browser** at desktop, tablet and mobile widths, light and dark.
+7. **Capture screenshots** and look at them before reporting.
+8. **Report** the category, the image choice and the illustration decision.
 
-Categories rendered in the gallery: `hero` | `content` | `feature` | `cta` | `bento-grids` |
-`testimonials`. A new category needs a `catalog.ts` +
-`registry.json` + an entry in `registry/blocks/registry.json` `include` and in
-`src/lib/blocks/block-catalog.ts` `categories`, a concept in `src/lib/blocks/block-concepts.tsx`,
-and a cover image — ask before creating one.
+### Picking the category
+
+The categories that exist **today** are `hero` | `content` | `feature` | `cta` |
+`bento-grids` | `testimonials` — read `src/lib/blocks/block-catalog.ts` `categories` for the
+current list, since more will be added over time. Choose by what the section *does*, not by
+how it looks:
+
+- `hero` — the first section of a page (`h1`).
+- `content` — presents information: editorial text + media, collections, galleries.
+- `feature` — explains a product or its capabilities: feature lists, specs, spotlights.
+- `cta` — drives toward one next step.
+- `bento-grids` — a grid of tiles with one or more prominent cards.
+
+**Never force a block into a category that doesn't fit.** If none of the existing ones is
+right, stop and tell the user which category you'd create and why, and let them decide
+before writing any file. A new category needs a `catalog.ts` + `registry.json` + an entry in
+`registry/blocks/registry.json` `include` and in `src/lib/blocks/block-catalog.ts`
+`categories`, a concept in `src/lib/blocks/block-concepts.tsx`, and a cover image.
 
 ---
 
@@ -72,7 +83,8 @@ registry/blocks/<category>/catalog.ts       ← existing blocks + import pattern
 registry/blocks/<category>/registry.json    ← existing entries + path format
 ```
 
-Do NOT read root `registry.json`, `src/lib/blocks/block-catalog.ts`, or other categories.
+Do NOT read root `registry.json` or other categories' blocks. (`block-catalog.ts` is only
+for step 0, to see which categories exist.)
 
 ---
 
@@ -150,13 +162,13 @@ export const manifest: BlockManifest = {
   name: 'My Block',
   description: 'Short description of what the block does.',
   category: 'content', // must match an existing category slug
-  preset: 'sienna', // 'sienna' | 'vellum' — see below
+  preset: 'vellum', // default — see below
   image: {
     light: '/images/blocks/content/my-block.webp',
     dark: '/images/blocks/content/my-block-dark.webp',
   },
   meta: { iframeHeight: 600 }, // + captureViewportOnly: true for scroll/interactive blocks
-  hasNew: true, // optional badge
+  hasNew: true, // lists the block under Browse > New in the sidebar
   component: MyBlock,
 }
 ```
@@ -164,17 +176,21 @@ export const manifest: BlockManifest = {
 The `name` and `description` become the page title, the meta description and the registry
 `title`/`description`. Write them as plain copy: no mention of animation, editing or variants.
 
+Every new block gets `hasNew: true` — that is what lists it under **Browse > New** in the
+sidebar. Cards no longer show a badge for it.
+
 ### Choosing the `preset`
 
 Required — `tsc` fails without it. It does two things at once:
 
 - **Gallery filter** — the block only shows under that preset's chip on `/blocks`
-- **Screenshot palette** — the preview wraps the block in `PresetScope`, so step 6 captures
+- **Screenshot palette** — the preview wraps the block in `PresetScope`, so step 7 captures
   it under those tokens
 
 Blocks are preset-agnostic by construction (semantic tokens only, never a hard-coded color),
 so this is a **showcase decision, not a constraint**: the same block works under any preset.
-Pick the one the design was composed for.
+**Use `vellum` by default** — every block in the gallery is on it today. Pick another preset
+only when the user asks for it.
 
 | | |
 |---|---|
@@ -195,12 +211,53 @@ compose don't symbolize, layer for depth, theme tokens (light + dark).
 - **Hard-code its content** — it simulates a real screen.
 - **Wire the file into `registry.json`** — add it as a `files[]` entry (step 4) and add any
   shadcn primitives it uses to `registryDependencies`.
-- **Report the decision** in step 7.
+- **Report the decision** in step 8.
 
 Palette to reach for (only when it fits): real Unsplash crops (image outline), layered
 `Card`/`Badge`/`Avatar` fragments, small SVG sparklines, a big `tabular-nums` metric,
 `mask-*` edge fades, a faint background grid/glow (`opacity-[0.04]`–`10`, `pointer-events-none`),
 a card peeking behind another.
+
+### Photos
+
+The gallery's look is minimal product and interior photography, in black and white.
+
+- **Minimal subjects**: one object or a calm interior on a plain, light background. No busy
+  scenes, no painterly art.
+- **Always `grayscale`** on the `<img>` (avatars excepted).
+- **Look before you pick.** Never paste an Unsplash id you haven't seen. Download small
+  candidates (`?q=60&w=320&auto=format&fit=crop&fm=jpg`) into the scratchpad, build a
+  contact sheet with `sharp` (already a dependency; render them in grayscale), and choose
+  from it. Ids that 404 are dropped.
+- **No visible brand logos** (a speaker with "amazon" on it, a branded shirt). Swap the photo.
+- **Check the crop** in the actual aspect ratio. When the subject sits off-center in a
+  portrait crop, set `object-[x%_center]` per image instead of accepting a cut-off subject.
+- Reuse ids already in the gallery only when nothing better fits — variety reads better.
+
+### Colors and dark mode
+
+- **Theme tokens only**, even for "product colors" like finish swatches: use
+  `bg-background` / `bg-muted` / `bg-muted-foreground` / `bg-foreground` with a border,
+  never a hard-coded hex.
+- **A light photo that fades into the section breaks in dark mode** — the fade turns into a
+  bright halo. Fade with `mask-*` only when the photo's background matches both themes;
+  otherwise frame it (`bg-muted overflow-hidden rounded-3xl outline …`). `mix-blend-multiply`
+  on a wrapper can blend a white photo into a light card, with `dark:mix-blend-normal`.
+
+## Building from a reference screenshot
+
+When the user sends a screenshot to recreate, keep the **concept and layout** and make
+everything else your own: new copy, new photos (per the rules above), theme tokens instead of
+the reference's colors and fonts. Drop anything the user says to drop.
+
+- **No custom fonts.** The project has Inter only. Approximate display type with weight,
+  case and tracking (e.g. `font-black uppercase tracking-[-0.06em]`).
+- **Size display type to the block, not the viewport.** The detail page and the screenshot
+  cap the preview width, so `vw` sizes overshoot there. Put `@container` on the wrapper and
+  size with `cqw` inside a `clamp()` (see `cta-02`).
+- **Plan the mobile order explicitly.** A desktop layout with text beside media usually
+  needs text → main image → secondary images on mobile. Use `contents` on desktop column
+  wrappers plus `order-*`, or a grid with `lg:` placement, so the DOM order works for both.
 
 ---
 
@@ -270,52 +327,61 @@ pnpm run registry:build      # regenerates public/r/*.json
 
 ---
 
-## Step 6 — Do NOT capture screenshots
+## Step 6 — Verify in the browser
 
-The manifest points at `image.light`/`image.dark` WebP files that will **not exist** after
-this skill runs — that's expected. Never run `playwright:install`, `dev`, or
-`blocks:capture-screenshots` yourself; leave that entirely to the user.
+Open `/preview/blocks/<category>/<slug>` on the dev server (port 3002 — start it through the
+preview tool, never with Bash). A freshly added slug can 404 on the first load; reload once.
+
+Check at **1440, 768 and 375px** wide:
+
+- No horizontal scroll (`document.documentElement.scrollWidth === innerWidth`).
+- The mobile order reads well and nothing is cut off or overlapping.
+- Lazy images may look empty in a screenshot — force `loading='eager'` before judging.
+- Fix what you find, then re-check. Reset the viewport when done.
+
+## Step 7 — Capture screenshots
 
 ```bash
-pnpm run playwright:install                          # once per machine
-pnpm run dev                                         # separate terminal — capture needs it
-pnpm run blocks:capture-screenshots --slug=<slug>
+pnpm dlx tsx scripts/capture-block-screenshots.ts --slug=<slug>
+pnpm run images:version
 ```
 
-Surface this exact command block in step 7 instead of running it. Other filters the user
-may want to know about: `--preset=<id>` (every block on that preset — use after changing a
-preset's tokens), `--missing-only`, or no flag for all.
+This needs the dev server running on port 3002 (Playwright must be installed once per
+machine with `pnpm run playwright:install`). It writes `<slug>.webp` and `<slug>-dark.webp`
+into `public/images/blocks/<category>/`.
+
+**Look at both files** (a contact sheet of light + dark works well) — the dark capture is
+where fades, halos and low-contrast text show up. Fix and recapture if needed.
 
 Captures render inside `PresetScope`, so the block sits on its own preset's surface. If a
 capture looks like the wrong palette, the `preset` in the manifest is wrong — not the script.
 
 ---
 
-## Step 7 — Report the illustration decision + suggest the screenshot command
+## Step 8 — Report
 
-State whether you built an inline illustration and why — e.g. *"Inline dashboard illustration
-in `my-block-dashboard.tsx` (layered cards, static), following add-illustration rules"* — or why
-you chose a photo / none. Never silently drop it.
-
-Close your final message with the screenshot command for the user to run themselves
-(don't run it for them):
-
-```bash
-pnpm run blocks:capture-screenshots --slug=<slug>
-```
+Say which category the block went into and why, which photos you chose (and anything you
+swapped, like a photo with a logo), and whether you built an inline illustration — e.g.
+*"Inline dashboard illustration in `my-block-dashboard.tsx` (layered cards, static)"* — or
+why you chose a photo / none. Never silently drop it. Mention what you checked (widths,
+dark mode) and anything you couldn't.
 
 ---
 
 ## Checklist
 
+- [ ] Category fits what the section does; a new category was proposed to the user, not created
 - [ ] `<slug>.tsx` — no props; content inline; repeated items in a top-level `const items`; CTAs are `Button` + `render`; `'use client'` only when needed
 - [ ] Constitution held — no motion library or entrance animation, `<Balancer>`, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii, `mask-*` for fades, shadcn primitives, `h2` for non-hero titles
+- [ ] Photos minimal, `grayscale`, picked from a contact sheet, no brand logos, crop checked
+- [ ] Theme tokens only — no hard-coded colors, swatches included
 - [ ] Generic alts (`Alt`, `Alt 1`, `Alt 2`…); Unsplash URLs without `ixlib`/`ixid`
 - [ ] Cross-folder imports use `@/components/flx/*`, never `../../`
 - [ ] Auxiliary files and their components are prefixed with the slug
-- [ ] `manifest.ts` — `slug`, `name`, `description`, `category`, `preset`, `image.light` + `image.dark` (`.webp`), `component`; nothing else of the old editor shape
+- [ ] `manifest.ts` — `slug`, `name`, `description`, `category`, `preset: 'vellum'`, `image.light` + `image.dark` (`.webp`), `hasNew: true`, `component`
 - [ ] `catalog.ts` — import + array entry
 - [ ] `registry.json` — entry with a flat `target` for every `.tsx`, `registryDependencies`, `dependencies`
 - [ ] `registry:sync` → `registry:validate` PASSES → `registry:build`; both routes answer 200
-- [ ] Screenshots NOT captured by the agent — `image.light`/`image.dark` are left pointing at not-yet-existing files
-- [ ] Illustration decision reported + screenshot command suggested in the final message
+- [ ] Checked at 1440 / 768 / 375px — no horizontal scroll, mobile order right
+- [ ] Screenshots captured, `images:version` run, light + dark looked at
+- [ ] Category, photos and illustration decision reported
