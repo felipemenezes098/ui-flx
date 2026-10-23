@@ -179,6 +179,28 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "content-15",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-15/content-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-15.tsx"
+        }
+      ],
+      "title": "Content 15",
+      "description": "A labeled collection intro with a short headline, a row of three product photos with names, and a CTA, framed by thin rules.",
+      "meta": {
+        "iframeHeight": 900
+      }
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-05",
+  "title": "Feature 05",
+  "description": "A centered product title over three icon features, a large product photo and a product card with finish swatches and a CTA.",
+  "dependencies": [
+    "react-wrap-balancer",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/feature/feature-05/feature-05.tsx",
+      "content": "import { ArrowRight, Feather, Leaf, Ruler } from 'lucide-react'\nimport Balancer from 'react-wrap-balancer'\n\nimport { Button } from '@/components/ui/button'\n\nconst features = [\n  {\n    title: 'Comfort',\n    description:\n      'Layered foam and a sprung seat that holds its shape through years of reading.',\n    icon: Feather,\n  },\n  {\n    title: 'Materials',\n    description:\n      'Solid beech legs and a washable linen cover, finished with natural oils.',\n    icon: Leaf,\n  },\n  {\n    title: 'Proportion',\n    description:\n      'A low, generous seat sized for small rooms without feeling small itself.',\n    icon: Ruler,\n  },\n]\n\nconst finishes = [\n  { name: 'Chalk', className: 'bg-background' },\n  { name: 'Stone', className: 'bg-muted' },\n  { name: 'Graphite', className: 'bg-muted-foreground' },\n  { name: 'Ink', className: 'bg-foreground' },\n]\n\nexport function Feature05() {\n  return (\n    <section className=\"bg-background w-full overflow-hidden\">\n      <div className=\"mx-auto flex max-w-7xl flex-col gap-12 px-6 py-20 sm:gap-16 sm:py-28\">\n        <div className=\"mx-auto flex max-w-2xl flex-col items-center gap-4 text-center\">\n          <h2 className=\"text-foreground text-3xl font-normal tracking-[0.04em] uppercase sm:text-5xl\">\n            <Balancer>The Reading Chair</Balancer>\n          </h2>\n          <p className=\"text-muted-foreground text-base sm:text-lg\">\n            <Balancer>A quiet seat for long afternoons and slow books</Balancer>\n          </p>\n        </div>\n\n        <div className=\"grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:grid-cols-[1fr_minmax(0,1.3fr)_1fr] lg:gap-10\">\n          <div className=\"bg-muted relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl outline outline-black/10 md:col-span-2 lg:order-2 lg:col-span-1 lg:max-w-none dark:outline-white/10\">\n            <img\n              src=\"https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200&auto=format&fit=crop\"\n              alt=\"Alt\"\n              decoding=\"async\"\n              className=\"size-full scale-125 object-cover object-[50%_70%] grayscale\"\n            />\n          </div>\n\n          <ul className=\"flex flex-col gap-8 lg:order-1\">\n            {features.map((feature) => (\n              <li key={feature.title} className=\"flex flex-col gap-2\">\n                <h3 className=\"text-foreground flex items-center gap-3 text-base font-medium tracking-[0.06em] uppercase\">\n                  <feature.icon\n                    aria-hidden\n                    className=\"text-muted-foreground size-5\"\n                  />\n                  {feature.title}\n                </h3>\n                <p className=\"text-muted-foreground max-w-xs text-sm leading-relaxed sm:text-base\">\n                  {feature.description}\n                </p>\n              </li>\n            ))}\n          </ul>\n\n          <div className=\"flex flex-col items-start gap-6 lg:order-3\">\n            <div className=\"flex flex-col gap-2\">\n              <h3 className=\"text-foreground text-lg font-medium tracking-[0.04em] uppercase\">\n                Atelier Lounge Chair\n              </h3>\n              <p className=\"text-muted-foreground max-w-xs text-sm leading-relaxed sm:text-base\">\n                A deep, tufted seat built by hand in small batches, ready to\n                ship in four finishes.\n              </p>\n            </div>\n\n            <ul className=\"flex items-center gap-2\">\n              {finishes.map((finish) => (\n                <li key={finish.name}>\n                  <span\n                    title={finish.name}\n                    className={`${finish.className} border-border block size-6 rounded-full border`}\n                  />\n                  <span className=\"sr-only\">{finish.name}</span>\n                </li>\n              ))}\n            </ul>\n\n            <Button\n              size=\"lg\"\n              className=\"w-fit gap-2 rounded-full px-6\"\n              nativeButton={false}\n              render={<a href=\"#\" />}\n            >\n              View details\n              <ArrowRight className=\"size-4\" />\n            </Button>\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/feature/feature-05.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 1100
+  },
+  "type": "registry:block"
+}

@@ -81,6 +81,29 @@
       "meta": {
         "iframeHeight": 1000
       }
+    },
+    {
+      "name": "feature-05",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "feature-05/feature-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-05.tsx"
+        }
+      ],
+      "title": "Feature 05",
+      "description": "A centered product title over three icon features, a large product photo and a product card with finish swatches and a CTA.",
+      "meta": {
+        "iframeHeight": 1100
+      }
     }
   ]
 }

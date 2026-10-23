@@ -245,6 +245,28 @@
       "type": "registry:block"
     },
     {
+      "name": "content-15",
+      "title": "Content 15",
+      "description": "A labeled collection intro with a short headline, a row of three product photos with names, and a CTA, framed by thin rules.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-15/content-15.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-15.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "cta-01",
       "title": "Call to Action 01",
       "description": "A centered text block with a title, description, and CTA.",
@@ -359,6 +381,29 @@
       ],
       "meta": {
         "iframeHeight": 1000
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "feature-05",
+      "title": "Feature 05",
+      "description": "A centered product title over three icon features, a large product photo and a product card with finish swatches and a CTA.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/feature/feature-05/feature-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-05.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1100
       },
       "type": "registry:block"
     },

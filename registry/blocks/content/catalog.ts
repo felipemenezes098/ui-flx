@@ -9,6 +9,7 @@ import { manifest as content11Manifest } from './content-11/manifest'
 import { manifest as content12Manifest } from './content-12/manifest'
 import { manifest as content13Manifest } from './content-13/manifest'
 import { manifest as content14Manifest } from './content-14/manifest'
+import { manifest as content15Manifest } from './content-15/manifest'
 
 export const contentCategory: BlockCategoryRow = {
   slug: 'content',
@@ -26,5 +27,6 @@ export const contentCategory: BlockCategoryRow = {
     content12Manifest,
     content13Manifest,
     content14Manifest,
+    content15Manifest,
   ],
 }
