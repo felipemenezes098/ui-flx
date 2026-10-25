@@ -21,21 +21,18 @@ export function PatternCard({
   return (
     <div
       id={item.name}
-      className={cn(
-        'border-border bg-card/50 flex scroll-mt-24 flex-col gap-3 rounded-xl border p-2 shadow-xs',
-        className,
-      )}
+      className={cn('flex scroll-mt-24 flex-col gap-2', className)}
     >
       <div
         className={cn(
-          'border-border bg-card dark:bg-background flex min-h-64 flex-1 flex-col items-center justify-center overflow-hidden rounded-lg border',
+          'border-border/50 flex min-h-56 flex-1 flex-col items-center justify-center overflow-hidden rounded-xl border',
           previewClassName,
         )}
       >
         {children}
       </div>
-      <div className="flex items-center justify-between gap-2 pr-0.5 pl-1.5">
-        <span className="line-clamp-1 flex-1 truncate text-sm font-medium">
+      <div className="flex items-center justify-between gap-2 pl-1">
+        <span className="line-clamp-1 flex-1 truncate text-sm">
           {item.title}
         </span>
         {actions}

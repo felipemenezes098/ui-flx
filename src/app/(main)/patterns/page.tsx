@@ -32,7 +32,6 @@ const formsListingItem: PatternListingItem = {
   name: 'Forms',
   href: '/forms/react-hook-form',
   preview: FormsConcept,
-  hasNew: true,
 }
 
 const sortedPatternItems: PatternListingItem[] = [
@@ -61,9 +60,9 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function PatternsPage() {
   return (
-    <main className="container-page min-w-0">
-      <div className="container-page-inner">
-        <div className="flex flex-col gap-12 px-3 pt-7 pb-10 md:pt-27">
+    <main className="min-w-0 px-5 pt-12 pb-8 md:px-12 md:pt-32">
+      <div className="mx-auto w-full max-w-[880px]">
+        <div className="flex flex-col gap-4 md:gap-12">
           <PageHeader>
             <PageHeaderTitle>UI Patterns</PageHeaderTitle>
             <PageHeaderDescription>
@@ -75,13 +74,13 @@ export default function PatternsPage() {
             </PageHeaderDescription>
           </PageHeader>
           <section>
-            <GalleryGridUniform className="lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
+            <GalleryGridUniform className="gap-x-6 gap-y-8 lg:grid-cols-3 2xl:grid-cols-3">
               {sortedPatternItems.map((item) => {
                 const Concept = item.preview
                 return (
                   <GalleryGridLink key={item.slug} href={item.href}>
                     <ConceptGalleryCard>
-                      <ConceptGalleryCardMedia className="aspect-square">
+                      <ConceptGalleryCardMedia>
                         {item.hasNew && <ConceptGalleryCardBadge />}
                         <Concept />
                       </ConceptGalleryCardMedia>
