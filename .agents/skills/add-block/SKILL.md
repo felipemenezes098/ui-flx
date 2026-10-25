@@ -224,7 +224,12 @@ The gallery's look is minimal product and interior photography, in black and whi
 
 - **Minimal subjects**: one object or a calm interior on a plain, light background. No busy
   scenes, no painterly art.
-- **Always `grayscale`** on the `<img>` (avatars excepted).
+- **`grayscale` is the default, color is the exception.** Most blocks stay black and white, but
+  about one block in four uses color photos so the gallery doesn't feel dry. Keep the palette
+  muted and natural: terracotta, oak, sage, linen, powder blue, a warm lit lamp. No neon, no
+  saturated gradients, nothing that fights the layout. A colored block drops `grayscale` on
+  all its photos (or on a single accent photo); don't mix a rainbow inside one block. Before
+  picking, check which neighbouring blocks already use color. Avatars are never grayscaled.
 - **Vary the tone.** Don't make every photo white-on-white. Across a block, mix at least one
   mid-tone or dark photo (moody still life, shadowed interior, concrete, a lamp on a dark
   wall) with the light ones, and before picking, glance at which tones the neighbouring
@@ -379,7 +384,7 @@ dark mode) and anything you couldn't.
 - [ ] Category fits what the section does; a new category was proposed to the user, not created
 - [ ] `<slug>.tsx` — no props; content inline; repeated items in a top-level `const items`; CTAs are `Button` + `render`; `'use client'` only when needed
 - [ ] Constitution held — no motion library or entrance animation, `<Balancer>`, `tabular-nums`, image outlines, `active:scale-[0.96]`, concentric radii, `mask-*` for fades, shadcn primitives, `h2` for non-hero titles
-- [ ] Photos minimal, `grayscale`, picked from a contact sheet, no brand logos, crop checked
+- [ ] Photos minimal, `grayscale` unless this block is one of the muted-color ones, tone varied, picked from a contact sheet, no brand logos, crop checked
 - [ ] Theme tokens only — no hard-coded colors, swatches included
 - [ ] Generic alts (`Alt`, `Alt 1`, `Alt 2`…); Unsplash URLs without `ixlib`/`ixid`
 - [ ] Cross-folder imports use `@/components/flx/*`, never `../../`

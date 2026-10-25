@@ -98,7 +98,7 @@ export function Hero15() {
                   src={studio.image}
                   alt="Alt"
                   decoding="async"
-                  className="size-full object-cover grayscale transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                 />
               </div>
             </a>

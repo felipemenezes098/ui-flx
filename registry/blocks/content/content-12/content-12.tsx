@@ -47,7 +47,7 @@ export function Content12() {
                 src={image.src}
                 alt={image.alt}
                 decoding="async"
-                className="size-full object-cover grayscale"
+                className="size-full object-cover"
               />
             </div>
           ))}

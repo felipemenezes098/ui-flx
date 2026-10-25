@@ -16,7 +16,7 @@ export function Content18() {
                 src="https://images.unsplash.com/photo-1608732122584-76c5d0b89ff2?q=80&w=1600&auto=format&fit=crop"
                 alt="Alt 1"
                 decoding="async"
-                className="size-full object-cover object-[50%_40%] grayscale"
+                className="size-full object-cover object-[50%_40%]"
               />
             </div>
             <div className="bg-background flex flex-col items-start gap-4 p-6 sm:absolute sm:bottom-0 sm:left-0 sm:w-[60%] sm:max-w-md">
@@ -45,7 +45,7 @@ export function Content18() {
                 alt="Alt 2"
                 loading="lazy"
                 decoding="async"
-                className="size-full object-cover grayscale"
+                className="size-full object-cover"
               />
             </div>
           </div>

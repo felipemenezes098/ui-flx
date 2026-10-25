@@ -45,7 +45,7 @@ export function Content16() {
             alt="Alt 2"
             loading="lazy"
             decoding="async"
-            className="size-full object-cover grayscale"
+            className="size-full object-cover"
           />
         </div>
       </div>

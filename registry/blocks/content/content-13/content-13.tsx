@@ -13,7 +13,7 @@ export function Content13() {
               src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop"
               alt="Alt 1"
               decoding="async"
-              className="size-full object-cover grayscale"
+              className="size-full object-cover"
             />
           </div>
           <div
@@ -24,7 +24,7 @@ export function Content13() {
               alt="Alt 2"
               loading="lazy"
               decoding="async"
-              className="size-full object-cover grayscale"
+              className="size-full object-cover"
             />
           </div>
         </div>
@@ -48,7 +48,7 @@ export function Content13() {
               alt="Alt 3"
               loading="lazy"
               decoding="async"
-              className="size-full object-cover grayscale"
+              className="size-full object-cover"
             />
           </div>
         </div>

@@ -14,7 +14,7 @@ export function Hero13() {
               <img
                 src="https://images.unsplash.com/photo-1579326882518-21eaa7893b02?q=80&w=1144&auto=format&fit=crop"
                 alt="Alt 1"
-                className="size-full object-cover grayscale"
+                className="size-full object-cover"
               />
             </div>
           </div>
@@ -53,7 +53,7 @@ export function Hero13() {
               <img
                 src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1131&auto=format&fit=crop"
                 alt="Alt 2"
-                className="size-full object-cover grayscale"
+                className="size-full object-cover"
               />
             </div>
           </div>

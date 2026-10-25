@@ -32,7 +32,7 @@ export function Feature04() {
             src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop"
             alt="Alt"
             decoding="async"
-            className="size-full object-cover object-[40%_center] grayscale"
+            className="size-full object-cover object-[40%_center]"
           />
         </div>
 
