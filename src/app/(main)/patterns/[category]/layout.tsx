@@ -20,19 +20,15 @@ export default async function PatternCategoryLayout({
   if (!category) notFound()
 
   return (
-    <div>
-      <main className="container-page container-page-inner min-w-0">
-        <div className="flex flex-col gap-6 px-3 pt-7 pb-10 md:pt-27">
-          <PageHeader>
-            <PageHeaderTitle>{category.name}</PageHeaderTitle>
-            <PageHeaderDescription>
-              {category.description}
-            </PageHeaderDescription>
-          </PageHeader>
+    <main className="container-page container-page-inner min-w-0">
+      <div className="flex flex-col gap-6 px-3 pt-7 pb-10 md:pt-27">
+        <PageHeader>
+          <PageHeaderTitle>{category.name}</PageHeaderTitle>
+          <PageHeaderDescription>{category.description}</PageHeaderDescription>
+        </PageHeader>
 
-          {children}
-        </div>
-      </main>
-    </div>
+        {children}
+      </div>
+    </main>
   )
 }

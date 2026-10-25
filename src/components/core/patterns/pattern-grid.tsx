@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-export const patternGridVariants = cva('grid grid-cols-1 gap-4', {
+export const patternGridVariants = cva('grid grid-cols-1 gap-x-6 gap-y-8', {
   variants: {
     columns: {
       1: 'md:grid-cols-1',

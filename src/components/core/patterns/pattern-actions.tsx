@@ -28,6 +28,9 @@ import {
 } from '@/lib/registry-source'
 import { cn } from '@/lib/utils'
 
+const actionClassName =
+  'text-muted-foreground hover:text-foreground h-7 gap-1.5 px-2 text-xs'
+
 interface PatternActionsProps {
   item: RegistryItem
   categorySlug: string
@@ -59,22 +62,23 @@ export function PatternActions({
   const { activeFile, setActiveName } = useActiveFile(codeFiles)
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-0.5">
       <CopyButton
         text={prompt}
         label="Prompt"
+        variant="ghost"
         size="sm"
         disabled={isLoading}
-        className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
+        className={actionClassName}
       />
       <Dialog open={openCode} onOpenChange={setOpenCode}>
         <DialogTrigger
           render={
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               aria-label="View code"
-              className="text-muted-foreground hover:text-foreground h-7.5 rounded-full text-xs"
+              className={actionClassName}
             >
               <CodeIcon className="size-3" />
               Code
