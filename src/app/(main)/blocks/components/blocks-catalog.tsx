@@ -7,7 +7,6 @@ import { PageHeaderTitle } from '@/components/core/page-header/page-header-title
 
 import { Blocks } from './blocks'
 import { BlocksFallback } from './blocks-fallback'
-import { BlocksLayoutToggle } from './blocks-layout-toggle'
 
 export function BlocksCatalog({
   title,
@@ -23,9 +22,6 @@ export function BlocksCatalog({
           <PageHeader>
             <PageHeaderTitle>{title}</PageHeaderTitle>
             <PageHeaderDescription>{description}</PageHeaderDescription>
-            <div className="mt-3 hidden md:block">
-              <BlocksLayoutToggle />
-            </div>
           </PageHeader>
           <GithubStarButton className="shrink-0" />
         </div>

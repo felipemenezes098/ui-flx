@@ -1,6 +1,5 @@
 'use client'
 
-import { useConfig } from '@/hooks/use-config'
 import { useHydrated } from '@/hooks/use-hydrated'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { BlockItem } from '@/lib/blocks/block-manifest-types'
@@ -28,11 +27,9 @@ export function BlockPreviewGrid({
   items: readonly BlockPreviewEntry[]
   withScrollAnchor?: boolean
 }>) {
-  const [config] = useConfig()
   const hydrated = useHydrated()
   const isMobile = useIsMobile()
-  const isGrid =
-    hydrated && !isMobile && (config.blocksLayout ?? 'grid') === 'grid'
+  const isGrid = hydrated && !isMobile
 
   const cards = items.map(({ key, categorySlug, subBlock }) => (
     <BlockPreviewCard
