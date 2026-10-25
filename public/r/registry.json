@@ -932,6 +932,51 @@
       "type": "registry:block"
     },
     {
+      "name": "lists-01",
+      "title": "Lists 01",
+      "description": "A filterable list of projects with a row of line tabs, then ruled rows pairing a title and meta, a short description with a pill button, and a wide photo.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/lists/lists-01/lists-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/lists/lists-01.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1300
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "lists-02",
+      "title": "Lists 02",
+      "description": "A centered title with a year, a column of boxed tags beside a large paragraph, and a ruled description list of labelled details.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/lists/lists-02/lists-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/lists/lists-02.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "testimonials-01",
       "title": "Testimonials 01",
       "description": "A single testimonial with quote, avatar, author name and role.",

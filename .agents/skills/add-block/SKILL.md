@@ -34,7 +34,7 @@ Do NOT stop early. Every step below is required.
 ### Picking the category
 
 The categories that exist **today** are `hero` | `content` | `feature` | `cta` |
-`bento-grids` | `testimonials` — read `src/lib/blocks/block-catalog.ts` `categories` for the
+`bento-grids` | `lists` | `testimonials` — read `src/lib/blocks/block-catalog.ts` `categories` for the
 current list, since more will be added over time. Choose by what the section *does*, not by
 how it looks:
 
@@ -43,6 +43,8 @@ how it looks:
 - `feature` — explains a product or its capabilities: feature lists, specs, spotlights.
 - `cta` — drives toward one next step.
 - `bento-grids` — a grid of tiles with one or more prominent cards.
+- `lists` — rows of items and labelled facts: filterable project/job/article lists, description
+  lists, case-study headers. Named by structure, not subject, so it also covers roles and posts.
 
 **Never force a block into a category that doesn't fit.** If none of the existing ones is
 right, stop and tell the user which category you'd create and why, and let them decide
@@ -360,6 +362,10 @@ pnpm run images:version
 This needs the dev server running on port 3002 (Playwright must be installed once per
 machine with `pnpm run playwright:install`). It writes `<slug>.webp` and `<slug>-dark.webp`
 into `public/images/blocks/<category>/`.
+
+A photo far below the 900px capture viewport can come out as an empty `bg-muted` box (a tall
+portrait cropped to landscape is the usual culprit). Drop `loading="lazy"` and
+`decoding="async"` on that block's images and ask Unsplash for a smaller `w=`, then recapture.
 
 **Look at both files** (a contact sheet of light + dark works well) — the dark capture is
 where fades, halos and low-contrast text show up. Fix and recapture if needed.

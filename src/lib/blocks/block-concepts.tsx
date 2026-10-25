@@ -132,3 +132,24 @@ export function TestimonialsConcept() {
     </div>
   )
 }
+
+export function ListsConcept() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-6">
+      <div className="flex w-full flex-col">
+        {[1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="border-border flex items-center gap-3 border-b py-2.5 first:border-t"
+          >
+            <div className="flex flex-1 flex-col gap-1.5">
+              <div className="bg-foreground/20 h-1.5 w-2/5 rounded-full" />
+              <div className="bg-foreground/8 h-1 w-3/4 rounded-full" />
+            </div>
+            <div className="bg-card dark:bg-muted border-border h-8 w-12 shrink-0 rounded-sm border shadow-sm" />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

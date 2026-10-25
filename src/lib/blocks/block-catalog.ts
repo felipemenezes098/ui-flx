@@ -16,6 +16,7 @@ import { contentCategory } from 'registry/blocks/content/catalog'
 import { ctaCategory } from 'registry/blocks/cta/catalog'
 import { featureCategory } from 'registry/blocks/feature/catalog'
 import { heroCategory } from 'registry/blocks/hero/catalog'
+import { listsCategory } from 'registry/blocks/lists/catalog'
 import { testimonialsCategory } from 'registry/blocks/testimonials/catalog'
 
 export const categories: BlockCategoryRow[] = [
@@ -24,6 +25,7 @@ export const categories: BlockCategoryRow[] = [
   featureCategory,
   ctaCategory,
   bentoGridsCategory,
+  listsCategory,
   testimonialsCategory,
 ]
 

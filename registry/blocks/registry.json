@@ -8,6 +8,7 @@
     "./cta/registry.json",
     "./feature/registry.json",
     "./hero/registry.json",
+    "./lists/registry.json",
     "./testimonials/registry.json"
   ],
   "items": []

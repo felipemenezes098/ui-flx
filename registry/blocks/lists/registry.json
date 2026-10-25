@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flx-blocks-lists",
+  "homepage": "https://ui.flexnative.com",
+  "items": [
+    {
+      "name": "lists-01",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "lists-01/lists-01.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/lists/lists-01.tsx"
+        }
+      ],
+      "title": "Lists 01",
+      "description": "A filterable list of projects with a row of line tabs, then ruled rows pairing a title and meta, a short description with a pill button, and a wide photo.",
+      "meta": {
+        "iframeHeight": 1300
+      }
+    },
+    {
+      "name": "lists-02",
+      "type": "registry:block",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "lists-02/lists-02.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/lists/lists-02.tsx"
+        }
+      ],
+      "title": "Lists 02",
+      "description": "A centered title with a year, a column of boxed tags beside a large paragraph, and a ruled description list of labelled details.",
+      "meta": {
+        "iframeHeight": 800
+      }
+    }
+  ]
+}

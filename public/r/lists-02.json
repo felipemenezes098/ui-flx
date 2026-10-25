@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lists-02",
+  "title": "Lists 02",
+  "description": "A centered title with a year, a column of boxed tags beside a large paragraph, and a ruled description list of labelled details.",
+  "dependencies": [
+    "react-wrap-balancer"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/lists/lists-02/lists-02.tsx",
+      "content": "import Balancer from 'react-wrap-balancer'\n\nimport { Badge } from '@/components/ui/badge'\n\nconst deliverables = [\n  'Interior design',\n  'Furniture',\n  'Lighting',\n  'Styling',\n  'Art direction',\n]\n\nconst details = [\n  { label: 'Sector', value: 'Hospitality' },\n  { label: 'Duration', value: '8 months' },\n  { label: 'Location', value: 'Lisbon, Portugal' },\n]\n\nexport function Lists02() {\n  return (\n    <section className=\"bg-background w-full\">\n      <div className=\"mx-auto flex max-w-6xl flex-col gap-12 px-6 py-20 sm:gap-16 sm:py-28\">\n        <div className=\"relative flex flex-col items-center gap-6 sm:block\">\n          <p className=\"text-muted-foreground font-mono text-xs tabular-nums sm:absolute sm:top-2 sm:left-0\">\n            2024\n          </p>\n          <h2 className=\"text-foreground text-center text-5xl font-normal tracking-tight sm:text-6xl\">\n            Maison Lune\n          </h2>\n        </div>\n\n        <div className=\"grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-10\">\n          <div className=\"flex flex-col gap-4 md:col-span-4\">\n            <p className=\"text-muted-foreground font-mono text-xs tracking-wider uppercase\">\n              Deliverables\n            </p>\n            <ul className=\"flex flex-wrap gap-2\">\n              {deliverables.map((item) => (\n                <li key={item}>\n                  <Badge\n                    variant=\"outline\"\n                    className=\"h-7 rounded-none px-2.5 font-mono text-xs tracking-wider uppercase\"\n                  >\n                    {item}\n                  </Badge>\n                </li>\n              ))}\n            </ul>\n          </div>\n\n          <div className=\"flex flex-col gap-12 md:col-span-8\">\n            <p className=\"text-foreground text-xl leading-snug font-normal sm:text-2xl\">\n              <Balancer>\n                A boutique hotel group asked us to turn a former textile\n                warehouse into twelve calm rooms and a shared lounge. The brief\n                covered the layout, custom furniture, lighting and styling, with\n                one rule throughout: keep the building&apos;s raw walls and let\n                warm, simple objects do the rest.\n              </Balancer>\n            </p>\n\n            <dl className=\"border-border flex flex-col border-t\">\n              {details.map((detail) => (\n                <div\n                  key={detail.label}\n                  className=\"border-border flex items-center justify-between gap-6 border-b py-4\"\n                >\n                  <dt className=\"text-muted-foreground font-mono text-xs tracking-wider uppercase\">\n                    {detail.label}\n                  </dt>\n                  <dd className=\"text-foreground text-sm\">{detail.value}</dd>\n                </div>\n              ))}\n            </dl>\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/flx/blocks/lists/lists-02.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": 800
+  },
+  "type": "registry:block"
+}
