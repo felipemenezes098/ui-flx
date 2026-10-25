@@ -66,6 +66,65 @@
       "meta": {
         "iframeHeight": 1200
       }
+    },
+    {
+      "name": "bento-grids-04",
+      "type": "registry:block",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "bento-grids-04/bento-grids-04.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-04.tsx"
+        }
+      ],
+      "title": "Bento grids 04",
+      "description": "Two stacked cards with a two-tone title, a paragraph and a pill button beside a product photo surrounded by short feature callouts on a faint grid.",
+      "meta": {
+        "iframeHeight": 900
+      }
+    },
+    {
+      "name": "bento-grids-05",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "bento-grids-05/bento-grids-05.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-05.tsx"
+        }
+      ],
+      "title": "Bento grids 05",
+      "description": "A mosaic of rounded tiles that mixes photos with two short text tiles, one with a detail photo at its base and one wide photo as the closing tile.",
+      "meta": {
+        "iframeHeight": 1100
+      }
+    },
+    {
+      "name": "bento-grids-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "bento-grids-06/bento-grids-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/bento-grids/bento-grids-06.tsx"
+        }
+      ],
+      "title": "Bento grids 06",
+      "description": "A brand mosaic of square tiles around one large central photo, mixing photographs with spaced-out taglines and a small mark.",
+      "meta": {
+        "iframeHeight": 1000
+      }
     }
   ]
 }
