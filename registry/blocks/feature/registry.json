@@ -104,6 +104,26 @@
       "meta": {
         "iframeHeight": 1100
       }
+    },
+    {
+      "name": "feature-06",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "feature-06/feature-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-06.tsx"
+        }
+      ],
+      "title": "Feature 06",
+      "description": "A short title and a numbered list of four features beside a large photo overlapped by a smaller one.",
+      "meta": {
+        "iframeHeight": 900
+      }
     }
   ]
 }

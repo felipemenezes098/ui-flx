@@ -201,6 +201,87 @@
       "meta": {
         "iframeHeight": 900
       }
+    },
+    {
+      "name": "content-16",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-16/content-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-16.tsx"
+        }
+      ],
+      "title": "Content 16",
+      "description": "A large square photo with a thin circular guide and crosshair, a smaller photo beside it and a short title with a paragraph on the side.",
+      "meta": {
+        "iframeHeight": 800
+      }
+    },
+    {
+      "name": "content-17",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-17/content-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-17.tsx"
+        }
+      ],
+      "title": "Content 17",
+      "description": "A short headline above two photos staggered on a diagonal, one landscape on the left and one portrait lower on the right.",
+      "meta": {
+        "iframeHeight": 900
+      }
+    },
+    {
+      "name": "content-18",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "content-18/content-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-18.tsx"
+        }
+      ],
+      "title": "Content 18",
+      "description": "A centered headline over a wide photo with a text and link card in its corner, beside a short paragraph and a tall photo.",
+      "meta": {
+        "iframeHeight": 1000
+      }
+    },
+    {
+      "name": "content-19",
+      "type": "registry:block",
+      "registryDependencies": [],
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "files": [
+        {
+          "path": "content-19/content-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-19.tsx"
+        }
+      ],
+      "title": "Content 19",
+      "description": "A journal index with a small label and title, a large photo, three short articles with thumbnails and a tall photo in an offset grid.",
+      "meta": {
+        "iframeHeight": 1300
+      }
     }
   ]
 }

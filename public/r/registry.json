@@ -267,6 +267,87 @@
       "type": "registry:block"
     },
     {
+      "name": "content-16",
+      "title": "Content 16",
+      "description": "A large square photo with a thin circular guide and crosshair, a smaller photo beside it and a short title with a paragraph on the side.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-16/content-16.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-16.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 800
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-17",
+      "title": "Content 17",
+      "description": "A short headline above two photos staggered on a diagonal, one landscape on the left and one portrait lower on the right.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-17/content-17.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-17.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-18",
+      "title": "Content 18",
+      "description": "A centered headline over a wide photo with a text and link card in its corner, beside a short paragraph and a tall photo.",
+      "dependencies": [
+        "react-wrap-balancer",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-18/content-18.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-18.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1000
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "content-19",
+      "title": "Content 19",
+      "description": "A journal index with a small label and title, a large photo, three short articles with thumbnails and a tall photo in an offset grid.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/content/content-19/content-19.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/content/content-19.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 1300
+      },
+      "type": "registry:block"
+    },
+    {
       "name": "cta-01",
       "title": "Call to Action 01",
       "description": "A centered text block with a title, description, and CTA.",
@@ -404,6 +485,26 @@
       ],
       "meta": {
         "iframeHeight": 1100
+      },
+      "type": "registry:block"
+    },
+    {
+      "name": "feature-06",
+      "title": "Feature 06",
+      "description": "A short title and a numbered list of four features beside a large photo overlapped by a smaller one.",
+      "dependencies": [
+        "react-wrap-balancer"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature/feature-06/feature-06.tsx",
+          "type": "registry:component",
+          "target": "components/flx/blocks/feature/feature-06.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": 900
       },
       "type": "registry:block"
     },
