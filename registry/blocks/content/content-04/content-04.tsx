@@ -14,7 +14,7 @@ const items = [
     description:
       'Clean, accessible components that make your product feel modern and easy to use.',
     image:
-      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1523263889714-d345f8119047?q=80&w=1133&auto=format&fit=crop',
   },
   {
     title: 'Components',

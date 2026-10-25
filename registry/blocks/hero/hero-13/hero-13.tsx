@@ -12,7 +12,7 @@ export function Hero13() {
             />
             <div className="relative aspect-4/3 overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
               <img
-                src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1144&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1579326882518-21eaa7893b02?q=80&w=1144&auto=format&fit=crop"
                 alt="Alt 1"
                 className="size-full object-cover grayscale"
               />

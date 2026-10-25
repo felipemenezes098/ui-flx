@@ -16,7 +16,7 @@ const items = [
     content:
       'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
     image:
-      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1626711847936-14f852c7868a?q=80&w=1241&auto=format&fit=crop',
     cta: 'Get started',
   },
 ]

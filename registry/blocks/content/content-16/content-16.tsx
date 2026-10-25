@@ -41,7 +41,7 @@ export function Content16() {
 
         <div className="relative order-3 aspect-[4/5] w-2/3 self-start overflow-hidden outline outline-black/10 sm:w-1/2 lg:order-1 lg:col-span-3 lg:w-full lg:self-end dark:outline-white/10">
           <img
-            src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?q=80&w=900&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1758024836397-2c9c698087f0?q=80&w=900&auto=format&fit=crop"
             alt="Alt 2"
             loading="lazy"
             decoding="async"

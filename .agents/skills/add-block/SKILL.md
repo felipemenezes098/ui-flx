@@ -225,6 +225,12 @@ The gallery's look is minimal product and interior photography, in black and whi
 - **Minimal subjects**: one object or a calm interior on a plain, light background. No busy
   scenes, no painterly art.
 - **Always `grayscale`** on the `<img>` (avatars excepted).
+- **Vary the tone.** Don't make every photo white-on-white. Across a block, mix at least one
+  mid-tone or dark photo (moody still life, shadowed interior, concrete, a lamp on a dark
+  wall) with the light ones, and before picking, glance at which tones the neighbouring
+  blocks already use. Rough target: about a third of the gallery's photos below mean
+  luminance ~140. Framed photos (outline, rounded frame, plain card) take dark images well;
+  photos that dissolve into the section with `mask-*` must stay light.
 - **Look before you pick.** Never paste an Unsplash id you haven't seen. Download small
   candidates (`?q=60&w=320&auto=format&fit=crop&fm=jpg`) into the scratchpad, build a
   contact sheet with `sharp` (already a dependency; render them in grayscale), and choose

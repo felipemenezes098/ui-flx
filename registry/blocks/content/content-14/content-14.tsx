@@ -44,7 +44,7 @@ export function Content14() {
 
           <div className="bg-muted relative aspect-square w-full overflow-hidden outline outline-black/10 md:ml-auto md:max-w-md dark:outline-white/10">
             <img
-              src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1601380123820-22086a0729bf?q=80&w=1000&auto=format&fit=crop"
               alt="Alt"
               decoding="async"
               className="size-full object-cover grayscale"

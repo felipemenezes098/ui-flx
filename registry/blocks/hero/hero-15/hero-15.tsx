@@ -25,7 +25,7 @@ const studios = [
     description:
       'Northfield partners with early-stage founders to shape brand, interface, and launch strategy in focused six-week sprints.',
     image:
-      'https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1719513709219-1d6e405ea017?q=80&w=1200&auto=format&fit=crop',
   },
   {
     name: 'Formworks',

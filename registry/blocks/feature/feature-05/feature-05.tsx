@@ -47,10 +47,10 @@ export function Feature05() {
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:grid-cols-[1fr_minmax(0,1.3fr)_1fr] lg:gap-10">
           <div className="bg-muted relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl outline outline-black/10 md:col-span-2 lg:order-2 lg:col-span-1 lg:max-w-none dark:outline-white/10">
             <img
-              src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1652204075348-e367c1bde65a?q=80&w=1200&auto=format&fit=crop"
               alt="Alt"
               decoding="async"
-              className="size-full scale-125 object-cover object-[50%_70%] grayscale"
+              className="size-full object-cover object-center grayscale"
             />
           </div>
 

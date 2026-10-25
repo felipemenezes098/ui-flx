@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 const fan = [
   {
-    src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=900&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1640437831350-cacb7fa66989?q=80&w=900&auto=format&fit=crop',
     alt: 'Alt 1',
     className: 'z-10 -mr-8 w-[38%] translate-y-6 -rotate-6',
   },

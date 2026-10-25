@@ -53,10 +53,10 @@ export function Feature06() {
         <div className="relative lg:col-span-8 lg:row-start-1">
           <div className="bg-muted relative aspect-[4/5] w-[72%] overflow-hidden outline outline-black/10 dark:outline-white/10">
             <img
-              src="https://images.unsplash.com/photo-1565551827702-00f627902be3?q=80&w=1400&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1612372603963-403340a8942b?q=80&w=1400&auto=format&fit=crop"
               alt="Alt 1"
               decoding="async"
-              className="size-full object-cover grayscale"
+              className="size-full object-cover object-bottom grayscale"
             />
           </div>
           <div className="bg-muted absolute top-[22%] right-0 aspect-[4/5] w-[42%] overflow-hidden outline outline-black/10 dark:outline-white/10">

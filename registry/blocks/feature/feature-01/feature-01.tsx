@@ -11,7 +11,7 @@ const items = [
     description:
       'Clean, accessible components that make your product feel modern and easy to use.',
     image:
-      'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1631125915800-4008fc1072ec?q=80&w=1133&auto=format&fit=crop',
   },
   {
     title: 'Components',
@@ -25,7 +25,7 @@ const items = [
     description:
       'Built with TypeScript, clear APIs, and documentation that gets you shipping faster.',
     image:
-      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1579326882518-21eaa7893b02?q=80&w=1241&auto=format&fit=crop',
   },
   {
     title: 'Customization',

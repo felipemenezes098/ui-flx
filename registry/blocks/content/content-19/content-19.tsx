@@ -17,7 +17,7 @@ const articles = [
     title: 'Space to Breathe',
     description: 'Leaving room around what you love.',
     image:
-      'https://images.unsplash.com/photo-1601858865196-cee0b8393812?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567359755029-04f642e9a88f?q=80&w=800&auto=format&fit=crop',
     alt: 'Alt 3',
     className: 'lg:col-span-4 lg:col-start-6 lg:row-start-3',
   },
@@ -86,7 +86,7 @@ export function Content19() {
 
         <div className="bg-muted relative aspect-[3/5] w-2/3 overflow-hidden outline outline-black/10 sm:w-1/2 lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-2 lg:w-full dark:outline-white/10">
           <img
-            src="https://images.unsplash.com/photo-1597293544475-16730f31a638?q=80&w=1000&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1624274333983-e0d8a0b8f47c?q=80&w=1000&auto=format&fit=crop"
             alt="Alt 5"
             loading="lazy"
             decoding="async"

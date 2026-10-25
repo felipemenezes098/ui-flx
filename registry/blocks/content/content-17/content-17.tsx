@@ -13,7 +13,7 @@ export function Content17() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-x-6">
           <div className="bg-muted relative aspect-[3/2] w-full overflow-hidden outline outline-black/10 md:col-span-6 dark:outline-white/10">
             <img
-              src="https://images.unsplash.com/photo-1600529782623-5d3cb98476c9?q=80&w=1400&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1523263889714-d345f8119047?q=80&w=1400&auto=format&fit=crop"
               alt="Alt 1"
               decoding="async"
               className="size-full object-cover grayscale"

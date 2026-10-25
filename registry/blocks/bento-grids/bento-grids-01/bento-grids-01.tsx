@@ -14,7 +14,7 @@ const items = [
     description:
       'Stacks on mobile and becomes a 3-column bento on larger screens.',
     image: {
-      src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1241&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1626711847936-14f852c7868a?q=80&w=1241&auto=format&fit=crop',
       alt: 'Alt 2',
     },
   },
@@ -23,7 +23,7 @@ const items = [
     description:
       'Primary content stands out while the supporting cards stay readable.',
     image: {
-      src: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1062&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1568621139136-3ce86741d661?q=80&w=1062&auto=format&fit=crop',
       alt: 'Alt 3',
     },
   },

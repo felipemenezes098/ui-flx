@@ -31,7 +31,7 @@ export function Content06() {
           <div className="relative flex md:h-full md:items-center">
             <div className="group/image relative min-h-80 w-full overflow-hidden rounded-lg outline outline-black/10 md:min-h-[420px] dark:outline-white/10">
               <img
-                src="https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?q=80&w=1133&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1722178733582-c0b7808794e4?q=80&w=1133&auto=format&fit=crop"
                 alt="Alt"
                 decoding="async"
                 className="absolute inset-0 size-full object-cover grayscale transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.03]"
