@@ -124,7 +124,7 @@ export function GlobalSearch() {
                   key={`block-${block.slug}`}
                   className="h-9"
                   value={`block ${block.category}`}
-                  onSelect={() => navigate(`/blocks?category=${block.slug}`)}
+                  onSelect={() => navigate(`/blocks/${block.slug}`)}
                 >
                   <Blocks className="size-4 shrink-0 opacity-60" />
                   <span className="truncate">{block.category}</span>

@@ -1,12 +1,13 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import { LayoutGridIcon } from 'lucide-react'
 
 import { BlockPreviewGrid } from './block-preview-grid'
 import { BlocksNavigation } from './blocks-navigation'
 import {
+  getPathnameCategory,
   isAllCategories,
   isNewBlocksFilter,
   parseCategoryFilter,
@@ -23,8 +24,12 @@ import {
 
 export function Blocks() {
   const searchParams = useSearchParams()
+  const pathnameCategory = getPathnameCategory(usePathname())
 
-  const activeCategories = parseCategoryFilter(searchParams.get('category'))
+  const activeCategories = useMemo(() => {
+    if (pathnameCategory) return [pathnameCategory]
+    return parseCategoryFilter(searchParams.get('category'))
+  }, [pathnameCategory, searchParams])
   const activePreset = getValidPresetSlug(searchParams.get('preset'))
 
   const items = useMemo(() => {

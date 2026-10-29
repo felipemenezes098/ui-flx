@@ -27,6 +27,19 @@ export function parseCategoryFilter(raw: string | null): string[] {
   return catalogSlugs.filter((slug) => selected.has(slug))
 }
 
+const CATEGORY_PATH = /^\/blocks\/([a-z0-9-]+)$/
+
+/** The category of a /blocks/<category> page, if the pathname is one. */
+export function getPathnameCategory(pathname: string): string | undefined {
+  const slug = CATEGORY_PATH.exec(pathname)?.[1]
+  if (!slug || !catalogSlugs.includes(slug)) return undefined
+  return slug
+}
+
+export function isCatalogCategory(slug: string): boolean {
+  return catalogSlugs.includes(slug)
+}
+
 export function isAllBlocksCategoryParam(slug: string): boolean {
   return slug === ALL_BLOCKS_CATEGORY_SLUG
 }

@@ -21,7 +21,6 @@ function entry(
   const normalizedPath = path === '/' ? '' : path
   return {
     url: `${siteConfig.url}${normalizedPath}`,
-    lastModified: new Date(),
     changeFrequency: options?.changeFrequency ?? 'weekly',
     priority: options?.priority ?? 0.7,
   }
@@ -37,6 +36,9 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
     ),
     ...patternCategories.map((category) =>
       entry(`/patterns/${category.slug}`, { priority: 0.7 }),
+    ),
+    ...blockCategories.map((category) =>
+      entry(`/blocks/${category.slug}`, { priority: 0.8 }),
     ),
     ...blockCategories.flatMap((category) =>
       category.blocks.map((block) =>

@@ -34,9 +34,10 @@ export async function generateMetadata({
   const category = getCategoryBySlug(slug)
   if (!category) return {}
   return createPageMetadata({
-    title: category.name,
-    description: category.description,
+    title: `shadcn/ui ${category.name} Examples`,
+    description: `${category.items.length} ${category.name.toLowerCase()} examples built with shadcn/ui. ${category.description} Copy the code or the prompt.`,
     path: `/patterns/${slug}`,
+    imageTitle: category.name,
   })
 }
 
