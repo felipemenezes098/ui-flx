@@ -23,7 +23,10 @@ export function BlockPreviewCard({
         id={anchorId}
       >
         <GalleryCardMedia className="flex min-h-30 items-center justify-center rounded-xl">
-          <GalleryCardThemeImage src={subBlock.image} alt={subBlock.name} />
+          <GalleryCardThemeImage
+            src={subBlock.image}
+            alt={`${subBlock.name}. ${subBlock.description}`}
+          />
         </GalleryCardMedia>
       </GalleryGridLink>
       <div className="absolute top-2.5 right-2.5 z-10">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { JsonLd } from '@/components/core/json-ld'
 import { PageHeader } from '@/components/core/page-header/page-header'
 import { PageHeaderDescription } from '@/components/core/page-header/page-header-description'
 import { PageHeaderTitle } from '@/components/core/page-header/page-header-title'
@@ -8,6 +9,7 @@ import { categories } from '@/lib/blocks/block-catalog'
 import { createPageMetadata } from '@/lib/metadata'
 import { toRegistryCodeFiles } from '@/lib/registry-source'
 import { getRegistryItem } from '@/lib/registry-utils.server'
+import { getBreadcrumbStructuredData } from '@/lib/structured-data'
 
 import { BlockCopyPromptButton } from '../../components/block-copy-prompt-button'
 import { BlockBreadcrumb } from './components/block-breadcrumb'
@@ -70,6 +72,13 @@ export default async function BlockPage({ params }: Readonly<Props>) {
 
   return (
     <main className="min-w-0 px-5 pt-12 pb-8 md:px-12 md:pt-32">
+      <JsonLd
+        data={getBreadcrumbStructuredData([
+          { name: 'Blocks', path: '/blocks' },
+          { name: found.cat.category, path: `/blocks/${category}` },
+          { name: manifest.name, path: `/blocks/${category}/${slug}` },
+        ])}
+      />
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12">
         <div className="mx-auto w-full max-w-[880px]">
           <PageHeader>

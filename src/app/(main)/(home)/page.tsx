@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { createPageMetadata } from '@/lib/metadata'
 
+import { JsonLd } from '@/components/core/json-ld'
 import { siteConfig } from '@/config/site'
+import { getSiteStructuredData } from '@/lib/structured-data'
 
 import { BlocksCatalog } from '../blocks/components/blocks-catalog'
 
@@ -19,5 +21,10 @@ export const metadata: Metadata = createPageMetadata({
 })
 
 export default function HomePage() {
-  return <BlocksCatalog title={title} description={description} />
+  return (
+    <>
+      <JsonLd data={getSiteStructuredData()} />
+      <BlocksCatalog title={title} description={description} />
+    </>
+  )
 }

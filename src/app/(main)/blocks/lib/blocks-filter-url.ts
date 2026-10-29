@@ -1,4 +1,4 @@
-import { ALL_BLOCKS_CATEGORY_SLUG } from './blocks-category'
+import { ALL_BLOCKS_CATEGORY_SLUG, isCatalogCategory } from './blocks-category'
 
 function toHref(pathname: string, params: URLSearchParams): string {
   const qs = params.toString()
@@ -42,13 +42,17 @@ export function presetFilterHref(
   return toHref(pathname, params)
 }
 
-/** Select a single category. */
+/** Select a single category. Real categories have their own page. */
 export function categoryFilterHref(
   pathname: string,
   searchParams: URLSearchParams,
   categorySlug: string,
 ): string {
   const params = new URLSearchParams(searchParams.toString())
+  if (isCatalogCategory(categorySlug)) {
+    params.delete('category')
+    return toHref(`/blocks/${categorySlug}`, params)
+  }
   params.set('category', categorySlug)
   return toHref(pathname, params)
 }

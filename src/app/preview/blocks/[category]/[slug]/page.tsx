@@ -38,6 +38,8 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: { index: false, follow: false },
+    alternates: { canonical: `/blocks/${categorySlug}/${slug}` },
     openGraph: {
       title,
       description,

@@ -40,7 +40,7 @@ export function BlockBreadcrumb({
       {current ? (
         <>
           <HoverPrefetchLink
-            href={`/blocks?category=${category}`}
+            href={`/blocks/${category}`}
             className="hover:text-foreground transition-colors"
           >
             {categoryLabel(category)}

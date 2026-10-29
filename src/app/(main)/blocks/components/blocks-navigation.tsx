@@ -1,12 +1,13 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 import { Separator } from '@/components/ui/separator'
 import { blockCategories } from '@/lib/blocks/block-catalog'
 
 import {
   NEW_BLOCKS_CATEGORY_SLUG,
+  getPathnameCategory,
   isAllCategories,
   newBlocksCount,
   parseCategoryFilter,
@@ -24,7 +25,10 @@ const pathname = '/blocks'
 
 export function BlocksNavigation() {
   const searchParams = useSearchParams()
-  const activeCategories = parseCategoryFilter(searchParams.get('category'))
+  const pathnameCategory = getPathnameCategory(usePathname())
+  const activeCategories =
+    (pathnameCategory && [pathnameCategory]) ||
+    parseCategoryFilter(searchParams.get('category'))
   const activePreset = getValidPresetSlug(searchParams.get('preset'))
   const presetIsAll = isAllPresets(activePreset)
   const categoryIsAll = isAllCategories(activeCategories)
