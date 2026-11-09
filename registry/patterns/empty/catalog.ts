@@ -4,7 +4,7 @@ import type { PatternCategory } from '@/lib/patterns/pattern-types'
 export const emptyCategory: PatternCategory = {
   slug: 'empty',
   name: 'Empty',
-  description: 'Placeholder states when there is nothing to show.',
+  description: 'Empty state components for first-run screens, search results, inboxes, and team cards, each with a clear next action.',
   preview: EmptyConcept,
   grid: { columns: 2 },
   items: [
